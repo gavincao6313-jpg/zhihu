@@ -112,7 +112,7 @@ def group_parts(parts_dir: Path) -> dict[str, list[Path]]:
         stem = re.sub(r"_part\d+$", "", p.stem)
         groups.setdefault(stem, []).append(p)
     for parts in groups.values():
-        parts.sort()
+        parts.sort(key=lambda p: int(m.group(1)) if (m := re.search(r'part(\d+)', p.stem, re.IGNORECASE)) else 0)
     return dict(sorted(groups.items()))
 
 
@@ -206,8 +206,26 @@ def make_video_part_uri(part_path: Path) -> types.Part:
     if not prefix:
         raise EnvironmentError("UPLOAD_MODE=file_uri 需要设置 VIDEO_URI_PREFIX 环境变量")
     return types.Part(
-        file_data=types.FileData(mime_type="video/mp4", file_uri=f"{prefix}/{quote(part_path.name)}")
+        file_data=types.FileData(mime_type="video/mp4", file_uri=f"{prefix}/{quote(part_path.name, safe='')}")
     )
+
+
+def _preflight_check_uris(parts: list[Path], video_label: str) -> list[str]:
+    """file_uri 模式启动前批量 HEAD 检查所有片段 URL，返回不可达的文件名列表。"""
+    import httpx
+    prefix = os.environ.get("VIDEO_URI_PREFIX", "").rstrip("/")
+    missing = []
+    for part_path in parts:
+        url = f"{prefix}/{quote(part_path.name, safe='')}"
+        try:
+            r = httpx.head(url, follow_redirects=True, timeout=15)
+            if r.status_code >= 400:
+                missing.append(part_path.name)
+                tprint(f"  [{video_label}] 预检失败 HTTP {r.status_code}: {part_path.name}", level="warning")
+        except Exception as e:
+            missing.append(part_path.name)
+            tprint(f"  [{video_label}] 预检失败: {part_path.name} ({e})", level="warning")
+    return missing
 
 
 def _recover_generated_parts(output_path: Path) -> set:
@@ -260,6 +278,10 @@ def process_video(client, video_stem: str, parts: list[Path], output_path: Path,
                         raise RuntimeError(f"{len(upload_errors)} 个片段上传失败")
             else:
                 tprint(f"\n[{video_label}] 跳过预上传（{UPLOAD_MODE} 模式按片段内联传入）")
+                if UPLOAD_MODE == "file_uri" and attempt == 1:
+                    missing = _preflight_check_uris(parts, video_label)
+                    if missing:
+                        raise RuntimeError(f"{len(missing)} 个片段 URL 不可达，请先上传: {missing}")
 
             # 2. 初始化输出文件（仅首次，重试时已有内容不清空）
             output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -299,8 +321,12 @@ def process_video(client, video_stem: str, parts: list[Path], output_path: Path,
                     f.write(f"\n\n<!-- ===== Part {idx + 1}/{len(parts)} ===== -->\n\n")
                     f.write(response.text)
                 generated_parts.add(idx)
-                tprint(f"[{video_label}] 片段 {idx + 1}/{len(parts)} 完成，休眠 {PART_INTERVAL} 秒防 API 限流...")
-                time.sleep(PART_INTERVAL)
+                has_more = any(i not in generated_parts for i in range(idx + 1, len(parts)))
+                if has_more:
+                    tprint(f"[{video_label}] 片段 {idx + 1}/{len(parts)} 完成，休眠 {PART_INTERVAL} 秒防 API 限流...")
+                    time.sleep(PART_INTERVAL)
+                else:
+                    tprint(f"[{video_label}] 片段 {idx + 1}/{len(parts)} 完成")
 
             tprint(f"[{video_label}] 全部分段解析完毕，已保存至: {output_path.name}")
             if UPLOAD_MODE == "files_api":
@@ -311,7 +337,13 @@ def process_video(client, video_stem: str, parts: list[Path], output_path: Path,
             tprint(f"[{video_label}] [错误] 第 {attempt} 次尝试失败: {e}", level="error")
             _logger.error(f"[{video_label}] 第 {attempt} 次尝试失败（完整堆栈）", exc_info=True)
             if attempt < MAX_RETRIES:
-                wait = _parse_retry_delay(e) if "429" in str(e) else RETRY_DELAY
+                is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
+                if is_rate_limited:
+                    wait = _parse_retry_delay(e)
+                elif UPLOAD_MODE == "file_uri":
+                    wait = RETRY_DELAY * 2  # file_uri 的 504/网络错误等更久
+                else:
+                    wait = RETRY_DELAY
                 tprint(f"[{video_label}] {wait} 秒后重试...")
                 time.sleep(wait)
             else:
@@ -327,6 +359,10 @@ def main():
             "未找到 OPENCLAW_GOOGLE_API_KEY 环境变量。\n"
             "请先执行: export OPENCLAW_GOOGLE_API_KEY=your_key_here"
         )
+
+    if UPLOAD_MODE == "file_uri" and not os.environ.get("HTTPS_PROXY") and not os.environ.get("https_proxy"):
+        print("  [警告] UPLOAD_MODE=file_uri 未检测到 HTTPS_PROXY，Google API 可能无法访问。")
+        print("  请先执行: export HTTPS_PROXY=http://127.0.0.1:7897")
 
     _setup_logging()
     _logger.info("=" * 60 + " 任务开始")
