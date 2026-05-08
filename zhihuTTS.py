@@ -292,6 +292,8 @@ def process_video(client, video_stem: str, parts: list[Path], output_path: Path,
                     contents=[video_part, part_prompt],
                     config={"temperature": 0.1},
                 )
+                if not response.text:
+                    raise RuntimeError(f"API 返回空响应（片段 {idx + 1}/{len(parts)}），将触发重试")
                 with open(output_path, "a", encoding="utf-8") as f:
                     f.write(f"\n\n<!-- ===== Part {idx + 1}/{len(parts)} ===== -->\n\n")
                     f.write(response.text)
@@ -333,10 +335,11 @@ def main():
 
     try:
         base_url = os.environ.get("GEMINI_BASE_URL", "")
-        client = genai.Client(
-            api_key=api_key,
-            http_options={"baseUrl": base_url, "apiVersion": "v1"} if base_url else {},
-        )
+        http_opts = {"timeout": 3600}  # 防止 generate_content 无限挂死
+        if base_url:
+            http_opts["baseUrl"] = base_url
+            http_opts["apiVersion"] = "v1"
+        client = genai.Client(api_key=api_key, http_options=http_opts)
         MARKDOWNS_DIR.mkdir(exist_ok=True)
 
         groups = group_parts(PARTS_DIR)
