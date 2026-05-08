@@ -1,3 +1,4 @@
+import base64
 import io
 import logging
 import os
@@ -19,6 +20,12 @@ MAX_RETRIES = 3
 RETRY_DELAY = 65      # seconds，覆盖免费层 ~58s 限流窗口
 PART_INTERVAL = 65    # 片段间强制等待，避免触发每分钟 token 限额
 UPLOAD_WORKERS = 2    # 并发上传数，保护代理带宽
+
+# 上传模式：
+#   files_api  — 默认，通过 Google Files API 上传（需供应商支持 /upload/v1beta/files）
+#   base64     — 将视频文件 base64 编码后内联传入（适合小文件，大文件会超出请求体限制）
+#   file_uri   — 通过公开 URL 传入（需设置 VIDEO_URI_PREFIX 环境变量，如 https://cdn.example.com/parts）
+UPLOAD_MODE = os.environ.get("UPLOAD_MODE", "files_api")
 
 PROMPT_TEXT = """
 # 角色与目标
@@ -185,6 +192,21 @@ def upload_part(client, part_path: Path, label: str):
                 raise
 
 
+def make_video_part_base64(part_path: Path) -> dict:
+    """将本地视频文件编码为 base64，构造 inlineData part。"""
+    data = base64.b64encode(part_path.read_bytes()).decode("utf-8")
+    return {"inlineData": {"mimeType": "video/mp4", "data": data}}
+
+
+def make_video_part_uri(part_path: Path) -> dict:
+    """根据 VIDEO_URI_PREFIX 环境变量拼接公开 URL，构造 fileData part。"""
+    prefix = os.environ.get("VIDEO_URI_PREFIX", "").rstrip("/")
+    if not prefix:
+        raise EnvironmentError("UPLOAD_MODE=file_uri 需要设置 VIDEO_URI_PREFIX 环境变量")
+    uri = f"{prefix}/{part_path.name}"
+    return {"fileData": {"mimeType": "video/mp4", "fileUri": uri}}
+
+
 def _recover_generated_parts(output_path: Path) -> set:
     """扫描已有输出文件，恢复已生成的片段索引（0-based），避免 Ctrl+C 后重复生成。"""
     if not output_path.exists():
@@ -209,27 +231,32 @@ def process_video(client, video_stem: str, parts: list[Path], output_path: Path,
     if generated_parts:
         tprint(f"[{video_label}] 检测到已生成 {len(generated_parts)} 个片段，将跳过重复处理")
 
+    tprint(f"[{video_label}] 上传模式: {UPLOAD_MODE}")
+
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            # 1. 并发上传缺失片段
-            pending_parts = [p for p in parts if p.name not in uploaded_files]
-            if pending_parts:
-                tprint(f"\n[{video_label}] 开始上传 {len(pending_parts)} 个片段...")
-                upload_errors = []
-                with ThreadPoolExecutor(max_workers=UPLOAD_WORKERS) as executor:
-                    future_to_part = {
-                        executor.submit(upload_part, client, p, f"{video_label} {p.name}"): p
-                        for p in pending_parts
-                    }
-                    for future in as_completed(future_to_part):
-                        p = future_to_part[future]
-                        try:
-                            uploaded_files[p.name] = future.result()
-                        except Exception as upload_err:
-                            tprint(f"[{video_label}] {p.name} 上传失败: {upload_err}")
-                            upload_errors.append(upload_err)
-                if upload_errors:
-                    raise RuntimeError(f"{len(upload_errors)} 个片段上传失败")
+            # 1. 上传阶段（files_api 模式才需要预上传）
+            if UPLOAD_MODE == "files_api":
+                pending_parts = [p for p in parts if p.name not in uploaded_files]
+                if pending_parts:
+                    tprint(f"\n[{video_label}] 开始上传 {len(pending_parts)} 个片段...")
+                    upload_errors = []
+                    with ThreadPoolExecutor(max_workers=UPLOAD_WORKERS) as executor:
+                        future_to_part = {
+                            executor.submit(upload_part, client, p, f"{video_label} {p.name}"): p
+                            for p in pending_parts
+                        }
+                        for future in as_completed(future_to_part):
+                            p = future_to_part[future]
+                            try:
+                                uploaded_files[p.name] = future.result()
+                            except Exception as upload_err:
+                                tprint(f"[{video_label}] {p.name} 上传失败: {upload_err}")
+                                upload_errors.append(upload_err)
+                    if upload_errors:
+                        raise RuntimeError(f"{len(upload_errors)} 个片段上传失败")
+            else:
+                tprint(f"\n[{video_label}] 跳过预上传（{UPLOAD_MODE} 模式按片段内联传入）")
 
             # 2. 初始化输出文件（仅首次，重试时已有内容不清空）
             output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -238,33 +265,41 @@ def process_video(client, video_stem: str, parts: list[Path], output_path: Path,
                     f.write(f"# {video_stem}\n\n")
 
             # 3. 逐片段调用大模型，已生成的跳过
-            video_files = [uploaded_files[p.name] for p in parts]
             tprint(f"[{video_label}] 所有片段就绪，开始逐片段提取知识...")
 
-            for idx, vf in enumerate(video_files):
+            for idx, part_path in enumerate(parts):
                 if idx in generated_parts:
-                    tprint(f"[{video_label}] 片段 {idx + 1}/{len(video_files)} 已生成，跳过")
+                    tprint(f"[{video_label}] 片段 {idx + 1}/{len(parts)} 已生成，跳过")
                     continue
 
-                tprint(f"[{video_label}] 正在解析片段 {idx + 1}/{len(video_files)} ...")
+                tprint(f"[{video_label}] 正在解析片段 {idx + 1}/{len(parts)} ...")
                 part_prompt = (
                     PROMPT_TEXT
-                    + f"\n\n注意：这是整个视频的第 {idx + 1}/{len(video_files)} 个片段，请提取本片段的完整内容。"
+                    + f"\n\n注意：这是整个视频的第 {idx + 1}/{len(parts)} 个片段，请提取本片段的完整内容。"
                 )
+
+                if UPLOAD_MODE == "files_api":
+                    video_part = uploaded_files[part_path.name]
+                elif UPLOAD_MODE == "base64":
+                    video_part = make_video_part_base64(part_path)
+                else:  # file_uri
+                    video_part = make_video_part_uri(part_path)
+
                 response = client.models.generate_content(
                     model="gemini-2.5-flash",
-                    contents=[vf, part_prompt],
+                    contents=[video_part, part_prompt],
                     config={"temperature": 0.1},
                 )
                 with open(output_path, "a", encoding="utf-8") as f:
-                    f.write(f"\n\n<!-- ===== Part {idx + 1}/{len(video_files)} ===== -->\n\n")
+                    f.write(f"\n\n<!-- ===== Part {idx + 1}/{len(parts)} ===== -->\n\n")
                     f.write(response.text)
                 generated_parts.add(idx)
-                tprint(f"[{video_label}] 片段 {idx + 1}/{len(video_files)} 完成，休眠 {PART_INTERVAL} 秒防 API 限流...")
+                tprint(f"[{video_label}] 片段 {idx + 1}/{len(parts)} 完成，休眠 {PART_INTERVAL} 秒防 API 限流...")
                 time.sleep(PART_INTERVAL)
 
             tprint(f"[{video_label}] 全部分段解析完毕，已保存至: {output_path.name}")
-            _cleanup_cloud_files(client, uploaded_files, video_label)
+            if UPLOAD_MODE == "files_api":
+                _cleanup_cloud_files(client, uploaded_files, video_label)
             return True
 
         except Exception as e:
