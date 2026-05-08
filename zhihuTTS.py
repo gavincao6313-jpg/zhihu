@@ -1,4 +1,3 @@
-import base64
 import io
 import logging
 import os
@@ -10,6 +9,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from google import genai
+from google.genai import types
 
 PARTS_DIR = Path(__file__).parent / "Videos" / "parts"
 MARKDOWNS_DIR = Path(__file__).parent / "Markdowns"
@@ -192,19 +192,21 @@ def upload_part(client, part_path: Path, label: str):
                 raise
 
 
-def make_video_part_base64(part_path: Path) -> dict:
-    """将本地视频文件编码为 base64，构造 inlineData part。"""
-    data = base64.b64encode(part_path.read_bytes()).decode("utf-8")
-    return {"inlineData": {"mimeType": "video/mp4", "data": data}}
+def make_video_part_base64(part_path: Path) -> types.Part:
+    """将本地视频文件以原始 bytes 传入 inlineData，SDK 负责 base64 编码。"""
+    return types.Part(
+        inline_data=types.Blob(mime_type="video/mp4", data=part_path.read_bytes())
+    )
 
 
-def make_video_part_uri(part_path: Path) -> dict:
+def make_video_part_uri(part_path: Path) -> types.Part:
     """根据 VIDEO_URI_PREFIX 环境变量拼接公开 URL，构造 fileData part。"""
     prefix = os.environ.get("VIDEO_URI_PREFIX", "").rstrip("/")
     if not prefix:
         raise EnvironmentError("UPLOAD_MODE=file_uri 需要设置 VIDEO_URI_PREFIX 环境变量")
-    uri = f"{prefix}/{part_path.name}"
-    return {"fileData": {"mimeType": "video/mp4", "fileUri": uri}}
+    return types.Part(
+        file_data=types.FileData(mime_type="video/mp4", file_uri=f"{prefix}/{part_path.name}")
+    )
 
 
 def _recover_generated_parts(output_path: Path) -> set:
