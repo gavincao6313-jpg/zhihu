@@ -1,0 +1,12 @@
+# 视频文件（体积过大）
+Videos/
+
+# 运行日志
+*.log
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
