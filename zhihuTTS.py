@@ -8,6 +8,7 @@ import time
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from urllib.parse import quote
 from google import genai
 from google.genai import types
 
@@ -205,7 +206,7 @@ def make_video_part_uri(part_path: Path) -> types.Part:
     if not prefix:
         raise EnvironmentError("UPLOAD_MODE=file_uri 需要设置 VIDEO_URI_PREFIX 环境变量")
     return types.Part(
-        file_data=types.FileData(mime_type="video/mp4", file_uri=f"{prefix}/{part_path.name}")
+        file_data=types.FileData(mime_type="video/mp4", file_uri=f"{prefix}/{quote(part_path.name)}")
     )
 
 
@@ -335,7 +336,7 @@ def main():
 
     try:
         base_url = os.environ.get("GEMINI_BASE_URL", "")
-        http_opts = {"timeout": 3600}  # 防止 generate_content 无限挂死
+        http_opts = {"timeout": 3600000}  # 防止 generate_content 无限挂死（单位毫秒，= 1h）
         if base_url:
             http_opts["baseUrl"] = base_url
             http_opts["apiVersion"] = "v1"
