@@ -17,7 +17,7 @@ MARKDOWNS_DIR = Path(__file__).parent / "Markdowns"
 PROGRESS_FILE = Path(__file__).parent / ".progress.json"
 LOG_FILE = Path(__file__).parent / "zhihuTTS.log"
 
-MAX_RETRIES = 3
+MAX_RETRIES = 6
 RETRY_DELAY = 65      # seconds，覆盖免费层 ~58s 限流窗口
 PART_INTERVAL = 65    # 片段间强制等待，避免触发每分钟 token 限额
 UPLOAD_WORKERS = 2    # 并发上传数，保护代理带宽
@@ -200,13 +200,28 @@ def make_video_part_base64(part_path: Path) -> types.Part:
     )
 
 
+def _github_asset_name(local_name: str) -> str:
+    """将本地文件名转换为 GitHub Release 实际存储的资产名。
+    GitHub 上传 API 会把非 ASCII 字符替换为 '.'，连续点号折叠为一个点，开头点号去除。"""
+    import re
+    chars = []
+    for ch in local_name:
+        if ord(ch) < 128:
+            chars.append('.' if ch == ' ' else ch)
+        else:
+            chars.append('.')
+    name = re.sub(r'\.{2,}', '.', ''.join(chars))
+    return re.sub(r'^\.+', '', name)
+
+
 def make_video_part_uri(part_path: Path) -> types.Part:
     """根据 VIDEO_URI_PREFIX 环境变量拼接公开 URL，构造 fileData part。"""
     prefix = os.environ.get("VIDEO_URI_PREFIX", "").rstrip("/")
     if not prefix:
         raise EnvironmentError("UPLOAD_MODE=file_uri 需要设置 VIDEO_URI_PREFIX 环境变量")
+    asset = _github_asset_name(part_path.name) if "github.com" in prefix else quote(part_path.name, safe='')
     return types.Part(
-        file_data=types.FileData(mime_type="video/mp4", file_uri=f"{prefix}/{quote(part_path.name, safe='')}")
+        file_data=types.FileData(mime_type="video/mp4", file_uri=f"{prefix}/{asset}")
     )
 
 
@@ -214,9 +229,11 @@ def _preflight_check_uris(parts: list[Path], video_label: str) -> list[str]:
     """file_uri 模式启动前批量 HEAD 检查所有片段 URL，返回不可达的文件名列表。"""
     import httpx
     prefix = os.environ.get("VIDEO_URI_PREFIX", "").rstrip("/")
+    use_github = "github.com" in prefix
     missing = []
     for part_path in parts:
-        url = f"{prefix}/{quote(part_path.name, safe='')}"
+        asset = _github_asset_name(part_path.name) if use_github else quote(part_path.name, safe='')
+        url = f"{prefix}/{asset}"
         try:
             r = httpx.head(url, follow_redirects=True, timeout=15)
             if r.status_code >= 400:
@@ -375,7 +392,7 @@ def main():
         http_opts = {"timeout": 3600000}  # 防止 generate_content 无限挂死（单位毫秒，= 1h）
         if base_url:
             http_opts["baseUrl"] = base_url
-            http_opts["apiVersion"] = "v1"
+            http_opts["apiVersion"] = os.environ.get("GEMINI_API_VERSION", "v1beta")
         client = genai.Client(api_key=api_key, http_options=http_opts)
         MARKDOWNS_DIR.mkdir(exist_ok=True)
 
