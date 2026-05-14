@@ -14,6 +14,7 @@ zhihuTTS_video.py — 视频预处理流水线
 
 import json
 import os
+import platform
 import re
 import subprocess
 import tempfile
@@ -43,7 +44,7 @@ def _extract_frames(video_path: Path, fps: float = FRAME_FPS,
     out_dir = KEYFRAMES_DIR / video_path.stem
     if out_dir.exists():
         shutil.rmtree(out_dir, ignore_errors=True)
-        if out_dir.exists():
+        if out_dir.exists() and platform.system() == "Windows":
             subprocess.run(["cmd", "/c", "rmdir", "/s", "/q",
                            str(out_dir.resolve())], capture_output=True)
         if out_dir.exists():
