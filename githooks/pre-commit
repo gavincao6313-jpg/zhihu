@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# zhihuTTS 角色检查 hook
+# Mac = 写代码（改 .py），Windows = 跑脚本（改 .progress.json）
+#
+# 绕过：SKIP_ROLE_CHECK=1 git commit ...
+
+set -e
+
+[ -n "$SKIP_ROLE_CHECK" ] && exit 0
+
+# ── 判断当前平台 ──────────────────────────────────────
+case "$(uname -s)" in
+    CYGWIN*|MINGW*|MSYS*) IS_WINDOWS=true  ;;
+    *)                    IS_WINDOWS=false ;;
+esac
+
+# ── 检查本次 commit 涉及的文件 ─────────────────────────
+staged=$(git diff --cached --name-only)
+
+has_py=$(echo "$staged" | grep -c '\.py$' || true)
+has_progress=$(echo "$staged" | grep -c '\.progress\.json$' || true)
+
+# ── Windows：禁止提交 .py ─────────────────────────────
+if [ "$IS_WINDOWS" = true ] && [ "$has_py" -gt 0 ]; then
+    echo ""
+    echo "  ❌ Windows 机器禁止提交 .py 文件"
+    echo "  ─────────────────────────────────────"
+    echo "  Windows 的职责是跑脚本，代码修改在 Mac 上进行。"
+    echo "  如需例外: SKIP_ROLE_CHECK=1 git commit ..."
+    exit 1
+fi
+
+# ── Mac：禁止提交 .progress.json ──────────────────────
+if [ "$IS_WINDOWS" = false ] && [ "$has_progress" -gt 0 ]; then
+    echo ""
+    echo "  ❌ Mac 禁止修改 .progress.json"
+    echo "  ────────────────────────────────────────"
+    echo "  .progress.json 由 Windows 机器管理，Mac 只看不写。"
+    echo "  如需例外: SKIP_ROLE_CHECK=1 git commit ..."
+    exit 1
+fi
+
+exit 0

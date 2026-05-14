@@ -55,3 +55,21 @@ pip install -r requirements.txt
 - `.progress.json` → 只有 Windows 写 → 不冲突
 - `.py` 代码文件 → 只有 Mac 写 → 不冲突
 - `.gitattributes` 已配置 LF 换行符 → 跨平台换行符统一
+
+## Git Hook 自动拦截
+
+仓库内有一个 `githooks/pre-commit` 脚本，会在 commit 时自动检查：
+
+- **Windows 提交了 `.py` 文件** → ❌ 拦截
+- **Mac 提交了 `.progress.json`** → ❌ 拦截
+
+### 激活方式（两台电脑都需要执行一次）
+
+```bash
+git config core.hooksPath githooks
+```
+
+后续每次 `git commit` 会自动执行检查。如果确实需要例外：
+
+```bash
+SKIP_ROLE_CHECK=1 git commit ...
