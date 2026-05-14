@@ -265,6 +265,9 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
 
 
 def main():
+    import sys
+    sys.stdout.reconfigure(encoding="utf-8")  # Windows GBK → UTF-8
+
     parser = argparse.ArgumentParser(description="zhihuTTS 视频转 Markdown 知识库")
     parser.add_argument("--status", "--todo", action="store_true",
                         help="仅打印任务状态摘要（不执行处理）")

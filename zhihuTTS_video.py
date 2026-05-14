@@ -43,6 +43,11 @@ def _extract_frames(video_path: Path, fps: float = FRAME_FPS,
     out_dir = KEYFRAMES_DIR / video_path.stem
     if out_dir.exists():
         shutil.rmtree(out_dir, ignore_errors=True)
+        if out_dir.exists():
+            subprocess.run(["cmd", "/c", "rmdir", "/s", "/q",
+                           str(out_dir.resolve())], capture_output=True)
+        if out_dir.exists():
+            shutil.rmtree(out_dir)  # 最后尝试，不忽略错误
     out_dir.mkdir(parents=True, exist_ok=True)
     pattern = str(out_dir.resolve() / "frame_%05d.jpg")
     cmd = ["ffmpeg",
@@ -134,9 +139,9 @@ def _transcribe_cpu(wav_path: Path, model_size: str = "small",
     from faster_whisper import WhisperModel
 
     device = os.environ.get("WHISPER_DEVICE", "cpu")
-    cpu_threads = int(os.environ.get("WHISPER_CPU_THREADS", "0")) or None
-    num_workers = int(os.environ.get("WHISPER_CPU_WORKERS", "1"))
-    print(f"  [CPU] 加载 Whisper {model_size} (threads={cpu_threads or 'auto'})...")
+    cpu_threads = int(os.environ.get("WHISPER_CPU_THREADS", "0")) or 0
+    num_workers = int(os.environ.get("WHISPER_CPU_WORKERS", "4"))
+    print(f"  [CPU] 加载 Whisper {model_size} (threads={cpu_threads or 'auto'}, workers={num_workers})...")
     model = WhisperModel(model_size, device=device,
                          compute_type="int8", cpu_threads=cpu_threads,
                          num_workers=num_workers)
