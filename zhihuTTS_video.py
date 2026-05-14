@@ -14,6 +14,7 @@ zhihuTTS_video.py — 视频预处理流水线
 
 import json
 import os
+import platform
 import re
 import subprocess
 import tempfile
@@ -39,18 +40,24 @@ KEYFRAMES_DIR = Path(__file__).parent / "Videos" / "keyframes"  # 关键帧输�
 
 def _extract_frames(video_path: Path, fps: float = FRAME_FPS,
                     scale: int = FRAME_SCALE) -> list[Path]:
-    """用 ffmpeg 按固定帧率提取缩略图到 KEYFRAMES_DIR/<video_stem>/，返回帧文件列表。"""
+    """用 ffmpeg 按固定帧率提取缩略图到 KEYFRAMES_DIR/<video_stem>/，返回帧文件列表。
+    Windows 上自动启用 D3D11VA 硬件解码加速。
+    """
     out_dir = KEYFRAMES_DIR / video_path.stem
     if out_dir.exists():
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True)
-    pattern = str(out_dir / "frame_%05d.jpg")
-    subprocess.run([
-        "ffmpeg", "-i", str(video_path),
+    pattern = str(out_dir.resolve() / "frame_%05d.jpg")
+    cmd = ["ffmpeg"]
+    if platform.system() == "Windows":
+        cmd.extend(["-hwaccel", "d3d11va"])
+    cmd.extend([
+        "-i", str(video_path.resolve()),
         "-vf", f"fps={fps},scale={scale}:-1",
         "-q:v", "5",
         "-y", pattern,
-    ], capture_output=True, check=True, timeout=FFMPEG_TIMEOUT)
+    ])
+    subprocess.run(cmd, capture_output=True, check=True, timeout=FFMPEG_TIMEOUT)
 
     frames = sorted(out_dir.glob("frame_*.jpg"),
                     key=lambda p: int(re.search(r"frame_(\d+)", p.stem).group(1)))
@@ -127,16 +134,95 @@ def extract_keyframes(video_path: Path) -> tuple[list[dict], list[Path]]:
 
 # ── 音频转录 ────────────────────────────────────────
 
-def transcribe_audio(video_path: Path, model_size: str = "small",
+def _transcribe_cpu(wav_path: Path, model_size: str = "small",
                      language: str = "zh") -> dict:
-    """
-    用 faster-whisper 转录音频，返回含词级时间戳的 dict。
-    返回结构: {"segments": [{"start": float, "end": float, "text": str,
-                             "words": [{"word": str, "start": float, "end": float}]}]}
-    临时 WAV 文件在转录完成后自动清理。
-    """
+    """用 faster-whisper（CPU）转写音频。"""
     from faster_whisper import WhisperModel
 
+    device = os.environ.get("WHISPER_DEVICE", "cpu")
+    cpu_threads = int(os.environ.get("WHISPER_CPU_THREADS", "0")) or None
+    num_workers = int(os.environ.get("WHISPER_CPU_WORKERS", "1"))
+    print(f"  [CPU] 加载 Whisper {model_size} (threads={cpu_threads or 'auto'})...")
+    model = WhisperModel(model_size, device=device,
+                         compute_type="int8", cpu_threads=cpu_threads,
+                         num_workers=num_workers)
+    segments, info = model.transcribe(str(wav_path), language=language,
+                                       beam_size=5, word_timestamps=True)
+    print(f"  [CPU] 检测到语言: {info.language} (概率 {info.language_probability:.2f})")
+    return _collect_segments(segments)
+
+
+def _transcribe_vulkan(wav_path: Path, model_size: str = "small",
+                        language: str = "zh") -> dict:
+    """用 whisper-cpp-python（Vulkan / AMD GPU）转写音频。"""
+    try:
+        from whisper_cpp_python import Whisper
+    except ImportError:
+        raise ImportError(
+            "Vulkan 后端需要 whisper-cpp-python（带 Vulkan 编译）:\n"
+            "  CMAKE_ARGS='-DWHISPER_VULKAN=ON' pip install whisper-cpp-python\n"
+            "或回退: 设置 WHISPER_BACKEND=cpu 使用 faster-whisper"
+        )
+
+    print(f"  [Vulkan] 加载 Whisper {model_size}...", flush=True)
+    try:
+        model = Whisper.from_pretrained(model_size)
+    except Exception as e:
+        raise RuntimeError(
+            f"[Vulkan] 模型 {model_size} 下载/加载失败: {e}\n"
+            "检查网络连接，或设置 WHISPER_BACKEND=cpu 回退 faster-whisper"
+        )
+    print(f"  [Vulkan] 转写中...", flush=True)
+    raw = model.transcribe(str(wav_path), language=language)
+
+    if isinstance(raw, dict):
+        raw_segments = raw.get("segments") or []
+    elif hasattr(raw, "segments"):
+        raw_segments = raw.segments
+    elif isinstance(raw, list):
+        raw_segments = raw
+    else:
+        raw_segments = []
+
+    segments = []
+    for seg in raw_segments:
+        if isinstance(seg, dict):
+            segments.append({
+                "start": seg.get("start", 0.0),
+                "end": seg.get("end", 0.0),
+                "text": seg.get("text", "").strip(),
+                "words": seg.get("words", []),
+            })
+        else:
+            segments.append({
+                "start": getattr(seg, "start", 0.0),
+                "end": getattr(seg, "end", 0.0),
+                "text": getattr(seg, "text", "").strip(),
+                "words": getattr(seg, "words", []),
+            })
+    print(f"  [Vulkan] 转写完成: {len(segments)} 个片段", flush=True)
+    return {"segments": segments}
+
+
+def _collect_segments(generator) -> dict:
+    """将 faster-whisper 的 segment generator 落实为 dict。"""
+    segments = []
+    for seg in generator:
+        words = []
+        if seg.words:
+            words = [{"word": w.word, "start": w.start, "end": w.end}
+                     for w in seg.words]
+        segments.append({
+            "start": seg.start, "end": seg.end,
+            "text": seg.text.strip(),
+            "words": words,
+        })
+    return {"segments": segments}
+
+
+def transcribe_audio(video_path: Path, model_size: str = "small",
+                     language: str = "zh") -> dict:
+    """转写音频，自动选择后端（WHISPER_BACKEND 环境变量）。"""
     with tempfile.NamedTemporaryFile(suffix=".wav", prefix="zhihu_", delete=False) as f:
         wav_path = Path(f.name)
     try:
@@ -148,26 +234,16 @@ def transcribe_audio(video_path: Path, model_size: str = "small",
             "-y", str(wav_path),
         ], capture_output=True, check=True, timeout=FFMPEG_TIMEOUT)
 
-        print(f"  加载 Whisper {model_size}...")
-        device = os.environ.get("WHISPER_DEVICE", "cpu")
-        model = WhisperModel(model_size, device=device, compute_type="int8")
-        segments, info = model.transcribe(str(wav_path), language=language,
-                                           beam_size=5, word_timestamps=True)
-        print(f"  检测到语言: {info.language} (概率 {info.language_probability:.2f})")
+        backend = os.environ.get("WHISPER_BACKEND", "auto")
+        if backend in ("vulkan", "auto"):
+            try:
+                return _transcribe_vulkan(wav_path, model_size, language)
+            except ImportError:
+                if backend == "vulkan":
+                    raise
+                print("  [Vulkan] 不可用，回退到 CPU...")
 
-        result = {"segments": []}
-        for seg in segments:
-            words = []
-            if seg.words:
-                words = [{"word": w.word, "start": w.start, "end": w.end}
-                         for w in seg.words]
-            result["segments"].append({
-                "start": seg.start, "end": seg.end,
-                "text": seg.text.strip(),
-                "words": words,
-            })
-        print(f"  转写完成: {len(result['segments'])} 个片段")
-        return result
+        return _transcribe_cpu(wav_path, model_size, language)
     finally:
         wav_path.unlink(missing_ok=True)
 
