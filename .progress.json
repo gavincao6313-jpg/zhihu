@@ -1,91 +1,51 @@
 {
   "videos": {
-    "原理_A01_Prompt、Function Calling、RAG_1080P": {
+    "Skill模式的解析，和agent的关系": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A02_利用Agent技术让AI像人类一样拆解任务并逐一完成_1080P": {
+    "Vibe coding构建产品Demo的思路和方法": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A03_预训练＋微调的训练范式 开源生态和 OpenAl的 差异详解_1080P": {
+    "Wmedia_01_AI自媒体第一课【基础认知】": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A04_探索神经网络的奥秘-1080P": {
+    "Wmedia_02_AI自媒体第二课【爆款选题】": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A05_揭秘Transformer的真面目_720P": {
+    "Wmedia_03_AI自媒体第三课【爆款借鉴二创】": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A06_揭秘Transformer的真面目-1_1080P": {
+    "Wmedia_04_AI自媒体第四课【AI分镜】": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A07_揭秘Transformer的真面目-2_1080P": {
+    "Wmedia_05_AI自媒体第五课【平台适配】": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A08_从GPT 到GPT 3.5的华丽升级_720P": {
+    "Wmedia_06_AI自媒体 第六课【运营助手】": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A09_从GPT 到GPT 4 的华丽升级_1080P": {
+    "Wmedia_07_AI自媒体第七课【数据复盘】": {
       "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
+      "processed": "2026-05-14",
+      "api_calls": 1
     },
-    "原理_A10_Fine-tuning微调艺术_1080P": {
-      "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
-    },
-    "原理_A11_Fine-tuning微调艺术：SFT与RLHF的完美结合_720P": {
-      "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
-    },
-    "原理_A12_多模态领域的Transformer-创意生成的基座原理_1080P": {
-      "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
-    },
-    "原理_A13_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱_1080P": {
-      "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
-    },
-    "原理_A14_探索DALL·E、Stable Diffusion如何编织创意图像的魔法_1080P": {
-      "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
-    },
-    "原理_A15_AI视频原理求索-类Sora模型：解锁动态视觉艺术的密码_1080P": {
-      "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
-    },
-    "原理_A16_以Llama 和GLM 为首的开源生态追赶OpenAI的真实进程_1080P": {
-      "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
-    },
-    "原理_A17_超级引擎：英伟达GPU与CUDA相关的必备知识点_1080P": {
-      "status": "done",
-      "processed": "unknown",
-      "api_calls": 0
-    },
-    "PM01_通过个人助理agent，学习长期记忆和多agent结构_1080P": {
+    "Wmedia_08_AI自媒体第八课【虚拟人】": {
       "status": "done",
       "processed": "2026-05-14",
       "api_calls": 1
@@ -93,9 +53,9 @@
   },
   "quota": {
     "2026-05-14": {
-      "used": 3,
+      "used": 10,
       "limit": 20
     }
   },
-  "last_run": "2026-05-14T14:22:54.343217"
+  "last_run": "2026-05-14T20:57:38.399028"
 }
