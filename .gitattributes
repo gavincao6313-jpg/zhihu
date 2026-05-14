@@ -1,0 +1,17 @@
+# 统一仓库内 LF，避免跨平台冲突
+* text=auto
+
+# Python
+*.py text diff=python
+
+# 同步文件
+.progress.json text
+.gitignore text
+.gitattributes text
+requirements.txt text
+
+# 二进制标记（确保 git 不尝试 diff）
+*.mp4 binary
+*.webm binary
+*.mov binary
+*.mkv binary
