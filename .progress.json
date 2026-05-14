@@ -89,18 +89,13 @@
       "status": "done",
       "processed": "2026-05-14",
       "api_calls": 1
-    },
-    "Skill模式的解析，和agent的关系": {
-      "status": "failed",
-      "processed": "2026-05-14",
-      "api_calls": 1
     }
   },
   "quota": {
     "2026-05-14": {
-      "used": 4,
+      "used": 3,
       "limit": 20
     }
   },
-  "last_run": "2026-05-14T14:12:43.494081"
+  "last_run": "2026-05-14T14:22:54.343217"
 }
