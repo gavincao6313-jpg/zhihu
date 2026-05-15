@@ -49,13 +49,102 @@
       "status": "done",
       "processed": "2026-05-14",
       "api_calls": 1
+    },
+    "AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "AI编程_02_【何少甫】网易 CodeWave 智能开发平台的 AI 实践": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技术与应用": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "AutoGPT_02_【林义章】MetaGPT 让每个人拥有专属智能体": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来帮你涉过“无AI”的海？": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "AutoGPT_04_【常高伟】深入剖析MCP、A2A、ANP：智能体互联网的黎明之前": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "FineTuning_01_【张轩玮】我是如何训练百亿参数大模型 ChatYuan 的": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "FineTuning_02_【施兴】如何用 Stable Diffusion 复现一个妙鸭": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "FineTuning_03_【甘如饴】多模态大模型和代码大模型是怎样炼成的": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "FineTuning_04_【神秘嘉宾】大模型时代的AI产品新挑战": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "FineTuning_05_可乐_百度智能云千帆行业实战_金融大模型应用探索与开发实践": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "FineTuning_06_【麒汀】阿里云百炼之一站式模型微调训练实践": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "FineTuning_07_【罗璇】从RWKV看端侧大模型的发展": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "LangChain_01_【薛宏伟】LangChain 核心源码解读": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "RAG_01_【翼飞】阿里云百炼之RAG在企业场景的应用": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "RAG_02_【刘海峰】ChatU.ai 企业落地经验": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
+    },
+    "RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地": {
+      "status": "done",
+      "processed": "2026-05-15",
+      "api_calls": 1
     }
   },
   "quota": {
     "2026-05-14": {
       "used": 10,
       "limit": 20
+    },
+    "2026-05-15": {
+      "used": 17,
+      "limit": 20
     }
   },
-  "last_run": "2026-05-14T20:57:38.399028"
+  "last_run": "2026-05-15T12:23:03.744224"
 }
