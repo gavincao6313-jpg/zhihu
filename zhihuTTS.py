@@ -88,6 +88,86 @@ def _parse_retry_delay(error: Exception) -> int:
 _print_lock = threading.Lock()
 _progress_lock = threading.Lock()
 
+# Gemini API 常量
+MAX_CONTINUATIONS = 20  # 自动续写最大次数（单次 ~65K tokens，20次远超实际所需）
+
+
+def _first_candidate(resp):
+    if not resp.candidates:
+        reason = getattr(resp, "prompt_feedback", None)
+        raise RuntimeError(f"API 返回无 candidates（疑似安全过滤）: {reason}")
+    return resp.candidates[0]
+
+
+def _safe_text(resp):
+    try:
+        return resp.text
+    except ValueError:
+        reason = getattr(resp, "prompt_feedback", None)
+        raise RuntimeError(f"API 响应被拦截（安全过滤）: {reason}")
+
+
+def _call_gemini_with_retry(client, parts, video_label) -> str | None:
+    """调用 Gemini API，含自动续写（MAX_TOKENS）和重试（限流/网络错误）。"""
+    gemini_config = types.GenerateContentConfig(
+        temperature=0.1,
+        max_output_tokens=65536,  # gemini-2.5-flash 的最大输出上限
+        thinking_config=types.ThinkingConfig(thinking_budget=0),
+    )
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            tprint(f"[{video_label}] 发送至 Gemini API（{len(parts)} 个输入块）...")
+            # 用 chat session 保留多轮上下文，续写时无需手动拼 contents
+            chat = client.chats.create(model=GEMINI_MODEL, config=gemini_config)
+            response = chat.send_message(parts)
+            text = _safe_text(response)
+            if not text:
+                raise RuntimeError("API 返回空响应")
+
+            full_text = text
+            candidate = _first_candidate(response)
+
+            # 自动续写：输出被截断时追加 "继续" 直至完整
+            for cont in range(MAX_CONTINUATIONS):
+                if candidate.finish_reason != types.FinishReason.MAX_TOKENS:
+                    break
+                tprint(f"[{video_label}] 输出被截断，自动续写 (第{cont+1}次)...")
+                response = chat.send_message("继续")
+                text = _safe_text(response)
+                if not text:
+                    tprint(f"[{video_label}] ⚠ 续写返回空响应，提前结束")
+                    break
+                full_text += "\n" + text
+                candidate = _first_candidate(response)
+            else:
+                tprint(f"[{video_label}] ⚠ 续写已达 {MAX_CONTINUATIONS} 次上限，输出可能仍不完整")
+
+            if candidate.finish_reason is not None and candidate.finish_reason != types.FinishReason.STOP:
+                fr = candidate.finish_reason
+                tprint(f"[{video_label}] ⚠ 输出可能不完整 (finish_reason={fr})，"
+                       f"输出 {len(full_text)} 字符")
+
+            return full_text
+
+        except Exception as e:
+            is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
+            if is_rate_limited:
+                delay = _parse_retry_delay(e)
+                tprint(f"[{video_label}] 触发限流（429），{delay}s 后重试...")
+            else:
+                delay = RETRY_DELAY
+                with _print_lock:
+                    print(f"[{video_label}] 失败: {e}", flush=True)
+                _logger.error(f"[{video_label}] 失败: {e}", exc_info=True)
+
+            if attempt < MAX_RETRIES:
+                time.sleep(delay)
+            else:
+                tprint(f"[{video_label}] 已达最大重试次数", level="error")
+
+    return None
+
 
 def tprint(msg: str, level: str = "info"):
     with _print_lock:
@@ -214,54 +294,17 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
         ))
 
     # ── Phase 3: Gemini API call with retry ──
-    for attempt in range(1, MAX_RETRIES + 1):
-        try:
-            tprint(f"[{video_label}] 发送至 Gemini API（{len(parts)} 个输入块）...")
-            response = client.models.generate_content(
-                model=GEMINI_MODEL,
-                contents=parts,
-                config={"temperature": 0.1},
-            )
-            try:
-                text = response.text
-            except ValueError:
-                reason = getattr(response, "prompt_feedback", None)
-                raise RuntimeError(f"API 响应被拦截（安全过滤）: {reason}")
+    full_text = _call_gemini_with_retry(client, parts, video_label)
+    if full_text is None:
+        return False
 
-            if not text:
-                raise RuntimeError("API 返回空响应")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(f"# {video_path.stem}\n\n")
+        f.write(full_text)
 
-            candidate = response.candidates[0]
-            if candidate.finish_reason is not None and candidate.finish_reason != 1:
-                fr = candidate.finish_reason
-                tprint(f"[{video_label}] ⚠ 输出可能被截断 (finish_reason={fr})，"
-                       f"输出 {len(text)} 字符")
-
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(output_path, "w", encoding="utf-8") as f:
-                f.write(f"# {video_path.stem}\n\n")
-                f.write(text)
-
-            tprint(f"[{video_label}] 完成，已保存至: {output_path.name}")
-            return True
-
-        except Exception as e:
-            is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
-            if is_rate_limited:
-                delay = _parse_retry_delay(e)
-                tprint(f"[{video_label}] 触发限流（429），{delay}s 后重试...")
-            else:
-                delay = RETRY_DELAY
-                _logger.error(f"[{video_label}] 失败", exc_info=True)
-                tprint(f"[{video_label}] 失败: {e}")
-
-            if attempt < MAX_RETRIES:
-                time.sleep(delay)
-            else:
-                tprint(f"[{video_label}] 已达最大重试次数", level="error")
-                return False
-
-    return False
+    tprint(f"[{video_label}] 完成，已保存至: {output_path.name}")
+    return True
 
 
 def main():
@@ -301,8 +344,8 @@ def main():
     for k, v in videos.items():
         entry = progress["videos"].get(k, {})
         if entry.get("status") == "done":
-            output_path = MARKDOWNS_DIR / (k + ".md")
-            if not output_path.exists():
+            # 兼容历史输出格式：当前是 TTS_MMDD_<stem>.md，过去可能直接 <stem>.md
+            if not any(MARKDOWNS_DIR.glob(f"*{k}.md")):
                 tprint(f"  ⚠ {k} 标记完成但 .md 文件缺失（可能被人为删除），重新处理")
                 progress["videos"].pop(k, None)
                 pending[k] = v
@@ -338,10 +381,11 @@ def main():
 
     try:
         base_url = os.environ.get("GEMINI_BASE_URL", "")
-        http_opts = {"timeout": 3600000}
-        if base_url:
-            http_opts["baseUrl"] = base_url
-            http_opts["apiVersion"] = os.environ.get("GEMINI_API_VERSION", "v1beta")
+        http_opts = types.HttpOptions(
+            timeout=3600000,
+            base_url=base_url or None,
+            api_version=os.environ.get("GEMINI_API_VERSION", "v1beta") if base_url else None,
+        )
         client = genai.Client(api_key=api_key, http_options=http_opts)
         MARKDOWNS_DIR.mkdir(exist_ok=True)
 
