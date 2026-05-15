@@ -518,3 +518,229 @@ httpx.RemoteProtocolError: Server disconnected without sending a response.
 2026-05-15 12:23:02 [INFO] [17/20 RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地] 完成，已保存至: TTS_0515_RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地.md
 2026-05-15 12:23:03 [INFO]   [17/20 RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地] 已清理关键帧缓存
 2026-05-15 12:23:03 [INFO] [18/20 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 提取关键帧 & 转录音频...
+2026-05-15 13:34:20 [INFO] ============================================================ 任务开始
+2026-05-15 13:34:20 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 提取关键帧 & 转录音频...
+2026-05-15 14:43:09 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 预处理完成: 41 次幻灯片, 391 次标注, 814 张关键帧, 231181 字符逐字稿
+2026-05-15 14:43:09 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 发送至 Gemini API（816 个输入块）...
+2026-05-15 14:44:01 [ERROR] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 失败: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+Traceback (most recent call last):
+  File "D:\zhihu\zhihu\zhihuTTS.py", line 123, in _call_gemini_with_retry
+    response = chat.send_message(parts)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\chats.py", line 252, in send_message
+    response = self._modules.generate_content(
+        model=self._model,
+        contents=self._curated_history + [input_content],  # type: ignore[arg-type]
+        config=config if config else self._config,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 6405, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 4841, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1609, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1402, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1379, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\errors.py", line 155, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\errors.py", line 186, in raise_error
+    raise ServerError(status_code, response_json, response)
+google.genai.errors.ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-05-15 14:45:06 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 发送至 Gemini API（816 个输入块）...
+2026-05-15 14:45:30 [ERROR] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 失败: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+Traceback (most recent call last):
+  File "D:\zhihu\zhihu\zhihuTTS.py", line 123, in _call_gemini_with_retry
+    response = chat.send_message(parts)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\chats.py", line 252, in send_message
+    response = self._modules.generate_content(
+        model=self._model,
+        contents=self._curated_history + [input_content],  # type: ignore[arg-type]
+        config=config if config else self._config,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 6405, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 4841, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1609, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1402, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1379, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\errors.py", line 155, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\errors.py", line 186, in raise_error
+    raise ServerError(status_code, response_json, response)
+google.genai.errors.ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-05-15 14:46:35 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 发送至 Gemini API（816 个输入块）...
+2026-05-15 14:47:06 [ERROR] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 失败: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+Traceback (most recent call last):
+  File "D:\zhihu\zhihu\zhihuTTS.py", line 123, in _call_gemini_with_retry
+    response = chat.send_message(parts)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\chats.py", line 252, in send_message
+    response = self._modules.generate_content(
+        model=self._model,
+        contents=self._curated_history + [input_content],  # type: ignore[arg-type]
+        config=config if config else self._config,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 6405, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 4841, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1609, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1402, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1379, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\errors.py", line 155, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\errors.py", line 186, in raise_error
+    raise ServerError(status_code, response_json, response)
+google.genai.errors.ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-05-15 14:48:11 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 发送至 Gemini API（816 个输入块）...
+2026-05-15 14:48:52 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 触发限流（429），17s 后重试...
+2026-05-15 14:49:09 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 发送至 Gemini API（816 个输入块）...
+2026-05-15 14:49:48 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 触发限流（429），21s 后重试...
+2026-05-15 14:50:09 [INFO] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 发送至 Gemini API（816 个输入块）...
+2026-05-15 14:50:55 [ERROR] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 失败: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+Traceback (most recent call last):
+  File "D:\zhihu\zhihu\zhihuTTS.py", line 123, in _call_gemini_with_retry
+    response = chat.send_message(parts)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\chats.py", line 252, in send_message
+    response = self._modules.generate_content(
+        model=self._model,
+        contents=self._curated_history + [input_content],  # type: ignore[arg-type]
+        config=config if config else self._config,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 6405, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 4841, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1609, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1402, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1379, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\errors.py", line 155, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\errors.py", line 186, in raise_error
+    raise ServerError(status_code, response_json, response)
+google.genai.errors.ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-05-15 14:50:55 [ERROR] [1/3 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 已达最大重试次数
+2026-05-15 14:50:55 [INFO] [2/3 产品设计运营_01_【周玮】AI 落地实战应用——EDGE ] 提取关键帧 & 转录音频...
+2026-05-15 15:27:10 [INFO] [2/3 产品设计运营_01_【周玮】AI 落地实战应用——EDGE ] 预处理完成: 2 次幻灯片, 83 次标注, 168 张关键帧, 111537 字符逐字稿
+2026-05-15 15:27:10 [INFO] [2/3 产品设计运营_01_【周玮】AI 落地实战应用——EDGE ] 发送至 Gemini API（170 个输入块）...
+2026-05-15 15:28:30 [INFO] [2/3 产品设计运营_01_【周玮】AI 落地实战应用——EDGE ] 完成，已保存至: TTS_0515_产品设计运营_01_【周玮】AI 落地实战应用——EDGE 过程总结和复盘.md
+2026-05-15 15:28:31 [INFO]   [2/3 产品设计运营_01_【周玮】AI 落地实战应用——EDGE ] 已清理关键帧缓存
+2026-05-15 15:28:31 [INFO] [3/3 产品设计运营_02_【王乐】复盘 FoloToy AI 玩具] 提取关键帧 & 转录音频...
+2026-05-15 16:16:28 [INFO] [3/3 产品设计运营_02_【王乐】复盘 FoloToy AI 玩具] 预处理完成: 2 次幻灯片, 38 次标注, 78 张关键帧, 157917 字符逐字稿
+2026-05-15 16:16:28 [INFO] [3/3 产品设计运营_02_【王乐】复盘 FoloToy AI 玩具] 发送至 Gemini API（80 个输入块）...
+2026-05-15 16:17:19 [INFO] [3/3 产品设计运营_02_【王乐】复盘 FoloToy AI 玩具] 完成，已保存至: TTS_0515_产品设计运营_02_【王乐】复盘 FoloToy AI 玩具的独立开发历程.md
+2026-05-15 16:17:21 [INFO]   [3/3 产品设计运营_02_【王乐】复盘 FoloToy AI 玩具] 已清理关键帧缓存
+2026-05-15 16:50:09 [INFO] ============================================================ 任务开始
+2026-05-15 16:50:47 [INFO] ============================================================ 任务开始
+2026-05-15 16:50:47 [INFO]   ⚠ RAG_02_【刘海峰】ChatU.ai 企业落地经验 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 16:50:47 [INFO] [1/1 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 提取关键帧 & 转录音频...
+2026-05-15 17:38:47 [INFO] [1/1 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 预处理完成: 29 次幻灯片, 95 次标注, 215 张关键帧, 131933 字符逐字稿
+2026-05-15 17:38:48 [INFO] [1/1 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 发送至 Gemini API（217 个输入块）...
+2026-05-15 17:40:06 [INFO] [1/1 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 完成，已保存至: TTS_0515_RAG_02_【刘海峰】ChatU.ai 企业落地经验.md
+2026-05-15 17:40:07 [INFO]   [1/1 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 已清理关键帧缓存
