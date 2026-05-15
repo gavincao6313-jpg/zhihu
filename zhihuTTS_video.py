@@ -74,15 +74,10 @@ def analyze_frames(frames: list[Path]) -> tuple[list[dict], list[Path]]:
     if not frames:
         return [], []
 
-    events = []
-    kept = set()
-
     def _diff(a_path, b_path):
         a = np.array(Image.open(a_path).convert("L"), dtype=np.float32)
         b = np.array(Image.open(b_path).convert("L"), dtype=np.float32)
         return float(np.mean(np.abs(a - b)) / 255.0)
-
-    kept.add(0)
 
     raw_events = []
     for i in range(1, len(frames)):
@@ -104,8 +99,7 @@ def analyze_frames(frames: list[Path]) -> tuple[list[dict], list[Path]]:
             merged.append({"type": etype, "frame_idx": i, "first_idx": i, "diff": round(diff, 4)})
 
     events = []
-    kept = set()
-    kept.add(0)  # 第一帧总是保留
+    kept = {0}  # 第一帧总是保留
     for ev in merged:
         events.append({"type": ev["type"], "frame_idx": ev["frame_idx"], "diff": ev["diff"]})
         kept.add(ev["frame_idx"])
@@ -140,7 +134,7 @@ def _transcribe_cpu(wav_path: Path, model_size: str = "small",
     from faster_whisper import WhisperModel
 
     device = os.environ.get("WHISPER_DEVICE", "cpu")
-    cpu_threads = int(os.environ.get("WHISPER_CPU_THREADS", "0")) or 0
+    cpu_threads = int(os.environ.get("WHISPER_CPU_THREADS", "0"))
     num_workers = int(os.environ.get("WHISPER_CPU_WORKERS", "4"))
     print(f"  [CPU] 加载 Whisper {model_size} (threads={cpu_threads or 'auto'}, workers={num_workers})...")
     model = WhisperModel(model_size, device=device,
@@ -238,10 +232,10 @@ def transcribe_audio(video_path: Path, model_size: str = "small",
         if backend in ("vulkan", "auto"):
             try:
                 return _transcribe_vulkan(wav_path, model_size, language)
-            except ImportError:
+            except (ImportError, RuntimeError) as e:
                 if backend == "vulkan":
                     raise
-                print("  [Vulkan] 不可用，回退到 CPU...")
+                print(f"  [Vulkan] 不可用 ({e})，回退到 CPU...")
 
         return _transcribe_cpu(wav_path, model_size, language)
     finally:
