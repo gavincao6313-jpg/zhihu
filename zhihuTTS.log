@@ -1,0 +1,520 @@
+2026-05-14 13:38:33 [INFO] ============================================================ 任务开始
+2026-05-14 13:47:00 [INFO] ============================================================ 任务开始
+2026-05-14 13:47:01 [INFO] [1/10 Skill模式的解析，和agent的关系] 提取关键帧 & 转录音频...
+2026-05-14 14:04:05 [INFO] ============================================================ 任务开始
+2026-05-14 14:04:06 [INFO] [1/10 Skill模式的解析，和agent的关系] 提取关键帧 & 转录音频...
+2026-05-14 14:05:57 [ERROR] [1/10 Skill模式的解析，和agent的关系] 预处理失败: Command '['ffmpeg', '-hwaccel', 'd3d11va', '-i', 'D:\\zhihu\\zhihu\\Videos\\Skill模式的解析，和agent的关系.mp4', '-vf', 'fps=1,scale=320:-1', '-q:v', '5', '-y', 'D:\\zhihu\\zhihu\\Videos\\keyframes\\Skill模式的解析，和agent的关系\\frame_%05d.jpg']' returned non-zero exit status 4294967294.
+2026-05-14 14:05:57 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 提取关键帧 & 转录音频...
+2026-05-14 14:06:14 [ERROR] [2/10 Vibe coding构建产品Demo的思路和方法] 预处理失败: Command '['ffmpeg', '-hwaccel', 'd3d11va', '-i', 'D:\\zhihu\\zhihu\\Videos\\Vibe coding构建产品Demo的思路和方法.mp4', '-vf', 'fps=1,scale=320:-1', '-q:v', '5', '-y', 'D:\\zhihu\\zhihu\\Videos\\keyframes\\Vibe coding构建产品Demo的思路和方法\\frame_%05d.jpg']' returned non-zero exit status 4294967295.
+2026-05-14 14:06:14 [INFO] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 提取关键帧 & 转录音频...
+2026-05-14 14:06:16 [ERROR] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 预处理失败: Command '['ffmpeg', '-hwaccel', 'd3d11va', '-i', 'D:\\zhihu\\zhihu\\Videos\\Wmedia_01_AI自媒体第一课【基础认知】.mp4', '-vf', 'fps=1,scale=320:-1', '-q:v', '5', '-y', 'D:\\zhihu\\zhihu\\Videos\\keyframes\\Wmedia_01_AI自媒体第一课【基础认知】\\frame_%05d.jpg']' returned non-zero exit status 4294967294.
+2026-05-14 14:06:16 [INFO] [4/10 Wmedia_02_AI自媒体第二课【爆款选题】] 提取关键帧 & 转录音频...
+2026-05-14 14:11:16 [INFO] ============================================================ 任务开始
+2026-05-14 14:11:16 [INFO] [1/10 Skill模式的解析，和agent的关系] 提取关键帧 & 转录音频...
+2026-05-14 14:12:43 [ERROR] [1/10 Skill模式的解析，和agent的关系] 预处理失败: [Errno 2] No such file or directory: 'd:\\zhihu\\zhihu\\Videos\\keyframes\\Skill模式的解析，和agent的关系\\frame_07216.jpg'
+2026-05-14 14:12:43 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 提取关键帧 & 转录音频...
+2026-05-14 14:15:10 [ERROR] [2/10 Vibe coding构建产品Demo的思路和方法] 预处理失败: No module named 'faster_whisper'
+2026-05-14 14:15:10 [INFO] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 提取关键帧 & 转录音频...
+2026-05-14 14:17:53 [INFO] ============================================================ 任务开始
+2026-05-14 14:17:54 [INFO] [1/10 Skill模式的解析，和agent的关系] 提取关键帧 & 转录音频...
+2026-05-14 14:19:42 [ERROR] [1/10 Skill模式的解析，和agent的关系] 预处理失败: No module named 'faster_whisper'
+2026-05-14 14:19:42 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 提取关键帧 & 转录音频...
+2026-05-14 14:19:58 [INFO] ============================================================ 任务开始
+2026-05-14 14:19:59 [INFO] [1/10 Skill模式的解析，和agent的关系] 提取关键帧 & 转录音频...
+2026-05-14 14:22:45 [ERROR] [2/10 Vibe coding构建产品Demo的思路和方法] 预处理失败: No module named 'faster_whisper'
+2026-05-14 14:22:45 [INFO] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 提取关键帧 & 转录音频...
+2026-05-14 14:22:54 [ERROR] [1/10 Skill模式的解析，和agent的关系] 预处理失败: No module named 'faster_whisper'
+2026-05-14 14:22:54 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 提取关键帧 & 转录音频...
+2026-05-14 14:35:50 [INFO] ============================================================ 任务开始
+2026-05-14 14:40:20 [INFO] ============================================================ 任务开始
+2026-05-14 14:40:21 [INFO] [1/10 Skill模式的解析，和agent的关系] 提取关键帧 & 转录音频...
+2026-05-14 14:42:38 [ERROR] [1/10 Skill模式的解析，和agent的关系] 预处理失败: __init__(): incompatible constructor arguments. The following argument types are supported:
+    1. ctranslate2._ext.Whisper(model_path: str, device: str = 'cpu', *, device_index: Union[int, List[int]] = 0, compute_type: Union[str, Dict[str, str]] = 'default', inter_threads: int = 1, intra_threads: int = 0, max_queued_batches: int = 0, flash_attention: bool = False, tensor_parallel: bool = False, files: object = None)
+
+Invoked with: 'C:\\Users\\Admin\\.cache\\huggingface\\hub\\models--Systran--faster-whisper-small\\snapshots\\536b0662742c02347bc0e980a01041f333bce120'; kwargs: device='cpu', device_index=0, compute_type='int8', intra_threads=None, inter_threads=1, files=None
+2026-05-14 14:42:38 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 提取关键帧 & 转录音频...
+2026-05-14 14:49:17 [INFO] ============================================================ 任务开始
+2026-05-14 14:49:18 [INFO] [1/10 Skill模式的解析，和agent的关系] 提取关键帧 & 转录音频...
+2026-05-14 15:39:57 [INFO] [1/10 Skill模式的解析，和agent的关系] 预处理完成: 26 次幻灯片, 176 次标注, 374 张关键帧, 146238 字符逐字稿
+2026-05-14 15:39:57 [INFO] [1/10 Skill模式的解析，和agent的关系] 发送至 Gemini API（376 个输入块）...
+2026-05-14 15:41:55 [INFO] [1/10 Skill模式的解析，和agent的关系] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 9901 字符
+2026-05-14 15:41:55 [INFO] [1/10 Skill模式的解析，和agent的关系] 完成，已保存至: TTS_0514_Skill模式的解析，和agent的关系.md
+2026-05-14 15:41:57 [INFO]   [1/10 Skill模式的解析，和agent的关系] 已清理关键帧缓存
+2026-05-14 15:41:57 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 提取关键帧 & 转录音频...
+2026-05-14 16:35:50 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 预处理完成: 27 次幻灯片, 128 次标注, 283 张关键帧, 166787 字符逐字稿
+2026-05-14 16:35:50 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 发送至 Gemini API（285 个输入块）...
+2026-05-14 16:37:53 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 24829 字符
+2026-05-14 16:37:53 [INFO] [2/10 Vibe coding构建产品Demo的思路和方法] 完成，已保存至: TTS_0514_Vibe coding构建产品Demo的思路和方法.md
+2026-05-14 16:37:55 [INFO]   [2/10 Vibe coding构建产品Demo的思路和方法] 已清理关键帧缓存
+2026-05-14 16:37:55 [INFO] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 提取关键帧 & 转录音频...
+2026-05-14 17:02:41 [INFO] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 预处理完成: 0 次幻灯片, 80 次标注, 161 张关键帧, 76431 字符逐字稿
+2026-05-14 17:02:41 [INFO] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 发送至 Gemini API（163 个输入块）...
+2026-05-14 17:04:25 [INFO] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 19232 字符
+2026-05-14 17:04:25 [INFO] [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 完成，已保存至: TTS_0514_Wmedia_01_AI自媒体第一课【基础认知】.md
+2026-05-14 17:04:26 [INFO]   [3/10 Wmedia_01_AI自媒体第一课【基础认知】] 已清理关键帧缓存
+2026-05-14 17:04:26 [INFO] [4/10 Wmedia_02_AI自媒体第二课【爆款选题】] 提取关键帧 & 转录音频...
+2026-05-14 17:41:00 [INFO] [4/10 Wmedia_02_AI自媒体第二课【爆款选题】] 预处理完成: 2 次幻灯片, 189 次标注, 381 张关键帧, 122339 字符逐字稿
+2026-05-14 17:41:00 [INFO] [4/10 Wmedia_02_AI自媒体第二课【爆款选题】] 发送至 Gemini API（383 个输入块）...
+2026-05-14 17:42:44 [INFO] [4/10 Wmedia_02_AI自媒体第二课【爆款选题】] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 28068 字符
+2026-05-14 17:42:44 [INFO] [4/10 Wmedia_02_AI自媒体第二课【爆款选题】] 完成，已保存至: TTS_0514_Wmedia_02_AI自媒体第二课【爆款选题】.md
+2026-05-14 17:42:45 [INFO]   [4/10 Wmedia_02_AI自媒体第二课【爆款选题】] 已清理关键帧缓存
+2026-05-14 17:42:45 [INFO] [5/10 Wmedia_03_AI自媒体第三课【爆款借鉴二创】] 提取关键帧 & 转录音频...
+2026-05-14 18:15:48 [INFO] [5/10 Wmedia_03_AI自媒体第三课【爆款借鉴二创】] 预处理完成: 0 次幻灯片, 142 次标注, 285 张关键帧, 110634 字符逐字稿
+2026-05-14 18:15:48 [INFO] [5/10 Wmedia_03_AI自媒体第三课【爆款借鉴二创】] 发送至 Gemini API（287 个输入块）...
+2026-05-14 18:17:04 [INFO] [5/10 Wmedia_03_AI自媒体第三课【爆款借鉴二创】] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 14055 字符
+2026-05-14 18:17:04 [INFO] [5/10 Wmedia_03_AI自媒体第三课【爆款借鉴二创】] 完成，已保存至: TTS_0514_Wmedia_03_AI自媒体第三课【爆款借鉴二创】.md
+2026-05-14 18:17:05 [INFO]   [5/10 Wmedia_03_AI自媒体第三课【爆款借鉴二创】] 已清理关键帧缓存
+2026-05-14 18:17:05 [INFO] [6/10 Wmedia_04_AI自媒体第四课【AI分镜】] 提取关键帧 & 转录音频...
+2026-05-14 18:50:50 [INFO] [6/10 Wmedia_04_AI自媒体第四课【AI分镜】] 预处理完成: 4 次幻灯片, 179 次标注, 362 张关键帧, 110691 字符逐字稿
+2026-05-14 18:50:50 [INFO] [6/10 Wmedia_04_AI自媒体第四课【AI分镜】] 发送至 Gemini API（364 个输入块）...
+2026-05-14 18:52:30 [INFO] [6/10 Wmedia_04_AI自媒体第四课【AI分镜】] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 25665 字符
+2026-05-14 18:52:30 [INFO] [6/10 Wmedia_04_AI自媒体第四课【AI分镜】] 完成，已保存至: TTS_0514_Wmedia_04_AI自媒体第四课【AI分镜】.md
+2026-05-14 18:52:31 [INFO]   [6/10 Wmedia_04_AI自媒体第四课【AI分镜】] 已清理关键帧缓存
+2026-05-14 18:52:31 [INFO] [7/10 Wmedia_05_AI自媒体第五课【平台适配】] 提取关键帧 & 转录音频...
+2026-05-14 19:26:12 [INFO] [7/10 Wmedia_05_AI自媒体第五课【平台适配】] 预处理完成: 0 次幻灯片, 187 次标注, 375 张关键帧, 103819 字符逐字稿
+2026-05-14 19:26:13 [INFO] [7/10 Wmedia_05_AI自媒体第五课【平台适配】] 发送至 Gemini API（377 个输入块）...
+2026-05-14 19:27:37 [INFO] [7/10 Wmedia_05_AI自媒体第五课【平台适配】] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 23732 字符
+2026-05-14 19:27:37 [INFO] [7/10 Wmedia_05_AI自媒体第五课【平台适配】] 完成，已保存至: TTS_0514_Wmedia_05_AI自媒体第五课【平台适配】.md
+2026-05-14 19:27:38 [INFO]   [7/10 Wmedia_05_AI自媒体第五课【平台适配】] 已清理关键帧缓存
+2026-05-14 19:27:38 [INFO] [8/10 Wmedia_06_AI自媒体 第六课【运营助手】] 提取关键帧 & 转录音频...
+2026-05-14 19:44:02 [INFO] [8/10 Wmedia_06_AI自媒体 第六课【运营助手】] 预处理完成: 6 次幻灯片, 73 次标注, 150 张关键帧, 52014 字符逐字稿
+2026-05-14 19:44:02 [INFO] [8/10 Wmedia_06_AI自媒体 第六课【运营助手】] 发送至 Gemini API（152 个输入块）...
+2026-05-14 19:45:23 [INFO] [8/10 Wmedia_06_AI自媒体 第六课【运营助手】] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 16720 字符
+2026-05-14 19:45:23 [INFO] [8/10 Wmedia_06_AI自媒体 第六课【运营助手】] 完成，已保存至: TTS_0514_Wmedia_06_AI自媒体 第六课【运营助手】.md
+2026-05-14 19:45:24 [INFO]   [8/10 Wmedia_06_AI自媒体 第六课【运营助手】] 已清理关键帧缓存
+2026-05-14 19:45:24 [INFO] [9/10 Wmedia_07_AI自媒体第七课【数据复盘】] 提取关键帧 & 转录音频...
+2026-05-14 20:16:55 [INFO] [9/10 Wmedia_07_AI自媒体第七课【数据复盘】] 预处理完成: 0 次幻灯片, 113 次标注, 227 张关键帧, 93705 字符逐字稿
+2026-05-14 20:16:55 [INFO] [9/10 Wmedia_07_AI自媒体第七课【数据复盘】] 发送至 Gemini API（229 个输入块）...
+2026-05-14 20:18:05 [INFO] [9/10 Wmedia_07_AI自媒体第七课【数据复盘】] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 16924 字符
+2026-05-14 20:18:05 [INFO] [9/10 Wmedia_07_AI自媒体第七课【数据复盘】] 完成，已保存至: TTS_0514_Wmedia_07_AI自媒体第七课【数据复盘】.md
+2026-05-14 20:18:05 [INFO]   [9/10 Wmedia_07_AI自媒体第七课【数据复盘】] 已清理关键帧缓存
+2026-05-14 20:18:05 [INFO] [10/10 Wmedia_08_AI自媒体第八课【虚拟人】] 提取关键帧 & 转录音频...
+2026-05-14 20:56:02 [INFO] [10/10 Wmedia_08_AI自媒体第八课【虚拟人】] 预处理完成: 5 次幻灯片, 106 次标注, 218 张关键帧, 103708 字符逐字稿
+2026-05-14 20:56:02 [INFO] [10/10 Wmedia_08_AI自媒体第八课【虚拟人】] 发送至 Gemini API（220 个输入块）...
+2026-05-14 20:57:37 [INFO] [10/10 Wmedia_08_AI自媒体第八课【虚拟人】] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 21124 字符
+2026-05-14 20:57:37 [INFO] [10/10 Wmedia_08_AI自媒体第八课【虚拟人】] 完成，已保存至: TTS_0514_Wmedia_08_AI自媒体第八课【虚拟人】.md
+2026-05-14 20:57:38 [INFO]   [10/10 Wmedia_08_AI自媒体第八课【虚拟人】] 已清理关键帧缓存
+2026-05-14 23:56:15 [INFO] ============================================================ 任务开始
+2026-05-14 23:56:15 [INFO]   ⚠ Skill模式的解析，和agent的关系 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Vibe coding构建产品Demo的思路和方法 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Wmedia_01_AI自媒体第一课【基础认知】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Wmedia_02_AI自媒体第二课【爆款选题】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Wmedia_03_AI自媒体第三课【爆款借鉴二创】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Wmedia_04_AI自媒体第四课【AI分镜】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Wmedia_05_AI自媒体第五课【平台适配】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Wmedia_06_AI自媒体 第六课【运营助手】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Wmedia_07_AI自媒体第七课【数据复盘】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO]   ⚠ Wmedia_08_AI自媒体第八课【虚拟人】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:56:15 [INFO] [1/10 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] 提取关键帧 & 转录音频...
+2026-05-14 23:58:38 [INFO] ============================================================ 任务开始
+2026-05-14 23:58:38 [INFO]   ⚠ Skill模式的解析，和agent的关系 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Vibe coding构建产品Demo的思路和方法 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Wmedia_01_AI自媒体第一课【基础认知】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Wmedia_02_AI自媒体第二课【爆款选题】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Wmedia_03_AI自媒体第三课【爆款借鉴二创】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Wmedia_04_AI自媒体第四课【AI分镜】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Wmedia_05_AI自媒体第五课【平台适配】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Wmedia_06_AI自媒体 第六课【运营助手】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Wmedia_07_AI自媒体第七课【数据复盘】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO]   ⚠ Wmedia_08_AI自媒体第八课【虚拟人】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-14 23:58:38 [INFO] [1/10 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] 提取关键帧 & 转录音频...
+2026-05-15 00:00:58 [INFO] ============================================================ 任务开始
+2026-05-15 00:00:58 [INFO]   ⚠ Skill模式的解析，和agent的关系 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Vibe coding构建产品Demo的思路和方法 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Wmedia_01_AI自媒体第一课【基础认知】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Wmedia_02_AI自媒体第二课【爆款选题】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Wmedia_03_AI自媒体第三课【爆款借鉴二创】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Wmedia_04_AI自媒体第四课【AI分镜】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Wmedia_05_AI自媒体第五课【平台适配】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Wmedia_06_AI自媒体 第六课【运营助手】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Wmedia_07_AI自媒体第七课【数据复盘】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO]   ⚠ Wmedia_08_AI自媒体第八课【虚拟人】 标记完成但 .md 文件缺失（可能被人为删除），重新处理
+2026-05-15 00:00:58 [INFO] [1/20 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] 提取关键帧 & 转录音频...
+2026-05-15 00:02:06 [INFO] ============================================================ 任务开始
+2026-05-15 00:02:06 [INFO] [1/20 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] 提取关键帧 & 转录音频...
+2026-05-15 00:39:27 [INFO] [1/20 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] 预处理完成: 36 次幻灯片, 69 次标注, 171 张关键帧, 121318 字符逐字稿
+2026-05-15 00:39:27 [INFO] [1/20 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] 发送至 Gemini API（173 个输入块）...
+2026-05-15 00:40:58 [INFO] [1/20 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 22080 字符
+2026-05-15 00:40:58 [INFO] [1/20 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] 完成，已保存至: TTS_0515_AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑.md
+2026-05-15 00:40:59 [INFO]   [1/20 AI编程_01_【曹荣禹】深度挖掘通义灵码的能力与内在逻辑] 已清理关键帧缓存
+2026-05-15 00:40:59 [INFO] [2/20 AI编程_02_【何少甫】网易 CodeWave 智能开发平] 提取关键帧 & 转录音频...
+2026-05-15 01:14:37 [INFO] [2/20 AI编程_02_【何少甫】网易 CodeWave 智能开发平] 预处理完成: 28 次幻灯片, 117 次标注, 258 张关键帧, 83011 字符逐字稿
+2026-05-15 01:14:37 [INFO] [2/20 AI编程_02_【何少甫】网易 CodeWave 智能开发平] 发送至 Gemini API（260 个输入块）...
+2026-05-15 01:18:52 [INFO] [2/20 AI编程_02_【何少甫】网易 CodeWave 智能开发平] ⚠ 输出可能被截断 (finish_reason=FinishReason.MAX_TOKENS)，输出 261455 字符
+2026-05-15 01:18:52 [INFO] [2/20 AI编程_02_【何少甫】网易 CodeWave 智能开发平] 完成，已保存至: TTS_0515_AI编程_02_【何少甫】网易 CodeWave 智能开发平台的 AI 实践.md
+2026-05-15 01:18:53 [INFO]   [2/20 AI编程_02_【何少甫】网易 CodeWave 智能开发平] 已清理关键帧缓存
+2026-05-15 01:18:53 [INFO] [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] 提取关键帧 & 转录音频...
+2026-05-15 02:01:30 [INFO] [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] 预处理完成: 48 次幻灯片, 181 次标注, 393 张关键帧, 130562 字符逐字稿
+2026-05-15 02:01:30 [INFO] [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] 发送至 Gemini API（395 个输入块）...
+2026-05-15 02:03:01 [ERROR] [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] 失败
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\zhihu\zhihu\zhihuTTS.py", line 220, in process_video
+    response = client.models.generate_content(
+        model=GEMINI_MODEL,
+        contents=parts,
+        config={"temperature": 0.1},
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 6405, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 4841, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1609, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1402, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1378, in _request_once
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr]
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-05-15 02:03:01 [INFO] [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] 失败: Server disconnected without sending a response.
+2026-05-15 02:04:06 [INFO] [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] 发送至 Gemini API（395 个输入块）...
+2026-05-15 02:05:50 [INFO] [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 27779 字符
+2026-05-15 02:05:50 [INFO] [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] 完成，已保存至: TTS_0515_AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技术与应用.md
+2026-05-15 02:05:51 [INFO]   [3/20 AutoGPT_01_【丛鑫、卢雅西】XAgent 原理、技] 已清理关键帧缓存
+2026-05-15 02:05:51 [INFO] [4/20 AutoGPT_02_【林义章】MetaGPT 让每个人拥有] 提取关键帧 & 转录音频...
+2026-05-15 02:36:30 [INFO] [4/20 AutoGPT_02_【林义章】MetaGPT 让每个人拥有] 预处理完成: 52 次幻灯片, 227 次标注, 494 张关键帧, 79706 字符逐字稿
+2026-05-15 02:36:30 [INFO] [4/20 AutoGPT_02_【林义章】MetaGPT 让每个人拥有] 发送至 Gemini API（496 个输入块）...
+2026-05-15 02:38:24 [INFO] [4/20 AutoGPT_02_【林义章】MetaGPT 让每个人拥有] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 19143 字符
+2026-05-15 02:38:24 [INFO] [4/20 AutoGPT_02_【林义章】MetaGPT 让每个人拥有] 完成，已保存至: TTS_0515_AutoGPT_02_【林义章】MetaGPT 让每个人拥有专属智能体.md
+2026-05-15 02:38:26 [INFO]   [4/20 AutoGPT_02_【林义章】MetaGPT 让每个人拥有] 已清理关键帧缓存
+2026-05-15 02:38:26 [INFO] [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] 提取关键帧 & 转录音频...
+2026-05-15 03:23:28 [INFO] [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] 预处理完成: 24 次幻灯片, 130 次标注, 284 张关键帧, 154614 字符逐字稿
+2026-05-15 03:23:28 [INFO] [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] 发送至 Gemini API（286 个输入块）...
+2026-05-15 03:25:06 [ERROR] [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] 失败
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\zhihu\zhihu\zhihuTTS.py", line 220, in process_video
+    response = client.models.generate_content(
+        model=GEMINI_MODEL,
+        contents=parts,
+        config={"temperature": 0.1},
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 6405, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 4841, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1609, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1402, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1378, in _request_once
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr]
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-05-15 03:25:06 [INFO] [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] 失败: Server disconnected without sending a response.
+2026-05-15 03:26:11 [INFO] [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] 发送至 Gemini API（286 个输入块）...
+2026-05-15 03:27:33 [INFO] [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 15560 字符
+2026-05-15 03:27:33 [INFO] [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] 完成，已保存至: TTS_0515_AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来帮你涉过“无AI”的海？.md
+2026-05-15 03:27:34 [INFO]   [5/20 AutoGPT_03_【任晶磊】工作流 vs. 智能体，谁来] 已清理关键帧缓存
+2026-05-15 03:27:34 [INFO] [6/20 AutoGPT_04_【常高伟】深入剖析MCP、A2A、AN] 提取关键帧 & 转录音频...
+2026-05-15 04:13:37 [INFO] [6/20 AutoGPT_04_【常高伟】深入剖析MCP、A2A、AN] 预处理完成: 10 次幻灯片, 91 次标注, 193 张关键帧, 131339 字符逐字稿
+2026-05-15 04:13:37 [INFO] [6/20 AutoGPT_04_【常高伟】深入剖析MCP、A2A、AN] 发送至 Gemini API（195 个输入块）...
+2026-05-15 04:15:13 [INFO] [6/20 AutoGPT_04_【常高伟】深入剖析MCP、A2A、AN] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 27392 字符
+2026-05-15 04:15:13 [INFO] [6/20 AutoGPT_04_【常高伟】深入剖析MCP、A2A、AN] 完成，已保存至: TTS_0515_AutoGPT_04_【常高伟】深入剖析MCP、A2A、ANP：智能体互联网的黎明之前.md
+2026-05-15 04:15:15 [INFO]   [6/20 AutoGPT_04_【常高伟】深入剖析MCP、A2A、AN] 已清理关键帧缓存
+2026-05-15 04:15:15 [INFO] [7/20 FineTuning_01_【张轩玮】我是如何训练百亿参数大] 提取关键帧 & 转录音频...
+2026-05-15 04:59:12 [INFO] [7/20 FineTuning_01_【张轩玮】我是如何训练百亿参数大] 预处理完成: 8 次幻灯片, 131 次标注, 268 张关键帧, 141019 字符逐字稿
+2026-05-15 04:59:12 [INFO] [7/20 FineTuning_01_【张轩玮】我是如何训练百亿参数大] 发送至 Gemini API（270 个输入块）...
+2026-05-15 05:00:52 [INFO] [7/20 FineTuning_01_【张轩玮】我是如何训练百亿参数大] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 32432 字符
+2026-05-15 05:00:52 [INFO] [7/20 FineTuning_01_【张轩玮】我是如何训练百亿参数大] 完成，已保存至: TTS_0515_FineTuning_01_【张轩玮】我是如何训练百亿参数大模型 ChatYuan 的.md
+2026-05-15 05:00:53 [INFO]   [7/20 FineTuning_01_【张轩玮】我是如何训练百亿参数大] 已清理关键帧缓存
+2026-05-15 05:00:53 [INFO] [8/20 FineTuning_02_【施兴】如何用 Stable D] 提取关键帧 & 转录音频...
+2026-05-15 05:33:11 [INFO] [8/20 FineTuning_02_【施兴】如何用 Stable D] 预处理完成: 124 次幻灯片, 405 次标注, 904 张关键帧, 101577 字符逐字稿
+2026-05-15 05:33:11 [INFO] [8/20 FineTuning_02_【施兴】如何用 Stable D] 发送至 Gemini API（906 个输入块）...
+2026-05-15 05:35:01 [ERROR] [8/20 FineTuning_02_【施兴】如何用 Stable D] 失败
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\zhihu\zhihu\zhihuTTS.py", line 220, in process_video
+    response = client.models.generate_content(
+        model=GEMINI_MODEL,
+        contents=parts,
+        config={"temperature": 0.1},
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 6405, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 4841, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1609, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1402, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1378, in _request_once
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr]
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-05-15 05:35:01 [INFO] [8/20 FineTuning_02_【施兴】如何用 Stable D] 失败: Server disconnected without sending a response.
+2026-05-15 05:36:06 [INFO] [8/20 FineTuning_02_【施兴】如何用 Stable D] 发送至 Gemini API（906 个输入块）...
+2026-05-15 05:37:42 [INFO] [8/20 FineTuning_02_【施兴】如何用 Stable D] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 13271 字符
+2026-05-15 05:37:42 [INFO] [8/20 FineTuning_02_【施兴】如何用 Stable D] 完成，已保存至: TTS_0515_FineTuning_02_【施兴】如何用 Stable Diffusion 复现一个妙鸭.md
+2026-05-15 05:37:43 [INFO]   [8/20 FineTuning_02_【施兴】如何用 Stable D] 已清理关键帧缓存
+2026-05-15 05:37:43 [INFO] [9/20 FineTuning_03_【甘如饴】多模态大模型和代码大模] 提取关键帧 & 转录音频...
+2026-05-15 06:16:08 [INFO] [9/20 FineTuning_03_【甘如饴】多模态大模型和代码大模] 预处理完成: 6 次幻灯片, 51 次标注, 105 张关键帧, 129696 字符逐字稿
+2026-05-15 06:16:08 [INFO] [9/20 FineTuning_03_【甘如饴】多模态大模型和代码大模] 发送至 Gemini API（107 个输入块）...
+2026-05-15 06:17:28 [INFO] [9/20 FineTuning_03_【甘如饴】多模态大模型和代码大模] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 18358 字符
+2026-05-15 06:17:28 [INFO] [9/20 FineTuning_03_【甘如饴】多模态大模型和代码大模] 完成，已保存至: TTS_0515_FineTuning_03_【甘如饴】多模态大模型和代码大模型是怎样炼成的.md
+2026-05-15 06:17:30 [INFO]   [9/20 FineTuning_03_【甘如饴】多模态大模型和代码大模] 已清理关键帧缓存
+2026-05-15 06:17:30 [INFO] [10/20 FineTuning_04_【神秘嘉宾】大模型时代的AI产品] 提取关键帧 & 转录音频...
+2026-05-15 07:08:18 [INFO] [10/20 FineTuning_04_【神秘嘉宾】大模型时代的AI产品] 预处理完成: 2 次幻灯片, 59 次标注, 121 张关键帧, 165042 字符逐字稿
+2026-05-15 07:08:18 [INFO] [10/20 FineTuning_04_【神秘嘉宾】大模型时代的AI产品] 发送至 Gemini API（123 个输入块）...
+2026-05-15 07:09:57 [INFO] [10/20 FineTuning_04_【神秘嘉宾】大模型时代的AI产品] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 20261 字符
+2026-05-15 07:09:57 [INFO] [10/20 FineTuning_04_【神秘嘉宾】大模型时代的AI产品] 完成，已保存至: TTS_0515_FineTuning_04_【神秘嘉宾】大模型时代的AI产品新挑战.md
+2026-05-15 07:09:58 [INFO]   [10/20 FineTuning_04_【神秘嘉宾】大模型时代的AI产品] 已清理关键帧缓存
+2026-05-15 07:09:58 [INFO] [11/20 FineTuning_05_可乐_百度智能云千帆行业实战_金] 提取关键帧 & 转录音频...
+2026-05-15 07:42:32 [INFO] [11/20 FineTuning_05_可乐_百度智能云千帆行业实战_金] 预处理完成: 10 次幻灯片, 177 次标注, 364 张关键帧, 114914 字符逐字稿
+2026-05-15 07:42:32 [INFO] [11/20 FineTuning_05_可乐_百度智能云千帆行业实战_金] 发送至 Gemini API（366 个输入块）...
+2026-05-15 07:44:52 [INFO] [11/20 FineTuning_05_可乐_百度智能云千帆行业实战_金] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 27922 字符
+2026-05-15 07:44:52 [INFO] [11/20 FineTuning_05_可乐_百度智能云千帆行业实战_金] 完成，已保存至: TTS_0515_FineTuning_05_可乐_百度智能云千帆行业实战_金融大模型应用探索与开发实践.md
+2026-05-15 07:44:54 [INFO]   [11/20 FineTuning_05_可乐_百度智能云千帆行业实战_金] 已清理关键帧缓存
+2026-05-15 07:44:54 [INFO] [12/20 FineTuning_06_【麒汀】阿里云百炼之一站式模型微] 提取关键帧 & 转录音频...
+2026-05-15 08:24:51 [INFO] [12/20 FineTuning_06_【麒汀】阿里云百炼之一站式模型微] 预处理完成: 12 次幻灯片, 112 次标注, 232 张关键帧, 118995 字符逐字稿
+2026-05-15 08:24:51 [INFO] [12/20 FineTuning_06_【麒汀】阿里云百炼之一站式模型微] 发送至 Gemini API（234 个输入块）...
+2026-05-15 08:26:04 [INFO] [12/20 FineTuning_06_【麒汀】阿里云百炼之一站式模型微] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 24242 字符
+2026-05-15 08:26:04 [INFO] [12/20 FineTuning_06_【麒汀】阿里云百炼之一站式模型微] 完成，已保存至: TTS_0515_FineTuning_06_【麒汀】阿里云百炼之一站式模型微调训练实践.md
+2026-05-15 08:26:06 [INFO]   [12/20 FineTuning_06_【麒汀】阿里云百炼之一站式模型微] 已清理关键帧缓存
+2026-05-15 08:26:06 [INFO] [13/20 FineTuning_07_【罗璇】从RWKV看端侧大模型的] 提取关键帧 & 转录音频...
+2026-05-15 09:04:16 [INFO] [13/20 FineTuning_07_【罗璇】从RWKV看端侧大模型的] 预处理完成: 12 次幻灯片, 104 次标注, 220 张关键帧, 90927 字符逐字稿
+2026-05-15 09:04:16 [INFO] [13/20 FineTuning_07_【罗璇】从RWKV看端侧大模型的] 发送至 Gemini API（222 个输入块）...
+2026-05-15 09:06:07 [INFO] [13/20 FineTuning_07_【罗璇】从RWKV看端侧大模型的] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 28434 字符
+2026-05-15 09:06:07 [INFO] [13/20 FineTuning_07_【罗璇】从RWKV看端侧大模型的] 完成，已保存至: TTS_0515_FineTuning_07_【罗璇】从RWKV看端侧大模型的发展.md
+2026-05-15 09:06:08 [INFO]   [13/20 FineTuning_07_【罗璇】从RWKV看端侧大模型的] 已清理关键帧缓存
+2026-05-15 09:06:08 [INFO] [14/20 LangChain_01_【薛宏伟】LangChain 核心] 提取关键帧 & 转录音频...
+2026-05-15 09:56:08 [INFO] [14/20 LangChain_01_【薛宏伟】LangChain 核心] 预处理完成: 39 次幻灯片, 520 次标注, 1062 张关键帧, 114268 字符逐字稿
+2026-05-15 09:56:08 [INFO] [14/20 LangChain_01_【薛宏伟】LangChain 核心] 发送至 Gemini API（1064 个输入块）...
+2026-05-15 10:00:18 [INFO] [14/20 LangChain_01_【薛宏伟】LangChain 核心] ⚠ 输出可能被截断 (finish_reason=FinishReason.MAX_TOKENS)，输出 169694 字符
+2026-05-15 10:00:18 [INFO] [14/20 LangChain_01_【薛宏伟】LangChain 核心] 完成，已保存至: TTS_0515_LangChain_01_【薛宏伟】LangChain 核心源码解读.md
+2026-05-15 10:00:20 [INFO]   [14/20 LangChain_01_【薛宏伟】LangChain 核心] 已清理关键帧缓存
+2026-05-15 10:00:20 [INFO] [15/20 RAG_01_【翼飞】阿里云百炼之RAG在企业场景的应用] 提取关键帧 & 转录音频...
+2026-05-15 10:43:23 [INFO] [15/20 RAG_01_【翼飞】阿里云百炼之RAG在企业场景的应用] 预处理完成: 9 次幻灯片, 60 次标注, 127 张关键帧, 71864 字符逐字稿
+2026-05-15 10:43:23 [INFO] [15/20 RAG_01_【翼飞】阿里云百炼之RAG在企业场景的应用] 发送至 Gemini API（129 个输入块）...
+2026-05-15 10:45:06 [INFO] [15/20 RAG_01_【翼飞】阿里云百炼之RAG在企业场景的应用] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 25073 字符
+2026-05-15 10:45:06 [INFO] [15/20 RAG_01_【翼飞】阿里云百炼之RAG在企业场景的应用] 完成，已保存至: TTS_0515_RAG_01_【翼飞】阿里云百炼之RAG在企业场景的应用.md
+2026-05-15 10:45:07 [INFO]   [15/20 RAG_01_【翼飞】阿里云百炼之RAG在企业场景的应用] 已清理关键帧缓存
+2026-05-15 10:45:07 [INFO] [16/20 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 提取关键帧 & 转录音频...
+2026-05-15 11:27:09 [INFO] [16/20 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 预处理完成: 29 次幻灯片, 95 次标注, 215 张关键帧, 135079 字符逐字稿
+2026-05-15 11:27:09 [INFO] [16/20 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 发送至 Gemini API（217 个输入块）...
+2026-05-15 11:28:05 [INFO] [16/20 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 触发限流（429），64s 后重试...
+2026-05-15 11:29:09 [INFO] [16/20 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 发送至 Gemini API（217 个输入块）...
+2026-05-15 11:32:47 [INFO] [16/20 RAG_02_【刘海峰】ChatU.ai 企业落地经验] ⚠ 输出可能被截断 (finish_reason=FinishReason.MAX_TOKENS)，输出 4479 字符
+2026-05-15 11:32:47 [INFO] [16/20 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 完成，已保存至: TTS_0515_RAG_02_【刘海峰】ChatU.ai 企业落地经验.md
+2026-05-15 11:32:49 [INFO]   [16/20 RAG_02_【刘海峰】ChatU.ai 企业落地经验] 已清理关键帧缓存
+2026-05-15 11:32:49 [INFO] [17/20 RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地] 提取关键帧 & 转录音频...
+2026-05-15 12:21:49 [INFO] [17/20 RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地] 预处理完成: 6 次幻灯片, 52 次标注, 110 张关键帧, 157841 字符逐字稿
+2026-05-15 12:21:49 [INFO] [17/20 RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地] 发送至 Gemini API（112 个输入块）...
+2026-05-15 12:23:02 [INFO] [17/20 RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地] ⚠ 输出可能被截断 (finish_reason=FinishReason.STOP)，输出 21197 字符
+2026-05-15 12:23:02 [INFO] [17/20 RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地] 完成，已保存至: TTS_0515_RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地.md
+2026-05-15 12:23:03 [INFO]   [17/20 RAG_03_【谢佳雨】对话式BI在金融和工业场景的落地] 已清理关键帧缓存
+2026-05-15 12:23:03 [INFO] [18/20 RAG_04_【盛茂家】火山引擎 VikingDB 向量数据] 提取关键帧 & 转录音频...
