@@ -1,0 +1,53 @@
+# Stream URL Validation
+
+- Created: `2026-05-16T20:11:31`
+- URL host: `vdn3.vzuu.com`
+- Source duration: `02:42:53`
+- Source size: `309342920` bytes
+- Slice start: `00:10:00`
+- Slice duration: `00:01:00`
+- Slice file: `/Users/caojiapeng/projects/zhihu/Videos/.stream/zhihu-agent-stream-smoke.mp4`
+- Slice size: `2053236` bytes
+
+## Processing
+
+- Keyframe events: `0`
+- Kept frames: `1`
+- Backend: `cpu`
+- Transcribe duration: `20.31` seconds
+- Transcript segments: `24`
+- Transcript chars: `800`
+
+## Output Files
+
+- Transcript text: `/Users/caojiapeng/projects/zhihu/runs/stream-zhihu-agent-stream-smoke-20260516-201154.transcript.txt`
+- Payload JSON: `/Users/caojiapeng/projects/zhihu/runs/stream-zhihu-agent-stream-smoke-20260516-201154.payload.json`
+
+## Transcript Preview
+
+```text
+[00:00:00 - 00:00:02] 不公平對不對
+[00:00:03 - 00:00:07] 那我收你點錢應該是很公平
+[00:00:07 - 00:00:09] 路伯克當然能用啊
+[00:00:11 - 00:00:14] 大家的邏輯今天先不講了
+[00:00:14 - 00:00:16] 今天我先講個好啊
+[00:00:16 - 00:00:18] 你當我銷售好啊
+[00:00:18 - 00:00:19] 好啊好啊來同學們
+[00:00:20 - 00:00:22] 明白什麼叫產品思維了嗎
+[00:00:22 - 00:00:24] 明白什麼叫產品思維了嗎
+[00:00:24 - 00:00:27] 這就是產品思維
+[00:00:27 - 00:00:30] 就是看到你們有痛點了
+[00:00:30 - 00:00:32] 咱們認真的講一件事
+[00:00:32 - 00:00:35] 看到你們有痛點了什麼是好的產品
+[00:00:35 - 00:00:35] 經理
+[00:00:36 - 00:00:38] 看到一群人有痛點了有需求了
+[00:00:39 - 00:00:43] 我不把這玩做出來的話我我我我心裡就變
+[00:00:43 - 00:00:44] 我就得把它做出來
+[00:00:44 - 00:00:45] 然後
+[00:00:45 - 00:00:46] 然後
+[00:00:46 - 00:00:49] 然後下了課之後自己花40分鐘搓了個
+[00:00:49 - 00:00:52] 東西出來然後內部有因為我有一些種子
+[00:00:53 - 00:00:55] 用戶然後讓他們前去拆拆完之後覺得不錯
+[00:00:56 - 00:00:58] 然後再給你們拆拆完之後我就可以去進開發了
+[00:00:58 - 00:00:59] 進完開發之後部署完
+```

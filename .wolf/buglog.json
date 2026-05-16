@@ -1,0 +1,74 @@
+[
+  {
+    "id": "bug-001",
+    "timestamp": "2026-05-15",
+    "error_message": "断点续传永远判定 .md 缺失，导致已完成视频重复处理",
+    "file": "zhihuTTS.py",
+    "root_cause": "main() 恢复循环检查 MARKDOWNS_DIR / (k + '.md')，但实际写入路径是 TTS_{MMDD}_{stem}.md（带日期前缀）。两者命名不一致，任何 done 视频回到 Videos/ 都会被误判为缺失并重新处理。",
+    "fix": "用 list(MARKDOWNS_DIR.glob(f'*{k}.md')) 替代直接路径检查，兼容历史和当前命名格式。",
+    "tags": ["progress", "resume", "filename", "api-quota", "data-loss"],
+    "related_bugs": [],
+    "occurrences": 1,
+    "last_seen": "2026-05-15"
+  },
+  {
+    "id": "bug-002",
+    "timestamp": "2026-05-15",
+    "error_message": "Gemini 自动续写质量退化：仅传入已生成文本 + '继续'，丢失原始 prompt / 转录稿 / 关键帧",
+    "file": "zhihuTTS.py",
+    "root_cause": "_call_gemini_with_retry 的续写分支用 contents=[full_text, '继续'] 调用 generate_content，Gemini 拿不到原始上下文，只能凭已生成片段推断后续章节 — 格式会漂移、内容可能脱离实际视频、token 成本线性膨胀。",
+    "fix": "改用 client.chats.create() + chat.send_message()，SDK 自动保留多轮上下文。续写就是 chat.send_message('继续')，不需要手动重传 parts。",
+    "tags": ["gemini", "continuation", "context-loss", "quality"],
+    "related_bugs": [],
+    "occurrences": 0,
+    "last_seen": "2026-05-15"
+  },
+  {
+    "id": "bug-003",
+    "timestamp": "2026-05-15",
+    "error_message": "response.candidates[0] 在安全过滤情况下会 IndexError",
+    "file": "zhihuTTS.py",
+    "root_cause": "_call_gemini_with_retry 取 response.candidates[0] 没判空数组。当 prompt 被安全过滤时 candidates 可能为空，原始异常被外层 except 吞掉，触发整轮重试（也会失败）。",
+    "fix": "引入 _first_candidate(resp) helper，candidates 空时抛 RuntimeError 并附上 prompt_feedback。",
+    "tags": ["gemini", "safety-filter", "defensive-coding"],
+    "related_bugs": ["bug-002"],
+    "occurrences": 0,
+    "last_seen": "2026-05-15"
+  },
+  {
+    "id": "bug-004",
+    "timestamp": "2026-05-15",
+    "error_message": "失败时日志写两条：一条 ERROR（带 stack）+ 一条 INFO（无 stack）",
+    "file": "zhihuTTS.py",
+    "root_cause": "except 分支先 _logger.error(..., exc_info=True) 再 tprint(...)。tprint 默认 level=info 又写一次。",
+    "fix": "拆开：用 print 写 stdout，直接 _logger.error(..., exc_info=True) 写 log。避免 tprint 双写。",
+    "tags": ["logging", "cleanup"],
+    "related_bugs": [],
+    "occurrences": 1,
+    "last_seen": "2026-05-15"
+  },
+  {
+    "id": "bug-005",
+    "timestamp": "2026-05-15",
+    "error_message": "GEMINI_BASE_URL / GEMINI_API_VERSION 环境变量疑似不生效",
+    "file": "zhihuTTS.py",
+    "root_cause": "http_options 用 dict 传 baseUrl/apiVersion（camelCase）。google-genai 的 HttpOptions 是 Pydantic 模型，字段是 snake_case（base_url/api_version）。camelCase 键大概率被忽略 → 用户以为代理生效但实际走默认 endpoint。",
+    "fix": "改用 types.HttpOptions(timeout=..., base_url=..., api_version=...) 显式构造对象。",
+    "tags": ["gemini", "config", "proxy", "silent-failure"],
+    "related_bugs": [],
+    "occurrences": 0,
+    "last_seen": "2026-05-15"
+  },
+  {
+    "id": "bug-006",
+    "timestamp": "2026-05-15",
+    "error_message": "Vulkan whisper RuntimeError 时不会回退 CPU",
+    "file": "zhihuTTS_video.py",
+    "root_cause": "transcribe_audio 只 except ImportError，但 _transcribe_vulkan 在模型下载失败时抛 RuntimeError（line 170）。WHISPER_BACKEND=auto 时该异常不被吃 → 整个转录失败而不是回退 CPU。",
+    "fix": "except (ImportError, RuntimeError) as e；非显式 vulkan 模式下打印原因并回退 CPU。",
+    "tags": ["whisper", "vulkan", "fallback"],
+    "related_bugs": [],
+    "occurrences": 0,
+    "last_seen": "2026-05-15"
+  }
+]

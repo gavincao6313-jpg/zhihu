@@ -1,0 +1,18 @@
+{
+  "session_id": "",
+  "files_read": {
+    "/Users/caojiapeng/projects/zhihu/gitnexus:/repo/zhihu/process/Main → Save_progress": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-15T05:26:09.190Z"
+    },
+    "/Users/caojiapeng/projects/zhihu/zhihuTTS.py": {
+      "count": 4,
+      "tokens": 4201,
+      "first_read": "2026-05-15T05:28:16.238Z"
+    }
+  },
+  "anatomy_hits": 0,
+  "anatomy_misses": 2,
+  "repeated_reads_warned": 3
+}
