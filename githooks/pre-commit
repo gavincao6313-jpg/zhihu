@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # zhihuTTS 角色检查 hook
-# Mac = 写代码（改 .py），Windows = 跑脚本（改 .progress.json）
+# Code Owner = 代码/依赖/hook/docs；Run Owner = 进度/结果/运行报告
 #
 # 绕过：SKIP_ROLE_CHECK=1 git commit ...
 
@@ -20,23 +20,35 @@ staged=$(git diff --cached --name-only)
 
 has_py=$(echo "$staged" | grep -c '\.py$' || true)
 has_progress=$(echo "$staged" | grep -c '\.progress\.json$' || true)
+has_code_owner_file=$(echo "$staged" | grep -Ec '(^|/)(requirements\.txt|\.gitignore|\.gitattributes|COLLABORATION\.md)$|^githooks/|^docs/' || true)
+has_large_runtime=$(echo "$staged" | grep -Ec '^Videos/.*\.mp4$|\.wav$|^Videos/keyframes/|^Videos/\.tmp/' || true)
 
-# ── Windows：禁止提交 .py ─────────────────────────────
-if [ "$IS_WINDOWS" = true ] && [ "$has_py" -gt 0 ]; then
+# ── 所有人：禁止提交大运行产物 ────────────────────────
+if [ "$has_large_runtime" -gt 0 ]; then
     echo ""
-    echo "  ❌ Windows 机器禁止提交 .py 文件"
+    echo "  ❌ 禁止提交大型运行产物"
     echo "  ─────────────────────────────────────"
-    echo "  Windows 的职责是跑脚本，代码修改在 Mac 上进行。"
+    echo "  Videos/*.mp4、*.wav、Videos/keyframes/**、Videos/.tmp/** 不应进入 Git。"
     echo "  如需例外: SKIP_ROLE_CHECK=1 git commit ..."
     exit 1
 fi
 
-# ── Mac：禁止提交 .progress.json ──────────────────────
+# ── Windows / Run Owner：禁止提交代码侧文件 ───────────
+if [ "$IS_WINDOWS" = true ] && { [ "$has_py" -gt 0 ] || [ "$has_code_owner_file" -gt 0 ]; }; then
+    echo ""
+    echo "  ❌ Run Owner 禁止提交代码侧文件"
+    echo "  ─────────────────────────────────────"
+    echo "  Windows 的职责是跑脚本、提交 .progress.json、Markdown 和 runs/*.md。"
+    echo "  如需例外: SKIP_ROLE_CHECK=1 git commit ..."
+    exit 1
+fi
+
+# ── Mac / Code Owner：禁止提交 .progress.json ─────────
 if [ "$IS_WINDOWS" = false ] && [ "$has_progress" -gt 0 ]; then
     echo ""
-    echo "  ❌ Mac 禁止修改 .progress.json"
+    echo "  ❌ Code Owner 禁止修改 .progress.json"
     echo "  ────────────────────────────────────────"
-    echo "  .progress.json 由 Windows 机器管理，Mac 只看不写。"
+    echo "  .progress.json 由 Run Owner 管理，Code Owner 只看不写。"
     echo "  如需例外: SKIP_ROLE_CHECK=1 git commit ..."
     exit 1
 fi

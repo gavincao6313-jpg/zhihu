@@ -19,6 +19,7 @@ import re
 import subprocess
 import tempfile
 import shutil
+import time
 from pathlib import Path
 
 import numpy as np
@@ -34,6 +35,7 @@ ANNOT_THRESHOLD = 0.02     # 画笔标注判定
 MERGE_WINDOW = 3           # 相邻变化事件合并窗口（单位：帧）
 FFMPEG_TIMEOUT = 7200      # ffmpeg 超时（秒），大视频可能需要更长时间
 KEYFRAMES_DIR = Path(__file__).parent / "Videos" / "keyframes"  # 关键帧输出目录
+TMP_DIR = Path(__file__).parent / "Videos" / ".tmp"
 
 
 # ── 关键帧提取 + 场景检测 ────────────────────────────
@@ -136,74 +138,135 @@ def _transcribe_cpu(wav_path: Path, model_size: str = "small",
     device = os.environ.get("WHISPER_DEVICE", "cpu")
     cpu_threads = int(os.environ.get("WHISPER_CPU_THREADS", "0"))
     num_workers = int(os.environ.get("WHISPER_CPU_WORKERS", "4"))
-    print(f"  [CPU] 加载 Whisper {model_size} (threads={cpu_threads or 'auto'}, workers={num_workers})...")
+    beam_size = int(os.environ.get("WHISPER_BEAM_SIZE", "1"))
+    word_timestamps = os.environ.get("WHISPER_WORD_TIMESTAMPS", "0") == "1"
+    print(
+        f"  [CPU] 加载 Whisper {model_size} "
+        f"(threads={cpu_threads or 'auto'}, workers={num_workers}, "
+        f"beam={beam_size}, word_ts={int(word_timestamps)})..."
+    )
     model = WhisperModel(model_size, device=device,
                          compute_type="int8", cpu_threads=cpu_threads,
                          num_workers=num_workers)
     segments, info = model.transcribe(str(wav_path), language=language,
-                                       beam_size=5, word_timestamps=True)
+                                       beam_size=beam_size,
+                                       word_timestamps=word_timestamps)
     print(f"  [CPU] 检测到语言: {info.language} (概率 {info.language_probability:.2f})")
-    return _collect_segments(segments)
+    return _collect_segments(segments, include_words=word_timestamps)
 
 
-def _transcribe_vulkan(wav_path: Path, model_size: str = "small",
-                        language: str = "zh") -> dict:
-    """用 whisper-cpp-python（Vulkan / AMD GPU）转写音频。"""
+def _timestamp_to_seconds(value) -> float:
+    """解析 whisper.cpp JSON 中的秒数或时间戳字符串。"""
+    if value is None:
+        return 0.0
+    if isinstance(value, (int, float)):
+        return float(value)
+
+    text = str(value).strip()
+    if not text:
+        return 0.0
+    if re.fullmatch(r"\d+(?:\.\d+)?", text):
+        return float(text)
+
+    text = text.replace(",", ".")
+    parts = text.split(":")
     try:
-        from whisper_cpp_python import Whisper
-    except ImportError:
-        raise ImportError(
-            "Vulkan 后端需要 whisper-cpp-python（带 Vulkan 编译）:\n"
-            "  CMAKE_ARGS='-DWHISPER_VULKAN=ON' pip install whisper-cpp-python\n"
-            "或回退: 设置 WHISPER_BACKEND=cpu 使用 faster-whisper"
-        )
+        if len(parts) == 3:
+            return int(parts[0]) * 3600 + int(parts[1]) * 60 + float(parts[2])
+        if len(parts) == 2:
+            return int(parts[0]) * 60 + float(parts[1])
+    except ValueError:
+        return 0.0
+    return 0.0
 
-    print(f"  [Vulkan] 加载 Whisper {model_size}...", flush=True)
-    try:
-        model = Whisper.from_pretrained(model_size)
-    except Exception as e:
-        raise RuntimeError(
-            f"[Vulkan] 模型 {model_size} 下载/加载失败: {e}\n"
-            "检查网络连接，或设置 WHISPER_BACKEND=cpu 回退 faster-whisper"
-        )
-    print(f"  [Vulkan] 转写中...", flush=True)
-    raw = model.transcribe(str(wav_path), language=language)
 
-    if isinstance(raw, dict):
-        raw_segments = raw.get("segments") or []
-    elif hasattr(raw, "segments"):
-        raw_segments = raw.segments
-    elif isinstance(raw, list):
-        raw_segments = raw
-    else:
-        raw_segments = []
-
+def _parse_whispercpp_json(data: dict) -> dict:
+    """将 whisper.cpp CLI JSON 转为当前 transcript shape。"""
+    raw_segments = data.get("segments") or data.get("transcription") or []
     segments = []
+
     for seg in raw_segments:
-        if isinstance(seg, dict):
-            segments.append({
-                "start": seg.get("start", 0.0),
-                "end": seg.get("end", 0.0),
-                "text": seg.get("text", "").strip(),
-                "words": seg.get("words", []),
-            })
-        else:
-            segments.append({
-                "start": getattr(seg, "start", 0.0),
-                "end": getattr(seg, "end", 0.0),
-                "text": getattr(seg, "text", "").strip(),
-                "words": getattr(seg, "words", []),
-            })
-    print(f"  [Vulkan] 转写完成: {len(segments)} 个片段", flush=True)
+        if not isinstance(seg, dict):
+            continue
+
+        timestamps = seg.get("timestamps") or {}
+        start = seg.get("start", timestamps.get("from"))
+        end = seg.get("end", timestamps.get("to"))
+        segments.append({
+            "start": _timestamp_to_seconds(start),
+            "end": _timestamp_to_seconds(end),
+            "text": str(seg.get("text", "")).strip(),
+            "words": [],
+        })
+
+    if not segments and data.get("text"):
+        segments.append({
+            "start": 0.0,
+            "end": 0.0,
+            "text": str(data["text"]).strip(),
+            "words": [],
+        })
+
     return {"segments": segments}
 
 
-def _collect_segments(generator) -> dict:
+def _transcribe_whispercpp_cli(wav_path: Path, model_size: str = "small",
+                               language: str = "zh") -> dict:
+    """用外部 whisper.cpp CLI 转写音频。"""
+    exe = os.environ.get("WHISPER_CPP_EXE", "").strip()
+    model = os.environ.get("WHISPER_CPP_MODEL", "").strip()
+    if not exe or not model:
+        raise RuntimeError("WHISPER_CPP_EXE 和 WHISPER_CPP_MODEL 必须同时配置")
+
+    exe_path = Path(exe)
+    model_path = Path(model)
+    if not exe_path.exists():
+        raise RuntimeError(f"WHISPER_CPP_EXE 不存在: {exe_path}")
+    if not model_path.exists():
+        raise RuntimeError(f"WHISPER_CPP_MODEL 不存在: {model_path}")
+
+    out_prefix = wav_path.with_suffix("")
+    out_json = out_prefix.with_suffix(".json")
+    out_json.unlink(missing_ok=True)
+
+    cmd = [
+        str(exe_path),
+        "-m", str(model_path),
+        "-f", str(wav_path),
+        "-l", language,
+        "-oj",
+        "-of", str(out_prefix),
+    ]
+    print(f"  [whisper.cpp] 转写中: {exe_path.name}", flush=True)
+    completed = subprocess.run(
+        cmd,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        timeout=FFMPEG_TIMEOUT,
+    )
+    if completed.returncode != 0:
+        raise RuntimeError(
+            "whisper.cpp CLI 转写失败 "
+            f"(exit={completed.returncode}): {completed.stderr.strip() or completed.stdout.strip()}"
+        )
+    if not out_json.exists():
+        raise RuntimeError(f"whisper.cpp CLI 未生成 JSON: {out_json}")
+
+    with open(out_json, "r", encoding="utf-8") as f:
+        transcript = _parse_whispercpp_json(json.load(f))
+    out_json.unlink(missing_ok=True)
+    print(f"  [whisper.cpp] 转写完成: {len(transcript['segments'])} 个片段", flush=True)
+    return transcript
+
+
+def _collect_segments(generator, include_words: bool = False) -> dict:
     """将 faster-whisper 的 segment generator 落实为 dict。"""
     segments = []
     for seg in generator:
         words = []
-        if seg.words:
+        if include_words and seg.words:
             words = [{"word": w.word, "start": w.start, "end": w.end}
                      for w in seg.words]
         segments.append({
@@ -217,8 +280,15 @@ def _collect_segments(generator) -> dict:
 def transcribe_audio(video_path: Path, model_size: str = "small",
                      language: str = "zh") -> dict:
     """转写音频，自动选择后端（WHISPER_BACKEND 环境变量）。"""
-    with tempfile.NamedTemporaryFile(suffix=".wav", prefix="zhihu_", delete=False) as f:
+    TMP_DIR.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(dir=TMP_DIR, suffix=".wav", prefix="zhihu_", delete=False) as f:
         wav_path = Path(f.name)
+    backend = os.environ.get("WHISPER_BACKEND", "auto").strip().lower()
+    if backend == "vulkan":
+        backend = "whispercpp-vulkan"
+    fallback_reason = None
+    started_at = time.monotonic()
+
     try:
         print(f"  提取音频: {video_path.name} → 16kHz mono WAV...")
         subprocess.run([
@@ -228,16 +298,35 @@ def transcribe_audio(video_path: Path, model_size: str = "small",
             "-y", str(wav_path),
         ], capture_output=True, check=True, timeout=FFMPEG_TIMEOUT)
 
-        backend = os.environ.get("WHISPER_BACKEND", "auto")
-        if backend in ("vulkan", "auto"):
-            try:
-                return _transcribe_vulkan(wav_path, model_size, language)
-            except (ImportError, RuntimeError) as e:
-                if backend == "vulkan":
-                    raise
-                print(f"  [Vulkan] 不可用 ({e})，回退到 CPU...")
+        if backend in ("auto", "whispercpp-vulkan", "whispercpp"):
+            cli_configured = bool(os.environ.get("WHISPER_CPP_EXE") and os.environ.get("WHISPER_CPP_MODEL"))
+            if backend != "auto" or cli_configured:
+                try:
+                    transcript = _transcribe_whispercpp_cli(wav_path, model_size, language)
+                    backend_used = "whispercpp-vulkan"
+                except Exception as e:
+                    if backend != "auto":
+                        raise
+                    fallback_reason = str(e)
+                    print(f"  [whisper.cpp] 不可用 ({fallback_reason})，回退到 CPU...")
+                else:
+                    transcript["backend_used"] = backend_used
+                    transcript["fallback_reason"] = fallback_reason
+                    transcript["duration_s"] = round(time.monotonic() - started_at, 2)
+                    print(f"  转写后端: {backend_used}, 用时 {transcript['duration_s']}s")
+                    return transcript
 
-        return _transcribe_cpu(wav_path, model_size, language)
+        if backend not in ("auto", "cpu", "whispercpp-vulkan", "whispercpp"):
+            raise ValueError(f"不支持的 WHISPER_BACKEND: {backend}")
+
+        transcript = _transcribe_cpu(wav_path, model_size, language)
+        transcript["backend_used"] = "cpu"
+        transcript["fallback_reason"] = fallback_reason
+        transcript["duration_s"] = round(time.monotonic() - started_at, 2)
+        print(f"  转写后端: cpu, 用时 {transcript['duration_s']}s")
+        if fallback_reason:
+            print(f"  CPU fallback reason: {fallback_reason}")
+        return transcript
     finally:
         wav_path.unlink(missing_ok=True)
 
@@ -258,6 +347,19 @@ def _fmt_ts(seconds: float) -> str:
     return f"{h:02d}:{m:02d}:{s:02d}"
 
 
+def frame_marker(frame_path: Path, events: list[dict]) -> str:
+    """生成 Gemini 图片前置元数据标记。"""
+    match = re.search(r"frame_(\d+)", frame_path.stem)
+    timestamp_s = int(match.group(1)) if match else 0
+    event = next((e for e in events if e.get("frame_idx") == timestamp_s), None)
+    if event:
+        return (
+            f"Frame [{_fmt_ts(timestamp_s)}] "
+            f"type={event.get('type', 'context')} diff={event.get('diff', 0)}"
+        )
+    return f"Frame [{_fmt_ts(timestamp_s)}] type=context diff=0"
+
+
 # ── Gemini 输入包组装 ──────────────────────────────
 
 def build_gemini_payload(video_name: str, transcript: dict,
@@ -274,7 +376,11 @@ def build_gemini_payload(video_name: str, transcript: dict,
     for fp in kept_frames:
         match = re.search(r"frame_(\d+)", fp.stem)
         ts = int(match.group(1)) if match else 0
-        frame_info.append({"path": str(fp), "timestamp_s": ts})
+        frame_info.append({
+            "path": str(fp),
+            "timestamp_s": ts,
+            "marker": frame_marker(fp, events),
+        })
 
     return {
         "video_name": video_name,

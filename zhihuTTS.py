@@ -12,12 +12,23 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
-from zhihuTTS_video import extract_keyframes, transcribe_audio, transcript_to_text, KEYFRAMES_DIR
+from zhihuTTS_video import (
+    extract_keyframes,
+    transcribe_audio,
+    transcript_to_text,
+    KEYFRAMES_DIR,
+    frame_marker,
+)
 
 VIDEOS_DIR = Path(__file__).parent / "Videos"
 MARKDOWNS_DIR = Path(__file__).parent / "Markdowns"
 PROGRESS_FILE = Path(__file__).parent / ".progress.json"
 LOG_FILE = Path(__file__).parent / "zhihuTTS.log"
+CACHE_DIR = Path(__file__).parent / "cache"
+TRANSCRIPT_CACHE_DIR = CACHE_DIR / "transcripts"
+KEYFRAME_CACHE_DIR = CACHE_DIR / "keyframes"
+PAYLOAD_CACHE_DIR = CACHE_DIR / "payloads"
+RUNS_DIR = Path(__file__).parent / "runs"
 
 MAX_RETRIES = 6
 RETRY_DELAY = 65
@@ -107,7 +118,7 @@ def _safe_text(resp):
         raise RuntimeError(f"API 响应被拦截（安全过滤）: {reason}")
 
 
-def _call_gemini_with_retry(client, parts, video_label) -> str | None:
+def _call_gemini_with_retry(client, parts, video_label) -> dict:
     """调用 Gemini API，含自动续写（MAX_TOKENS）和重试（限流/网络错误）。"""
     gemini_config = types.GenerateContentConfig(
         temperature=0.1,
@@ -115,11 +126,13 @@ def _call_gemini_with_retry(client, parts, video_label) -> str | None:
         thinking_config=types.ThinkingConfig(thinking_budget=0),
     )
 
+    gemini_calls = 0
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             tprint(f"[{video_label}] 发送至 Gemini API（{len(parts)} 个输入块）...")
             # 用 chat session 保留多轮上下文，续写时无需手动拼 contents
             chat = client.chats.create(model=GEMINI_MODEL, config=gemini_config)
+            gemini_calls += 1
             response = chat.send_message(parts)
             text = _safe_text(response)
             if not text:
@@ -133,6 +146,7 @@ def _call_gemini_with_retry(client, parts, video_label) -> str | None:
                 if candidate.finish_reason != types.FinishReason.MAX_TOKENS:
                     break
                 tprint(f"[{video_label}] 输出被截断，自动续写 (第{cont+1}次)...")
+                gemini_calls += 1
                 response = chat.send_message("继续")
                 text = _safe_text(response)
                 if not text:
@@ -148,7 +162,7 @@ def _call_gemini_with_retry(client, parts, video_label) -> str | None:
                 tprint(f"[{video_label}] ⚠ 输出可能不完整 (finish_reason={fr})，"
                        f"输出 {len(full_text)} 字符")
 
-            return full_text
+            return {"text": full_text, "gemini_calls": gemini_calls}
 
         except Exception as e:
             is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
@@ -166,7 +180,7 @@ def _call_gemini_with_retry(client, parts, video_label) -> str | None:
             else:
                 tprint(f"[{video_label}] 已达最大重试次数", level="error")
 
-    return None
+    return {"text": None, "gemini_calls": gemini_calls}
 
 
 def tprint(msg: str, level: str = "info"):
@@ -268,17 +282,145 @@ def print_status(progress: dict, videos: dict):
     print("━" * 50 + "\n")
 
 
-def process_video(client, video_path: Path, output_path: Path, video_label: str) -> bool:
+def _cache_paths(video_path: Path) -> dict[str, Path]:
+    stem = video_path.stem
+    return {
+        "transcript": TRANSCRIPT_CACHE_DIR / f"{stem}.json",
+        "keyframes": KEYFRAME_CACHE_DIR / stem,
+        "manifest": KEYFRAME_CACHE_DIR / stem / "manifest.json",
+        "payload": PAYLOAD_CACHE_DIR / f"{stem}.json",
+    }
+
+
+def _load_preprocess_cache(video_path: Path, video_label: str):
+    paths = _cache_paths(video_path)
+    if not paths["transcript"].exists() or not paths["manifest"].exists():
+        return None
+
+    try:
+        with open(paths["transcript"], "r", encoding="utf-8") as f:
+            transcript = json.load(f)
+        with open(paths["manifest"], "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        tprint(f"[{video_label}] 预处理缓存不可用: {e}")
+        return None
+
+    frames = [paths["keyframes"] / name for name in manifest.get("frames", [])]
+    if not frames or any(not p.exists() for p in frames):
+        tprint(f"[{video_label}] 关键帧缓存缺失，重新预处理")
+        return None
+
+    tprint(f"[{video_label}] 命中预处理缓存: {len(frames)} 张关键帧")
+    return manifest.get("events", []), frames, transcript
+
+
+def _save_preprocess_cache(video_path: Path, events: list[dict],
+                           kept_frames: list[Path], transcript: dict):
+    paths = _cache_paths(video_path)
+    paths["transcript"].parent.mkdir(parents=True, exist_ok=True)
+    paths["keyframes"].mkdir(parents=True, exist_ok=True)
+
+    cached_frames = []
+    for frame in kept_frames:
+        cached = paths["keyframes"] / frame.name
+        if frame.resolve() != cached.resolve():
+            shutil.copy2(frame, cached)
+        cached_frames.append(cached.name)
+
+    with open(paths["transcript"], "w", encoding="utf-8") as f:
+        json.dump(transcript, f, ensure_ascii=False, indent=2)
+    with open(paths["manifest"], "w", encoding="utf-8") as f:
+        json.dump({"events": events, "frames": cached_frames}, f, ensure_ascii=False, indent=2)
+
+
+def _save_payload_cache(video_path: Path, transcript_text: str,
+                        events: list[dict], kept_frames: list[Path]):
+    paths = _cache_paths(video_path)
+    paths["payload"].parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "video_name": video_path.stem,
+        "transcript_text": transcript_text,
+        "frames": [
+            {"path": str(fp), "marker": frame_marker(fp, events)}
+            for fp in kept_frames
+        ],
+        "events": events,
+    }
+    with open(paths["payload"], "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
+def _write_run_report(started_at: datetime, ended_at: datetime, results: list[dict],
+                      daily: dict, next_action: str):
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    report_path = RUNS_DIR / f"{started_at.date().isoformat()}.md"
+    success = sum(1 for r in results if r.get("success"))
+    failed = len(results) - success
+    disk = shutil.disk_usage(Path(__file__).parent)
+
+    lines = [
+        f"# Run Report {started_at.date().isoformat()}",
+        "",
+        f"- Start: {started_at.isoformat(timespec='seconds')}",
+        f"- End: {ended_at.isoformat(timespec='seconds')}",
+        f"- Processed videos: {len(results)}",
+        f"- Success: {success}",
+        f"- Failed: {failed}",
+        f"- Gemini calls: {sum(r.get('gemini_calls', 0) for r in results)}",
+        f"- Quota after run: {daily.get('used', 0)}/{daily.get('limit', DAILY_QUOTA_LIMIT)}",
+        f"- Disk free: {disk.free // (1024 ** 3)} GB",
+        f"- Next recommended action: {next_action}",
+        "",
+        "| Video | Success | Failed stage | Backend | Fallback | Gemini calls |",
+        "|---|---:|---|---|---|---:|",
+    ]
+    for result in results:
+        lines.append(
+            "| {video} | {success} | {stage} | {backend} | {fallback} | {calls} |".format(
+                video=result.get("video", ""),
+                success="yes" if result.get("success") else "no",
+                stage=result.get("failed_stage") or "",
+                backend=result.get("backend_used") or "",
+                fallback=(result.get("fallback_reason") or "").replace("|", "/"),
+                calls=result.get("gemini_calls", 0),
+            )
+        )
+
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    tprint(f"运行报告已保存: {report_path}")
+
+
+def process_video(client, video_path: Path, output_path: Path, video_label: str) -> dict:
     """本地预处理（帧提取+转录）+ 单次 Gemini API 调用 + 写入 Markdown。"""
+    result = {
+        "video": video_path.stem,
+        "success": False,
+        "failed_stage": None,
+        "gemini_calls": 0,
+        "backend_used": None,
+        "fallback_reason": None,
+    }
+
     # ── Phase 1: Local preprocessing ──
     try:
-        tprint(f"[{video_label}] 提取关键帧 & 转录音频...")
-        events, kept_frames = extract_keyframes(video_path)
-        transcript = transcribe_audio(video_path)
+        cached = _load_preprocess_cache(video_path, video_label)
+        if cached:
+            events, kept_frames, transcript = cached
+        else:
+            tprint(f"[{video_label}] 提取关键帧 & 转录音频...")
+            events, kept_frames = extract_keyframes(video_path)
+            transcript = transcribe_audio(video_path)
+            _save_preprocess_cache(video_path, events, kept_frames, transcript)
+
+        result["backend_used"] = transcript.get("backend_used")
+        result["fallback_reason"] = transcript.get("fallback_reason")
         transcript_text = transcript_to_text(transcript)
     except Exception as e:
         tprint(f"[{video_label}] 预处理失败: {e}", level="error")
-        return False
+        result["failed_stage"] = "preprocess"
+        return result
 
     slide_count = sum(1 for e in events if e["type"] == "slide")
     annot_count = sum(1 for e in events if e["type"] == "annotation")
@@ -287,16 +429,21 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
            f"{len(transcript_text)} 字符逐字稿")
 
     # ── Phase 2: Build Gemini input ──
+    _save_payload_cache(video_path, transcript_text, events, kept_frames)
     parts = [PROMPT_TEXT, transcript_text]
     for fp in kept_frames:
+        parts.append(frame_marker(fp, events))
         parts.append(types.Part(
             inline_data=types.Blob(mime_type="image/jpeg", data=fp.read_bytes())
         ))
 
     # ── Phase 3: Gemini API call with retry ──
-    full_text = _call_gemini_with_retry(client, parts, video_label)
+    gemini_result = _call_gemini_with_retry(client, parts, video_label)
+    full_text = gemini_result["text"]
+    result["gemini_calls"] = gemini_result["gemini_calls"]
     if full_text is None:
-        return False
+        result["failed_stage"] = "gemini"
+        return result
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
@@ -304,7 +451,8 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
         f.write(full_text)
 
     tprint(f"[{video_label}] 完成，已保存至: {output_path.name}")
-    return True
+    result["success"] = True
+    return result
 
 
 def main():
@@ -315,16 +463,6 @@ def main():
     parser.add_argument("--status", "--todo", action="store_true",
                         help="仅打印任务状态摘要（不执行处理）")
     args = parser.parse_args()
-
-    api_key = os.environ.get("OPENCLAW_GOOGLE_API_KEY")
-    if not api_key:
-        raise EnvironmentError(
-            "未找到 OPENCLAW_GOOGLE_API_KEY 环境变量。\n"
-            "请设置环境变量后再运行:\n"
-            "  macOS/Linux:  export OPENCLAW_GOOGLE_API_KEY=your_key\n"
-            "  Windows CMD:  set OPENCLAW_GOOGLE_API_KEY=your_key\n"
-            "  Windows PS:   $env:OPENCLAW_GOOGLE_API_KEY=\"your_key\""
-        )
 
     _setup_logging()
     _logger.info("=" * 60 + " 任务开始")
@@ -339,6 +477,16 @@ def main():
 
     if args.status:
         return
+
+    api_key = os.environ.get("OPENCLAW_GOOGLE_API_KEY")
+    if not api_key:
+        raise EnvironmentError(
+            "未找到 OPENCLAW_GOOGLE_API_KEY 环境变量。\n"
+            "请设置环境变量后再运行:\n"
+            "  macOS/Linux:  export OPENCLAW_GOOGLE_API_KEY=your_key\n"
+            "  Windows CMD:  set OPENCLAW_GOOGLE_API_KEY=your_key\n"
+            "  Windows PS:   $env:OPENCLAW_GOOGLE_API_KEY=\"your_key\""
+        )
 
     pending = {}
     for k, v in videos.items():
@@ -380,6 +528,8 @@ def main():
         print("  [防休眠] 跳过（当前系统不支持 caffeinate）\n")
 
     try:
+        run_started_at = datetime.now()
+        run_results = []
         base_url = os.environ.get("GEMINI_BASE_URL", "")
         http_opts = types.HttpOptions(
             timeout=3600000,
@@ -395,7 +545,9 @@ def main():
             output_path = MARKDOWNS_DIR / (f"TTS_{date_prefix}_" + video_stem + ".md")
             video_label = f"{i}/{total_batch} {video_stem[:30]}"
 
-            success = process_video(client, video_path, output_path, video_label)
+            result = process_video(client, video_path, output_path, video_label)
+            success = result["success"]
+            run_results.append(result)
 
             if success:
                 kf_dir = KEYFRAMES_DIR / video_stem
@@ -407,9 +559,15 @@ def main():
             progress["videos"][video_stem] = {
                 "status": "done" if success else "failed",
                 "processed": today,
-                "api_calls": progress["videos"].get(video_stem, {}).get("api_calls", 0) + 1,
+                "api_calls": (
+                    progress["videos"].get(video_stem, {}).get("api_calls", 0)
+                    + result.get("gemini_calls", 0)
+                ),
+                "failed_stage": result.get("failed_stage"),
+                "backend_used": result.get("backend_used"),
+                "fallback_reason": result.get("fallback_reason"),
             }
-            daily["used"] += 1
+            daily["used"] += result.get("gemini_calls", 0)
             progress["last_run"] = datetime.now().isoformat()
             save_progress(progress)
 
@@ -418,6 +576,8 @@ def main():
 
         total_done = sum(1 for v in progress["videos"].values() if v.get("status") == "done")
         total_failed = sum(1 for v in progress["videos"].values() if v.get("status") == "failed")
+        next_action = "全部完成" if total_done == len(videos) else "继续处理剩余视频或重试 failed_stage=gemini 的任务"
+        _write_run_report(run_started_at, datetime.now(), run_results, daily, next_action)
         print(f"\n本轮完成。累计成功: {total_done}，失败: {total_failed}")
 
     finally:
