@@ -1,75 +1,87 @@
 # 协作流程
 
-## 角色
+## 角色边界
 
-| 电脑 | 职责 |
-|------|------|
-| Mac | 写代码。改 `.py`、`.gitignore` 等 |
-| Windows | 跑脚本。只改 `.progress.json` |
+| 角色 | 常用机器 | 职责 | 可提交内容 |
+|---|---|---|---|
+| Code Owner | Mac | 代码、依赖、hook、架构和协作文档 | `.py`, `requirements.txt`, `.gitignore`, `.gitattributes`, `githooks/`, `docs/`, `COLLABORATION.md` |
+| Run Owner | Windows | 跑批、检查日志、提交进度和生成结果 | `.progress.json`, `Markdowns/TTS_*.md`, `runs/*.md` |
 
-## 规则
+边界按职责划分，不按机器能力划分。Windows Codex 可以分析代码问题，但代码修复应形成说明、issue 或 handoff，由 Code Owner 修改。
 
-### Mac 不动 `.progress.json`
-进度文件是 Windows 的专属文件。Mac 只看不写。
+## 开始前
 
-### Windows 不动代码
-只改 `.progress.json` 并提交。不改 `.py` 文件。
-
-## 流程
-
-### Windows 每日运行
+两边开始 Codex 会话前都应先同步仓库并阅读本文：
 
 ```bash
-git pull
+git pull --rebase
+```
+
+如果本地有未提交改动，先确认它们属于自己的职责范围，再继续。
+
+## Code Owner 规则
+
+- 不修改、不提交 `.progress.json`。
+- 可修改代码、依赖、hook、`.gitignore`、`.gitattributes`、架构文档和 runbook。
+- 修改 Python 符号前按 `AGENTS.md` 使用 GitNexus 做影响分析；提交前使用 GitNexus 检查变更影响。
+- 不提交运行时大文件或本地缓存。
+
+## Run Owner 规则
+
+- 负责运行批处理、观察日志、提交处理进度和生成 Markdown。
+- 可以提交 `.progress.json`、`Markdowns/TTS_*.md`、`runs/*.md`。
+- 不修改 `.py`、依赖文件、hook、repo 配置或架构文档。
+- 如果发现代码缺陷，提交复现信息、日志摘要或文档交接，不直接 patch 代码。
+
+## Windows 日常运行
+
+```bash
+git pull --rebase
+python zhihuTTS.py --status
 python zhihuTTS.py
-git add .progress.json
-git commit -m "progress: 更新处理进度"
+git status
+git add .progress.json Markdowns/TTS_*.md runs/*.md
+git commit -m "run: YYYY-MM-DD batch results"
 git push
 ```
 
-### Mac 日常开发
+## Mac 日常开发
 
 ```bash
-git pull   # 拉取最新进度
-# ... 改代码 ...
-git add / git commit / git push
+git pull --rebase
+# ... 修改代码/文档/hook ...
+python -m py_compile zhihuTTS.py zhihuTTS_video.py
+git status
+git add zhihuTTS.py zhihuTTS_video.py requirements.txt .gitignore COLLABORATION.md docs/ githooks/
+git commit -m "perf: add whisper.cpp CLI backend"
+git push
 ```
 
-## Windows 首次设置
-
-```bash
-git clone https://github.com/gavincao6313-jpg/zhihu.git
-cd zhihu
-pip install -r requirements.txt
-```
-
-然后把视频文件放进 `Videos/` 目录（这个目录不会被 git 跟踪），确保 `ffmpeg` 在 PATH 中，设置好环境变量：
+## 环境变量
 
 | 变量 | 说明 |
-|------|------|
-| `OPENCLAW_GOOGLE_API_KEY` | Gemini API 密钥（必填） |
-| `WHISPER_DEVICE` | `cpu` 或 `cuda`（有 NVIDIA 显卡用 cuda） |
+|---|---|
+| `OPENCLAW_GOOGLE_API_KEY` | Gemini API 密钥，运行主流程必填 |
+| `GEMINI_BASE_URL` | 可选 Gemini 代理地址 |
+| `GEMINI_API_VERSION` | 使用代理时的 API 版本，默认 `v1beta` |
+| `WHISPER_BACKEND` | `auto`, `cpu`, `whispercpp-vulkan` |
+| `WHISPER_CPP_EXE` | 外部 `whisper-cli.exe` 路径 |
+| `WHISPER_CPP_MODEL` | whisper.cpp ggml 模型路径 |
+| `WHISPER_BEAM_SIZE` | faster-whisper beam size，默认 `1` |
+| `WHISPER_WORD_TIMESTAMPS` | 是否生成词级时间戳，默认 `0` |
+| `WHISPER_CPU_THREADS` | faster-whisper CPU 线程数，默认 `0` 自动 |
+| `WHISPER_CPU_WORKERS` | faster-whisper worker 数，默认 `4` |
 
-## 冲突预防
+## Git Hook
 
-- `.progress.json` → 只有 Windows 写 → 不冲突
-- `.py` 代码文件 → 只有 Mac 写 → 不冲突
-- `.gitattributes` 已配置 LF 换行符 → 跨平台换行符统一
-
-## Git Hook 自动拦截
-
-仓库内有一个 `githooks/pre-commit` 脚本，会在 commit 时自动检查：
-
-- **Windows 提交了 `.py` 文件** → ❌ 拦截
-- **Mac 提交了 `.progress.json`** → ❌ 拦截
-
-### 激活方式（两台电脑都需要执行一次）
+仓库内 `githooks/pre-commit` 会拦截职责外提交和大运行产物。两台机器都需要执行一次：
 
 ```bash
 git config core.hooksPath githooks
 ```
 
-后续每次 `git commit` 会自动执行检查。如果确实需要例外：
+如果确实需要例外：
 
 ```bash
 SKIP_ROLE_CHECK=1 git commit ...
+```

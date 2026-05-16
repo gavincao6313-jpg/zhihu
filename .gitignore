@@ -4,8 +4,12 @@ Videos/
 # 运行日志
 *.log
 
+# 本地预处理缓存
+cache/
+
 # 进度 & 配额（.progress.json 用 git 同步）
 .progress.tmp.json
+.progress.json.tmp
 
 # macOS
 .DS_Store

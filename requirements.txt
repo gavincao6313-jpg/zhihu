@@ -2,6 +2,8 @@ google-genai>=1.0.0
 faster-whisper>=1.0.0
 numpy>=1.24.0
 Pillow>=10.0.0
-# AMD GPU (Vulkan) 加速: CMAKE_ARGS="-DWHISPER_VULKAN=ON" pip install whisper-cpp-python
-# 并设置环境变量: WHISPER_BACKEND=vulkan
-# 默认回退 faster-whisper (CPU)
+# 可选 AMD GPU/Vulkan 加速使用外部 whisper.cpp CLI，不再依赖 whisper-cpp-python:
+# WHISPER_BACKEND=whispercpp-vulkan
+# WHISPER_CPP_EXE=D:\tools\whisper.cpp\whisper-cli.exe
+# WHISPER_CPP_MODEL=D:\tools\whisper.cpp\models\ggml-small-q5_0.bin
+# 默认 WHISPER_BACKEND=auto；CLI 不可用时回退 faster-whisper (CPU)
