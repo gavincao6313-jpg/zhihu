@@ -248,6 +248,92 @@ Each report should include:
 
 `.progress.json` is for machines; `runs/*.md` is for humans and Codex handoff.
 
+## Phase 8: Update Collaboration Rules for Two-Codex Workflow
+
+Both the Mac side and the Windows side now have Codex. The collaboration model
+should move from machine-based capability assumptions to responsibility-based
+ownership.
+
+Recommended roles:
+
+| Role | Typical Machine | Responsibilities | Allowed Changes |
+|---|---|---|---|
+| Code Owner | Mac | Code changes, dependency changes, architecture changes, hooks, docs | `.py`, `requirements.txt`, `.gitignore`, `githooks/`, architecture docs |
+| Run Owner | Windows | Batch execution, environment checks, log analysis, progress/result submission | `.progress.json`, generated `Markdowns/TTS_*.md`, `runs/*.md` |
+
+The goal is not to prevent Windows Codex from being useful. The goal is to keep
+production runs and code changes from stepping on each other.
+
+Recommended `COLLABORATION.md` updates:
+
+- Replace "Mac/Windows" as the only distinction with "Code Owner / Run Owner".
+- Explicitly allow Windows / Run Owner to submit generated Markdown outputs.
+- Keep Windows / Run Owner from editing `.py`, dependency, hook, and repo config files.
+- Keep Mac / Code Owner from editing `.progress.json`.
+- Require both sides to start with `git pull --rebase` or an equivalent clean sync.
+- Require both sides to read `COLLABORATION.md` before beginning a Codex session.
+- If Windows finds a code issue, it should submit a review note, issue, or docs handoff, not patch the code directly.
+
+Recommended hook expansion:
+
+- Windows / Run Owner should be blocked from committing:
+  - `*.py`
+  - `requirements.txt`
+  - `.gitignore`
+  - `.gitattributes`
+  - `githooks/**`
+- Mac / Code Owner should be blocked from committing:
+  - `.progress.json`
+- Everyone should be blocked from committing large runtime artifacts:
+  - `Videos/*.mp4`
+  - `*.wav`
+  - `Videos/keyframes/**`
+  - `Videos/.tmp/**`
+
+Recommended commit message conventions:
+
+```text
+# Mac / Code Owner
+fix: correct Gemini continuation accounting
+perf: add whisper.cpp CLI backend
+refactor: add preprocessing cache
+docs: update collaboration rules
+
+# Windows / Run Owner
+progress: update processing state
+data: add generated Markdown for RAG_04
+run: 2026-05-16 batch report
+```
+
+## Phase 9: Add Windows Runbook
+
+Add a `RUNBOOK.md` or `docs/WINDOWS_RUNBOOK.md` for the Windows runner.
+
+It should include the normal daily workflow:
+
+```bash
+git pull --rebase
+python zhihuTTS.py --status
+python zhihuTTS.py
+git status
+git add .progress.json Markdowns/TTS_*.md runs/*.md
+git commit -m "run: YYYY-MM-DD batch results"
+git push
+```
+
+It should also include failure playbooks:
+
+- Gemini 429 / quota exhausted.
+- Gemini 503 / transient service failure.
+- C drive space shortage.
+- Vulkan CLI backend unavailable.
+- CPU fallback verification.
+- Markdown generated but `.progress.json` not updated.
+- `.progress.json` updated but Markdown missing.
+
+The runbook should make it possible for Windows Codex to continue safely without
+guessing ownership boundaries.
+
 ## Suggested Implementation Order for Mac
 
 1. Disable word timestamps by default and make beam size configurable.
@@ -259,6 +345,9 @@ Each report should include:
 7. Fix real Gemini call accounting.
 8. Add intermediate cache and resumable statuses.
 9. Add run report generation.
+10. Update `COLLABORATION.md` for Code Owner / Run Owner responsibilities.
+11. Expand `githooks/pre-commit` ownership checks.
+12. Add `docs/WINDOWS_RUNBOOK.md` or `RUNBOOK.md`.
 
 ## Acceptance Criteria
 
@@ -270,6 +359,9 @@ Each report should include:
 - Logs show the actual transcription backend.
 - Gemini quota counts real Gemini requests.
 - A failed Gemini call can be retried without repeating ffmpeg and Whisper work.
+- `COLLABORATION.md` clearly states Code Owner / Run Owner boundaries.
+- Git hooks block role-unsafe commits and large runtime artifacts.
+- Windows runner has a runbook that covers normal runs and common failures.
 
 ## Windows Follow-up After Mac Implementation
 
@@ -289,4 +381,3 @@ WHISPER_CPP_MODEL=D:\tools\whisper.cpp\models\ggml-small-q5_0.bin
 ```
 
 If the CLI backend is unstable, leave `WHISPER_BACKEND=cpu` and continue batch processing with the optimized CPU path.
-
