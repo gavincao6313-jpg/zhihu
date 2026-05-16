@@ -144,6 +144,36 @@
       "status": "done",
       "processed": "2026-05-15",
       "api_calls": 1
+    },
+    "RAG_04_【盛茂家】火山引擎 VikingDB 向量数据库和知识库的实践": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1
+    },
+    "产品设计运营_03_【汪源】GenAI的创新逻辑与趋势": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1
+    },
+    "产品设计运营_04_【Frank Nee】中国产品如何出海": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1
+    },
+    "产品设计运营_05_【柯杰】钉钉 AI 助理平台核心技术实践": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1
+    },
+    "产品设计运营_06_【庄稼】水果篮子的启示—如何针对市场端开发和包装人工智能应用": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1
+    },
+    "产品设计运营_07_【idoubi】使用 ShipAny 快速开发 AI SaaS 项目": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1
     }
   },
   "quota": {
@@ -154,7 +184,11 @@
     "2026-05-15": {
       "used": 20,
       "limit": 20
+    },
+    "2026-05-16": {
+      "used": 6,
+      "limit": 20
     }
   },
-  "last_run": "2026-05-15T17:40:07.733571"
+  "last_run": "2026-05-16T14:15:22.177438"
 }
