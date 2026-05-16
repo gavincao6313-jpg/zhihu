@@ -140,3 +140,5 @@
 | 05/16 14:15 | 产品设计运营_07 completed, 产品_08 started | TTS_0516_产品设计运营_07_*.md, .progress.json | 657 keyframes, 104K chars, 6/20 quota, 35/63 total | — |
 | 05/16 ~14:30 | Pipeline paused by user (PID 14972 killed) | — | 产品_08 mid-transcript lost; 6/20 quota used, 28 pending | ~500 |
 | 05/16 15:00 | Git commit: progress, new md files, anatomy, memory updated | .progress.json, 6 md files, anatomy.md, memory.md, pipeline memory | Ready for code changes and resume | ~200 |
+| 16:58 | Pulled Mac whisper.cpp backend changes and validated Windows run | .progress.json, Markdowns/TTS_0516_*.md, runs/windows-whispercpp-validation-20260516.md | Verified whispercpp-vulkan backend, cache reuse after timeout, 39/63 done, quota 11/20 | ~4k |
+| 19:30 | Recorded code upgrade retro and MAX_TOKENS follow-up | runs/windows-code-upgrade-retro-20260516.md | Documented cause, validation, errors, handling, and effective-upgrade assessment | ~2k |

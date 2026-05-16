@@ -69,6 +69,13 @@
 
 - `WHISPER_BACKEND_IMPROVEMENT_PLAN.md` — Mac/Windows handoff plan for CPU transcription optimization, whisper.cpp CLI Vulkan backend, D-drive temp files, caching, and run reports (~2150 tok)
 
+- `WINDOWS_RUNBOOK.md` | Windows Run Owner workflow, safe whisper env vars, whisper.cpp paths, failure playbooks, cache expectations (~430 tok)
+
+## runs/
+
+- `windows-whispercpp-validation-20260516.md` | Windows validation report for Mac whisper.cpp backend pull, backend result, cache reuse, generated outputs, and environment notes (~500 tok)
+- `windows-code-upgrade-retro-20260516.md` | Windows retro covering Mac code upgrade context, validation reasoning, MAX_TOKENS follow-up, errors, and next action (~900 tok)
+
 ## githooks/
 
 - `pre-commit` — zhihuTTS 角色检查 hook (~338 tok)
