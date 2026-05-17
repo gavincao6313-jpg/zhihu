@@ -230,6 +230,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-17T20:31:00+08:00"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-17T20:48:16+08:00",
+      "error_message": "rg failed with docs/STREAM_AUTOMATION_PLAN_20260517.md: No such file or directory",
+      "file": "docs/STREAM_AUTOMATION_PLAN_20260517.md",
+      "root_cause": "The stream worktree does not contain that documentation file even though the main worktree anatomy listed it.",
+      "fix": "Continued with docs/STREAM_SENSEVOICE_RUNBOOK.md and live stream files present in the stream validation worktree.",
+      "tags": [
+        "docs",
+        "worktree",
+        "stream-validation"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T20:48:16+08:00"
     }
   ]
 }
