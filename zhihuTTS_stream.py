@@ -353,6 +353,7 @@ def write_report(report_path: Path, data: dict) -> None:
         f"- Slice duration: `{fmt_time(data['slice']['duration_s'])}`",
         f"- Slice file: `{data['slice']['path']}`",
         f"- Slice size: `{data['slice']['size_bytes']}` bytes",
+        f"- Slice kept: `{data['slice']['kept']}`",
         f"- Stream re-extractions: `{data['processing']['stream_reextracts']}`",
         "",
         "## Processing",
@@ -402,6 +403,7 @@ def offset_transcript_text(transcript: dict, offset_s: float) -> str:
 
 
 def process_slice(
+    args: argparse.Namespace,
     url: str,
     headers: dict[str, str],
     host: str,
@@ -418,7 +420,8 @@ def process_slice(
     created_at = datetime.now().isoformat(timespec="seconds")
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     slice_stem = safe_name(f"{base_stem}_chunk{chunk_index:03d}_{int(start_s)}s")
-    slice_path = STREAM_TMP_DIR / f"{slice_stem}.mp4"
+    stream_work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
+    slice_path = stream_work_dir / f"{slice_stem}.mp4"
     print(f"Slicing {fmt_time(start_s)} + {fmt_time(duration_s)} -> {slice_path}")
     slice_url(url, start_s, duration_s, slice_path, headers)
 
@@ -438,6 +441,11 @@ def process_slice(
     global_transcript_path.write_text(global_transcript_text, encoding="utf-8")
     payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    slice_size = slice_path.stat().st_size
+    slice_kept = not args.cleanup_slices
+    if args.cleanup_slices:
+        slice_path.unlink(missing_ok=True)
+
     data = {
         "created_at": created_at,
         "url_host": host,
@@ -449,7 +457,8 @@ def process_slice(
             "start_s": start_s,
             "duration_s": duration_s,
             "path": str(slice_path),
-            "size_bytes": slice_path.stat().st_size,
+            "size_bytes": slice_size,
+            "kept": slice_kept,
         },
         "processing": {
             "events": len(events),
@@ -502,6 +511,7 @@ def process_slice_with_recovery(
         host = urlparse(current_stream.url).hostname or "unknown-host"
         try:
             chunk = process_slice(
+                args,
                 current_stream.url,
                 current_stream.headers,
                 host,
@@ -566,6 +576,7 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
     total_chars = sum(c["processing"]["transcript_chars"] for c in chunks)
     total_frames = sum(c["processing"]["frames"] for c in chunks)
     total_reextracts = sum(c["processing"].get("stream_reextracts", 0) for c in chunks)
+    kept_slices = sum(1 for c in chunks if c["slice"].get("kept", True))
     lines = [
         "# Stream Multi-Slice Validation",
         "",
@@ -585,6 +596,7 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
         f"- Transcript chars: `{total_chars}`",
         f"- Kept frames: `{total_frames}`",
         f"- Stream re-extractions: `{total_reextracts}`",
+        f"- Slice files kept: `{kept_slices}/{len(chunks)}`",
         "",
         "## Outputs",
         "",
@@ -593,14 +605,14 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
         "",
         "## Chunks",
         "",
-        "| # | Start | Duration | Backend | Transcribe s | Segments | Chars | Frames | Re-extracts | Report |",
-        "|---:|---|---|---|---:|---:|---:|---:|---:|---|",
+        "| # | Start | Duration | Backend | Transcribe s | Segments | Chars | Frames | Re-extracts | Slice kept | Report |",
+        "|---:|---|---|---|---:|---:|---:|---:|---:|---:|---|",
     ]
     for chunk in chunks:
         proc = chunk["processing"]
         outs = chunk["outputs"]
         lines.append(
-            "| {idx} | {start} | {duration} | `{backend}` | {transcribe} | {segments} | {chars} | {frames} | {reextracts} | `{report}` |".format(
+            "| {idx} | {start} | {duration} | `{backend}` | {transcribe} | {segments} | {chars} | {frames} | {reextracts} | {slice_kept} | `{report}` |".format(
                 idx=chunk["chunk"]["index"],
                 start=fmt_time(chunk["slice"]["start_s"]),
                 duration=fmt_time(chunk["slice"]["duration_s"]),
@@ -610,6 +622,7 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
                 chars=proc["transcript_chars"],
                 frames=proc["frames"],
                 reextracts=proc.get("stream_reextracts", 0),
+                slice_kept=chunk["slice"].get("kept", True),
                 report=outs["report_md"],
             )
         )
@@ -807,6 +820,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--chunk-duration",
         default="",
         help="Per-slice duration. Defaults to --duration, so one chunk is processed.",
+    )
+    parser.add_argument(
+        "--stream-work-dir",
+        default=str(STREAM_TMP_DIR),
+        help="Directory for temporary stream slice MP4 files.",
+    )
+    parser.add_argument(
+        "--cleanup-slices",
+        action="store_true",
+        help="Delete each slice MP4 after keyframes, transcript, payload, and report are written.",
     )
     parser.add_argument("--max-chunks", type=int, default=0, help="Optional cap for smoke tests.")
     parser.add_argument("--name", default="", help="Optional output stem.")
