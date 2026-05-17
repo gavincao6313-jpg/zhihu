@@ -206,6 +206,78 @@
       "failed_stage": null,
       "backend_used": "whispercpp-vulkan",
       "fallback_reason": null
+    },
+    "龙虾_个人_01_战略参谋虾": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
+    },
+    "龙虾_职场_01_周期报表分析及自动化推送团队": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
+    },
+    "龙虾_职场_02_市场调研及深度情报团队": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
+    },
+    "龙虾_职场_03_业务数据精密分析团队": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
+    },
+    "龙虾_职场_04_竞品动态全天候监控团队": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
+    },
+    "龙虾_职场_05_会议与日程管理团队": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
+    },
+    "龙虾_职场_06_汇报演示与 PPT 自动生产团队": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
+    },
+    "龙虾_职场_07_文档整理与调取团队": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
+    },
+    "龙虾_职场_08_经营过程数据监控团队": {
+      "status": "done",
+      "processed": "2026-05-16",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "whispercpp-vulkan",
+      "fallback_reason": null
     }
   },
   "quota": {
@@ -218,9 +290,9 @@
       "limit": 20
     },
     "2026-05-16": {
-      "used": 11,
+      "used": 20,
       "limit": 20
     }
   },
-  "last_run": "2026-05-16T16:54:29.983734"
+  "last_run": "2026-05-17T00:39:55.399365"
 }
