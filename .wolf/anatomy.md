@@ -8,6 +8,7 @@
 - `.gitattributes` — Git attributes (~66 tok)
 - `.gitignore` — Git ignore rules (~41 tok)
 - `.progress.json` (~1155 tok)
+- `.wolf/buglog.json` — OpenWolf bug/error log with prior environment and validation issues (~430 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `COLLABORATION.md` — 协作流程 (~321 tok)
 - `GeminiModelList.py` — 获取 API Key (~275 tok)
@@ -67,6 +68,7 @@
 
 ## docs/
 
+- `STREAM_SENSEVOICE_RUNBOOK.md` — Windows instructions for using FunASR SenseVoice as the stream replay/media URL ASR backend (~430 tok)
 - `WHISPER_BACKEND_IMPROVEMENT_PLAN.md` — Mac/Windows handoff plan for CPU transcription optimization, whisper.cpp CLI Vulkan backend, D-drive temp files, caching, and run reports (~2150 tok)
 
 - `WINDOWS_RUNBOOK.md` | Windows Run Owner workflow, safe whisper env vars, whisper.cpp paths, failure playbooks, cache expectations (~430 tok)

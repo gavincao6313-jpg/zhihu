@@ -16,6 +16,7 @@
 - **Collaboration rule:** Windows side is runner-only and should not change `.py`; Mac side owns code changes. Windows commits only `.progress.json`/run outputs according to `COLLABORATION.md`.
 - **Current scale:** As of 2026-05-16 review, `Videos/` has 63 video files; `.progress.json` marks 31 matching files done and 32 pending, with 2 API quota units used on 2026-05-16.
 - **Operational gotcha:** PowerShell profile loading emits an execution-policy error on each shell command; use `powershell -NoProfile` or fix/remove the profile to keep logs clean.
+- **Stream SenseVoice backend:** On `feature/stream-transcript-validation`, stream chunks should use the shared `zhihuTTS_video.transcribe_audio()` backend with `TRANSCRIBE_BACKEND=sensevoice` by default; `zhihuTTS_stream.py` remains responsible for slicing/retry/manifest only.
 
 ## Do-Not-Repeat
 
