@@ -16,6 +16,8 @@ from zhihuTTS_video import (
     extract_keyframes,
     transcribe_audio,
     transcript_to_text,
+    requested_transcribe_backend,
+    transcript_backend_matches,
     KEYFRAMES_DIR,
     frame_marker,
 )
@@ -29,6 +31,7 @@ TRANSCRIPT_CACHE_DIR = CACHE_DIR / "transcripts"
 KEYFRAME_CACHE_DIR = CACHE_DIR / "keyframes"
 PAYLOAD_CACHE_DIR = CACHE_DIR / "payloads"
 RUNS_DIR = Path(__file__).parent / "runs"
+TRANSCRIPT_APPENDIX_HEADING = "## 附录：完整逐字稿"
 
 MAX_RETRIES = 6
 RETRY_DELAY = 65
@@ -306,6 +309,14 @@ def _load_preprocess_cache(video_path: Path, video_label: str):
         tprint(f"[{video_label}] 预处理缓存不可用: {e}")
         return None
 
+    if not transcript_backend_matches(transcript):
+        cached_backend = transcript.get("backend_used") or "unknown"
+        tprint(
+            f"[{video_label}] 逐字稿缓存后端为 {cached_backend}，"
+            f"当前要求 {requested_transcribe_backend()}，重新预处理"
+        )
+        return None
+
     frames = [paths["keyframes"] / name for name in manifest.get("frames", [])]
     if not frames or any(not p.exists() for p in frames):
         tprint(f"[{video_label}] 关键帧缓存缺失，重新预处理")
@@ -335,12 +346,14 @@ def _save_preprocess_cache(video_path: Path, events: list[dict],
 
 
 def _save_payload_cache(video_path: Path, transcript_text: str,
-                        events: list[dict], kept_frames: list[Path]):
+                        events: list[dict], kept_frames: list[Path],
+                        backend_used: str | None = None):
     paths = _cache_paths(video_path)
     paths["payload"].parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "video_name": video_path.stem,
         "transcript_text": transcript_text,
+        "backend_used": backend_used,
         "frames": [
             {"path": str(fp), "marker": frame_marker(fp, events)}
             for fp in kept_frames
@@ -354,7 +367,7 @@ def _save_payload_cache(video_path: Path, transcript_text: str,
 def _transcript_appendix(transcript_text: str) -> str:
     return (
         "\n\n---\n\n"
-        "## 附录：完整逐字稿\n\n"
+        f"{TRANSCRIPT_APPENDIX_HEADING}\n\n"
         "以下为本地转写得到的完整文字记录，保留时间戳，便于检索、复盘和重新生成摘要。\n\n"
         "```text\n"
         f"{transcript_text.rstrip()}\n"
@@ -362,20 +375,48 @@ def _transcript_appendix(transcript_text: str) -> str:
     )
 
 
+def _strip_transcript_appendix(markdown_text: str) -> str:
+    heading_index = markdown_text.find(TRANSCRIPT_APPENDIX_HEADING)
+    if heading_index < 0:
+        return markdown_text.rstrip()
+    separator = "\n\n---\n\n"
+    separator_index = markdown_text.rfind(separator, 0, heading_index)
+    if separator_index >= 0:
+        return markdown_text[:separator_index].rstrip()
+    return markdown_text[:heading_index].rstrip()
+
+
 def _load_transcript_text_for_backfill(video_path: Path, video_label: str,
-                                       transcribe_missing: bool) -> tuple[str | None, str]:
+                                       transcribe_missing: bool,
+                                       force_transcribe: bool = False) -> tuple[str | None, str]:
     paths = _cache_paths(video_path)
 
-    if paths["transcript"].exists():
+    if paths["transcript"].exists() and not force_transcribe:
         with open(paths["transcript"], "r", encoding="utf-8") as f:
-            return transcript_to_text(json.load(f)), "cache/transcripts"
+            transcript = json.load(f)
+        if transcript_backend_matches(transcript):
+            return transcript_to_text(transcript), "cache/transcripts"
+        cached_backend = transcript.get("backend_used") or "unknown"
+        if not transcribe_missing:
+            tprint(
+                f"[{video_label}] 逐字稿缓存后端为 {cached_backend}，"
+                f"当前要求 {requested_transcribe_backend()}，跳过"
+            )
+            return None, "backend_mismatch"
+        tprint(
+            f"[{video_label}] 逐字稿缓存后端为 {cached_backend}，"
+            f"当前要求 {requested_transcribe_backend()}，重新转写"
+        )
 
-    if paths["payload"].exists():
+    if paths["payload"].exists() and not force_transcribe:
         with open(paths["payload"], "r", encoding="utf-8") as f:
             payload = json.load(f)
         transcript_text = payload.get("transcript_text", "")
-        if transcript_text:
+        payload_backend = payload.get("backend_used")
+        if transcript_text and payload_backend == requested_transcribe_backend():
             return transcript_text, "cache/payloads"
+        if transcript_text and not transcribe_missing:
+            return None, "backend_mismatch"
 
     if not transcribe_missing:
         return None, "missing"
@@ -398,7 +439,9 @@ def _find_markdown_for_video(video_stem: str) -> Path | None:
     return None
 
 
-def backfill_transcript_appendices(transcribe_missing: bool = False) -> dict:
+def backfill_transcript_appendices(transcribe_missing: bool = False,
+                                   force_transcribe: bool = False,
+                                   refresh_transcripts: bool = False) -> dict:
     videos = discover_videos()
     result = {
         "updated": 0,
@@ -422,7 +465,8 @@ def backfill_transcript_appendices(transcribe_missing: bool = False) -> dict:
             continue
 
         markdown_text = markdown_path.read_text(encoding="utf-8")
-        if "## 附录：完整逐字稿" in markdown_text:
+        has_appendix = TRANSCRIPT_APPENDIX_HEADING in markdown_text
+        if has_appendix and not refresh_transcripts:
             result["skipped_existing"] += 1
             tprint(f"[{video_label}] 已包含完整逐字稿，跳过")
             continue
@@ -431,13 +475,15 @@ def backfill_transcript_appendices(transcribe_missing: bool = False) -> dict:
             video_path,
             video_label,
             transcribe_missing,
+            force_transcribe,
         )
         if not transcript_text:
             result["missing_transcript"] += 1
             tprint(f"[{video_label}] 未找到逐字稿缓存，跳过")
             continue
 
-        markdown_path.write_text(markdown_text.rstrip() + _transcript_appendix(transcript_text), encoding="utf-8")
+        base_markdown = _strip_transcript_appendix(markdown_text) if has_appendix else markdown_text.rstrip()
+        markdown_path.write_text(base_markdown + _transcript_appendix(transcript_text), encoding="utf-8")
         result["updated"] += 1
         if source == "transcribed":
             result["transcribed"] += 1
@@ -532,7 +578,7 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
            f"{len(transcript_text)} 字符逐字稿")
 
     # ── Phase 2: Build Gemini input ──
-    _save_payload_cache(video_path, transcript_text, events, kept_frames)
+    _save_payload_cache(video_path, transcript_text, events, kept_frames, transcript.get("backend_used"))
     parts = [PROMPT_TEXT, transcript_text]
     for fp in kept_frames:
         parts.append(frame_marker(fp, events))
@@ -570,13 +616,21 @@ def main():
                         help="给历史 Markdown 输出追加完整逐字稿附录")
     parser.add_argument("--transcribe-missing", action="store_true",
                         help="回填时如果没有逐字稿缓存，则从本地视频重新转写")
+    parser.add_argument("--force-transcribe", action="store_true",
+                        help="回填时忽略已有逐字稿缓存，使用当前 TRANSCRIBE_BACKEND 重新转写")
+    parser.add_argument("--refresh-transcripts", action="store_true",
+                        help="回填时替换已有完整逐字稿附录，而不是跳过")
     args = parser.parse_args()
 
     _setup_logging()
     _logger.info("=" * 60 + " 任务开始")
 
     if args.backfill_transcripts:
-        backfill_transcript_appendices(transcribe_missing=args.transcribe_missing)
+        backfill_transcript_appendices(
+            transcribe_missing=args.transcribe_missing or args.force_transcribe,
+            force_transcribe=args.force_transcribe,
+            refresh_transcripts=args.refresh_transcripts,
+        )
         return
 
     videos = discover_videos()

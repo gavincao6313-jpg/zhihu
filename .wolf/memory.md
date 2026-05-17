@@ -142,3 +142,4 @@
 | 05/16 15:00 | Git commit: progress, new md files, anatomy, memory updated | .progress.json, 6 md files, anatomy.md, memory.md, pipeline memory | Ready for code changes and resume | ~200 |
 | 16:58 | Pulled Mac whisper.cpp backend changes and validated Windows run | .progress.json, Markdowns/TTS_0516_*.md, runs/windows-whispercpp-validation-20260516.md | Verified whispercpp-vulkan backend, cache reuse after timeout, 39/63 done, quota 11/20 | ~4k |
 | 19:30 | Recorded code upgrade retro and MAX_TOKENS follow-up | runs/windows-code-upgrade-retro-20260516.md | Documented cause, validation, errors, handling, and effective-upgrade assessment | ~2k |
+| 18:30 | implemented SenseVoice as default MP4/backfill ASR backend | zhihuTTS_video.py, zhihuTTS.py, requirements.txt, docs/SENSEVOICE_BACKFILL_RUNBOOK.md | local MP4 and historical transcript backfill now use TRANSCRIBE_BACKEND=sensevoice by default with cache mismatch handling | ~3600 |

@@ -16,6 +16,7 @@
 - **Collaboration rule:** Windows side is runner-only and should not change `.py`; Mac side owns code changes. Windows commits only `.progress.json`/run outputs according to `COLLABORATION.md`.
 - **Current scale:** As of 2026-05-16 review, `Videos/` has 63 video files; `.progress.json` marks 31 matching files done and 32 pending, with 2 API quota units used on 2026-05-16.
 - **Operational gotcha:** PowerShell profile loading emits an execution-policy error on each shell command; use `powershell -NoProfile` or fix/remove the profile to keep logs clean.
+- **SenseVoice MP4 branch:** On `feature/local-transcript-appendix`, local MP4 processing and historical transcript backfill should use FunASR SenseVoice by default through `TRANSCRIBE_BACKEND=sensevoice`; Whisper/faster-whisper remains available only as explicit fallback/testing.
 
 ## Do-Not-Repeat
 

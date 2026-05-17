@@ -2,7 +2,7 @@
 zhihuTTS_video.py — 视频预处理流水线
 
 本地 ffmpeg → 帧提取/场景检测
-本地 faster-whisper → 逐字稿
+本地 FunASR/SenseVoice 或 faster-whisper → 逐字稿
 → 结构化输入包，供 Gemini API 组装
 
 用法:
@@ -36,6 +36,24 @@ MERGE_WINDOW = 3           # 相邻变化事件合并窗口（单位：帧）
 FFMPEG_TIMEOUT = 7200      # ffmpeg 超时（秒），大视频可能需要更长时间
 KEYFRAMES_DIR = Path(__file__).parent / "Videos" / "keyframes"  # 关键帧输出目录
 TMP_DIR = Path(__file__).parent / "Videos" / ".tmp"
+
+DEFAULT_TRANSCRIBE_BACKEND = "sensevoice"
+SENSEVOICE_MODEL = os.environ.get("SENSEVOICE_MODEL", "iic/SenseVoiceSmall")
+SENSEVOICE_VAD_MODEL = os.environ.get("SENSEVOICE_VAD_MODEL", "fsmn-vad")
+
+GLOSSARY_PATTERNS = [
+    (r"\bapi\b", "API"),
+    (r"\bmcp\b", "MCP"),
+    (r"\bcli\b", "CLI"),
+    (r"\brag\b", "RAG"),
+    (r"\bweb\s+coding\b", "web coding"),
+    (r"\bai\s+coding\b", "AI coding"),
+    (r"\bmini\s*max\s*agent\b", "MiniMax Agent"),
+    (r"\bcloud\s+code\b", "Claude Code"),
+    (r"\bcloud\s+coldword\b", "Claude Code"),
+    (r"克拉\s*code", "Claude Code"),
+    (r"叉\s*code", "Cursor"),
+]
 
 
 # ── 关键帧提取 + 场景检测 ────────────────────────────
@@ -130,6 +148,49 @@ def extract_keyframes(video_path: Path) -> tuple[list[dict], list[Path]]:
 
 # ── 音频转录 ────────────────────────────────────────
 
+def _normalize_transcribe_backend(value: str) -> str:
+    backend = (value or DEFAULT_TRANSCRIBE_BACKEND).strip().lower()
+    aliases = {
+        "funasr": "sensevoice",
+        "sensevoice-small": "sensevoice",
+        "faster-whisper": "cpu",
+        "faster_whisper": "cpu",
+        "whisper": "cpu",
+        "vulkan": "whispercpp-vulkan",
+    }
+    return aliases.get(backend, backend)
+
+
+def requested_transcribe_backend() -> str:
+    """Return the requested ASR backend for cache compatibility checks."""
+    return _normalize_transcribe_backend(
+        os.environ.get("TRANSCRIBE_BACKEND", DEFAULT_TRANSCRIBE_BACKEND)
+    )
+
+
+def transcript_backend_matches(transcript: dict) -> bool:
+    """Whether a cached transcript was produced by the currently requested backend."""
+    requested = requested_transcribe_backend()
+    raw_actual = str(transcript.get("backend_used", "")).strip()
+    if not raw_actual:
+        return False
+    actual = _normalize_transcribe_backend(raw_actual)
+    if requested == "auto":
+        return bool(actual)
+    if requested == "sensevoice":
+        return actual == "sensevoice"
+    if requested in ("cpu", "whispercpp", "whispercpp-vulkan"):
+        return actual in (requested, "whispercpp-vulkan" if requested == "whispercpp" else requested)
+    return actual == requested
+
+
+def _normalize_transcript_text(text: str) -> str:
+    """Normalize recurring ASR spellings for project-domain terms."""
+    normalized = str(text or "").strip()
+    for pattern, replacement in GLOSSARY_PATTERNS:
+        normalized = re.sub(pattern, replacement, normalized, flags=re.IGNORECASE)
+    return normalized
+
 def _transcribe_cpu(wav_path: Path, model_size: str = "small",
                      language: str = "zh") -> dict:
     """用 faster-whisper（CPU）转写音频。"""
@@ -153,6 +214,134 @@ def _transcribe_cpu(wav_path: Path, model_size: str = "small",
                                        word_timestamps=word_timestamps)
     print(f"  [CPU] 检测到语言: {info.language} (概率 {info.language_probability:.2f})")
     return _collect_segments(segments, include_words=word_timestamps)
+
+
+def _audio_duration_s(wav_path: Path) -> float:
+    completed = subprocess.run(
+        [
+            "ffprobe",
+            "-hide_banner",
+            "-v",
+            "error",
+            "-show_entries",
+            "format=duration",
+            "-of",
+            "default=noprint_wrappers=1:nokey=1",
+            str(wav_path),
+        ],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        timeout=FFMPEG_TIMEOUT,
+    )
+    try:
+        return max(0.0, float(completed.stdout.strip()))
+    except ValueError:
+        return 0.0
+
+
+def _funasr_time_to_seconds(value, duration_s: float) -> float:
+    if value is None:
+        return 0.0
+    try:
+        seconds = float(value)
+    except (TypeError, ValueError):
+        return 0.0
+    if seconds > duration_s + 5:
+        seconds /= 1000.0
+    return max(0.0, seconds)
+
+
+def _sensevoice_segments(result: list[dict], duration_s: float) -> list[dict]:
+    from funasr.utils.postprocess_utils import rich_transcription_postprocess
+
+    segments = []
+    fallback_start = 0.0
+    for item in result:
+        sentence_info = item.get("sentence_info") if isinstance(item, dict) else None
+        if isinstance(sentence_info, list) and sentence_info:
+            for sentence in sentence_info:
+                text = _normalize_transcript_text(
+                    rich_transcription_postprocess(str(sentence.get("text", "")))
+                )
+                if not text:
+                    continue
+                start = _funasr_time_to_seconds(sentence.get("start"), duration_s)
+                end = _funasr_time_to_seconds(sentence.get("end"), duration_s)
+                if end <= start:
+                    end = start
+                segments.append({"start": start, "end": end, "text": text, "words": []})
+            continue
+
+        raw_text = str(item.get("text", "")) if isinstance(item, dict) else str(item)
+        text = _normalize_transcript_text(rich_transcription_postprocess(raw_text))
+        if not text:
+            continue
+
+        timestamps = item.get("timestamp") if isinstance(item, dict) else None
+        start = fallback_start
+        end = duration_s
+        if isinstance(timestamps, list) and timestamps:
+            pairs = [ts for ts in timestamps if isinstance(ts, (list, tuple)) and len(ts) >= 2]
+            if pairs:
+                start = _funasr_time_to_seconds(pairs[0][0], duration_s)
+                end = _funasr_time_to_seconds(pairs[-1][1], duration_s)
+        if end <= start:
+            end = duration_s if duration_s > start else start
+        segments.append({"start": start, "end": end, "text": text, "words": []})
+        fallback_start = end
+
+    if not segments:
+        return []
+    return sorted(segments, key=lambda seg: (seg["start"], seg["end"]))
+
+
+def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
+    """用 FunASR SenseVoice 转写音频，并适配为现有 transcript shape。"""
+    try:
+        from funasr import AutoModel
+    except ImportError as e:
+        raise RuntimeError(
+            "FUNASR/SenseVoice 未安装。请先安装 funasr、modelscope、torch、torchaudio。"
+        ) from e
+
+    device = os.environ.get("SENSEVOICE_DEVICE", "cpu")
+    batch_size_s = int(os.environ.get("SENSEVOICE_BATCH_SIZE_S", "60"))
+    merge_length_s = int(os.environ.get("SENSEVOICE_MERGE_LENGTH_S", "15"))
+    print(
+        f"  [SenseVoice] 加载 {SENSEVOICE_MODEL} "
+        f"(vad={SENSEVOICE_VAD_MODEL}, device={device})..."
+    )
+    model = AutoModel(
+        model=SENSEVOICE_MODEL,
+        vad_model=SENSEVOICE_VAD_MODEL,
+        device=device,
+        disable_update=True,
+    )
+    result = model.generate(
+        input=str(wav_path),
+        cache={},
+        language=language,
+        use_itn=True,
+        batch_size_s=batch_size_s,
+        merge_vad=True,
+        merge_length_s=merge_length_s,
+    )
+    duration_s = _audio_duration_s(wav_path)
+    segments = _sensevoice_segments(result, duration_s)
+    if not segments:
+        raise RuntimeError("SenseVoice 未返回有效转写文本")
+    print(f"  [SenseVoice] 转写完成: {len(segments)} 个片段", flush=True)
+    return {
+        "segments": segments,
+        "sensevoice": {
+            "model": SENSEVOICE_MODEL,
+            "vad_model": SENSEVOICE_VAD_MODEL,
+            "device": device,
+            "duration_s": duration_s,
+        },
+    }
 
 
 def _timestamp_to_seconds(value) -> float:
@@ -195,7 +384,7 @@ def _parse_whispercpp_json(data: dict) -> dict:
         segments.append({
             "start": _timestamp_to_seconds(start),
             "end": _timestamp_to_seconds(end),
-            "text": str(seg.get("text", "")).strip(),
+            "text": _normalize_transcript_text(seg.get("text", "")),
             "words": [],
         })
 
@@ -203,7 +392,7 @@ def _parse_whispercpp_json(data: dict) -> dict:
         segments.append({
             "start": 0.0,
             "end": 0.0,
-            "text": str(data["text"]).strip(),
+            "text": _normalize_transcript_text(data["text"]),
             "words": [],
         })
 
@@ -271,7 +460,7 @@ def _collect_segments(generator, include_words: bool = False) -> dict:
                      for w in seg.words]
         segments.append({
             "start": seg.start, "end": seg.end,
-            "text": seg.text.strip(),
+            "text": _normalize_transcript_text(seg.text),
             "words": words,
         })
     return {"segments": segments}
@@ -279,13 +468,11 @@ def _collect_segments(generator, include_words: bool = False) -> dict:
 
 def transcribe_audio(video_path: Path, model_size: str = "small",
                      language: str = "zh") -> dict:
-    """转写音频，自动选择后端（WHISPER_BACKEND 环境变量）。"""
+    """转写音频，默认使用 FunASR/SenseVoice，可通过 TRANSCRIBE_BACKEND 切换。"""
     TMP_DIR.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=TMP_DIR, suffix=".wav", prefix="zhihu_", delete=False) as f:
         wav_path = Path(f.name)
-    backend = os.environ.get("WHISPER_BACKEND", "auto").strip().lower()
-    if backend == "vulkan":
-        backend = "whispercpp-vulkan"
+    backend = requested_transcribe_backend()
     fallback_reason = None
     started_at = time.monotonic()
 
@@ -297,6 +484,14 @@ def transcribe_audio(video_path: Path, model_size: str = "small",
             "-ar", "16000", "-ac", "1",
             "-y", str(wav_path),
         ], capture_output=True, check=True, timeout=FFMPEG_TIMEOUT)
+
+        if backend == "sensevoice":
+            transcript = _transcribe_sensevoice(wav_path, language)
+            transcript["backend_used"] = "sensevoice"
+            transcript["fallback_reason"] = None
+            transcript["duration_s"] = round(time.monotonic() - started_at, 2)
+            print(f"  转写后端: sensevoice, 用时 {transcript['duration_s']}s")
+            return transcript
 
         if backend in ("auto", "whispercpp-vulkan", "whispercpp"):
             cli_configured = bool(os.environ.get("WHISPER_CPP_EXE") and os.environ.get("WHISPER_CPP_MODEL"))
@@ -317,7 +512,7 @@ def transcribe_audio(video_path: Path, model_size: str = "small",
                     return transcript
 
         if backend not in ("auto", "cpu", "whispercpp-vulkan", "whispercpp"):
-            raise ValueError(f"不支持的 WHISPER_BACKEND: {backend}")
+            raise ValueError(f"不支持的 TRANSCRIBE_BACKEND: {backend}")
 
         transcript = _transcribe_cpu(wav_path, model_size, language)
         transcript["backend_used"] = "cpu"
