@@ -37,6 +37,10 @@ SLICE_RETRIES = 3
 MIN_SLICE_BYTES = 1024
 
 
+class StreamSliceError(RuntimeError):
+    """Raised when ffmpeg cannot produce a valid media slice."""
+
+
 def parse_time(value: str | float | int) -> float:
     """Parse seconds or HH:MM:SS into seconds."""
     if isinstance(value, (int, float)):
@@ -87,6 +91,13 @@ def parse_headers_text(text: str) -> dict[str, str]:
 
 def parse_headers_file(path: str) -> dict[str, str]:
     return parse_headers_text(Path(path).read_text(encoding="utf-8"))
+
+
+def overlay_headers(args: argparse.Namespace) -> dict[str, str]:
+    headers: dict[str, str] = {}
+    if args.headers_file:
+        headers.update(parse_headers_file(args.headers_file))
+    return headers
 
 
 def parse_curl_file(path: str) -> tuple[str, dict[str, str]]:
@@ -163,8 +174,7 @@ def resolve_input(args: argparse.Namespace) -> ExtractedStream:
     headers: dict[str, str] = {}
     if args.curl_file:
         url, headers = parse_curl_file(args.curl_file)
-    if args.headers_file:
-        headers.update(parse_headers_file(args.headers_file))
+    headers.update(overlay_headers(args))
     if url:
         return ExtractedStream(
             url=url,
@@ -187,6 +197,29 @@ def resolve_input(args: argparse.Namespace) -> ExtractedStream:
             stream.headers.update(headers)
         return stream
     raise ValueError("Provide --url, --curl-file, or --page-url")
+
+
+def refresh_page_stream(args: argparse.Namespace) -> ExtractedStream:
+    if not args.page_url:
+        raise RuntimeError("Cannot refresh stream without --page-url")
+    stream = extract_stream(
+        args.page_url,
+        extractor=args.extractor,
+        storage_state=args.playwright_storage_state,
+        headed=args.playwright_headed,
+        timeout_ms=args.extractor_timeout_ms,
+        wait_seconds=args.extractor_wait_s,
+        ytdlp_cookies_browser=args.ytdlp_cookies_browser,
+    )
+    stream.headers.update(overlay_headers(args))
+    return stream
+
+
+def redacted_error(error: Exception, stream: ExtractedStream) -> str:
+    text = str(error)
+    if stream.url:
+        text = text.replace(stream.url, "<redacted-url>")
+    return text
 
 
 def probe_url(url: str, headers: dict[str, str] | None = None) -> dict:
@@ -272,7 +305,7 @@ def slice_url(
         if attempt < SLICE_RETRIES:
             time.sleep(min(30, attempt * 5))
     tail = "\n".join(last_error.splitlines()[-12:])
-    raise RuntimeError(
+    raise StreamSliceError(
         f"Failed to slice {fmt_time(start_s)} + {fmt_time(duration_s)} "
         f"after {SLICE_RETRIES} attempts.\n{tail}"
     )
@@ -316,6 +349,7 @@ def write_report(report_path: Path, data: dict) -> None:
         f"- Slice duration: `{fmt_time(data['slice']['duration_s'])}`",
         f"- Slice file: `{data['slice']['path']}`",
         f"- Slice size: `{data['slice']['size_bytes']}` bytes",
+        f"- Stream re-extractions: `{data['processing']['stream_reextracts']}`",
         "",
         "## Processing",
         "",
@@ -344,6 +378,11 @@ def write_report(report_path: Path, data: dict) -> None:
         "```",
         "",
     ]
+    if data["recovery_errors"]:
+        lines.extend(["## Recovery Errors", ""])
+        for index, error in enumerate(data["recovery_errors"], 1):
+            lines.append(f"{index}. `{error.splitlines()[-1][:300]}`")
+        lines.append("")
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text("\n".join(lines), encoding="utf-8")
 
@@ -368,6 +407,8 @@ def process_slice(
     duration_s: float,
     chunk_index: int,
     chunk_total: int,
+    reextracts: int = 0,
+    recovery_errors: list[str] | None = None,
 ) -> dict:
     started = time.monotonic()
     created_at = datetime.now().isoformat(timespec="seconds")
@@ -414,7 +455,9 @@ def process_slice(
             "segments": len(transcript.get("segments", [])),
             "transcript_chars": len(transcript_text),
             "elapsed_s": round(time.monotonic() - started, 2),
+            "stream_reextracts": reextracts,
         },
+        "recovery_errors": recovery_errors or [],
         "outputs": {
             "transcript_txt": str(transcript_path),
             "payload_json": str(payload_path),
@@ -435,12 +478,90 @@ def process_slice(
     return data
 
 
+def process_slice_with_recovery(
+    args: argparse.Namespace,
+    stream: ExtractedStream,
+    source_summary: dict,
+    base_stem: str,
+    start_s: float,
+    duration_s: float,
+    chunk_index: int,
+    chunk_total: int,
+) -> tuple[dict, ExtractedStream, dict]:
+    current_stream = stream
+    current_summary = source_summary
+    recovery_errors: list[str] = []
+    max_reextracts = max(0, args.reextract_retries) if args.page_url else 0
+    reextract_count = 0
+
+    while True:
+        host = urlparse(current_stream.url).hostname or "unknown-host"
+        try:
+            chunk = process_slice(
+                current_stream.url,
+                current_stream.headers,
+                host,
+                current_summary,
+                base_stem,
+                start_s,
+                duration_s,
+                chunk_index,
+                chunk_total,
+                reextracts=reextract_count,
+                recovery_errors=recovery_errors,
+            )
+            return chunk, current_stream, current_summary
+        except StreamSliceError as e:
+            if reextract_count >= max_reextracts:
+                raise
+            message = redacted_error(e, current_stream)
+            recovery_errors.append(message)
+
+            while reextract_count < max_reextracts:
+                reextract_count += 1
+                print(
+                    f"  Chunk {chunk_index} failed after ffmpeg slicing; "
+                    f"re-extracting stream URL ({reextract_count}/{max_reextracts})..."
+                )
+                if args.reextract_delay_s > 0:
+                    time.sleep(args.reextract_delay_s)
+
+                refreshed_stream: ExtractedStream | None = None
+                try:
+                    refreshed_stream = refresh_page_stream(args)
+                    print(
+                        "  Refreshed stream:",
+                        refreshed_stream.extractor,
+                        refreshed_stream.media_type,
+                        urlparse(refreshed_stream.url).hostname or "unknown-host",
+                    )
+                    refreshed_probe = probe_url(refreshed_stream.url, refreshed_stream.headers)
+                    refreshed_summary = summarize_probe(refreshed_probe)
+                    refreshed_summary["extractor"] = refreshed_stream.extractor
+                    refreshed_summary["media_type"] = refreshed_stream.media_type
+                    current_stream = refreshed_stream
+                    current_summary = refreshed_summary
+                    break
+                except Exception as refresh_error:
+                    redaction_stream = refreshed_stream or current_stream
+                    recovery_errors.append(redacted_error(refresh_error, redaction_stream))
+                    if reextract_count >= max_reextracts:
+                        raise StreamSliceError(
+                            f"Failed to refresh stream URL after {max_reextracts} re-extract attempts"
+                        ) from refresh_error
+                    print(
+                        f"  Stream URL refresh failed; retrying extractor "
+                        f"({reextract_count + 1}/{max_reextracts})..."
+                    )
+
+
 def write_manifest(manifest_path: Path, data: dict) -> None:
     chunks = data["chunks"]
     total_elapsed = sum(c["processing"]["elapsed_s"] for c in chunks)
     total_segments = sum(c["processing"]["segments"] for c in chunks)
     total_chars = sum(c["processing"]["transcript_chars"] for c in chunks)
     total_frames = sum(c["processing"]["frames"] for c in chunks)
+    total_reextracts = sum(c["processing"].get("stream_reextracts", 0) for c in chunks)
     lines = [
         "# Stream Multi-Slice Validation",
         "",
@@ -459,6 +580,7 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
         f"- Transcript segments: `{total_segments}`",
         f"- Transcript chars: `{total_chars}`",
         f"- Kept frames: `{total_frames}`",
+        f"- Stream re-extractions: `{total_reextracts}`",
         "",
         "## Outputs",
         "",
@@ -467,14 +589,14 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
         "",
         "## Chunks",
         "",
-        "| # | Start | Duration | Backend | Transcribe s | Segments | Chars | Frames | Report |",
-        "|---:|---|---|---|---:|---:|---:|---:|---|",
+        "| # | Start | Duration | Backend | Transcribe s | Segments | Chars | Frames | Re-extracts | Report |",
+        "|---:|---|---|---|---:|---:|---:|---:|---:|---|",
     ]
     for chunk in chunks:
         proc = chunk["processing"]
         outs = chunk["outputs"]
         lines.append(
-            "| {idx} | {start} | {duration} | `{backend}` | {transcribe} | {segments} | {chars} | {frames} | `{report}` |".format(
+            "| {idx} | {start} | {duration} | `{backend}` | {transcribe} | {segments} | {chars} | {frames} | {reextracts} | `{report}` |".format(
                 idx=chunk["chunk"]["index"],
                 start=fmt_time(chunk["slice"]["start_s"]),
                 duration=fmt_time(chunk["slice"]["duration_s"]),
@@ -483,6 +605,7 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
                 segments=proc["segments"],
                 chars=proc["transcript_chars"],
                 frames=proc["frames"],
+                reextracts=proc.get("stream_reextracts", 0),
                 report=outs["report_md"],
             )
         )
@@ -552,19 +675,20 @@ def run_validation(args: argparse.Namespace) -> dict:
             break
         chunk_duration = min(chunk_duration_s, remaining)
         print(f"\n=== Chunk {index}/{chunk_count}: {fmt_time(chunk_start)} + {fmt_time(chunk_duration)} ===")
-        chunks.append(
-            process_slice(
-                url,
-                headers,
-                host,
-                source_summary,
-                base_stem,
-                chunk_start,
-                chunk_duration,
-                index,
-                chunk_count,
-            )
+        chunk, stream, source_summary = process_slice_with_recovery(
+            args,
+            stream,
+            source_summary,
+            base_stem,
+            chunk_start,
+            chunk_duration,
+            index,
+            chunk_count,
         )
+        url = stream.url
+        headers = stream.headers
+        host = urlparse(url).hostname or "unknown-host"
+        chunks.append(chunk)
 
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     combined_text = "\n\n".join(
@@ -636,6 +760,18 @@ def build_parser() -> argparse.ArgumentParser:
         type=float,
         default=8.0,
         help="Seconds to keep listening for media requests after page load.",
+    )
+    parser.add_argument(
+        "--reextract-retries",
+        type=int,
+        default=2,
+        help="When --page-url is used, re-extract media URL this many times after slice failure.",
+    )
+    parser.add_argument(
+        "--reextract-delay-s",
+        type=float,
+        default=10.0,
+        help="Seconds to wait before re-extracting after slice failure.",
     )
     parser.add_argument(
         "--headers-file",

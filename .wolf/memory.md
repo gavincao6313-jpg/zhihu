@@ -147,3 +147,7 @@
 | 19:24 | first push of stream extractor commit timed out | .wolf/buglog.json | local commit 7def296 remained ahead of origin after curl 28 GitHub timeout; retry needed | ~400 |
 | 19:28 | second push of stream extractor commit timed out | .wolf/buglog.json | GitHub 443 remained unreachable; commit is local and still ahead of origin | ~300 |
 | 19:31 | pushed stream extractor commit after HTTP/1.1 retry | .wolf/buglog.json | git -c http.version=HTTP/1.1 push succeeded; origin/feature/stream-transcript-validation updated to 7b81b18 | ~300 |
+| 20:23 | added chunk-scoped URL re-extraction recovery for stream slicing failures | zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md, .wolf/cerebrum.md | --page-url runs can refresh expired media URLs after ffmpeg slice retries; reports and manifests record re-extraction counts | ~2600 |
+| 20:26 | tightened stream refresh recovery after review | zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md, .wolf/buglog.json | temporary extractor/probe failures now consume remaining re-extraction budget instead of aborting immediately | ~900 |
+| 20:27 | validated stream recovery path with monkeypatch test | zhihuTTS_stream.py, stream_extractors.py, .wolf/buglog.json | corrected ad hoc fixture field name and confirmed failed chunk retries after refreshed URL | ~600 |
+| 20:31 | staged stream recovery changes with escalated Git worktree permission | .wolf/buglog.json, .wolf/memory.md | first git add hit sandbox index.lock permission; escalated git add succeeded | ~400 |

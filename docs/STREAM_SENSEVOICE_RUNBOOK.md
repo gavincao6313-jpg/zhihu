@@ -115,6 +115,40 @@ If the page needs debugging, add:
 --playwright-headed
 ```
 
+## URL Expiration And Disconnect Recovery
+
+When `--page-url` is used, the runner can recover from expired signed media URLs or dropped media connections at chunk boundaries.
+
+Recovery behavior:
+
+- ffmpeg first retries the same media URL internally with reconnect flags.
+- If slicing still fails, the runner re-runs the configured extractor against `--page-url`.
+- The refreshed stream URL and headers are probed, then the same failed chunk is retried.
+- If extraction or probing fails temporarily, it consumes the same re-extraction retry budget and tries again.
+- Recovery is recorded in the per-chunk report and manifest as `Stream re-extractions`.
+
+Recommended live validation command:
+
+```powershell
+$env:TRANSCRIBE_BACKEND = "sensevoice"
+python zhihuTTS_stream.py `
+  --page-url "https://www.zhihu.com/..." `
+  --extractor playwright `
+  --playwright-storage-state "Videos/.stream/storage_state.zhihu.json" `
+  --duration 300 `
+  --chunk-duration 60 `
+  --reextract-retries 3 `
+  --reextract-delay-s 10 `
+  --name live-recovery-sensevoice `
+  --no-gemini
+```
+
+Limits:
+
+- Automatic re-extraction requires `--page-url`; direct signed `--url` and `--curl-file` inputs have no upstream page to refresh from.
+- Use a finite `--duration` for real live streams so validation has a controlled stop point.
+- Re-extraction is only triggered by ffmpeg slicing failure. ASR failures still fail the chunk directly because refreshing the stream URL cannot fix model/runtime errors.
+
 ## Authenticated Media Request
 
 For media requests requiring headers:
