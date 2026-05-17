@@ -16,6 +16,8 @@
 - `requirements.txt` — Python dependencies (~19 tok)
 - `zhihu.code-workspace` (~31 tok)
 - `stream_extractors.py` — ExtractedStream, analyze_url_route, yt-dlp extractor, Playwright network interceptor, media URL/header extraction helpers (~1200 tok)
+- `sensevoice_probe.py` — lightweight SenseVoice availability/probe helper for Windows validation (~450 tok)
+- `zhihuTTS_stream.py` — remote/replay/live stream validation runner, extractor input handling, ffmpeg slicing, chunk reports, manifest writing, URL re-extraction recovery (~5200 tok)
 - `zhihuTTS_video.py` — analyze_frames, extract_keyframes, transcribe_audio, transcript_to_text (~3693 tok)
 - `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~3869 tok)
 

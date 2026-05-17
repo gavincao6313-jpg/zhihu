@@ -18,6 +18,7 @@
 - **Operational gotcha:** PowerShell profile loading emits an execution-policy error on each shell command; use `powershell -NoProfile` or fix/remove the profile to keep logs clean.
 - **Stream SenseVoice backend:** On `feature/stream-transcript-validation`, stream chunks should use the shared `zhihuTTS_video.transcribe_audio()` backend with `TRANSCRIBE_BACKEND=sensevoice` by default; `zhihuTTS_stream.py` remains responsible for slicing/retry/manifest only.
 - **Stream URL extraction:** `stream_extractors.py` is the upstream extractor layer for page URLs; `--page-url --extractor auto` routes known hosts through yt-dlp and Zhihu/unknown hosts through Playwright network interception while keeping `--url` and `--curl-file` as fallback inputs.
+- **Stream URL recovery:** URL expiration/disconnect recovery is chunk-scoped: ffmpeg retries the current media URL first, then `zhihuTTS_stream.py` only re-runs the page extractor for `StreamSliceError` when `--page-url` is available; ASR/runtime errors should not trigger URL re-extraction.
 
 ## Do-Not-Repeat
 
@@ -27,3 +28,4 @@
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
+- **2026-05-17 Stream recovery scope:** Implement recovery inside the existing chunk loop instead of a full outer supervisor first, because validation needs to survive expired signed URLs and dropped connections during a finite replay/live run while preserving chunk reports and SenseVoice output shape.

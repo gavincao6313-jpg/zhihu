@@ -180,6 +180,56 @@
       ],
       "occurrences": 2,
       "last_seen": "2026-05-17T19:31:00+08:00"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-05-17T20:23:41+08:00",
+      "error_message": "Stream media URLs can expire or disconnect during live/replay validation, causing ffmpeg slicing to fail before a chunk is transcribed.",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "The runner previously retried only the same signed media URL; once the URL expired or the media connection became invalid, there was no page-level refresh path.",
+      "fix": "Added StreamSliceError handling and chunk-scoped recovery that re-runs the page extractor for --page-url inputs, retries temporary extraction/probe failures within the same budget, probes the refreshed URL, and retries the failed chunk while recording recovery details.",
+      "tags": [
+        "stream-validation",
+        "url-expiration",
+        "disconnect",
+        "recovery"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T20:23:41+08:00"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-05-17T20:27:00+08:00",
+      "error_message": "Monkeypatch recovery test failed with TypeError: ExtractedStream.__init__() got an unexpected keyword argument 'source_page_url'",
+      "file": "stream_extractors.py",
+      "root_cause": "The ad hoc test used an old field name; ExtractedStream uses page_url.",
+      "fix": "Corrected the test fixture to construct ExtractedStream with page_url, then reran the recovery test successfully.",
+      "tags": [
+        "test",
+        "stream-validation",
+        "extractor"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T20:27:00+08:00"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-17T20:31:00+08:00",
+      "error_message": "git add failed with fatal: Unable to create '/Users/caojiapeng/projects/zhihu/.git/worktrees/zhihu-stream-validation/index.lock': Operation not permitted",
+      "file": "feature/stream-transcript-validation worktree",
+      "root_cause": "The linked worktree stores Git metadata under the main repository .git/worktrees directory, which is outside the sandbox writable root for /private/tmp.",
+      "fix": "Reran git add with escalated permissions so Git could update the worktree index lock.",
+      "tags": [
+        "git",
+        "worktree",
+        "sandbox",
+        "permissions"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T20:31:00+08:00"
     }
   ]
 }
