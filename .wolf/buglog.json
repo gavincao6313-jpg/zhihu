@@ -168,7 +168,7 @@
       "error_message": "git push origin feature/stream-transcript-validation failed with curl 28 after 75012 ms",
       "file": "feature/stream-transcript-validation",
       "root_cause": "Network connection to GitHub timed out while sending the new stream extractor commit.",
-      "fix": "Not fixed yet; two push attempts timed out. Commit remains local and should be pushed when GitHub connectivity recovers.",
+      "fix": "Fixed by retrying with git -c http.version=HTTP/1.1 push origin feature/stream-transcript-validation.",
       "tags": [
         "git",
         "network",
@@ -179,7 +179,7 @@
         "bug-010"
       ],
       "occurrences": 2,
-      "last_seen": "2026-05-17T19:28:00+08:00"
+      "last_seen": "2026-05-17T19:31:00+08:00"
     }
   ]
 }
