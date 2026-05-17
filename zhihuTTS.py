@@ -351,6 +351,109 @@ def _save_payload_cache(video_path: Path, transcript_text: str,
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
 
+def _transcript_appendix(transcript_text: str) -> str:
+    return (
+        "\n\n---\n\n"
+        "## 附录：完整逐字稿\n\n"
+        "以下为本地转写得到的完整文字记录，保留时间戳，便于检索、复盘和重新生成摘要。\n\n"
+        "```text\n"
+        f"{transcript_text.rstrip()}\n"
+        "```\n"
+    )
+
+
+def _load_transcript_text_for_backfill(video_path: Path, video_label: str,
+                                       transcribe_missing: bool) -> tuple[str | None, str]:
+    paths = _cache_paths(video_path)
+
+    if paths["transcript"].exists():
+        with open(paths["transcript"], "r", encoding="utf-8") as f:
+            return transcript_to_text(json.load(f)), "cache/transcripts"
+
+    if paths["payload"].exists():
+        with open(paths["payload"], "r", encoding="utf-8") as f:
+            payload = json.load(f)
+        transcript_text = payload.get("transcript_text", "")
+        if transcript_text:
+            return transcript_text, "cache/payloads"
+
+    if not transcribe_missing:
+        return None, "missing"
+
+    tprint(f"[{video_label}] 未找到逐字稿缓存，开始重新转写音频...")
+    transcript = transcribe_audio(video_path)
+    paths["transcript"].parent.mkdir(parents=True, exist_ok=True)
+    with open(paths["transcript"], "w", encoding="utf-8") as f:
+        json.dump(transcript, f, ensure_ascii=False, indent=2)
+    return transcript_to_text(transcript), "transcribed"
+
+
+def _find_markdown_for_video(video_stem: str) -> Path | None:
+    candidates = sorted(MARKDOWNS_DIR.glob(f"*{video_stem}.md"))
+    if candidates:
+        return candidates[-1]
+    exact = MARKDOWNS_DIR / f"{video_stem}.md"
+    if exact.exists():
+        return exact
+    return None
+
+
+def backfill_transcript_appendices(transcribe_missing: bool = False) -> dict:
+    videos = discover_videos()
+    result = {
+        "updated": 0,
+        "skipped_existing": 0,
+        "missing_markdown": 0,
+        "missing_transcript": 0,
+        "transcribed": 0,
+    }
+
+    if not videos:
+        print(f"在 {VIDEOS_DIR} 下没有找到视频文件。")
+        return result
+
+    MARKDOWNS_DIR.mkdir(exist_ok=True)
+    for index, (video_stem, video_path) in enumerate(videos.items(), 1):
+        video_label = f"{index}/{len(videos)} {video_stem[:30]}"
+        markdown_path = _find_markdown_for_video(video_stem)
+        if not markdown_path:
+            result["missing_markdown"] += 1
+            tprint(f"[{video_label}] 未找到对应 Markdown，跳过")
+            continue
+
+        markdown_text = markdown_path.read_text(encoding="utf-8")
+        if "## 附录：完整逐字稿" in markdown_text:
+            result["skipped_existing"] += 1
+            tprint(f"[{video_label}] 已包含完整逐字稿，跳过")
+            continue
+
+        transcript_text, source = _load_transcript_text_for_backfill(
+            video_path,
+            video_label,
+            transcribe_missing,
+        )
+        if not transcript_text:
+            result["missing_transcript"] += 1
+            tprint(f"[{video_label}] 未找到逐字稿缓存，跳过")
+            continue
+
+        markdown_path.write_text(markdown_text.rstrip() + _transcript_appendix(transcript_text), encoding="utf-8")
+        result["updated"] += 1
+        if source == "transcribed":
+            result["transcribed"] += 1
+        tprint(f"[{video_label}] 已回填完整逐字稿: {markdown_path.name} ({source})")
+
+    print(
+        "历史输出回填完成: "
+        f"updated={result['updated']}, "
+        f"skipped_existing={result['skipped_existing']}, "
+        f"missing_markdown={result['missing_markdown']}, "
+        f"missing_transcript={result['missing_transcript']}, "
+        f"transcribed={result['transcribed']}"
+    )
+    return result
+
+
 def _write_run_report(started_at: datetime, ended_at: datetime, results: list[dict],
                       daily: dict, next_action: str):
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
@@ -448,7 +551,8 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(f"# {video_path.stem}\n\n")
-        f.write(full_text)
+        f.write(full_text.rstrip())
+        f.write(_transcript_appendix(transcript_text))
 
     tprint(f"[{video_label}] 完成，已保存至: {output_path.name}")
     result["success"] = True
@@ -462,10 +566,18 @@ def main():
     parser = argparse.ArgumentParser(description="zhihuTTS 视频转 Markdown 知识库")
     parser.add_argument("--status", "--todo", action="store_true",
                         help="仅打印任务状态摘要（不执行处理）")
+    parser.add_argument("--backfill-transcripts", action="store_true",
+                        help="给历史 Markdown 输出追加完整逐字稿附录")
+    parser.add_argument("--transcribe-missing", action="store_true",
+                        help="回填时如果没有逐字稿缓存，则从本地视频重新转写")
     args = parser.parse_args()
 
     _setup_logging()
     _logger.info("=" * 60 + " 任务开始")
+
+    if args.backfill_transcripts:
+        backfill_transcript_appendices(transcribe_missing=args.transcribe_missing)
+        return
 
     videos = discover_videos()
     if not videos:
