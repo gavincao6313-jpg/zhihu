@@ -32,6 +32,8 @@ ROOT_DIR = Path(__file__).parent
 RUNS_DIR = ROOT_DIR / "runs"
 STREAM_TMP_DIR = ROOT_DIR / "Videos" / ".stream"
 FFMPEG_TIMEOUT = 7200
+SLICE_RETRIES = 3
+MIN_SLICE_BYTES = 1024
 
 
 def parse_time(value: str | float | int) -> float:
@@ -203,9 +205,19 @@ def slice_url(
     cmd = [
         "ffmpeg",
         "-hide_banner",
+        "-v",
+        "warning",
         "-y",
         "-ss",
         fmt_time(start_s),
+        "-reconnect",
+        "1",
+        "-reconnect_streamed",
+        "1",
+        "-reconnect_on_network_error",
+        "1",
+        "-reconnect_delay_max",
+        "10",
         "-i",
         url,
         "-t",
@@ -215,7 +227,35 @@ def slice_url(
         str(out_path),
     ]
     cmd = with_headers(cmd, headers or {})
-    subprocess.run(cmd, check=True, timeout=FFMPEG_TIMEOUT)
+    last_error = ""
+    for attempt in range(1, SLICE_RETRIES + 1):
+        if out_path.exists():
+            out_path.unlink()
+        completed = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=FFMPEG_TIMEOUT,
+        )
+        size = out_path.stat().st_size if out_path.exists() else 0
+        if completed.returncode == 0 and size >= MIN_SLICE_BYTES:
+            return
+        last_error = (completed.stderr or completed.stdout or "").replace(url, "<redacted-url>")
+        print(
+            f"  Slice attempt {attempt}/{SLICE_RETRIES} failed "
+            f"(exit={completed.returncode}, bytes={size}); retrying..."
+        )
+        if out_path.exists():
+            out_path.unlink()
+        if attempt < SLICE_RETRIES:
+            time.sleep(min(30, attempt * 5))
+    tail = "\n".join(last_error.splitlines()[-12:])
+    raise RuntimeError(
+        f"Failed to slice {fmt_time(start_s)} + {fmt_time(duration_s)} "
+        f"after {SLICE_RETRIES} attempts.\n{tail}"
+    )
 
 
 def summarize_probe(probe: dict) -> dict:
