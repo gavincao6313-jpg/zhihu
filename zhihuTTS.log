@@ -776,42 +776,197 @@ google.genai.errors.ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'messa
 2026-05-16 14:15:20 [INFO] [6/20 产品设计运营_07_【idoubi】使用 ShipAny 快] 完成，已保存至: TTS_0516_产品设计运营_07_【idoubi】使用 ShipAny 快速开发 AI SaaS 项目.md
 2026-05-16 14:15:22 [INFO]   [6/20 产品设计运营_07_【idoubi】使用 ShipAny 快] 已清理关键帧缓存
 2026-05-16 14:15:22 [INFO] [7/20 产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的] 提取关键帧 & 转录音频...
-2026-05-16 19:37:41 [INFO] ============================================================ 任务开始
-2026-05-16 20:55:38 [INFO] ============================================================ 任务开始
-2026-05-16 20:55:38 [INFO] [1/18 PM01_通过个人助理agent，学习长期记忆和多agent] 未找到对应 Markdown，跳过
-2026-05-16 20:55:38 [INFO] [2/18 原理_A01_Prompt、Function Calling] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [3/18 原理_A02_利用Agent技术让AI像人类一样拆解任务并逐] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [4/18 原理_A03_预训练＋微调的训练范式 开源生态和 OpenA] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [5/18 原理_A04_探索神经网络的奥秘-1080P] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [6/18 原理_A05_揭秘Transformer的真面目_720P] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [7/18 原理_A06_揭秘Transformer的真面目-1_108] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [8/18 原理_A07_揭秘Transformer的真面目-2_108] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [9/18 原理_A08_从GPT 到GPT 3.5的华丽升级_720P] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [10/18 原理_A09_从GPT 到GPT 4 的华丽升级_1080P] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [11/18 原理_A10_Fine-tuning微调艺术_1080P] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [12/18 原理_A11_Fine-tuning微调艺术：SFT与RLH] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [13/18 原理_A12_多模态领域的Transformer-创意生成的] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [14/18 原理_A13_揭开文字、人脸、精密零件、无人驾驶的智能识别面] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [15/18 原理_A14_探索DALL·E、Stable Diffusi] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [16/18 原理_A15_AI视频原理求索-类Sora模型：解锁动态视觉] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [17/18 原理_A16_以Llama 和GLM 为首的开源生态追赶Op] 未找到逐字稿缓存，跳过
-2026-05-16 20:55:38 [INFO] [18/18 原理_A17_超级引擎：英伟达GPU与CUDA相关的必备知识] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] ============================================================ 任务开始
-2026-05-16 20:56:06 [INFO] [1/18 PM01_通过个人助理agent，学习长期记忆和多agent] 未找到对应 Markdown，跳过
-2026-05-16 20:56:06 [INFO] [2/18 原理_A01_Prompt、Function Calling] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [3/18 原理_A02_利用Agent技术让AI像人类一样拆解任务并逐] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [4/18 原理_A03_预训练＋微调的训练范式 开源生态和 OpenA] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [5/18 原理_A04_探索神经网络的奥秘-1080P] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [6/18 原理_A05_揭秘Transformer的真面目_720P] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [7/18 原理_A06_揭秘Transformer的真面目-1_108] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [8/18 原理_A07_揭秘Transformer的真面目-2_108] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [9/18 原理_A08_从GPT 到GPT 3.5的华丽升级_720P] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [10/18 原理_A09_从GPT 到GPT 4 的华丽升级_1080P] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [11/18 原理_A10_Fine-tuning微调艺术_1080P] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [12/18 原理_A11_Fine-tuning微调艺术：SFT与RLH] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [13/18 原理_A12_多模态领域的Transformer-创意生成的] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [14/18 原理_A13_揭开文字、人脸、精密零件、无人驾驶的智能识别面] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [15/18 原理_A14_探索DALL·E、Stable Diffusi] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [16/18 原理_A15_AI视频原理求索-类Sora模型：解锁动态视觉] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [17/18 原理_A16_以Llama 和GLM 为首的开源生态追赶Op] 未找到逐字稿缓存，跳过
-2026-05-16 20:56:06 [INFO] [18/18 原理_A17_超级引擎：英伟达GPU与CUDA相关的必备知识] 未找到逐字稿缓存，跳过
+2026-05-16 14:45:27 [INFO] ============================================================ 任务开始
+2026-05-16 14:45:36 [INFO] ============================================================ 任务开始
+2026-05-16 14:45:37 [INFO] [1/14 产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的] 提取关键帧 & 转录音频...
+2026-05-16 14:53:33 [INFO] [1/14 产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的] 预处理完成: 0 次幻灯片, 27 次标注, 55 张关键帧, 22940 字符逐字稿
+2026-05-16 14:53:33 [INFO] [1/14 产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的] 发送至 Gemini API（112 个输入块）...
+2026-05-16 14:53:38 [ERROR] [1/14 产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的] 失败: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http_proxy.py", line 316, in handle_request
+    stream = stream.start_tls(**kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_sync\http11.py", line 376, in start_tls
+    return self._stream.start_tls(ssl_context, server_hostname, timeout)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\zhihu\zhihu\zhihuTTS.py", line 136, in _call_gemini_with_retry
+    response = chat.send_message(parts)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\chats.py", line 252, in send_message
+    response = self._modules.generate_content(
+        model=self._model,
+        contents=self._curated_history + [input_content],  # type: ignore[arg-type]
+        config=config if config else self._config,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 6405, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\models.py", line 4841, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1609, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1402, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\google\genai\_api_client.py", line 1378, in _request_once
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr]
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python314\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)
+2026-05-16 14:54:43 [INFO] [1/14 产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的] 发送至 Gemini API（112 个输入块）...
+2026-05-16 14:55:43 [INFO] [1/14 产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的] 完成，已保存至: TTS_0516_产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的案例与实践.md
+2026-05-16 14:55:44 [INFO]   [1/14 产品设计运营_08_【李智勇】全AI驱动的商业体与无人公司的] 已清理关键帧缓存
+2026-05-16 14:55:44 [INFO] [2/14 多模态_01_【吴桂林】数字分身应用及技术介绍] 提取关键帧 & 转录音频...
+2026-05-16 15:14:14 [INFO] [2/14 多模态_01_【吴桂林】数字分身应用及技术介绍] 预处理完成: 27 次幻灯片, 73 次标注, 166 张关键帧, 85231 字符逐字稿
+2026-05-16 15:14:14 [INFO] [2/14 多模态_01_【吴桂林】数字分身应用及技术介绍] 发送至 Gemini API（334 个输入块）...
+2026-05-16 15:15:20 [INFO] [2/14 多模态_01_【吴桂林】数字分身应用及技术介绍] 完成，已保存至: TTS_0516_多模态_01_【吴桂林】数字分身应用及技术介绍.md
+2026-05-16 15:15:21 [INFO]   [2/14 多模态_01_【吴桂林】数字分身应用及技术介绍] 已清理关键帧缓存
+2026-05-16 15:15:21 [INFO] [3/14 多模态_02_【王宇泽】数字人揭秘：从技术原理到商业落地的全] 提取关键帧 & 转录音频...
+2026-05-16 15:28:56 [INFO] [3/14 多模态_02_【王宇泽】数字人揭秘：从技术原理到商业落地的全] 预处理完成: 13 次幻灯片, 18 次标注, 50 张关键帧, 45331 字符逐字稿
+2026-05-16 15:28:56 [INFO] [3/14 多模态_02_【王宇泽】数字人揭秘：从技术原理到商业落地的全] 发送至 Gemini API（102 个输入块）...
+2026-05-16 15:30:01 [INFO] [3/14 多模态_02_【王宇泽】数字人揭秘：从技术原理到商业落地的全] 完成，已保存至: TTS_0516_多模态_02_【王宇泽】数字人揭秘：从技术原理到商业落地的全景解析.md
+2026-05-16 15:30:02 [INFO]   [3/14 多模态_02_【王宇泽】数字人揭秘：从技术原理到商业落地的全] 已清理关键帧缓存
+2026-05-16 15:30:02 [INFO] [4/14 部署交付_01_【David】智能算力那点事儿] 提取关键帧 & 转录音频...
+2026-05-16 16:09:45 [INFO] ============================================================ 任务开始
+2026-05-16 16:11:07 [INFO] ============================================================ 任务开始
+2026-05-16 16:12:07 [INFO] ============================================================ 任务开始
+2026-05-16 16:12:07 [INFO] [1/10 部署交付_01_【David】智能算力那点事儿] 提取关键帧 & 转录音频...
+2026-05-16 16:49:31 [INFO] [1/10 部署交付_01_【David】智能算力那点事儿] 预处理完成: 13 次幻灯片, 176 次标注, 360 张关键帧, 87130 字符逐字稿
+2026-05-16 16:49:31 [INFO] [1/10 部署交付_01_【David】智能算力那点事儿] 发送至 Gemini API（722 个输入块）...
+2026-05-16 16:52:24 [INFO] ============================================================ 任务开始
+2026-05-16 16:52:59 [INFO] ============================================================ 任务开始
+2026-05-16 16:52:59 [INFO] [1/10 部署交付_01_【David】智能算力那点事儿] 命中预处理缓存: 360 张关键帧
+2026-05-16 16:52:59 [INFO] [1/10 部署交付_01_【David】智能算力那点事儿] 预处理完成: 13 次幻灯片, 176 次标注, 360 张关键帧, 87130 字符逐字稿
+2026-05-16 16:52:59 [INFO] [1/10 部署交付_01_【David】智能算力那点事儿] 发送至 Gemini API（722 个输入块）...
+2026-05-16 16:54:27 [INFO] [1/10 部署交付_01_【David】智能算力那点事儿] 完成，已保存至: TTS_0516_部署交付_01_【David】智能算力那点事儿.md
+2026-05-16 16:54:29 [INFO]   [1/10 部署交付_01_【David】智能算力那点事儿] 已清理关键帧缓存
+2026-05-16 16:54:29 [INFO] [2/10 龙虾_个人_01_战略参谋虾] 提取关键帧 & 转录音频...
+2026-05-16 16:58:16 [INFO] ============================================================ 任务开始
+2026-05-16 19:27:49 [INFO] ============================================================ 任务开始
+2026-05-16 19:30:56 [INFO] ============================================================ 任务开始
+2026-05-16 19:30:56 [INFO] [1/9 龙虾_个人_01_战略参谋虾] 提取关键帧 & 转录音频...
+2026-05-16 19:47:47 [INFO] [1/9 龙虾_个人_01_战略参谋虾] 预处理完成: 41 次幻灯片, 93 次标注, 218 张关键帧, 45228 字符逐字稿
+2026-05-16 19:47:48 [INFO] [1/9 龙虾_个人_01_战略参谋虾] 发送至 Gemini API（438 个输入块）...
+2026-05-16 19:48:35 [INFO] [1/9 龙虾_个人_01_战略参谋虾] 完成，已保存至: TTS_0516_龙虾_个人_01_战略参谋虾.md
+2026-05-16 19:48:36 [INFO]   [1/9 龙虾_个人_01_战略参谋虾] 已清理关键帧缓存
+2026-05-16 19:48:36 [INFO] [2/9 龙虾_职场_01_周期报表分析及自动化推送团队] 提取关键帧 & 转录音频...
+2026-05-16 20:05:34 [INFO] [2/9 龙虾_职场_01_周期报表分析及自动化推送团队] 预处理完成: 19 次幻灯片, 137 次标注, 285 张关键帧, 34662 字符逐字稿
+2026-05-16 20:05:34 [INFO] [2/9 龙虾_职场_01_周期报表分析及自动化推送团队] 发送至 Gemini API（572 个输入块）...
+2026-05-16 20:06:47 [INFO] [2/9 龙虾_职场_01_周期报表分析及自动化推送团队] 完成，已保存至: TTS_0516_龙虾_职场_01_周期报表分析及自动化推送团队.md
+2026-05-16 20:06:48 [INFO]   [2/9 龙虾_职场_01_周期报表分析及自动化推送团队] 已清理关键帧缓存
+2026-05-16 20:06:48 [INFO] [3/9 龙虾_职场_02_市场调研及深度情报团队] 提取关键帧 & 转录音频...
+2026-05-16 21:43:37 [INFO] ============================================================ 任务开始
+2026-05-16 21:52:10 [INFO] ============================================================ 任务开始
+2026-05-16 22:00:46 [INFO] ============================================================ 任务开始
+2026-05-16 22:01:25 [INFO] ============================================================ 任务开始
+2026-05-16 22:01:32 [INFO] ============================================================ 任务开始
+2026-05-16 22:02:50 [INFO] ============================================================ 任务开始
+2026-05-16 22:03:08 [INFO] ============================================================ 任务开始
+2026-05-16 22:03:09 [INFO] [1/7 龙虾_职场_02_市场调研及深度情报团队] 提取关键帧 & 转录音频...
+2026-05-16 22:29:23 [INFO] [1/7 龙虾_职场_02_市场调研及深度情报团队] 预处理完成: 17 次幻灯片, 203 次标注, 417 张关键帧, 60374 字符逐字稿
+2026-05-16 22:29:23 [INFO] [1/7 龙虾_职场_02_市场调研及深度情报团队] 发送至 Gemini API（836 个输入块）...
+2026-05-16 22:31:05 [INFO] [1/7 龙虾_职场_02_市场调研及深度情报团队] 完成，已保存至: TTS_0516_龙虾_职场_02_市场调研及深度情报团队.md
+2026-05-16 22:31:06 [INFO]   [1/7 龙虾_职场_02_市场调研及深度情报团队] 已清理关键帧缓存
+2026-05-16 22:31:06 [INFO] [2/7 龙虾_职场_03_业务数据精密分析团队] 提取关键帧 & 转录音频...
+2026-05-16 22:52:21 [INFO] [2/7 龙虾_职场_03_业务数据精密分析团队] 预处理完成: 7 次幻灯片, 137 次标注, 280 张关键帧, 39665 字符逐字稿
+2026-05-16 22:52:21 [INFO] [2/7 龙虾_职场_03_业务数据精密分析团队] 发送至 Gemini API（562 个输入块）...
+2026-05-16 22:53:17 [INFO] [2/7 龙虾_职场_03_业务数据精密分析团队] 完成，已保存至: TTS_0516_龙虾_职场_03_业务数据精密分析团队.md
+2026-05-16 22:53:18 [INFO]   [2/7 龙虾_职场_03_业务数据精密分析团队] 已清理关键帧缓存
+2026-05-16 22:53:18 [INFO] [3/7 龙虾_职场_04_竞品动态全天候监控团队] 提取关键帧 & 转录音频...
+2026-05-16 23:03:17 [INFO] ============================================================ 任务开始
+2026-05-16 23:06:38 [INFO] ============================================================ 任务开始
+2026-05-16 23:06:56 [INFO] ============================================================ 任务开始
+2026-05-16 23:17:15 [INFO] ============================================================ 任务开始
+2026-05-16 23:18:42 [INFO] ============================================================ 任务开始
+2026-05-16 23:18:43 [INFO] [1/5 龙虾_职场_04_竞品动态全天候监控团队] 提取关键帧 & 转录音频...
+2026-05-16 23:32:55 [INFO] [1/5 龙虾_职场_04_竞品动态全天候监控团队] 预处理完成: 30 次幻灯片, 62 次标注, 147 张关键帧, 42939 字符逐字稿
+2026-05-16 23:32:55 [INFO] [1/5 龙虾_职场_04_竞品动态全天候监控团队] 发送至 Gemini API（296 个输入块）...
+2026-05-16 23:33:30 [INFO] [1/5 龙虾_职场_04_竞品动态全天候监控团队] 完成，已保存至: TTS_0516_龙虾_职场_04_竞品动态全天候监控团队.md
+2026-05-16 23:33:31 [INFO]   [1/5 龙虾_职场_04_竞品动态全天候监控团队] 已清理关键帧缓存
+2026-05-16 23:33:31 [INFO] [2/5 龙虾_职场_05_会议与日程管理团队] 提取关键帧 & 转录音频...
+2026-05-16 23:47:15 [INFO] [2/5 龙虾_职场_05_会议与日程管理团队] 预处理完成: 30 次幻灯片, 162 次标注, 335 张关键帧, 43947 字符逐字稿
+2026-05-16 23:47:15 [INFO] [2/5 龙虾_职场_05_会议与日程管理团队] 发送至 Gemini API（672 个输入块）...
+2026-05-16 23:48:06 [INFO] [2/5 龙虾_职场_05_会议与日程管理团队] 完成，已保存至: TTS_0516_龙虾_职场_05_会议与日程管理团队.md
+2026-05-16 23:48:07 [INFO]   [2/5 龙虾_职场_05_会议与日程管理团队] 已清理关键帧缓存
+2026-05-16 23:48:07 [INFO] [3/5 龙虾_职场_06_汇报演示与 PPT 自动生产团队] 提取关键帧 & 转录音频...
+2026-05-16 23:48:53 [INFO] ============================================================ 任务开始
+2026-05-16 23:49:02 [INFO] ============================================================ 任务开始
+2026-05-16 23:49:03 [INFO] [1/3 龙虾_职场_06_汇报演示与 PPT 自动生产团队] 提取关键帧 & 转录音频...
+2026-05-17 00:03:34 [INFO] [1/3 龙虾_职场_06_汇报演示与 PPT 自动生产团队] 预处理完成: 25 次幻灯片, 113 次标注, 247 张关键帧, 46248 字符逐字稿
+2026-05-17 00:03:34 [INFO] [1/3 龙虾_职场_06_汇报演示与 PPT 自动生产团队] 发送至 Gemini API（496 个输入块）...
+2026-05-17 00:04:22 [INFO] [1/3 龙虾_职场_06_汇报演示与 PPT 自动生产团队] 完成，已保存至: TTS_0516_龙虾_职场_06_汇报演示与 PPT 自动生产团队.md
+2026-05-17 00:04:22 [INFO]   [1/3 龙虾_职场_06_汇报演示与 PPT 自动生产团队] 已清理关键帧缓存
+2026-05-17 00:04:22 [INFO] [2/3 龙虾_职场_07_文档整理与调取团队] 提取关键帧 & 转录音频...
+2026-05-17 00:22:05 [INFO] [2/3 龙虾_职场_07_文档整理与调取团队] 预处理完成: 59 次幻灯片, 136 次标注, 330 张关键帧, 49677 字符逐字稿
+2026-05-17 00:22:05 [INFO] [2/3 龙虾_职场_07_文档整理与调取团队] 发送至 Gemini API（662 个输入块）...
+2026-05-17 00:23:24 [INFO] [2/3 龙虾_职场_07_文档整理与调取团队] 完成，已保存至: TTS_0517_龙虾_职场_07_文档整理与调取团队.md
+2026-05-17 00:23:25 [INFO]   [2/3 龙虾_职场_07_文档整理与调取团队] 已清理关键帧缓存
+2026-05-17 00:23:25 [INFO] [3/3 龙虾_职场_08_经营过程数据监控团队] 提取关键帧 & 转录音频...
+2026-05-17 00:38:45 [INFO] [3/3 龙虾_职场_08_经营过程数据监控团队] 预处理完成: 44 次幻灯片, 85 次标注, 212 张关键帧, 46416 字符逐字稿
+2026-05-17 00:38:45 [INFO] [3/3 龙虾_职场_08_经营过程数据监控团队] 发送至 Gemini API（426 个输入块）...
+2026-05-17 00:39:54 [INFO] [3/3 龙虾_职场_08_经营过程数据监控团队] 完成，已保存至: TTS_0517_龙虾_职场_08_经营过程数据监控团队.md
+2026-05-17 00:39:55 [INFO]   [3/3 龙虾_职场_08_经营过程数据监控团队] 已清理关键帧缓存
+2026-05-17 00:39:55 [INFO] 运行报告已保存: D:\zhihu\zhihu\runs\2026-05-16.md
