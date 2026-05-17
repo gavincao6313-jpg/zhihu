@@ -145,6 +145,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-16T16:58:00+08:00"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-17T19:02:00+08:00",
+      "error_message": "git pull --ff-only failed with curl 28: Failed to connect to github.com port 443 after 75008 ms",
+      "file": "feature/stream-transcript-validation worktree",
+      "root_cause": "Network connection to GitHub timed out while updating the stream worktree.",
+      "fix": "Used the already-fetched origin/feature/stream-transcript-validation ref and fast-forwarded the worktree with git merge --ff-only.",
+      "tags": [
+        "git",
+        "network",
+        "stream-validation"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T19:02:00+08:00"
     }
   ]
 }
