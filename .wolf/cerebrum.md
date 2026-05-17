@@ -12,6 +12,7 @@
 - **Local-only config:** Keep `.claude/settings.local.json` out of Git; it is machine-specific permission state and should stay local.
 - **Stream validation workflow:** User wants to validate video-stream handling step by step by first running one complete replay stream end-to-end before attempting real live stream input.
 - **Mac/Windows stream validation split:** User decided Mac hardware should not run the complete replay-stream validation; write Windows-facing handoff instructions and let Windows perform the long run.
+- **Quota/session preservation:** When user says the 5-hour quota is about to run out, immediately write discussion results into repo docs and OpenWolf memory so work can resume after quota recovery.
 
 ## Key Learnings
 
@@ -23,6 +24,7 @@
 - **Stream validation route:** Video stream/live URL work is isolated on `feature/stream-transcript-validation`; `main` intentionally lacks `zhihuTTS_stream.py`, and validation needs a real media URL or DevTools `Copy as cURL` input.
 - **Replay stream runner behavior:** On `feature/stream-transcript-validation`, `zhihuTTS_stream.py --duration 0` processes from `--start` to probed source end; `--chunk-duration` controls slice size; the script never calls Gemini and produces per-chunk reports plus combined transcript and manifest under `runs/`.
 - **Replay probe 2026-05-17:** The tested signed replay MP4 from `vdn6.vzuu.com` was ffprobe-readable with duration about `02:42:53`, H.264 1080p video, AAC 44.1k stereo audio, and size about 309 MB.
+- **Stream automation plan:** Replace manual DevTools URL capture with a Python extractor layer upstream of `zhihuTTS_stream.py`; implement `stream_extractors.py` with direct URL/curl-file fallback, `yt-dlp`, then Playwright network interception, and defer watchdog/supervisor behavior until extraction-to-run works once.
 
 ## Do-Not-Repeat
 

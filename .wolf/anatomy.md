@@ -70,6 +70,7 @@
 
 - `BRANCH_USAGE.md` — Branch separation guide for production batch, stream transcript validation, active branch names, commands, and obsolete branch warning (~457 tok)
 - `ENGINEERING_HISTORY.md` — Engineering history including 2026-05-17 transcript output and video stream validation branch split (~825 tok)
+- `STREAM_AUTOMATION_PLAN_20260517.md` — Discussion record and engineering plan for replacing manual stream URL capture with Python yt-dlp/Playwright extractors and later supervisor logic (~950 tok)
 - `WHISPER_BACKEND_IMPROVEMENT_PLAN.md` — Mac/Windows handoff plan for CPU transcription optimization, whisper.cpp CLI Vulkan backend, D-drive temp files, caching, and run reports (~2150 tok)
 
 - `WINDOWS_RUNBOOK.md` | Windows Run Owner workflow, safe whisper env vars, whisper.cpp paths, failure playbooks, cache expectations (~430 tok)
