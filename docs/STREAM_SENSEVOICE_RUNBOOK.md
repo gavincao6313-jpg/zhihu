@@ -109,6 +109,36 @@ python zhihuTTS_stream.py `
   --no-gemini
 ```
 
+For high-risk pages that depend on dynamic signatures or refreshed cookies, prefer a persistent Playwright profile. The profile directory is local runtime state and should not be committed.
+
+For the first run, add `--playwright-headed` if the platform needs manual login or verification. Later runs can reuse the same profile directory in headless mode.
+
+```powershell
+$env:TRANSCRIBE_BACKEND = "sensevoice"
+python zhihuTTS_stream.py `
+  --page-url "https://www.zhihu.com/..." `
+  --extractor playwright `
+  --playwright-user-data-dir "Videos/.stream/playwright-zhihu-profile" `
+  --duration 300 `
+  --chunk-duration 60 `
+  --name live-playwright-profile-sensevoice `
+  --no-gemini
+```
+
+If you use a storage-state JSON instead of a persistent profile, write refreshed cookies/session data back after extraction:
+
+```powershell
+python zhihuTTS_stream.py `
+  --page-url "https://www.zhihu.com/..." `
+  --extractor playwright `
+  --playwright-storage-state "Videos/.stream/storage_state.zhihu.json" `
+  --playwright-save-storage-state "Videos/.stream/storage_state.zhihu.json" `
+  --duration 300 `
+  --chunk-duration 60 `
+  --name live-playwright-state-refresh `
+  --no-gemini
+```
+
 If the page needs debugging, add:
 
 ```powershell

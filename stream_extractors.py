@@ -4,6 +4,7 @@ import asyncio
 import os
 import re
 from dataclasses import dataclass, field
+from pathlib import Path
 from urllib.parse import urlparse
 
 
@@ -173,9 +174,38 @@ def _is_media_candidate(url: str) -> bool:
     return any(pattern in lowered for pattern in MEDIA_PATTERNS) and _score_media_url(url) > 0
 
 
+async def _activate_page_media(page) -> None:
+    """Trigger lazy player/network code without requiring platform-specific selectors."""
+    try:
+        await page.mouse.move(640, 360)
+        await page.mouse.wheel(0, 300)
+        await page.wait_for_timeout(500)
+        await page.mouse.wheel(0, -300)
+    except Exception:
+        pass
+    try:
+        await page.evaluate(
+            """
+            () => {
+              for (const video of document.querySelectorAll('video')) {
+                video.muted = true;
+                const result = video.play();
+                if (result && typeof result.catch === 'function') {
+                  result.catch(() => {});
+                }
+              }
+            }
+            """
+        )
+    except Exception:
+        pass
+
+
 async def _extract_with_playwright_async(
     page_url: str,
     storage_state: str = "",
+    save_storage_state: str = "",
+    user_data_dir: str = "",
     headed: bool = False,
     timeout_ms: int = 20000,
     wait_seconds: float = 8.0,
@@ -188,12 +218,22 @@ async def _extract_with_playwright_async(
     candidates: list[tuple[int, str, dict[str, str]]] = []
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=not headed)
         context_kwargs = {}
         state_path = storage_state or os.environ.get("PLAYWRIGHT_STORAGE_STATE", "").strip()
-        if state_path:
+        profile_dir = user_data_dir or os.environ.get("PLAYWRIGHT_USER_DATA_DIR", "").strip()
+        state_out_path = save_storage_state or os.environ.get("PLAYWRIGHT_SAVE_STORAGE_STATE", "").strip()
+        if state_path and not profile_dir:
             context_kwargs["storage_state"] = state_path
-        context = await browser.new_context(**context_kwargs)
+        if profile_dir:
+            context = await p.chromium.launch_persistent_context(
+                profile_dir,
+                headless=not headed,
+                **context_kwargs,
+            )
+            browser = None
+        else:
+            browser = await p.chromium.launch(headless=not headed)
+            context = await browser.new_context(**context_kwargs)
         page = await context.new_page()
 
         def on_request(request):
@@ -206,9 +246,16 @@ async def _extract_with_playwright_async(
 
         try:
             await page.goto(page_url, wait_until="domcontentloaded", timeout=timeout_ms)
+            await page.wait_for_timeout(1500)
+            await _activate_page_media(page)
             await page.wait_for_timeout(int(wait_seconds * 1000))
         finally:
-            await browser.close()
+            if state_out_path:
+                Path(state_out_path).parent.mkdir(parents=True, exist_ok=True)
+                await context.storage_state(path=state_out_path)
+            await context.close()
+            if browser:
+                await browser.close()
 
     if not candidates:
         raise RuntimeError("Playwright 未截获 .m3u8/.mpd/.flv/.mp4 等媒体请求")
@@ -226,6 +273,8 @@ async def _extract_with_playwright_async(
 def extract_with_playwright(
     page_url: str,
     storage_state: str = "",
+    save_storage_state: str = "",
+    user_data_dir: str = "",
     headed: bool = False,
     timeout_ms: int = 20000,
     wait_seconds: float = 8.0,
@@ -234,6 +283,8 @@ def extract_with_playwright(
         _extract_with_playwright_async(
             page_url,
             storage_state=storage_state,
+            save_storage_state=save_storage_state,
+            user_data_dir=user_data_dir,
             headed=headed,
             timeout_ms=timeout_ms,
             wait_seconds=wait_seconds,
@@ -245,6 +296,8 @@ def extract_stream(
     page_url: str,
     extractor: str = "auto",
     storage_state: str = "",
+    save_storage_state: str = "",
+    user_data_dir: str = "",
     headed: bool = False,
     timeout_ms: int = 20000,
     wait_seconds: float = 8.0,
@@ -257,6 +310,8 @@ def extract_stream(
         return extract_with_playwright(
             page_url,
             storage_state=storage_state,
+            save_storage_state=save_storage_state,
+            user_data_dir=user_data_dir,
             headed=headed,
             timeout_ms=timeout_ms,
             wait_seconds=wait_seconds,

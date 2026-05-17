@@ -152,3 +152,4 @@
 | 20:27 | validated stream recovery path with monkeypatch test | zhihuTTS_stream.py, stream_extractors.py, .wolf/buglog.json | corrected ad hoc fixture field name and confirmed failed chunk retries after refreshed URL | ~600 |
 | 20:31 | staged stream recovery changes with escalated Git worktree permission | .wolf/buglog.json, .wolf/memory.md | first git add hit sandbox index.lock permission; escalated git add succeeded | ~400 |
 | 20:33 | pushed stream URL recovery commit | zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md | origin/feature/stream-transcript-validation advanced to 4ce1bdc with chunk-scoped URL re-extraction recovery | ~300 |
+| 20:48 | enhanced Playwright_Flow for high-risk live pages | stream_extractors.py, zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md | added persistent profile and storage_state write-back options so extractor can preserve cookies/localStorage and trigger lazy media requests | ~2200 |

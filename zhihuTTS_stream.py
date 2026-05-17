@@ -188,6 +188,8 @@ def resolve_input(args: argparse.Namespace) -> ExtractedStream:
             args.page_url,
             extractor=args.extractor,
             storage_state=args.playwright_storage_state,
+            save_storage_state=args.playwright_save_storage_state,
+            user_data_dir=args.playwright_user_data_dir,
             headed=args.playwright_headed,
             timeout_ms=args.extractor_timeout_ms,
             wait_seconds=args.extractor_wait_s,
@@ -206,6 +208,8 @@ def refresh_page_stream(args: argparse.Namespace) -> ExtractedStream:
         args.page_url,
         extractor=args.extractor,
         storage_state=args.playwright_storage_state,
+        save_storage_state=args.playwright_save_storage_state,
+        user_data_dir=args.playwright_user_data_dir,
         headed=args.playwright_headed,
         timeout_ms=args.extractor_timeout_ms,
         wait_seconds=args.extractor_wait_s,
@@ -743,6 +747,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--playwright-storage-state",
         default="",
         help="Optional Playwright storage_state JSON for logged-in pages.",
+    )
+    parser.add_argument(
+        "--playwright-save-storage-state",
+        default="",
+        help="Optional path to write refreshed Playwright storage_state after extraction.",
+    )
+    parser.add_argument(
+        "--playwright-user-data-dir",
+        default="",
+        help="Optional persistent Playwright browser profile directory for cookie/session reuse.",
     )
     parser.add_argument(
         "--playwright-headed",
