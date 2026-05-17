@@ -1,13 +1,26 @@
 # 协作流程
 
-## 角色边界
+## 共享边界
 
-| 角色 | 常用机器 | 职责 | 可提交内容 |
-|---|---|---|---|
-| Code Owner | Mac | 代码、依赖、hook、架构和协作文档 | `.py`, `requirements.txt`, `.gitignore`, `.gitattributes`, `githooks/`, `docs/`, `COLLABORATION.md` |
-| Run Owner | Windows | 跑批、检查日志、提交进度和生成结果 | `.progress.json`, `Markdowns/TTS_*.md`, `runs/*.md` |
+边界按文件用途划分，不按机器划分。Windows 和 Mac 都遵循同一套准则：
 
-边界按职责划分，不按机器能力划分。Windows Codex 可以分析代码问题，但代码修复应形成说明、issue 或 handoff，由 Code Owner 修改。
+1. 本机专属配置、私有权限、运行环境偏好、本机遥测、缓存和密钥不共享。
+2. 项目共识、协作规则、可复现的运行报告、进度状态、最终输出，以及对端需要理解并继续执行的内容要提交到 Git。
+3. 代码变更、运行结果、工具状态尽量分开提交，避免混合提交导致职责不清。
+
+详细规则见 `docs/SHARED_STATE_POLICY.md`。
+
+## 文件类别
+
+| 类别 | 共享策略 | 示例 |
+|---|---|---|
+| 代码与依赖 | 提交 | `.py`, `requirements.txt` |
+| 协作规则与运行手册 | 提交 | `AGENTS.md`, `CLAUDE.md`, `COLLABORATION.md`, `docs/*.md` |
+| 共享工具定义 | 提交 | `githooks/**`, `.claude/settings.json`, `.claude/rules/**`, `.wolf/OPENWOLF.md`, `.wolf/config.json`, `.wolf/hooks/**` |
+| 项目记忆与共识 | 提交 | `.wolf/anatomy.md`, `.wolf/cerebrum.md`, `.wolf/memory.md`, `.wolf/buglog.json` |
+| 进度与最终输出 | 提交 | `.progress.json`, `Markdowns/*.md`, `runs/*.md` |
+| 原始日志和本机遥测 | 不提交 | `*.log`, `.wolf/hooks/_session.json`, `.wolf/token-ledger.json` |
+| 本地缓存和生成索引 | 不提交 | `Videos/**`, `cache/**`, `.gitnexus/**`, `graphify-out/**` |
 
 ## 开始前
 
@@ -17,21 +30,7 @@
 git pull --rebase
 ```
 
-如果本地有未提交改动，先确认它们属于自己的职责范围，再继续。
-
-## Code Owner 规则
-
-- 不修改、不提交 `.progress.json`。
-- 可修改代码、依赖、hook、`.gitignore`、`.gitattributes`、架构文档和 runbook。
-- 修改 Python 符号前按 `AGENTS.md` 使用 GitNexus 做影响分析；提交前使用 GitNexus 检查变更影响。
-- 不提交运行时大文件或本地缓存。
-
-## Run Owner 规则
-
-- 负责运行批处理、观察日志、提交处理进度和生成 Markdown。
-- 可以提交 `.progress.json`、`Markdowns/TTS_*.md`、`runs/*.md`。
-- 不修改 `.py`、依赖文件、hook、repo 配置或架构文档。
-- 如果发现代码缺陷，提交复现信息、日志摘要或文档交接，不直接 patch 代码。
+如果本地有未提交改动，先按文件用途确认是否应该共享，再继续。
 
 ## Windows 日常运行
 
@@ -74,7 +73,7 @@ git push
 
 ## Git Hook
 
-仓库内 `githooks/pre-commit` 会拦截职责外提交和大运行产物。两台机器都需要执行一次：
+仓库内 `githooks/pre-commit` 会拦截本机产物、遥测、缓存、密钥文件，以及代码/协作文档和运行结果混合提交。两台机器都需要执行一次：
 
 ```bash
 git config core.hooksPath githooks
