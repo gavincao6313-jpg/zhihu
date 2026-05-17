@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-05-14T05:28:52.582Z",
+      "error_message": "Incorrect value in code",
+      "file": "C:/Users/Admin/AppData/Local/Temp/whisper-src/whisper_cpp_python-0.2.0/setup.py",
+      "root_cause": "Had 'gcc'",
+      "fix": "Changed to 'clang'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-14T05:28:52.582Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-05-14T06:07:45.514Z",
+      "error_message": "Wrong reference: platform should be re",
+      "file": "zhihuTTS_video.py",
+      "root_cause": "Used \"platform\" instead of \"re\"",
+      "fix": "Changed platform → re",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-14T06:07:45.514Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-05-14T06:08:12.787Z",
+      "error_message": "Significant refactor of ",
+      "file": ".progress.json",
+      "root_cause": "7 lines replaced/restructured",
+      "fix": "Rewrote 29→14 lines (7 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "json"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-14T06:08:12.787Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-05-14T06:17:13.413Z",
+      "error_message": "Significant refactor of ",
+      "file": ".progress.json",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 22→12 lines (5 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "json"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-14T06:17:13.413Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-05-14T06:44:09.189Z",
+      "error_message": "Significant refactor of ",
+      "file": ".progress.json",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 9→4 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "json"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-14T06:44:09.189Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-05-14T15:59:36.025Z",
+      "error_message": "Significant refactor of ",
+      "file": "zhihuTTS.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 3→5 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-14T15:59:36.025Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-05-16T10:47:00+08:00",
+      "error_message": "PowerShell reports: cannot load C:\\Users\\Admin\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 because script execution is disabled",
+      "file": "C:/Users/Admin/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
+      "root_cause": "PowerShell execution policy blocks the user profile script, causing every shell command to emit noisy errors.",
+      "fix": "Not fixed in this review; use powershell -NoProfile for commands or adjust/remove the profile after user approval.",
+      "tags": [
+        "powershell",
+        "execution-policy",
+        "environment"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T10:47:00+08:00"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-05-16T14:32:00+08:00",
+      "error_message": "AGENTS.md references @RTK.md, but D:\\zhihu\\zhihu\\RTK.md was not found",
+      "file": "AGENTS.md",
+      "root_cause": "The project instruction file points to a missing root-level RTK.md include.",
+      "fix": "Not fixed; recorded for handoff because Windows Run Owner should not alter project instruction structure without user direction.",
+      "tags": [
+        "openwolf",
+        "instructions",
+        "missing-file"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T14:32:00+08:00"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-05-16T16:58:00+08:00",
+      "error_message": "python zhihuTTS.py validation commands timed out in the runner after preprocessing/Gemini phases",
+      "file": "zhihuTTS.py",
+      "root_cause": "The full daily batch can run longer than the tool timeout; one run was interrupted during Gemini send and a retry later proved cache reuse.",
+      "fix": "No code change on Windows. Captured the timeout in runs/windows-whispercpp-validation-20260516.md and verified retry reused cache before completing the video.",
+      "tags": [
+        "windows-run",
+        "timeout",
+        "cache",
+        "whispercpp"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:58:00+08:00"
+    }
+  ]
+}
