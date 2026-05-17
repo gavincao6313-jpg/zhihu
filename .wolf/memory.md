@@ -153,3 +153,4 @@
 | 20:31 | staged stream recovery changes with escalated Git worktree permission | .wolf/buglog.json, .wolf/memory.md | first git add hit sandbox index.lock permission; escalated git add succeeded | ~400 |
 | 20:33 | pushed stream URL recovery commit | zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md | origin/feature/stream-transcript-validation advanced to 4ce1bdc with chunk-scoped URL re-extraction recovery | ~300 |
 | 20:48 | enhanced Playwright_Flow for high-risk live pages | stream_extractors.py, zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md | added persistent profile and storage_state write-back options so extractor can preserve cookies/localStorage and trigger lazy media requests | ~2200 |
+| 07:50 | made stream slice retention configurable | zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md, .wolf/cerebrum.md | added --stream-work-dir and --cleanup-slices while keeping MP4 slice files by default for audit/retry | ~1800 |

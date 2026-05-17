@@ -71,6 +71,38 @@ python zhihuTTS_stream.py `
   --no-gemini
 ```
 
+## Slice File Strategy
+
+The stream runner slices media with ffmpeg into fixed-duration `.mp4` files before calling SenseVoice/FunASR. This is intentional for retry, recovery, Windows validation, and auditability.
+
+Default behavior keeps slice files under `Videos/.stream/`:
+
+```powershell
+python zhihuTTS_stream.py `
+  --url $env:REPLAY_URL `
+  --duration 300 `
+  --chunk-duration 60 `
+  --name replay-slice-audit `
+  --no-gemini
+```
+
+For long live validation where disk usage matters, choose a work directory and clean up each slice after transcript/report output has been written:
+
+```powershell
+python zhihuTTS_stream.py `
+  --page-url "https://www.zhihu.com/..." `
+  --extractor playwright `
+  --playwright-user-data-dir "Videos/.stream/playwright-zhihu-profile" `
+  --duration 1800 `
+  --chunk-duration 60 `
+  --stream-work-dir "Videos/.stream/chunks" `
+  --cleanup-slices `
+  --name live-cleanup-sensevoice `
+  --no-gemini
+```
+
+The per-chunk report and manifest record the slice path, byte size, and whether the file was kept.
+
 ## Automatic Page URL Extraction
 
 Use `--page-url` when you have a live room or replay page, not a direct media URL.

@@ -246,6 +246,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-17T20:48:16+08:00"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-05-18T07:50:19+08:00",
+      "error_message": "cleanup slice monkeypatch test failed with KeyError: 'duration_s'",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "The ad hoc test fixture passed an incomplete source_summary missing duration_s, while write_report expects source duration metadata.",
+      "fix": "Reran the cleanup-slices test with duration_s, size_bytes, video, and audio fields in source_summary; the slice was deleted after report output as expected.",
+      "tags": [
+        "test",
+        "stream-validation",
+        "cleanup-slices"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-18T07:50:19+08:00"
     }
   ]
 }

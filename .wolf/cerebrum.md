@@ -20,6 +20,7 @@
 - **Stream URL extraction:** `stream_extractors.py` is the upstream extractor layer for page URLs; `--page-url --extractor auto` routes known hosts through yt-dlp and Zhihu/unknown hosts through Playwright network interception while keeping `--url` and `--curl-file` as fallback inputs.
 - **Stream URL recovery:** URL expiration/disconnect recovery is chunk-scoped: ffmpeg retries the current media URL first, then `zhihuTTS_stream.py` only re-runs the page extractor for `StreamSliceError` when `--page-url` is available; ASR/runtime errors should not trigger URL re-extraction.
 - **Playwright high-risk platform path:** Treat Playwright_Flow as the preferred path for Zhihu/unknown/high-risk pages because a real browser session can preserve cookies/localStorage and run dynamic signing JavaScript; use a persistent profile or write back storage_state rather than relying on one-off manual URL capture.
+- **Stream slice storage:** Stream validation intentionally slices to fixed-duration MP4 files before SenseVoice/FunASR; keep slices by default for audit/retry, but long live runs can use `--cleanup-slices` after transcript/report output to control disk use.
 
 ## Do-Not-Repeat
 
@@ -31,3 +32,4 @@
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
 - **2026-05-17 Stream recovery scope:** Implement recovery inside the existing chunk loop instead of a full outer supervisor first, because validation needs to survive expired signed URLs and dropped connections during a finite replay/live run while preserving chunk reports and SenseVoice output shape.
 - **2026-05-17 Playwright session strategy:** For platforms with stronger risk controls, prioritize persistent Playwright sessions over static signed URLs because the page can refresh cookies and dynamic signatures before every extraction/re-extraction.
+- **2026-05-18 Slice retention strategy:** Keep file-based chunking as the main path instead of in-memory Bytes because Windows validation needs reproducible artifacts, while adding cleanup controls for long live sessions.
