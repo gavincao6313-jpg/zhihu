@@ -142,3 +142,9 @@
 | 05/16 15:00 | Git commit: progress, new md files, anatomy, memory updated | .progress.json, 6 md files, anatomy.md, memory.md, pipeline memory | Ready for code changes and resume | ~200 |
 | 16:58 | Pulled Mac whisper.cpp backend changes and validated Windows run | .progress.json, Markdowns/TTS_0516_*.md, runs/windows-whispercpp-validation-20260516.md | Verified whispercpp-vulkan backend, cache reuse after timeout, 39/63 done, quota 11/20 | ~4k |
 | 19:30 | Recorded code upgrade retro and MAX_TOKENS follow-up | runs/windows-code-upgrade-retro-20260516.md | Documented cause, validation, errors, handling, and effective-upgrade assessment | ~2k |
+
+## Session: 2026-05-17 08:50
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:50 | Recorded shared Git push policy for repo-level context files | .wolf/cerebrum.md, .wolf/memory.md | Commit and push `AGENTS.md`, `CLAUDE.md`, `.claude/settings.json`, `.claude/rules/openwolf.md`; keep `.claude/settings.local.json` local-only | ~250 |

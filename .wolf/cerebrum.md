@@ -8,6 +8,8 @@
 
 <!-- How the user likes things done. Code style, tools, patterns, communication. -->
 - **Windows Run Owner role:** User explicitly limits this side to running scripts, analyzing logs, committing `.progress.json`, Markdown outputs, and run reports; do not modify `.py`, `requirements.txt`, `githooks`, or architecture code.
+- **Shared context files:** Commit and push repo-level coordination files that Mac and Windows both need to read, including `AGENTS.md`, `CLAUDE.md`, `.claude/settings.json`, and `.claude/rules/openwolf.md`.
+- **Local-only config:** Keep `.claude/settings.local.json` out of Git; it is machine-specific permission state and should stay local.
 
 ## Key Learnings
 
