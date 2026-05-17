@@ -17,6 +17,7 @@
 - **Current scale:** As of 2026-05-16 review, `Videos/` has 63 video files; `.progress.json` marks 31 matching files done and 32 pending, with 2 API quota units used on 2026-05-16.
 - **Operational gotcha:** PowerShell profile loading emits an execution-policy error on each shell command; use `powershell -NoProfile` or fix/remove the profile to keep logs clean.
 - **Stream SenseVoice backend:** On `feature/stream-transcript-validation`, stream chunks should use the shared `zhihuTTS_video.transcribe_audio()` backend with `TRANSCRIBE_BACKEND=sensevoice` by default; `zhihuTTS_stream.py` remains responsible for slicing/retry/manifest only.
+- **Stream URL extraction:** `stream_extractors.py` is the upstream extractor layer for page URLs; `--page-url --extractor auto` routes known hosts through yt-dlp and Zhihu/unknown hosts through Playwright network interception while keeping `--url` and `--curl-file` as fallback inputs.
 
 ## Do-Not-Repeat
 

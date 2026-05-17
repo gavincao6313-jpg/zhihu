@@ -46,6 +46,7 @@ If installing from this branch:
 
 ```powershell
 pip install -r requirements.txt
+python -m playwright install chromium
 ```
 
 If PyTorch/Torchaudio need manual CPU wheels, install them in the same virtual environment before running stream validation.
@@ -68,6 +69,50 @@ python zhihuTTS_stream.py `
   --chunk-duration 300 `
   --name replay-full-sensevoice `
   --no-gemini
+```
+
+## Automatic Page URL Extraction
+
+Use `--page-url` when you have a live room or replay page, not a direct media URL.
+
+Auto routing:
+
+- Known yt-dlp-friendly hosts use the yt-dlp extractor.
+- Zhihu and unknown hosts use the Playwright network interceptor.
+- Direct `--url` and `--curl-file` still bypass extraction and remain the debug fallback.
+
+Example with yt-dlp cookies:
+
+```powershell
+$env:TRANSCRIBE_BACKEND = "sensevoice"
+python zhihuTTS_stream.py `
+  --page-url "https://live.bilibili.com/..." `
+  --extractor auto `
+  --ytdlp-cookies-browser chrome `
+  --duration 300 `
+  --chunk-duration 60 `
+  --name live-ytdlp-sensevoice `
+  --no-gemini
+```
+
+Example with Playwright storage state:
+
+```powershell
+$env:TRANSCRIBE_BACKEND = "sensevoice"
+python zhihuTTS_stream.py `
+  --page-url "https://www.zhihu.com/..." `
+  --extractor playwright `
+  --playwright-storage-state "Videos/.stream/storage_state.zhihu.json" `
+  --duration 300 `
+  --chunk-duration 60 `
+  --name live-playwright-sensevoice `
+  --no-gemini
+```
+
+If the page needs debugging, add:
+
+```powershell
+--playwright-headed
 ```
 
 ## Authenticated Media Request

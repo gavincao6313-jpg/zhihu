@@ -20,6 +20,7 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
+from stream_extractors import ExtractedStream, extract_stream, infer_media_type
 from zhihuTTS_video import (
     build_gemini_payload,
     extract_keyframes,
@@ -157,16 +158,35 @@ def with_headers(cmd: list[str], headers: dict[str, str]) -> list[str]:
     return cmd[:1] + ["-headers", build_ffmpeg_headers(headers)] + cmd[1:]
 
 
-def resolve_input(args: argparse.Namespace) -> tuple[str, dict[str, str]]:
+def resolve_input(args: argparse.Namespace) -> ExtractedStream:
     url = args.url
     headers: dict[str, str] = {}
     if args.curl_file:
         url, headers = parse_curl_file(args.curl_file)
     if args.headers_file:
         headers.update(parse_headers_file(args.headers_file))
-    if not url:
-        raise ValueError("Provide --url or --curl-file")
-    return url, headers
+    if url:
+        return ExtractedStream(
+            url=url,
+            headers=headers,
+            extractor="curl-file" if args.curl_file else "direct",
+            media_type=infer_media_type(url),
+            page_url=args.page_url or "",
+        )
+    if args.page_url:
+        stream = extract_stream(
+            args.page_url,
+            extractor=args.extractor,
+            storage_state=args.playwright_storage_state,
+            headed=args.playwright_headed,
+            timeout_ms=args.extractor_timeout_ms,
+            wait_seconds=args.extractor_wait_s,
+            ytdlp_cookies_browser=args.ytdlp_cookies_browser,
+        )
+        if headers:
+            stream.headers.update(headers)
+        return stream
+    raise ValueError("Provide --url, --curl-file, or --page-url")
 
 
 def probe_url(url: str, headers: dict[str, str] | None = None) -> dict:
@@ -287,6 +307,8 @@ def write_report(report_path: Path, data: dict) -> None:
         "",
         f"- Created: `{data['created_at']}`",
         f"- URL host: `{data['url_host']}`",
+        f"- Extractor: `{data['extractor']}`",
+        f"- Media type: `{data['media_type']}`",
         f"- Source duration: `{fmt_time(data['source']['duration_s'])}`",
         f"- Source size: `{data['source']['size_bytes']}` bytes",
         f"- Auth headers: `{', '.join(data['auth_header_names']) or 'none'}`",
@@ -374,6 +396,8 @@ def process_slice(
     data = {
         "created_at": created_at,
         "url_host": host,
+        "extractor": source_summary.get("extractor", "unknown"),
+        "media_type": source_summary.get("media_type", "unknown"),
         "source": source_summary,
         "auth_header_names": sorted(headers.keys()),
         "slice": {
@@ -422,6 +446,8 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
         "",
         f"- Created: `{data['created_at']}`",
         f"- URL host: `{data['url_host']}`",
+        f"- Extractor: `{data['extractor']}`",
+        f"- Media type: `{data['media_type']}`",
         f"- Source duration: `{fmt_time(data['source']['duration_s'])}`",
         f"- Source size: `{data['source']['size_bytes']}` bytes",
         f"- Auth headers: `{', '.join(data['auth_header_names']) or 'none'}`",
@@ -481,16 +507,23 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
 
 
 def run_validation(args: argparse.Namespace) -> dict:
-    url, headers = resolve_input(args)
+    stream = resolve_input(args)
+    url = stream.url
+    headers = stream.headers
     start_s = parse_time(args.start)
     requested_duration_s = parse_time(args.duration)
     chunk_duration_s = parse_time(args.chunk_duration or args.duration)
     created_at = datetime.now().isoformat(timespec="seconds")
     host = urlparse(url).hostname or "unknown-host"
 
+    print(f"Input extractor: {stream.extractor} ({stream.media_type})")
+    if stream.page_url:
+        print(f"Page URL host: {urlparse(stream.page_url).hostname or 'unknown-host'}")
     print("Probing remote media...")
     probe = probe_url(url, headers)
     source_summary = summarize_probe(probe)
+    source_summary["extractor"] = stream.extractor
+    source_summary["media_type"] = stream.media_type
     if requested_duration_s <= 0:
         requested_duration_s = max(0, source_summary["duration_s"] - start_s)
     if chunk_duration_s <= 0:
@@ -546,6 +579,8 @@ def run_validation(args: argparse.Namespace) -> dict:
     manifest = {
         "created_at": created_at,
         "url_host": host,
+        "extractor": stream.extractor,
+        "media_type": stream.media_type,
         "source": source_summary,
         "auth_header_names": sorted(headers.keys()),
         "start_s": start_s,
@@ -568,6 +603,40 @@ def run_validation(args: argparse.Namespace) -> dict:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Validate processing a remote MP4 URL slice.")
     parser.add_argument("--url", default="", help="Remote MP4/HLS URL readable by ffmpeg.")
+    parser.add_argument("--page-url", default="", help="Live room or replay page URL to auto-extract media from.")
+    parser.add_argument(
+        "--extractor",
+        choices=("auto", "ytdlp", "playwright"),
+        default="auto",
+        help="Extractor for --page-url. auto routes known sites to yt-dlp or Playwright.",
+    )
+    parser.add_argument(
+        "--ytdlp-cookies-browser",
+        default="",
+        help="Optional browser name for yt-dlp cookies, for example chrome.",
+    )
+    parser.add_argument(
+        "--playwright-storage-state",
+        default="",
+        help="Optional Playwright storage_state JSON for logged-in pages.",
+    )
+    parser.add_argument(
+        "--playwright-headed",
+        action="store_true",
+        help="Run Playwright with a visible browser for debugging.",
+    )
+    parser.add_argument(
+        "--extractor-timeout-ms",
+        type=int,
+        default=20000,
+        help="Page navigation timeout for Playwright extraction.",
+    )
+    parser.add_argument(
+        "--extractor-wait-s",
+        type=float,
+        default=8.0,
+        help="Seconds to keep listening for media requests after page load.",
+    )
     parser.add_argument(
         "--headers-file",
         default="",

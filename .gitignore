@@ -21,3 +21,5 @@ __pycache__/
 
 # Local probe media
 runs/*.wav
+Videos/.stream/requests/
+Videos/.stream/storage_state*.json

@@ -161,6 +161,25 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-17T19:02:00+08:00"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-05-17T19:24:00+08:00",
+      "error_message": "git push origin feature/stream-transcript-validation failed with curl 28 after 75012 ms",
+      "file": "feature/stream-transcript-validation",
+      "root_cause": "Network connection to GitHub timed out while sending the new stream extractor commit.",
+      "fix": "Not fixed yet; two push attempts timed out. Commit remains local and should be pushed when GitHub connectivity recovers.",
+      "tags": [
+        "git",
+        "network",
+        "push",
+        "stream-validation"
+      ],
+      "related_bugs": [
+        "bug-010"
+      ],
+      "occurrences": 2,
+      "last_seen": "2026-05-17T19:28:00+08:00"
     }
   ]
 }

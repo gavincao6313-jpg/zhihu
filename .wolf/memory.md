@@ -143,3 +143,6 @@
 | 16:58 | Pulled Mac whisper.cpp backend changes and validated Windows run | .progress.json, Markdowns/TTS_0516_*.md, runs/windows-whispercpp-validation-20260516.md | Verified whispercpp-vulkan backend, cache reuse after timeout, 39/63 done, quota 11/20 | ~4k |
 | 19:30 | Recorded code upgrade retro and MAX_TOKENS follow-up | runs/windows-code-upgrade-retro-20260516.md | Documented cause, validation, errors, handling, and effective-upgrade assessment | ~2k |
 | 19:02 | implemented SenseVoice as stream branch ASR backend | zhihuTTS_video.py, requirements.txt, docs/STREAM_SENSEVOICE_RUNBOOK.md | stream chunks now use TRANSCRIBE_BACKEND=sensevoice by default through shared transcribe_audio(); stream runner slicing/retry remains separate | ~3200 |
+| 19:18 | added automatic page URL extraction layer for stream branch | stream_extractors.py, zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md | --page-url can route to yt-dlp or Playwright and returns URL+headers to existing ffmpeg runner | ~3600 |
+| 19:24 | first push of stream extractor commit timed out | .wolf/buglog.json | local commit 7def296 remained ahead of origin after curl 28 GitHub timeout; retry needed | ~400 |
+| 19:28 | second push of stream extractor commit timed out | .wolf/buglog.json | GitHub 443 remained unreachable; commit is local and still ahead of origin | ~300 |
