@@ -8,6 +8,7 @@
 - `.gitattributes` — Git attributes (~66 tok)
 - `.gitignore` — Git ignore rules (~41 tok)
 - `.progress.json` (~1155 tok)
+- `.wolf/buglog.json` — OpenWolf bug/error log with prior environment and validation issues (~423 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `COLLABORATION.md` — 协作流程 (~321 tok)
 - `GeminiModelList.py` — 获取 API Key (~275 tok)
@@ -67,6 +68,8 @@
 
 ## docs/
 
+- `BRANCH_USAGE.md` — Branch separation guide for production batch, stream transcript validation, active branch names, commands, and obsolete branch warning (~457 tok)
+- `ENGINEERING_HISTORY.md` — Engineering history including 2026-05-17 transcript output and video stream validation branch split (~825 tok)
 - `WHISPER_BACKEND_IMPROVEMENT_PLAN.md` — Mac/Windows handoff plan for CPU transcription optimization, whisper.cpp CLI Vulkan backend, D-drive temp files, caching, and run reports (~2150 tok)
 
 - `WINDOWS_RUNBOOK.md` | Windows Run Owner workflow, safe whisper env vars, whisper.cpp paths, failure playbooks, cache expectations (~430 tok)
@@ -75,6 +78,7 @@
 
 - `windows-whispercpp-validation-20260516.md` | Windows validation report for Mac whisper.cpp backend pull, backend result, cache reuse, generated outputs, and environment notes (~500 tok)
 - `windows-code-upgrade-retro-20260516.md` | Windows retro covering Mac code upgrade context, validation reasoning, MAX_TOKENS follow-up, errors, and next action (~900 tok)
+- `windows-stream-replay-validation-20260517.md` | Windows handoff for complete replay-stream validation, Mac ffprobe result, branch/command instructions, and secret-handling notes (~450 tok)
 
 ## githooks/
 

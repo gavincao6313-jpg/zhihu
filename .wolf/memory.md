@@ -148,3 +148,7 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 08:50 | Recorded shared Git push policy for repo-level context files | .wolf/cerebrum.md, .wolf/memory.md | Commit and push `AGENTS.md`, `CLAUDE.md`, `.claude/settings.json`, `.claude/rules/openwolf.md`; keep `.claude/settings.local.json` local-only | ~250 |
+| 10:21 | confirmed paused stream-validation state and branch split | .wolf/OPENWOLF.md, .wolf/cerebrum.md, .wolf/anatomy.md, docs/ENGINEERING_HISTORY.md, docs/BRANCH_USAGE.md | stream work should continue on feature/stream-transcript-validation with real media URL or DevTools cURL input | ~3000 |
+| 10:26 | prepared isolated replay-stream validation worktree | /private/tmp/zhihu-stream-validation, .wolf/cerebrum.md, .wolf/buglog.json | feature/stream-transcript-validation is ready; runner help confirms --duration 0 and --chunk-duration workflow | ~2500 |
+| 10:34 | moved complete replay-stream validation to Windows handoff | runs/windows-stream-replay-validation-20260517.md, .wolf/cerebrum.md, .wolf/buglog.json | Mac ffprobe succeeded but full multi-hour Whisper validation should be run by Windows user | ~1800 |
+| 10:39 | split Windows handoff commits after hook rejection | githooks/pre-commit, .wolf/buglog.json | pre-commit requires runs/*.md separate from OpenWolf/collaboration files | ~600 |

@@ -145,6 +145,54 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-16T16:58:00+08:00"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-17T02:28:52Z",
+      "error_message": "git worktree add /private/tmp/zhihu-stream-validation feature/stream-transcript-validation failed with: fatal: could not create leading directories of '.git/worktrees/zhihu-stream-validation': Operation not permitted",
+      "file": ".git/worktrees",
+      "root_cause": "Sandbox blocked Git from creating worktree metadata under the repository .git directory.",
+      "fix": "Reran the same git worktree command with explicit user-approved escalation; temporary worktree was created successfully.",
+      "tags": [
+        "sandbox",
+        "git-worktree",
+        "stream-validation"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T02:28:52Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-05-17T10:34:59+08:00",
+      "error_message": "Mac hardware cannot support the complete replay-stream validation run",
+      "file": "runs/windows-stream-replay-validation-20260517.md",
+      "root_cause": "The full replay source is about 02:42:53 long, and local CPU Whisper validation is expected to take multiple hours on Mac.",
+      "fix": "Stopped Mac-side full validation and created a Windows handoff with branch, ffprobe result, and command instructions.",
+      "tags": [
+        "stream-validation",
+        "hardware",
+        "windows-handoff"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T10:34:59+08:00"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-05-17T10:39:00+08:00",
+      "error_message": "pre-commit rejected mixed commit: avoid mixing code/collaboration docs with runs/*.md",
+      "file": "githooks/pre-commit",
+      "root_cause": "The staged change mixed OpenWolf memory files with a new runs/*.md Windows handoff report.",
+      "fix": "Unstaged the mixed change and split into separate commits.",
+      "tags": [
+        "pre-commit",
+        "commit-policy",
+        "runs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T10:39:00+08:00"
     }
   ]
 }
