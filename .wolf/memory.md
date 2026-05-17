@@ -146,3 +146,4 @@
 | 19:18 | added automatic page URL extraction layer for stream branch | stream_extractors.py, zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md | --page-url can route to yt-dlp or Playwright and returns URL+headers to existing ffmpeg runner | ~3600 |
 | 19:24 | first push of stream extractor commit timed out | .wolf/buglog.json | local commit 7def296 remained ahead of origin after curl 28 GitHub timeout; retry needed | ~400 |
 | 19:28 | second push of stream extractor commit timed out | .wolf/buglog.json | GitHub 443 remained unreachable; commit is local and still ahead of origin | ~300 |
+| 19:31 | pushed stream extractor commit after HTTP/1.1 retry | .wolf/buglog.json | git -c http.version=HTTP/1.1 push succeeded; origin/feature/stream-transcript-validation updated to 7b81b18 | ~300 |
