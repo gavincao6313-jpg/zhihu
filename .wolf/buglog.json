@@ -145,6 +145,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-16T16:58:00+08:00"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-17T18:35:00+08:00",
+      "error_message": "GitNexus detect_changes failed for /private/tmp/zhihu-local-transcript: Repository not found",
+      "file": "GitNexus index",
+      "root_cause": "GitNexus index knows the repo as zhihu, not the temporary worktree path.",
+      "fix": "Used the indexed repo name zhihu for impact checks and kept manual diff/verification in the worktree.",
+      "tags": [
+        "gitnexus",
+        "worktree",
+        "impact-analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T18:35:00+08:00"
     }
   ]
 }
