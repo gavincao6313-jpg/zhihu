@@ -9,6 +9,13 @@
 |------|--------|---------|---------|--------|
 | 15:30 | Analyzed Windows code audit commit 0755f87 (4 remaining items) | runs/code-review-live-mode-b27b539-20260518.md | Evaluated P0-P2 items | ~800 |
 | 15:45 | Implemented 4 live-mode optimizations from Windows audit | zhihuTTS_stream.py, stream_extractors.py | Committed + pushed to feature/stream-transcript-validation | ~1200 |
+| 21:30 | Pulled Windows zhihu live discovery (c95d7cb, c403666): CC csslcloud FLV pipeline, 6 new tools | stream_extractors.py | Architecture confirmed | ~600 |
+| 21:45 | Anti-detection P0 fix: PlaywrightKeepaliveStream + async extractor | stream_extractors.py | Pushed b0b0410 | ~400 |
+| 21:52 | P1 fixes: ffmpeg live timeout / CC headers / session expiry detection | stream_extractors.py, zhihuTTS_stream.py | Pushed 90fcfc7 | ~500 |
+| 22:05 | Gemini post-processing: --gemini flag → .notes.md after full transcript | zhihuTTS_stream.py | Pushed a4ba8b4 | ~800 |
+| 22:10 | Mac venv: .venv-mac311 (Python 3.11, torch+playwright+faster-whisper) | .venv-mac311/ | funasr 跳过 (Intel Mac llvmlite/LLVM issue) | ~300 |
+| 22:30 | Playwright chromium installed to .playwright-browsers/ | — | 97.5 MB chromium ready | ~100 |
+| 22:35 | .playwright-browsers/ → .gitignore, committed+pushed; wrap up | .gitignore | 工作区干净，所有工具就绪，等明天直播 | ~100 |
 
 ## Session: 2026-05-14 12:39
 
@@ -218,3 +225,43 @@
 | 15:35 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 18→19 lines | ~252 |
 | 15:36 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 5→6 lines | ~99 |
 | 15:36 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+6 lines) | ~91 |
+| 15:42 | Session end: 10 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 2 reads | ~1134 tok |
+| 21:17 | Session end: 10 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 2 reads | ~1134 tok |
+| 21:25 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | expanded (+21 lines) | ~209 |
+| 21:25 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | expanded (+6 lines) | ~354 |
+| 21:25 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | expanded (+6 lines) | ~351 |
+| 21:26 | Session end: 13 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 2 reads | ~2048 tok |
+| 21:40 | Session end: 13 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 3 reads | ~2048 tok |
+
+## Session: 2026-05-18 21:42
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:46 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | 1→3 lines | ~22 |
+| 21:46 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | 4→5 lines | ~68 |
+| 21:47 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified _on_request() | ~476 |
+| 21:47 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified refresh_and_get() | ~205 |
+| 21:48 | Session end: 4 writes across 1 files (stream_extractors.py) | 2 reads | ~771 tok |
+| 21:50 | Session end: 4 writes across 1 files (stream_extractors.py) | 2 reads | ~771 tok |
+| 21:51 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified range() | ~178 |
+| 21:52 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified _on_response() | ~382 |
+| 21:52 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | expanded (+9 lines) | ~152 |
+| 21:52 | Session end: 7 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 3 reads | ~1483 tok |
+| 21:53 | Session end: 7 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 3 reads | ~1483 tok |
+
+## Session: 2026-05-18 21:58
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:00 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | added 1 import(s) | ~55 |
+| 22:01 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+49 lines) | ~440 |
+| 22:02 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified _parse_gemini_retry_delay() | ~1340 |
+| 22:02 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+31 lines) | ~588 |
+| 22:02 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+15 lines) | ~215 |
+| 22:05 | Session end: 5 writes across 1 files (zhihuTTS_stream.py) | 2 reads | ~6507 tok |
+
+## Session: 2026-05-18 22:07
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:45 | Edited ../../../../private/tmp/zhihu-stream-validation/.gitignore | 4→7 lines | ~30 |
