@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-16T06:22:45.280Z
-> Files: 37 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-18
+> Files: 54 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -65,6 +65,21 @@
 - `TTS_0516_产品设计运营_05_【柯杰】钉钉 AI 助理平台核心技术实践.md` — 产品设计运营_05 钉钉AI助理 (~12000 tok)
 - `TTS_0516_产品设计运营_06_【庄稼】水果篮子的启示—如何针对市场端开发和包装人工智能应用.md` — 产品设计运营_06 水果篮子启示 (~10000 tok)
 - `TTS_0516_产品设计运营_07_【idoubi】使用 ShipAny 快速开发 AI SaaS 项目.md` — 产品设计运营_07 ShipAny (~8000 tok)
+- `TTS_0518_龙虾_职场_09_自动化内容生产与全平台分发团队.md` — 职场_09 自动化内容生产 (~7000 tok)
+- `TTS_0518_龙虾_职场_10_商务获客与智能谈判转化团队.md` — 职场_10 商务获客 (~9000 tok)
+- `TTS_0518_龙虾_职场_11_数字化招聘与人才管理团队.md` — 职场_11 数字化招聘 (~8000 tok)
+- `TTS_0518_龙虾_职场_12_合同审查与法律风险合规团队.md` — 职场_12 合同审查 (~5000 tok)
+- `TTS_0518_龙虾_职场_13_财务审计与资产风控团队.md` — 职场_13 财务审计 (~8000 tok)
+- `TTS_0518_龙虾_职场_14_全球商业机会挖掘团队.md` — 职场_14 全球商机 (~5000 tok)
+- `TTS_0518_龙虾_职场_15_私域运营与存量转化团队.md` — 职场_15 私域运营 (~5000 tok)
+- `TTS_0518_龙虾_自媒体_01_视觉素材及图文内容产线团队.md` — 自媒体_01 视觉素材 (~9000 tok)
+- `TTS_0518_龙虾_自媒体_02_长文创作及深度文案生产团队.md` — 自媒体_02 长文创作 (~6000 tok)
+- `TTS_0518_龙虾_自媒体_03_短视频工业化高产团队.md` — 自媒体_03 短视频高产 (~5000 tok)
+- `TTS_0518_龙虾_自媒体_04_原创选题及内容结构辅助团队.md` — 自媒体_04 原创选题 (~5000 tok)
+- `TTS_0518_龙虾_自媒体_05_全网爆款监控及分析团队.md` — 自媒体_05 爆款监控 (~6000 tok)
+- `TTS_0518_龙虾_自媒体_06_多维洗稿及矩阵内容团队.md` — 自媒体_06 多维洗稿 (~5000 tok)
+- `TTS_0518_龙虾_自媒体_07_突发热点捕捉及相应团队.md` — 自媒体_07 热点捕捉 (~7000 tok)
+- `TTS_0518_龙虾_自媒体_08_跨境多语种内容出海团队.md` — 自媒体_08 跨境出海 (~6000 tok)
 
 ## docs/
 
@@ -77,6 +92,7 @@
 
 - `windows-whispercpp-validation-20260516.md` | Windows validation report for Mac whisper.cpp backend pull, backend result, cache reuse, generated outputs, and environment notes (~500 tok)
 - `windows-code-upgrade-retro-20260516.md` | Windows retro covering Mac code upgrade context, validation reasoning, MAX_TOKENS follow-up, errors, and next action (~900 tok)
+- `2026-05-18.md` | Pipeline completion report: 15 videos, 63/63 total (100%), cpu backend, quota 17/20, 2 transient API errors auto-retried (~800 tok)
 
 ## githooks/
 

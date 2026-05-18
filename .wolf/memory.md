@@ -124,6 +124,29 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 
+## Session: 2026-05-18
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:18 | Started pipeline batch (quota 0/20), 48 done/8 failed/15 pending | zhihuTTS.py, .progress.json | Backend: cpu (faster-whisper). 15 videos to process | ~2k |
+| 14:34 | 龙虾_职场_09 completed | TTS_0518_龙虾_职场_09_*.md | 310 keyframes, 55K chars, 1/20 quota | — |
+| 14:58 | 龙虾_职场_10 completed | TTS_0518_龙虾_职场_10_*.md | 413 keyframes, 89K chars, 2/20 quota | — |
+| 15:14 | 龙虾_职场_11 completed | TTS_0518_龙虾_职场_11_*.md | 393 keyframes, 68K chars, 3/20 quota | — |
+| 15:33 | 龙虾_职场_12 completed (SSL retry) | TTS_0518_龙虾_职场_12_*.md | 208 keyframes, 27K chars, 5/20 quota (1 retry) | — |
+| 15:54 | 龙虾_职场_13 completed | TTS_0518_龙虾_职场_13_*.md | 387 keyframes, 72K chars, 6/20 quota | — |
+| 16:10 | 龙虾_职场_14 completed | TTS_0518_龙虾_职场_14_*.md | 188 keyframes, 36K chars, 7/20 quota | — |
+| 16:27 | 龙虾_职场_15 completed | TTS_0518_龙虾_职场_15_*.md | 253 keyframes, 28K chars, 8/20 quota | — |
+| 16:53 | 龙虾_自媒体_01 completed | TTS_0518_龙虾_自媒体_01_*.md | 463 keyframes, 76K chars, 9/20 quota | — |
+| 17:11 | 龙虾_自媒体_02 completed | TTS_0518_龙虾_自媒体_02_*.md | 164 keyframes, 57K chars, 10/20 quota | — |
+| 17:24 | 龙虾_自媒体_03 completed | TTS_0518_龙虾_自媒体_03_*.md | 201 keyframes, 27K chars, 11/20 quota | — |
+| 17:41 | 龙虾_自媒体_04 completed | TTS_0518_龙虾_自媒体_04_*.md | 169 keyframes, 32K chars, 12/20 quota | — |
+| 17:56 | 龙虾_自媒体_05 completed | TTS_0518_龙虾_自媒体_05_*.md | 260 keyframes, 50K chars, 13/20 quota | — |
+| 18:13 | 龙虾_自媒体_06 completed | TTS_0518_龙虾_自媒体_06_*.md | 234 keyframes, 33K chars, 14/20 quota | — |
+| 18:28 | 龙虾_自媒体_07 completed (503 retry) | TTS_0518_龙虾_自媒体_07_*.md | 291 keyframes, 57K chars, 16/20 quota (1 retry) | — |
+| 18:38 | 龙虾_自媒体_08 completed | TTS_0518_龙虾_自媒体_08_*.md | 226 keyframes, 45K chars, 17/20 quota | — |
+| 18:38 | Pipeline finished: 63/63 done (100%), 0 failures | .progress.json, runs/2026-05-18.md | 15/15 batch, 17/20 quota, 2 transient errors (SSL+503) auto-retried | ~2k |
+| 19:10 | Git commit + push: 2 commits (17+26 files) | .progress.json, Markdowns/, runs/, .wolf/ | Pushed to feature/local-transcript-appendix | ~1k |
+
 ## Session: 2026-05-15 07:42
 
 | Time | Action | File(s) | Outcome | ~Tokens |
