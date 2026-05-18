@@ -125,9 +125,40 @@ python zhihuTTS_stream.py \
 | `.stream_detection.json` | Raw detection data from working session |
 | `runs/stream-zhihu-live-test-*` | Smoke test output (manifest, transcripts, reports) |
 
-## 6. Open Issues for Mac User
+## 6. Full Live-Mode Run (2026-05-18)
 
-### P0 — PlaywrightKeepaliveStream needs anti-detection
+- **Command**: `--url` direct FLV mode (not Playwright keepalive)
+- **Result**: 66 chunks, 19,514 chars, 89 keyframe events, 4,345s wall time
+- **Efficiency**: 91.2% (SenseVoice rtf_avg=0.054)
+- **Issue**: Process didn't auto-detect stream end — kept polling after live ended, killed manually
+- **Root cause**: `is_stream_ended()` only checked unambiguous texts ("直播已结束", "直播结束"), but zhihu shows "等待老师进入教室" when teacher leaves — this text also appears pre-stream, so it was excluded
+
+## 7. Mac User Fix — Stream-Ended Detection (commit c790a78, 2026-05-18)
+
+Three files changed, +23/-1 lines:
+
+### `stream_extractors.py`
+- Added `STREAM_ENDED_TEXTS_POSTSTREAM = ("等待老师进入教室",)` — ambiguous text that also appears before stream starts
+- Added `_stream_was_active` flag (default `False`) to `PlaywrightKeepaliveStream.__init__`
+- Added `mark_stream_active()` method — call after first successful chunk
+- Modified `is_stream_ended()`: `STREAM_ENDED_TEXTS` fire immediately; `STREAM_ENDED_TEXTS_POSTSTREAM` only fire when `_stream_was_active == True`
+
+### `zhihuTTS_stream.py`
+- Calls `keepalive.mark_stream_active()` after first successful chunk (before checkpoint write)
+
+### `.gitignore`
+- Added `runs/*.checkpoint.json` to prevent accidental checkpoint commits
+
+### Design rationale
+"等待老师进入教室" appears in two contexts:
+1. **Pre-stream** (room open, teacher hasn't arrived) — should NOT trigger exit
+2. **Post-stream** (teacher left, room still open) — SHOULD trigger exit
+
+The `_stream_was_active` flag disambiguates: only treat it as stream-ended after we've successfully captured at least one chunk.
+
+## 8. Open Issues
+
+### P0 — PlaywrightKeepaliveStream anti-detection (NOT YET DONE)
 `stream_extractors.py:PlaywrightKeepaliveStream` uses plain Playwright without anti-detection measures. Zhihu will block it. Need to add:
 ```python
 # In _navigate() or start():
@@ -138,21 +169,44 @@ page.add_init_script("""
 ```
 And launch args: `--disable-blink-features=AutomationControlled`
 
-### P1 — FLV auth_key refresh
-The `--url` direct approach works, but auth_key expires (~8h). `--playwright-keepalive` should auto-refresh via CC API calls, but needs the anti-detection fix above.
-
 ### P1 — CC API integration
-Could call `view.csslcloud.net/api/live/play?types=flv` directly (with CC session token) instead of Playwright page interception. The CC session token is obtained from `view.csslcloud.net/live/user/login` which uses zhihu's accountId + roomId. This would be more reliable than network interception.
+Could call `view.csslcloud.net/api/live/play?types=flv` directly (with CC session token) instead of Playwright page interception. More reliable than network interception.
 
 ### P2 — CDP on Windows
-`chrome --remote-debugging-port=9222` doesn't work reliably on Windows 10. Background Chrome processes survive `Stop-Process`. Alternative: use a separate user-data-dir with the flag.
+`chrome --remote-debugging-port=9222` doesn't work reliably on Windows 10.
 
-## 7. Current Status
+## 9. Current Status
 
 - [x] Zhihu auth flow understood and working
 - [x] Stream format identified (CC csslcloud FLV)
 - [x] Pipeline integration tested (2 chunks smoke test PASS)
-- [x] All code and data pushed to remote
-- [ ] Full live-mode run (--duration 0) not yet executed
+- [x] Full live-mode run completed (66 chunks, 19,514 chars)
+- [x] Mac user merged stream-ended detection fix (c790a78)
+- [x] All code, data, and docs pushed to remote
 - [ ] PlaywrightKeepaliveStream anti-detection not yet added
-- [ ] CC API direct integration not yet attempted
+- [ ] Next live run with --playwright-keepalive not yet tested
+
+## 10. Next Run — Quick Start
+
+### Prerequisites
+```bash
+cd d:\zhihu\zhihu_url
+git pull origin feature/stream-transcript-validation
+```
+
+### Command
+```bash
+& d:\zhihu\zhihu_file\.venv-sensevoice\Scripts\python.exe zhihuTTS_stream.py `
+  --playwright-keepalive `
+  --page-url "https://www.zhihu.com/xen/training/live/room/2013265166804997499/2013265169342537989?is_hybrid=1" `
+  --duration 0 --chunk-duration 60 `
+  --name "zhihu-gaowei-agent" `
+  --stream-work-dir "Videos\.stream" --cleanup-slices
+```
+
+### What to expect
+- Browser window opens → navigate to live room → QR login if needed
+- Polls DOM for stream URL → captures FLV → starts processing
+- Each 60s chunk: ffmpeg pull → SenseVoice transcribe → write checkpoint
+- When teacher leaves: detects "等待老师进入教室" → clean exit
+- Output: `runs/stream-{name}-{date}.manifest.md` + `.combined-transcript.txt`
