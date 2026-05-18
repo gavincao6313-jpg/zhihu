@@ -823,12 +823,21 @@ def run_validation(args: argparse.Namespace) -> dict:
                     stream = keepalive.restart()
                     stream.headers.update(overlay_headers(args))
                     print(f"  浏览器重启成功，chunk {chunk_index} 将重试。")
-                    chunk_index -= 1
                 except Exception as restart_err:
                     print(f"  浏览器重启失败: {restart_err}")
+                finally:
+                    chunk_index -= 1  # 无论重启成败，下次循环仍重试同一块
             except StreamEndedError as e:
                 stream_ended_reason = str(e)
                 print(f"\n直播已结束: {stream_ended_reason}")
+                break
+            except StreamSliceError as e:
+                print(f"\n[!] Chunk {chunk_index} 切片永久失败，保存已完成进度: {e}")
+                stream_ended_reason = f"unrecoverable slice error at chunk {chunk_index}"
+                break
+            except KeyboardInterrupt:
+                print("\n[!] 用户中断，保存已完成的进度...")
+                stream_ended_reason = "user interrupted (Ctrl-C)"
                 break
 
         timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
