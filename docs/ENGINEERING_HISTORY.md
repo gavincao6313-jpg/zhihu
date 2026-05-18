@@ -424,3 +424,99 @@ Date: 2026-05-17
 
 - 后续每次功能演进和架构修改都追加到本文档。
 - 每天生产运行、异常处理和代码修改前后效果对比追加到 `docs/RUN_LOG.md` 或对应 `runs/*.md`。
+
+## 2026-05-18 知乎直播流接入——CC FLV 架构与 Playwright 反检测
+
+状态：experimental
+
+### 背景
+
+- 知乎直播实际使用 CC（csslcloud.net）作为第三方流媒体后端，不直接暴露 HLS/DASH 地址。
+- 页面用 blob: URL（MSE）渲染视频，ffmpeg 无法直接拿到可下载的流地址。
+- 4 种鉴权方案相继失败（直接 Playwright → CDT 冲突 → CDP connect_over_cdp → browser-cookie3）。
+
+### 决策
+
+- 第五种方案：Playwright + 反检测参数成功。
+  - `--disable-blink-features=AutomationControlled`
+  - `add_init_script` 覆盖 `navigator.webdriver`、`window.chrome`、`navigator.plugins`、`navigator.languages`
+  - 用户扫码登录一次，存 `zhihu_auth_state.json`（18 个 cookie，含 z_c0）
+- 流格式：`stream-ali1.csslcloud.net/src/{roomId}.flv?auth_key=...`，H.264 1080p 15fps + AAC 44.1kHz，auth_key 有效期约 8 小时。
+- Pipeline 接入：`PlaywrightKeepaliveStream._on_response` 拦截 CC API 响应，提取 FLV URL；整场直播保持浏览器开启。
+- ffmpeg live FLV 修复：跳过 `-ss` seek（live FLV 不支持 seek），增加 `-reconnect -reconnect_streamed -reconnect_on_network_error -reconnect_delay_max 10`，自适应超时 `duration×3+60`。
+
+### 为什么这样做
+
+- blob: URL 不可转发，只能通过网络拦截获取原始 CDN URL。
+- 反检测是进入直播间的必要条件，知乎对 `navigator.webdriver` 有检测。
+- Keepalive 模式保证整场直播不需要手动续期 URL。
+
+### 影响范围
+
+- 代码：`zhihuTTS_stream.py`（ffmpeg live FLV 修复）、`stream_extractors.py`（PlaywrightKeepaliveStream）
+- 新增文件：`login_save_auth.py`、`monitor_zhihu_live.py`、`detect_stream_format.py`
+- 文档：`runs/zhihu-live-discovery-20260518.md`
+- 分支：`feature/stream-transcript-validation`
+
+### 验证情况
+
+- 2×30s 冒烟测试：SenseVoice rtf_avg=0.055，PASS
+- 66 块完整场次（4344s 实测）：19514 字，89 关键帧事件，效率 91.2%
+- 相关提交：`b0b0410`、`d313206`、`90fcfc7`
+
+### 风险和取舍
+
+- `--playwright-keepalive` 完整端到端路径尚未在真实场次中验证（本次用直连 FLV URL 运行）。
+- auth_key 约 8 小时到期，超长直播需处理续期。
+- CC 平台可能更新反机器人策略，反检测脚本需要长期维护。
+
+### 后续路线
+
+- 下次真实直播使用 `run_zhihu_live.bat` 全流程验证 keepalive 路径。
+- 可选：直接调 `view.csslcloud.net/api/live/play?types=flv`（CC API）替换 Playwright 拦截，更可靠。
+
+## 2026-05-18 直播结束检测修复与一键启动封装
+
+状态：experimental
+
+### 背景
+
+- 66 块场次验证发现：直播结束后页面显示"等待老师进入教室"（而非"直播已结束"），导致进程无法自动退出。
+- "等待老师进入教室"同时出现在直播前（老师未入场）和直播后（老师离开），不能无条件作为结束信号。
+
+### 决策
+
+- 两级文本检测：
+  - `STREAM_ENDED_TEXTS` — 明确结束文本（立即触发退出）
+  - `STREAM_ENDED_TEXTS_POSTSTREAM = ("等待老师进入教室",)` — 歧义文本，仅在 `_stream_was_active=True` 后触发
+- 新增 `mark_stream_active()` 方法，第一块成功后由 `zhihuTTS_stream.py` 调用。
+- `restart()` 不重置 `_stream_was_active`——流历史信息在重连后保留，歧义文本仍可正确触发退出。
+- 封装 `run_zhihu_live.bat`：合并 MAC 和 WIN 双方方案，仅需提供 URL 和可选名称；自动处理 venv 检测、auth 文件存在性检查、Gemini 键状态。
+
+### 为什么这样做
+
+- 直播结束的 DOM 状态具有歧义性，必须结合流历史信息判断。
+- `_stream_was_active` 标志是最小侵入式解法——不改变主循环结构，仅在检测层增加上下文。
+- Bat 封装减少人为漏参概率（`--playwright-storage-state`、`--playwright-save-storage-state`、`--cleanup-slices` 等固定参数总计 8 个）。
+
+### 影响范围
+
+- 代码：`stream_extractors.py`（`_stream_was_active`、`mark_stream_active()`、`STREAM_ENDED_TEXTS_POSTSTREAM`、`is_stream_ended()` 修改）、`zhihuTTS_stream.py`（调用 `mark_stream_active()`）
+- 新增：`run_zhihu_live.bat`
+- Git：`.gitignore` 增加 `runs/*.checkpoint.json`
+
+### 验证情况
+
+- Code review（everything-claude-code:code-review）：APPROVED，无 CRITICAL/HIGH 问题
+- 相关提交：`c790a78`（流结束检测修复）、bat 文件提交
+- 待验证：keepalive 路径在真实直播场次中的完整流程
+
+### 风险和取舍
+
+- `runs/stream-zhihu-gaowei-agent.checkpoint.json` 仍被 git 跟踪（需 `git rm --cached` 解除）。
+- bat 文件硬编码了 `d:\zhihu\zhihu_file\.venv-sensevoice` 路径，换机需手动修改。
+
+### 后续路线
+
+- `git rm --cached runs/stream-zhihu-gaowei-agent.checkpoint.json` 并提交，彻底解除 checkpoint 跟踪。
+- 下次直播验证 `run_zhihu_live.bat "<url>" <name>` 全流程（keepalive + 笔记生成）。
