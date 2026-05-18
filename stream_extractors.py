@@ -366,12 +366,21 @@ class PlaywrightKeepaliveStream:
                 Path(state_out_path).parent.mkdir(parents=True, exist_ok=True)
                 self._context.storage_state(path=state_out_path)
         finally:
-            if self._context:
-                self._context.close()
-            if self._browser:
-                self._browser.close()
-            if self._playwright:
-                self._playwright.stop()
+            try:
+                if self._context:
+                    self._context.close()
+            except Exception:
+                pass
+            try:
+                if self._browser:
+                    self._browser.close()
+            except Exception:
+                pass
+            try:
+                if self._playwright:
+                    self._playwright.stop()
+            except Exception:
+                pass
 
     def is_browser_alive(self) -> bool:
         """Return True if the browser page process is still running."""
@@ -396,11 +405,12 @@ class PlaywrightKeepaliveStream:
             self.close()
         except Exception:
             pass
-        self._playwright = None
-        self._browser = None
-        self._context = None
-        self._page = None
-        self._candidates = []
+        finally:
+            self._playwright = None
+            self._browser = None
+            self._context = None
+            self._page = None
+            self._candidates = []
         return self.start()
 
 
