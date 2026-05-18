@@ -21,6 +21,7 @@
 - **Stream URL recovery:** URL expiration/disconnect recovery is chunk-scoped: ffmpeg retries the current media URL first, then `zhihuTTS_stream.py` only re-runs the page extractor for `StreamSliceError` when `--page-url` is available; ASR/runtime errors should not trigger URL re-extraction.
 - **Playwright high-risk platform path:** Treat Playwright_Flow as the preferred path for Zhihu/unknown/high-risk pages because a real browser session can preserve cookies/localStorage and run dynamic signing JavaScript; use a persistent profile or write back storage_state rather than relying on one-off manual URL capture.
 - **Stream slice storage:** Stream validation intentionally slices to fixed-duration MP4 files before SenseVoice/FunASR; keep slices by default for audit/retry, but long live runs can use `--cleanup-slices` after transcript/report output to control disk use.
+- **Stream keepalive fallback:** `--playwright-keepalive` is the emergency/live-event path for Zhihu streams when closing the browser may break page heartbeat or dynamic signatures; it keeps one Playwright page open, listens for latest media requests, and refreshes that page on ffmpeg slicing failure.
 
 ## Do-Not-Repeat
 
@@ -33,3 +34,4 @@
 - **2026-05-17 Stream recovery scope:** Implement recovery inside the existing chunk loop instead of a full outer supervisor first, because validation needs to survive expired signed URLs and dropped connections during a finite replay/live run while preserving chunk reports and SenseVoice output shape.
 - **2026-05-17 Playwright session strategy:** For platforms with stronger risk controls, prioritize persistent Playwright sessions over static signed URLs because the page can refresh cookies and dynamic signatures before every extraction/re-extraction.
 - **2026-05-18 Slice retention strategy:** Keep file-based chunking as the main path instead of in-memory Bytes because Windows validation needs reproducible artifacts, while adding cleanup controls for long live sessions.
+- **2026-05-18 Zhihu live fallback:** Because a two-hour live event leaves little time for emergency coding, implement the keepalive Playwright supervisor before the event as a ready fallback rather than waiting for repeated 403 failures.

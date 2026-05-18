@@ -211,6 +211,41 @@ Limits:
 - Use a finite `--duration` for real live streams so validation has a controlled stop point.
 - Re-extraction is only triggered by ffmpeg slicing failure. ASR failures still fail the chunk directly because refreshing the stream URL cannot fix model/runtime errors.
 
+## Playwright Keepalive Mode
+
+Use keepalive mode for Zhihu live validation when the browser page may need to stay open for page heartbeat, refreshed cookies, or dynamic media signatures.
+
+Behavior:
+
+- Opens one Playwright persistent context/page for the whole run.
+- Keeps listening for media requests while ffmpeg slices chunks.
+- Uses the best latest intercepted media URL before each chunk.
+- On ffmpeg slicing failure, refreshes the existing page and waits for a fresh media request before retrying.
+- Closes the browser only after the validation run exits.
+
+Recommended two-hour Zhihu live command:
+
+```powershell
+$env:TRANSCRIBE_BACKEND = "sensevoice"
+python zhihuTTS_stream.py `
+  --page-url "https://www.zhihu.com/..." `
+  --extractor playwright `
+  --playwright-user-data-dir "Videos/.stream/playwright-zhihu-profile" `
+  --playwright-keepalive `
+  --playwright-headed `
+  --duration 7200 `
+  --chunk-duration 60 `
+  --stream-work-dir "Videos/.stream/chunks" `
+  --cleanup-slices `
+  --reextract-retries 3 `
+  --reextract-delay-s 10 `
+  --keepalive-refresh-wait-s 10 `
+  --name zhihu-live-keepalive-sensevoice `
+  --no-gemini
+```
+
+After the profile has a stable login session, remove `--playwright-headed` for unattended validation. Keep `--playwright-user-data-dir` so cookies and localStorage are reused.
+
 ## Authenticated Media Request
 
 For media requests requiring headers:

@@ -262,6 +262,38 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-18T07:50:19+08:00"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-05-18T10:25:31+08:00",
+      "error_message": "apply_patch verification failed while replacing run_validation for Playwright keepalive integration",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "The expected hunk text did not exactly match the current stream worktree after the latest Windows documentation fast-forward.",
+      "fix": "Split the change into smaller hunks: import/start helper, recovery hook, run_validation replacement, and parser arguments.",
+      "tags": [
+        "patch",
+        "stream-validation",
+        "playwright-keepalive"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-18T10:25:31+08:00"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-05-18T10:25:31+08:00",
+      "error_message": "zsh startup prints compinit:527: no such file or directory: /usr/local/share/zsh/site-functions/_brew_services",
+      "file": "zsh startup environment",
+      "root_cause": "The shell completion cache references a missing Homebrew service completion file.",
+      "fix": "Not fixed in this task; command output still completed successfully, but future sessions should expect this noisy local shell warning.",
+      "tags": [
+        "shell",
+        "environment",
+        "zsh"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-18T10:25:31+08:00"
     }
   ]
 }

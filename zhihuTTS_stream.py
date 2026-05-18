@@ -20,7 +20,7 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
-from stream_extractors import ExtractedStream, extract_stream, infer_media_type
+from stream_extractors import ExtractedStream, PlaywrightKeepaliveStream, extract_stream, infer_media_type
 from zhihuTTS_video import (
     build_gemini_payload,
     extract_keyframes,
@@ -170,6 +170,8 @@ def with_headers(cmd: list[str], headers: dict[str, str]) -> list[str]:
 
 
 def resolve_input(args: argparse.Namespace) -> ExtractedStream:
+    if args.playwright_keepalive:
+        raise ValueError("--playwright-keepalive is handled by the validation runner")
     url = args.url
     headers: dict[str, str] = {}
     if args.curl_file:
@@ -217,6 +219,31 @@ def refresh_page_stream(args: argparse.Namespace) -> ExtractedStream:
     )
     stream.headers.update(overlay_headers(args))
     return stream
+
+
+def start_keepalive_stream(args: argparse.Namespace) -> tuple[PlaywrightKeepaliveStream, ExtractedStream]:
+    if not args.page_url:
+        raise ValueError("--playwright-keepalive requires --page-url")
+    if args.url or args.curl_file:
+        raise ValueError("--playwright-keepalive cannot be combined with --url or --curl-file")
+    if args.extractor not in ("auto", "playwright"):
+        raise ValueError("--playwright-keepalive requires --extractor playwright or auto")
+    keepalive = PlaywrightKeepaliveStream(
+        args.page_url,
+        storage_state=args.playwright_storage_state,
+        save_storage_state=args.playwright_save_storage_state,
+        user_data_dir=args.playwright_user_data_dir,
+        headed=args.playwright_headed,
+        timeout_ms=args.extractor_timeout_ms,
+        wait_seconds=args.extractor_wait_s,
+    )
+    try:
+        stream = keepalive.start()
+    except Exception:
+        keepalive.close()
+        raise
+    stream.headers.update(overlay_headers(args))
+    return keepalive, stream
 
 
 def redacted_error(error: Exception, stream: ExtractedStream) -> str:
@@ -500,6 +527,7 @@ def process_slice_with_recovery(
     duration_s: float,
     chunk_index: int,
     chunk_total: int,
+    keepalive: PlaywrightKeepaliveStream | None = None,
 ) -> tuple[dict, ExtractedStream, dict]:
     current_stream = stream
     current_summary = source_summary
@@ -508,6 +536,9 @@ def process_slice_with_recovery(
     reextract_count = 0
 
     while True:
+        if keepalive:
+            current_stream = keepalive.latest_stream()
+            current_stream.headers.update(overlay_headers(args))
         host = urlparse(current_stream.url).hostname or "unknown-host"
         try:
             chunk = process_slice(
@@ -535,14 +566,18 @@ def process_slice_with_recovery(
                 reextract_count += 1
                 print(
                     f"  Chunk {chunk_index} failed after ffmpeg slicing; "
-                    f"re-extracting stream URL ({reextract_count}/{max_reextracts})..."
+                    f"refreshing stream URL ({reextract_count}/{max_reextracts})..."
                 )
                 if args.reextract_delay_s > 0:
                     time.sleep(args.reextract_delay_s)
 
                 refreshed_stream: ExtractedStream | None = None
                 try:
-                    refreshed_stream = refresh_page_stream(args)
+                    if keepalive:
+                        refreshed_stream = keepalive.refresh_and_get(args.keepalive_refresh_wait_s)
+                        refreshed_stream.headers.update(overlay_headers(args))
+                    else:
+                        refreshed_stream = refresh_page_stream(args)
                     print(
                         "  Refreshed stream:",
                         refreshed_stream.extractor,
@@ -647,98 +682,107 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
 
 
 def run_validation(args: argparse.Namespace) -> dict:
-    stream = resolve_input(args)
-    url = stream.url
-    headers = stream.headers
-    start_s = parse_time(args.start)
-    requested_duration_s = parse_time(args.duration)
-    chunk_duration_s = parse_time(args.chunk_duration or args.duration)
-    created_at = datetime.now().isoformat(timespec="seconds")
-    host = urlparse(url).hostname or "unknown-host"
-
-    print(f"Input extractor: {stream.extractor} ({stream.media_type})")
-    if stream.page_url:
-        print(f"Page URL host: {urlparse(stream.page_url).hostname or 'unknown-host'}")
-    print("Probing remote media...")
-    probe = probe_url(url, headers)
-    source_summary = summarize_probe(probe)
-    source_summary["extractor"] = stream.extractor
-    source_summary["media_type"] = stream.media_type
-    if requested_duration_s <= 0:
-        requested_duration_s = max(0, source_summary["duration_s"] - start_s)
-    if chunk_duration_s <= 0:
-        raise ValueError("--chunk-duration must be greater than zero")
-
-    print(
-        "Source:",
-        fmt_time(source_summary["duration_s"]),
-        f"{source_summary['size_bytes']} bytes",
-        source_summary["video"],
-        source_summary["audio"],
-    )
-    if headers:
-        print("Auth headers:", ", ".join(sorted(headers.keys())))
-
-    base_stem = safe_name(args.name or f"{host}_{int(start_s)}_{int(requested_duration_s)}")
-    chunk_count = math.ceil(requested_duration_s / chunk_duration_s)
-    if args.max_chunks:
-        chunk_count = min(chunk_count, args.max_chunks)
-
-    chunks = []
-    for index in range(1, chunk_count + 1):
-        chunk_start = start_s + (index - 1) * chunk_duration_s
-        remaining = start_s + requested_duration_s - chunk_start
-        if remaining <= 0:
-            break
-        chunk_duration = min(chunk_duration_s, remaining)
-        print(f"\n=== Chunk {index}/{chunk_count}: {fmt_time(chunk_start)} + {fmt_time(chunk_duration)} ===")
-        chunk, stream, source_summary = process_slice_with_recovery(
-            args,
-            stream,
-            source_summary,
-            base_stem,
-            chunk_start,
-            chunk_duration,
-            index,
-            chunk_count,
-        )
+    keepalive: PlaywrightKeepaliveStream | None = None
+    try:
+        if args.playwright_keepalive:
+            keepalive, stream = start_keepalive_stream(args)
+        else:
+            stream = resolve_input(args)
         url = stream.url
         headers = stream.headers
+        start_s = parse_time(args.start)
+        requested_duration_s = parse_time(args.duration)
+        chunk_duration_s = parse_time(args.chunk_duration or args.duration)
+        created_at = datetime.now().isoformat(timespec="seconds")
         host = urlparse(url).hostname or "unknown-host"
-        chunks.append(chunk)
 
-    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-    combined_text = "\n\n".join(
-        Path(c["outputs"]["global_transcript_txt"]).read_text(encoding="utf-8")
-        for c in chunks
-    )
-    combined_transcript_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.combined-transcript.txt"
-    manifest_json_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.json"
-    manifest_md_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.md"
-    combined_transcript_path.write_text(combined_text, encoding="utf-8")
+        print(f"Input extractor: {stream.extractor} ({stream.media_type})")
+        if stream.page_url:
+            print(f"Page URL host: {urlparse(stream.page_url).hostname or 'unknown-host'}")
+        print("Probing remote media...")
+        probe = probe_url(url, headers)
+        source_summary = summarize_probe(probe)
+        source_summary["extractor"] = stream.extractor
+        source_summary["media_type"] = stream.media_type
+        if requested_duration_s <= 0:
+            requested_duration_s = max(0, source_summary["duration_s"] - start_s)
+        if chunk_duration_s <= 0:
+            raise ValueError("--chunk-duration must be greater than zero")
 
-    manifest = {
-        "created_at": created_at,
-        "url_host": host,
-        "extractor": stream.extractor,
-        "media_type": stream.media_type,
-        "source": source_summary,
-        "auth_header_names": sorted(headers.keys()),
-        "start_s": start_s,
-        "duration_s": requested_duration_s,
-        "chunk_duration_s": chunk_duration_s,
-        "chunks": chunks,
-        "combined_transcript_path": str(combined_transcript_path),
-        "manifest_json_path": str(manifest_json_path),
-        "manifest_md_path": str(manifest_md_path),
-        "combined_transcript_text": combined_text,
-        "preview": combined_text[:1200],
-    }
-    manifest_json_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-    write_manifest(manifest_md_path, manifest)
-    print(f"\nManifest: {manifest_md_path}")
-    print(f"Combined transcript: {combined_transcript_path}")
-    return manifest
+        print(
+            "Source:",
+            fmt_time(source_summary["duration_s"]),
+            f"{source_summary['size_bytes']} bytes",
+            source_summary["video"],
+            source_summary["audio"],
+        )
+        if headers:
+            print("Auth headers:", ", ".join(sorted(headers.keys())))
+
+        base_stem = safe_name(args.name or f"{host}_{int(start_s)}_{int(requested_duration_s)}")
+        chunk_count = math.ceil(requested_duration_s / chunk_duration_s)
+        if args.max_chunks:
+            chunk_count = min(chunk_count, args.max_chunks)
+
+        chunks = []
+        for index in range(1, chunk_count + 1):
+            chunk_start = start_s + (index - 1) * chunk_duration_s
+            remaining = start_s + requested_duration_s - chunk_start
+            if remaining <= 0:
+                break
+            chunk_duration = min(chunk_duration_s, remaining)
+            print(f"\n=== Chunk {index}/{chunk_count}: {fmt_time(chunk_start)} + {fmt_time(chunk_duration)} ===")
+            chunk, stream, source_summary = process_slice_with_recovery(
+                args,
+                stream,
+                source_summary,
+                base_stem,
+                chunk_start,
+                chunk_duration,
+                index,
+                chunk_count,
+                keepalive=keepalive,
+            )
+            url = stream.url
+            headers = stream.headers
+            host = urlparse(url).hostname or "unknown-host"
+            chunks.append(chunk)
+
+        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        combined_text = "\n\n".join(
+            Path(c["outputs"]["global_transcript_txt"]).read_text(encoding="utf-8")
+            for c in chunks
+        )
+        combined_transcript_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.combined-transcript.txt"
+        manifest_json_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.json"
+        manifest_md_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.md"
+        combined_transcript_path.write_text(combined_text, encoding="utf-8")
+
+        manifest = {
+            "created_at": created_at,
+            "url_host": host,
+            "extractor": stream.extractor,
+            "media_type": stream.media_type,
+            "source": source_summary,
+            "auth_header_names": sorted(headers.keys()),
+            "start_s": start_s,
+            "duration_s": requested_duration_s,
+            "chunk_duration_s": chunk_duration_s,
+            "chunks": chunks,
+            "combined_transcript_path": str(combined_transcript_path),
+            "manifest_json_path": str(manifest_json_path),
+            "manifest_md_path": str(manifest_md_path),
+            "combined_transcript_text": combined_text,
+            "preview": combined_text[:1200],
+        }
+        manifest_json_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+        write_manifest(manifest_md_path, manifest)
+        print(f"\nManifest: {manifest_md_path}")
+        print(f"Combined transcript: {combined_transcript_path}")
+        return manifest
+    finally:
+        if keepalive:
+            keepalive.close()
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -775,6 +819,17 @@ def build_parser() -> argparse.ArgumentParser:
         "--playwright-headed",
         action="store_true",
         help="Run Playwright with a visible browser for debugging.",
+    )
+    parser.add_argument(
+        "--playwright-keepalive",
+        action="store_true",
+        help="Keep the Playwright page open during the whole run and reuse latest media requests.",
+    )
+    parser.add_argument(
+        "--keepalive-refresh-wait-s",
+        type=float,
+        default=8.0,
+        help="Seconds to wait for a new media request after refreshing a keepalive page.",
     )
     parser.add_argument(
         "--extractor-timeout-ms",
