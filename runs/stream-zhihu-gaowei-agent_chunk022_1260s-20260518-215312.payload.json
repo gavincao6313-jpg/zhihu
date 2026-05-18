@@ -1,0 +1,64 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk022_1260s",
+  "full_text": "[00:00:00 - 00:01:00] 稻草丛等等一些事儿啊，然后的话让我把这个小妄想收起来，这是我之前跟他对话所出现的一些记忆性的东的一些内容。然后在这里面根据这里面的内容构建出来了相应的上下文，然后就可以丢给大模型来去干活了，丢给大模型来去干来来去做事情了，input就是在里面user的就是user inputput就是我给他输入的东西，然后把memory list，然后也丢给大模型。这段整体的提示词就是这个样子，这是它完整的系统的这个内容，这个回头给你们发就好了。然后。嗯。我们就看到它的推理内容都在这里面，同时又能够拿到相应的记忆，然后相应的输出就都出来了。然后包括output和respond content，然后这是整体的一个对话流的构建，同时还可以自定义角色，还可以自定义它的角色，自定义它的角色的名称，角色的头像开场白。然后。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk022_1260s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk022_1260s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk022_1260s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.2967"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk022_1260s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk022_1260s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk022_1260s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 8,
+      "diff": 0.4379
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.2967
+    },
+    {
+      "type": "slide",
+      "frame_idx": 35,
+      "diff": 0.4054
+    },
+    {
+      "type": "slide",
+      "frame_idx": 50,
+      "diff": 0.3784
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 1,
+    "frames_total": 6,
+    "text_chars": 375
+  }
+}

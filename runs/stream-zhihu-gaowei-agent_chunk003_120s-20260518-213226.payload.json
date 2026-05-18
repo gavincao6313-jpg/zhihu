@@ -1,0 +1,49 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk003_120s",
+  "full_text": "[00:00:00 - 00:01:00] 分男女啊。隐性触发的方式是什么？后台做静做静默分析，然后在每一个对话结束之后，用一个小参数模型分析刚才的对话，提取到关键的信息点，然后再去做日常的压缩。后台做一个定时任务，把今天所有的这个碎片细节扔给大模型做整体的总结，然后更新生成相应的L记忆存入这个库里。比如说pro就类似于月度以上的对话这个用户对话。如果出现关系变化，存储进入到关系数据库。如果有用户强烈的情绪，提取情绪和情绪原因，存储到情绪数据库，出现重大事件，存入到事件记忆库，不要存具体的流星语句，只提取关键的决策因素就可以了。OK然后最后是碎片记忆，碎片记忆是具体的对话片段或者事实。比如说用户提到爱吃包子存储到香量数据库里。碎片记忆和该要记忆的关系是什么？碎片记忆是原始素材，该要记忆是。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk003_120s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk003_120s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.118"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk003_120s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk003_120s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.1267"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk003_120s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.118
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.1267
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 349
+  }
+}

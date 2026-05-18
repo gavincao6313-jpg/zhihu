@@ -1,0 +1,79 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk024_1380s",
+  "full_text": "[00:00:00 - 00:01:00] 速度我们首先把它我首先把它的声音改一下啊。我先改一下，我这受不了它的声音，对吧？他核心慢在哪里啊？他核心慢在这儿，为什么他慢啊？大家看一下他用的是豆包1.8的深度。然后我们如果改一下呢，我们把它改成2.0的mini的，我们把它改成这个再试一下效果。他自己。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0787"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0826"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk024_1380s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.2935
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.2933
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.0787
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.0826
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 150
+  }
+}

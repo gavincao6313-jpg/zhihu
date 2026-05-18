@@ -1,0 +1,64 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk043_2520s",
+  "full_text": "[00:00:00 - 00:01:00] 企业对吧？只有占3分之1，而落后者根本不希望跟自己和新技术有任何关系。新技术深入的融获到他的其他产品中，在他们不知情的情况下购买才可能。不值得被重视。所以老年人对新产品的接受度就是处于落后者和后期大众的状态。原因是什么？客观一点讲，他们随着年龄增大，随着年龄增大，学习能力在下降。新产品会对他有受挫感，担心被骗，而绝大多数老年人都不会是早期草认者导致的结果就是老年人的KYL是非常少的，所以非常难去做传播。因此就出现一个问题，之前我们讲过一些国外的老年的一些AI的产品啊，一些AI的产品。，我这边想问大家一个问题啊，问答家一个点啊。你们现在有多少同学现在还没有开始外部扩定，给我敲个理。有多少同学觉得就是外部扩定这东西还是有。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk043_2520s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk043_2520s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0263"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk043_2520s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk043_2520s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.1599"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk043_2520s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk043_2520s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0504"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk043_2520s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.0263
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.1599
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0504
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 335
+  }
+}

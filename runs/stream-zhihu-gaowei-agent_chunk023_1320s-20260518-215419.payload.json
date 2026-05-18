@@ -1,0 +1,64 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk023_1320s",
+  "full_text": "[00:00:00 - 00:01:00] 样子，然后背景图片我拿这个love art生成了这样这样一张图。然后Aen的声音我我我我非常错误的选了一个魅力女友啊，然后一会儿我改一改，看一下其他的这个状态啊，然后看一下效果就是这个样。那你来了，今天要跟我说什么样的故事。这怎么没有区别呀？同学哎呦来点开。这条是概要，下面都是碎片，上面是概要，下面都是碎片。明白吗？只有第一条是概要，下面都是碎片啊，确保反应速度。确保反应速度的话。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk023_1320s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk023_1320s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk023_1320s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk023_1320s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk023_1320s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0299"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk023_1320s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 12,
+      "diff": 0.3527
+    },
+    {
+      "type": "slide",
+      "frame_idx": 23,
+      "diff": 0.3925
+    },
+    {
+      "type": "slide",
+      "frame_idx": 29,
+      "diff": 0.6524
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0299
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 1,
+    "frames_total": 6,
+    "text_chars": 214
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk034_1980s",
+  "full_text": "[00:00:00 - 00:01:00] 对吧难道我要反驳，你说不，其实我挺玩的，我不可能的。我我跟你讲，我这个人。有有本书就在歌颂我林丹写的啊，他这本书的名字叫做直到世界的尽头啊，就是说我对吧？直到世界的尽头，对吧？然后这是1970年有一波出生潮，63年有一波出生潮。这个82年有一波出生潮，这是一波一波一波一波的这个状态，一波一波的状态，这不是今年的数据。同学，这不是今年的数据啊，因此老龄化是什么？老龄化是摆在我们面前非常严重的一个问题。啊，非常严重的问题。由于我们老的太快老的太快。我们国家老的太快，同时发展的也太快，造成了一个问题，就是很多产品其实不适合老年人。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk034_1980s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk034_1980s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 39,
+      "diff": 0.5098
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 287
+  }
+}

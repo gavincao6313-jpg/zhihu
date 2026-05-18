@@ -1,0 +1,64 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk051_3000s",
+  "full_text": "[00:00:00 - 00:01:00] 和cos工作流的关系吗？我不是发过一篇这个吗？大家有去看吗？就是咱们有去看过关于web codinging和cos工和错工作流这两件事的关系吗？。对吧你看过之后，你就明白这两个之间的关系是啥了呀，这两个东东西哪个也并不能少啊，并并不能少啊，对吧？然后美国有一款产品叫做IQ这款产品呢做了一个屏幕，做了一个摄像头，然后摄像头能够带随动，它能做什么呢？带有长期记忆的对话，基础的医疗问答，基础的医疗问答，然后情感的识别，主动发起对话，活动的。提醒基本上是做这个还有什么产品呢？日本的这个做了一个叫做Pal，这个产品是做了一个海报，对于声音光触感姿势温度进行感应。但是这些产品呢客观点讲，卖的都一般卖。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk051_3000s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk051_3000s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1845"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk051_3000s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk051_3000s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.1399"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk051_3000s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk051_3000s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk051_3000s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.1845
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.1399
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.0775
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 320
+  }
+}

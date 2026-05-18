@@ -1,0 +1,49 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk007_360s",
+  "full_text": "[00:00:00 - 00:01:00] 去加好不好？这个的作用是确保角色在接下来回复中准确复述及提及那些细节，证明我听到了你的对话，听到了你的对话。然后该要记忆的更新状态是什么？就是经过压缩抽象化了之后的这个人物的画像、关系状态和情感快快照。这个系统在概要上的实施的更的更新就会变成什么？原有的状态，原本是关系是冷战中，顾川的心态是愤怒和失望，对玩家的认知是你不守时，对吧？更新后关系状态由冷战变成和好和感动。因为你是有理由的，你是给我去拿唱片的。顾川的心情由愤怒变成傲娇后的窃喜，对玩家的认知，新增一个标签多我喜好，为了我愿意付出精力，然后关键事实的更新，呃，昨晚迟到是有正当起来，且浪漫的。理由的你怎么了解到一个情趣产品这么多细节，你你找兴野的产品经理聊不就好了吗？😡",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk007_360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk007_360s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.0402"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk007_360s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk007_360s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0287"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk007_360s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.0402
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.0287
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 338
+  }
+}

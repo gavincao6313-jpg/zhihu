@@ -1,0 +1,64 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk033_1920s",
+  "full_text": "[00:00:00 - 00:01:00] 。所以，超级老龄化社会将伴随80后、90后所有的退休生涯。然后所以银发经济对银发经济啊，银发经济是必然的社会的产物，是必然的社会产物啊，然后60以上的老年人的这个比例和增长率都是非常的可观的啊，然后这是中国人口的金字塔，到22050年的时候已经不是塔了，已经是根柱子了啊，像是中国尊了，对吧？然后中国老年人这有啥笑点，人在特别无语的时候真的会笑，你们不懂了。😊人在特别无语时是会笑的对吧？然后中国老龄化的这个特殊的特点是在这样的，就是它分批它分批中国有几次明确的，就是中国有几批非常明确的人口出升潮，人口出升潮啊。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk033_1920s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk033_1920s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.2574"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk033_1920s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk033_1920s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1829"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk033_1920s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk033_1920s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.1724"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk033_1920s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.2574
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1829
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.1724
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 279
+  }
+}

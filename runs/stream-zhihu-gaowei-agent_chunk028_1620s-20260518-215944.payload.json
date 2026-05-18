@@ -1,0 +1,44 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk028_1620s",
+  "full_text": "[00:00:00 - 00:01:00] 本上你能够模拟出来星也差不多70%的一个水平吧啊，我认为我真心的认为你做出来demo搓到这个地步。咱们咱们认真的说，你搓一个类似的产品，做demo，做到这个地步。如果技术还不让你过，我觉得就有点过分了。是否是这么一个一个状态，搓到这个地步还不让你过去有点过分了。如果不用插件，它就是rg，它就是rg，它不用插件的话，它就是rg。对吧，然后如果你看星野的完整的体系，它是这个样子的，我得把我的头像挪开了。它是这个样子的，整个星野的完整的结构是这个样子的，它这边包含什么呢？包含这几条东西，它首先它有一个智能体的决策中台和创作和配置后台，它的所有的。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk028_1620s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk028_1620s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk028_1620s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk028_1620s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 40,
+      "diff": 0.389
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0324
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 295
+  }
+}
