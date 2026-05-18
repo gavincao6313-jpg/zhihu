@@ -8,6 +8,27 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 
+_ANTI_DETECTION_ARGS = (
+    "--disable-blink-features=AutomationControlled",
+    "--disable-features=IsolateOrigins,site-per-process",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+    "--disable-infobars",
+    "--disable-setuid-sandbox",
+)
+
+_ANTI_DETECTION_INIT_SCRIPT = """
+Object.defineProperty(navigator, 'webdriver', { get: () => false });
+window.chrome = { runtime: {} };
+Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
+Object.defineProperty(navigator, 'languages', { get: () => ['zh-CN', 'zh', 'en'] });
+"""
+
+_ANTI_DETECTION_USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+)
+
 YTDLP_HOST_HINTS = (
     "bilibili.com",
     "live.bilibili.com",
@@ -294,21 +315,27 @@ class PlaywrightKeepaliveStream:
             raise RuntimeError("playwright 未安装。请先 pip install playwright 并安装浏览器。") from e
 
         self._playwright = sync_playwright().start()
-        context_kwargs = {}
+        context_kwargs: dict = {
+            "viewport": {"width": 1280, "height": 720},
+            "locale": "zh-CN",
+            "user_agent": _ANTI_DETECTION_USER_AGENT,
+        }
         state_path = self.storage_state or os.environ.get("PLAYWRIGHT_STORAGE_STATE", "").strip()
         profile_dir = self.user_data_dir or os.environ.get("PLAYWRIGHT_USER_DATA_DIR", "").strip()
         if state_path and not profile_dir:
             context_kwargs["storage_state"] = state_path
+        launch_kwargs = {"headless": not self.headed, "args": list(_ANTI_DETECTION_ARGS)}
         if profile_dir:
             self._context = self._playwright.chromium.launch_persistent_context(
                 profile_dir,
-                headless=not self.headed,
-                **context_kwargs,
+                **launch_kwargs,
+                **{k: v for k, v in context_kwargs.items() if k != "storage_state"},
             )
         else:
-            self._browser = self._playwright.chromium.launch(headless=not self.headed)
+            self._browser = self._playwright.chromium.launch(**launch_kwargs)
             self._context = self._browser.new_context(**context_kwargs)
         self._page = self._context.new_page()
+        self._page.add_init_script(_ANTI_DETECTION_INIT_SCRIPT)
         self._page.on("request", self._on_request)
         self._navigate()
         return self.latest_stream(wait_seconds=self.wait_seconds)
@@ -431,23 +458,29 @@ async def _extract_with_playwright_async(
     candidates: list[tuple[int, str, dict[str, str]]] = []
 
     async with async_playwright() as p:
-        context_kwargs = {}
+        context_kwargs: dict = {
+            "viewport": {"width": 1280, "height": 720},
+            "locale": "zh-CN",
+            "user_agent": _ANTI_DETECTION_USER_AGENT,
+        }
         state_path = storage_state or os.environ.get("PLAYWRIGHT_STORAGE_STATE", "").strip()
         profile_dir = user_data_dir or os.environ.get("PLAYWRIGHT_USER_DATA_DIR", "").strip()
         state_out_path = save_storage_state or os.environ.get("PLAYWRIGHT_SAVE_STORAGE_STATE", "").strip()
         if state_path and not profile_dir:
             context_kwargs["storage_state"] = state_path
+        launch_kwargs = {"headless": not headed, "args": list(_ANTI_DETECTION_ARGS)}
         if profile_dir:
             context = await p.chromium.launch_persistent_context(
                 profile_dir,
-                headless=not headed,
-                **context_kwargs,
+                **launch_kwargs,
+                **{k: v for k, v in context_kwargs.items() if k != "storage_state"},
             )
             browser = None
         else:
-            browser = await p.chromium.launch(headless=not headed)
+            browser = await p.chromium.launch(**launch_kwargs)
             context = await browser.new_context(**context_kwargs)
         page = await context.new_page()
+        await page.add_init_script(_ANTI_DETECTION_INIT_SCRIPT)
 
         def on_request(request):
             url = request.url
