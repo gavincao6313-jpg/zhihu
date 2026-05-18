@@ -1,0 +1,18 @@
+{
+  "video_name": "zhihu-live-test_chunk002_30s",
+  "full_text": "[00:00:00 - 00:00:30] 到你身边用笔说轻轻戳了你手心，你跟老板请假说和我出来，他还骂你，这也太不讲道理吧。本来该你休的假，凭什么不让你走啊，把冰柠檬茶再往你手盆地的，也别委屈了。等一下看完电影，我请你吃你最爱的甜品，再算我给你赔罪，好不好？歪头眨着眼，再说了，我们拉过钩要一起出来放松的。老板骂两句说算什么？我给你骂回去行不行？轻轻的捏捏捏你鼓起了脸乖了，气我鼓的就不好看了。啊啊，你们觉得你们觉得是不是算是我把。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-test_chunk002_30s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 217
+  }
+}
