@@ -194,19 +194,24 @@ cd d:\zhihu\zhihu_url
 git pull origin feature/stream-transcript-validation
 ```
 
-### Command
+### Command (auto-login with saved auth)
 ```bash
 & d:\zhihu\zhihu_file\.venv-sensevoice\Scripts\python.exe zhihuTTS_stream.py `
   --playwright-keepalive `
   --page-url "https://www.zhihu.com/xen/training/live/room/2013265166804997499/2013265169342537989?is_hybrid=1" `
+  --playwright-storage-state zhihu_auth_state.json `
+  --playwright-save-storage-state zhihu_auth_state.json `
   --duration 0 --chunk-duration 60 `
   --name "zhihu-gaowei-agent" `
   --stream-work-dir "Videos\.stream" --cleanup-slices
 ```
 
+Only `--page-url` needs to change for a different live room.
+
 ### What to expect
-- Browser window opens → navigate to live room → QR login if needed
-- Polls DOM for stream URL → captures FLV → starts processing
+- Browser window opens → auto-loads saved zhihu cookies → enters live room directly (no QR scan if cookie valid)
+- If cookie expired: shows signin page → scan QR once → auto-saves refreshed cookies
+- Polls DOM + CC API for stream URL → captures FLV → starts processing
 - Each 60s chunk: ffmpeg pull → SenseVoice transcribe → write checkpoint
 - When teacher leaves: detects "等待老师进入教室" → clean exit
 - Output: `runs/stream-{name}-{date}.manifest.md` + `.combined-transcript.txt`
