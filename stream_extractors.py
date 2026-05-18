@@ -361,6 +361,8 @@ class PlaywrightKeepaliveStream:
             body = response.json()
         except Exception:
             return
+        # Capture browser request headers (Referer, Origin, Cookie) so ffmpeg can use them
+        req_headers = _clean_headers(response.request.headers)
         for view_mode in body.get("data", {}).get("stream", []):
             for video in view_mode.get("videos", []):
                 quality = video.get("quality", "?")
@@ -369,7 +371,7 @@ class PlaywrightKeepaliveStream:
                         continue
                     # +500 so CC API URL wins over binary media intercept
                     score = _score_media_url(flv_url) + 500
-                    self._candidates.append((score, flv_url, {}))
+                    self._candidates.append((score, flv_url, req_headers))
                     if len(self._candidates) > self._MAX_CANDIDATES:
                         self._candidates = self._candidates[-self._MAX_CANDIDATES:]
                     print(
@@ -411,6 +413,15 @@ class PlaywrightKeepaliveStream:
         if wait_seconds > 0:
             self._page.wait_for_timeout(int(wait_seconds * 1000))
         if not self._candidates:
+            try:
+                current_url = self._page.url
+            except Exception:
+                current_url = ""
+            if any(k in current_url.lower() for k in ("signin", "login")):
+                raise RuntimeError(
+                    "Zhihu session expired — re-login required. "
+                    "Run login_save_auth.py to refresh zhihu_auth_state.json."
+                )
             raise RuntimeError("No media URL captured after page refresh — stream may have ended")
         return self.latest_stream()
 
