@@ -71,6 +71,7 @@
 
 ## docs/
 
+- `BRANCH_WORKTREE_GUIDE.md` — Windows `zhihu_file`/`zhihu_url` worktree mapping, branch ownership, and pre-push checks (~520 tok)
 - `STREAM_SENSEVOICE_RUNBOOK.md` — Windows instructions for using FunASR SenseVoice as the stream replay/media URL ASR backend (~430 tok)
 - `WHISPER_BACKEND_IMPROVEMENT_PLAN.md` — Mac/Windows handoff plan for CPU transcription optimization, whisper.cpp CLI Vulkan backend, D-drive temp files, caching, and run reports (~2150 tok)
 
