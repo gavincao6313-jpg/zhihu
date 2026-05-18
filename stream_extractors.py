@@ -57,6 +57,8 @@ MEDIA_PATTERNS = (
     "vdn",
 )
 
+_CC_PLAY_API_PATTERN = "csslcloud.net/api/live/play"
+
 STREAM_ENDED_TEXTS = (
     "直播已结束",
     "直播结束",
@@ -337,6 +339,7 @@ class PlaywrightKeepaliveStream:
         self._page = self._context.new_page()
         self._page.add_init_script(_ANTI_DETECTION_INIT_SCRIPT)
         self._page.on("request", self._on_request)
+        self._page.on("response", self._on_response)
         self._navigate()
         return self.latest_stream(wait_seconds=self.wait_seconds)
 
@@ -349,6 +352,30 @@ class PlaywrightKeepaliveStream:
             if len(self._candidates) > self._MAX_CANDIDATES:
                 self._candidates = self._candidates[-self._MAX_CANDIDATES:]
             print(f"  [Playwright keepalive] media candidate: {infer_media_type(url)} {urlparse(url).hostname}")
+
+    def _on_response(self, response) -> None:
+        """Intercept CC csslcloud play API to capture fresh FLV URL from JSON response."""
+        if _CC_PLAY_API_PATTERN not in response.url:
+            return
+        try:
+            body = response.json()
+        except Exception:
+            return
+        for view_mode in body.get("data", {}).get("stream", []):
+            for video in view_mode.get("videos", []):
+                quality = video.get("quality", "?")
+                for flv_url in video.get("videoStream", []):
+                    if ".flv" not in flv_url.lower():
+                        continue
+                    # +500 so CC API URL wins over binary media intercept
+                    score = _score_media_url(flv_url) + 500
+                    self._candidates.append((score, flv_url, {}))
+                    if len(self._candidates) > self._MAX_CANDIDATES:
+                        self._candidates = self._candidates[-self._MAX_CANDIDATES:]
+                    print(
+                        f"  [Playwright keepalive] CC play API: fresh FLV (quality={quality}) "
+                        f"{urlparse(flv_url).hostname}"
+                    )
 
     def _navigate(self) -> None:
         if not self._page:
@@ -376,14 +403,15 @@ class PlaywrightKeepaliveStream:
     def refresh_and_get(self, wait_seconds: float) -> ExtractedStream:
         if not self._page:
             raise RuntimeError("Playwright keepalive page is not started")
-        previous_count = len(self._candidates)
+        # Clear stale URLs so we never return an expired auth_key after reload
+        self._candidates.clear()
         self._page.reload(wait_until="domcontentloaded", timeout=self.timeout_ms)
         self._page.wait_for_timeout(1500)
         _activate_page_media_sync(self._page)
         if wait_seconds > 0:
             self._page.wait_for_timeout(int(wait_seconds * 1000))
-        if len(self._candidates) == previous_count:
-            print("  [Playwright keepalive] no new media request after refresh; using latest known candidate")
+        if not self._candidates:
+            raise RuntimeError("No media URL captured after page refresh — stream may have ended")
         return self.latest_stream()
 
     def close(self) -> None:
