@@ -23,3 +23,8 @@ __pycache__/
 runs/*.wav
 Videos/.stream/requests/
 Videos/.stream/storage_state*.json
+
+# Zhihu auth secrets
+zhihu_auth_state.json
+.last_stream_url.txt
+.monitor_state.json

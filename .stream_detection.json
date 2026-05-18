@@ -1,0 +1,482 @@
+[
+  {
+    "type": "xhr",
+    "url": "https://103.41.167.237/resolv?host=www.zhihu.com&os_type=web",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/pop_card",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/recommended_card",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/training/course/2013265166804997499",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/lotteries/announcement",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/training/live_room/2013265169342537989/announcement",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/training/section/2013265169342537989/live/A7165ABD439465E19C33DC5901307461/marketing_recommend",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/knowledge_school/guide_download_config/activity/2013265166804997499",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/user/wechat",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/monitor",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://view.csslcloud.net/api/report/config",
+    "method": "GET"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/recommended_card",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"list\":[]}}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/recommended_card",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"list\":[]}}\n"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/artemis/clue/training_activating?sku_id=2013265171104179754&business_id=2013265166804997499&section_id=2013265169342537989",
+    "method": "GET"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/lotteries/announcement",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"announcement\":{\"title\":\"\",\"content\":\"\"},\"count\":0}}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/training/live_room/2013265169342537989/announcement",
+    "body": "{\"announcement\":\"\\u003cp\\u003e\\u003cbr\\u003e\\u003c/p\\u003e\",\"announcement_raw\":\"{\\\"blocks\\\":[{\\\"key\\\":\\\"fe3uj\\\",\\\"text\\\":\\\"\\\",\\\"type\\\":\\\"unstyled\\\",\\\"depth\\\":0,\\\"inlineStyleRanges\\\":[],\\\"entityRanges\\\":[],\\\"data\\\":{}}],\\\"entityMap\\\":{}}\",\"announcement_text\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/lotteries/announcement",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"announcement\":{\"title\":\"\",\"content\":\"\"},\"count\":0}}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/training/section/2013265169342537989/live/A7165ABD439465E19C33DC5901307461/marketing_recommend",
+    "body": "{\"activity_banner_url\":\"\",\"share_link\":\"\",\"is_online\":0,\"share_link_qr_code\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/training/live_room/2013265169342537989/announcement",
+    "body": "{\"announcement\":\"\\u003cp\\u003e\\u003cbr\\u003e\\u003c/p\\u003e\",\"announcement_raw\":\"{\\\"blocks\\\":[{\\\"key\\\":\\\"fe3uj\\\",\\\"text\\\":\\\"\\\",\\\"type\\\":\\\"unstyled\\\",\\\"depth\\\":0,\\\"inlineStyleRanges\\\":[],\\\"entityRanges\\\":[],\\\"data\\\":{}}],\\\"entityMap\\\":{}}\",\"announcement_text\":\"\"}\n"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/training_course/2013265166804997499",
+    "method": "GET"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/pop_card",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"pop_card_info\":null,\"is_explain\":false}}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/pop_card",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"pop_card_info\":null,\"is_explain\":false}}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/training/course/video_page/card_info?sku_id=2013265171104179754",
+    "method": "GET"
+  },
+  {
+    "type": "xhr",
+    "url": "https://zhihu-web-analytics.zhihu.com/api/v2/za/logs/batch",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://zhihu-web-analytics.zhihu.com/api/v3inv2/za/logs/batch",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://www.zhihu.com/sc-profiler",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://view.csslcloud.net/live/user/login",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://view.csslcloud.net/live/data?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "method": "GET"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/live/user/login",
+    "body": "{\"success\":true,\"data\":{\"template\":{\"chat\":1,\"qa\":0,\"dp\":0,\"type\":3},\"user\":{\"id\":\"web_4aed2b33488a2d730698ae6aa613e604\",\"name\":\"奥胖6313\",\"avatar\":\"https://pica.zhimg.com/v2-abed1a8c04700ba7d72b45195223e0ff.jpg?source=d0bb80aa\",\"token\":\"0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A\",\"groupId\":\"2013272104070558864\",\"sendChat\":1,\"updateNameSwitch\":0},\"live\":{\"status\":1},\"customPageUrl\":\"\"}}"
+  },
+  {
+    "type": "xhr",
+    "url": "https://zhihu-web-analytics.zhihu.com/api/v2/za/logs/batch",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://zhihu-web-analytics.zhihu.com/api/v3inv2/za/logs/batch",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://www.zhihu.com/sc-profiler",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://view.csslcloud.net/live/interaction/chat/emoji?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "method": "GET"
+  },
+  {
+    "type": "xhr",
+    "url": "https://view.csslcloud.net/api/live/play?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&types=flv&sessionId=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&terminal=3&tpl=20&deviceType=h5-pc&deviceVersion=4.1.3&stre",
+    "method": "GET"
+  },
+  {
+    "type": "xhr",
+    "url": "https://sio-39.csslcloud.net/socket.io/?sessionid=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&platform=1&tpl=20&terminal=0&EIO=3&transport=polling&t=1779109727730-0",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/monitor",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://view.csslcloud.net/live/interaction/chat?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "method": "GET"
+  },
+  {
+    "type": "xhr",
+    "url": "https://view.csslcloud.net/live/interaction/broadcast?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "method": "GET"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/live/data?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "body": "{\"success\":true,\"data\":{\"meta\":{\"dp\":{\"pages\":[],\"animations\":[]},\"announcement\":\"\",\"interaction\":[],\"docZoomRatio\":{}},\"user\":{\"id\":\"web_4aed2b33488a2d730698ae6aa613e604\",\"name\":\"奥胖6313\",\"avatar\":\"https://pica.zhimg.com/v2-abed1a8c04700ba7d72b45195223e0ff.jpg?source=d0bb80aa\",\"groupId\":\"2013272104070558864\",\"weChat\":0},\"template\":{\"chat\":1,\"qa\":0,\"dp\":0,\"type\":3},\"live\":{\"id\":\"3B5D9FDCA73313C39C33DC5901307461\",\"startTime\":1779105066000,\"duration\":4661,\"status\":1,\"mobileDeviceType\":0,\"resolution\":\"1920x1080\"},\"im\":{\"primary\":\"sio-39.csslcloud.net\",\"secondary\":\"sio-38.csslcloud.net\"},\"upId\":\"8021411779109727751\",\"room\":{\"name\":\"通过情绪陪伴类智能体，学习多agent、多模态和语言风格化\",\"desc\":\"\",\"status\":10,\"liveStartTime\":1779105600000,\"settings\":{\"barrage\":0,\"marquee\":0,\"watermark\":0,\"exit\":0,\"reward\":0,\"mobileAd\":0,\"lowLatency\":0,\"customMenu\":[{\"type\":2,\"name\":\"聊天\",\"index\":2},{\"type\":5,\"name\":\"简介\",\"index\":5}],\"lotteryV2\":1,\"onlineUser\":1,\"pictxts\":0,\"documentDisplayMode\":1,\"warmVideoId\":\"\",\"liveCountdown\":0,\"chatCharLimit\":400,\"privateChat\":1,\"multiQuality\":0,\"standardWatermark\":0,\"viewMode\":0,\"multiVoiceResolution\":1,\"multiVoice\":0,\"threePartScreenMode\":0,\"interaction\":{\"likeSwitch\":0,\"gift\":{\"giftSwitch\":0,\"specialEffects\":1},\"voteSwitch\":0,\"redEnvelopesSwitch\":0,\"inviteSwitch\":0,\"inviteRankSwitch\":0,\"questionnaire\":{\"state\":0},\"enableInteractionGame\":0,\"watchRewardSwitch\":0,\"luckyBagSwitch\":1},\"shareSwitch\":1,\"liveScene\":0,\"liveStartTimeSwitch\":0,\"watchFrequencySwitch\":0,\"enableSuffixViewerId\":0,\"title\":{},\"multiStreamSwitch\":0,\"pcAdSwitch\":0,\"liveForwardReplay\":0,\"userRoleSwap\":0,\"interactionPopover\":0,\"qaIcon\":0,\"unlimitedChangeName\":0,\"chatIconStu\":0,\"noLivePlayerLagRetry\":0,\"dvr\":0,\"delayTime\":3,\"vrOpen\":0,\"audSpeakSwitch\":0,\"docZoomSwitch\":0,\"gameDisplay\":0}},\"accountConfig\":{\"customEmojiSwitch\":1,\"superEmojiSwitch\":0,\"productJumpParamSwitch\":0,\"h5ScreenProjectionSwitch\":0}}}"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/live/data?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "body": "{\"success\":true,\"data\":{\"meta\":{\"dp\":{\"pages\":[],\"animations\":[]},\"announcement\":\"\",\"interaction\":[],\"docZoomRatio\":{}},\"user\":{\"id\":\"web_4aed2b33488a2d730698ae6aa613e604\",\"name\":\"奥胖6313\",\"avatar\":\"https://pica.zhimg.com/v2-abed1a8c04700ba7d72b45195223e0ff.jpg?source=d0bb80aa\",\"groupId\":\"2013272104070558864\",\"weChat\":0},\"template\":{\"chat\":1,\"qa\":0,\"dp\":0,\"type\":3},\"live\":{\"id\":\"3B5D9FDCA73313C39C33DC5901307461\",\"startTime\":1779105066000,\"duration\":4661,\"status\":1,\"mobileDeviceType\":0,\"resolution\":\"1920x1080\"},\"im\":{\"primary\":\"sio-39.csslcloud.net\",\"secondary\":\"sio-38.csslcloud.net\"},\"upId\":\"8021411779109727751\",\"room\":{\"name\":\"通过情绪陪伴类智能体，学习多agent、多模态和语言风格化\",\"desc\":\"\",\"status\":10,\"liveStartTime\":1779105600000,\"settings\":{\"barrage\":0,\"marquee\":0,\"watermark\":0,\"exit\":0,\"reward\":0,\"mobileAd\":0,\"lowLatency\":0,\"customMenu\":[{\"type\":2,\"name\":\"聊天\",\"index\":2},{\"type\":5,\"name\":\"简介\",\"index\":5}],\"lotteryV2\":1,\"onlineUser\":1,\"pictxts\":0,\"documentDisplayMode\":1,\"warmVideoId\":\"\",\"liveCountdown\":0,\"chatCharLimit\":400,\"privateChat\":1,\"multiQuality\":0,\"standardWatermark\":0,\"viewMode\":0,\"multiVoiceResolution\":1,\"multiVoice\":0,\"threePartScreenMode\":0,\"interaction\":{\"likeSwitch\":0,\"gift\":{\"giftSwitch\":0,\"specialEffects\":1},\"voteSwitch\":0,\"redEnvelopesSwitch\":0,\"inviteSwitch\":0,\"inviteRankSwitch\":0,\"questionnaire\":{\"state\":0},\"enableInteractionGame\":0,\"watchRewardSwitch\":0,\"luckyBagSwitch\":1},\"shareSwitch\":1,\"liveScene\":0,\"liveStartTimeSwitch\":0,\"watchFrequencySwitch\":0,\"enableSuffixViewerId\":0,\"title\":{},\"multiStreamSwitch\":0,\"pcAdSwitch\":0,\"liveForwardReplay\":0,\"userRoleSwap\":0,\"interactionPopover\":0,\"qaIcon\":0,\"unlimitedChangeName\":0,\"chatIconStu\":0,\"noLivePlayerLagRetry\":0,\"dvr\":0,\"delayTime\":3,\"vrOpen\":0,\"audSpeakSwitch\":0,\"docZoomSwitch\":0,\"gameDisplay\":0}},\"accountConfig\":{\"customEmojiSwitch\":1,\"superEmojiSwitch\":0,\"productJumpParamSwitch\":0,\"h5ScreenProjectionSwitch\":0}}}"
+  },
+  {
+    "type": "xhr",
+    "url": "https://sio-39.csslcloud.net/socket.io/?sessionid=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&platform=1&tpl=20&terminal=0&EIO=3&transport=polling&t=1779109728914-1&sid=7vuDb6s3cVWMzH2HAhd5",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://sio-39.csslcloud.net/socket.io/?sessionid=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&platform=1&tpl=20&terminal=0&EIO=3&transport=polling&t=1779109728915-2&sid=7vuDb6s3cVWMzH2HAhd5",
+    "method": "GET"
+  },
+  {
+    "type": "fetch",
+    "url": "https://report.csslcloud.net/report/live/login?userid=E3AFE8FF34AEA83E&roomid=A7165ABD439465E19C33DC5901307461&viewerid=web_4aed2b33488a2d730698ae6aa613e604&upid=8021411779109727751&terminal=0&ua=1&liveid=3B5D9FDCA73313C39C33DC5901307461&time=1779109728922",
+    "method": "GET"
+  },
+  {
+    "type": "media",
+    "url": "https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-5d145c425dc74df49b9c99ba60216cdd-0-ae8b80a69047422ad5dce132ba057108&hdFirmType=0",
+    "method": "GET"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/live/interaction/broadcast?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "body": "{\"success\":true,\"data\":{\"count\":0,\"broadcasts\":[]}}"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/live/interaction/chat/emoji?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "body": "{\"success\":true,\"data\":{}}"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/api/live/play?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&types=flv&sessionId=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&terminal=3&tpl=20&deviceType=h5-pc&deviceVersion=4.1.3&stre",
+    "body": "{\"data\":{\"upId\":\"7245731779109727867\",\"stream\":[{\"viewMode\":0,\"videos\":[{\"desc\":\"原画\",\"quality\":0,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-5d145c425dc74df49b9c99ba60216cdd-0-ae8b80a69047422ad5dce132ba057108&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"流畅\",\"quality\":500,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?auth_key=1779134927-a94a5e1537f7421383b4725c8676307d-0-fd7ce810b7c78cdb35fa949fd9d3be19&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?wsSecret=22d895eda21d1bac5e3da42d17989366&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"标清\",\"quality\":800,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?auth_key=1779134927-fb7aa436560945d6ab40ebf5f559aec1-0-f8fac109c5530c0eda625974358b852e&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?wsSecret=44feae307f8002e064f296cbeae2cbfe&wsABSTime=6a0b71cf&hdFirmType=1\"]}],\"docDelayTime\":3,\"audios\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-e970e02a550843b496b287a80d0ac8ec-0-3b595fb1f3db266911501860267d7ed5&hdFirmType=0&onlyaudio=1\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?only-audio=1&wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"],\"type\":\"flv\"}]},\"success\":true}"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/live/interaction/broadcast?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "body": "{\"success\":true,\"data\":{\"count\":0,\"broadcasts\":[]}}"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/live/interaction/chat/emoji?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&deviceType=h5-pc&deviceVersion=4.1.3&tpl=20",
+    "body": "{\"success\":true,\"data\":{}}"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/api/live/play?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&types=flv&sessionId=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&terminal=3&tpl=20&deviceType=h5-pc&deviceVersion=4.1.3&stre",
+    "body": "{\"data\":{\"upId\":\"7245731779109727867\",\"stream\":[{\"viewMode\":0,\"videos\":[{\"desc\":\"原画\",\"quality\":0,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-5d145c425dc74df49b9c99ba60216cdd-0-ae8b80a69047422ad5dce132ba057108&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"流畅\",\"quality\":500,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?auth_key=1779134927-a94a5e1537f7421383b4725c8676307d-0-fd7ce810b7c78cdb35fa949fd9d3be19&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?wsSecret=22d895eda21d1bac5e3da42d17989366&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"标清\",\"quality\":800,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?auth_key=1779134927-fb7aa436560945d6ab40ebf5f559aec1-0-f8fac109c5530c0eda625974358b852e&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?wsSecret=44feae307f8002e064f296cbeae2cbfe&wsABSTime=6a0b71cf&hdFirmType=1\"]}],\"docDelayTime\":3,\"audios\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-e970e02a550843b496b287a80d0ac8ec-0-3b595fb1f3db266911501860267d7ed5&hdFirmType=0&onlyaudio=1\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?only-audio=1&wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"],\"type\":\"flv\"}]},\"success\":true}"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/api/live/play?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&types=flv&sessionId=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&terminal=3&tpl=20&deviceType=h5-pc&deviceVersion=4.1.3&stre",
+    "body": "{\"data\":{\"upId\":\"7245731779109727867\",\"stream\":[{\"viewMode\":0,\"videos\":[{\"desc\":\"原画\",\"quality\":0,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-5d145c425dc74df49b9c99ba60216cdd-0-ae8b80a69047422ad5dce132ba057108&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"流畅\",\"quality\":500,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?auth_key=1779134927-a94a5e1537f7421383b4725c8676307d-0-fd7ce810b7c78cdb35fa949fd9d3be19&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?wsSecret=22d895eda21d1bac5e3da42d17989366&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"标清\",\"quality\":800,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?auth_key=1779134927-fb7aa436560945d6ab40ebf5f559aec1-0-f8fac109c5530c0eda625974358b852e&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?wsSecret=44feae307f8002e064f296cbeae2cbfe&wsABSTime=6a0b71cf&hdFirmType=1\"]}],\"docDelayTime\":3,\"audios\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-e970e02a550843b496b287a80d0ac8ec-0-3b595fb1f3db266911501860267d7ed5&hdFirmType=0&onlyaudio=1\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?only-audio=1&wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"],\"type\":\"flv\"}]},\"success\":true}"
+  },
+  {
+    "type": "xhr",
+    "url": "https://sio-39.csslcloud.net/socket.io/?sessionid=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&platform=1&tpl=20&terminal=0&EIO=3&transport=polling&t=1779109728941-3&sid=7vuDb6s3cVWMzH2HAhd5",
+    "method": "GET"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/api/live/play?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&types=flv&sessionId=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&terminal=3&tpl=20&deviceType=h5-pc&deviceVersion=4.1.3&stre",
+    "body": "{\"data\":{\"upId\":\"7245731779109727867\",\"stream\":[{\"viewMode\":0,\"videos\":[{\"desc\":\"原画\",\"quality\":0,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-5d145c425dc74df49b9c99ba60216cdd-0-ae8b80a69047422ad5dce132ba057108&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"流畅\",\"quality\":500,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?auth_key=1779134927-a94a5e1537f7421383b4725c8676307d-0-fd7ce810b7c78cdb35fa949fd9d3be19&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?wsSecret=22d895eda21d1bac5e3da42d17989366&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"标清\",\"quality\":800,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?auth_key=1779134927-fb7aa436560945d6ab40ebf5f559aec1-0-f8fac109c5530c0eda625974358b852e&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?wsSecret=44feae307f8002e064f296cbeae2cbfe&wsABSTime=6a0b71cf&hdFirmType=1\"]}],\"docDelayTime\":3,\"audios\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-e970e02a550843b496b287a80d0ac8ec-0-3b595fb1f3db266911501860267d7ed5&hdFirmType=0&onlyaudio=1\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?only-audio=1&wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"],\"type\":\"flv\"}]},\"success\":true}"
+  },
+  {
+    "type": "api_response",
+    "url": "https://view.csslcloud.net/api/live/play?accountId=E3AFE8FF34AEA83E&roomId=A7165ABD439465E19C33DC5901307461&types=flv&sessionId=0687E448977D2037433C61723D514973DAFD86FDC2D77BEF72CD487F95844B4E578BE23DE0C20D2B810B9D8841ED4CDC753C612EB38A8D5A&terminal=3&tpl=20&deviceType=h5-pc&deviceVersion=4.1.3&stre",
+    "body": "{\"data\":{\"upId\":\"7245731779109727867\",\"stream\":[{\"viewMode\":0,\"videos\":[{\"desc\":\"原画\",\"quality\":0,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-5d145c425dc74df49b9c99ba60216cdd-0-ae8b80a69047422ad5dce132ba057108&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"流畅\",\"quality\":500,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?auth_key=1779134927-a94a5e1537f7421383b4725c8676307d-0-fd7ce810b7c78cdb35fa949fd9d3be19&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_cfd-v.flv?wsSecret=22d895eda21d1bac5e3da42d17989366&wsABSTime=6a0b71cf&hdFirmType=1\"]},{\"desc\":\"标清\",\"quality\":800,\"videoStream\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?auth_key=1779134927-fb7aa436560945d6ab40ebf5f559aec1-0-f8fac109c5530c0eda625974358b852e&hdFirmType=0\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461_csd-v.flv?wsSecret=44feae307f8002e064f296cbeae2cbfe&wsABSTime=6a0b71cf&hdFirmType=1\"]}],\"docDelayTime\":3,\"audios\":[\"https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-e970e02a550843b496b287a80d0ac8ec-0-3b595fb1f3db266911501860267d7ed5&hdFirmType=0&onlyaudio=1\",\"https://stream-nws.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?only-audio=1&wsSecret=719152c3363fee9cdb9f7b65bc494c3b&wsABSTime=6a0b71cf&hdFirmType=1\"],\"type\":\"flv\"}]},\"success\":true}"
+  },
+  {
+    "type": "fetch",
+    "url": "https://stream-ali1.csslcloud.net/src/A7165ABD439465E19C33DC5901307461.flv?auth_key=1779134927-5d145c425dc74df49b9c99ba60216cdd-0-ae8b80a69047422ad5dce132ba057108&hdFirmType=0",
+    "method": "GET"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/progress",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/heartbeat_monitor?section_id=2013265169342537989",
+    "method": "POST"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/heartbeat_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"interval\":10,\"delay_max\":1000,\"delay_dithering\":1000,\"network_warn_interval\":300}}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/heartbeat_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"interval\":10,\"delay_max\":1000,\"delay_dithering\":1000,\"network_warn_interval\":300}}\n"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/heartbeat_monitor?section_id=2013265169342537989",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/heartbeat_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"interval\":10,\"delay_max\":1000,\"delay_dithering\":1000,\"network_warn_interval\":300}}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/heartbeat_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\",\"data\":{\"interval\":10,\"delay_max\":1000,\"delay_dithering\":1000,\"network_warn_interval\":300}}\n"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://report.csslcloud.net/report/live/play?userid=E3AFE8FF34AEA83E&roomid=A7165ABD439465E19C33DC5901307461&viewerid=web_4aed2b33488a2d730698ae6aa613e604&upid=8021411779109727751&terminal=0&ua=1&liveid=3B5D9FDCA73313C39C33DC5901307461&time=1779109737670&result=0",
+    "method": "GET"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/monitor",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/monitor",
+    "method": "POST"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "api_response",
+    "url": "https://www.zhihu.com/api/education/livestream/livestreams/1999168779561759124/event_monitor?section_id=2013265169342537989",
+    "body": "{\"code\":0,\"msg\":\"\"}\n"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  },
+  {
+    "type": "fetch",
+    "url": "https://www.zhihu.com/api/education/monitor",
+    "method": "POST"
+  },
+  {
+    "type": "xhr",
+    "url": "https://logger.csslcloud.net/event/live/v1/client",
+    "method": "POST"
+  }
+]

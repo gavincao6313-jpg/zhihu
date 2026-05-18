@@ -301,14 +301,17 @@ def slice_url(
     headers: dict[str, str] | None = None,
 ) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
+    is_live = infer_media_type(url) in ("flv",)
     cmd = [
         "ffmpeg",
         "-hide_banner",
         "-v",
         "warning",
         "-y",
-        "-ss",
-        fmt_time(start_s),
+    ]
+    if not is_live:
+        cmd += ["-ss", fmt_time(start_s)]
+    cmd += [
         "-reconnect",
         "1",
         "-reconnect_streamed",
