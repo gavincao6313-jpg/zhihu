@@ -3,6 +3,13 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## Session: 2026-05-18 (continued)
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:30 | Analyzed Windows code audit commit 0755f87 (4 remaining items) | runs/code-review-live-mode-b27b539-20260518.md | Evaluated P0-P2 items | ~800 |
+| 15:45 | Implemented 4 live-mode optimizations from Windows audit | zhihuTTS_stream.py, stream_extractors.py | Committed + pushed to feature/stream-transcript-validation | ~1200 |
+
 ## Session: 2026-05-14 12:39
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -157,3 +164,57 @@
 | 18:08 | confirmed SenseVoice should cover local MP4 backfill too | zhihuTTS_video.py, zhihuTTS.py, .wolf/cerebrum.md | local videos and stream chunks share transcribe_audio(), so one backend switch can serve both paths | ~1200 |
 | 18:14 | fetched Windows code补交 for stream hardening and SenseVoice probe | origin/feature/stream-transcript-validation, zhihuTTS_stream.py, sensevoice_probe.py, .gitignore | commit 5371c70 fills the previous missing-code gap; syntax checks pass via compile() | ~1700 |
 | 18:48 | recorded MP4 SenseVoice backfill branch change process | docs/SENSEVOICE_MP4_BACKFILL_CHANGELOG_20260517.md, .wolf/cerebrum.md, .wolf/anatomy.md | recorded commit 1d611f6, code review checks, Windows commands, and next stream-branch discussion point | ~1100 |
+| 14:10 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_video.py | expanded (+9 lines) | ~117 |
+| 14:12 | 拉取分析 Windows bilibili 直播验证结果 | runs/bilibili-live-validation-20260518.md | 28/30 chunks 成功，bug-019 无语音崩溃，bug-020 Playwright 平台限制 | ~3k |
+| 14:15 | 修复 bug-019，push feature/stream-transcript-validation | zhihuTTS_video.py:317 | _transcribe_sensevoice 无语音返回空 segments，不再中断批次 | ~1k |
+| 14:15 | 更新主分支 buglog，补录 bug-019（已修）和 bug-020（无需修） | .wolf/buglog.json | 完成 | ~200 |
+| 14:15 | Session end: 1 writes across 1 files (zhihuTTS_video.py) | 2 reads | ~3810 tok |
+| 14:21 | Session end: 1 writes across 1 files (zhihuTTS_video.py) | 2 reads | ~3810 tok |
+| 14:38 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified is_ytdlp_stream_ended_error() | ~214 |
+| 14:38 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified close() | ~447 |
+| 14:39 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+6 lines) | ~46 |
+| 14:39 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified StreamSliceError() | ~118 |
+| 14:40 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified is_browser_alive() | ~144 |
+
+## Session: 2026-05-18 14:41
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:41 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified is_stream_ended() | ~89 |
+| 14:42 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified is_stream_ended() | ~674 |
+| 14:42 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+46 lines) | ~932 |
+| 15:00 | 实现直播流结束检测 + 浏览器自动重启（live mode）| stream_extractors.py, zhihuTTS_stream.py | --duration 0 = 无限循环；BrowserDeadError 最多重启3次；DOM轮询/yt-dlp ended信号；push 成功 | ~5k |
+| 14:43 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 11→13 lines | ~150 |
+| 14:45 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 2→3 lines | ~60 |
+| 14:45 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified get() | ~69 |
+| 14:47 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 4→4 lines | ~63 |
+| 14:47 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 3→6 lines | ~62 |
+| 14:50 | Session end: 8 writes across 1 files (zhihuTTS_stream.py) | 1 reads | ~2099 tok |
+| 14:54 | Session end: 8 writes across 1 files (zhihuTTS_stream.py) | 1 reads | ~2099 tok |
+| 15:07 | Session end: 8 writes across 1 files (zhihuTTS_stream.py) | 2 reads | ~2099 tok |
+| 15:10 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | 8→6 lines | ~41 |
+| 15:11 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | content() → evaluate() | ~111 |
+| 15:11 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified _on_request() | ~138 |
+| 15:11 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 7→8 lines | ~111 |
+| 15:11 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+8 lines) | ~162 |
+| 15:13 | Session end: 13 writes across 2 files (zhihuTTS_stream.py, stream_extractors.py) | 2 reads | ~2662 tok |
+
+## Session: 2026-05-18 15:15
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-18 15:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:33 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified close() | ~241 |
+| 15:33 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified restart() | ~117 |
+| 15:33 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 3→3 lines | ~26 |
+| 15:34 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified get() | ~100 |
+| 15:34 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | inline fix | ~14 |
+| 15:34 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 4→6 lines | ~68 |
+| 15:34 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 4→9 lines | ~126 |
+| 15:35 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 18→19 lines | ~252 |
+| 15:36 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 5→6 lines | ~99 |
+| 15:36 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+6 lines) | ~91 |
