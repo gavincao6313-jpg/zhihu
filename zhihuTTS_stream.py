@@ -457,7 +457,7 @@ def process_slice(
     chunk_total: int,
     reextracts: int = 0,
     recovery_errors: list[str] | None = None,
-) -> dict:
+) -> dict | None:
     started = time.monotonic()
     created_at = datetime.now().isoformat(timespec="seconds")
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -467,8 +467,12 @@ def process_slice(
     print(f"Slicing {fmt_time(start_s)} + {fmt_time(duration_s)} -> {slice_path}")
     slice_url(url, start_s, duration_s, slice_path, headers)
 
-    events, frames = extract_keyframes(slice_path)
     transcript = transcribe_audio(slice_path)
+    if not transcript.get("segments"):
+        slice_path.unlink(missing_ok=True)
+        print(f"  [skip] chunk {chunk_index}: no speech detected, skipping output", flush=True)
+        return None
+    events, frames = extract_keyframes(slice_path)
     transcript_text = transcript_to_text(transcript)
     global_transcript_text = offset_transcript_text(transcript, start_s)
     payload = build_gemini_payload(slice_path.stem, transcript, events, frames)
@@ -543,7 +547,7 @@ def process_slice_with_recovery(
     chunk_index: int,
     chunk_total: int,
     keepalive: PlaywrightKeepaliveStream | None = None,
-) -> tuple[dict, ExtractedStream, dict]:
+) -> tuple[dict | None, ExtractedStream, dict]:
     current_stream = stream
     current_summary = source_summary
     recovery_errors: list[str] = []
@@ -770,6 +774,8 @@ def run_validation(args: argparse.Namespace) -> dict:
         stream_ended_reason = ""
         browser_restart_count = 0
         chunk_index = 0
+        RUNS_DIR.mkdir(exist_ok=True)
+        checkpoint_path = RUNS_DIR / f"stream-{base_stem}.checkpoint.json"
 
         while True:
             chunk_index += 1
@@ -800,24 +806,30 @@ def run_validation(args: argparse.Namespace) -> dict:
                 url = stream.url
                 headers = stream.headers
                 host = urlparse(url).hostname or "unknown-host"
-                chunks.append(chunk)
+                if chunk is not None:
+                    chunks.append(chunk)
+                    checkpoint_path.write_text(
+                        json.dumps({"chunks": chunks, "created_at": created_at}, ensure_ascii=False, indent=2),
+                        encoding="utf-8",
+                    )
             except BrowserDeadError as e:
-                if browser_restart_count >= MAX_BROWSER_RESTARTS:
+                max_restarts = args.max_browser_restarts
+                if browser_restart_count >= max_restarts:
                     print(
                         f"\n{'=' * 60}\n"
-                        f"[!] 浏览器已自动重启 {MAX_BROWSER_RESTARTS} 次，仍无法恢复。\n"
+                        f"[!] 浏览器已自动重启 {max_restarts} 次，仍无法恢复。\n"
                         f"    请手动检查直播页面是否正常，然后重新运行脚本。\n"
                         f"    已完成 {len(chunks)} 块，时间点: {fmt_time(chunk_start)}\n"
                         f"{'=' * 60}"
                     )
                     stream_ended_reason = (
-                        f"browser dead after {MAX_BROWSER_RESTARTS} restarts — manual intervention required"
+                        f"browser dead after {max_restarts} restarts — manual intervention required"
                     )
                     break
                 browser_restart_count += 1
                 print(
                     f"\n  [!] 浏览器进程已关闭，尝试重启"
-                    f" ({browser_restart_count}/{MAX_BROWSER_RESTARTS})..."
+                    f" ({browser_restart_count}/{max_restarts})..."
                 )
                 try:
                     stream = keepalive.restart()
@@ -871,6 +883,7 @@ def run_validation(args: argparse.Namespace) -> dict:
         }
         manifest_json_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
         write_manifest(manifest_md_path, manifest)
+        checkpoint_path.unlink(missing_ok=True)
         print(f"\nManifest: {manifest_md_path}")
         print(f"Combined transcript: {combined_transcript_path}")
         return manifest
@@ -984,6 +997,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Delete each slice MP4 after keyframes, transcript, payload, and report are written.",
     )
     parser.add_argument("--max-chunks", type=int, default=0, help="Optional cap for smoke tests.")
+    parser.add_argument(
+        "--max-browser-restarts",
+        type=int,
+        default=MAX_BROWSER_RESTARTS,
+        help="Maximum browser auto-restarts in live mode before requiring manual intervention.",
+    )
     parser.add_argument("--name", default="", help="Optional output stem.")
     parser.add_argument(
         "--no-gemini",
