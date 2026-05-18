@@ -19,6 +19,9 @@ __pycache__/
 *.pyc
 .venv*/
 
+# Playwright browser binaries (downloaded locally)
+.playwright-browsers/
+
 # Local probe media
 runs/*.wav
 Videos/.stream/requests/
