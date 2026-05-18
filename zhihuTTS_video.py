@@ -315,7 +315,16 @@ def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
     duration_s = _audio_duration_s(wav_path)
     segments = _sensevoice_segments(result, duration_s)
     if not segments:
-        raise RuntimeError("SenseVoice 未返回有效转写文本")
+        print("  [SenseVoice] 无语音，跳过此切片", flush=True)
+        return {
+            "segments": [],
+            "sensevoice": {
+                "model": SENSEVOICE_MODEL,
+                "vad_model": SENSEVOICE_VAD_MODEL,
+                "device": device,
+                "duration_s": duration_s,
+            },
+        }
     print(f"  [SenseVoice] 转写完成: {len(segments)} 个片段", flush=True)
     return {
         "segments": segments,
