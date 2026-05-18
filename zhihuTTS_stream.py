@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import re
 import shlex
 import subprocess
@@ -43,6 +44,55 @@ SLICE_RETRIES = 3
 MIN_SLICE_BYTES = 1024
 MAX_BROWSER_RESTARTS = 3
 
+GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MAX_RETRIES = 6
+GEMINI_RETRY_DELAY = 65
+GEMINI_MAX_CONTINUATIONS = 20
+
+GEMINI_PROMPT_TEXT = """
+# 角色与目标
+你是一个顶级的知识库数据提取专家。我将提供一段视频的**完整逐字稿（带时间戳）**和**关键帧截图（包含幻灯片切换和画笔标注）**，请将它们视为完整的视频内容，提取转化为一份**高度详尽、结构化、完全适合导入 NotebookLM 作为底层语料的 Markdown 文档**。
+
+# 输入说明
+- **逐字稿**: 包含每个段落的开始和结束时间戳 [HH:MM:SS]
+- **关键帧**: 按时间顺序排列的视频截图，包括：
+  - 幻灯片切换时的完整画面
+  - 讲师使用画笔标注时的画面（包含标注前和标注后的帧）
+- 请结合文字和截图共同理解视频内容，当截图中的画面与逐字稿不对应时，以截图中的视觉信息为准。
+
+# 提取原则（至关重要）
+1. **拒绝极简摘要：** 我需要的是"重型知识沉淀"，请尽可能详尽地提取视频中的具体细节、核心论点、数据支撑和案例，而不是只给我大纲。
+2. **提取视觉信息：** 关键帧包含了幻灯片内容、代码截图、架构图和画笔标注。请务必用文字把屏幕上看到的核心内容"转录"下来，并附上描述。
+3. **保留专业术语：** 精准提取视频中的专有名词、工具名称、人名和核心概念，不要做通俗化处理，确保后续检索的准确性。
+4. **时间线锚点：** 请按照视频的逻辑章节或时间块进行切分，并在每个段落前标注大致的时间戳（如 [00:15:20]）。
+
+# 必须输出的 Markdown 结构
+
+请严格按照以下模板输出内容：
+
+## 1. 视频元数据
+- **推测主题：** （用一句话概括视频核心内容）
+- **核心关键词：** （提供 5-10 个便于检索的关键词/标签）
+- **适用受众/场景：** （这段视频主要解决什么问题）
+
+## 2. 核心知识字典（Glossary）
+（提取视频中反复出现的 3-5 个核心概念或专业术语，并给出视频中的定义，帮助 LLM 统一概念）
+
+## 3. 详尽内容解析（按时间线或章节）
+（请根据视频长度，拆分为多个逻辑章节。针对每个章节，请提供：）
+### [开始时间 - 结束时间] 章节标题
+- **核心论点：** （本段的重点结论）
+- **详细展开：** （详尽记录演讲者的具体解释、举例和论证过程）
+- **视觉/屏幕内容：** （如果屏幕上有图表、文字、代码或演示操作，请详细描述。如果是代码或配置，请使用代码块 ``` 包裹）
+- **重要金句/原话：** （提取 1-2 句演讲者的关键原话，加上引号）
+
+## 4. 遗留问题与下一步行动（如有）
+（视频结尾提到的待办事项、推荐的拓展资源，或未解决的问题）
+
+# 执行要求
+由于视频长达 2-3 小时，信息量极大。请保持极高的专注度，不要省略中间章节。如果你的输出达到了字数上限，请停在当前完整的段落，我会回复"继续"，你再接着上文输出。
+"""
+
 
 class StreamSliceError(RuntimeError):
     """Raised when ffmpeg cannot produce a valid media slice."""
@@ -54,6 +104,107 @@ class StreamEndedError(Exception):
 
 class BrowserDeadError(Exception):
     """Playwright browser process is gone — caller should attempt restart."""
+
+
+def _parse_gemini_retry_delay(error: Exception) -> int:
+    match = re.search(r"retry in (\d+(?:\.\d+)?)s", str(error), re.IGNORECASE)
+    return int(float(match.group(1))) + 10 if match else GEMINI_RETRY_DELAY
+
+
+def _call_gemini_stream(client, parts: list, label: str) -> dict:
+    """Call Gemini with rate-limit retry and MAX_TOKENS auto-continuation."""
+    try:
+        from google.genai import types as _gtypes
+    except ImportError:
+        raise ImportError("google-genai not installed — run: pip install google-genai")
+
+    gemini_config = _gtypes.GenerateContentConfig(
+        temperature=0.1,
+        max_output_tokens=65536,
+        thinking_config=_gtypes.ThinkingConfig(thinking_budget=0),
+    )
+    gemini_calls = 0
+    for attempt in range(1, GEMINI_MAX_RETRIES + 1):
+        try:
+            print(f"[{label}] Sending to Gemini ({len(parts)} parts)...", flush=True)
+            chat = client.chats.create(model=GEMINI_MODEL, config=gemini_config)
+            gemini_calls += 1
+            response = chat.send_message(parts)
+            text = response.text
+            if not text:
+                raise RuntimeError("Gemini returned empty response")
+            full_text = text
+            candidate = response.candidates[0] if response.candidates else None
+            for cont in range(GEMINI_MAX_CONTINUATIONS):
+                if not candidate or candidate.finish_reason != _gtypes.FinishReason.MAX_TOKENS:
+                    break
+                print(f"[{label}] Output truncated, continuing ({cont + 1}/{GEMINI_MAX_CONTINUATIONS})...", flush=True)
+                gemini_calls += 1
+                response = chat.send_message("继续")
+                text = response.text
+                if not text:
+                    break
+                full_text += "\n" + text
+                candidate = response.candidates[0] if response.candidates else None
+            return {"text": full_text, "gemini_calls": gemini_calls}
+        except Exception as e:
+            is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
+            if is_rate_limited:
+                delay = _parse_gemini_retry_delay(e)
+                print(f"[{label}] Rate limited (429), retrying in {delay}s...", flush=True)
+            else:
+                delay = GEMINI_RETRY_DELAY
+                print(f"[{label}] Gemini error: {e}", flush=True)
+            if attempt < GEMINI_MAX_RETRIES:
+                time.sleep(delay)
+    return {"text": None, "gemini_calls": gemini_calls}
+
+
+def build_stream_gemini_parts(manifest: dict, max_frames: int = 50) -> list:
+    """Build Gemini input parts: transcript text + sampled keyframes from all chunks."""
+    try:
+        from google.genai import types as _gtypes
+    except ImportError:
+        raise ImportError("google-genai not installed — run: pip install google-genai")
+
+    transcript_text = manifest.get("combined_transcript_text", "")
+
+    all_frames: list[dict] = []
+    for chunk in manifest.get("chunks", []):
+        payload_path_str = chunk.get("outputs", {}).get("payload_json", "")
+        if payload_path_str and Path(payload_path_str).exists():
+            try:
+                payload = json.loads(Path(payload_path_str).read_text(encoding="utf-8"))
+                all_frames.extend(payload.get("frames", []))
+            except Exception:
+                pass
+
+    all_frames.sort(key=lambda f: f.get("timestamp_s", 0))
+    if len(all_frames) > max_frames:
+        step = len(all_frames) / max_frames
+        sampled = [all_frames[int(i * step)] for i in range(max_frames)]
+    else:
+        sampled = all_frames
+
+    parts: list = [GEMINI_PROMPT_TEXT, transcript_text]
+    frame_count = 0
+    for frame in sampled:
+        frame_path_str = frame.get("path", "")
+        if not frame_path_str:
+            continue
+        frame_path = Path(frame_path_str)
+        if not frame_path.exists():
+            continue
+        marker = frame.get("marker", f"[Frame @{frame.get('timestamp_s', '?')}s]")
+        parts.append(marker)
+        parts.append(_gtypes.Part(inline_data=_gtypes.Blob(
+            mime_type="image/jpeg",
+            data=frame_path.read_bytes(),
+        )))
+        frame_count += 1
+
+    print(f"  Gemini parts built: transcript {len(transcript_text)} chars, {frame_count} frames", flush=True)
+    return parts
 
 
 def parse_time(value: str | float | int) -> float:
@@ -892,6 +1043,37 @@ def run_validation(args: argparse.Namespace) -> dict:
         checkpoint_path.unlink(missing_ok=True)
         print(f"\nManifest: {manifest_md_path}")
         print(f"Combined transcript: {combined_transcript_path}")
+
+        if getattr(args, "gemini", False) and chunks:
+            print("\n=== Gemini: Building notes document ===")
+            try:
+                from google import genai as _genai
+                api_key = getattr(args, "gemini_api_key", "") or os.environ.get("GEMINI_API_KEY", "")
+                if not api_key:
+                    print("[!] --gemini-api-key or GEMINI_API_KEY env var required — skipping Gemini")
+                else:
+                    client = _genai.Client(api_key=api_key)
+                    max_frames = getattr(args, "gemini_max_frames", 50)
+                    parts = build_stream_gemini_parts(manifest, max_frames=max_frames)
+                    result = _call_gemini_stream(client, parts, base_stem)
+                    if result["text"]:
+                        notes_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.notes.md"
+                        notes_path.write_text(result["text"], encoding="utf-8")
+                        manifest["notes_md_path"] = str(notes_path)
+                        manifest_json_path.write_text(
+                            json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
+                        )
+                        print(
+                            f"Notes: {notes_path} "
+                            f"({len(result['text'])} chars, {result['gemini_calls']} Gemini calls)"
+                        )
+                    else:
+                        print("[!] Gemini returned no text")
+            except ImportError as e:
+                print(f"[!] {e}")
+            except Exception as e:
+                print(f"[!] Gemini error: {e}")
+
         return manifest
     finally:
         if keepalive:
@@ -1011,9 +1193,24 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--name", default="", help="Optional output stem.")
     parser.add_argument(
-        "--no-gemini",
+        "--gemini",
         action="store_true",
-        help="Accepted for compatibility; this validation script never calls Gemini.",
+        help=(
+            "After all chunks are processed, call Gemini to produce a "
+            "NotebookLM-ready notes document (.notes.md). "
+            "Requires GEMINI_API_KEY env var or --gemini-api-key."
+        ),
+    )
+    parser.add_argument(
+        "--gemini-api-key",
+        default="",
+        help="Gemini API key. Defaults to the GEMINI_API_KEY environment variable.",
+    )
+    parser.add_argument(
+        "--gemini-max-frames",
+        type=int,
+        default=50,
+        help="Maximum number of keyframes to include in the Gemini call (default: 50).",
     )
     return parser
 
