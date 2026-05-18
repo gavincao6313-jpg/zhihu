@@ -1,0 +1,114 @@
+{
+  "video_name": "bilibili-live-30min_chunk020_1140s",
+  "full_text": "[00:00:00 - 00:00:59] 展侦查本案的几位手表卖家，因为案件的原因，银行卡被冻结，自有资金使用受限，可能这些卖家内心还觉得比较冤枉，觉得自己就是在网络上卖一些个人物品，对方付款，我交货，钱货两清能有什么问题？。但是犯罪分子就是抓住了这一心理，引导你见面交易，脱离平台付款，看似方便。但其实把法律风险转嫁到自己身上，埋下了隐患。所以我们提醒卖家要通过平台进行钱款交易。🎼您正在收看的是法制在线。再来看一个法制现场，浙江温州警方抓获了一个针对酒驾司机的敲诈勒索团。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=slide diff=0.44"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=slide diff=0.3217"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=slide diff=0.3587"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk020_1140s\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.021
+    },
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.44
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.1249
+    },
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.3874
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.0377
+    },
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.3217
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.2999
+    },
+    {
+      "type": "slide",
+      "frame_idx": 43,
+      "diff": 0.3587
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.2406
+    }
+  ],
+  "stats": {
+    "slide_changes": 4,
+    "annotations": 5,
+    "frames_total": 11,
+    "text_chars": 239
+  }
+}

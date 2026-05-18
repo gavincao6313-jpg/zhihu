@@ -1,0 +1,114 @@
+{
+  "video_name": "bilibili-live-30min_chunk021_1200s",
+  "full_text": "[00:00:00 - 00:00:59] 2月4号，陈先生与朋友在某夜市吃夜宵期间喝了一些酒。凌晨1时许，心存侥幸的陈先生自认酒量不错，驾车上路。我当时就喝了一饮酒，我还是比较清醒的。开了没多远，一辆黑色轿车从后方加速将陈先生的车截停。该车驾驶员下车表示和陈先生的车发生碰撞，陈先生随即下车查看，他发现自己的车尾部只有轻微损伤，而对方的车子却有严重刮擦痕迹。嗯。我们调取了现场的公共视频后，发现，当时对方车辆与陈先生的车前后行驶，随后发生了轻微追尾刮擦。但根据事故经过，在比对陈先生车尾部的轻微损伤，按理来说并不会造成对方车辆有这么严重的刮擦痕迹。但是，对方驾驶员表示，陈先生是肇事逃逸，且酒后驾驶，声称要报警处理。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=slide diff=0.3352"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.0229"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=slide diff=0.3935"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=slide diff=0.3005"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk021_1200s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.2333
+    },
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.3352
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.0229
+    },
+    {
+      "type": "slide",
+      "frame_idx": 12,
+      "diff": 0.3935
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.0436
+    },
+    {
+      "type": "slide",
+      "frame_idx": 16,
+      "diff": 0.3005
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0273
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2772
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 5,
+    "frames_total": 12,
+    "text_chars": 309
+  }
+}

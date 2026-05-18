@@ -1,0 +1,109 @@
+{
+  "video_name": "bilibili-live-30min_chunk014_780s",
+  "full_text": "[00:00:00 - 00:00:59] 🎼大的诈骗团伙通过并案侦查，专案组发现，该案主犯于某波已于2019年因另一起诈骗案被四川警方抓获，并被法院判处有期徒刑14年。通过对于某波审讯，专案组掌握了该诈骗团伙的组织架构和诈骗手段。🎼这个诈骗团伙组织架构清晰，分工明确，分为老板、副总、总监、小组长、业务员、5级人员架构。老板负责和诈骗平台对接。副总负责诈骗团伙人事管理，总监负责管理小组长假扮的讲师，小组长负责管理群聊中发话术的业务员。于某波正是这个团伙的老板，他纠集熊某亲、谢某等13人，在境外组建了这个诈骗团伙，针对中国境内居民实施电信网络诈骗。我们。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0344"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0222"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.0204"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0337"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk014_780s\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.2877
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.0344
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.0222
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0576
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.0204
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.0337
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 6,
+    "frames_total": 13,
+    "text_chars": 279
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "video_name": "bilibili-live-30min_chunk009_480s",
+  "full_text": "[00:00:00 - 00:00:59] 🎼这里正在做的就是给无人机矫正视力。过去他们只能分辨出10厘米尺寸的轮廓，而在未来则要看清小于1厘米的物体。。🎼。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.4339"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=slide diff=0.3387"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=slide diff=0.3312"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.1355"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk009_480s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.2299
+    },
+    {
+      "type": "slide",
+      "frame_idx": 11,
+      "diff": 0.4339
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.1874
+    },
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.3387
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.2703
+    },
+    {
+      "type": "slide",
+      "frame_idx": 58,
+      "diff": 0.3312
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.1355
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 80
+  }
+}

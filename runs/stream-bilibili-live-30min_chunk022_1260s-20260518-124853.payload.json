@@ -1,0 +1,89 @@
+{
+  "video_name": "bilibili-live-30min_chunk022_1260s",
+  "full_text": "[00:00:00 - 00:00:59] 给对方驾驶员25200元。我当时跟我朋友说起了这个事情，我朋友跟我说，之前也有遇到过类似的情况，我就马上警觉了，马上去报警了。当地警方接警后立即开展调查，发现他们竟然是团伙作案。这个团伙专门在当地夜市附近盯梢，看到有喝酒开车的驾驶员就驱车上前故意发生碰撞。嗯。犯罪分子利用受害人酒后驾驶、害怕报警的心理，勒索高额维修费用。涉嫌敲诈勒索。我们运用视频轨迹溯源加资金流穿透加作案车辆比对，尚未侦查模式，精准锁定以李某为首的6名犯罪嫌疑人，并统一收网抓捕归案。。据了解，2026年1月以来，该6人团伙以李某为首，在温州多地流窜作案，专门在夜市等餐饮集中区、物色酒后驾驶车辆人员，利用撞车、追逐拦截等恶劣手段。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.0555"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=slide diff=0.3312"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk022_1260s\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.024
+    },
+    {
+      "type": "slide",
+      "frame_idx": 11,
+      "diff": 0.309
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.0555
+    },
+    {
+      "type": "slide",
+      "frame_idx": 13,
+      "diff": 0.3312
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.2964
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.1938
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 323
+  }
+}

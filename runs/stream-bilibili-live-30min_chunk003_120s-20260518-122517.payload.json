@@ -1,0 +1,69 @@
+{
+  "video_name": "bilibili-live-30min_chunk003_120s",
+  "full_text": "[00:00:00 - 00:00:59] 媒体17号报道，由于当前能源供应短缺，总理莫迪提出一系列节能倡议后，首都新德里政府呼吁当地私营企业也加入其中，与公共部门一起实行每周两天居家办公。几天前，新德里已要求公务员每周居家办公两天。嗯。日本一项最新民意调查结果显示，面对原油供应不足，七成日本民众认为，政府应呼吁采取节能措施。近期，日本原油进口量骤减，以两次释放石油储备，引发广泛担忧。日本福岛县佛山市17号发生山林火灾，经过一夜后，截至今晨，火势仍在蔓延，目前尚无人员伤亡报道，警方已呼吁附近居民避难。🎼好区酿好酒，口子窖采用多区并用发酵工艺，三香五味，妙然天成。口子窖。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk003_120s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk003_120s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk003_120s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk003_120s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk003_120s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=slide diff=0.5378"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk003_120s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk003_120s\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.2924
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.2882
+    },
+    {
+      "type": "slide",
+      "frame_idx": 58,
+      "diff": 0.5378
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.25
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 288
+  }
+}

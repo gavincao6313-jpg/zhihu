@@ -1,0 +1,239 @@
+{
+  "video_name": "bilibili-live-30min_chunk007_360s",
+  "full_text": "[00:00:00 - 00:00:59] 🎼心随闪旅，一路奇迹，冰雪换新绿。天地共呼吸，祖国正北方亮丽内蒙古你好大自然。🎼你好，伙伴，你好，银河你好，梦想。😊科学教育点亮美好未来，用动力为客户创造价值。日产机器王牌动力舍得来，舍不得走。🎼一壶舍得酒，半城观音壶，这儿都是四川许宁。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=slide diff=0.6679"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0621"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=slide diff=0.5921"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1462"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=slide diff=0.3114"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.2291"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.3296"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=slide diff=0.3805"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=slide diff=0.3324"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk007_360s\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.4366
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.1902
+    },
+    {
+      "type": "slide",
+      "frame_idx": 8,
+      "diff": 0.6679
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.0621
+    },
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.5921
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.2845
+    },
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.4268
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1462
+    },
+    {
+      "type": "slide",
+      "frame_idx": 25,
+      "diff": 0.4866
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.2505
+    },
+    {
+      "type": "slide",
+      "frame_idx": 31,
+      "diff": 0.3114
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.2291
+    },
+    {
+      "type": "slide",
+      "frame_idx": 33,
+      "diff": 0.3296
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 37,
+      "diff": 0.2914
+    },
+    {
+      "type": "slide",
+      "frame_idx": 40,
+      "diff": 0.3596
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.2743
+    },
+    {
+      "type": "slide",
+      "frame_idx": 46,
+      "diff": 0.3805
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.2562
+    },
+    {
+      "type": "slide",
+      "frame_idx": 51,
+      "diff": 0.362
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.1809
+    },
+    {
+      "type": "slide",
+      "frame_idx": 57,
+      "diff": 0.3324
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.1913
+    }
+  ],
+  "stats": {
+    "slide_changes": 11,
+    "annotations": 11,
+    "frames_total": 23,
+    "text_chars": 142
+  }
+}

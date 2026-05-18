@@ -1,0 +1,129 @@
+{
+  "video_name": "bilibili-live-30min_chunk015_840s",
+  "full_text": "[00:00:00 - 00:00:59] 然后推荐他们加入股票直播间进行直播，进行听课。然后逐渐的给这些受害人洗脑。洗脑过后，然后逐渐把这些受害人引到这个虚假的贵金属平台实施诈骗。被害人投入的资金被收割后，通过第三方支付平台，经多次流转后进入创立丰金业平台控制的账户。之后，创立丰金业平台与于某波按照约定比例分赃。经查，于某波等人通过此类诈骗方式造成1789名被害人损失超2.8亿元。我们历时三年辗转全国多地成功剿灭这一利用虚假贵金属交易平台实施诈骗的犯罪集团，极大震慑了电诈犯罪分子的销张气焰。😊经山东省高级人民法院二审，该案的涉案人员均受到惩处。其中主犯于某波。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0203"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0217"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=slide diff=0.3918"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0216"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0266"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk015_840s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0203
+    },
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.3184
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.0217
+    },
+    {
+      "type": "slide",
+      "frame_idx": 12,
+      "diff": 0.3428
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.0451
+    },
+    {
+      "type": "slide",
+      "frame_idx": 16,
+      "diff": 0.3918
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.0216
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.0266
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.2822
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 6,
+    "frames_total": 14,
+    "text_chars": 284
+  }
+}

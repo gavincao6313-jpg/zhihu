@@ -1,0 +1,134 @@
+{
+  "video_name": "bilibili-live-30min_chunk028_1620s",
+  "full_text": "[00:00:00 - 00:00:59] 🎼小鹏GX。献给所有像我们一样为自己，也为时代在努力，在折腾的人，这就是小鹏GX。🎼中华先明凿石铸同，斧凿声声，叹千年文脉于史。青铜铮铮，见李绪乾坤于今。金石不朽，文明永续。大型文化节目金石探文明。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=slide diff=0.3031"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.3272"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=slide diff=0.3848"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=slide diff=0.3681"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=slide diff=0.3041"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk028_1620s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.2482
+    },
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.3031
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.284
+    },
+    {
+      "type": "slide",
+      "frame_idx": 15,
+      "diff": 0.3272
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 21,
+      "diff": 0.287
+    },
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.3848
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.2873
+    },
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.3681
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.2892
+    },
+    {
+      "type": "slide",
+      "frame_idx": 57,
+      "diff": 0.3041
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2912
+    }
+  ],
+  "stats": {
+    "slide_changes": 5,
+    "annotations": 6,
+    "frames_total": 13,
+    "text_chars": 121
+  }
+}
