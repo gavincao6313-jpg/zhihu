@@ -36,6 +36,33 @@ MEDIA_PATTERNS = (
     "vdn",
 )
 
+STREAM_ENDED_TEXTS = (
+    "直播已结束",
+    "直播结束",
+    "直播已暂停",
+    "主播暂时离开",
+    "live has ended",
+    "stream has ended",
+    "this live event has ended",
+    "broadcast ended",
+    "stream offline",
+)
+
+YTDLP_ENDED_PATTERNS = (
+    "this live event has ended",
+    "live stream has ended",
+    "not currently live",
+    "is offline",
+    "直播已结束",
+    "no video formats found",
+)
+
+
+def is_ytdlp_stream_ended_error(exc: Exception) -> bool:
+    """Return True if a yt-dlp exception signals the stream is permanently offline."""
+    msg = str(exc).lower()
+    return any(p.lower() in msg for p in YTDLP_ENDED_PATTERNS)
+
 
 @dataclass
 class ExtractedStream:
@@ -343,6 +370,36 @@ class PlaywrightKeepaliveStream:
                 self._browser.close()
             if self._playwright:
                 self._playwright.stop()
+
+    def is_browser_alive(self) -> bool:
+        """Return True if the browser page process is still running."""
+        try:
+            return self._page is not None and not self._page.is_closed()
+        except Exception:
+            return False
+
+    def is_stream_ended(self) -> bool:
+        """Poll DOM for text indicators that the live stream has ended."""
+        if not self.is_browser_alive():
+            return False
+        try:
+            content = self._page.content().lower()
+            return any(t.lower() in content for t in STREAM_ENDED_TEXTS)
+        except Exception:
+            return False
+
+    def restart(self) -> "ExtractedStream":
+        """Close the current browser instance and launch a fresh one."""
+        try:
+            self.close()
+        except Exception:
+            pass
+        self._playwright = None
+        self._browser = None
+        self._context = None
+        self._page = None
+        self._candidates = []
+        return self.start()
 
 
 async def _extract_with_playwright_async(
