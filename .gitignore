@@ -24,6 +24,9 @@ __pycache__/
 
 # Local probe media
 runs/*.wav
+
+# Checkpoint files — deleted on clean exit; only committed accidentally
+runs/*.checkpoint.json
 Videos/.stream/requests/
 Videos/.stream/storage_state*.json
 

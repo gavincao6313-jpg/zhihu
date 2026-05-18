@@ -59,6 +59,7 @@ MEDIA_PATTERNS = (
 
 _CC_PLAY_API_PATTERN = "csslcloud.net/api/live/play"
 
+# Unambiguous: only appear after stream ends
 STREAM_ENDED_TEXTS = (
     "直播已结束",
     "直播结束",
@@ -69,6 +70,12 @@ STREAM_ENDED_TEXTS = (
     "this live event has ended",
     "broadcast ended",
     "stream offline",
+)
+
+# Ambiguous: also appear before stream starts ("waiting for teacher").
+# Only treated as stream-ended after at least one chunk has been processed.
+STREAM_ENDED_TEXTS_POSTSTREAM = (
+    "等待老师进入教室",
 )
 
 YTDLP_ENDED_PATTERNS = (
@@ -309,6 +316,7 @@ class PlaywrightKeepaliveStream:
         self._context = None
         self._page = None
         self._candidates: list[tuple[int, str, dict[str, str]]] = []
+        self._stream_was_active = False
 
     def start(self) -> ExtractedStream:
         try:
@@ -455,13 +463,22 @@ class PlaywrightKeepaliveStream:
         except Exception:
             return False
 
+    def mark_stream_active(self) -> None:
+        """Call after first successful chunk so post-stream ambiguous texts are recognised."""
+        self._stream_was_active = True
+
     def is_stream_ended(self) -> bool:
         """Poll DOM visible text for stream-ended indicators."""
         if not self.is_browser_alive():
             return False
         try:
             visible = self._page.evaluate("() => document.body.innerText").lower()
-            return any(t.lower() in visible for t in STREAM_ENDED_TEXTS)
+            if any(t.lower() in visible for t in STREAM_ENDED_TEXTS):
+                return True
+            # "等待老师进入教室" also shows before stream starts; only fire post-stream.
+            if self._stream_was_active and any(t.lower() in visible for t in STREAM_ENDED_TEXTS_POSTSTREAM):
+                return True
+            return False
         except Exception:
             return False
 
