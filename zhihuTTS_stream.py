@@ -20,7 +20,13 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
-from stream_extractors import ExtractedStream, PlaywrightKeepaliveStream, extract_stream, infer_media_type
+from stream_extractors import (
+    ExtractedStream,
+    PlaywrightKeepaliveStream,
+    extract_stream,
+    infer_media_type,
+    is_ytdlp_stream_ended_error,
+)
 from zhihuTTS_video import (
     build_gemini_payload,
     extract_keyframes,
@@ -35,10 +41,19 @@ STREAM_TMP_DIR = ROOT_DIR / "Videos" / ".stream"
 FFMPEG_TIMEOUT = 7200
 SLICE_RETRIES = 3
 MIN_SLICE_BYTES = 1024
+MAX_BROWSER_RESTARTS = 3
 
 
 class StreamSliceError(RuntimeError):
     """Raised when ffmpeg cannot produce a valid media slice."""
+
+
+class StreamEndedError(Exception):
+    """Live stream confirmed ended — breaks the run loop cleanly."""
+
+
+class BrowserDeadError(Exception):
+    """Playwright browser process is gone — caller should attempt restart."""
 
 
 def parse_time(value: str | float | int) -> float:
@@ -537,8 +552,13 @@ def process_slice_with_recovery(
 
     while True:
         if keepalive:
-            current_stream = keepalive.latest_stream()
-            current_stream.headers.update(overlay_headers(args))
+            if not keepalive.is_browser_alive():
+                raise BrowserDeadError("Playwright browser process is closed")
+            try:
+                current_stream = keepalive.latest_stream()
+                current_stream.headers.update(overlay_headers(args))
+            except Exception as e:
+                raise BrowserDeadError(f"Playwright browser unresponsive: {e}") from e
         host = urlparse(current_stream.url).hostname or "unknown-host"
         try:
             chunk = process_slice(
@@ -558,6 +578,8 @@ def process_slice_with_recovery(
             return chunk, current_stream, current_summary
         except StreamSliceError as e:
             if reextract_count >= max_reextracts:
+                if keepalive and keepalive.is_stream_ended():
+                    raise StreamEndedError("DOM confirms stream has ended") from e
                 raise
             message = redacted_error(e, current_stream)
             recovery_errors.append(message)
@@ -574,6 +596,8 @@ def process_slice_with_recovery(
                 refreshed_stream: ExtractedStream | None = None
                 try:
                     if keepalive:
+                        if keepalive.is_stream_ended():
+                            raise StreamEndedError("DOM confirms stream has ended")
                         refreshed_stream = keepalive.refresh_and_get(args.keepalive_refresh_wait_s)
                         refreshed_stream.headers.update(overlay_headers(args))
                     else:
@@ -591,7 +615,15 @@ def process_slice_with_recovery(
                     current_stream = refreshed_stream
                     current_summary = refreshed_summary
                     break
+                except StreamEndedError:
+                    raise
                 except Exception as refresh_error:
+                    if is_ytdlp_stream_ended_error(refresh_error):
+                        raise StreamEndedError(
+                            f"yt-dlp reports stream offline: {refresh_error}"
+                        ) from refresh_error
+                    if keepalive and keepalive.is_stream_ended():
+                        raise StreamEndedError("DOM confirms stream has ended") from refresh_error
                     redaction_stream = refreshed_stream or current_stream
                     recovery_errors.append(redacted_error(refresh_error, redaction_stream))
                     if reextract_count >= max_reextracts:
@@ -625,6 +657,7 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
         f"- Covered start: `{fmt_time(data['start_s'])}`",
         f"- Covered duration: `{fmt_time(data['duration_s'])}`",
         f"- Chunk duration: `{fmt_time(data['chunk_duration_s'])}`",
+        f"- Mode: `{'live (ran until stream ended)' if data.get('live_mode') else 'fixed duration'}`",
         f"- Chunks: `{len(chunks)}`",
         f"- Processing elapsed sum: `{round(total_elapsed, 2)}` seconds",
         f"- Transcript segments: `{total_segments}`",
@@ -632,6 +665,10 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
         f"- Kept frames: `{total_frames}`",
         f"- Stream re-extractions: `{total_reextracts}`",
         f"- Slice files kept: `{kept_slices}/{len(chunks)}`",
+    ]
+    if data.get("stream_ended_reason"):
+        lines.append(f"- Stream ended reason: `{data['stream_ended_reason']}`")
+    lines.extend([
         "",
         "## Outputs",
         "",
@@ -642,7 +679,7 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
         "",
         "| # | Start | Duration | Backend | Transcribe s | Segments | Chars | Frames | Re-extracts | Slice kept | Report |",
         "|---:|---|---|---|---:|---:|---:|---:|---:|---:|---|",
-    ]
+    ])
     for chunk in chunks:
         proc = chunk["processing"]
         outs = chunk["outputs"]
@@ -719,34 +756,80 @@ def run_validation(args: argparse.Namespace) -> dict:
         if headers:
             print("Auth headers:", ", ".join(sorted(headers.keys())))
 
-        base_stem = safe_name(args.name or f"{host}_{int(start_s)}_{int(requested_duration_s)}")
-        chunk_count = math.ceil(requested_duration_s / chunk_duration_s)
-        if args.max_chunks:
-            chunk_count = min(chunk_count, args.max_chunks)
+        live_mode = requested_duration_s <= 0
+        base_stem = safe_name(args.name or f"{host}_{int(start_s)}_{'live' if live_mode else int(requested_duration_s)}")
+        if live_mode:
+            chunk_count = args.max_chunks or 0
+            print("Live mode: running until stream ends (no duration limit).")
+        else:
+            chunk_count = math.ceil(requested_duration_s / chunk_duration_s)
+            if args.max_chunks:
+                chunk_count = min(chunk_count, args.max_chunks)
 
-        chunks = []
-        for index in range(1, chunk_count + 1):
-            chunk_start = start_s + (index - 1) * chunk_duration_s
-            remaining = start_s + requested_duration_s - chunk_start
-            if remaining <= 0:
+        chunks: list[dict] = []
+        stream_ended_reason = ""
+        browser_restart_count = 0
+        chunk_index = 0
+
+        while True:
+            chunk_index += 1
+            if chunk_count and chunk_index > chunk_count:
                 break
-            chunk_duration = min(chunk_duration_s, remaining)
-            print(f"\n=== Chunk {index}/{chunk_count}: {fmt_time(chunk_start)} + {fmt_time(chunk_duration)} ===")
-            chunk, stream, source_summary = process_slice_with_recovery(
-                args,
-                stream,
-                source_summary,
-                base_stem,
-                chunk_start,
-                chunk_duration,
-                index,
-                chunk_count,
-                keepalive=keepalive,
-            )
-            url = stream.url
-            headers = stream.headers
-            host = urlparse(url).hostname or "unknown-host"
-            chunks.append(chunk)
+            chunk_start = start_s + (chunk_index - 1) * chunk_duration_s
+            if not live_mode:
+                remaining = start_s + requested_duration_s - chunk_start
+                if remaining <= 0:
+                    break
+                chunk_duration = min(chunk_duration_s, remaining)
+            else:
+                chunk_duration = chunk_duration_s
+            total_label = f"/{chunk_count}" if chunk_count else "/∞"
+            print(f"\n=== Chunk {chunk_index}{total_label}: {fmt_time(chunk_start)} + {fmt_time(chunk_duration)} ===")
+            try:
+                chunk, stream, source_summary = process_slice_with_recovery(
+                    args,
+                    stream,
+                    source_summary,
+                    base_stem,
+                    chunk_start,
+                    chunk_duration,
+                    chunk_index,
+                    chunk_count,
+                    keepalive=keepalive,
+                )
+                url = stream.url
+                headers = stream.headers
+                host = urlparse(url).hostname or "unknown-host"
+                chunks.append(chunk)
+            except BrowserDeadError as e:
+                if browser_restart_count >= MAX_BROWSER_RESTARTS:
+                    print(
+                        f"\n{'=' * 60}\n"
+                        f"[!] 浏览器已自动重启 {MAX_BROWSER_RESTARTS} 次，仍无法恢复。\n"
+                        f"    请手动检查直播页面是否正常，然后重新运行脚本。\n"
+                        f"    已完成 {len(chunks)} 块，时间点: {fmt_time(chunk_start)}\n"
+                        f"{'=' * 60}"
+                    )
+                    stream_ended_reason = (
+                        f"browser dead after {MAX_BROWSER_RESTARTS} restarts — manual intervention required"
+                    )
+                    break
+                browser_restart_count += 1
+                print(
+                    f"\n  [!] 浏览器进程已关闭，尝试重启"
+                    f" ({browser_restart_count}/{MAX_BROWSER_RESTARTS})..."
+                )
+                try:
+                    stream = keepalive.restart()
+                    stream.headers.update(overlay_headers(args))
+                    print(f"  浏览器重启成功，chunk {chunk_index} 将重试。")
+                    chunk_index -= 1
+                except Exception as restart_err:
+                    print(f"  浏览器重启失败: {restart_err}")
+            except StreamEndedError as e:
+                stream_ended_reason = str(e)
+                print(f"\n直播已结束: {stream_ended_reason}")
+                break
 
         timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
         combined_text = "\n\n".join(
@@ -767,6 +850,8 @@ def run_validation(args: argparse.Namespace) -> dict:
             "auth_header_names": sorted(headers.keys()),
             "start_s": start_s,
             "duration_s": requested_duration_s,
+            "live_mode": live_mode,
+            "stream_ended_reason": stream_ended_reason,
             "chunk_duration_s": chunk_duration_s,
             "chunks": chunks,
             "combined_transcript_path": str(combined_transcript_path),
@@ -869,7 +954,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--duration",
         default="180",
-        help="Total validation window duration. Use 0 to process from start to source end.",
+        help=(
+            "Total duration to capture. Use 0 for live mode: runs until the stream ends, "
+            "the browser restarts 3 times, or Ctrl-C."
+        ),
     )
     parser.add_argument(
         "--chunk-duration",
