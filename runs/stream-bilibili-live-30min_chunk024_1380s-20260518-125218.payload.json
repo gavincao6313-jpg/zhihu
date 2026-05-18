@@ -1,0 +1,104 @@
+{
+  "video_name": "bilibili-live-30min_chunk024_1380s",
+  "full_text": "[00:00:00 - 00:00:59] 🎼给客户的车辆的保险人对他赔偿了这个保险的理赔款，这个修车款以后，代替业主行使这个权利起诉物业公司。按照民法典相关规定，保险公司赔付完毕后，依法获得代位追偿权，有权向相关责任方追责，于是，保险公司把小区物业起诉到法院，要求物业承担全部损失？庭审中，双方围绕核心问题展开辩论。物业对楼栋外墙有没有管护义务，外墙瓷砖脱落，是不是物业没管好，物业到底要不要为这次高空坠物砸车承担赔偿责任。嗯。🎼客户车辆停在小区里面，被这个高空掉落的砖块砸坏。因为这个砖块是从谁家里掉出来的，我们不知道，但是是哪一栋建筑知道。那么这个建筑物的所有者或者是管理者应该承担责任。被告物业方表示，小区建成时间早，再加上相。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=slide diff=0.3693"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=slide diff=0.3082"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk024_1380s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 18,
+      "diff": 0.2637
+    },
+    {
+      "type": "slide",
+      "frame_idx": 19,
+      "diff": 0.3693
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1643
+    },
+    {
+      "type": "slide",
+      "frame_idx": 24,
+      "diff": 0.3082
+    },
+    {
+      "type": "slide",
+      "frame_idx": 29,
+      "diff": 0.4454
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.05
+    },
+    {
+      "type": "slide",
+      "frame_idx": 40,
+      "diff": 0.3671
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2978
+    }
+  ],
+  "stats": {
+    "slide_changes": 4,
+    "annotations": 4,
+    "frames_total": 10,
+    "text_chars": 318
+  }
+}

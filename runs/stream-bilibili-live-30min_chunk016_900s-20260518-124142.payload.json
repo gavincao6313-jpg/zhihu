@@ -1,0 +1,104 @@
+{
+  "video_name": "bilibili-live-30min_chunk016_900s",
+  "full_text": "[00:00:00 - 00:00:59] 分子。其曾实施过电信网络诈骗犯罪，复案在逃期间，又前往境外组织实施此类犯罪，且诈骗数额特别巨大，罪行严重，虽有主动退缴违法所得，立功情节，但不足以从轻处罚。于某波作为犯罪集团的首要分子，在前罪以及本罪当中犯罪数额均十分巨大，造成的社会危害十分巨大。于某波认罪不彻底。他在因前罪到案之后没有如实供述本案的犯罪事实，可见，他存在一定的侥幸心理，也对本案的侦查造成的一定的不利因素，依法应当进行严惩。最终，法院以诈骗罪，对于某波判处无期徒刑，剥夺政治权利终身，并处没收个人全部财产。以诈骗罪判处熊某亲等人13年至两年不等有期徒刑，并处罚金。据了解，该案查扣在案的7381万余元财物将按比例罚。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.2059"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=slide diff=0.3318"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=slide diff=0.3054"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk016_900s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.2059
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.2919
+    },
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.3318
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2498
+    },
+    {
+      "type": "slide",
+      "frame_idx": 42,
+      "diff": 0.3054
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.2507
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2901
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 5,
+    "frames_total": 11,
+    "text_chars": 315
+  }
+}

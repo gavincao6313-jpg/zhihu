@@ -1,0 +1,154 @@
+{
+  "video_name": "bilibili-live-30min_chunk013_720s",
+  "full_text": "[00:00:00 - 00:00:59] 呃，去一达银行流水，看到这个最近啊并没有进入这个所谓国际草金平台，而是进了私人的账户。所以这时候我们才醒悟过来，觉得上当受骗了，于是就到公安局去报了案。。警方对涉案网络线索展开分析，发现王先生的钱早已进入了第三方支付公司的备付金账户，且每天出入金的次数高达400余次。但由于王先生报案时间较晚，涉案社交账号呢已则已经停用了，群聊也都已经解散，专案组未能提取到其他有效信息，直到2022年，案件的侦办迎来了转机。。湖北汉川公安侦破的一起案件与我们侦破的案件十分相似，同为创立蜂平台实施诈骗。然后我们还找到一名香港创立丰公司的客服经理，已经服刑了。监狱服刑员的手机取证报告中找到了我们这个诈骗团伙。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=slide diff=0.3364"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.0461"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.3535"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=slide diff=0.3049"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk013_720s\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.2977
+    },
+    {
+      "type": "slide",
+      "frame_idx": 16,
+      "diff": 0.3364
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.0439
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.0461
+    },
+    {
+      "type": "slide",
+      "frame_idx": 42,
+      "diff": 0.3786
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.049
+    },
+    {
+      "type": "slide",
+      "frame_idx": 45,
+      "diff": 0.3535
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.028
+    },
+    {
+      "type": "slide",
+      "frame_idx": 50,
+      "diff": 0.3185
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.1593
+    },
+    {
+      "type": "slide",
+      "frame_idx": 55,
+      "diff": 0.3049
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.2869
+    }
+  ],
+  "stats": {
+    "slide_changes": 5,
+    "annotations": 7,
+    "frames_total": 16,
+    "text_chars": 319
+  }
+}

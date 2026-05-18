@@ -1,0 +1,84 @@
+{
+  "video_name": "bilibili-live-30min_chunk002_60s",
+  "full_text": "[00:00:00 - 00:00:59] 来看一组简讯。加拿大公共卫生署17号证实，确诊一名正在不列颠哥伦比亚省接受隔离的红迪厄斯号游轮成员感染汉坦病毒。该患者15号出检阳性16号被通报为推定阳性。加拿大公共卫生署称，加拿大普通民众感染风险总体较低。世界卫生组织17号宣布，刚果金和乌干达出现的埃博拉疫情已构成国际关注的突发公共卫生事件，非洲疾病预防控制中心表示，疫情由本迪不矫行埃博拉病毒引发。。据当地媒体报道，美国爱达河州芒庭霍姆空军基地17号举行飞行表演时，两架EA18G型咆哮者舰载电子战飞机在空中相撞并坠毁，4名机组人员弹射逃生，事故原因正在调查中。德国西南部城市普福尔茨海姆17号。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=slide diff=0.3487"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=slide diff=0.3444"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk002_60s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.0725
+    },
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.3487
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.236
+    },
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.3444
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2717
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 3,
+    "frames_total": 9,
+    "text_chars": 298
+  }
+}

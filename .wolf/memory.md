@@ -155,3 +155,15 @@
 | 20:48 | enhanced Playwright_Flow for high-risk live pages | stream_extractors.py, zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md | added persistent profile and storage_state write-back options so extractor can preserve cookies/localStorage and trigger lazy media requests | ~2200 |
 | 07:50 | made stream slice retention configurable | zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md, .wolf/cerebrum.md | added --stream-work-dir and --cleanup-slices while keeping MP4 slice files by default for audit/retry | ~1800 |
 | 10:25 | implemented Playwright keepalive fallback for Zhihu live streams | stream_extractors.py, zhihuTTS_stream.py, docs/STREAM_SENSEVOICE_RUNBOOK.md | added --playwright-keepalive mode to keep one browser page open, reuse latest media requests, and refresh page on ffmpeg slice failure | ~3600 |
+
+## Session: 2026-05-18 12:22
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 12:22 | installed yt-dlp 2026.3.17 into .venv-sensevoice | .venv-sensevoice | success; B站 live extraction ready | ~500 |
+| 12:25 | installed playwright 1.59.0 + Chromium into .venv-sensevoice | .venv-sensevoice | success; Playwright ready for zhihu live extraction | ~300 |
+| 12:27 | started 30-min bilibili live stream validation (yt-dlp + SenseVoice, 30 chunks × 60s, --no-gemini) | zhihuTTS_stream.py, stream_extractors.py | 28/30 chunks complete, 19824 chars transcript, chunk 29 failed on empty speech | ~800 |
+| 12:40 | tested Playwright extractor on bilibili (--extractor playwright, 10s) | stream_extractors.py | confirmed failure: bilibili uses cross-origin iframe/MSE, Playwright cannot intercept media requests; auto-routing to yt-dlp is correct | ~400 |
+| 13:08 | wrote run report with full findings, bug analysis, and Mac handoff notes | runs/bilibili-live-validation-20260518.md | documented: 28/30 success, 192MB slices, SenseVoice quality assessment, bug-019 (empty transcript crash), bug-020 (Playwright bilibili limitation) | ~800 |
+| 13:08 | recorded bugs 019 and 020 for Mac handoff | .wolf/buglog.json | bug-019: _transcribe_sensevoice() crashes on no-speech chunks (needs skip instead of raise); bug-020: Playwright cannot extract bilibili (platform limitation, no code change needed) | ~300 |
+| 13:10 | committed run artifacts and pushed to origin/feature/stream-transcript-validation | runs/*.md, .wolf/buglog.json, .wolf/memory.md | all validation evidence and bug handoff pushed for Mac code owner | ~400 |

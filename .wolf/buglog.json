@@ -294,6 +294,40 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-18T10:25:31+08:00"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-05-18T12:58:00+08:00",
+      "error_message": "SenseVoice 未返回有效转写文本 — aborted 28/30 chunk bilibili live validation run",
+      "file": "zhihuTTS_video.py",
+      "root_cause": "_transcribe_sensevoice() raises RuntimeError when VAD detects zero speech segments. Live streams frequently have music-only or silent intermission chunks where no speech is present. The hard error aborts the entire multi-chunk run instead of skipping the silent chunk.",
+      "fix": "Not fixed on Windows (Run Owner boundary). Handoff to Mac: change the empty-segments check at zhihuTTS_video.py:317-318 from raise RuntimeError to return {\"segments\": [], \"sensevoice\": {...}} with a print warning. Also ensure zhihuTTS_stream.py process_slice() handles empty segments gracefully (write report with speech_detected: false).",
+      "tags": [
+        "sensevoice",
+        "stream-validation",
+        "empty-transcript",
+        "handoff"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-18T12:58:00+08:00"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-05-18T12:40:00+08:00",
+      "error_message": "Playwright 未拦截到 .m3u8/.mpd/.flv/.mp4 媒体请求 on live.bilibili.com",
+      "file": "stream_extractors.py",
+      "root_cause": "Bilibili's live player loads inside a cross-origin iframe or uses MSE (Media Source Extensions), so Playwright's page-level network interception sees no direct media requests. This is a platform limitation, not a code defect. The auto-routing in extract_stream() correctly sends bilibili to yt-dlp.",
+      "fix": "No code change needed. Confirmed that --extractor auto correctly routes live.bilibili.com → yt-dlp. Document as a known platform limitation in docs/STREAM_SENSEVOICE_RUNBOOK.md: Playwright extraction is for zhihu.com and unknown hosts; bilibili/douyin/youtube should always use yt-dlp.",
+      "tags": [
+        "playwright",
+        "bilibili",
+        "stream-extraction",
+        "platform-limitation"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-18T12:40:00+08:00"
     }
   ]
 }
