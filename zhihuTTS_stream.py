@@ -965,6 +965,8 @@ def run_validation(args: argparse.Namespace) -> dict:
                 host = urlparse(url).hostname or "unknown-host"
                 if chunk is not None:
                     chunks.append(chunk)
+                    if keepalive:
+                        keepalive.mark_stream_active()
                     checkpoint_path.write_text(
                         json.dumps({"chunks": chunks, "created_at": created_at}, ensure_ascii=False, indent=2),
                         encoding="utf-8",
