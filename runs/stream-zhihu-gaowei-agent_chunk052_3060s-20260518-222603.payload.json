@@ -1,0 +1,34 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk052_3060s",
+  "full_text": "[00:00:00 - 00:00:59] 一般来讲，它成为一种失龄老人的照护和医保形式的这个产品上去做的那我们可以换一种思路来去看待老年产品，弱化AI味道，把AI能力融入到老年人的产的场景之中，在不清在不知情的情况下去用它。比如说像。为什么老年人对豆包使用率上是非常的高的？还有没有想过，就为什么豆瓣使用率非常的高？豆包使用率的高的点就是说在这里面的话，其实他从来没有跟老年人说我是AI，他从来不彰显他是AI。而。对于老年人，对于他的认为是两个东西。第一个认为这是一款更好的搜索。更好的搜索，这个是做了一些行业的调研。很多人认为这是一款更好的搜索啊，比百度好用点，认为是这么一个东西。第二件事情，在它的交互的逻辑上，它极大化的在。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk052_3060s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk052_3060s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0767"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk052_3060s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.0767
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 316
+  }
+}

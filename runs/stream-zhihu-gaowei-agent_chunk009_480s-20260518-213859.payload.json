@@ -1,0 +1,18 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk009_480s",
+  "full_text": "[00:00:00 - 00:01:00] 然后有他的性格的特点，通过普朗普的来的，不就是你又想知道他是怎么做的。你又想知道细节，你又不知道你又不认识他内部的人。那如果是这样的话，那这个世界上就不存在所谓的秘密和壁垒了呀。对不对？如果你不让去做的话，还有一个方法，就是你对于大模型的逻辑非常的清楚，非常的清楚。你看一眼这个东西之后，你立刻知道它大概是用什么方法去去做的，类似于反向工程一个产品也OK啊。对吧，无外乎就是这两是这两个招啊，对吧？其实你上的就是你对于大模型这些块了解的多了，我这么跟你们去讲，我这么跟你们去讲。😡我告诉大家一个方法，我也不是每个我都能找得到人。最简单的一个方式，我告诉你是什么？看到了。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk009_480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 307
+  }
+}

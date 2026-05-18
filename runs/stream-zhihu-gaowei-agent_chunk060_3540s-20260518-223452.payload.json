@@ -1,0 +1,64 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk060_3540s",
+  "full_text": "[00:00:00 - 00:01:00] 还好，就是银发经济最好的用户比有钱的年轻用户还好，有钱的年轻用户没时间还贼事儿。啊，因为有钱的老年用户时间充裕，而且消费预期特别特别的好。银发经济没有大厂，没有大厂，有不了大厂。你如说银发经济最大的大大厂，泰康泰康的养老社区啊。。但差的用户就特别的差差的用户，我们我们看不得我们的看不得没钱，有疾病，很有可能伴随着失能。最有痛点的是一群人，反而无法用最现在企业的方式做任何的服务，谁做谁倒霉。所以选择研发经验定位。我说就是保一养育四个不同的逻辑，我们能做什么。保障的东西，医疗的东西，养老东西和娱乐的东西。保障的东西我直接告诉大家，民营企业不可能做，做不了做不了。这个因果不是民营企业能担。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk060_3540s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk060_3540s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.0246"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk060_3540s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk060_3540s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.1844"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk060_3540s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk060_3540s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk060_3540s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.0246
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.1844
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.1899
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 317
+  }
+}

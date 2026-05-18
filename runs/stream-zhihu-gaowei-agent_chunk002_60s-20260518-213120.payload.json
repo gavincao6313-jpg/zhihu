@@ -1,0 +1,49 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk002_60s",
+  "full_text": "[00:00:00 - 00:01:00] 一个在歌剧里一个名著里的一个绝对意义上的情圣情圣啊，对对吧？对吧就是大家定要去明白了，就是你反过来讲，你和海王恋爱的那个情绪感受一定是最好的。就一定要去理解它是怎么来去记住的，它是怎么来去发言的。它在这里面的相应的价值一定是高的啊，oppo,你学oppo,你能学什么呢？oppo对吧？这个他能够去学的这个东西这这这个不太好，不太好办啊，对吧？对吧？然后这种这种概药剂是怎么来去使来去做的呢？如果你不用这种通用型的一些方式，那你是用一种隐性触用一种隐性触触用一种隐性触发的方式。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk002_60s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk002_60s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk002_60s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk002_60s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0512"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk002_60s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.0544
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.0512
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 260
+  }
+}

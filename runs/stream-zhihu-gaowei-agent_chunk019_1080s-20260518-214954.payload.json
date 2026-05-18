@@ -1,0 +1,49 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk019_1080s",
+  "full_text": "[00:00:00 - 00:01:00] ro就是角色是谁说的这段话，conend是里面内容这个人说的什么样的话okK然后选择器。这里面要去加一个这个if elseif else是做什么呢？如果绘画列列表为空。因为如果你在第一次启动的时候，它过来的时候的话，它这个还没有前轮的对话，它会报bug。所以如果列表为空，则不去写入，直接返回。如果有列表则执行长期记忆的写入操作。如果它的列表大于零则开始往下走，进入到长期记忆写作长期记忆写入的话，我们这里面新建一个这个长期的记忆库叫做AIlow啊I这是2。因为我那个是I是我给到了我的proI2。然后这里面存了若干条了。然后这里面的这个内容你看它就是这个messenger list，它的默认就是要去通过一个这个messenger的数组给到它，然后里面就是。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk019_1080s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk019_1080s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0689"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk019_1080s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk019_1080s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0647"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk019_1080s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0689
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.0647
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 352
+  }
+}

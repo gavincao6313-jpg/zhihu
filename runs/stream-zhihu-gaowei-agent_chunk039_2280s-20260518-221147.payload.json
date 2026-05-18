@@ -1,0 +1,34 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk039_2280s",
+  "full_text": "[00:00:00 - 00:01:00] 什么你关注你的行业，你关注你的产品，来了一个新的产品出来之后，它就能够联动上来。逻辑是在于这个点上，对吧？依赖于自己的直业和想象。这个的逻辑其实对于产品来讲是非常有价值的一件事儿，非常有价值的一件事。然后后面才是早期大众，后面才是早期大众。他的决策要经过于强烈的这个实用主义，他有用他才会买，占据成收占据生命周期3分之1的这个量。我告诉。大家，你们很多人我们我无意冒犯，你们很多人都是早期大众和后期大众。你们很多人都是早期大众和后期大众。为什么啊我们说一个点。你们一般来讲得非常多的去问啊，这个外部coing哪家好啊，哪家好啊，对吧？呃，我。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk039_2280s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk039_2280s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0363"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk039_2280s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0363
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 293
+  }
+}
