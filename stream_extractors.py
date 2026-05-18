@@ -51,10 +51,8 @@ STREAM_ENDED_TEXTS = (
 YTDLP_ENDED_PATTERNS = (
     "this live event has ended",
     "live stream has ended",
-    "not currently live",
-    "is offline",
+    "the channel is not currently live",
     "直播已结束",
-    "no video formats found",
 )
 
 
@@ -315,10 +313,14 @@ class PlaywrightKeepaliveStream:
         self._navigate()
         return self.latest_stream(wait_seconds=self.wait_seconds)
 
+    _MAX_CANDIDATES = 200
+
     def _on_request(self, request) -> None:
         url = request.url
         if _is_media_candidate(url):
             self._candidates.append((_score_media_url(url), url, _clean_headers(request.headers)))
+            if len(self._candidates) > self._MAX_CANDIDATES:
+                self._candidates = self._candidates[-self._MAX_CANDIDATES:]
             print(f"  [Playwright keepalive] media candidate: {infer_media_type(url)} {urlparse(url).hostname}")
 
     def _navigate(self) -> None:
@@ -379,12 +381,12 @@ class PlaywrightKeepaliveStream:
             return False
 
     def is_stream_ended(self) -> bool:
-        """Poll DOM for text indicators that the live stream has ended."""
+        """Poll DOM visible text for stream-ended indicators."""
         if not self.is_browser_alive():
             return False
         try:
-            content = self._page.content().lower()
-            return any(t.lower() in content for t in STREAM_ENDED_TEXTS)
+            visible = self._page.evaluate("() => document.body.innerText").lower()
+            return any(t.lower() in visible for t in STREAM_ENDED_TEXTS)
         except Exception:
             return False
 
