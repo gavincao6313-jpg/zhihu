@@ -178,12 +178,28 @@ def build_stream_gemini_parts(manifest: dict) -> list:
     transcript_text = manifest.get("combined_transcript_text", "")
 
     all_frames: list[dict] = []
+
+    def _gfmt(secs: float) -> str:
+        h, r = divmod(int(secs), 3600); m, s = divmod(r, 60)
+        return f"{h:02d}:{m:02d}:{s:02d}"
+
     for chunk in manifest.get("chunks", []):
+        chunk_start_s = chunk.get("slice", {}).get("start_s", 0)
         payload_path_str = chunk.get("outputs", {}).get("payload_json", "")
         if payload_path_str and Path(payload_path_str).exists():
             try:
                 payload = json.loads(Path(payload_path_str).read_text(encoding="utf-8"))
-                all_frames.extend(payload.get("frames", []))
+                for f in payload.get("frames", []):
+                    f = dict(f)
+                    global_ts = chunk_start_s + f.get("timestamp_s", 0)
+                    f["timestamp_s"] = global_ts
+                    if f.get("marker"):
+                        f["marker"] = re.sub(
+                            r'Frame \[\d+:\d+:\d+\]',
+                            f'Frame [{_gfmt(global_ts)}]',
+                            f["marker"],
+                        )
+                    all_frames.append(f)
             except Exception:
                 pass
 
@@ -1229,12 +1245,6 @@ def build_parser() -> argparse.ArgumentParser:
         "--gemini-api-key",
         default="",
         help="Gemini API key. Defaults to the GEMINI_API_KEY environment variable.",
-    )
-    parser.add_argument(
-        "--gemini-max-frames",
-        type=int,
-        default=50,
-        help="Maximum number of keyframes to include in the Gemini call (default: 50).",
     )
     return parser
 

@@ -118,7 +118,7 @@ echo.
 
 echo.
 if errorlevel 1 (
-    echo [!] 脚本异常退出，退出码: %errorlevel%
+    echo [!] 脚本异常退出，退出码: !errorlevel!
     echo.
     pause
     exit /b 1
