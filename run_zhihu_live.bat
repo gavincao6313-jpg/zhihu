@@ -28,6 +28,12 @@ set "STREAM_WORK_DIR=%SCRIPT_DIR%Videos\.stream"
 set "PAGE_URL=%~1"
 set "NAME=%~2"
 
+:: ---- 未显式设置 GEMINI_API_KEY 时自动回退到 OPENCLAW_GOOGLE_API_KEY ----
+if "!GEMINI_API_KEY!"=="" if not "!OPENCLAW_GOOGLE_API_KEY!"=="" (
+    set "GEMINI_API_KEY=!OPENCLAW_GOOGLE_API_KEY!"
+    echo [提示] 已从 OPENCLAW_GOOGLE_API_KEY 自动设置 GEMINI_API_KEY
+)
+
 :: merge_vad=true 适合 60s 分片（短片段内 VAD 合并让文本更连贯）
 :: 全量回放离线处理请不要设此变量（默认 false，保留精确 VAD 边界）
 set "SENSEVOICE_MERGE_VAD=true"
