@@ -40,12 +40,20 @@ if "!NAME!"=="" (
     set "NAME=!NAME: =0!"
 )
 
-:: ---- 参数检查 ----
+:: ---- URL 检查（双击时弹出输入提示）----
 if "!PAGE_URL!"=="" (
     echo.
-    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名]
-    echo 示例: run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/..." gaowei-20260519
+    echo 请粘贴知乎直播间 URL，然后按回车：
+    echo （示例: https://www.zhihu.com/xen/training/live/room/...）
     echo.
+    set /p "PAGE_URL=URL: "
+    set "PAGE_URL=!PAGE_URL: =!"
+)
+if "!PAGE_URL!"=="" (
+    echo.
+    echo [错误] 未输入 URL，退出。
+    echo.
+    pause
     exit /b 1
 )
 
