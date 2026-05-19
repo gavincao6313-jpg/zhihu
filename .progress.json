@@ -398,6 +398,14 @@
       "failed_stage": null,
       "backend_used": "cpu",
       "fallback_reason": null
+    },
+    "通过情绪陪伴类智能体，学习多agent、多模态和语言风格化": {
+      "status": "done",
+      "processed": "2026-05-19",
+      "api_calls": 1,
+      "failed_stage": null,
+      "backend_used": "sensevoice",
+      "fallback_reason": null
     }
   },
   "quota": {
@@ -416,7 +424,11 @@
     "2026-05-18": {
       "used": 17,
       "limit": 20
+    },
+    "2026-05-19": {
+      "used": 1,
+      "limit": 20
     }
   },
-  "last_run": "2026-05-18T18:38:24.597354"
+  "last_run": "2026-05-19T15:52:59.817557"
 }
