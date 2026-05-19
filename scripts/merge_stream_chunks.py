@@ -17,6 +17,7 @@ Options:
     --out        Output .md path (default: runs/stream-{base}-merged.md)
 """
 import argparse, json, re, sys
+from collections import defaultdict
 from pathlib import Path
 
 
@@ -31,6 +32,12 @@ def parse_chunk_start(path: Path) -> int:
     """Extract start_s from filename like stream-base_chunkXXX_1234s-timestamp.ext"""
     m = re.search(r'_chunk\d+_(\d+)s[-.]', path.name)
     return int(m.group(1)) if m else 0
+
+
+def extract_run_ts(path: Path) -> str:
+    """Extract YYYYMMDD-HHMMSS run timestamp from filename. Used to group chunks by run."""
+    m = re.search(r'-(\d{8}-\d{6})\.global-transcript', path.name)
+    return m.group(1) if m else "00000000-000000"
 
 
 def parse_timestamp(ts_str: str) -> float:
@@ -72,20 +79,41 @@ def load_chunk_slides(payload_path: Path, chunk_start_s: int) -> list[float]:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--base",     required=True, help="Stream base name")
+    ap.add_argument("--base",     required=True,  help="Stream base name")
     ap.add_argument("--runs-dir", default="runs", help="Directory with chunk files")
-    ap.add_argument("--out",      default=None,  help="Output markdown path")
+    ap.add_argument("--out",      default=None,   help="Output markdown path")
+    ap.add_argument("--run-ts",   default=None,   help="Use specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
     args = ap.parse_args()
 
     runs_dir = Path(args.runs_dir)
     pattern  = f"stream-{args.base}_chunk*.global-transcript.txt"
-    chunk_files = sorted(runs_dir.glob(pattern), key=parse_chunk_start)
+    all_found = list(runs_dir.glob(pattern))
 
-    if not chunk_files:
+    if not all_found:
         print(f"ERROR: no files matching {runs_dir / pattern}", file=sys.stderr)
         sys.exit(1)
 
-    print(f"Found {len(chunk_files)} chunks in {runs_dir}")
+    # Group by run timestamp to avoid merging chunks from multiple runs with the same base name
+    groups: dict[str, list[Path]] = defaultdict(list)
+    for f in all_found:
+        groups[extract_run_ts(f)].append(f)
+
+    if args.run_ts:
+        if args.run_ts not in groups:
+            print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {sorted(groups)}", file=sys.stderr)
+            sys.exit(1)
+        selected_ts = args.run_ts
+    else:
+        selected_ts = max(groups.keys())
+
+    if len(groups) > 1:
+        print(f"[warn] {len(groups)} runs found for base '{args.base}' — using latest: {selected_ts}")
+        for ts in sorted(groups.keys()):
+            marker = " ← selected" if ts == selected_ts else ""
+            print(f"  {ts}: {len(groups[ts])} chunks{marker}")
+
+    chunk_files = sorted(groups[selected_ts], key=parse_chunk_start)
+    print(f"Found {len(chunk_files)} chunks in {runs_dir} (run: {selected_ts})")
 
     # Collect all sentences and all slide times across chunks
     all_sentences: list[tuple[float, str]] = []
