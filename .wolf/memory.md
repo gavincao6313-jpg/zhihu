@@ -3,6 +3,20 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## Session: 2026-05-18 (continued)
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:30 | Analyzed Windows code audit commit 0755f87 (4 remaining items) | runs/code-review-live-mode-b27b539-20260518.md | Evaluated P0-P2 items | ~800 |
+| 15:45 | Implemented 4 live-mode optimizations from Windows audit | zhihuTTS_stream.py, stream_extractors.py | Committed + pushed to feature/stream-transcript-validation | ~1200 |
+| 21:30 | Pulled Windows zhihu live discovery (c95d7cb, c403666): CC csslcloud FLV pipeline, 6 new tools | stream_extractors.py | Architecture confirmed | ~600 |
+| 21:45 | Anti-detection P0 fix: PlaywrightKeepaliveStream + async extractor | stream_extractors.py | Pushed b0b0410 | ~400 |
+| 21:52 | P1 fixes: ffmpeg live timeout / CC headers / session expiry detection | stream_extractors.py, zhihuTTS_stream.py | Pushed 90fcfc7 | ~500 |
+| 22:05 | Gemini post-processing: --gemini flag → .notes.md after full transcript | zhihuTTS_stream.py | Pushed a4ba8b4 | ~800 |
+| 22:10 | Mac venv: .venv-mac311 (Python 3.11, torch+playwright+faster-whisper) | .venv-mac311/ | funasr 跳过 (Intel Mac llvmlite/LLVM issue) | ~300 |
+| 22:30 | Playwright chromium installed to .playwright-browsers/ | — | 97.5 MB chromium ready | ~100 |
+| 22:35 | .playwright-browsers/ → .gitignore, committed+pushed; wrap up | .gitignore | 工作区干净，所有工具就绪，等明天直播 | ~100 |
+
 ## Session: 2026-05-14 12:39
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -124,29 +138,6 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 
-## Session: 2026-05-18
-
-| Time | Action | File(s) | Outcome | ~Tokens |
-|------|--------|---------|---------|--------|
-| 14:18 | Started pipeline batch (quota 0/20), 48 done/8 failed/15 pending | zhihuTTS.py, .progress.json | Backend: cpu (faster-whisper). 15 videos to process | ~2k |
-| 14:34 | 龙虾_职场_09 completed | TTS_0518_龙虾_职场_09_*.md | 310 keyframes, 55K chars, 1/20 quota | — |
-| 14:58 | 龙虾_职场_10 completed | TTS_0518_龙虾_职场_10_*.md | 413 keyframes, 89K chars, 2/20 quota | — |
-| 15:14 | 龙虾_职场_11 completed | TTS_0518_龙虾_职场_11_*.md | 393 keyframes, 68K chars, 3/20 quota | — |
-| 15:33 | 龙虾_职场_12 completed (SSL retry) | TTS_0518_龙虾_职场_12_*.md | 208 keyframes, 27K chars, 5/20 quota (1 retry) | — |
-| 15:54 | 龙虾_职场_13 completed | TTS_0518_龙虾_职场_13_*.md | 387 keyframes, 72K chars, 6/20 quota | — |
-| 16:10 | 龙虾_职场_14 completed | TTS_0518_龙虾_职场_14_*.md | 188 keyframes, 36K chars, 7/20 quota | — |
-| 16:27 | 龙虾_职场_15 completed | TTS_0518_龙虾_职场_15_*.md | 253 keyframes, 28K chars, 8/20 quota | — |
-| 16:53 | 龙虾_自媒体_01 completed | TTS_0518_龙虾_自媒体_01_*.md | 463 keyframes, 76K chars, 9/20 quota | — |
-| 17:11 | 龙虾_自媒体_02 completed | TTS_0518_龙虾_自媒体_02_*.md | 164 keyframes, 57K chars, 10/20 quota | — |
-| 17:24 | 龙虾_自媒体_03 completed | TTS_0518_龙虾_自媒体_03_*.md | 201 keyframes, 27K chars, 11/20 quota | — |
-| 17:41 | 龙虾_自媒体_04 completed | TTS_0518_龙虾_自媒体_04_*.md | 169 keyframes, 32K chars, 12/20 quota | — |
-| 17:56 | 龙虾_自媒体_05 completed | TTS_0518_龙虾_自媒体_05_*.md | 260 keyframes, 50K chars, 13/20 quota | — |
-| 18:13 | 龙虾_自媒体_06 completed | TTS_0518_龙虾_自媒体_06_*.md | 234 keyframes, 33K chars, 14/20 quota | — |
-| 18:28 | 龙虾_自媒体_07 completed (503 retry) | TTS_0518_龙虾_自媒体_07_*.md | 291 keyframes, 57K chars, 16/20 quota (1 retry) | — |
-| 18:38 | 龙虾_自媒体_08 completed | TTS_0518_龙虾_自媒体_08_*.md | 226 keyframes, 45K chars, 17/20 quota | — |
-| 18:38 | Pipeline finished: 63/63 done (100%), 0 failures | .progress.json, runs/2026-05-18.md | 15/15 batch, 17/20 quota, 2 transient errors (SSL+503) auto-retried | ~2k |
-| 19:10 | Git commit + push: 2 commits (17+26 files) | .progress.json, Markdowns/, runs/, .wolf/ | Pushed to feature/local-transcript-appendix | ~1k |
-
 ## Session: 2026-05-15 07:42
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -165,4 +156,112 @@
 | 05/16 15:00 | Git commit: progress, new md files, anatomy, memory updated | .progress.json, 6 md files, anatomy.md, memory.md, pipeline memory | Ready for code changes and resume | ~200 |
 | 16:58 | Pulled Mac whisper.cpp backend changes and validated Windows run | .progress.json, Markdowns/TTS_0516_*.md, runs/windows-whispercpp-validation-20260516.md | Verified whispercpp-vulkan backend, cache reuse after timeout, 39/63 done, quota 11/20 | ~4k |
 | 19:30 | Recorded code upgrade retro and MAX_TOKENS follow-up | runs/windows-code-upgrade-retro-20260516.md | Documented cause, validation, errors, handling, and effective-upgrade assessment | ~2k |
-| 18:30 | implemented SenseVoice as default MP4/backfill ASR backend | zhihuTTS_video.py, zhihuTTS.py, requirements.txt, docs/SENSEVOICE_BACKFILL_RUNBOOK.md | local MP4 and historical transcript backfill now use TRANSCRIBE_BACKEND=sensevoice by default with cache mismatch handling | ~3600 |
+
+## Session: 2026-05-17 08:50
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:50 | Recorded shared Git push policy for repo-level context files | .wolf/cerebrum.md, .wolf/memory.md | Commit and push `AGENTS.md`, `CLAUDE.md`, `.claude/settings.json`, `.claude/rules/openwolf.md`; keep `.claude/settings.local.json` local-only | ~250 |
+| 10:21 | confirmed paused stream-validation state and branch split | .wolf/OPENWOLF.md, .wolf/cerebrum.md, .wolf/anatomy.md, docs/ENGINEERING_HISTORY.md, docs/BRANCH_USAGE.md | stream work should continue on feature/stream-transcript-validation with real media URL or DevTools cURL input | ~3000 |
+| 10:26 | prepared isolated replay-stream validation worktree | /private/tmp/zhihu-stream-validation, .wolf/cerebrum.md, .wolf/buglog.json | feature/stream-transcript-validation is ready; runner help confirms --duration 0 and --chunk-duration workflow | ~2500 |
+| 10:34 | moved complete replay-stream validation to Windows handoff | runs/windows-stream-replay-validation-20260517.md, .wolf/cerebrum.md, .wolf/buglog.json | Mac ffprobe succeeded but full multi-hour Whisper validation should be run by Windows user | ~1800 |
+| 10:39 | split Windows handoff commits after hook rejection | githooks/pre-commit, .wolf/buglog.json | pre-commit requires runs/*.md separate from OpenWolf/collaboration files | ~600 |
+| 10:55 | saved stream automation discussion before quota exhaustion | docs/STREAM_AUTOMATION_PLAN_20260517.md, .wolf/cerebrum.md, .wolf/anatomy.md | resume from Windows replay result, then implement Python stream_extractors.py with yt-dlp and Playwright fallback | ~1700 |
+| 18:03 | analyzed Windows replay and SenseVoice validation logs | origin/feature/stream-transcript-validation:runs/*.md, .wolf/cerebrum.md, .wolf/buglog.json | replay stream completed; SenseVoice is viable optional ASR backend; pushed branch lacks retry/probe code mentioned in reports | ~3200 |
+| 18:08 | confirmed SenseVoice should cover local MP4 backfill too | zhihuTTS_video.py, zhihuTTS.py, .wolf/cerebrum.md | local videos and stream chunks share transcribe_audio(), so one backend switch can serve both paths | ~1200 |
+| 18:14 | fetched Windows code补交 for stream hardening and SenseVoice probe | origin/feature/stream-transcript-validation, zhihuTTS_stream.py, sensevoice_probe.py, .gitignore | commit 5371c70 fills the previous missing-code gap; syntax checks pass via compile() | ~1700 |
+| 18:48 | recorded MP4 SenseVoice backfill branch change process | docs/SENSEVOICE_MP4_BACKFILL_CHANGELOG_20260517.md, .wolf/cerebrum.md, .wolf/anatomy.md | recorded commit 1d611f6, code review checks, Windows commands, and next stream-branch discussion point | ~1100 |
+| 14:10 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_video.py | expanded (+9 lines) | ~117 |
+| 14:12 | 拉取分析 Windows bilibili 直播验证结果 | runs/bilibili-live-validation-20260518.md | 28/30 chunks 成功，bug-019 无语音崩溃，bug-020 Playwright 平台限制 | ~3k |
+| 14:15 | 修复 bug-019，push feature/stream-transcript-validation | zhihuTTS_video.py:317 | _transcribe_sensevoice 无语音返回空 segments，不再中断批次 | ~1k |
+| 14:15 | 更新主分支 buglog，补录 bug-019（已修）和 bug-020（无需修） | .wolf/buglog.json | 完成 | ~200 |
+| 14:15 | Session end: 1 writes across 1 files (zhihuTTS_video.py) | 2 reads | ~3810 tok |
+| 14:21 | Session end: 1 writes across 1 files (zhihuTTS_video.py) | 2 reads | ~3810 tok |
+| 14:38 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified is_ytdlp_stream_ended_error() | ~214 |
+| 14:38 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified close() | ~447 |
+| 14:39 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+6 lines) | ~46 |
+| 14:39 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified StreamSliceError() | ~118 |
+| 14:40 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified is_browser_alive() | ~144 |
+
+## Session: 2026-05-18 14:41
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:41 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified is_stream_ended() | ~89 |
+| 14:42 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified is_stream_ended() | ~674 |
+| 14:42 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+46 lines) | ~932 |
+| 15:00 | 实现直播流结束检测 + 浏览器自动重启（live mode）| stream_extractors.py, zhihuTTS_stream.py | --duration 0 = 无限循环；BrowserDeadError 最多重启3次；DOM轮询/yt-dlp ended信号；push 成功 | ~5k |
+| 14:43 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 11→13 lines | ~150 |
+| 14:45 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 2→3 lines | ~60 |
+| 14:45 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified get() | ~69 |
+| 14:47 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 4→4 lines | ~63 |
+| 14:47 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 3→6 lines | ~62 |
+| 14:50 | Session end: 8 writes across 1 files (zhihuTTS_stream.py) | 1 reads | ~2099 tok |
+| 14:54 | Session end: 8 writes across 1 files (zhihuTTS_stream.py) | 1 reads | ~2099 tok |
+| 15:07 | Session end: 8 writes across 1 files (zhihuTTS_stream.py) | 2 reads | ~2099 tok |
+| 15:10 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | 8→6 lines | ~41 |
+| 15:11 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | content() → evaluate() | ~111 |
+| 15:11 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified _on_request() | ~138 |
+| 15:11 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 7→8 lines | ~111 |
+| 15:11 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+8 lines) | ~162 |
+| 15:13 | Session end: 13 writes across 2 files (zhihuTTS_stream.py, stream_extractors.py) | 2 reads | ~2662 tok |
+
+## Session: 2026-05-18 15:15
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-18 15:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:33 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified close() | ~241 |
+| 15:33 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified restart() | ~117 |
+| 15:33 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 3→3 lines | ~26 |
+| 15:34 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified get() | ~100 |
+| 15:34 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | inline fix | ~14 |
+| 15:34 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 4→6 lines | ~68 |
+| 15:34 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 4→9 lines | ~126 |
+| 15:35 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 18→19 lines | ~252 |
+| 15:36 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | 5→6 lines | ~99 |
+| 15:36 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+6 lines) | ~91 |
+| 15:42 | Session end: 10 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 2 reads | ~1134 tok |
+| 21:17 | Session end: 10 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 2 reads | ~1134 tok |
+| 21:25 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | expanded (+21 lines) | ~209 |
+| 21:25 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | expanded (+6 lines) | ~354 |
+| 21:25 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | expanded (+6 lines) | ~351 |
+| 21:26 | Session end: 13 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 2 reads | ~2048 tok |
+| 21:40 | Session end: 13 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 3 reads | ~2048 tok |
+
+## Session: 2026-05-18 21:42
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:46 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | 1→3 lines | ~22 |
+| 21:46 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | 4→5 lines | ~68 |
+| 21:47 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified _on_request() | ~476 |
+| 21:47 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified refresh_and_get() | ~205 |
+| 21:48 | Session end: 4 writes across 1 files (stream_extractors.py) | 2 reads | ~771 tok |
+| 21:50 | Session end: 4 writes across 1 files (stream_extractors.py) | 2 reads | ~771 tok |
+| 21:51 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified range() | ~178 |
+| 21:52 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | modified _on_response() | ~382 |
+| 21:52 | Edited ../../../../private/tmp/zhihu-stream-validation/stream_extractors.py | expanded (+9 lines) | ~152 |
+| 21:52 | Session end: 7 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 3 reads | ~1483 tok |
+| 21:53 | Session end: 7 writes across 2 files (stream_extractors.py, zhihuTTS_stream.py) | 3 reads | ~1483 tok |
+
+## Session: 2026-05-18 21:58
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:00 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | added 1 import(s) | ~55 |
+| 22:01 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+49 lines) | ~440 |
+| 22:02 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | modified _parse_gemini_retry_delay() | ~1340 |
+| 22:02 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+31 lines) | ~588 |
+| 22:02 | Edited ../../../../private/tmp/zhihu-stream-validation/zhihuTTS_stream.py | expanded (+15 lines) | ~215 |
+| 22:05 | Session end: 5 writes across 1 files (zhihuTTS_stream.py) | 2 reads | ~6507 tok |
+
+## Session: 2026-05-18 22:07
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:45 | Edited ../../../../private/tmp/zhihu-stream-validation/.gitignore | 4→7 lines | ~30 |

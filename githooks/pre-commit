@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# zhihuTTS 角色检查 hook
-# Code Owner = 代码/依赖/hook/docs；Run Owner = 进度/结果/运行报告
+# zhihuTTS 共享状态检查 hook
+# 按文件用途检查，不按 Windows/Mac 机器身份检查。
 #
 # 绕过：SKIP_ROLE_CHECK=1 git commit ...
 
@@ -9,46 +9,31 @@ set -e
 
 [ -n "$SKIP_ROLE_CHECK" ] && exit 0
 
-# ── 判断当前平台 ──────────────────────────────────────
-case "$(uname -s)" in
-    CYGWIN*|MINGW*|MSYS*) IS_WINDOWS=true  ;;
-    *)                    IS_WINDOWS=false ;;
-esac
-
 # ── 检查本次 commit 涉及的文件 ─────────────────────────
 staged=$(git diff --cached --name-only)
+staged_non_deleted=$(git diff --cached --name-status | awk '$1 != "D" {print $2}')
 
-has_py=$(echo "$staged" | grep -c '\.py$' || true)
-has_progress=$(echo "$staged" | grep -c '\.progress\.json$' || true)
-has_code_owner_file=$(echo "$staged" | grep -Ec '(^|/)(requirements\.txt|\.gitignore|\.gitattributes|COLLABORATION\.md)$|^githooks/|^docs/' || true)
-has_large_runtime=$(echo "$staged" | grep -Ec '^Videos/.*\.mp4$|\.wav$|^Videos/keyframes/|^Videos/\.tmp/' || true)
+has_run_output=$(echo "$staged" | grep -Ec '^Markdowns/.*\.md$|^runs/.*\.md$|^\.progress\.json$' || true)
+has_code_or_docs=$(echo "$staged" | grep -Ec '\.py$|(^|/)(requirements\.txt|\.gitignore|\.gitattributes|COLLABORATION\.md|AGENTS\.md|CLAUDE\.md)$|^githooks/|^docs/|^\.claude/|^\.wolf/(OPENWOLF\.md|anatomy\.md|buglog\.json|cerebrum\.md|config\.json|hooks/|identity\.md|memory\.md|reframe-frameworks\.md)' || true)
+has_forbidden_local=$(echo "$staged_non_deleted" | grep -Ec '^Videos/|^cache/|^\.gitnexus/|^graphify-out/|^__pycache__/|\.pyc$|\.wav$|\.log$|^\.wolf/hooks/_session\.json$|^\.wolf/token-ledger\.json$|^\.wolf/cron-state\.json$|^\.wolf/designqc-report\.json$|^\.wolf/suggestions\.json$|^\.claude/settings\.local\.json$|(^|/)\.env($|\.)' || true)
 
-# ── 所有人：禁止提交大运行产物 ────────────────────────
-if [ "$has_large_runtime" -gt 0 ]; then
+# ── 所有人：禁止提交本机运行产物、遥测、缓存和密钥文件 ─────
+if [ "$has_forbidden_local" -gt 0 ]; then
     echo ""
-    echo "  ❌ 禁止提交大型运行产物"
+    echo "  ❌ 禁止提交本机运行产物、遥测、缓存或密钥文件"
     echo "  ─────────────────────────────────────"
-    echo "  Videos/*.mp4、*.wav、Videos/keyframes/**、Videos/.tmp/** 不应进入 Git。"
+    echo "  Videos/**、cache/**、*.log、.gitnexus/**、graphify-out/**、"
+    echo "  .wolf 本机会话遥测、.env 等不应进入 Git。"
     echo "  如需例外: SKIP_ROLE_CHECK=1 git commit ..."
     exit 1
 fi
 
-# ── Windows / Run Owner：禁止提交代码侧文件 ───────────
-if [ "$IS_WINDOWS" = true ] && { [ "$has_py" -gt 0 ] || [ "$has_code_owner_file" -gt 0 ]; }; then
+# ── 所有人：避免把代码变更和运行结果混在一个提交里 ───────
+if [ "$has_code_or_docs" -gt 0 ] && [ "$has_run_output" -gt 0 ]; then
     echo ""
-    echo "  ❌ Run Owner 禁止提交代码侧文件"
+    echo "  ❌ 避免混合提交代码/协作文档和运行结果"
     echo "  ─────────────────────────────────────"
-    echo "  Windows 的职责是跑脚本、提交 .progress.json、Markdown 和 runs/*.md。"
-    echo "  如需例外: SKIP_ROLE_CHECK=1 git commit ..."
-    exit 1
-fi
-
-# ── Mac / Code Owner：禁止提交 .progress.json ─────────
-if [ "$IS_WINDOWS" = false ] && [ "$has_progress" -gt 0 ]; then
-    echo ""
-    echo "  ❌ Code Owner 禁止修改 .progress.json"
-    echo "  ────────────────────────────────────────"
-    echo "  .progress.json 由 Run Owner 管理，Code Owner 只看不写。"
+    echo "  请把代码/文档/tooling 改动，与 .progress.json、Markdowns/*.md、runs/*.md 分开提交。"
     echo "  如需例外: SKIP_ROLE_CHECK=1 git commit ..."
     exit 1
 fi
