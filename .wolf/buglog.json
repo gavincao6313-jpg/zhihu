@@ -366,6 +366,18 @@
       "last_seen": "2026-05-19T12:00:00+08:00"
     },
     {
+      "id": "bug-025",
+      "timestamp": "2026-05-19T14:00:00+08:00",
+      "error_message": "frame marker 匹配显示 slide=0, annot=155（实际 41 slides）— 所有幻灯片帧未能识别类型",
+      "file": "zhihuTTS_video.py",
+      "root_cause": "frame_marker() 用 filename 数字（1-based, ffmpeg %05d 从1开始）直接与 events[frame_idx]（0-based）比对。幻灯片帧 frames[N] 对应 frame_{N+1:05d}.jpg，timestamp_s=N+1，但 event.frame_idx=N → 差1，永远匹配不到 type=slide。标注"前一帧"frames[N-1]=frame_N.jpg，timestamp_s=N=event.frame_idx → 偶然命中，所以 annot=155 正常。",
+      "fix": "frame_marker() 改为先尝试 frame_idx == timestamp_s - 1（修正 off-by-one），找不到再 fallback 到 timestamp_s（保留标注前帧的偶然命中）。slide 帧现在能正确标记 type=slide，build_replay_gemini_parts() 的优先级采样生效。",
+      "tags": ["frame_marker", "off-by-one", "slide", "keyframe", "zhihuTTS_video"],
+      "related_bugs": ["bug-023", "bug-022"],
+      "occurrences": 1,
+      "last_seen": "2026-05-19T14:00:00+08:00"
+    },
+    {
       "id": "bug-021",
       "timestamp": "2026-05-19T00:00:00+08:00",
       "error_message": "replay transcript has no accurate timestamps — entire 171-min video mapped to [0, 10299s] single segment",

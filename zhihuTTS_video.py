@@ -544,7 +544,12 @@ def frame_marker(frame_path: Path, events: list[dict]) -> str:
     """生成 Gemini 图片前置元数据标记。"""
     match = re.search(r"frame_(\d+)", frame_path.stem)
     timestamp_s = int(match.group(1)) if match else 0
-    event = next((e for e in events if e.get("frame_idx") == timestamp_s), None)
+    # ffmpeg %05d filenames are 1-based; events use 0-based frame_idx.
+    # Slide/annotation "last" frames: filename N+1 → frame_idx N (try ts-1 first).
+    # Annotation "before" frames: filename N → frame_idx N (fallback to ts).
+    event = next((e for e in events if e.get("frame_idx") == timestamp_s - 1), None)
+    if event is None:
+        event = next((e for e in events if e.get("frame_idx") == timestamp_s), None)
     if event:
         return (
             f"Frame [{_fmt_ts(timestamp_s)}] "
