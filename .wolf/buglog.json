@@ -328,6 +328,18 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-18T12:40:00+08:00"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-05-19T00:00:00+08:00",
+      "error_message": "replay transcript has no accurate timestamps — entire 171-min video mapped to [0, 10299s] single segment",
+      "file": "transcribe_replay.py",
+      "root_cause": "FunASR/SenseVoice 1.3.1 never returns sentence_info regardless of merge_vad setting (confirmed by WIN debug_output.txt). Feeding the entire MP4 at once gives one segment with no per-sentence timestamps.",
+      "fix": "Rewrote transcribe_replay.py to split audio into REPLAY_CHUNK_S (default 60s) slices via ffmpeg, run _transcribe_sensevoice() on each chunk WAV, then offset segment timestamps by chunk_start_s before merging. Mirrors the stream-mode approach in zhihuTTS_stream.py.",
+      "tags": ["sensevoice", "funasr", "timestamps", "replay", "chunking"],
+      "related_bugs": ["bug-019"],
+      "occurrences": 1,
+      "last_seen": "2026-05-19T00:00:00+08:00"
     }
   ]
 }

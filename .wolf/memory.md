@@ -167,3 +167,4 @@
 | 13:08 | wrote run report with full findings, bug analysis, and Mac handoff notes | runs/bilibili-live-validation-20260518.md | documented: 28/30 success, 192MB slices, SenseVoice quality assessment, bug-019 (empty transcript crash), bug-020 (Playwright bilibili limitation) | ~800 |
 | 13:08 | recorded bugs 019 and 020 for Mac handoff | .wolf/buglog.json | bug-019: _transcribe_sensevoice() crashes on no-speech chunks (needs skip instead of raise); bug-020: Playwright cannot extract bilibili (platform limitation, no code change needed) | ~300 |
 | 13:10 | committed run artifacts and pushed to origin/feature/stream-transcript-validation | runs/*.md, .wolf/buglog.json, .wolf/memory.md | all validation evidence and bug handoff pushed for Mac code owner | ~400 |
+| 11:00 | fix replay timestamp: rewrite transcribe_replay.py for 60s ffmpeg chunked ASR | transcribe_replay.py | pushed to feature/stream-transcript-validation | ~800 |
