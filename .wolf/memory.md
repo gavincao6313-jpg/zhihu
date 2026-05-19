@@ -169,3 +169,5 @@
 | 13:10 | committed run artifacts and pushed to origin/feature/stream-transcript-validation | runs/*.md, .wolf/buglog.json, .wolf/memory.md | all validation evidence and bug handoff pushed for Mac code owner | ~400 |
 | 11:00 | fix replay timestamp: rewrite transcribe_replay.py for 60s ffmpeg chunked ASR | transcribe_replay.py | pushed to feature/stream-transcript-validation | ~800 |
 | 11:30 | Mac 环境搭建完成：venv ~/.venv-sensevoice (py3.11), torch 2.2.2, funasr, playwright, yt-dlp | run_zhihu_live.sh | 已推送 feature/stream-transcript-validation | ~500 |
+| 14:00 | fix frame_marker() off-by-one: slide frames now correctly labeled type=slide (was slide=0 annot=155, should be slide=41) | zhihuTTS_video.py | bug-025 logged; WIN 需重跑 regen_payload.py + build_final_markdown.py | ~400 |
+| 14:05 | 质量对比完成: file pipeline 191K/12章/184帧描述 vs URL pipeline 38K/9章/9帧描述，主因是 Gemini 收到全视频 vs 100关键帧 | runs/ | 提升方案: 修 slide marker(已做) + 增帧数 + 考虑 file-uri 上传方式 | ~600 |
