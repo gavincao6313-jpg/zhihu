@@ -28,6 +28,10 @@ set "STREAM_WORK_DIR=%SCRIPT_DIR%Videos\.stream"
 set "PAGE_URL=%~1"
 set "NAME=%~2"
 
+:: merge_vad=true 适合 60s 分片（短片段内 VAD 合并让文本更连贯）
+:: 全量回放离线处理请不要设此变量（默认 false，保留精确 VAD 边界）
+set "SENSEVOICE_MERGE_VAD=true"
+
 :: ---- 自动生成名称（未提供时）----
 if "!NAME!"=="" (
     for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
@@ -97,8 +101,25 @@ echo.
 echo.
 if errorlevel 1 (
     echo [!] 脚本异常退出，退出码: %errorlevel%
-) else (
-    echo 转写完成，输出文件在 runs\ 目录
+    echo.
+    pause
+    exit /b 1
 )
+
+echo 转写完成，正在合并分片为结构化 Markdown...
+echo.
+"!PYTHON!" "!SCRIPT_DIR!scripts\merge_stream_chunks.py" ^
+  --base "!NAME!" ^
+  --runs-dir "!SCRIPT_DIR!runs"
+
+echo.
+if errorlevel 1 (
+    echo [提示] 分片合并失败或无幻灯片事件，手动运行:
+    echo   python scripts\merge_stream_chunks.py --base !NAME!
+) else (
+    echo 结构化 Markdown 已生成: runs\stream-!NAME!-merged.md
+)
+echo.
+echo 全部输出文件在 runs\ 目录
 echo.
 pause
