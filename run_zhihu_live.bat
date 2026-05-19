@@ -137,7 +137,30 @@ if errorlevel 1 (
 ) else (
     echo 结构化 Markdown 已生成: runs\stream-!NAME!-merged.md
 )
+
+:: ---- Gemini 综合调用 → NotebookLM 文档 ----
 echo.
-echo 全部输出文件在 runs\ 目录
+if "!GEMINI_API_KEY!"=="" (
+    echo [提示] 未设置 GEMINI_API_KEY，跳过 NotebookLM 文档生成。
+    echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME!
+) else (
+    echo 正在调用 Gemini 生成 NotebookLM 文档（全量关键帧 + 完整转写稿）...
+    echo 预计耗时 2-5 分钟，请耐心等待。
+    echo.
+    "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
+      --base "!NAME!" ^
+      --runs-dir "!SCRIPT_DIR!runs" ^
+      --markdowns-dir "!SCRIPT_DIR!Markdowns"
+    echo.
+    if errorlevel 1 (
+        echo [提示] NotebookLM 文档生成失败，手动运行:
+        echo   python scripts\build_stream_markdown.py --base !NAME!
+    ) else (
+        echo NotebookLM 文档已生成: Markdowns\TTS_stream-!NAME!.md
+    )
+)
+
+echo.
+echo 全部输出文件在 runs\ 和 Markdowns\ 目录
 echo.
 pause

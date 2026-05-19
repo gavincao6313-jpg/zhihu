@@ -160,8 +160,16 @@ def _call_gemini_stream(client, parts: list, label: str) -> dict:
     return {"text": None, "gemini_calls": gemini_calls}
 
 
-def build_stream_gemini_parts(manifest: dict, max_frames: int = 50) -> list:
-    """Build Gemini input parts: transcript text + sampled keyframes from all chunks."""
+_GEMINI_IMAGE_HARD_LIMIT = 3000   # Gemini 2.5 Flash API ceiling
+
+
+def build_stream_gemini_parts(manifest: dict) -> list:
+    """Build Gemini input parts: transcript + all keyframes from all chunks.
+
+    All kept frames are sent to maximise Gemini's multimodal understanding.
+    Priority sampling (slide > annotation > context) only kicks in when the
+    total exceeds _GEMINI_IMAGE_HARD_LIMIT (3000).
+    """
     try:
         from google.genai import types as _gtypes
     except ImportError:
@@ -180,30 +188,45 @@ def build_stream_gemini_parts(manifest: dict, max_frames: int = 50) -> list:
                 pass
 
     all_frames.sort(key=lambda f: f.get("timestamp_s", 0))
-    if len(all_frames) > max_frames:
-        step = len(all_frames) / max_frames
-        sampled = [all_frames[int(i * step)] for i in range(max_frames)]
+
+    if len(all_frames) > _GEMINI_IMAGE_HARD_LIMIT:
+        slide_frames = [f for f in all_frames if "type=slide"      in f.get("marker", "")]
+        annot_frames = [f for f in all_frames if "type=annotation" in f.get("marker", "")]
+        ctx_frames   = [f for f in all_frames
+                        if "type=slide"      not in f.get("marker", "")
+                        and "type=annotation" not in f.get("marker", "")]
+        cap      = _GEMINI_IMAGE_HARD_LIMIT
+        selected = list(slide_frames[:cap])
+        remaining = cap - len(selected)
+        if remaining > 0:
+            step = max(1, len(annot_frames) // remaining)
+            selected += annot_frames[::step][:remaining]
+            remaining = cap - len(selected)
+        if remaining > 0 and ctx_frames:
+            step = max(1, len(ctx_frames) // remaining)
+            selected += ctx_frames[::step][:remaining]
+        selected.sort(key=lambda f: f.get("timestamp_s", 0))
     else:
-        sampled = all_frames
+        selected = all_frames
 
     parts: list = [GEMINI_PROMPT_TEXT, transcript_text]
     frame_count = 0
-    for frame in sampled:
-        frame_path_str = frame.get("path", "")
-        if not frame_path_str:
-            continue
-        frame_path = Path(frame_path_str)
+    for frame in selected:
+        frame_path = Path(frame.get("path", ""))
         if not frame_path.exists():
             continue
-        marker = frame.get("marker", f"[Frame @{frame.get('timestamp_s', '?')}s]")
-        parts.append(marker)
+        parts.append(frame.get("marker", f"[Frame @{frame.get('timestamp_s', '?')}s]"))
         parts.append(_gtypes.Part(inline_data=_gtypes.Blob(
             mime_type="image/jpeg",
             data=frame_path.read_bytes(),
         )))
         frame_count += 1
 
-    print(f"  Gemini parts built: transcript {len(transcript_text)} chars, {frame_count} frames", flush=True)
+    slide_count = sum(1 for f in selected if "type=slide"      in f.get("marker", ""))
+    annot_count = sum(1 for f in selected if "type=annotation" in f.get("marker", ""))
+    print(f"  Gemini parts built: transcript {len(transcript_text):,} chars, "
+          f"{frame_count}/{len(all_frames)} frames "
+          f"(slide={slide_count}, annot={annot_count})", flush=True)
     return parts
 
 
@@ -1055,8 +1078,7 @@ def run_validation(args: argparse.Namespace) -> dict:
                     print("[!] --gemini-api-key or GEMINI_API_KEY env var required — skipping Gemini")
                 else:
                     client = _genai.Client(api_key=api_key)
-                    max_frames = getattr(args, "gemini_max_frames", 50)
-                    parts = build_stream_gemini_parts(manifest, max_frames=max_frames)
+                    parts = build_stream_gemini_parts(manifest)
                     result = _call_gemini_stream(client, parts, base_stem)
                     if result["text"]:
                         notes_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.notes.md"
