@@ -330,6 +330,18 @@
       "last_seen": "2026-05-18T12:40:00+08:00"
     },
     {
+      "id": "bug-022",
+      "timestamp": "2026-05-19T12:00:00+08:00",
+      "error_message": "zhihu_url 回放输出质量 6.3/10，远低于 zhihu_file 的 8+/10",
+      "file": "build_final_markdown.py",
+      "root_cause": "build_final_markdown.py 只做机械排版，从不调用 Gemini。缺少 PROMPT_TEXT 驱动的全视频知识提炼，导致输出缺少元数据/Glossary/金句/视觉内容描述。帧数上限50对3小时视频过低，PROMPT 缺少中文AI领域背景提示，thinking_budget=0 减弱结构分析能力。",
+      "fix": "build_final_markdown.py 末尾加 Gemini 合成：复用 GEMINI_PROMPT_TEXT + 中文AI背景段，优先级帧采样(slide>annot>ctx)上限100帧，thinking_budget=4096，自动续写20次，输出到 Markdowns/TTS_replay-*.md。",
+      "tags": ["gemini", "quality", "replay", "notebooklm", "build_final_markdown"],
+      "related_bugs": ["bug-021"],
+      "occurrences": 1,
+      "last_seen": "2026-05-19T12:00:00+08:00"
+    },
+    {
       "id": "bug-021",
       "timestamp": "2026-05-19T00:00:00+08:00",
       "error_message": "replay transcript has no accurate timestamps — entire 171-min video mapped to [0, 10299s] single segment",
