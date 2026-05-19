@@ -1,112 +1,126 @@
-"""Build final structured Markdown from replay transcript."""
+"""Build final structured Markdown from replay transcript.
+
+Uses accurate per-segment timestamps from transcript.json (requires merge_vad=False run).
+For each segment, sub-sentence timestamps are distributed proportionally within the
+segment's [start, end] range — accurate to within one VAD segment (~2-5 seconds).
+"""
 import json, re
 from pathlib import Path
 
-# Load transcript
-txt_content = Path(r"D:\zhihu\zhihu_url\runs\replay-20260518.combined-transcript.txt").read_text(encoding="utf-8")
-txt_content = re.sub(r'^\[00:00:00 - 02:51:40\]\s*', '', txt_content)
+RUNS_DIR = Path(r"D:\zhihu\zhihu_url\runs")
+TRANSCRIPT_JSON = RUNS_DIR / "replay-20260518.transcript.json"
+PAYLOAD_JSON    = RUNS_DIR / "replay-20260518.payload.json"
+OUT_PATH        = RUNS_DIR / "replay-20260518-final.md"
 
-# Load payload with events
-with open(r"D:\zhihu\zhihu_url\runs\replay-20260518.payload.json", "r", encoding="utf-8") as f:
-    payload = json.load(f)
 
-events = payload.get("events", [])
-total_duration = 10300.7  # seconds
-
-# Split into sentences
-sentences = re.split(r'(?<=[。！？；])', txt_content)
-sentences = [s.strip() for s in sentences if s.strip()]
-total_chars = sum(len(s) for s in sentences)
-chars_per_second = total_chars / total_duration
-
-def fmt_ts(seconds):
+def fmt_ts(seconds: float) -> str:
     h = int(seconds // 3600)
     m = int((seconds % 3600) // 60)
     s = int(seconds % 60)
     return f"{h:02d}:{m:02d}:{s:02d}"
 
-# Build slide markers
-slide_times = sorted([e["frame_idx"] for e in events if e.get("type") == "slide"])
 
-# Walk through transcript and build sections
-lines = []
-lines.append("# 知乎直播回放 — 完整转写文档")
-lines.append("")
-lines.append("| 属性 | 值 |")
-lines.append("|---|---|")
-lines.append(f"| 日期 | 2026-05-18 |")
-lines.append(f"| 时长 | {fmt_ts(int(total_duration))} |")
-lines.append(f"| 总字符数 | {total_chars:,} |")
-lines.append(f"| 句子数 | {len(sentences):,} |")
-lines.append(f"| 幻灯片切换 | {len(slide_times)} 次 |")
-lines.append(f"| 转写引擎 | SenseVoiceSmall (FunASR) + FSMN-VAD |")
-lines.append(f"| 转写方式 | 回放视频离线转写 (完整文件) |")
-lines.append(f"| 关键帧提取 | {payload.get('frames_count', 0)} 张 |")
-lines.append("")
-lines.append("---")
-lines.append("")
+def split_sentences(text: str) -> list[str]:
+    parts = re.split(r'(?<=[。！？；])', text)
+    return [s.strip() for s in parts if s.strip()]
 
-# Process in sections defined by slide boundaries
-slide_idx = 0
-char_pos = 0
+
+# --- Load data ---
+with open(TRANSCRIPT_JSON, encoding="utf-8") as f:
+    transcript = json.load(f)
+
+with open(PAYLOAD_JSON, encoding="utf-8") as f:
+    payload = json.load(f)
+
+segments = transcript["segments"]
+events   = payload.get("events", [])
+
+if not segments:
+    raise SystemExit("transcript.json has no segments — re-run transcribe_replay.py with SENSEVOICE_MERGE_VAD=false")
+
+total_duration   = segments[-1]["end"]
+annotation_count = sum(1 for e in events if e.get("type") == "annotation")
+slide_times      = sorted(e["frame_idx"] for e in events if e.get("type") == "slide")
+
+# --- Expand segments → (timestamp_s, sentence) pairs ---
+# Each segment has accurate VAD start/end; sub-sentences get proportional offsets within that window.
+stamped: list[tuple[float, str]] = []
+for seg in segments:
+    seg_start = float(seg["start"])
+    seg_end   = float(seg["end"])
+    seg_dur   = max(seg_end - seg_start, 0.01)
+    subs      = split_sentences(seg["text"])
+    if not subs:
+        continue
+    seg_chars = sum(len(s) for s in subs)
+    char_pos  = 0
+    for s in subs:
+        frac = char_pos / seg_chars if seg_chars > 0 else 0.0
+        stamped.append((seg_start + frac * seg_dur, s))
+        char_pos += len(s)
+
+total_chars     = sum(len(s) for _, s in stamped)
+total_sentences = len(stamped)
+
+# --- Build markdown ---
+lines: list[str] = []
+lines += [
+    "# 知乎直播回放 — 完整转写文档",
+    "",
+    "| 属性 | 值 |",
+    "|---|---|",
+    f"| 日期 | 2026-05-18 |",
+    f"| 时长 | {fmt_ts(int(total_duration))} |",
+    f"| 总字符数 | {total_chars:,} |",
+    f"| 句子数 | {total_sentences:,} |",
+    f"| VAD分段数 | {len(segments):,} |",
+    f"| 幻灯片切换 | {len(slide_times)} 次 |",
+    f"| 转写引擎 | SenseVoiceSmall (FunASR) + FSMN-VAD |",
+    f"| 转写方式 | 回放视频离线转写 (VAD分段精确时间戳) |",
+    f"| 关键帧提取 | {payload.get('frames_count', 0)} 张 |",
+    "",
+    "---",
+    "",
+]
+
+slide_idx  = 0
 section_num = 1
-current_slide_time = 0
+lines += [f"## 第 {section_num} 部分 — {fmt_ts(0)}", ""]
 
-# Add initial section
-lines.append(f"## 第 {section_num} 部分 — {fmt_ts(0)}")
-lines.append("")
-
-section_sentences = []
-for sent in sentences:
-    approx_ts = char_pos / chars_per_second
-
-    # Check if we crossed a slide boundary
-    if slide_idx < len(slide_times) and approx_ts >= slide_times[slide_idx]:
-        # Write current section
-        for s in section_sentences:
-            lines.append(s)
-        section_sentences = []
-
-        # Start new section
+buf: list[str] = []
+for ts, sent in stamped:
+    # Advance past all slide boundaries that fall before this sentence
+    while slide_idx < len(slide_times) and ts >= slide_times[slide_idx]:
+        lines.extend(buf)
+        buf = []
         section_num += 1
         slide_ts = slide_times[slide_idx]
-        lines.append("")
-        lines.append("---")
-        lines.append("")
-        lines.append(f"## 第 {section_num} 部分 — {fmt_ts(slide_ts)}")
-        lines.append("")
+        lines += ["", "---", "", f"## 第 {section_num} 部分 — {fmt_ts(slide_ts)}", ""]
         slide_idx += 1
 
-    # Add sentence with timestamp
-    section_sentences.append(f"> [{fmt_ts(approx_ts)}] {sent}")
-    char_pos += len(sent)
+    buf.append(f"> [{fmt_ts(ts)}] {sent}")
 
-# Write remaining
-for s in section_sentences:
-    lines.append(s)
+lines.extend(buf)
 
-# Statistics
-lines.append("")
-lines.append("---")
-lines.append("")
-lines.append("## 转写统计信息")
-lines.append("")
-lines.append(f"| 指标 | 值 |")
-lines.append(f"|---|---|")
-lines.append(f"| 总字符数 | {total_chars:,} |")
-lines.append(f"| 句子数 | {len(sentences):,} |")
-lines.append(f"| 幻灯片切换 | {len(slide_times)} |")
-lines.append(f"| 标注/画笔事件 | {sum(1 for e in events if e.get('type') == 'annotation')} |")
-lines.append(f"| 关键帧提取 | {payload.get('frames_count', 0)} |")
-lines.append(f"| 音频时长 | {fmt_ts(int(total_duration))} |")
-lines.append(f"| 转写用时 | 614.6 秒 |")
-lines.append(f"| 实时率 (RTF) | 0.053 |")
-lines.append("")
+lines += [
+    "",
+    "---",
+    "",
+    "## 转写统计信息",
+    "",
+    "| 指标 | 值 |",
+    "|---|---|",
+    f"| 总字符数 | {total_chars:,} |",
+    f"| 句子数 | {total_sentences:,} |",
+    f"| VAD分段数 | {len(segments):,} |",
+    f"| 幻灯片切换 | {len(slide_times)} |",
+    f"| 标注/画笔事件 | {annotation_count} |",
+    f"| 关键帧提取 | {payload.get('frames_count', 0)} |",
+    f"| 音频时长 | {fmt_ts(int(total_duration))} |",
+    f"| 时间戳方式 | VAD分段精确时间戳 (误差 ≤ 单段时长 ~2-5s) |",
+    "",
+]
 
-out_path = Path(r"D:\zhihu\zhihu_url\runs\replay-20260518-final.md")
-with open(out_path, "w", encoding="utf-8") as f:
-    f.write("\n".join(lines))
-
-print(f"Final markdown: {out_path}")
-print(f"Lines: {len(lines)}")
-print(f"Sections: {section_num}")
+OUT_PATH.write_text("\n".join(lines), encoding="utf-8")
+print(f"Written: {OUT_PATH}")
+print(f"Sections: {section_num}  Sentences: {total_sentences}  VAD segments: {len(segments)}")

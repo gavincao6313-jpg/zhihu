@@ -292,10 +292,13 @@ def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
 
     device = os.environ.get("SENSEVOICE_DEVICE", "cpu")
     batch_size_s = int(os.environ.get("SENSEVOICE_BATCH_SIZE_S", "60"))
+    # merge_vad=False preserves VAD segment boundaries → sentence_info timestamps are accurate.
+    # Set SENSEVOICE_MERGE_VAD=true only for short clips where text coherence matters more than precision.
+    merge_vad = os.environ.get("SENSEVOICE_MERGE_VAD", "false").lower() in ("1", "true", "yes")
     merge_length_s = int(os.environ.get("SENSEVOICE_MERGE_LENGTH_S", "15"))
     print(
         f"  [SenseVoice] 加载 {SENSEVOICE_MODEL} "
-        f"(vad={SENSEVOICE_VAD_MODEL}, device={device})..."
+        f"(vad={SENSEVOICE_VAD_MODEL}, device={device}, merge_vad={merge_vad})..."
     )
     model = AutoModel(
         model=SENSEVOICE_MODEL,
@@ -303,15 +306,17 @@ def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
         device=device,
         disable_update=True,
     )
-    result = model.generate(
+    _gen_kwargs: dict = dict(
         input=str(wav_path),
         cache={},
         language=language,
         use_itn=True,
         batch_size_s=batch_size_s,
-        merge_vad=True,
-        merge_length_s=merge_length_s,
+        merge_vad=merge_vad,
     )
+    if merge_vad:
+        _gen_kwargs["merge_length_s"] = merge_length_s
+    result = model.generate(**_gen_kwargs)
     duration_s = _audio_duration_s(wav_path)
     segments = _sensevoice_segments(result, duration_s)
     if not segments:
