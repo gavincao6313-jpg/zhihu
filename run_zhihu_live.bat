@@ -69,6 +69,16 @@ if not exist "!AUTH_STATE!" (
     exit /b 1
 )
 
+:: ---- Cookie 有效性检查 ----
+"!PYTHON!" "!SCRIPT_DIR!scripts\check_auth.py" "!AUTH_STATE!"
+if errorlevel 1 (
+    echo.
+    echo [错误] 登录 Cookie 已失效，请重新登录后再运行:
+    echo   python login_save_auth.py
+    echo.
+    exit /b 1
+)
+
 :: ---- 提示信息 ----
 echo.
 echo ====================================================
