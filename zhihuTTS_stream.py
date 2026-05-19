@@ -1089,7 +1089,7 @@ def run_validation(args: argparse.Namespace) -> dict:
             print("\n=== Gemini: Building notes document ===")
             try:
                 from google import genai as _genai
-                api_key = getattr(args, "gemini_api_key", "") or os.environ.get("GEMINI_API_KEY", "")
+                api_key = getattr(args, "gemini_api_key", "") or os.environ.get("GEMINI_API_KEY", "") or os.environ.get("OPENCLAW_GOOGLE_API_KEY", "")
                 if not api_key:
                     print("[!] --gemini-api-key or GEMINI_API_KEY env var required — skipping Gemini")
                 else:
