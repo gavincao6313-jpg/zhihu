@@ -547,7 +547,12 @@ def frame_marker(frame_path: Path, events: list[dict]) -> str:
     # ffmpeg %05d filenames are 1-based; events use 0-based frame_idx.
     # Slide/annotation "last" frames: filename N+1 → frame_idx N (try ts-1 first).
     # Annotation "before" frames: filename N → frame_idx N (fallback to ts).
-    event = next((e for e in events if e.get("frame_idx") == timestamp_s - 1), None)
+    event = next(
+        (e for e in events
+         if e.get("frame_idx") == timestamp_s - 1
+         and e.get("type") in ("slide", "annotation")),
+        None,
+    )
     if event is None:
         event = next((e for e in events if e.get("frame_idx") == timestamp_s), None)
     if event:

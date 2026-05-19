@@ -190,9 +190,9 @@ def call_gemini_with_retry(client, parts: list, label: str) -> str | None:
             if not full_text:
                 raise RuntimeError("Gemini returned empty response")
 
-            candidate = response.candidates[0]
+            candidate = response.candidates[0] if response.candidates else None
             for cont in range(MAX_CONTINUATIONS):
-                if candidate.finish_reason != types.FinishReason.MAX_TOKENS:
+                if not candidate or candidate.finish_reason != types.FinishReason.MAX_TOKENS:
                     break
                 print(f"[{label}] Output truncated, auto-continuing ({cont + 1})...", flush=True)
                 gemini_calls += 1
@@ -201,7 +201,7 @@ def call_gemini_with_retry(client, parts: list, label: str) -> str | None:
                 if not chunk:
                     break
                 full_text += "\n" + chunk
-                candidate = response.candidates[0]
+                candidate = response.candidates[0] if response.candidates else None
 
             print(f"[{label}] Done: {len(full_text):,} chars, {gemini_calls} Gemini calls",
                   flush=True)

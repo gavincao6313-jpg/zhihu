@@ -171,3 +171,4 @@
 | 11:30 | Mac 环境搭建完成：venv ~/.venv-sensevoice (py3.11), torch 2.2.2, funasr, playwright, yt-dlp | run_zhihu_live.sh | 已推送 feature/stream-transcript-validation | ~500 |
 | 14:00 | fix frame_marker() off-by-one: slide frames now correctly labeled type=slide (was slide=0 annot=155, should be slide=41) | zhihuTTS_video.py | bug-025 logged; WIN 需重跑 regen_payload.py + build_final_markdown.py | ~400 |
 | 14:05 | 质量对比完成: file pipeline 191K/12章/184帧描述 vs URL pipeline 38K/9章/9帧描述，主因是 Gemini 收到全视频 vs 100关键帧 | runs/ | 提升方案: 修 slide marker(已做) + 增帧数 + 考虑 file-uri 上传方式 | ~600 |
+| 14:30 | 补齐直播流水线缺失的最后一环：新增 build_stream_markdown.py，修 build_stream_gemini_parts() 去掉50帧 cap，run_zhihu_live.bat 加 Gemini 综合调用 | scripts/build_stream_markdown.py, zhihuTTS_stream.py, run_zhihu_live.bat | 直播全流程补完: stream.py → merge → build_stream_markdown → Markdowns/TTS_stream-*.md | ~800 |

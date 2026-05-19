@@ -107,7 +107,10 @@ def parse_chunk_start(path: Path) -> int:
 
 def extract_run_ts(path: Path) -> str:
     m = re.search(r'-(\d{8}-\d{6})\.', path.name)
-    return m.group(1) if m else "00000000-000000"
+    if not m:
+        print(f"[warn] cannot parse run timestamp from: {path.name}", file=sys.stderr)
+        return "00000000-000000"
+    return m.group(1)
 
 
 def _parse_retry_delay(error: Exception) -> int:
@@ -164,8 +167,8 @@ def collect_all_frames(chunk_files: list[Path]) -> list[dict]:
     all_frames: list[dict] = []
     for cf in chunk_files:
         chunk_start_s = parse_chunk_start(cf)
-        payload_path  = cf.parent / cf.name.replace(
-            ".global-transcript.txt", ".payload.json"
+        payload_path  = cf.with_name(
+            cf.name.removesuffix(".global-transcript.txt") + ".payload.json"
         )
         all_frames.extend(load_chunk_frames(payload_path, chunk_start_s))
     all_frames.sort(key=lambda f: f.get("timestamp_s", 0))
@@ -241,9 +244,9 @@ def call_gemini(client, parts: list, label: str) -> str | None:
             if not full_text:
                 raise RuntimeError("Gemini returned empty response")
 
-            candidate = response.candidates[0]
+            candidate = response.candidates[0] if response.candidates else None
             for cont in range(MAX_CONTINUATIONS):
-                if candidate.finish_reason != types.FinishReason.MAX_TOKENS:
+                if not candidate or candidate.finish_reason != types.FinishReason.MAX_TOKENS:
                     break
                 print(f"[{label}] Truncated, continuing ({cont + 1})...", flush=True)
                 gemini_calls += 1
@@ -252,7 +255,7 @@ def call_gemini(client, parts: list, label: str) -> str | None:
                 if not chunk_txt:
                     break
                 full_text += "\n" + chunk_txt
-                candidate  = response.candidates[0]
+                candidate  = response.candidates[0] if response.candidates else None
 
             print(f"[{label}] Done: {len(full_text):,} chars, {gemini_calls} calls",
                   flush=True)
