@@ -34,11 +34,11 @@ NOTEBOOKLM_PATH = MARKDOWNS_DIR / "TTS_replay-20260518.md"    # Gemini knowledge
 
 # ── Gemini config ────────────────────────────────────────────────────────────
 
-GEMINI_MODEL       = "gemini-2.5-flash"
-MAX_GEMINI_FRAMES  = 100    # increased from 50; slide > annotation > context priority
-MAX_RETRIES        = 6
-MAX_CONTINUATIONS  = 20
-RETRY_DELAY        = 65
+GEMINI_MODEL            = "gemini-2.5-flash"
+GEMINI_IMAGE_HARD_LIMIT = 3000   # Gemini 2.5 Flash API hard ceiling; ~50hr+ streams only
+MAX_RETRIES             = 6
+MAX_CONTINUATIONS       = 20
+RETRY_DELAY             = 65
 
 GEMINI_PROMPT_TEXT = """
 # 角色与目标
@@ -118,38 +118,40 @@ def _parse_retry_delay(error: Exception) -> int:
     return int(float(match.group(1))) + 10 if match else RETRY_DELAY
 
 
-def build_replay_gemini_parts(payload: dict, transcript_text: str,
-                               max_frames: int = MAX_GEMINI_FRAMES) -> list:
-    """Build Gemini input parts: prompt + transcript text + sampled keyframes.
+def build_replay_gemini_parts(payload: dict, transcript_text: str) -> list:
+    """Build Gemini input parts: prompt + transcript text + all keyframes.
 
-    Frame priority: slide > annotation > context.
-    Capped at max_frames to stay within API token budget.
+    All kept frames are sent to maximise Gemini's multimodal understanding.
+    Priority ordering (slide > annotation > context) only kicks in when the
+    total exceeds GEMINI_IMAGE_HARD_LIMIT (3000), which requires ~50+ hours
+    of stream content at current extraction thresholds.
     """
     frames = payload.get("frames", [])
+    total  = len(frames)
 
-    # Separate by type for priority sampling
-    slide_frames = [f for f in frames if "type=slide"      in f.get("marker", "")]
-    annot_frames = [f for f in frames if "type=annotation" in f.get("marker", "")]
-    ctx_frames   = [f for f in frames
-                    if "type=slide" not in f.get("marker", "")
-                    and "type=annotation" not in f.get("marker", "")]
+    if total <= GEMINI_IMAGE_HARD_LIMIT:
+        selected = sorted(frames, key=lambda f: f.get("timestamp_s", 0))
+    else:
+        # Extremely long stream: priority-sample down to the hard limit.
+        slide_frames = [f for f in frames if "type=slide"      in f.get("marker", "")]
+        annot_frames = [f for f in frames if "type=annotation" in f.get("marker", "")]
+        ctx_frames   = [f for f in frames
+                        if "type=slide"      not in f.get("marker", "")
+                        and "type=annotation" not in f.get("marker", "")]
+        cap      = GEMINI_IMAGE_HARD_LIMIT
+        selected = list(slide_frames[:cap])
+        remaining = cap - len(selected)
+        if remaining > 0:
+            step = max(1, len(annot_frames) // remaining)
+            selected += annot_frames[::step][:remaining]
+            remaining = cap - len(selected)
+        if remaining > 0 and ctx_frames:
+            step = max(1, len(ctx_frames) // remaining)
+            selected += ctx_frames[::step][:remaining]
+        selected.sort(key=lambda f: f.get("timestamp_s", 0))
 
-    selected: list[dict] = list(slide_frames[:max_frames])
-    remaining = max_frames - len(selected)
-
-    if remaining > 0:
-        # Even sampling so annotation frames from the full video are represented,
-        # not just the first N from the opening section.
-        step = max(1, len(annot_frames) // remaining)
-        selected += annot_frames[::step][:remaining]
-        remaining = max_frames - len(selected)
-
-    if remaining > 0 and ctx_frames:
-        step = max(1, len(ctx_frames) // remaining)
-        selected += ctx_frames[::step][:remaining]
-
-    # Chronological order for coherent visual narrative
-    selected.sort(key=lambda f: f.get("timestamp_s", 0))
+    slide_count = sum(1 for f in selected if "type=slide"      in f.get("marker", ""))
+    annot_count = sum(1 for f in selected if "type=annotation" in f.get("marker", ""))
 
     parts: list = [GEMINI_PROMPT_TEXT, transcript_text]
     loaded = 0
@@ -163,10 +165,9 @@ def build_replay_gemini_parts(payload: dict, transcript_text: str,
         ))
         loaded += 1
 
-    total = len(frames)
     print(f"  Gemini parts: transcript {len(transcript_text):,} chars, "
-          f"{loaded}/{total} frames (slide={len(slide_frames)}, "
-          f"annot={len(annot_frames)}, cap={max_frames})", flush=True)
+          f"{loaded}/{total} frames (slide={slide_count}, annot={annot_count})",
+          flush=True)
     return parts
 
 
@@ -335,7 +336,7 @@ else:
     MARKDOWNS_DIR.mkdir(parents=True, exist_ok=True)
 
     transcript_text = segments_to_text(segments)
-    parts = build_replay_gemini_parts(payload, transcript_text)
+    parts = build_replay_gemini_parts(payload, transcript_text)  # all frames, no cap
 
     http_opts = types.HttpOptions(timeout=3600000)
     client = genai.Client(api_key=api_key, http_options=http_opts)
