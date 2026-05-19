@@ -140,6 +140,11 @@ try:
     with open(payload_path, "w", encoding="utf-8") as f:
         ser = {k: v for k, v in payload.items() if k != "frames"}
         ser["frames_count"] = len(payload["frames"])
+        # Include frame paths so build_final_markdown.py can load images for Gemini
+        ser["frames"] = [
+            {"path": f["path"], "timestamp_s": f["timestamp_s"], "marker": f["marker"]}
+            for f in payload["frames"]
+        ]
         json.dump(ser, f, ensure_ascii=False, indent=2)
     print(f"Keyframes: {len(kept_frames)} kept, {len(events)} events")
 except Exception as e:
