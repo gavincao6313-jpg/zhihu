@@ -168,3 +168,4 @@
 | 13:08 | recorded bugs 019 and 020 for Mac handoff | .wolf/buglog.json | bug-019: _transcribe_sensevoice() crashes on no-speech chunks (needs skip instead of raise); bug-020: Playwright cannot extract bilibili (platform limitation, no code change needed) | ~300 |
 | 13:10 | committed run artifacts and pushed to origin/feature/stream-transcript-validation | runs/*.md, .wolf/buglog.json, .wolf/memory.md | all validation evidence and bug handoff pushed for Mac code owner | ~400 |
 | 11:00 | fix replay timestamp: rewrite transcribe_replay.py for 60s ffmpeg chunked ASR | transcribe_replay.py | pushed to feature/stream-transcript-validation | ~800 |
+| 11:30 | Mac 环境搭建完成：venv ~/.venv-sensevoice (py3.11), torch 2.2.2, funasr, playwright, yt-dlp | run_zhihu_live.sh | 已推送 feature/stream-transcript-validation | ~500 |
