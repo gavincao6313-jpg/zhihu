@@ -330,6 +330,30 @@
       "last_seen": "2026-05-18T12:40:00+08:00"
     },
     {
+      "id": "bug-024",
+      "timestamp": "2026-05-19T13:00:00+08:00",
+      "error_message": "build_replay_gemini_parts 只取前 N 个 annotation 帧，后半段讲座标注画面缺失",
+      "file": "build_final_markdown.py",
+      "root_cause": "annot_frames[:remaining] 截头取样，200 annotation 事件只发前 59 帧给 Gemini，覆盖约前 30 分钟，2.5 小时无标注帧覆盖",
+      "fix": "改为均匀采样 annot_frames[::step][:remaining]，与 ctx_frames 策略一致，全时段分布覆盖",
+      "tags": ["gemini", "frame-sampling", "annotation", "build_final_markdown"],
+      "related_bugs": ["bug-022"],
+      "occurrences": 1,
+      "last_seen": "2026-05-19T13:00:00+08:00"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-05-19T13:00:00+08:00",
+      "error_message": "payload.json 中 frames 列表为空，Gemini 收到 0 张关键帧图片",
+      "file": "transcribe_replay.py",
+      "root_cause": "保存 payload.json 时主动过滤了 frames 键（if k != 'frames'），只保留 frames_count 数字。build_final_markdown.py 读取后 frames=[] → build_replay_gemini_parts 发送 0 张图片",
+      "fix": "在 ser 中显式写入 frames 列表：[{path, timestamp_s, marker} for f in payload['frames']]，frame 路径是纯字符串可序列化",
+      "tags": ["payload", "frames", "gemini", "transcribe_replay", "critical"],
+      "related_bugs": ["bug-022"],
+      "occurrences": 1,
+      "last_seen": "2026-05-19T13:00:00+08:00"
+    },
+    {
       "id": "bug-022",
       "timestamp": "2026-05-19T12:00:00+08:00",
       "error_message": "zhihu_url 回放输出质量 6.3/10，远低于 zhihu_file 的 8+/10",
