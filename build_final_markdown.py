@@ -138,7 +138,10 @@ def build_replay_gemini_parts(payload: dict, transcript_text: str,
     remaining = max_frames - len(selected)
 
     if remaining > 0:
-        selected += annot_frames[:remaining]
+        # Even sampling so annotation frames from the full video are represented,
+        # not just the first N from the opening section.
+        step = max(1, len(annot_frames) // remaining)
+        selected += annot_frames[::step][:remaining]
         remaining = max_frames - len(selected)
 
     if remaining > 0 and ctx_frames:
