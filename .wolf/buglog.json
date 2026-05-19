@@ -148,19 +148,101 @@
     },
     {
       "id": "bug-010",
-      "timestamp": "2026-05-17T18:35:00+08:00",
-      "error_message": "GitNexus detect_changes failed for /private/tmp/zhihu-local-transcript: Repository not found",
-      "file": "GitNexus index",
-      "root_cause": "GitNexus index knows the repo as zhihu, not the temporary worktree path.",
-      "fix": "Used the indexed repo name zhihu for impact checks and kept manual diff/verification in the worktree.",
+      "timestamp": "2026-05-17T02:28:52Z",
+      "error_message": "git worktree add /private/tmp/zhihu-stream-validation feature/stream-transcript-validation failed with: fatal: could not create leading directories of '.git/worktrees/zhihu-stream-validation': Operation not permitted",
+      "file": ".git/worktrees",
+      "root_cause": "Sandbox blocked Git from creating worktree metadata under the repository .git directory.",
+      "fix": "Reran the same git worktree command with explicit user-approved escalation; temporary worktree was created successfully.",
       "tags": [
-        "gitnexus",
-        "worktree",
-        "impact-analysis"
+        "sandbox",
+        "git-worktree",
+        "stream-validation"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-17T18:35:00+08:00"
+      "last_seen": "2026-05-17T02:28:52Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-05-17T10:34:59+08:00",
+      "error_message": "Mac hardware cannot support the complete replay-stream validation run",
+      "file": "runs/windows-stream-replay-validation-20260517.md",
+      "root_cause": "The full replay source is about 02:42:53 long, and local CPU Whisper validation is expected to take multiple hours on Mac.",
+      "fix": "Stopped Mac-side full validation and created a Windows handoff with branch, ffprobe result, and command instructions.",
+      "tags": [
+        "stream-validation",
+        "hardware",
+        "windows-handoff"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T10:34:59+08:00"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-05-17T10:39:00+08:00",
+      "error_message": "pre-commit rejected mixed commit: avoid mixing code/collaboration docs with runs/*.md",
+      "file": "githooks/pre-commit",
+      "root_cause": "The staged change mixed OpenWolf memory files with a new runs/*.md Windows handoff report.",
+      "fix": "Unstaged the mixed change and split into separate commits.",
+      "tags": [
+        "pre-commit",
+        "commit-policy",
+        "runs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T10:39:00+08:00"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-05-17T18:03:17+08:00",
+      "error_message": "Whisper audio transcription quality is poor for the completed stream replay transcript",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "The current stream replay runner uses the Whisper-compatible backend, which produced lower-quality Chinese lecture transcripts than the Windows SenseVoice probe.",
+      "fix": "Not fixed yet. Analyze Windows SenseVoice validation and add FunASR SenseVoice as an optional backend with Whisper fallback and domain glossary normalization.",
+      "tags": [
+        "asr",
+        "whisper",
+        "sensevoice",
+        "stream-validation"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T18:03:17+08:00"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-17T18:03:17+08:00",
+      "error_message": "Windows report says stream slicing retry code and sensevoice_probe.py were used, but pushed branch contains only reports and no corresponding code files",
+      "file": "origin/feature/stream-transcript-validation",
+      "root_cause": "Validation code appears to have stayed local on Windows or was not included in the pushed commits.",
+      "fix": "Fixed by Windows commit 5371c70, which added sensevoice_probe.py and hardened zhihuTTS_stream.py slice retries.",
+      "tags": [
+        "windows-handoff",
+        "missing-code",
+        "stream-validation",
+        "sensevoice"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T18:14:04+08:00"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-17T18:14:04+08:00",
+      "error_message": "python3 -m py_compile - failed with: No such file or directory",
+      "file": "shell command",
+      "root_cause": "Used py_compile with '-' as if it accepted source code from stdin; py_compile treats '-' as a file path.",
+      "fix": "Re-ran syntax checks by loading git show output in python and calling compile(source, filename, 'exec').",
+      "tags": [
+        "validation-command",
+        "python",
+        "operator-error"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T18:14:04+08:00"
     }
   ]
 }

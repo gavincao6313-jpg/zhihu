@@ -182,8 +182,6 @@ def transcript_backend_matches(transcript: dict) -> bool:
     if requested in ("cpu", "whispercpp", "whispercpp-vulkan"):
         return actual in (requested, "whispercpp-vulkan" if requested == "whispercpp" else requested)
     return actual == requested
-
-
 def _normalize_transcript_text(text: str) -> str:
     """Normalize recurring ASR spellings for project-domain terms."""
     normalized = str(text or "").strip()
@@ -308,10 +306,14 @@ def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
 
     device = os.environ.get("SENSEVOICE_DEVICE", "cpu")
     batch_size_s = int(os.environ.get("SENSEVOICE_BATCH_SIZE_S", "60"))
+    # merge_vad=False preserves VAD segment boundaries → sentence_info timestamps are accurate.
+    # Set SENSEVOICE_MERGE_VAD=true only for short clips where text coherence matters more than precision.
+    merge_vad = os.environ.get("SENSEVOICE_MERGE_VAD", "false").lower() in ("1", "true", "yes")
     merge_length_s = int(os.environ.get("SENSEVOICE_MERGE_LENGTH_S", "15"))
     print(
         f"  [SenseVoice] 加载 {SENSEVOICE_MODEL} "
-        f"(vad={SENSEVOICE_VAD_MODEL}, device={device})..."
+        f"(vad={SENSEVOICE_VAD_MODEL}, device={device}, merge_vad={merge_vad})..."
+    )
     )
     model = AutoModel(
         model=SENSEVOICE_MODEL,
@@ -319,19 +321,30 @@ def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
         device=device,
         disable_update=True,
     )
-    result = model.generate(
+    _gen_kwargs: dict = dict(
         input=str(wav_path),
         cache={},
         language=language,
         use_itn=True,
         batch_size_s=batch_size_s,
-        merge_vad=True,
-        merge_length_s=merge_length_s,
+        merge_vad=merge_vad,
     )
+    if merge_vad:
+        _gen_kwargs["merge_length_s"] = merge_length_s
+    result = model.generate(**_gen_kwargs)
     duration_s = _audio_duration_s(wav_path)
     segments = _sensevoice_segments(result, duration_s)
     if not segments:
-        raise RuntimeError("SenseVoice 未返回有效转写文本")
+        print("  [SenseVoice] 无语音，跳过此切片", flush=True)
+        return {
+            "segments": [],
+            "sensevoice": {
+                "model": SENSEVOICE_MODEL,
+                "vad_model": SENSEVOICE_VAD_MODEL,
+                "device": device,
+                "duration_s": duration_s,
+            },
+        }
     print(f"  [SenseVoice] 转写完成: {len(segments)} 个片段", flush=True)
     return {
         "segments": segments,
@@ -546,7 +559,17 @@ def frame_marker(frame_path: Path, events: list[dict]) -> str:
     """生成 Gemini 图片前置元数据标记。"""
     match = re.search(r"frame_(\d+)", frame_path.stem)
     timestamp_s = int(match.group(1)) if match else 0
-    event = next((e for e in events if e.get("frame_idx") == timestamp_s), None)
+    # ffmpeg %05d filenames are 1-based; events use 0-based frame_idx.
+    # Slide/annotation "last" frames: filename N+1 → frame_idx N (try ts-1 first).
+    # Annotation "before" frames: filename N → frame_idx N (fallback to ts).
+    event = next(
+        (e for e in events
+         if e.get("frame_idx") == timestamp_s - 1
+         and e.get("type") in ("slide", "annotation")),
+        None,
+    )
+    if event is None:
+        event = next((e for e in events if e.get("frame_idx") == timestamp_s), None)
     if event:
         return (
             f"Frame [{_fmt_ts(timestamp_s)}] "

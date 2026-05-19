@@ -7,6 +7,15 @@ Videos/
 # 本地预处理缓存
 cache/
 
+# 本机/工具运行遥测（不作为跨机器协作事实）
+.wolf/hooks/_session.json
+.wolf/token-ledger.json
+.wolf/cron-state.json
+.wolf/designqc-report.json
+.wolf/suggestions.json
+.gitnexus/
+graphify-out/
+
 # 进度 & 配额（.progress.json 用 git 同步）
 .progress.tmp.json
 .progress.json.tmp
