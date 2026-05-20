@@ -12,12 +12,14 @@ from urllib.parse import quote
 from google import genai
 from google.genai import types
 
+VIDEOS_DIR = Path(__file__).parent / "Videos"
 PARTS_DIR = Path(__file__).parent / "Videos" / "parts"
 MARKDOWNS_DIR = Path(__file__).parent / "Markdowns"
 PROGRESS_FILE = Path(__file__).parent / ".progress.json"
 LOG_FILE = Path(__file__).parent / "zhihuTTS.log"
 
-MAX_RETRIES = 6
+MAX_RETRIES = 12
+CHUNK_SECS = int(os.environ.get("CHUNK_SECS", "3600"))  # <60min 整段处理，>60min 按此切分
 RETRY_DELAY = 65      # seconds，覆盖免费层 ~58s 限流窗口
 PART_INTERVAL = 65    # 片段间强制等待，避免触发每分钟 token 限额
 UPLOAD_WORKERS = 2    # 并发上传数，保护代理带宽
@@ -114,6 +116,57 @@ def group_parts(parts_dir: Path) -> dict[str, list[Path]]:
     for parts in groups.values():
         parts.sort(key=lambda p: int(m.group(1)) if (m := re.search(r'part(\d+)', p.stem, re.IGNORECASE)) else 0)
     return dict(sorted(groups.items()))
+
+
+def probe_duration(path: Path) -> float:
+    """用 ffprobe 探测视频时长（秒），失败返回 0。"""
+    try:
+        result = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
+            capture_output=True, text=True, timeout=30,
+        )
+        return float(result.stdout.strip())
+    except Exception:
+        return 0.0
+
+
+def auto_split(video_path: Path) -> list[Path]:
+    """
+    时长 <= CHUNK_SECS：直接返回 [video_path]，1 次 API 调用。
+    时长 >  CHUNK_SECS：ffmpeg 切成 CHUNK_SECS 长度的段，存入 Videos/parts/<stem>/。
+    """
+    duration = probe_duration(video_path)
+    if duration <= CHUNK_SECS:
+        tprint(f"  [{video_path.name}] {duration/60:.1f} min，整段处理（1 次 API 调用）")
+        return [video_path]
+
+    parts_subdir = video_path.parent / "parts" / video_path.stem
+    parts_subdir.mkdir(parents=True, exist_ok=True)
+
+    existing = sorted(parts_subdir.glob(f"{video_path.stem}_part*.mp4"))
+    if existing:
+        tprint(f"  [{video_path.name}] 已有 {len(existing)} 个切片，跳过重切")
+        return existing
+
+    n_parts = -(-int(duration) // CHUNK_SECS)  # ceil division
+    tprint(f"  [{video_path.name}] {duration/60:.1f} min，切成 {n_parts} 段（每段 {CHUNK_SECS//60} min）...")
+    pattern = parts_subdir / f"{video_path.stem}_part%03d.mp4"
+    subprocess.run(
+        ["ffmpeg", "-i", str(video_path), "-c", "copy", "-map", "0",
+         "-segment_time", str(CHUNK_SECS), "-f", "segment",
+         "-reset_timestamps", "1", str(pattern)],
+        check=True,
+    )
+    return sorted(parts_subdir.glob(f"{video_path.stem}_part*.mp4"))
+
+
+def collect_videos(videos_dir: Path) -> dict[str, list[Path]]:
+    """扫描 Videos/*.mp4，按需自动切片，返回 {视频名: [part路径, ...]}。"""
+    groups = {}
+    for mp4 in sorted(videos_dir.glob("*.mp4")):
+        groups[mp4.stem] = auto_split(mp4)
+    return groups
 
 
 class _ProgressFile(io.RawIOBase):
@@ -384,8 +437,12 @@ def main():
     _setup_logging()
     _logger.info("=" * 60 + " 任务开始")
 
-    caffeinate = subprocess.Popen(["caffeinate", "-i"])
-    print("  [防休眠] caffeinate 已启动，电脑不会进入睡眠。")
+    caffeinate = None
+    try:
+        caffeinate = subprocess.Popen(["caffeinate", "-i"])
+        print("  [防休眠] caffeinate 已启动，电脑不会进入睡眠。")
+    except FileNotFoundError:
+        print("  [防休眠] caffeinate 不可用（非 macOS），跳过。")
 
     try:
         base_url = os.environ.get("GEMINI_BASE_URL", "")
@@ -396,9 +453,9 @@ def main():
         client = genai.Client(api_key=api_key, http_options=http_opts)
         MARKDOWNS_DIR.mkdir(exist_ok=True)
 
-        groups = group_parts(PARTS_DIR)
+        groups = collect_videos(VIDEOS_DIR)
         if not groups:
-            print(f"在 {PARTS_DIR} 下没有找到 *_part*.mp4 文件。")
+            print(f"在 {VIDEOS_DIR} 下没有找到 .mp4 文件。")
             return
 
         progress = load_progress()
@@ -419,8 +476,9 @@ def main():
         total_failed = sum(1 for v in progress.values() if v == "failed")
         print(f"\n全部完成。成功: {total_done}，失败: {total_failed}")
     finally:
-        caffeinate.terminate()
-        print("  [防休眠] caffeinate 已关闭。")
+        if caffeinate:
+            caffeinate.terminate()
+            print("  [防休眠] caffeinate 已关闭。")
 
 
 if __name__ == "__main__":
