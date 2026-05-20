@@ -119,8 +119,7 @@ echo.
   --chunk-duration 60 ^
   --stream-work-dir "!STREAM_WORK_DIR!" ^
   --cleanup-slices ^
-  --name "!NAME!" ^
-  --gemini
+  --name "!NAME!"
 
 echo.
 if errorlevel 1 (
