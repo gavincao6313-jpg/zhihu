@@ -197,6 +197,8 @@ def transcript_backend_matches(transcript: dict) -> bool:
     if requested in ("cpu", "whispercpp", "whispercpp-vulkan"):
         return actual in (requested, "whispercpp-vulkan" if requested == "whispercpp" else requested)
     return actual == requested
+
+
 def _normalize_transcript_text(text: str) -> str:
     """Normalize recurring ASR spellings for project-domain terms."""
     normalized = str(text or "").strip()
