@@ -80,6 +80,19 @@ PROMPT_TEXT = """
 
 # 执行要求
 由于视频长达 2-3 小时，信息量极大。请保持极高的专注度，不要省略中间章节。如果你的输出达到了字数上限，请停在当前完整的段落，我会回复"继续"，你再接着上文输出。
+
+# 已知 ASR 转写纠错表（仅供参考，请根据上下文判断）
+逐字稿由自动语音识别（ASR）生成，以下中文专有名词可能存在同音错字，请在提取时根据上下文修正：
+- "通益零码" / "通一零码" / "通通一零码" → 通义灵码 (TONGYI Lingma，阿里巴巴智能编码助手)
+- "通一千问" / "通益千问" → 通义千问 (TONGYI Qianwen，阿里大模型)
+- "A to A" → A2A (Agent-to-Agent 协议)
+- "常高体" → 常高伟 (ANP 开源社区发起人)
+- "曹荣宇" → 曹荣禹 (通义灵码算法工程师)
+- "于海洋" → 余海洋 (阿里通义实验室算法专家)
+- "通益实验室" / "通一实验室" → 通义实验室 (阿里巴巴通义实验室)
+- "AIAI" → AAAI (人工智能顶级会议)
+- "云百炼" / "阿里百炼" → 阿里云百炼
+请以修正后的正确名称为准，输出到 Markdown 中。
 """
 
 _logger = logging.getLogger("zhihuTTS")
@@ -620,6 +633,10 @@ def main():
                         help="回填时忽略已有逐字稿缓存，使用当前 TRANSCRIBE_BACKEND 重新转写")
     parser.add_argument("--refresh-transcripts", action="store_true",
                         help="回填时替换已有完整逐字稿附录，而不是跳过")
+    parser.add_argument("--reprocess", type=int, nargs="?", const=0, default=None,
+                        help="强制重跑已完成视频（忽略进度标记）。可选参数 N 限制数量，如 --reprocess 10")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="仅列出将处理的视频，不实际执行")
     args = parser.parse_args()
 
     _setup_logging()
@@ -655,18 +672,36 @@ def main():
         )
 
     pending = {}
+    reprocess_mode = args.reprocess is not None
+    reprocess_limit = args.reprocess if args.reprocess else None  # 0 or None = unlimited
+
     for k, v in videos.items():
         entry = progress["videos"].get(k, {})
         if entry.get("status") == "done":
-            # 兼容历史输出格式：当前是 TTS_MMDD_<stem>.md，过去可能直接 <stem>.md
-            if not any(MARKDOWNS_DIR.glob(f"*{k}.md")):
-                tprint(f"  ⚠ {k} 标记完成但 .md 文件缺失（可能被人为删除），重新处理")
-                progress["videos"].pop(k, None)
+            if reprocess_mode:
                 pending[k] = v
+            else:
+                # 兼容历史输出格式：当前是 TTS_MMDD_<stem>.md，过去可能直接 <stem>.md
+                if not any(MARKDOWNS_DIR.glob(f"*{k}.md")):
+                    tprint(f"  ⚠ {k} 标记完成但 .md 文件缺失（可能被人为删除），重新处理")
+                    progress["videos"].pop(k, None)
+                    pending[k] = v
         else:
             pending[k] = v
+
+    if reprocess_mode and reprocess_limit and reprocess_limit > 0:
+        pending = dict(list(pending.items())[:reprocess_limit])
+        print(f"♻ 重跑模式: 强制重新处理已完成视频，限制 {reprocess_limit} 个")
+
     if not pending:
         print("所有视频已处理完毕！\n")
+        return
+
+    if args.dry_run:
+        print(f"\n  [dry-run] 将处理 {len(pending)} 个视频:\n")
+        for i, k in enumerate(pending, 1):
+            print(f"  {i}. {k}")
+        print()
         return
 
     # ── 检查今日配额 ──
