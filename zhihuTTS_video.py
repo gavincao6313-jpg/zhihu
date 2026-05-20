@@ -42,6 +42,7 @@ SENSEVOICE_MODEL = os.environ.get("SENSEVOICE_MODEL", "iic/SenseVoiceSmall")
 SENSEVOICE_VAD_MODEL = os.environ.get("SENSEVOICE_VAD_MODEL", "fsmn-vad")
 
 GLOSSARY_PATTERNS = [
+    # 英文缩写规范化
     (r"\bapi\b", "API"),
     (r"\bmcp\b", "MCP"),
     (r"\bcli\b", "CLI"),
@@ -53,6 +54,20 @@ GLOSSARY_PATTERNS = [
     (r"\bcloud\s+coldword\b", "Claude Code"),
     (r"克拉\s*code", "Claude Code"),
     (r"叉\s*code", "Cursor"),
+    # SenseVoice 中文专有名词纠错（同音/近音错字）
+    (r"通益零码|通通?一零码|通一灵码", "通义灵码"),
+    (r"通一千问|通益千问|通一千万", "通义千问"),
+    (r"阿里云百炼|阿里百炼", "阿里云百炼"),
+    (r"A\s*to\s*A(?!\w)", "A2A"),
+    (r"曹荣宇", "曹荣禹"),
+    (r"常高体", "常高伟"),
+    (r"于海洋(?=\s*(?:。|，|、|来|在|今|我|是))", "余海洋"),
+    (r"通益实验室|通一实验室", "通义实验室"),
+    # 常见学术/技术名词纠正
+    (r"\bAIAI\b(?!\s)", "AAAI"),
+    (r"swe\s*bench?n?c?h?\b", "SWE-bench"),
+    (r"code\s*bench", "Codev-Bench"),
+    (r"lingma\s*swe", "Lingma-SWE"),
 ]
 
 
@@ -162,10 +177,26 @@ def _normalize_transcribe_backend(value: str) -> str:
 
 
 def requested_transcribe_backend() -> str:
-    """Return the requested ASR backend."""
+    """Return the requested ASR backend for cache compatibility checks."""
     return _normalize_transcribe_backend(
         os.environ.get("TRANSCRIBE_BACKEND", DEFAULT_TRANSCRIBE_BACKEND)
     )
+
+
+def transcript_backend_matches(transcript: dict) -> bool:
+    """Whether a cached transcript was produced by the currently requested backend."""
+    requested = requested_transcribe_backend()
+    raw_actual = str(transcript.get("backend_used", "")).strip()
+    if not raw_actual:
+        return False
+    actual = _normalize_transcribe_backend(raw_actual)
+    if requested == "auto":
+        return bool(actual)
+    if requested == "sensevoice":
+        return actual == "sensevoice"
+    if requested in ("cpu", "whispercpp", "whispercpp-vulkan"):
+        return actual in (requested, "whispercpp-vulkan" if requested == "whispercpp" else requested)
+    return actual == requested
 
 
 def _normalize_transcript_text(text: str) -> str:
