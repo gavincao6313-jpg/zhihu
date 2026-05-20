@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-20T03:15:35.815Z
-> Files: 48 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-20T07:24:53.642Z
+> Files: 49 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -11,12 +11,14 @@
 - `.wolf/buglog.json` — OpenWolf bug/error log with prior environment and validation issues (~423 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `COLLABORATION.md` — 协作流程 (~321 tok)
+- `extract_slides.py` — extract_slides, main (~2128 tok)
 - `GeminiModelList.py` — 获取 API Key (~275 tok)
 - `readme` (~3 tok)
 - `requirements.txt` — Python dependencies (~19 tok)
 - `zhihu.code-workspace` (~31 tok)
-- `zhihuTTS_video.py` — analyze_frames, extract_keyframes, requested_transcribe_backend, transcript_backend_matches (~7139 tok)
-- `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~8346 tok)
+- `extract_slides.py` — 从已处理视频提取幻灯片：读 manifest.json 事件 → ffmpeg 高清抽帧 → 去重 → Slides/<stem>/slides.pdf + slides.pptx (~2800 tok)
+- `zhihuTTS_video.py` — analyze_frames, extract_keyframes, requested_transcribe_backend, transcript_backend_matches (~7387 tok)
+- `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~8552 tok)
 
 ## .claude/
 
