@@ -40,6 +40,12 @@ TMP_DIR = Path(__file__).parent / "Videos" / ".tmp"
 DEFAULT_TRANSCRIBE_BACKEND = "sensevoice"
 SENSEVOICE_MODEL = os.environ.get("SENSEVOICE_MODEL", "iic/SenseVoiceSmall")
 SENSEVOICE_VAD_MODEL = os.environ.get("SENSEVOICE_VAD_MODEL", "fsmn-vad")
+SENSEVOICE_HOTWORDS = os.environ.get(
+    "SENSEVOICE_HOTWORDS",
+    "通义灵码 通义千问 通义实验室 阿里云百炼 Claude Code MiniMax Agent "
+    "RAG MCP CLI API A2A SWE-bench 曹荣禹 常高伟 余海洋 AAAI Lingma-SWE",
+)
+_EMOTION_RE = re.compile(r"<\|(NEUTRAL|HAPPY|SAD|ANGRY|FEARFUL|DISGUST|SURPRISED)\|>")
 
 GLOSSARY_PATTERNS = [
     # 英文缩写规范化
@@ -268,6 +274,14 @@ def _funasr_time_to_seconds(value, duration_s: float) -> float:
     return max(0.0, seconds)
 
 
+def _extract_emotion(raw: str) -> str | None:
+    """Return lowercase emotion label from SenseVoice raw text, or None if NEUTRAL/absent."""
+    m = _EMOTION_RE.search(raw)
+    if m and m.group(1) != "NEUTRAL":
+        return m.group(1).lower()
+    return None
+
+
 def _sensevoice_segments(result: list[dict], duration_s: float) -> list[dict]:
     from funasr.utils.postprocess_utils import rich_transcription_postprocess
 
@@ -277,16 +291,19 @@ def _sensevoice_segments(result: list[dict], duration_s: float) -> list[dict]:
         sentence_info = item.get("sentence_info") if isinstance(item, dict) else None
         if isinstance(sentence_info, list) and sentence_info:
             for sentence in sentence_info:
-                text = _normalize_transcript_text(
-                    rich_transcription_postprocess(str(sentence.get("text", "")))
-                )
+                raw_text = str(sentence.get("text", ""))
+                emotion = _extract_emotion(raw_text)
+                text = _normalize_transcript_text(rich_transcription_postprocess(raw_text))
                 if not text:
                     continue
                 start = _funasr_time_to_seconds(sentence.get("start"), duration_s)
                 end = _funasr_time_to_seconds(sentence.get("end"), duration_s)
                 if end <= start:
                     end = start
-                segments.append({"start": start, "end": end, "text": text, "words": []})
+                seg = {"start": start, "end": end, "text": text, "words": []}
+                if emotion:
+                    seg["emotion"] = emotion
+                segments.append(seg)
             continue
 
         raw_text = str(item.get("text", "")) if isinstance(item, dict) else str(item)
@@ -347,6 +364,8 @@ def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
     )
     if merge_vad:
         _gen_kwargs["merge_length_s"] = merge_length_s
+    if SENSEVOICE_HOTWORDS:
+        _gen_kwargs["hotword"] = SENSEVOICE_HOTWORDS
     result = model.generate(**_gen_kwargs)
     duration_s = _audio_duration_s(wav_path)
     segments = _sensevoice_segments(result, duration_s)
@@ -560,7 +579,9 @@ def transcript_to_text(transcript: dict) -> str:
     lines = []
     for seg in transcript["segments"]:
         ts = f"[{_fmt_ts(seg['start'])} - {_fmt_ts(seg['end'])}]"
-        lines.append(f"{ts} {seg['text']}")
+        emotion = seg.get("emotion")
+        suffix = f" [情绪:{emotion}]" if emotion else ""
+        lines.append(f"{ts} {seg['text']}{suffix}")
     return "\n".join(lines)
 
 

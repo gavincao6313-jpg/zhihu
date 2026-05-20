@@ -36,7 +36,9 @@ TRANSCRIPT_APPENDIX_HEADING = "## 附录：完整逐字稿"
 MAX_RETRIES = 6
 RETRY_DELAY = 65
 DAILY_QUOTA_LIMIT = 20
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-pro")
+_GEMINI_MODEL_FALLBACK = "gemini-2.5-flash"
+_gemini_model_active = [GEMINI_MODEL]  # mutable singleton for runtime fallback
 
 PROMPT_TEXT = """
 # 角色与目标
@@ -138,16 +140,17 @@ def _call_gemini_with_retry(client, parts, video_label) -> dict:
     """调用 Gemini API，含自动续写（MAX_TOKENS）和重试（限流/网络错误）。"""
     gemini_config = types.GenerateContentConfig(
         temperature=0.1,
-        max_output_tokens=65536,  # gemini-2.5-flash 的最大输出上限
-        thinking_config=types.ThinkingConfig(thinking_budget=0),
+        max_output_tokens=65536,
+        thinking_config=types.ThinkingConfig(thinking_budget=8192),
     )
 
     gemini_calls = 0
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            tprint(f"[{video_label}] 发送至 Gemini API（{len(parts)} 个输入块）...")
+            model_now = _gemini_model_active[0]
+            tprint(f"[{video_label}] 发送至 Gemini API ({model_now}，{len(parts)} 个输入块)...")
             # 用 chat session 保留多轮上下文，续写时无需手动拼 contents
-            chat = client.chats.create(model=GEMINI_MODEL, config=gemini_config)
+            chat = client.chats.create(model=model_now, config=gemini_config)
             gemini_calls += 1
             response = chat.send_message(parts)
             text = _safe_text(response)
@@ -181,8 +184,17 @@ def _call_gemini_with_retry(client, parts, video_label) -> dict:
             return {"text": full_text, "gemini_calls": gemini_calls}
 
         except Exception as e:
-            is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
-            is_ssl_error = "SSL" in str(e) or "ConnectError" in str(e) or "UNEXPECTED_EOF" in str(e)
+            err_str = str(e)
+            is_rate_limited = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
+            is_ssl_error = "SSL" in err_str or "ConnectError" in err_str or "UNEXPECTED_EOF" in err_str
+            is_model_unavailable = (
+                "404" in err_str or "not found" in err_str.lower()
+                or "MODEL_NOT_FOUND" in err_str or "not supported" in err_str.lower()
+            )
+            if is_model_unavailable and _gemini_model_active[0] != _GEMINI_MODEL_FALLBACK:
+                tprint(f"[{video_label}] {_gemini_model_active[0]} 不可用，降级到 {_GEMINI_MODEL_FALLBACK}")
+                _gemini_model_active[0] = _GEMINI_MODEL_FALLBACK
+                continue  # 立即重试，不等待
             if is_rate_limited:
                 delay = _parse_retry_delay(e)
                 tprint(f"[{video_label}] 触发限流（429），{delay}s 后重试...")
