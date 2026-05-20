@@ -265,3 +265,5 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 22:45 | Edited ../../../../private/tmp/zhihu-stream-validation/.gitignore | 4→7 lines | ~30 |
+| 11:14 | Edited zhihuTTS_video.py | modified _normalize_transcript_text() | ~24 |
+| 11:15 | Edited zhihuTTS.py | 10→14 lines | ~208 |
