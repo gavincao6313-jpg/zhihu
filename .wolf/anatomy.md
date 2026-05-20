@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-16T06:22:45.280Z
-> Files: 37 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-20T03:15:35.815Z
+> Files: 48 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -15,8 +15,8 @@
 - `readme` (~3 tok)
 - `requirements.txt` — Python dependencies (~19 tok)
 - `zhihu.code-workspace` (~31 tok)
-- `zhihuTTS_video.py` — analyze_frames, extract_keyframes, transcribe_audio, transcript_to_text (~3693 tok)
-- `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~3869 tok)
+- `zhihuTTS_video.py` — analyze_frames, extract_keyframes, requested_transcribe_backend, transcript_backend_matches (~7139 tok)
+- `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~8346 tok)
 
 ## .claude/
 
@@ -59,12 +59,12 @@
 - `原理_A15_AI视频原理求索-类Sora模型：解锁动态视觉艺术的密码_1080P.md` — 原理_A15_AI视频原理求索-类Sora模型：解锁动态视觉艺术的密码_1080P (~16884 tok)
 - `原理_A16_以Llama 和GLM 为首的开源生态追赶OpenAI的真实进程_1080P.md` — 原理_A16_以Llama 和GLM 为首的开源生态追赶OpenAI的真实进程_1080P (~11787 tok)
 - `原理_A17_超级引擎：英伟达GPU与CUDA相关的必备知识点_1080P.md` — 原理_A17_超级引擎：英伟达GPU与CUDA相关的必备知识点_1080P (~11565 tok)
-- `TTS_0516_RAG_04_【盛茂家】火山引擎 VikingDB 向量数据库和知识库的实践.md` — RAG_04 火山引擎 VikingDB (~18000 tok)
 - `TTS_0516_产品设计运营_03_【汪源】GenAI的创新逻辑与趋势.md` — 产品设计运营_03 GenAI创新逻辑 (~9000 tok)
 - `TTS_0516_产品设计运营_04_【Frank Nee】中国产品如何出海.md` — 产品设计运营_04 中国产品出海 (~14000 tok)
 - `TTS_0516_产品设计运营_05_【柯杰】钉钉 AI 助理平台核心技术实践.md` — 产品设计运营_05 钉钉AI助理 (~12000 tok)
 - `TTS_0516_产品设计运营_06_【庄稼】水果篮子的启示—如何针对市场端开发和包装人工智能应用.md` — 产品设计运营_06 水果篮子启示 (~10000 tok)
 - `TTS_0516_产品设计运营_07_【idoubi】使用 ShipAny 快速开发 AI SaaS 项目.md` — 产品设计运营_07 ShipAny (~8000 tok)
+- `TTS_0516_RAG_04_【盛茂家】火山引擎 VikingDB 向量数据库和知识库的实践.md` — RAG_04 火山引擎 VikingDB (~18000 tok)
 
 ## docs/
 
@@ -74,14 +74,9 @@
 - `STREAM_AUTOMATION_PLAN_20260517.md` — Discussion record and engineering plan for replacing manual stream URL capture with Python yt-dlp/Playwright extractors and later supervisor logic (~950 tok)
 - `WHISPER_BACKEND_IMPROVEMENT_PLAN.md` — Mac/Windows handoff plan for CPU transcription optimization, whisper.cpp CLI Vulkan backend, D-drive temp files, caching, and run reports (~2150 tok)
 
-- `WINDOWS_RUNBOOK.md` | Windows Run Owner workflow, safe whisper env vars, whisper.cpp paths, failure playbooks, cache expectations (~430 tok)
-
-## runs/
-
-- `windows-whispercpp-validation-20260516.md` | Windows validation report for Mac whisper.cpp backend pull, backend result, cache reuse, generated outputs, and environment notes (~500 tok)
-- `windows-code-upgrade-retro-20260516.md` | Windows retro covering Mac code upgrade context, validation reasoning, MAX_TOKENS follow-up, errors, and next action (~900 tok)
-- `windows-stream-replay-validation-20260517.md` | Windows handoff for complete replay-stream validation, Mac ffprobe result, branch/command instructions, and secret-handling notes (~450 tok)
-
 ## githooks/
 
 - `pre-commit` — zhihuTTS 角色检查 hook (~338 tok)
+
+## runs/
+
