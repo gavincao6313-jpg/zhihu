@@ -182,9 +182,13 @@ def _call_gemini_with_retry(client, parts, video_label) -> dict:
 
         except Exception as e:
             is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
+            is_ssl_error = "SSL" in str(e) or "ConnectError" in str(e) or "UNEXPECTED_EOF" in str(e)
             if is_rate_limited:
                 delay = _parse_retry_delay(e)
                 tprint(f"[{video_label}] 触发限流（429），{delay}s 后重试...")
+            elif is_ssl_error:
+                delay = RETRY_DELAY * 2
+                tprint(f"[{video_label}] SSL/网络连接错误，{delay}s 后重试: {e}")
             else:
                 delay = RETRY_DELAY
                 with _print_lock:
