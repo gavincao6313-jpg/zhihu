@@ -119,7 +119,7 @@ def group_parts(parts_dir: Path) -> dict[str, list[Path]]:
 
 
 def probe_duration(path: Path) -> float:
-    """用 ffprobe 探测视频时长（秒），失败返回 0。"""
+    """用 ffprobe 探测视频时长（秒），失败返回 0 并记录原因。"""
     try:
         result = subprocess.run(
             ["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -127,7 +127,11 @@ def probe_duration(path: Path) -> float:
             capture_output=True, text=True, timeout=30,
         )
         return float(result.stdout.strip())
-    except Exception:
+    except FileNotFoundError:
+        tprint(f"  [{path.name}] ffprobe 不在 PATH，无法探测时长，整段处理", level="warning")
+        return 0.0
+    except (subprocess.TimeoutExpired, ValueError) as e:
+        tprint(f"  [{path.name}] ffprobe 探测失败 ({e})，整段处理", level="warning")
         return 0.0
 
 
@@ -149,7 +153,8 @@ def auto_split(video_path: Path) -> list[Path]:
         tprint(f"  [{video_path.name}] 已有 {len(existing)} 个切片，跳过重切")
         return existing
 
-    n_parts = -(-int(duration) // CHUNK_SECS)  # ceil division
+    import math
+    n_parts = math.ceil(duration / CHUNK_SECS)
     tprint(f"  [{video_path.name}] {duration/60:.1f} min，切成 {n_parts} 段（每段 {CHUNK_SECS//60} min）...")
     pattern = parts_subdir / f"{video_path.stem}_part%03d.mp4"
     subprocess.run(
@@ -434,7 +439,7 @@ def main():
         print("  [警告] UPLOAD_MODE=file_uri 未检测到 HTTPS_PROXY，Google API 可能无法访问。")
         print("  请先执行: export HTTPS_PROXY=http://127.0.0.1:7897")
 
-    _setup_logging()
+    _setup_logging()  # 必须在 collect_videos() 前，确保切片阶段日志写入文件
     _logger.info("=" * 60 + " 任务开始")
 
     caffeinate = None
