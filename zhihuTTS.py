@@ -16,6 +16,8 @@ from zhihuTTS_video import (
     extract_keyframes,
     transcribe_audio,
     transcript_to_text,
+    requested_transcribe_backend,
+    transcript_backend_matches,
     KEYFRAMES_DIR,
     frame_marker,
 )
@@ -29,6 +31,7 @@ TRANSCRIPT_CACHE_DIR = CACHE_DIR / "transcripts"
 KEYFRAME_CACHE_DIR = CACHE_DIR / "keyframes"
 PAYLOAD_CACHE_DIR = CACHE_DIR / "payloads"
 RUNS_DIR = Path(__file__).parent / "runs"
+TRANSCRIPT_APPENDIX_HEADING = "## 附录：完整逐字稿"
 
 MAX_RETRIES = 6
 RETRY_DELAY = 65
@@ -77,6 +80,19 @@ PROMPT_TEXT = """
 
 # 执行要求
 由于视频长达 2-3 小时，信息量极大。请保持极高的专注度，不要省略中间章节。如果你的输出达到了字数上限，请停在当前完整的段落，我会回复"继续"，你再接着上文输出。
+
+# 已知 ASR 转写纠错表（仅供参考，请根据上下文判断）
+逐字稿由自动语音识别（ASR）生成，以下中文专有名词可能存在同音错字，请在提取时根据上下文修正：
+- "通益零码" / "通一零码" / "通通一零码" → 通义灵码 (TONGYI Lingma，阿里巴巴智能编码助手)
+- "通一千问" / "通益千问" → 通义千问 (TONGYI Qianwen，阿里大模型)
+- "A to A" → A2A (Agent-to-Agent 协议)
+- "常高体" → 常高伟 (ANP 开源社区发起人)
+- "曹荣宇" → 曹荣禹 (通义灵码算法工程师)
+- "于海洋" → 余海洋 (阿里通义实验室算法专家)
+- "通益实验室" / "通一实验室" → 通义实验室 (阿里巴巴通义实验室)
+- "AIAI" → AAAI (人工智能顶级会议)
+- "云百炼" / "阿里百炼" → 阿里云百炼
+请以修正后的正确名称为准，输出到 Markdown 中。
 """
 
 _logger = logging.getLogger("zhihuTTS")
@@ -166,9 +182,13 @@ def _call_gemini_with_retry(client, parts, video_label) -> dict:
 
         except Exception as e:
             is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
+            is_ssl_error = "SSL" in str(e) or "ConnectError" in str(e) or "UNEXPECTED_EOF" in str(e)
             if is_rate_limited:
                 delay = _parse_retry_delay(e)
                 tprint(f"[{video_label}] 触发限流（429），{delay}s 后重试...")
+            elif is_ssl_error:
+                delay = RETRY_DELAY * 2
+                tprint(f"[{video_label}] SSL/网络连接错误，{delay}s 后重试: {e}")
             else:
                 delay = RETRY_DELAY
                 with _print_lock:
@@ -306,6 +326,14 @@ def _load_preprocess_cache(video_path: Path, video_label: str):
         tprint(f"[{video_label}] 预处理缓存不可用: {e}")
         return None
 
+    if not transcript_backend_matches(transcript):
+        cached_backend = transcript.get("backend_used") or "unknown"
+        tprint(
+            f"[{video_label}] 逐字稿缓存后端为 {cached_backend}，"
+            f"当前要求 {requested_transcribe_backend()}，重新预处理"
+        )
+        return None
+
     frames = [paths["keyframes"] / name for name in manifest.get("frames", [])]
     if not frames or any(not p.exists() for p in frames):
         tprint(f"[{video_label}] 关键帧缓存缺失，重新预处理")
@@ -335,12 +363,14 @@ def _save_preprocess_cache(video_path: Path, events: list[dict],
 
 
 def _save_payload_cache(video_path: Path, transcript_text: str,
-                        events: list[dict], kept_frames: list[Path]):
+                        events: list[dict], kept_frames: list[Path],
+                        backend_used: str | None = None):
     paths = _cache_paths(video_path)
     paths["payload"].parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "video_name": video_path.stem,
         "transcript_text": transcript_text,
+        "backend_used": backend_used,
         "frames": [
             {"path": str(fp), "marker": frame_marker(fp, events)}
             for fp in kept_frames
@@ -349,6 +379,142 @@ def _save_payload_cache(video_path: Path, transcript_text: str,
     }
     with open(paths["payload"], "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
+def _transcript_appendix(transcript_text: str) -> str:
+    return (
+        "\n\n---\n\n"
+        f"{TRANSCRIPT_APPENDIX_HEADING}\n\n"
+        "以下为本地转写得到的完整文字记录，保留时间戳，便于检索、复盘和重新生成摘要。\n\n"
+        "```text\n"
+        f"{transcript_text.rstrip()}\n"
+        "```\n"
+    )
+
+
+def _strip_transcript_appendix(markdown_text: str) -> str:
+    heading_index = markdown_text.find(TRANSCRIPT_APPENDIX_HEADING)
+    if heading_index < 0:
+        return markdown_text.rstrip()
+    separator = "\n\n---\n\n"
+    separator_index = markdown_text.rfind(separator, 0, heading_index)
+    if separator_index >= 0:
+        return markdown_text[:separator_index].rstrip()
+    return markdown_text[:heading_index].rstrip()
+
+
+def _load_transcript_text_for_backfill(video_path: Path, video_label: str,
+                                       transcribe_missing: bool,
+                                       force_transcribe: bool = False) -> tuple[str | None, str]:
+    paths = _cache_paths(video_path)
+
+    if paths["transcript"].exists() and not force_transcribe:
+        with open(paths["transcript"], "r", encoding="utf-8") as f:
+            transcript = json.load(f)
+        if transcript_backend_matches(transcript):
+            return transcript_to_text(transcript), "cache/transcripts"
+        cached_backend = transcript.get("backend_used") or "unknown"
+        if not transcribe_missing:
+            tprint(
+                f"[{video_label}] 逐字稿缓存后端为 {cached_backend}，"
+                f"当前要求 {requested_transcribe_backend()}，跳过"
+            )
+            return None, "backend_mismatch"
+        tprint(
+            f"[{video_label}] 逐字稿缓存后端为 {cached_backend}，"
+            f"当前要求 {requested_transcribe_backend()}，重新转写"
+        )
+
+    if paths["payload"].exists() and not force_transcribe:
+        with open(paths["payload"], "r", encoding="utf-8") as f:
+            payload = json.load(f)
+        transcript_text = payload.get("transcript_text", "")
+        payload_backend = payload.get("backend_used")
+        if transcript_text and payload_backend == requested_transcribe_backend():
+            return transcript_text, "cache/payloads"
+        if transcript_text and not transcribe_missing:
+            return None, "backend_mismatch"
+
+    if not transcribe_missing:
+        return None, "missing"
+
+    tprint(f"[{video_label}] 未找到逐字稿缓存，开始重新转写音频...")
+    transcript = transcribe_audio(video_path)
+    paths["transcript"].parent.mkdir(parents=True, exist_ok=True)
+    with open(paths["transcript"], "w", encoding="utf-8") as f:
+        json.dump(transcript, f, ensure_ascii=False, indent=2)
+    return transcript_to_text(transcript), "transcribed"
+
+
+def _find_markdown_for_video(video_stem: str) -> Path | None:
+    candidates = sorted(MARKDOWNS_DIR.glob(f"*{video_stem}.md"))
+    if candidates:
+        return candidates[-1]
+    exact = MARKDOWNS_DIR / f"{video_stem}.md"
+    if exact.exists():
+        return exact
+    return None
+
+
+def backfill_transcript_appendices(transcribe_missing: bool = False,
+                                   force_transcribe: bool = False,
+                                   refresh_transcripts: bool = False) -> dict:
+    videos = discover_videos()
+    result = {
+        "updated": 0,
+        "skipped_existing": 0,
+        "missing_markdown": 0,
+        "missing_transcript": 0,
+        "transcribed": 0,
+    }
+
+    if not videos:
+        print(f"在 {VIDEOS_DIR} 下没有找到视频文件。")
+        return result
+
+    MARKDOWNS_DIR.mkdir(exist_ok=True)
+    for index, (video_stem, video_path) in enumerate(videos.items(), 1):
+        video_label = f"{index}/{len(videos)} {video_stem[:30]}"
+        markdown_path = _find_markdown_for_video(video_stem)
+        if not markdown_path:
+            result["missing_markdown"] += 1
+            tprint(f"[{video_label}] 未找到对应 Markdown，跳过")
+            continue
+
+        markdown_text = markdown_path.read_text(encoding="utf-8")
+        has_appendix = TRANSCRIPT_APPENDIX_HEADING in markdown_text
+        if has_appendix and not refresh_transcripts:
+            result["skipped_existing"] += 1
+            tprint(f"[{video_label}] 已包含完整逐字稿，跳过")
+            continue
+
+        transcript_text, source = _load_transcript_text_for_backfill(
+            video_path,
+            video_label,
+            transcribe_missing,
+            force_transcribe,
+        )
+        if not transcript_text:
+            result["missing_transcript"] += 1
+            tprint(f"[{video_label}] 未找到逐字稿缓存，跳过")
+            continue
+
+        base_markdown = _strip_transcript_appendix(markdown_text) if has_appendix else markdown_text.rstrip()
+        markdown_path.write_text(base_markdown + _transcript_appendix(transcript_text), encoding="utf-8")
+        result["updated"] += 1
+        if source == "transcribed":
+            result["transcribed"] += 1
+        tprint(f"[{video_label}] 已回填完整逐字稿: {markdown_path.name} ({source})")
+
+    print(
+        "历史输出回填完成: "
+        f"updated={result['updated']}, "
+        f"skipped_existing={result['skipped_existing']}, "
+        f"missing_markdown={result['missing_markdown']}, "
+        f"missing_transcript={result['missing_transcript']}, "
+        f"transcribed={result['transcribed']}"
+    )
+    return result
 
 
 def _write_run_report(started_at: datetime, ended_at: datetime, results: list[dict],
@@ -429,7 +595,7 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
            f"{len(transcript_text)} 字符逐字稿")
 
     # ── Phase 2: Build Gemini input ──
-    _save_payload_cache(video_path, transcript_text, events, kept_frames)
+    _save_payload_cache(video_path, transcript_text, events, kept_frames, transcript.get("backend_used"))
     parts = [PROMPT_TEXT, transcript_text]
     for fp in kept_frames:
         parts.append(frame_marker(fp, events))
@@ -448,7 +614,8 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(f"# {video_path.stem}\n\n")
-        f.write(full_text)
+        f.write(full_text.rstrip())
+        f.write(_transcript_appendix(transcript_text))
 
     tprint(f"[{video_label}] 完成，已保存至: {output_path.name}")
     result["success"] = True
@@ -462,10 +629,30 @@ def main():
     parser = argparse.ArgumentParser(description="zhihuTTS 视频转 Markdown 知识库")
     parser.add_argument("--status", "--todo", action="store_true",
                         help="仅打印任务状态摘要（不执行处理）")
+    parser.add_argument("--backfill-transcripts", action="store_true",
+                        help="给历史 Markdown 输出追加完整逐字稿附录")
+    parser.add_argument("--transcribe-missing", action="store_true",
+                        help="回填时如果没有逐字稿缓存，则从本地视频重新转写")
+    parser.add_argument("--force-transcribe", action="store_true",
+                        help="回填时忽略已有逐字稿缓存，使用当前 TRANSCRIBE_BACKEND 重新转写")
+    parser.add_argument("--refresh-transcripts", action="store_true",
+                        help="回填时替换已有完整逐字稿附录，而不是跳过")
+    parser.add_argument("--reprocess", type=int, nargs="?", const=0, default=None,
+                        help="强制重跑已完成视频（忽略进度标记）。可选参数 N 限制数量，如 --reprocess 10")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="仅列出将处理的视频，不实际执行")
     args = parser.parse_args()
 
     _setup_logging()
     _logger.info("=" * 60 + " 任务开始")
+
+    if args.backfill_transcripts:
+        backfill_transcript_appendices(
+            transcribe_missing=args.transcribe_missing or args.force_transcribe,
+            force_transcribe=args.force_transcribe,
+            refresh_transcripts=args.refresh_transcripts,
+        )
+        return
 
     videos = discover_videos()
     if not videos:
@@ -489,18 +676,36 @@ def main():
         )
 
     pending = {}
+    reprocess_mode = args.reprocess is not None
+    reprocess_limit = args.reprocess if args.reprocess else None  # 0 or None = unlimited
+
     for k, v in videos.items():
         entry = progress["videos"].get(k, {})
         if entry.get("status") == "done":
-            # 兼容历史输出格式：当前是 TTS_MMDD_<stem>.md，过去可能直接 <stem>.md
-            if not any(MARKDOWNS_DIR.glob(f"*{k}.md")):
-                tprint(f"  ⚠ {k} 标记完成但 .md 文件缺失（可能被人为删除），重新处理")
-                progress["videos"].pop(k, None)
+            if reprocess_mode:
                 pending[k] = v
+            else:
+                # 兼容历史输出格式：当前是 TTS_MMDD_<stem>.md，过去可能直接 <stem>.md
+                if not any(MARKDOWNS_DIR.glob(f"*{k}.md")):
+                    tprint(f"  ⚠ {k} 标记完成但 .md 文件缺失（可能被人为删除），重新处理")
+                    progress["videos"].pop(k, None)
+                    pending[k] = v
         else:
             pending[k] = v
+
+    if reprocess_mode and reprocess_limit and reprocess_limit > 0:
+        pending = dict(list(pending.items())[:reprocess_limit])
+        print(f"♻ 重跑模式: 强制重新处理已完成视频，限制 {reprocess_limit} 个")
+
     if not pending:
         print("所有视频已处理完毕！\n")
+        return
+
+    if args.dry_run:
+        print(f"\n  [dry-run] 将处理 {len(pending)} 个视频:\n")
+        for i, k in enumerate(pending, 1):
+            print(f"  {i}. {k}")
+        print()
         return
 
     # ── 检查今日配额 ──
