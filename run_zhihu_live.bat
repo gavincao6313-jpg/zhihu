@@ -22,7 +22,7 @@ setlocal enabledelayedexpansion
 ::   2. 设置环境变量 GEMINI_API_KEY（可选，不设则跳过笔记生成）
 :: ============================================================
 
-:: ---- WORKER MODE: 内部自调用，在独立后台窗口中执行所有 Python 步骤 ----
+:: ---- WORKER MODE: 内部自调用，无窗口后台执行所有 Python 步骤 ----
 :: 调用方式: run_zhihu_live.bat --worker "<LOG_FILE>"
 :: NAME / PAGE_URL / PYTHON / AUTH_STATE 等变量从父进程环境继承
 if /i "%~1"=="--worker" (
@@ -32,7 +32,7 @@ if /i "%~1"=="--worker" (
 )
 
 :: ================================================================
-:: MAIN MODE: 参数校验 → 启动后台工作窗口 → 本窗口 tail 日志
+:: MAIN MODE: 参数校验 → 后台静默启动 WORKER → 本窗口 tail 日志
 :: ================================================================
 
 set "SCRIPT_DIR=%~dp0"
@@ -123,24 +123,24 @@ if "!GEMINI_API_KEY!"=="" (
     echo  Gemini: 已配置，直播结束后自动生成笔记
 )
 echo.
-echo  [后台独立运行] 关闭此窗口不影响转写任务
+echo  转写任务已在后台静默启动，本窗口可随时关闭
 echo  日志文件 : !LOG_FILE!
-echo  实时监控 : powershell Get-Content -Wait -Tail 50 "!LOG_FILE!"
+echo  重新查看 : powershell Get-Content -Wait -Tail 50 "!LOG_FILE!"
 echo ====================================================
 echo.
 
-:: ---- 启动后台工作窗口（独立进程，与本窗口生命周期解耦）----
-start "zhihu [!NAME!]" cmd /c call "%~f0" --worker "!LOG_FILE!"
+:: ---- 后台静默启动 WORKER（/B 不创建新窗口，关闭本窗口不影响后台进程）----
+start "" /B cmd /c call "%~f0" --worker "!LOG_FILE!"
 
-:: ---- 本窗口实时 tail 日志（Ctrl+C 或直接关窗退出监控，不影响后台任务）----
-echo 实时日志（可随时关闭此窗口，后台任务不受影响）：
+:: ---- 本窗口实时 tail 日志（可随时关闭，后台任务继续运行）----
+echo 实时日志（本窗口可随时关闭，转写在后台继续运行）：
 echo.
 powershell -NoProfile -Command "Start-Sleep -Milliseconds 800; Get-Content -Wait -Tail 100 '!LOG_FILE!'"
 exit /b 0
 
 
 :: ================================================================
-:: WORKER: 在后台窗口中运行，所有输出写入 LOG_FILE
+:: WORKER: 无窗口静默运行，所有输出写入 LOG_FILE
 :: 所需变量（NAME / PAGE_URL / PYTHON / AUTH_STATE / STREAM_WORK_DIR
 ::          / SENSEVOICE_MERGE_VAD / GEMINI_API_KEY）
 :: 均由父进程环境继承，无需重新传参。
