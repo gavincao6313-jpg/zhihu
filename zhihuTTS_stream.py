@@ -1592,6 +1592,9 @@ def run_hls_consumer_only(args: argparse.Namespace) -> dict:
     consumer = SegmentConsumer(work_dir, base_stem, args, host, headers, recorder_stopped, gap_queue)
 
     ts_files = sorted(work_dir.glob("seg_*.ts"))
+    if args.max_chunks and len(ts_files) > args.max_chunks:
+        ts_files = ts_files[:args.max_chunks]
+        print(f"[--max-chunks={args.max_chunks}] Capped to {args.max_chunks} .ts file(s)")
     print(f"\n=== HLS Consumer-only mode ===")
     print(f"Name    : {base_stem}")
     print(f"Work dir: {work_dir}")

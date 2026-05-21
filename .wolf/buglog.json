@@ -539,6 +539,58 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-21T14:32:36.740Z"
+    },
+    {
+      "id": "bug-034",
+      "timestamp": "2026-05-21T15:34:05.051Z",
+      "error_message": "Significant refactor of ",
+      "file": "../../../../private/tmp/zhihu-stream-fix/zhihuTTS_stream.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 27→36 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T15:34:05.051Z"
+    },
+    {
+      "id": "bug-036",
+      "timestamp": "2026-05-21T00:00:00+08:00",
+      "error_message": "subprocess.TimeoutExpired: ffmpeg slice timed out after 240s when stream ended — StreamEndedError never raised",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "slice_url() used duration*3+60 timeout (240s for 60s chunk); TimeoutExpired propagated as-is, bypassing is_stream_ended() check path.",
+      "fix": "Fixed 2026-05-21: timeout changed to duration+45 (105s); TimeoutExpired caught and re-raised as StreamSliceError so caller's is_stream_ended() fires. Committed to feature/stream-transcript-validation.",
+      "tags": ["stream-end", "timeout", "ffmpeg", "slice_url", "stream"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T00:00:00+08:00"
+    },
+    {
+      "id": "bug-037",
+      "timestamp": "2026-05-21T00:00:00+08:00",
+      "error_message": "merge_stream_chunks.py and build_stream_markdown.py only processed 1 of 157 chunks — used max(groups.keys()) timestamp grouping",
+      "file": "scripts/build_stream_markdown.py, scripts/merge_stream_chunks.py",
+      "root_cause": "extract_run_ts() grouped each chunk by its per-chunk completion timestamp; max() picked the single latest group (1 chunk out of 157).",
+      "fix": "Fixed 2026-05-21: removed defaultdict grouping from default path; --run-ts flag preserved as explicit override. Committed to feature/stream-transcript-validation.",
+      "tags": ["merge", "build", "timestamp-grouping", "chunks", "stream"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T00:00:00+08:00"
+    },
+    {
+      "id": "bug-038",
+      "timestamp": "2026-05-22",
+      "error_message": "--max-chunks ignored in --hls-consumer-only mode (processed all .ts files regardless of cap)",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "run_hls_consumer_only() directly collected all seg_*.ts files without checking args.max_chunks. The max_chunks cap logic only existed in the Recorder flow.",
+      "fix": "Added args.max_chunks check before processing: if set and len(ts_files) > args.max_chunks, truncate ts_files to first N files with a console notice.",
+      "tags": ["max-chunks", "consumer-only", "hls", "cap"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22"
     }
   ]
 }

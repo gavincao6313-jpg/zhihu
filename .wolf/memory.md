@@ -7,6 +7,10 @@
 | 00:15 | 优化本地 MP4 转写：提取 _transcribe_wav_with_backend()，新增 transcribe_audio_chunked() + TRANSCRIBE_CHUNK_DURATION_S，zhihuTTS.py 两处调用点替换 | zhihuTTS_video.py, zhihuTTS.py | completed | ~600 |
 | 00:20 | 记录三路 A/B 测试计划（本地MP4分片/回放流/实时直播流），待下次直播后执行，需新建 run_ab_3way.py | .wolf/cerebrum.md | noted | ~100 |
 | 2026-05-21 | 改造 run_zhihu_live.bat 为双模式自调用：MAIN 验证+start 后台窗口，WORKER 三步 Python 全输出写 logs\run-NAME.log，主窗口 tail 日志可随时关闭 | run_zhihu_live.bat | success | ~800 |
+| 2026-05-21 | P2-C 实现错误分类标签（账号态失效/直播未开始/媒体URL授权失效/超时）；P2-B preflight checks 写入 run_zhihu_live.bat | zhihuTTS_stream.py, run_zhihu_live.bat | success | ~500 |
+| 2026-05-21 | 分析 WIN 直播验证报告 runs/2026-05-21-live-stream-issues.md (157 chunks/2h37min)，修复 bug-037 (merge 只处理1/157 chunk) + bug-036 (流结束超时240s)，推送 feature/stream-transcript-validation | scripts/*.py, zhihuTTS_stream.py | 两 bug 已推送 | ~3500 |
+| 2026-05-21 | P0 Step 2 实现 Recorder+SegmentConsumer 双线程 HLS 持续录制架构；新增 stream_extractors.py 到 main；新增 --continuous-hls 和 --hls-consumer-only CLI flags | zhihuTTS_stream.py, stream_extractors.py | committed | ~2000 |
+| 2026-05-21 | code review 触发（3 agent 并发）发现 8 处问题待修复；已读取相关代码段，配额不足暂停，下次继续 | zhihuTTS_stream.py | pending-fixes | ~400 |
 
 ## Session: 2026-05-20
 
@@ -410,3 +414,26 @@
 |------|--------|---------|---------|--------|
 | 22:42 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | 20→20 lines | ~134 |
 | 22:42 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | inline fix | ~6 |
+| 23:27 | Edited ../../../../private/tmp/zhihu-stream-fix/scripts/merge_stream_chunks.py | reduced (-8 lines) | ~322 |
+| 23:29 | Edited ../../../../private/tmp/zhihu-stream-fix/scripts/build_stream_markdown.py | 35→34 lines | ~408 |
+| 23:29 | Edited ../../../../private/tmp/zhihu-stream-fix/scripts/build_stream_markdown.py | — | ~0 |
+| 23:29 | Edited ../../../../private/tmp/zhihu-stream-fix/scripts/merge_stream_chunks.py | — | ~0 |
+
+## Session: 2026-05-21 23:30
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:34 | Edited ../../../../private/tmp/zhihu-stream-fix/zhihuTTS_stream.py | modified range() | ~445 |
+| 23:46 | Completed code review of current main live-stream refactor | zhihuTTS_stream.py, run_zhihu_live.bat, stream_extractors.py, zhihuTTS_video.py | findings ready | ~26000 |
+
+## Session: 2026-05-21 23:51
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-21 23:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:02 | Edited zhihuTTS_stream.py | 6→9 lines | ~124 |
+| 01:05 | 拉取 WIN Step2 验证结果 (commit 4421184): 100 chunks, 32K chars, 0 gap, 0 error, 全通过；修复 --max-chunks 在 --hls-consumer-only 被忽略的 bug (bug-038) | zhihuTTS_stream.py, .wolf/buglog.json | completed | ~800 |
