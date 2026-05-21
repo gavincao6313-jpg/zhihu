@@ -28,7 +28,6 @@ import os
 import re
 import sys
 import time
-from collections import defaultdict
 from pathlib import Path
 
 from google import genai
@@ -284,7 +283,7 @@ def main() -> None:
     ap.add_argument("--runs-dir",       default="runs",      help="Dir with chunk files")
     ap.add_argument("--markdowns-dir",  default="Markdowns", help="Output dir")
     ap.add_argument("--run-ts",         default=None,
-                    help="Specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
+                    help="Filter to chunks whose completion timestamp matches YYYYMMDD-HHMMSS (default: all matching chunks)")
     args = ap.parse_args()
 
     api_key = (
@@ -303,21 +302,20 @@ def main() -> None:
         print(f"ERROR: no files matching {runs_dir / pattern}", file=sys.stderr)
         sys.exit(1)
 
-    groups: dict[str, list[Path]] = defaultdict(list)
-    for f in all_found:
-        groups[extract_run_ts(f)].append(f)
+    if args.run_ts:
+        # Manual override: filter to chunks with a specific completion timestamp
+        chunk_files = [f for f in all_found if extract_run_ts(f) == args.run_ts]
+        if not chunk_files:
+            available = sorted({extract_run_ts(f) for f in all_found})
+            print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {available}",
+                  file=sys.stderr)
+            sys.exit(1)
+        print(f"Chunks   : {len(chunk_files)} (run-ts filter: {args.run_ts})")
+    else:
+        chunk_files = all_found
+        print(f"Chunks   : {len(chunk_files)}")
 
-    selected_ts = args.run_ts if args.run_ts else max(groups.keys())
-    if selected_ts not in groups:
-        print(f"ERROR: run-ts '{selected_ts}' not found. Available: {sorted(groups)}",
-              file=sys.stderr)
-        sys.exit(1)
-
-    if len(groups) > 1:
-        print(f"[warn] {len(groups)} runs for '{args.base}' — using: {selected_ts}")
-
-    chunk_files = sorted(groups[selected_ts], key=parse_chunk_start)
-    print(f"Chunks   : {len(chunk_files)} (run: {selected_ts})")
+    chunk_files = sorted(chunk_files, key=parse_chunk_start)
 
     transcript = build_combined_transcript(chunk_files)
     all_frames = collect_all_frames(chunk_files)

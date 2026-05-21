@@ -17,7 +17,6 @@ Options:
     --out        Output .md path (default: runs/stream-{base}-merged.md)
 """
 import argparse, json, re, sys
-from collections import defaultdict
 from pathlib import Path
 
 
@@ -82,7 +81,7 @@ def main() -> None:
     ap.add_argument("--base",     required=True,  help="Stream base name")
     ap.add_argument("--runs-dir", default="runs", help="Directory with chunk files")
     ap.add_argument("--out",      default=None,   help="Output markdown path")
-    ap.add_argument("--run-ts",   default=None,   help="Use specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
+    ap.add_argument("--run-ts",   default=None,   help="Filter to chunks whose completion timestamp matches YYYYMMDD-HHMMSS (default: all matching chunks)")
     args = ap.parse_args()
 
     runs_dir = Path(args.runs_dir)
@@ -93,27 +92,19 @@ def main() -> None:
         print(f"ERROR: no files matching {runs_dir / pattern}", file=sys.stderr)
         sys.exit(1)
 
-    # Group by run timestamp to avoid merging chunks from multiple runs with the same base name
-    groups: dict[str, list[Path]] = defaultdict(list)
-    for f in all_found:
-        groups[extract_run_ts(f)].append(f)
-
     if args.run_ts:
-        if args.run_ts not in groups:
-            print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {sorted(groups)}", file=sys.stderr)
+        # Manual override: filter to chunks with a specific completion timestamp
+        chunk_files = [f for f in all_found if extract_run_ts(f) == args.run_ts]
+        if not chunk_files:
+            available = sorted({extract_run_ts(f) for f in all_found})
+            print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {available}", file=sys.stderr)
             sys.exit(1)
-        selected_ts = args.run_ts
+        print(f"Found {len(chunk_files)} chunks in {runs_dir} (run-ts filter: {args.run_ts})")
     else:
-        selected_ts = max(groups.keys())
+        chunk_files = all_found
+        print(f"Found {len(chunk_files)} chunks in {runs_dir}")
 
-    if len(groups) > 1:
-        print(f"[warn] {len(groups)} runs found for base '{args.base}' — using latest: {selected_ts}")
-        for ts in sorted(groups.keys()):
-            marker = " ← selected" if ts == selected_ts else ""
-            print(f"  {ts}: {len(groups[ts])} chunks{marker}")
-
-    chunk_files = sorted(groups[selected_ts], key=parse_chunk_start)
-    print(f"Found {len(chunk_files)} chunks in {runs_dir} (run: {selected_ts})")
+    chunk_files = sorted(chunk_files, key=parse_chunk_start)
 
     # Collect all sentences and all slide times across chunks
     all_sentences: list[tuple[float, str]] = []
