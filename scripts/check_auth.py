@@ -26,8 +26,8 @@ def main() -> None:
         sys.exit(2)
 
     cookies = [c for c in data.get("cookies", []) if c.get("name") == "z_c0"]
-    if not cookies:
-        print("[auth] z_c0 cookie not found -- please re-login: python login_save_auth.py", flush=True)
+    if not cookies or not cookies[0].get("value"):
+        print("[auth] z_c0 cookie not found or empty -- please re-login: python login_save_auth.py", flush=True)
         sys.exit(1)
 
     exp = float(cookies[0].get("expires", -1))
