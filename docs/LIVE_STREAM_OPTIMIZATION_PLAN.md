@@ -294,24 +294,24 @@ if time.monotonic() - self._url_captured_at > PROACTIVE_REFRESH_S:
 
 ## P2-B — 启动前环境诊断
 
-**状态：[ ] 待讨论**
+**状态：[x] 已完成**
 
 ### 目标
 BAT 启动前检查以下项，发现问题立刻给出明确提示：
 
-| 检查项 | 检查方式 |
-|--------|----------|
-| ffmpeg / ffprobe 可用 | `where ffmpeg` |
-| Playwright 浏览器已安装 | 检查对应 `.exe` 路径 |
-| `zhihu_auth_state.json` 含 `z_c0` | `check_auth.py` 扩展 或 Python 一行 |
-| `Videos\.stream` 可写 | 写测试文件 |
-| 磁盘空间充足（建议 >10GB） | PowerShell `Get-PSDrive` |
-| `TRANSCRIBE_BACKEND` 当前值 | 打印环境变量 |
-| Gemini 是否启用，预计是否触发 API 调用 | 打印 `GEMINI_API_KEY` 状态 |
+| 检查项 | 检查方式 | 结果 |
+|--------|----------|------|
+| ffmpeg 可用 | `where ffmpeg` | 阻断 |
+| ffprobe 可用 | `where ffprobe` | 阻断 |
+| `Videos\.stream` 可写 | 写测试文件 | 阻断 |
+| 磁盘空间充足（建议 >10GB） | PowerShell `Get-PSDrive` | 警告 |
+| `TRANSCRIBE_BACKEND` 当前值 | 打印环境变量 | 仅信息 |
+| Playwright 浏览器 | 跳过（路径太脆弱，误报率高） | — |
 
-### 待讨论
-- 诊断逻辑放在 BAT 里还是单独 `preflight.py`？
-- 哪些项是阻断性的（检查失败直接退出），哪些是警告？
+### 决策
+- 全部放 BAT，不加 `preflight.py`（逻辑简单，不值得额外 Python 进程）
+- Playwright 检查跳过：可靠查 Chromium 路径在 BAT 里太脆弱，误报率高
+- 诊断在 Cookie 预检之后、日志目录创建之前运行
 
 ---
 
@@ -348,5 +348,5 @@ BAT 启动前检查以下项，发现问题立刻给出明确提示：
 | P1-B BAT 固化 | ✅ 已完成 |
 | P1-C Checkpoint Resume | ✅ 已完成 |
 | P2-A 主动 URL 刷新 | 🔜 推迟到 P0 Step2 |
-| P2-B 启动前诊断 | ⬜ 待讨论 |
+| P2-B 启动前诊断 | ✅ 已完成 |
 | P2-C 错误细分日志 | ⬜ 待讨论 |

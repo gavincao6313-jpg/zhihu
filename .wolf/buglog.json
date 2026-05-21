@@ -491,6 +491,54 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-21T13:41:56.364Z"
+    },
+    {
+      "id": "bug-031",
+      "timestamp": "2026-05-21T14:01:41.993Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/check_auth.py",
+      "root_cause": "Had \"[auth] z_c0 cookie not found -- please re-login: ",
+      "fix": "Changed to \"value\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T14:01:41.993Z"
+    },
+    {
+      "id": "bug-032",
+      "timestamp": "2026-05-21T14:12:34.347Z",
+      "error_message": "Wrong reference: tail should be WORKER",
+      "file": "run_zhihu_live.bat",
+      "root_cause": "Used \"tail\" instead of \"WORKER\"",
+      "fix": "Changed tail → WORKER",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "bat"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T14:12:34.347Z"
+    },
+    {
+      "id": "bug-033",
+      "timestamp": "2026-05-21T14:32:36.740Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_STREAM_OPTIMIZATION_PLAN.md",
+      "root_cause": "12 lines replaced/restructured",
+      "fix": "Rewrote 18→20 lines (12 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T14:32:36.740Z"
     }
   ]
 }

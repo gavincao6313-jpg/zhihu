@@ -379,3 +379,34 @@
 | 21:45 | Saved P0 Step 1/Step 2 implementation checklist and validation standards | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md | checklist preserved | ~2600 |
 | 21:49 | Edited zhihuTTS_stream.py | modified process_segment_file() | ~1401 |
 | 22:05 | P0 Step1 完成：抽出 process_segment_file()（接受 .mp4/.ts），process_slice() 委托调用，签名/行为/输出格式不变，syntax OK | zhihuTTS_stream.py | 完成 | ~600 |
+| 22:01 | Edited scripts/check_auth.py | modified get() | ~53 |
+| 22:02 | Edited COLLABORATION.md | expanded (+7 lines) | ~88 |
+| 22:02 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | 3→3 lines | ~10 |
+| 22:03 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | inline fix | ~6 |
+| 22:11 | Edited run_zhihu_live.bat | 13→13 lines | ~99 |
+| 22:12 | Edited run_zhihu_live.bat | 3→3 lines | ~42 |
+| 22:12 | Edited run_zhihu_live.bat | inline fix | ~13 |
+| 22:12 | Edited run_zhihu_live.bat | inline fix | ~10 |
+| 22:13 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | 3→3 lines | ~14 |
+| 22:13 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | inline fix | ~7 |
+| 22:20 | Analyzed current run_validation checkpoint write/delete behavior for P1-C resume discussion | zhihuTTS_stream.py, docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md, .wolf/cerebrum.md | current boundary documented | ~1800 |
+| 22:21 | Saved P1-C resume design: END-time resume, checkpoint transcript reuse, and BAT third-arg flag | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md, .wolf/cerebrum.md | P1-C design updated | ~1800 |
+| 22:24 | Edited zhihuTTS_stream.py | modified exists() | ~324 |
+| 22:24 | Edited zhihuTTS_stream.py | 4→6 lines | ~88 |
+| 22:25 | Edited zhihuTTS_stream.py | expanded (+8 lines) | ~162 |
+| 22:25 | Edited run_zhihu_live.bat | 7→9 lines | ~116 |
+| 22:26 | Edited run_zhihu_live.bat | 2→4 lines | ~28 |
+| 22:26 | Edited run_zhihu_live.bat | inline fix | ~14 |
+| 22:26 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | 3→3 lines | ~12 |
+| 22:26 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | inline fix | ~10 |
+| 22:32 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | 18→20 lines | ~168 |
+| 22:32 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | inline fix | ~10 |
+| 22:36 | Saved P2-B startup diagnostics decisions and BAT-only preflight scope | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md, .wolf/cerebrum.md | P2-B design updated | ~1600 |
+| 22:38 | Edited run_zhihu_live.bat | added 1 condition(s) | ~390 |
+
+## Session: 2026-05-21 22:41
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:42 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | 20→20 lines | ~134 |
+| 22:42 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | inline fix | ~6 |

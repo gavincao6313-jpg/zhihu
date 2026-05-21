@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-21T13:49:43.852Z
-> Files: 58 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-21T14:42:21.058Z
+> Files: 59 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -10,18 +10,18 @@
 - `.progress.json` (~1155 tok)
 - `.wolf/buglog.json` — OpenWolf bug/error log with prior environment and validation issues (~423 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
-- `COLLABORATION.md` — 协作流程 (~321 tok)
+- `COLLABORATION.md` — 协作流程 (~634 tok)
 - `extract_slides.py` — extract_slides, main (~2128 tok)
 - `extract_slides.py` — 从已处理视频提取幻灯片：读 manifest.json 事件 → ffmpeg 高清抽帧 → 去重 → Slides/<stem>/slides.pdf + slides.pptx (~2800 tok)
 - `GeminiModelList.py` — 获取 API Key (~275 tok)
 - `login_save_auth.py` — Playwright 登录保存知乎认证态到 `zhihu_auth_state.json` (~900 tok)
 - `readme` (~3 tok)
 - `requirements.txt` — Python dependencies (~19 tok)
-- `run_zhihu_live.bat` (~1886 tok)
+- `run_zhihu_live.bat` (~2268 tok)
 - `run_zhihu_live.sh` — macOS/Linux live stream runner wrapper for `zhihuTTS_stream.py` (~1800 tok)
 - `stream_extractors.py` — Page/live URL extractors: direct/yt-dlp/Playwright plus PlaywrightKeepaliveStream for CC FLV URL interception, browser refresh, stream-end detection, and auth state reuse (~12000 tok)
 - `zhihu.code-workspace` (~31 tok)
-- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time (~14341 tok)
+- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time (~14701 tok)
 - `zhihuTTS_video.py` — analyze_frames, extract_keyframes, requested_transcribe_backend, transcript_backend_matches (~7387 tok)
 - `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~8552 tok)
 
@@ -78,7 +78,7 @@
 - `BRANCH_USAGE.md` — Branch separation guide for production batch, stream transcript validation, active branch names, commands, and obsolete branch warning (~457 tok)
 - `ENGINEERING_HISTORY.md` — Engineering history including 2026-05-17 transcript output and video stream validation branch split (~825 tok)
 - `LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md` — Saved discussion backlog for URL/live BAT reliability improvements: capture/processing decoupling, runner account, worker mode, resume, URL refresh, diagnostics, and failure classification (~1600 tok)
-- `LIVE_STREAM_OPTIMIZATION_PLAN.md` — 直播流优化讨论计划 (~2106 tok)
+- `LIVE_STREAM_OPTIMIZATION_PLAN.md` — 直播流优化讨论计划 (~2182 tok)
 - `SENSEVOICE_MP4_BACKFILL_CHANGELOG_20260517.md` — Process record for MP4/FUNASR backfill branch change, review checks, pushed commit, and Windows commands (~700 tok)
 - `STREAM_AUTOMATION_PLAN_20260517.md` — Discussion record and engineering plan for replacing manual stream URL capture with Python yt-dlp/Playwright extractors and later supervisor logic (~950 tok)
 - `WHISPER_BACKEND_IMPROVEMENT_PLAN.md` — Mac/Windows handoff plan for CPU transcription optimization, whisper.cpp CLI Vulkan backend, D-drive temp files, caching, and run reports (~2150 tok)
@@ -90,3 +90,7 @@
 ## runs/
 
 - `runs/2026-05-20-MAC-pipeline-verification.md` — branch-only MAC pipeline verification report on `origin/feature/local-transcript-appendix`: 5/9 completed, 4 Mac optimization issues (~1200 tok)
+
+## scripts/
+
+- `check_auth.py` — main (~494 tok)

@@ -108,6 +108,46 @@ if errorlevel 1 (
     exit /b 1
 )
 
+:: ---- ffmpeg / ffprobe 检查 ----
+where ffmpeg >nul 2>&1
+if errorlevel 1 (
+    echo.
+    echo [错误] 未找到 ffmpeg，请安装并加入 PATH:
+    echo   winget install Gyan.FFmpeg   或   https://ffmpeg.org/download.html
+    echo.
+    exit /b 1
+)
+where ffprobe >nul 2>&1
+if errorlevel 1 (
+    echo.
+    echo [错误] 未找到 ffprobe（通常与 ffmpeg 同包），请检查 PATH。
+    echo.
+    exit /b 1
+)
+
+:: ---- Videos\.stream 目录可写检查 ----
+if not exist "!STREAM_WORK_DIR!" mkdir "!STREAM_WORK_DIR!" 2>nul
+(echo preflight) > "!STREAM_WORK_DIR!\.preflight_test" 2>nul
+if not exist "!STREAM_WORK_DIR!\.preflight_test" (
+    echo.
+    echo [错误] 无法写入工作目录: !STREAM_WORK_DIR!
+    echo 请检查路径权限或磁盘状态。
+    echo.
+    exit /b 1
+)
+del "!STREAM_WORK_DIR!\.preflight_test" >nul 2>&1
+
+:: ---- 磁盘空间检查（< 10GB 警告，不阻断）----
+set "WORK_DRIVE=!STREAM_WORK_DIR:~0,1!"
+powershell -NoProfile -Command "$free=[math]::Round((Get-PSDrive '!WORK_DRIVE!').Free/1GB,1); if($free -lt 10){Write-Host '[警告] 磁盘剩余 ' + $free + ' GB，建议保持 10 GB 以上（不足时录制中途可能中断）'}else{Write-Host '[信息] 磁盘剩余 ' + $free + ' GB'}"
+
+:: ---- 转写后端信息 ----
+if "!TRANSCRIBE_BACKEND!"=="" (
+    echo [信息] TRANSCRIBE_BACKEND: 未设置（使用默认后端）
+) else (
+    echo [信息] TRANSCRIBE_BACKEND: !TRANSCRIBE_BACKEND!
+)
+
 :: ---- 日志目录 + 追加式日志文件（>> 不截断，支持同名重跑）----
 if not exist "!SCRIPT_DIR!logs" mkdir "!SCRIPT_DIR!logs"
 set "LOG_FILE=!SCRIPT_DIR!logs\run-!NAME!.log"

@@ -391,6 +391,66 @@ Discussion points:
 - How to handle live streams where wall-clock time moved forward while the process was down.
 - Whether resume means "continue from last captured segment" or "recover final document from existing chunks."
 
+Current checkpoint behavior in `run_validation()`:
+
+- Path: `runs/stream-{base_stem}.checkpoint.json`.
+- Created only after a chunk returns a non-`None` chunk record and is appended to the in-memory `chunks` list.
+- Current payload shape:
+
+```json
+{
+  "chunks": [/* completed chunk records */],
+  "created_at": "ISO timestamp from run start"
+}
+```
+
+- Silent chunks that return `None` are not recorded.
+- The checkpoint does not record current `chunk_index`, next start time, retry state, latest stream URL, browser restart count, original args, or final manifest paths.
+- On handled loop exits such as stream ended, permanent slice failure, browser-restart exhaustion, or Ctrl-C, the code continues to finalization and writes combined transcript plus manifest from the in-memory `chunks`.
+- After final manifest write, `checkpoint_path.unlink(missing_ok=True)` deletes the checkpoint.
+- If the process crashes or the Windows process is killed before finalization, the checkpoint can remain on disk and contains completed chunks up to the last successful write.
+
+Current capability boundary:
+
+- The current checkpoint is useful as an emergency progress snapshot after an abrupt process death.
+- It is not currently consumed by startup logic, so there is no automatic resume.
+- There is no `--resume` CLI flag.
+- A rerun with the same `--name` starts with `chunks = []` and a fresh `chunk_index = 0`; it does not load the checkpoint.
+- Finalization already makes checkpoint redundant on handled exits because manifest/combined transcript are written before checkpoint deletion.
+- Resume design must add explicit loading, validation, next-chunk calculation, and duplicate-output handling.
+
+P1-C proposed resume design:
+
+- Add `--resume` to `zhihuTTS_stream.py`.
+- On startup, after `base_stem` and `checkpoint_path` are known:
+  - If `--resume` is set and checkpoint exists, load it.
+  - Restore `chunks` from `checkpoint["chunks"]`.
+  - Restore `created_at` from `checkpoint["created_at"]`.
+  - Resume from END time:
+    - `last = chunks[-1]["slice"]`
+    - `start_s = last["start_s"] + last["duration_s"]`
+    - `chunk_index = chunks[-1]["chunk"]["index"]`
+  - Continue loop from the next chunk.
+- END-time resume is preferred because checkpoint is written only after a chunk has fully processed. Replaying from START time would require transcript deduplication and creates more complexity than value.
+- Combined transcript after resume:
+  - Existing chunk dicts in checkpoint already include `global_transcript_text`.
+  - Pre-resume text can be assembled directly from checkpoint chunks.
+  - New chunks can still read their `global_transcript_txt` files as today, or finalization can consistently use `chunk["global_transcript_text"]` when present.
+  - This means resume can work even when `--cleanup-slices` removed per-chunk output files after checkpoint write.
+- BAT support:
+  - Add a `RESUME_FLAG` and pass it through to `zhihuTTS_stream.py`.
+  - Simple fixed positional form is acceptable for first implementation: `run_zhihu_live.bat <URL> <NAME> --resume`.
+  - Document that `--resume` must be the third argument.
+
+P1-C validation ideas:
+
+- Simulate abrupt process termination after at least two completed chunks and confirm checkpoint remains.
+- Rerun with same `NAME --resume`.
+- Confirm log reports resume chunk/time.
+- Confirm the next processed chunk starts at `last.start_s + last.duration_s`.
+- Confirm final manifest includes pre-resume and post-resume chunks with no duplicated chunk indices.
+- Confirm combined transcript includes pre-resume text from checkpoint even if old per-chunk files are missing.
+
 ### P2: Proactive Stream URL Refresh
 
 Problem:
@@ -433,6 +493,45 @@ Discussion points:
 - Minimum disk space threshold.
 - Whether warnings should block startup or only require confirmation.
 - Whether API/Gemini checks should remain opt-in to avoid accidental usage.
+
+Current BAT preflight:
+
+- Python/venv selection exists.
+- `zhihu_auth_state.json` existence check exists.
+- Cookie validity check via `scripts/check_auth.py` exists.
+- Gemini key status is printed.
+
+P2-B proposed additional BAT-only preflight:
+
+| Check | Method | Behavior |
+|---|---|---|
+| `ffmpeg` available | `where ffmpeg` | blocking |
+| `ffprobe` available | `where ffprobe` | blocking |
+| `Videos\.stream` writable | create/delete a small test file | blocking |
+| disk free space | PowerShell `Get-PSDrive` or equivalent | warning only if below threshold |
+| `TRANSCRIBE_BACKEND` | print env var/default | info only |
+
+Implementation placement:
+
+- Keep this in `run_zhihu_live.bat`; do not add a Python `preflight.py` for these simple checks.
+- Insert after Python/auth-file checks and before `scripts/check_auth.py`.
+- Rationale: the checks are shell-level dependencies and file-system probes; adding a Python helper would add another maintained entrypoint without enough benefit.
+
+P2-B decisions:
+
+- Blocking checks:
+  - `ffmpeg` missing.
+  - `ffprobe` missing.
+  - Stream work directory cannot be created or written.
+- Warning-only check:
+  - Disk free space below 10GB. Warn loudly but do not block because short runs and low-bitrate streams may still be acceptable.
+- Info-only:
+  - Current `TRANSCRIBE_BACKEND`, including default when unset.
+- Skip Playwright browser binary preflight in BAT for now:
+  - Browser install paths are versioned and platform-specific.
+  - Reliable detection in BAT would require brittle recursive PowerShell checks.
+  - Playwright runtime error for missing browser executable is already explicit enough.
+  - Revisit only if this becomes a recurring Windows runner failure.
 
 ### P2: Clearer Failure Classification
 
