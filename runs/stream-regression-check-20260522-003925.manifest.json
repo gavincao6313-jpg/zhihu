@@ -1,0 +1,205 @@
+{
+  "created_at": "2026-05-22T00:38:53",
+  "url_host": "vdn3.vzuu.com",
+  "extractor": "direct",
+  "media_type": "mp4",
+  "source": {
+    "duration_s": 9534.6,
+    "size_bytes": 294475848,
+    "bit_rate": 247079,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "fps": "15/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "44100",
+      "channels": 2
+    },
+    "extractor": "direct",
+    "media_type": "mp4"
+  },
+  "auth_header_names": [],
+  "start_s": 0.0,
+  "duration_s": 180.0,
+  "live_mode": false,
+  "stream_ended_reason": "",
+  "chunk_duration_s": 60.0,
+  "chunks": [
+    {
+      "created_at": "2026-05-22T00:38:54",
+      "url_host": "vdn3.vzuu.com",
+      "extractor": "direct",
+      "media_type": "mp4",
+      "source": {
+        "duration_s": 9534.6,
+        "size_bytes": 294475848,
+        "bit_rate": 247079,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "mp4"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 0.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_file\\Videos\\.stream\\regression-check_chunk001_0s.mp4",
+        "size_bytes": 1941540,
+        "kept": true
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 14.08,
+        "segments": 1,
+        "transcript_chars": 238,
+        "elapsed_s": 14.88,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk001_0s-20260522-003854.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk001_0s-20260522-003854.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk001_0s-20260522-003854.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk001_0s-20260522-003854.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 1,
+        "total": 3
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 好的，各位同学，欢迎大家来到，我们今天给大家带来的这些这个公开课啊，今天给大家这个讲一讲这个AI时代艺人公司的可能性和有效路径。能到的同学给我扣个一好不好？😊找同学给我扣个一。嗯，他总来了，辉同事来了，飞嘟多飞飞将都是老朋友啊。然后我可丽飞嘟嘟转行搞AI你们好啊。我这已经是啊没有新朋友了吗？O.😊男朋友好。大伟，你好。今天咱们讲讲OPC的事啊啊。OPC现在应该算是一个比较火的概念。然后大家讲一讲，就是说OPC这件事儿的话和这个。",
+      "global_transcript_preview": "[00:00:00 - 00:01:00] 好的，各位同学，欢迎大家来到，我们今天给大家带来的这些这个公开课啊，今天给大家这个讲一讲这个AI时代艺人公司的可能性和有效路径。能到的同学给我扣个一好不好？😊找同学给我扣个一。嗯，他总来了，辉同事来了，飞嘟多飞飞将都是老朋友啊。然后我可丽飞嘟嘟转行搞AI你们好啊。我这已经是啊没有新朋友了吗？O.😊男朋友好。大伟，你好。今天咱们讲讲OPC的事啊啊。OPC现在应该算是一个比较火的概念。然后大家讲一讲，就是说OPC这件事儿的话和这个。",
+      "global_transcript_text": "[00:00:00 - 00:01:00] 好的，各位同学，欢迎大家来到，我们今天给大家带来的这些这个公开课啊，今天给大家这个讲一讲这个AI时代艺人公司的可能性和有效路径。能到的同学给我扣个一好不好？😊找同学给我扣个一。嗯，他总来了，辉同事来了，飞嘟多飞飞将都是老朋友啊。然后我可丽飞嘟嘟转行搞AI你们好啊。我这已经是啊没有新朋友了吗？O.😊男朋友好。大伟，你好。今天咱们讲讲OPC的事啊啊。OPC现在应该算是一个比较火的概念。然后大家讲一讲，就是说OPC这件事儿的话和这个。"
+    },
+    {
+      "created_at": "2026-05-22T00:39:09",
+      "url_host": "vdn3.vzuu.com",
+      "extractor": "direct",
+      "media_type": "mp4",
+      "source": {
+        "duration_s": 9534.6,
+        "size_bytes": 294475848,
+        "bit_rate": 247079,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "mp4"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 60.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_file\\Videos\\.stream\\regression-check_chunk002_60s.mp4",
+        "size_bytes": 1769467,
+        "kept": true
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 6.34,
+        "segments": 1,
+        "transcript_chars": 107,
+        "elapsed_s": 7.17,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk002_60s-20260522-003909.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk002_60s-20260522-003909.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk002_60s-20260522-003909.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk002_60s-20260522-003909.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 2,
+        "total": 3
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 以及我们现在到底有一些什么样的一些方式嘛，对吧？O.哎呦，有有点不不至于不至于不至于。我至于。文老生你好。刚给去就这样实现，这不都是赶巧了嘛，对吧？😊哎呀。啊后星空你好。",
+      "global_transcript_preview": "[00:01:00 - 00:02:00] 以及我们现在到底有一些什么样的一些方式嘛，对吧？O.哎呦，有有点不不至于不至于不至于。我至于。文老生你好。刚给去就这样实现，这不都是赶巧了嘛，对吧？😊哎呀。啊后星空你好。",
+      "global_transcript_text": "[00:01:00 - 00:02:00] 以及我们现在到底有一些什么样的一些方式嘛，对吧？O.哎呦，有有点不不至于不至于不至于。我至于。文老生你好。刚给去就这样实现，这不都是赶巧了嘛，对吧？😊哎呀。啊后星空你好。"
+    },
+    {
+      "created_at": "2026-05-22T00:39:17",
+      "url_host": "vdn3.vzuu.com",
+      "extractor": "direct",
+      "media_type": "mp4",
+      "source": {
+        "duration_s": 9534.6,
+        "size_bytes": 294475848,
+        "bit_rate": 247079,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "mp4"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 120.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_file\\Videos\\.stream\\regression-check_chunk003_120s.mp4",
+        "size_bytes": 1916293,
+        "kept": true
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.36,
+        "segments": 1,
+        "transcript_chars": 257,
+        "elapsed_s": 8.27,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk003_120s-20260522-003917.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk003_120s-20260522-003917.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk003_120s-20260522-003917.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check_chunk003_120s-20260522-003917.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 3,
+        "total": 3
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 哎。很认真讲，大家应该都是对于这个艺人公司比较有兴致吧，对吧？是不是觉得都是非常希望能够在这个时代的话，能够去搞一点艺人公司的事儿。觉得哎呀如果能够有这样1一这样一天啊，把老板炒掉，然后自己去做一摊事，那该有多开心，是不是是不是有这种期待和想法？是不是？路过屋顶上王宇航。其实我们先给大家泼一个冷水啊，我们要给大家泼一个冷水啊，就是客观一点讲的话，其实艺人公司其实是比副业要难的。我不知道大家是否理解我这句话，艺人公司客观讲全是要比做副要比副要比要比副业是难的啊。看一。",
+      "global_transcript_preview": "[00:02:00 - 00:03:00] 哎。很认真讲，大家应该都是对于这个艺人公司比较有兴致吧，对吧？是不是觉得都是非常希望能够在这个时代的话，能够去搞一点艺人公司的事儿。觉得哎呀如果能够有这样1一这样一天啊，把老板炒掉，然后自己去做一摊事，那该有多开心，是不是是不是有这种期待和想法？是不是？路过屋顶上王宇航。其实我们先给大家泼一个冷水啊，我们要给大家泼一个冷水啊，就是客观一点讲的话，其实艺人公司其实是比副业要难的。我不知道大家是否理解我这句话，艺人公司客观讲全是要比做副要比副要比要比副业是难的啊。看一。",
+      "global_transcript_text": "[00:02:00 - 00:03:00] 哎。很认真讲，大家应该都是对于这个艺人公司比较有兴致吧，对吧？是不是觉得都是非常希望能够在这个时代的话，能够去搞一点艺人公司的事儿。觉得哎呀如果能够有这样1一这样一天啊，把老板炒掉，然后自己去做一摊事，那该有多开心，是不是是不是有这种期待和想法？是不是？路过屋顶上王宇航。其实我们先给大家泼一个冷水啊，我们要给大家泼一个冷水啊，就是客观一点讲的话，其实艺人公司其实是比副业要难的。我不知道大家是否理解我这句话，艺人公司客观讲全是要比做副要比副要比要比副业是难的啊。看一。"
+    }
+  ],
+  "combined_transcript_path": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check-20260522-003925.combined-transcript.txt",
+  "manifest_json_path": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check-20260522-003925.manifest.json",
+  "manifest_md_path": "d:\\zhihu\\zhihu_file\\runs\\stream-regression-check-20260522-003925.manifest.md",
+  "combined_transcript_text": "[00:00:00 - 00:01:00] 好的，各位同学，欢迎大家来到，我们今天给大家带来的这些这个公开课啊，今天给大家这个讲一讲这个AI时代艺人公司的可能性和有效路径。能到的同学给我扣个一好不好？😊找同学给我扣个一。嗯，他总来了，辉同事来了，飞嘟多飞飞将都是老朋友啊。然后我可丽飞嘟嘟转行搞AI你们好啊。我这已经是啊没有新朋友了吗？O.😊男朋友好。大伟，你好。今天咱们讲讲OPC的事啊啊。OPC现在应该算是一个比较火的概念。然后大家讲一讲，就是说OPC这件事儿的话和这个。\n\n[00:01:00 - 00:02:00] 以及我们现在到底有一些什么样的一些方式嘛，对吧？O.哎呦，有有点不不至于不至于不至于。我至于。文老生你好。刚给去就这样实现，这不都是赶巧了嘛，对吧？😊哎呀。啊后星空你好。\n\n[00:02:00 - 00:03:00] 哎。很认真讲，大家应该都是对于这个艺人公司比较有兴致吧，对吧？是不是觉得都是非常希望能够在这个时代的话，能够去搞一点艺人公司的事儿。觉得哎呀如果能够有这样1一这样一天啊，把老板炒掉，然后自己去做一摊事，那该有多开心，是不是是不是有这种期待和想法？是不是？路过屋顶上王宇航。其实我们先给大家泼一个冷水啊，我们要给大家泼一个冷水啊，就是客观一点讲的话，其实艺人公司其实是比副业要难的。我不知道大家是否理解我这句话，艺人公司客观讲全是要比做副要比副要比要比副业是难的啊。看一。",
+  "preview": "[00:00:00 - 00:01:00] 好的，各位同学，欢迎大家来到，我们今天给大家带来的这些这个公开课啊，今天给大家这个讲一讲这个AI时代艺人公司的可能性和有效路径。能到的同学给我扣个一好不好？😊找同学给我扣个一。嗯，他总来了，辉同事来了，飞嘟多飞飞将都是老朋友啊。然后我可丽飞嘟嘟转行搞AI你们好啊。我这已经是啊没有新朋友了吗？O.😊男朋友好。大伟，你好。今天咱们讲讲OPC的事啊啊。OPC现在应该算是一个比较火的概念。然后大家讲一讲，就是说OPC这件事儿的话和这个。\n\n[00:01:00 - 00:02:00] 以及我们现在到底有一些什么样的一些方式嘛，对吧？O.哎呦，有有点不不至于不至于不至于。我至于。文老生你好。刚给去就这样实现，这不都是赶巧了嘛，对吧？😊哎呀。啊后星空你好。\n\n[00:02:00 - 00:03:00] 哎。很认真讲，大家应该都是对于这个艺人公司比较有兴致吧，对吧？是不是觉得都是非常希望能够在这个时代的话，能够去搞一点艺人公司的事儿。觉得哎呀如果能够有这样1一这样一天啊，把老板炒掉，然后自己去做一摊事，那该有多开心，是不是是不是有这种期待和想法？是不是？路过屋顶上王宇航。其实我们先给大家泼一个冷水啊，我们要给大家泼一个冷水啊，就是客观一点讲的话，其实艺人公司其实是比副业要难的。我不知道大家是否理解我这句话，艺人公司客观讲全是要比做副要比副要比要比副业是难的啊。看一。"
+}
