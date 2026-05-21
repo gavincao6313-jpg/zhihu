@@ -23,6 +23,8 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
+from utils import call_gemini, fmt_ts, parse_retry_delay
+
 # ── Paths ───────────────────────────────────────────────────────────────────
 
 RUNS_DIR        = Path(r"D:\zhihu\zhihu_url\runs")
@@ -90,13 +92,6 @@ GEMINI_PROMPT_TEXT = """
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
-def fmt_ts(seconds: float) -> str:
-    h = int(seconds // 3600)
-    m = int((seconds % 3600) // 60)
-    s = int(seconds % 60)
-    return f"{h:02d}:{m:02d}:{s:02d}"
-
-
 def split_sentences(text: str) -> list[str]:
     parts = re.split(r'(?<=[。！？；])', text)
     return [s.strip() for s in parts if s.strip()]
@@ -111,11 +106,6 @@ def segments_to_text(segs: list[dict]) -> str:
         ts = f"[{fmt_ts(float(seg['start']))} - {fmt_ts(float(seg['end']))}]"
         lines.append(f"{ts} {seg['text'].strip()}")
     return "\n".join(lines)
-
-
-def _parse_retry_delay(error: Exception) -> int:
-    match = re.search(r'retry in (\d+(?:\.\d+)?)s', str(error), re.IGNORECASE)
-    return int(float(match.group(1))) + 10 if match else RETRY_DELAY
 
 
 def build_replay_gemini_parts(payload: dict, transcript_text: str) -> list:
@@ -169,53 +159,6 @@ def build_replay_gemini_parts(payload: dict, transcript_text: str) -> list:
           f"{loaded}/{total} frames (slide={slide_count}, annot={annot_count})",
           flush=True)
     return parts
-
-
-def call_gemini_with_retry(client, parts: list, label: str) -> str | None:
-    """Call Gemini API with rate-limit retry and MAX_TOKENS auto-continuation."""
-    gemini_config = types.GenerateContentConfig(
-        temperature=0.1,
-        max_output_tokens=65536,
-        thinking_config=types.ThinkingConfig(thinking_budget=4096),
-    )
-
-    gemini_calls = 0
-    for attempt in range(1, MAX_RETRIES + 1):
-        try:
-            print(f"[{label}] Sending to Gemini ({len(parts)} parts)...", flush=True)
-            chat = client.chats.create(model=GEMINI_MODEL, config=gemini_config)
-            gemini_calls += 1
-            response = chat.send_message(parts)
-            full_text = response.text
-            if not full_text:
-                raise RuntimeError("Gemini returned empty response")
-
-            candidate = response.candidates[0] if response.candidates else None
-            for cont in range(MAX_CONTINUATIONS):
-                if not candidate or candidate.finish_reason != types.FinishReason.MAX_TOKENS:
-                    break
-                print(f"[{label}] Output truncated, auto-continuing ({cont + 1})...", flush=True)
-                gemini_calls += 1
-                response = chat.send_message("继续")
-                chunk = response.text
-                if not chunk:
-                    break
-                full_text += "\n" + chunk
-                candidate = response.candidates[0] if response.candidates else None
-
-            print(f"[{label}] Done: {len(full_text):,} chars, {gemini_calls} Gemini calls",
-                  flush=True)
-            return full_text
-
-        except Exception as e:
-            is_rate = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
-            delay = _parse_retry_delay(e) if is_rate else RETRY_DELAY
-            print(f"[{label}] {'Rate limit' if is_rate else 'Error'}: {e} "
-                  f"— retry in {delay}s (attempt {attempt}/{MAX_RETRIES})", flush=True)
-            if attempt < MAX_RETRIES:
-                time.sleep(delay)
-
-    return None
 
 
 # ── Load data ────────────────────────────────────────────────────────────────
@@ -341,7 +284,7 @@ else:
     http_opts = types.HttpOptions(timeout=3600000)
     client = genai.Client(api_key=api_key, http_options=http_opts)
 
-    gemini_text = call_gemini_with_retry(client, parts, label="replay-20260518")
+    gemini_text = call_gemini(client, parts, "replay-20260518")
     if gemini_text:
         NOTEBOOKLM_PATH.write_text(gemini_text, encoding="utf-8")
         print(f"\nNotebookLM document: {NOTEBOOKLM_PATH}")

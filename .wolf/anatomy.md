@@ -82,3 +82,4 @@
 
 ## runs/
 
+- `runs/2026-05-20-MAC-pipeline-verification.md` — branch-only MAC pipeline verification report on `origin/feature/local-transcript-appendix`: 5/9 completed, 4 Mac optimization issues (~1200 tok)

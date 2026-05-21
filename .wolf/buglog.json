@@ -243,6 +243,147 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-17T18:14:04+08:00"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-05-20T06:26:43.861Z",
+      "error_message": "Significant refactor of ",
+      "file": "zhihuTTS_video.py",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 20→31 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-20T06:26:43.861Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-05-20T06:31:52.848Z",
+      "error_message": "Incorrect value in code",
+      "file": "zhihuTTS.py",
+      "root_cause": "Had \"gemini-2.5-flash\"",
+      "fix": "Changed to \"GEMINI_MODEL\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-20T06:31:52.848Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-05-20T06:32:33.150Z",
+      "error_message": "Significant refactor of ",
+      "file": "zhihuTTS.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 14→23 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-20T06:32:33.150Z"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-05-20T19:31:20+08:00",
+      "error_message": "git fetch origin failed with: error: cannot open '.git/FETCH_HEAD': Operation not permitted",
+      "file": ".git/FETCH_HEAD",
+      "root_cause": "Default workspace sandbox prevented updating Git fetch metadata.",
+      "fix": "Re-ran git fetch origin with approved escalated permissions; fetch completed successfully.",
+      "tags": [
+        "git",
+        "sandbox",
+        "fetch"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-20T19:31:20+08:00"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-05-20T19:31:48+08:00",
+      "error_message": "python -m json.tool .wolf/buglog.json failed with: zsh:1: command not found: python",
+      "file": "shell command",
+      "root_cause": "This environment exposes Python as python3, not python.",
+      "fix": "Re-ran validation with python3 -m json.tool .wolf/buglog.json; JSON parsed successfully.",
+      "tags": [
+        "python",
+        "environment",
+        "validation-command"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-20T19:31:48+08:00"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-05-20T21:09:34+08:00",
+      "error_message": "git worktree prune failed with Operation not permitted; git branch --force failed to create .git refs lock with Operation not permitted",
+      "file": ".git/worktrees and .git/refs/heads/feature/stream-transcript-validation",
+      "root_cause": "Default workspace sandbox blocked Git metadata writes while clearing stale worktree state and updating a local branch ref.",
+      "fix": "Re-ran git worktree prune and git branch --force with approved escalated permissions; local feature/stream-transcript-validation now matches origin at ddd77a4.",
+      "tags": [
+        "git",
+        "sandbox",
+        "worktree",
+        "branch-sync"
+      ],
+      "related_bugs": [
+        "bug-019"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-20T21:09:34+08:00"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-05-20T21:11:30+08:00",
+      "error_message": "Code review found potential abnormal Google API consumption on feature/stream-transcript-validation",
+      "file": "run_zhihu_live.bat, run_zhihu_live.sh, zhihuTTS_stream.py, scripts/build_stream_markdown.py",
+      "root_cause": "Wrapper scripts pass --gemini by default; Windows BAT also invokes scripts/build_stream_markdown.py afterward when GEMINI_API_KEY is set, duplicating full-stream Gemini synthesis. Retry/continuation limits can further multiply calls.",
+      "fix": "Partially fixed first issue on stream branch worktree: removed --gemini from run_zhihu_live.bat's zhihuTTS_stream.py invocation so Windows BAT keeps scripts/build_stream_markdown.py as the single final NotebookLM Gemini synthesis path. Remaining recommendations: gate other wrapper defaults behind explicit flags, add max-call/max-frame budgets, and avoid retrying deterministic non-rate-limit errors.",
+      "tags": [
+        "google-api",
+        "gemini",
+        "cost",
+        "stream",
+        "code-review"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-20T21:11:30+08:00"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-05-21T00:00:00+08:00",
+      "error_message": "_call_gemini_stream() silently returns {text: None} when all retries exhausted — no log message",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "Outer retry loop fell through without printing a final failure message; callers had no visibility that synthesis was abandoned",
+      "fix": "Added stderr print before final return: 'All N retries exhausted — Gemini synthesis failed.'",
+      "tags": ["silent-failure", "gemini", "stream", "logging"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T00:00:00+08:00"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-05-21T00:00:00+08:00",
+      "error_message": "--cleanup-slices only deleted slice audio/video files; per-slice RUNS_DIR intermediate files accumulated indefinitely",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "cleanup_slices block only called slice_path.unlink(); did not remove transcript_path, global_transcript_path, payload_path, report_path",
+      "fix": "Added cleanup block after write_report(): when args.cleanup_slices, unlink all 4 per-slice RUNS_DIR files",
+      "tags": ["cleanup", "disk-space", "stream", "runs-dir"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T00:00:00+08:00"
     }
   ]
 }

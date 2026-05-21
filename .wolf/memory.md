@@ -3,10 +3,18 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## Session: 2026-05-20
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 今日 | fix P0/P1/P3 in experiment/inline-and-uri-upload | zhihuTTS.py | collect_videos+auto_split+MAX_RETRIES 12+caffeinate fix 推送 | ~800 |
+
 ## Session: 2026-05-18 (continued)
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 19:27 | Checked GitNexus knowledge graph availability for user question | `.wolf/OPENWOLF.md`, `.wolf/anatomy.md`, `.wolf/cerebrum.md` | Confirmed repo `zhihu` is indexed but 43 commits behind HEAD | ~4500 |
+| 19:31 | Summarized current branch purposes and pending validation work | `docs/BRANCH_USAGE.md`, `docs/ENGINEERING_HISTORY.md`, Git refs | Fetched origin; found 5 branches and key unfinished items | ~9000 |
 | 15:30 | Analyzed Windows code audit commit 0755f87 (4 remaining items) | runs/code-review-live-mode-b27b539-20260518.md | Evaluated P0-P2 items | ~800 |
 | 15:45 | Implemented 4 live-mode optimizations from Windows audit | zhihuTTS_stream.py, stream_extractors.py | Committed + pushed to feature/stream-transcript-validation | ~1200 |
 | 21:30 | Pulled Windows zhihu live discovery (c95d7cb, c403666): CC csslcloud FLV pipeline, 6 new tools | stream_extractors.py | Architecture confirmed | ~600 |
@@ -267,3 +275,66 @@
 | 22:45 | Edited ../../../../private/tmp/zhihu-stream-validation/.gitignore | 4→7 lines | ~30 |
 | 11:14 | Edited zhihuTTS_video.py | modified _normalize_transcript_text() | ~24 |
 | 11:15 | Edited zhihuTTS.py | 10→14 lines | ~208 |
+| 20:xx | 分析 WIN 推送(feature/local-transcript-appendix): GLOSSARY 25条+--reprocess+SSL retry; 补 SSL delay*2+空行; 合并推送 main | zhihuTTS.py, zhihuTTS_video.py | merged+pushed origin/main | ~4000 |
+| 14:25 | Edited zhihuTTS_video.py | expanded (+6 lines) | ~106 |
+| 14:26 | Edited zhihuTTS_video.py | modified _extract_emotion() | ~393 |
+| 14:27 | Edited zhihuTTS_video.py | 3→5 lines | ~56 |
+| 14:31 | Edited zhihuTTS_video.py | modified transcript_to_text() | ~109 |
+| 14:31 | Edited zhihuTTS.py | 1→3 lines | ~54 |
+| 14:32 | Edited zhihuTTS.py | modified range() | ~152 |
+| 14:32 | Edited zhihuTTS.py | expanded (+9 lines) | ~361 |
+| 15:24 | Created extract_slides.py | — | ~2128 |
+
+## Session: 2026-05-20 15:56
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-20 16:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-20 16:19
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-20 16:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-20 16:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-20 20:10
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:35 | Read GitNexus knowledge graph and OpenWolf context for project overview | gitnexus://repo/zhihu/*, .wolf/anatomy.md, .wolf/cerebrum.md | Found graph is stale at indexed commit 4590031 / MCP lastCommit 6dc8142 vs current HEAD 4af86bc; summarized graph modules and current-file gaps | ~9000 |
+| 20:40 | Checked current local/remote branch list and branch usage docs | git branches, docs/BRANCH_USAGE.md | Found 5 local branches with matching origin branches; main is current, local-transcript branch diverged, stream branch behind origin, stream-url-validation obsolete | ~3500 |
+| 20:43 | Counted branch activity over the last three days | git rev-list/log | origin/feature/stream-transcript-validation is most active with 62 first-parent commits since 2026-05-17, followed by main 21 and local-transcript 12 | ~2500 |
+| 20:45 | Verified Windows worktree folder to branch mapping | docs/BRANCH_WORKTREE_GUIDE.md | `zhihu_file` maps to `feature/local-transcript-appendix`; `zhihu_url` maps to `feature/stream-transcript-validation` | ~800 |
+| 20:47 | Checked current main branch role from latest commits and top-level scripts | main branch, zhihuTTS.py, zhihuTTS_stream.py, extract_slides.py | Main is now integrated baseline containing local file pipeline, stream pipeline, quality uplift, and slide extraction | ~2500 |
+| 20:55 | Analyzed per-branch task flows, inputs, and outputs | git logs/diffs across all branches | Mapped main/local-file/stream-url/inline-upload/obsolete stream branches to their workflows and artifacts | ~6000 |
+| 21:06 | Reviewed `origin/feature/stream-transcript-validation` for abnormal Google API consumption risks | zhihuTTS_stream.py, run_zhihu_live.bat, scripts/build_stream_markdown.py, build_final_markdown.py, GeminiModelList.py | Found Windows BAT can trigger two Gemini synthesis calls per run; retry/continuation limits can amplify calls; all-frame Gemini payload can be very large | ~8000 |
+| 21:09 | Synced local stream branch ref with Windows-reported remote state | git worktree/ref metadata | Pruned stale `/private/tmp/zhihu-feat` worktree record and fast-forwarded local `feature/stream-transcript-validation` to `ddd77a4`, matching origin | ~1800 |
+| 21:11 | Continued code review for stream branch Google API consumption | feature/stream-transcript-validation scripts | Confirmed duplicate Windows Gemini path, hidden Mac OPENCLAW consumption path, broad retry amplification, and all-frame payload risk | ~4500 |
+| 21:15 | Recorded user workflow preference for stream API-cost fixes | .wolf/cerebrum.md | User wants to discuss fixes incrementally and not apply a broad one-shot modification | ~500 |
+| 22:22 | Traced historical origin of dual Gemini stream synthesis steps | git history, docs/ENGINEERING_HISTORY.md, .wolf/memory.md | Found `--gemini` was added first as inline `.notes.md` convenience; later `build_stream_markdown.py` became final NotebookLM-quality post-process, leaving the older flag in BAT | ~5000 |
+| 22:49 | Checked synced logs/artifacts for evidence of duplicate Gemini calls in Windows live BAT run | runs/, Markdowns/, origin/feature/stream-transcript-validation | No 2026-05-19 live BAT run artifacts/logs or `.notes.md`/`TTS_stream-*` outputs are present locally; code path would call twice if GEMINI key exists, but actual Windows run needs console log or uncommitted artifacts to confirm | ~4500 |
+| 22:51 | Incorporated Windows local evidence for 2026-05-19 live BAT run | run_zhihu_live.bat, zhihuTTS_stream.py | WIN logs show BAT entered both Gemini paths for `live-19202605-周二1958`; inline `--gemini` path failed with no `.notes.md`, final `build_stream_markdown.py` succeeded with `TTS_stream-live-19202605-周二1958.md` | ~1200 |
+| 22:54 | Fixed duplicate Gemini entry in Windows live BAT on stream branch worktree | /private/tmp/zhihu-stream-fix/run_zhihu_live.bat | Removed `--gemini` from the `zhihuTTS_stream.py` invocation so only `scripts/build_stream_markdown.py` performs final NotebookLM Gemini synthesis | ~1000 |
+| 23:01 | Reviewed and committed duplicate Gemini BAT fix | /private/tmp/zhihu-stream-fix/run_zhihu_live.bat | Code review found no new issues; committed `849fbf2 fix: avoid duplicate Gemini generation in live BAT` on `feature/stream-transcript-validation` | ~1000 |
+| 23:07 | Pushed stream BAT Gemini fix to origin | feature/stream-transcript-validation | Remote branch advanced from `ddd77a4` to `849fbf2`; local and origin stream branch now match | ~500 |
+| 23:59 | Inspected Graphify knowledge graph output | graphify-out/manifest.json, graphify-out/GRAPH_REPORT.md, graphify-out/graph.json | Confirmed Graphify output is readable: 2026-05-15 graph with 53 files, 136 nodes, 148 edges, 19 communities; it covers main local video pipeline and content Markdown, not recent stream branch changes | ~3000 |
+| 00:06 | Checked why Graphify output still reports 2026-05-15 after newer scan | graphify-out/* | Found only detection/chunk/AST intermediate files updated on 2026-05-20; final graph artifacts `GRAPH_REPORT.md`, `graph.json`, `manifest.json`, `cost.json` remain from 2026-05-15 | ~2500 |
+| 00:07 | Located latest Graphify full-scan output one directory above repo | /Users/caojiapeng/projects/graphify-out | Confirmed new 2026-05-20 graph: 454 nodes, 678 edges, 37 communities, includes live stream pipeline, `zhihuTTS_stream.py`, `run_zhihu_live.sh`, `build_stream_markdown.py`, and `merge_stream_chunks.py` | ~3000 |
+| 09:51 | Documented Gemini API Free-tier quota constraints as project rules | CLAUDE.md, .wolf/cerebrum.md | Added RPM/TPM/RPD limits and engineering constraints requiring all Gemini-calling code changes to budget requests, tokens, retries, continuations, and duplicate call paths | ~2500 |
+| 09:35 | P0 utils.py extraction: removed duplicate fmt_ts/parse_retry_delay/extract_run_ts/call_gemini from 5 files, replaced with imports from utils.py | build_final_markdown.py, scripts/build_stream_markdown.py, scripts/merge_stream_chunks.py, zhihuTTS.py, zhihuTTS_stream.py | Complete — ~120 lines of duplicate code eliminated | ~4000 |
+| 10:05 | Pulled Windows commit 20580c3: 6s continuation cooldown fix (10 RPM free tier). Applied to utils.py + zhihuTTS.py + zhihuTTS_stream.py. Also fixed data-loss bug: 429 mid-continuation now retried in-place (not outer loop) to preserve accumulated full_text | utils.py, zhihuTTS.py, zhihuTTS_stream.py | All 3 Gemini callers now have cooldown + in-place continuation retry | ~3000 |
+| 11:00 | fix _call_gemini_stream() silent failure: add stderr print before final None return | zhihuTTS_stream.py | done | ~50 |
+| 11:00 | fix --cleanup-slices: also unlink per-slice RUNS_DIR files after write_report | zhihuTTS_stream.py | done | ~60 |

@@ -16,6 +16,7 @@ import os
 import re
 import shlex
 import subprocess
+import sys
 import time
 from datetime import datetime
 from pathlib import Path
@@ -34,6 +35,7 @@ from zhihuTTS_video import (
     transcribe_audio,
     transcript_to_text,
 )
+from utils import parse_retry_delay
 
 
 ROOT_DIR = Path(__file__).parent
@@ -48,6 +50,7 @@ GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_MAX_RETRIES = 6
 GEMINI_RETRY_DELAY = 65
 GEMINI_MAX_CONTINUATIONS = 20
+GEMINI_CONTINUATION_COOLDOWN = 6   # free tier: 10 RPM → 1 req / 6 s
 
 GEMINI_PROMPT_TEXT = """
 # 角色与目标
@@ -106,11 +109,6 @@ class BrowserDeadError(Exception):
     """Playwright browser process is gone — caller should attempt restart."""
 
 
-def _parse_gemini_retry_delay(error: Exception) -> int:
-    match = re.search(r"retry in (\d+(?:\.\d+)?)s", str(error), re.IGNORECASE)
-    return int(float(match.group(1))) + 10 if match else GEMINI_RETRY_DELAY
-
-
 def _call_gemini_stream(client, parts: list, label: str) -> dict:
     """Call Gemini with rate-limit retry and MAX_TOKENS auto-continuation."""
     try:
@@ -139,8 +137,21 @@ def _call_gemini_stream(client, parts: list, label: str) -> dict:
                 if not candidate or candidate.finish_reason != _gtypes.FinishReason.MAX_TOKENS:
                     break
                 print(f"[{label}] Output truncated, continuing ({cont + 1}/{GEMINI_MAX_CONTINUATIONS})...", flush=True)
+                time.sleep(GEMINI_CONTINUATION_COOLDOWN)  # 10 RPM free tier → 1 req/6 s
                 gemini_calls += 1
-                response = chat.send_message("继续")
+                # Inner retry: preserve accumulated full_text on 429 mid-continuation.
+                for _cr in range(GEMINI_MAX_RETRIES):
+                    try:
+                        response = chat.send_message("继续")
+                        break
+                    except Exception as _ce:
+                        _is_rate = "429" in str(_ce) or "RESOURCE_EXHAUSTED" in str(_ce)
+                        if _is_rate and _cr < GEMINI_MAX_RETRIES - 1:
+                            _cd = parse_retry_delay(_ce, GEMINI_RETRY_DELAY)
+                            print(f"[{label}] Continuation rate limited, retrying in {_cd}s...", flush=True)
+                            time.sleep(_cd)
+                        else:
+                            raise
                 text = response.text
                 if not text:
                     break
@@ -150,13 +161,14 @@ def _call_gemini_stream(client, parts: list, label: str) -> dict:
         except Exception as e:
             is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
             if is_rate_limited:
-                delay = _parse_gemini_retry_delay(e)
+                delay = parse_retry_delay(e, GEMINI_RETRY_DELAY)
                 print(f"[{label}] Rate limited (429), retrying in {delay}s...", flush=True)
             else:
                 delay = GEMINI_RETRY_DELAY
                 print(f"[{label}] Gemini error: {e}", flush=True)
             if attempt < GEMINI_MAX_RETRIES:
                 time.sleep(delay)
+    print(f"[{label}] All {GEMINI_MAX_RETRIES} retries exhausted — Gemini synthesis failed.", file=sys.stderr, flush=True)
     return {"text": None, "gemini_calls": gemini_calls}
 
 
@@ -728,6 +740,9 @@ def process_slice(
         "global_transcript_text": global_transcript_text,
     }
     write_report(report_path, data)
+    if args.cleanup_slices:
+        for _p in (transcript_path, global_transcript_path, payload_path, report_path):
+            _p.unlink(missing_ok=True)
     print(f"Report: {report_path}")
     print(f"Elapsed: {data['processing']['elapsed_s']}s")
     return data
@@ -953,9 +968,6 @@ def run_validation(args: argparse.Namespace) -> dict:
             source_summary["video"],
             source_summary["audio"],
         )
-        if headers:
-            print("Auth headers:", ", ".join(sorted(headers.keys())))
-
         live_mode = requested_duration_s <= 0
         base_stem = safe_name(args.name or f"{host}_{int(start_s)}_{'live' if live_mode else int(requested_duration_s)}")
         if live_mode:
@@ -1089,9 +1101,9 @@ def run_validation(args: argparse.Namespace) -> dict:
             print("\n=== Gemini: Building notes document ===")
             try:
                 from google import genai as _genai
-                api_key = getattr(args, "gemini_api_key", "") or os.environ.get("GEMINI_API_KEY", "")
+                api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY", "")
                 if not api_key:
-                    print("[!] --gemini-api-key or GEMINI_API_KEY env var required — skipping Gemini")
+                    print("[!] GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var required — skipping Gemini")
                 else:
                     client = _genai.Client(api_key=api_key)
                     parts = build_stream_gemini_parts(manifest)
@@ -1238,13 +1250,8 @@ def build_parser() -> argparse.ArgumentParser:
         help=(
             "After all chunks are processed, call Gemini to produce a "
             "NotebookLM-ready notes document (.notes.md). "
-            "Requires GEMINI_API_KEY env var or --gemini-api-key."
+            "Requires GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var."
         ),
-    )
-    parser.add_argument(
-        "--gemini-api-key",
-        default="",
-        help="Gemini API key. Defaults to the GEMINI_API_KEY environment variable.",
     )
     return parser
 

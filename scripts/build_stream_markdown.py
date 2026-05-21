@@ -34,6 +34,9 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import call_gemini, extract_run_ts, fmt_ts
+
 # ── Gemini config ─────────────────────────────────────────────────────────────
 
 GEMINI_MODEL            = "gemini-2.5-flash"
@@ -92,30 +95,10 @@ GEMINI_PROMPT_TEXT = """
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-def fmt_ts(seconds: float) -> str:
-    h = int(seconds // 3600)
-    m = int((seconds % 3600) // 60)
-    s = int(seconds % 60)
-    return f"{h:02d}:{m:02d}:{s:02d}"
-
-
 def parse_chunk_start(path: Path) -> int:
     """Extract global start_s from filename: stream-base_chunk001_120s-ts.ext → 120"""
     m = re.search(r'_chunk\d+_(\d+)s[-.]', path.name)
     return int(m.group(1)) if m else 0
-
-
-def extract_run_ts(path: Path) -> str:
-    m = re.search(r'-(\d{8}-\d{6})\.', path.name)
-    if not m:
-        print(f"[warn] cannot parse run timestamp from: {path.name}", file=sys.stderr)
-        return "00000000-000000"
-    return m.group(1)
-
-
-def _parse_retry_delay(error: Exception) -> int:
-    match = re.search(r'retry in (\d+(?:\.\d+)?)s', str(error), re.IGNORECASE)
-    return int(float(match.group(1))) + 10 if match else RETRY_DELAY
 
 
 # ── Data loading ──────────────────────────────────────────────────────────────
@@ -225,52 +208,6 @@ def build_gemini_parts(transcript: str, frames: list[dict]) -> list:
     return parts
 
 
-# ── Gemini call ───────────────────────────────────────────────────────────────
-
-def call_gemini(client, parts: list, label: str) -> str | None:
-    config = types.GenerateContentConfig(
-        temperature=0.1,
-        max_output_tokens=65536,
-        thinking_config=types.ThinkingConfig(thinking_budget=4096),
-    )
-    gemini_calls = 0
-    for attempt in range(1, MAX_RETRIES + 1):
-        try:
-            print(f"[{label}] Sending to Gemini ({len(parts)} parts)...", flush=True)
-            chat      = client.chats.create(model=GEMINI_MODEL, config=config)
-            gemini_calls += 1
-            response  = chat.send_message(parts)
-            full_text = response.text
-            if not full_text:
-                raise RuntimeError("Gemini returned empty response")
-
-            candidate = response.candidates[0] if response.candidates else None
-            for cont in range(MAX_CONTINUATIONS):
-                if not candidate or candidate.finish_reason != types.FinishReason.MAX_TOKENS:
-                    break
-                print(f"[{label}] Truncated, continuing ({cont + 1})...", flush=True)
-                gemini_calls += 1
-                response  = chat.send_message("继续")
-                chunk_txt = response.text
-                if not chunk_txt:
-                    break
-                full_text += "\n" + chunk_txt
-                candidate  = response.candidates[0] if response.candidates else None
-
-            print(f"[{label}] Done: {len(full_text):,} chars, {gemini_calls} calls",
-                  flush=True)
-            return full_text
-
-        except Exception as e:
-            is_rate = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
-            delay   = _parse_retry_delay(e) if is_rate else RETRY_DELAY
-            print(f"[{label}] {'Rate limit' if is_rate else 'Error'}: {e} "
-                  f"— retry in {delay}s ({attempt}/{MAX_RETRIES})", flush=True)
-            if attempt < MAX_RETRIES:
-                time.sleep(delay)
-    return None
-
-
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -333,7 +270,7 @@ def main() -> None:
     http_opts = types.HttpOptions(timeout=3600000)
     client    = genai.Client(api_key=api_key, http_options=http_opts)
 
-    gemini_text = call_gemini(client, parts, label=args.base)
+    gemini_text = call_gemini(client, parts, args.base)
     if not gemini_text:
         print("[!] Gemini synthesis failed — merged raw transcript still available.",
               file=sys.stderr)

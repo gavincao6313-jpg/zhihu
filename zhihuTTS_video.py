@@ -86,8 +86,11 @@ def _extract_frames(video_path: Path, fps: float = FRAME_FPS,
     if out_dir.exists():
         shutil.rmtree(out_dir, ignore_errors=True)
         if out_dir.exists() and platform.system() == "Windows":
+            resolved = out_dir.resolve()
+            if not resolved.is_relative_to(KEYFRAMES_DIR.resolve()):
+                raise ValueError(f"Path escape detected: {resolved}")
             subprocess.run(["cmd", "/c", "rmdir", "/s", "/q",
-                           str(out_dir.resolve())], capture_output=True)
+                           str(resolved)], capture_output=True)
         if out_dir.exists():
             shutil.rmtree(out_dir)  # 最后尝试，不忽略错误
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -518,6 +521,10 @@ def transcribe_audio(video_path: Path, model_size: str = "small",
                      language: str = "zh") -> dict:
     """转写音频，默认使用 FunASR/SenseVoice，可通过 TRANSCRIBE_BACKEND 切换。"""
     TMP_DIR.mkdir(parents=True, exist_ok=True)
+    try:
+        TMP_DIR.chmod(0o700)  # owner-only; prevents other users reading audio on shared systems (no-op on Windows)
+    except OSError:
+        pass
     with tempfile.NamedTemporaryFile(dir=TMP_DIR, suffix=".wav", prefix="zhihu_", delete=False) as f:
         wav_path = Path(f.name)
     backend = requested_transcribe_backend()

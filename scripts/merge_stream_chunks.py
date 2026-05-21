@@ -20,24 +20,14 @@ import argparse, json, re, sys
 from collections import defaultdict
 from pathlib import Path
 
-
-def fmt_ts(seconds: float) -> str:
-    h = int(seconds // 3600)
-    m = int((seconds % 3600) // 60)
-    s = int(seconds % 60)
-    return f"{h:02d}:{m:02d}:{s:02d}"
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import extract_run_ts, fmt_ts
 
 
 def parse_chunk_start(path: Path) -> int:
     """Extract start_s from filename like stream-base_chunkXXX_1234s-timestamp.ext"""
     m = re.search(r'_chunk\d+_(\d+)s[-.]', path.name)
     return int(m.group(1)) if m else 0
-
-
-def extract_run_ts(path: Path) -> str:
-    """Extract YYYYMMDD-HHMMSS run timestamp from filename. Used to group chunks by run."""
-    m = re.search(r'-(\d{8}-\d{6})\.global-transcript', path.name)
-    return m.group(1) if m else "00000000-000000"
 
 
 def parse_timestamp(ts_str: str) -> float:

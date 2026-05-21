@@ -12,6 +12,8 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
+from utils import parse_retry_delay
+
 from zhihuTTS_video import (
     extract_keyframes,
     transcribe_audio,
@@ -35,6 +37,7 @@ TRANSCRIPT_APPENDIX_HEADING = "## 附录：完整逐字稿"
 
 MAX_RETRIES = 6
 RETRY_DELAY = 65
+CONTINUATION_COOLDOWN = 6      # free tier: 10 RPM → 1 req / 6 s
 DAILY_QUOTA_LIMIT = 20
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-pro")
 _GEMINI_MODEL_FALLBACK = "gemini-2.5-flash"
@@ -108,12 +111,6 @@ def _setup_logging():
     _logger.addHandler(fh)
 
 
-def _parse_retry_delay(error: Exception) -> int:
-    """从 429 错误信息中提取建议等待秒数，找不到则返回 RETRY_DELAY。"""
-    match = re.search(r'retry in (\d+(?:\.\d+)?)s', str(error), re.IGNORECASE)
-    return int(float(match.group(1))) + 10 if match else RETRY_DELAY
-
-
 _print_lock = threading.Lock()
 _progress_lock = threading.Lock()
 
@@ -165,8 +162,21 @@ def _call_gemini_with_retry(client, parts, video_label) -> dict:
                 if candidate.finish_reason != types.FinishReason.MAX_TOKENS:
                     break
                 tprint(f"[{video_label}] 输出被截断，自动续写 (第{cont+1}次)...")
+                time.sleep(CONTINUATION_COOLDOWN)  # 10 RPM free tier → 1 req/6 s
                 gemini_calls += 1
-                response = chat.send_message("继续")
+                # 内层重试：续写遇到429时保留已积累的full_text，不重建chat session
+                for _cr in range(MAX_RETRIES):
+                    try:
+                        response = chat.send_message("继续")
+                        break
+                    except Exception as _ce:
+                        _is_rate = "429" in str(_ce) or "RESOURCE_EXHAUSTED" in str(_ce)
+                        if _is_rate and _cr < MAX_RETRIES - 1:
+                            _cd = parse_retry_delay(_ce, RETRY_DELAY)
+                            tprint(f"[{video_label}] 续写限流，{_cd}s 后重试...")
+                            time.sleep(_cd)
+                        else:
+                            raise
                 text = _safe_text(response)
                 if not text:
                     tprint(f"[{video_label}] ⚠ 续写返回空响应，提前结束")
@@ -196,7 +206,7 @@ def _call_gemini_with_retry(client, parts, video_label) -> dict:
                 _gemini_model_active[0] = _GEMINI_MODEL_FALLBACK
                 continue  # 立即重试，不等待
             if is_rate_limited:
-                delay = _parse_retry_delay(e)
+                delay = parse_retry_delay(e, RETRY_DELAY)
                 tprint(f"[{video_label}] 触发限流（429），{delay}s 后重试...")
             elif is_ssl_error:
                 delay = RETRY_DELAY * 2
