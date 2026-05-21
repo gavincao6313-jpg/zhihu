@@ -1,0 +1,18 @@
+{
+  "video_name": "step1-verify_chunk001_0s",
+  "full_text": "[00:00:00 - 00:01:00] 🤧嗯。hello hello啊，各位同学。😊啊，刚才设备有点问题啊，然后现在同学们啊已经进到直播同学来看看自己的设备，声音和画面都清楚吗？同学们。嗯，hello hello hello。晚上好晚上好嗯。😊🤧嗯。又见面了。是的，又见面了。😊清楚的可以的可以的啊，刚才设备有点问题啊，然后呃调整了一下。O.行，然后进到直播间同学，然后我们稍等一下后面的同学哈嗯。ok ok晚上好。😊今天讲的内容其实并不难啊，大家今天课上跟老师一起，我们就是先听老师讲啊，然后呢下来自己在实操。老师今天讲哪个方面，今天讲教育的。讲教育。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\step1-verify_chunk001_0s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 279
+  }
+}

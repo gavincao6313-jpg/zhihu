@@ -1,0 +1,205 @@
+{
+  "created_at": "2026-05-21T22:15:14",
+  "url_host": "vdn6.vzuu.com",
+  "extractor": "direct",
+  "media_type": "mp4",
+  "source": {
+    "duration_s": 9177.399333,
+    "size_bytes": 322081272,
+    "bit_rate": 280760,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "fps": "1500204859/100013650"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "44100",
+      "channels": 2
+    },
+    "extractor": "direct",
+    "media_type": "mp4"
+  },
+  "auth_header_names": [],
+  "start_s": 0.0,
+  "duration_s": 9177.399333,
+  "live_mode": false,
+  "stream_ended_reason": "",
+  "chunk_duration_s": 60.0,
+  "chunks": [
+    {
+      "created_at": "2026-05-21T22:15:15",
+      "url_host": "vdn6.vzuu.com",
+      "extractor": "direct",
+      "media_type": "mp4",
+      "source": {
+        "duration_s": 9177.399333,
+        "size_bytes": 322081272,
+        "bit_rate": 280760,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "1500204859/100013650"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "mp4"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 0.0,
+        "duration_s": 60.0,
+        "path": "Videos\\.stream\\step1-verify_chunk001_0s.mp4",
+        "size_bytes": 1477719,
+        "kept": true
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 17.25,
+        "segments": 1,
+        "transcript_chars": 279,
+        "elapsed_s": 18.12,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk001_0s-20260521-221515.transcript.txt",
+        "payload_json": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk001_0s-20260521-221515.payload.json",
+        "report_md": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk001_0s-20260521-221515.md",
+        "global_transcript_txt": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk001_0s-20260521-221515.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 1,
+        "total": 3
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 🤧嗯。hello hello啊，各位同学。😊啊，刚才设备有点问题啊，然后现在同学们啊已经进到直播同学来看看自己的设备，声音和画面都清楚吗？同学们。嗯，hello hello hello。晚上好晚上好嗯。😊🤧嗯。又见面了。是的，又见面了。😊清楚的可以的可以的啊，刚才设备有点问题啊，然后呃调整了一下。O.行，然后进到直播间同学，然后我们稍等一下后面的同学哈嗯。ok ok晚上好。😊今天讲的内容其实并不难啊，大家今天课上跟老师一起，我们就是先听老师讲啊，然后呢下来自己在实操。老师今天讲哪个方面，今天讲教育的。讲教育。",
+      "global_transcript_preview": "[00:00:00 - 00:01:00] 🤧嗯。hello hello啊，各位同学。😊啊，刚才设备有点问题啊，然后现在同学们啊已经进到直播同学来看看自己的设备，声音和画面都清楚吗？同学们。嗯，hello hello hello。晚上好晚上好嗯。😊🤧嗯。又见面了。是的，又见面了。😊清楚的可以的可以的啊，刚才设备有点问题啊，然后呃调整了一下。O.行，然后进到直播间同学，然后我们稍等一下后面的同学哈嗯。ok ok晚上好。😊今天讲的内容其实并不难啊，大家今天课上跟老师一起，我们就是先听老师讲啊，然后呢下来自己在实操。老师今天讲哪个方面，今天讲教育的。讲教育。",
+      "global_transcript_text": "[00:00:00 - 00:01:00] 🤧嗯。hello hello啊，各位同学。😊啊，刚才设备有点问题啊，然后现在同学们啊已经进到直播同学来看看自己的设备，声音和画面都清楚吗？同学们。嗯，hello hello hello。晚上好晚上好嗯。😊🤧嗯。又见面了。是的，又见面了。😊清楚的可以的可以的啊，刚才设备有点问题啊，然后呃调整了一下。O.行，然后进到直播间同学，然后我们稍等一下后面的同学哈嗯。ok ok晚上好。😊今天讲的内容其实并不难啊，大家今天课上跟老师一起，我们就是先听老师讲啊，然后呢下来自己在实操。老师今天讲哪个方面，今天讲教育的。讲教育。"
+    },
+    {
+      "created_at": "2026-05-21T22:15:34",
+      "url_host": "vdn6.vzuu.com",
+      "extractor": "direct",
+      "media_type": "mp4",
+      "source": {
+        "duration_s": 9177.399333,
+        "size_bytes": 322081272,
+        "bit_rate": 280760,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "1500204859/100013650"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "mp4"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 60.0,
+        "duration_s": 60.0,
+        "path": "Videos\\.stream\\step1-verify_chunk002_60s.mp4",
+        "size_bytes": 2054914,
+        "kept": true
+      },
+      "processing": {
+        "events": 4,
+        "frames": 6,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 8.44,
+        "segments": 1,
+        "transcript_chars": 286,
+        "elapsed_s": 9.45,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk002_60s-20260521-221534.transcript.txt",
+        "payload_json": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk002_60s-20260521-221534.payload.json",
+        "report_md": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk002_60s-20260521-221534.md",
+        "global_transcript_txt": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk002_60s-20260521-221534.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 2,
+        "total": 3
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 教育方向呢啊一个小案例。呃，英语呃英语情景对话陪练。嗯。就这个东西其实大家好像在日常生活中好像见到的也比较多，对不对？像这种像陪练啊，或者说这种英语的这种教学的一些软件啊，其实大家见的比较多了。但是今天我们讲的这个东西，其实和呃和传统的也不太一样啊和传统的不太一样。嗯，来我也保证我这个项目它是运转的。OK.行。好。Excuse me. Can I help you find something.😊嗯，OK没问题嗯。好吧，那假如说呃未来如果说你想从事，比方说或者你想在教育行业里边有一点就是说呃想自己去做一些事情，或者说做一。",
+      "global_transcript_preview": "[00:01:00 - 00:02:00] 教育方向呢啊一个小案例。呃，英语呃英语情景对话陪练。嗯。就这个东西其实大家好像在日常生活中好像见到的也比较多，对不对？像这种像陪练啊，或者说这种英语的这种教学的一些软件啊，其实大家见的比较多了。但是今天我们讲的这个东西，其实和呃和传统的也不太一样啊和传统的不太一样。嗯，来我也保证我这个项目它是运转的。OK.行。好。Excuse me. Can I help you find something.😊嗯，OK没问题嗯。好吧，那假如说呃未来如果说你想从事，比方说或者你想在教育行业里边有一点就是说呃想自己去做一些事情，或者说做一。",
+      "global_transcript_text": "[00:01:00 - 00:02:00] 教育方向呢啊一个小案例。呃，英语呃英语情景对话陪练。嗯。就这个东西其实大家好像在日常生活中好像见到的也比较多，对不对？像这种像陪练啊，或者说这种英语的这种教学的一些软件啊，其实大家见的比较多了。但是今天我们讲的这个东西，其实和呃和传统的也不太一样啊和传统的不太一样。嗯，来我也保证我这个项目它是运转的。OK.行。好。Excuse me. Can I help you find something.😊嗯，OK没问题嗯。好吧，那假如说呃未来如果说你想从事，比方说或者你想在教育行业里边有一点就是说呃想自己去做一些事情，或者说做一。"
+    },
+    {
+      "created_at": "2026-05-21T22:15:44",
+      "url_host": "vdn6.vzuu.com",
+      "extractor": "direct",
+      "media_type": "mp4",
+      "source": {
+        "duration_s": 9177.399333,
+        "size_bytes": 322081272,
+        "bit_rate": 280760,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "1500204859/100013650"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "mp4"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 120.0,
+        "duration_s": 60.0,
+        "path": "Videos\\.stream\\step1-verify_chunk003_120s.mp4",
+        "size_bytes": 1563444,
+        "kept": true
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 8.5,
+        "segments": 1,
+        "transcript_chars": 327,
+        "elapsed_s": 9.52,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk003_120s-20260521-221544.transcript.txt",
+        "payload_json": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk003_120s-20260521-221544.payload.json",
+        "report_md": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk003_120s-20260521-221544.md",
+        "global_transcript_txt": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify_chunk003_120s-20260521-221544.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 3,
+        "total": 3
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 些产品或者说想在教育行业里边去做一些呃能让自己这个一个人的公司，对吧？能做出出这样一个产品，然后能让自己有一个比较好的收入的话，今天这节课呢我建议你呢要好好听一听，尤其是123啊三章节的内容，一定要认真听，尤其是尤其是在123章里边，我们去详细会去讲解说，如果说你现在发现了一个行业的痛点。那你怎么去挖掘它，怎么去把它变成一个可执行可落地甚至可变现的一个产品。好吧。嗯。😀呵呵呵。😊OK.行，然后我们离上课还有2分钟的时间啊，大家抓紧时间啊，就是该喝水喝水，对吧？因为我们今天这个课程呢大概会有。将近两个小时的时间。在这两个小时时间里边呢，会带着大家一起去做一个什么呢？就是从0到1。啊，我们要去做一个这样的。",
+      "global_transcript_preview": "[00:02:00 - 00:03:00] 些产品或者说想在教育行业里边去做一些呃能让自己这个一个人的公司，对吧？能做出出这样一个产品，然后能让自己有一个比较好的收入的话，今天这节课呢我建议你呢要好好听一听，尤其是123啊三章节的内容，一定要认真听，尤其是尤其是在123章里边，我们去详细会去讲解说，如果说你现在发现了一个行业的痛点。那你怎么去挖掘它，怎么去把它变成一个可执行可落地甚至可变现的一个产品。好吧。嗯。😀呵呵呵。😊OK.行，然后我们离上课还有2分钟的时间啊，大家抓紧时间啊，就是该喝水喝水，对吧？因为我们今天这个课程呢大概会有。将近两个小时的时间。在这两个小时时间里边呢，会带着大家一起去做一个什么呢？就是从0到1。啊，我们要去做一个这样的。",
+      "global_transcript_text": "[00:02:00 - 00:03:00] 些产品或者说想在教育行业里边去做一些呃能让自己这个一个人的公司，对吧？能做出出这样一个产品，然后能让自己有一个比较好的收入的话，今天这节课呢我建议你呢要好好听一听，尤其是123啊三章节的内容，一定要认真听，尤其是尤其是在123章里边，我们去详细会去讲解说，如果说你现在发现了一个行业的痛点。那你怎么去挖掘它，怎么去把它变成一个可执行可落地甚至可变现的一个产品。好吧。嗯。😀呵呵呵。😊OK.行，然后我们离上课还有2分钟的时间啊，大家抓紧时间啊，就是该喝水喝水，对吧？因为我们今天这个课程呢大概会有。将近两个小时的时间。在这两个小时时间里边呢，会带着大家一起去做一个什么呢？就是从0到1。啊，我们要去做一个这样的。"
+    }
+  ],
+  "combined_transcript_path": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify-20260521-221553.combined-transcript.txt",
+  "manifest_json_path": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify-20260521-221553.manifest.json",
+  "manifest_md_path": "D:\\zhihu\\zhihu_file\\runs\\stream-step1-verify-20260521-221553.manifest.md",
+  "combined_transcript_text": "[00:00:00 - 00:01:00] 🤧嗯。hello hello啊，各位同学。😊啊，刚才设备有点问题啊，然后现在同学们啊已经进到直播同学来看看自己的设备，声音和画面都清楚吗？同学们。嗯，hello hello hello。晚上好晚上好嗯。😊🤧嗯。又见面了。是的，又见面了。😊清楚的可以的可以的啊，刚才设备有点问题啊，然后呃调整了一下。O.行，然后进到直播间同学，然后我们稍等一下后面的同学哈嗯。ok ok晚上好。😊今天讲的内容其实并不难啊，大家今天课上跟老师一起，我们就是先听老师讲啊，然后呢下来自己在实操。老师今天讲哪个方面，今天讲教育的。讲教育。\n\n[00:01:00 - 00:02:00] 教育方向呢啊一个小案例。呃，英语呃英语情景对话陪练。嗯。就这个东西其实大家好像在日常生活中好像见到的也比较多，对不对？像这种像陪练啊，或者说这种英语的这种教学的一些软件啊，其实大家见的比较多了。但是今天我们讲的这个东西，其实和呃和传统的也不太一样啊和传统的不太一样。嗯，来我也保证我这个项目它是运转的。OK.行。好。Excuse me. Can I help you find something.😊嗯，OK没问题嗯。好吧，那假如说呃未来如果说你想从事，比方说或者你想在教育行业里边有一点就是说呃想自己去做一些事情，或者说做一。\n\n[00:02:00 - 00:03:00] 些产品或者说想在教育行业里边去做一些呃能让自己这个一个人的公司，对吧？能做出出这样一个产品，然后能让自己有一个比较好的收入的话，今天这节课呢我建议你呢要好好听一听，尤其是123啊三章节的内容，一定要认真听，尤其是尤其是在123章里边，我们去详细会去讲解说，如果说你现在发现了一个行业的痛点。那你怎么去挖掘它，怎么去把它变成一个可执行可落地甚至可变现的一个产品。好吧。嗯。😀呵呵呵。😊OK.行，然后我们离上课还有2分钟的时间啊，大家抓紧时间啊，就是该喝水喝水，对吧？因为我们今天这个课程呢大概会有。将近两个小时的时间。在这两个小时时间里边呢，会带着大家一起去做一个什么呢？就是从0到1。啊，我们要去做一个这样的。",
+  "preview": "[00:00:00 - 00:01:00] 🤧嗯。hello hello啊，各位同学。😊啊，刚才设备有点问题啊，然后现在同学们啊已经进到直播同学来看看自己的设备，声音和画面都清楚吗？同学们。嗯，hello hello hello。晚上好晚上好嗯。😊🤧嗯。又见面了。是的，又见面了。😊清楚的可以的可以的啊，刚才设备有点问题啊，然后呃调整了一下。O.行，然后进到直播间同学，然后我们稍等一下后面的同学哈嗯。ok ok晚上好。😊今天讲的内容其实并不难啊，大家今天课上跟老师一起，我们就是先听老师讲啊，然后呢下来自己在实操。老师今天讲哪个方面，今天讲教育的。讲教育。\n\n[00:01:00 - 00:02:00] 教育方向呢啊一个小案例。呃，英语呃英语情景对话陪练。嗯。就这个东西其实大家好像在日常生活中好像见到的也比较多，对不对？像这种像陪练啊，或者说这种英语的这种教学的一些软件啊，其实大家见的比较多了。但是今天我们讲的这个东西，其实和呃和传统的也不太一样啊和传统的不太一样。嗯，来我也保证我这个项目它是运转的。OK.行。好。Excuse me. Can I help you find something.😊嗯，OK没问题嗯。好吧，那假如说呃未来如果说你想从事，比方说或者你想在教育行业里边有一点就是说呃想自己去做一些事情，或者说做一。\n\n[00:02:00 - 00:03:00] 些产品或者说想在教育行业里边去做一些呃能让自己这个一个人的公司，对吧？能做出出这样一个产品，然后能让自己有一个比较好的收入的话，今天这节课呢我建议你呢要好好听一听，尤其是123啊三章节的内容，一定要认真听，尤其是尤其是在123章里边，我们去详细会去讲解说，如果说你现在发现了一个行业的痛点。那你怎么去挖掘它，怎么去把它变成一个可执行可落地甚至可变现的一个产品。好吧。嗯。😀呵呵呵。😊OK.行，然后我们离上课还有2分钟的时间啊，大家抓紧时间啊，就是该喝水喝水，对吧？因为我们今天这个课程呢大概会有。将近两个小时的时间。在这两个小时时间里边呢，会带着大家一起去做一个什么呢？就是从0到1。啊，我们要去做一个这样的。"
+}

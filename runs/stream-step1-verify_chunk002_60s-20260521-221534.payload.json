@@ -1,0 +1,64 @@
+{
+  "video_name": "step1-verify_chunk002_60s",
+  "full_text": "[00:00:00 - 00:01:00] 教育方向呢啊一个小案例。呃，英语呃英语情景对话陪练。嗯。就这个东西其实大家好像在日常生活中好像见到的也比较多，对不对？像这种像陪练啊，或者说这种英语的这种教学的一些软件啊，其实大家见的比较多了。但是今天我们讲的这个东西，其实和呃和传统的也不太一样啊和传统的不太一样。嗯，来我也保证我这个项目它是运转的。OK.行。好。Excuse me. Can I help you find something.😊嗯，OK没问题嗯。好吧，那假如说呃未来如果说你想从事，比方说或者你想在教育行业里边有一点就是说呃想自己去做一些事情，或者说做一。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\step1-verify_chunk002_60s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\step1-verify_chunk002_60s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\step1-verify_chunk002_60s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.2712"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\step1-verify_chunk002_60s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=slide diff=0.7729"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\step1-verify_chunk002_60s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.1475"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\step1-verify_chunk002_60s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.4361"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.2712
+    },
+    {
+      "type": "slide",
+      "frame_idx": 27,
+      "diff": 0.7729
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.1475
+    },
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.4361
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 286
+  }
+}
