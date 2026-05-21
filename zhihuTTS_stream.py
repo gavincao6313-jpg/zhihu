@@ -1325,6 +1325,7 @@ class SegmentConsumer(threading.Thread):
         recorder_stopped: threading.Event,
         gap_queue: queue.SimpleQueue,
         scan_interval: float = 5.0,
+        max_chunks: int = 0,
     ) -> None:
         super().__init__(name="SegmentConsumer", daemon=True)
         self._work_dir = work_dir
@@ -1335,6 +1336,7 @@ class SegmentConsumer(threading.Thread):
         self._recorder_stopped = recorder_stopped
         self._gap_queue = gap_queue
         self._scan_interval = scan_interval
+        self._max_chunks = max_chunks
 
         self._processed: set[str] = set()
         self._failed: dict[str, dict] = {}
@@ -1365,10 +1367,15 @@ class SegmentConsumer(threading.Thread):
             pending = self._pending()
             if pending:
                 for seg_name in pending:
+                    if self._max_chunks > 0 and self._chunk_index >= self._max_chunks:
+                        print(f"[Consumer] Reached --max-chunks={self._max_chunks}, stopping.", flush=True)
+                        return
                     self._process_one(self._work_dir / seg_name, seg_name)
             if not pending and self._recorder_stopped.is_set():
                 # Final scan after recorder stops to catch last-window segments
                 for seg_name in self._pending():
+                    if self._max_chunks > 0 and self._chunk_index >= self._max_chunks:
+                        break
                     self._process_one(self._work_dir / seg_name, seg_name)
                 break
             time.sleep(self._scan_interval)
@@ -1550,7 +1557,8 @@ def run_continuous_hls(args: argparse.Namespace) -> dict:
         gap_queue: queue.SimpleQueue = queue.SimpleQueue()
 
         recorder = Recorder(stream, work_dir, keepalive, args, recorder_stopped, gap_queue)
-        consumer = SegmentConsumer(work_dir, base_stem, args, host, headers, recorder_stopped, gap_queue)
+        consumer = SegmentConsumer(work_dir, base_stem, args, host, headers, recorder_stopped, gap_queue,
+                                   max_chunks=args.max_chunks or 0)
 
         print(f"\n=== HLS Continuous mode ===")
         print(f"Name    : {base_stem}")
@@ -1589,7 +1597,8 @@ def run_hls_consumer_only(args: argparse.Namespace) -> dict:
     recorder_stopped.set()  # Pre-set: consumer exits after draining the directory
     gap_queue: queue.SimpleQueue = queue.SimpleQueue()
 
-    consumer = SegmentConsumer(work_dir, base_stem, args, host, headers, recorder_stopped, gap_queue)
+    consumer = SegmentConsumer(work_dir, base_stem, args, host, headers, recorder_stopped, gap_queue,
+                               max_chunks=args.max_chunks or 0)
 
     ts_files = sorted(work_dir.glob("seg_*.ts"))
     if args.max_chunks and len(ts_files) > args.max_chunks:
