@@ -317,25 +317,20 @@ BAT 启动前检查以下项，发现问题立刻给出明确提示：
 
 ## P2-C — 账号被踢/登录失效错误细分
 
-**状态：[ ] 待讨论**
+**状态：[x] 已完成**
 
-### 现状
-失败时统一报"session expired"，无法区分根因。
+### 改动（仅 `zhihuTTS_stream.py`，不改架构）
 
-### 目标细分
+| 场景 | 实现方式 | 输出日志 |
+|------|---------|----------|
+| 页面跳到登录页 | `refresh_error` 消息含 signin/login → print | `[账号态失效] 跳转登录页，请重新登录` |
+| 页面正常但无媒体 URL | `refresh_error` 消息含 "no media url" → print | `[直播未开始或已结束] 页面无流 URL` |
+| ffmpeg 403/401 | `slice_url()` 扫描 stderr → print（不阻断重试） | `[媒体 URL 授权失效] 需刷新流 URL` |
+| ffmpeg timeout | `subprocess.TimeoutExpired` catch → print + continue retry | `[网络中断] 流连接超时 (attempt N/M)` |
 
-| 场景 | 目标日志 |
-|------|----------|
-| 页面跳到登录页 | `[账号态失效] 跳转登录页，请重新登录` |
-| 页面正常但无媒体 URL | `[直播未开始或已结束] 页面无流 URL` |
-| ffmpeg 403/401 | `[媒体 URL 授权失效] 需刷新流 URL` |
-| ffmpeg timeout | `[网络中断] 流连接超时` |
-
-### 改动范围
-`zhihuTTS_stream.py` + `stream_extractors.py` — 加条件判断，不改架构
-
-### 待讨论
-- 这四种场景，现有代码里哪些已有判断，哪些需要新增？
+### 决策
+- 场景 1/2 源头在 `stream_extractors.py`（feature 分支），已有区分逻辑；P2-C 只在 `zhihuTTS_stream.py` catch 点打标签，不动 extractor
+- timeout 继续重试（不提前放弃），耗尽重试次数后仍 raise `StreamSliceError`
 
 ---
 
@@ -349,4 +344,4 @@ BAT 启动前检查以下项，发现问题立刻给出明确提示：
 | P1-C Checkpoint Resume | ✅ 已完成 |
 | P2-A 主动 URL 刷新 | 🔜 推迟到 P0 Step2 |
 | P2-B 启动前诊断 | ✅ 已完成 |
-| P2-C 错误细分日志 | ⬜ 待讨论 |
+| P2-C 错误细分日志 | ✅ 已完成 |

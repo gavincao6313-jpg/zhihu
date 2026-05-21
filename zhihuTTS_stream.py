@@ -538,18 +538,29 @@ def slice_url(
     for attempt in range(1, SLICE_RETRIES + 1):
         if out_path.exists():
             out_path.unlink()
-        completed = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            timeout=effective_timeout,
-        )
+        try:
+            completed = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=effective_timeout,
+            )
+        except subprocess.TimeoutExpired:
+            print(f"  [网络中断] 流连接超时 (attempt {attempt}/{SLICE_RETRIES})", flush=True)
+            last_error = "subprocess timeout"
+            if out_path.exists():
+                out_path.unlink()
+            if attempt < SLICE_RETRIES:
+                time.sleep(min(30, attempt * 5))
+            continue
         size = out_path.stat().st_size if out_path.exists() else 0
         if completed.returncode == 0 and size >= MIN_SLICE_BYTES:
             return
         last_error = (completed.stderr or completed.stdout or "").replace(url, "<redacted-url>")
+        if any(x in last_error for x in ("403", "401", "Forbidden", "Unauthorized")):
+            print("[媒体 URL 授权失效] 需刷新流 URL", flush=True)
         print(
             f"  Slice attempt {attempt}/{SLICE_RETRIES} failed "
             f"(exit={completed.returncode}, bytes={size}); retrying..."
@@ -875,6 +886,11 @@ def process_slice_with_recovery(
                         ) from refresh_error
                     if keepalive and keepalive.is_stream_ended():
                         raise StreamEndedError("DOM confirms stream has ended") from refresh_error
+                    _msg = str(refresh_error).lower()
+                    if any(k in _msg for k in ("signin", "login", "re-login", "session expired")):
+                        print("[账号态失效] 跳转登录页，请重新登录", flush=True)
+                    elif "no media url" in _msg:
+                        print("[直播未开始或已结束] 页面无流 URL", flush=True)
                     redaction_stream = refreshed_stream or current_stream
                     recovery_errors.append(redacted_error(refresh_error, redaction_stream))
                     if reextract_count >= max_reextracts:
