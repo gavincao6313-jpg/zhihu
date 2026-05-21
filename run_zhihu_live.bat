@@ -45,12 +45,16 @@ set "NAME=%~2"
 :: merge_vad=true 适合 60s 分片（短片段内 VAD 合并让文本更连贯）
 set "SENSEVOICE_MERGE_VAD=true"
 
-:: ---- 自动生成名称（未提供时）----
+:: --gemini 仅在 GEMINI_API_KEY 存在时传递，避免无 key 时 Python 内部触发无效 Gemini 调用
+if not "!GEMINI_API_KEY!"=="" (
+    set "GEMINI_FLAG=--gemini"
+) else (
+    set "GEMINI_FLAG="
+)
+
+:: ---- 自动生成名称（未提供时，用 PowerShell 保证跨 locale 格式一致）----
 if "!NAME!"=="" (
-    for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
-        set "NAME=live-%%c%%a%%b-%%d%%e%%f"
-    )
-    set "NAME=!NAME: =0!"
+    for /f "usebackq" %%t in (`powershell -NoProfile -Command "Get-Date -Format 'yyyyMMdd-HHmmss'"`) do set "NAME=live-%%t"
 )
 
 :: ---- URL 检查（双击时弹出输入提示）----
@@ -100,10 +104,11 @@ if errorlevel 1 (
     exit /b 1
 )
 
-:: ---- 日志目录 + 初始化空日志文件（供 tail 立刻打开）----
+:: ---- 日志目录 + 追加式日志文件（>> 不截断，支持同名重跑）----
 if not exist "!SCRIPT_DIR!logs" mkdir "!SCRIPT_DIR!logs"
 set "LOG_FILE=!SCRIPT_DIR!logs\run-!NAME!.log"
-echo. > "!LOG_FILE!"
+echo === 新运行 %date% %TIME: =0% === >> "!LOG_FILE!"
+echo. >> "!LOG_FILE!"
 
 :: ---- 启动信息 ----
 echo.
@@ -125,7 +130,7 @@ echo ====================================================
 echo.
 
 :: ---- 启动后台工作窗口（独立进程，与本窗口生命周期解耦）----
-start "zhihu [!NAME!]" cmd /k call "%~f0" --worker "!LOG_FILE!"
+start "zhihu [!NAME!]" cmd /c call "%~f0" --worker "!LOG_FILE!"
 
 :: ---- 本窗口实时 tail 日志（Ctrl+C 或直接关窗退出监控，不影响后台任务）----
 echo 实时日志（可随时关闭此窗口，后台任务不受影响）：
@@ -148,13 +153,13 @@ echo  知乎直播转写 - 后台任务
 echo  名称  : !NAME!
 echo  URL   : !PAGE_URL!
 echo  Python: !PYTHON!
-echo  开始  : %date% %time%
+echo  开始  : %date% %TIME: =0%
 echo ====================================================
 echo.
 ) >> "!LOG_FILE!" 2>&1
 
 :: ---- [1/3] 主转写（-u 保证实时刷入日志，不缓冲）----
-echo [%date% %time%] [1/3] 开始直播转写... >> "!LOG_FILE!" 2>&1
+echo [%date% %TIME: =0%] [1/3] 开始直播转写... >> "!LOG_FILE!" 2>&1
 "!PYTHON!" -u "!SCRIPT_DIR!zhihuTTS_stream.py" ^
   --playwright-keepalive ^
   --page-url "!PAGE_URL!" ^
@@ -165,11 +170,11 @@ echo [%date% %time%] [1/3] 开始直播转写... >> "!LOG_FILE!" 2>&1
   --stream-work-dir "!STREAM_WORK_DIR!" ^
   --cleanup-slices ^
   --name "!NAME!" ^
-  --gemini >> "!LOG_FILE!" 2>&1
+  !GEMINI_FLAG! >> "!LOG_FILE!" 2>&1
 
 if errorlevel 1 (
     echo. >> "!LOG_FILE!" 2>&1
-    echo [%date% %time%] [错误] zhihuTTS_stream.py 异常退出，退出码: !errorlevel! >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] [错误] zhihuTTS_stream.py 异常退出，退出码: !errorlevel! >> "!LOG_FILE!" 2>&1
     echo.
     echo ==============================
     echo  转写失败！详细原因见日志:
@@ -182,38 +187,38 @@ if errorlevel 1 (
 
 :: ---- [2/3] 分片合并 ----
 echo. >> "!LOG_FILE!" 2>&1
-echo [%date% %time%] [2/3] 合并分片为结构化 Markdown... >> "!LOG_FILE!" 2>&1
+echo [%date% %TIME: =0%] [2/3] 合并分片为结构化 Markdown... >> "!LOG_FILE!" 2>&1
 "!PYTHON!" "!SCRIPT_DIR!scripts\merge_stream_chunks.py" ^
   --base "!NAME!" ^
   --runs-dir "!SCRIPT_DIR!runs" >> "!LOG_FILE!" 2>&1
 if errorlevel 1 (
-    echo [%date% %time%] [提示] 分片合并失败，手动运行: >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] [提示] 分片合并失败，手动运行: >> "!LOG_FILE!" 2>&1
     echo   python scripts\merge_stream_chunks.py --base !NAME! >> "!LOG_FILE!" 2>&1
 ) else (
-    echo [%date% %time%] 结构化 Markdown: runs\stream-!NAME!-merged.md >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] 结构化 Markdown: runs\stream-!NAME!-merged.md >> "!LOG_FILE!" 2>&1
 )
 
 :: ---- [3/3] Gemini 综合调用 → NotebookLM 文档 ----
 echo. >> "!LOG_FILE!" 2>&1
 if "!GEMINI_API_KEY!"=="" (
-    echo [%date% %time%] [3/3] 跳过 NotebookLM 生成（未设置 GEMINI_API_KEY） >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] [3/3] 跳过 NotebookLM 生成（未设置 GEMINI_API_KEY） >> "!LOG_FILE!" 2>&1
     echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! >> "!LOG_FILE!" 2>&1
 ) else (
-    echo [%date% %time%] [3/3] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] [3/3] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
     "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
       --base "!NAME!" ^
       --runs-dir "!SCRIPT_DIR!runs" ^
       --markdowns-dir "!SCRIPT_DIR!Markdowns" >> "!LOG_FILE!" 2>&1
     if errorlevel 1 (
-        echo [%date% %time%] [提示] NotebookLM 文档生成失败，手动运行: >> "!LOG_FILE!" 2>&1
+        echo [%date% %TIME: =0%] [提示] NotebookLM 文档生成失败，手动运行: >> "!LOG_FILE!" 2>&1
         echo   python scripts\build_stream_markdown.py --base !NAME! >> "!LOG_FILE!" 2>&1
     ) else (
-        echo [%date% %time%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!.md >> "!LOG_FILE!" 2>&1
+        echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!.md >> "!LOG_FILE!" 2>&1
     )
 )
 
 echo. >> "!LOG_FILE!" 2>&1
-echo [%date% %time%] ======== 全部完成 ======== >> "!LOG_FILE!" 2>&1
+echo [%date% %TIME: =0%] ======== 全部完成 ======== >> "!LOG_FILE!" 2>&1
 
 echo.
 echo ==============================
