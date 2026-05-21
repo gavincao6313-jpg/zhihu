@@ -271,22 +271,24 @@ run_zhihu_live.bat <URL> <NAME> --resume
 
 ## P2-A — 流 URL 主动刷新策略
 
-**状态：[ ] 待讨论**
+**状态：[x] 已决策，推迟到 P0 Step 2**
 
-### 现状
-CC FLV URL 的 `auth_key` 有有效期（约 8h）。当前策略：URL 失败后刷新。
+### 已确认
+- CC `auth_key` TTL ≈ 8h，实际直播 2-4h，**从未遇到过 URL 过期中断**
+- 当前被动刷新（`process_slice_with_recovery` → `refresh_and_get()`）已足够保底
+- 主动刷新在当前单线程模式收益极小（每 60s 换 chunk 时天然有检查机会）
 
-### 目标
-- 记录每次捕获 URL 的时间戳
-- 每隔 30-60 分钟主动刷新一次 Playwright 页面拿新 URL
-- 刷新失败不立刻停，继续用旧 URL，直到旧 URL 失败才报错
+### 决策
+推迟到 **P0 Step 2（Recorder 线程）** 时一并实现。
+Recorder 持有 ffmpeg 子进程，主动刷新 = 计时器触发 → `refresh_and_get()` → 重启 ffmpeg（新 session epoch）→ Consumer 记 `gap_before_s`，这才是主动刷新真正有价值的场景。
 
-### 改动范围
-`stream_extractors.py` — 加计时器和主动刷新逻辑
-
-### 待讨论
-- 刷新间隔设多少合适（`auth_key` 实际 TTL 是多少，8h 还是更短）？
-- 主动刷新期间 Thread-A 是否暂停录制，还是切 URL 时做无缝衔接？
+### 实现位置（待 P0 Step 2）
+```python
+# Recorder 线程内
+PROACTIVE_REFRESH_S = 3600  # 1h，8h TTL 的 1/8
+if time.monotonic() - self._url_captured_at > PROACTIVE_REFRESH_S:
+    self._restart_ffmpeg(self._keepalive.refresh_and_get(...))
+```
 
 ---
 
@@ -345,6 +347,6 @@ BAT 启动前检查以下项，发现问题立刻给出明确提示：
 | P1-A 专用账号 | ✅ 已完成 |
 | P1-B BAT 固化 | ✅ 已完成 |
 | P1-C Checkpoint Resume | ✅ 已完成 |
-| P2-A 主动 URL 刷新 | ⬜ 待讨论 |
+| P2-A 主动 URL 刷新 | 🔜 推迟到 P0 Step2 |
 | P2-B 启动前诊断 | ⬜ 待讨论 |
 | P2-C 错误细分日志 | ⬜ 待讨论 |
