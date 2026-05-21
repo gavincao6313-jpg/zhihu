@@ -20,7 +20,7 @@
 
 - **Project:** zhihu
 - **Project pipeline:** zhihu processes local videos from `Videos/` into detailed NotebookLM-ready Markdown using `zhihuTTS.py` orchestration, `zhihuTTS_video.py` ffmpeg keyframe extraction + Whisper transcription, then a Gemini 2.5 Flash multimodal call with auto-continuation.
-- **Gemini models and default design limits (2026-05-21):** Project code uses `gemini-2.5-flash` in stream/replay synthesis and may try `gemini-2.5-pro` before fallback in `zhihuTTS.py`. Design against Free-tier ceilings unless AI Studio shows stricter limits: `gemini-2.5-pro` 5 RPM / 250k TPM / 100 RPD, `gemini-2.5-flash` 10 RPM / 250k TPM / 250 RPD.
+- **Gemini models and default design limits (2026-05-21):** Project code uses `gemini-2.5-flash` in stream/replay synthesis and may try `gemini-2.5-pro` before fallback in `zhihuTTS.py`. Design against Free-tier ceilings unless AI Studio shows stricter limits: `gemini-2.5-pro` 5 RPM / 250k TPM / 100 RPD; `gemini-2.5-flash` and project-added `gemini-3.5-flash` both 10 RPM / 250k TPM / 250 RPD.
 - **Collaboration rule:** Windows side is runner-only and should not change `.py`; Mac side owns code changes. Windows commits only `.progress.json`/run outputs according to `COLLABORATION.md`.
 - **Current scale:** As of 2026-05-16 review, `Videos/` has 63 video files; `.progress.json` marks 31 matching files done and 32 pending, with 2 API quota units used on 2026-05-16.
 - **Operational gotcha:** PowerShell profile loading emits an execution-policy error on each shell command; use `powershell -NoProfile` or fix/remove the profile to keep logs clean.
@@ -41,6 +41,9 @@
 - **GitNexus graph coverage caveat (2026-05-20):** `npx gitnexus status` reports indexed commit `4590031` and current HEAD `4af86bc`; the MCP context reports lastCommit `6dc8142`. Treat graph output as an older architecture snapshot; current files like `zhihuTTS_stream.py`, `login_save_auth.py`, `scripts/build_stream_markdown.py`, `scripts/merge_stream_chunks.py`, `build_final_markdown.py`, and `extract_slides.py` are outside the stale graph and need `npx gitnexus analyze` before graph-based change work.
 - **Stream branch Gemini consumption risk (2026-05-20):** On `origin/feature/stream-transcript-validation`, `run_zhihu_live.bat` passes `--gemini` to `zhihuTTS_stream.py` and then, when `GEMINI_API_KEY` is set, also runs `scripts/build_stream_markdown.py`; this can duplicate the full-stream Gemini synthesis for one Windows run. Review this before asking Windows to run URL/live tasks with an API key set.
 - **Branch state after fetch (2026-05-20):** Repo has 5 local/origin branches: `main` production baseline, `feature/local-transcript-appendix` MP4/SenseVoice backfill, `feature/stream-transcript-validation` remote/live stream validation, `experiment/inline-and-uri-upload` direct video-to-Gemini experiment, and obsolete `stream-url-validation`. Local `feature/local-transcript-appendix` is ahead 1/behind 1; local stream branch is behind origin by 2 and checked out in `/private/tmp/zhihu-feat`.
+- **A/B methodology caveat (2026-05-21):** Windows A/B commits `6c5f842` and `88b24d6` show the URL branch wins, but `run_ab_url.py` downloads the CDN URL to local MP4 and then applies fixed 60s SenseVoice chunks. The validated improvement is mainly chunked timestamp-anchor density vs single-pass transcript, not URL transport quality by itself.
+- **GitNexus MCP status caveat (2026-05-21):** `npx gitnexus status` can report current `main` indexed and up to date while the MCP `list_repos`/context resource still reports an older lastCommit and staleness. For branch artifact reviews, use GitNexus as auxiliary context and trust `git show`/commit artifacts for exact pushed content.
+- **URL/live browser dependency (2026-05-21):** `run_zhihu_live.bat` live flow uses Playwright keepalive only to capture/refresh CC FLV URLs and stream-ended DOM state. Each 60s ffmpeg slice runs against the currently captured URL/headers; closing an unrelated manual browser window does not affect it, but killing the Playwright page or invalidating the Zhihu/CC session can stop later refresh/recovery once the signed URL fails or expires.
 
 ## Do-Not-Repeat
 
@@ -50,3 +53,4 @@
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
+- **[2026-05-21] 离线 MP4 转写策略：60s 分片 > 单次全量。** Windows A/B 测试（153min 视频，gemini-3.5-flash）证明：60s 分片输出 10,556 chars / 6章节 / 精确到秒的时间戳 vs 单次全量 8,017 chars / 5章节 / 粗粒度时间戳。URL 分支胜出 +32%。根因：153 个时间锚点让 Gemini 精确切分章节；单次全量只有 1 个起止时间，Gemini 只能猜测。转写耗时翻倍（1258s vs 567s）但值得。**即使是本地 MP4 离线处理，也应使用 60s 分片方案**，而非单次 SenseVoice 全量调用。

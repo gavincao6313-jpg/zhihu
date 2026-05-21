@@ -3,6 +3,9 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 23:50 | 拉取 Windows A/B 测试结果 (commits 6c5f842+88b24d6 on experiment/inline-and-uri-upload)，分析 AB_TEST_REPORT.md，URL 分支胜出 +32%，写入 Decision Log | .wolf/cerebrum.md | completed | ~800 |
+| 2026-05-21 | 改造 run_zhihu_live.bat 为双模式自调用：MAIN 验证+start 后台窗口，WORKER 三步 Python 全输出写 logs\run-NAME.log，主窗口 tail 日志可随时关闭 | run_zhihu_live.bat | success | ~800 |
+
 ## Session: 2026-05-20
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -334,7 +337,18 @@
 | 00:06 | Checked why Graphify output still reports 2026-05-15 after newer scan | graphify-out/* | Found only detection/chunk/AST intermediate files updated on 2026-05-20; final graph artifacts `GRAPH_REPORT.md`, `graph.json`, `manifest.json`, `cost.json` remain from 2026-05-15 | ~2500 |
 | 00:07 | Located latest Graphify full-scan output one directory above repo | /Users/caojiapeng/projects/graphify-out | Confirmed new 2026-05-20 graph: 454 nodes, 678 edges, 37 communities, includes live stream pipeline, `zhihuTTS_stream.py`, `run_zhihu_live.sh`, `build_stream_markdown.py`, and `merge_stream_chunks.py` | ~3000 |
 | 09:51 | Documented Gemini API Free-tier quota constraints as project rules | CLAUDE.md, .wolf/cerebrum.md | Added RPM/TPM/RPD limits and engineering constraints requiring all Gemini-calling code changes to budget requests, tokens, retries, continuations, and duplicate call paths | ~2500 |
+| 12:43 | Added project limit row for `gemini-3.5-flash` | CLAUDE.md, .wolf/cerebrum.md | Set `gemini-3.5-flash` to the same project Free-tier design limits as `gemini-2.5-flash`: 10 RPM / 250k TPM / 250 RPD | ~500 |
 | 09:35 | P0 utils.py extraction: removed duplicate fmt_ts/parse_retry_delay/extract_run_ts/call_gemini from 5 files, replaced with imports from utils.py | build_final_markdown.py, scripts/build_stream_markdown.py, scripts/merge_stream_chunks.py, zhihuTTS.py, zhihuTTS_stream.py | Complete — ~120 lines of duplicate code eliminated | ~4000 |
 | 10:05 | Pulled Windows commit 20580c3: 6s continuation cooldown fix (10 RPM free tier). Applied to utils.py + zhihuTTS.py + zhihuTTS_stream.py. Also fixed data-loss bug: 429 mid-continuation now retried in-place (not outer loop) to preserve accumulated full_text | utils.py, zhihuTTS.py, zhihuTTS_stream.py | All 3 Gemini callers now have cooldown + in-place continuation retry | ~3000 |
 | 11:00 | fix _call_gemini_stream() silent failure: add stderr print before final None return | zhihuTTS_stream.py | done | ~50 |
 | 11:00 | fix --cleanup-slices: also unlink per-slice RUNS_DIR files after write_report | zhihuTTS_stream.py | done | ~60 |
+| 16:30 | Pulled and reviewed Windows A/B test commits | origin/feature/stream-transcript-validation@6c5f842, origin/feature/local-transcript-appendix@88b24d6, AB_TEST_REPORT.md, run_ab_url.py, run_ab_file.py, gemini_synthesis_ab.py, A/B outputs | Confirmed URL/chunked branch produced 10,559 chars/254 lines vs FILE single-pass 8,017 chars/206 lines; key caveat is chunked timestamp anchors were tested, not pure URL transport | ~9000 |
+
+## Session: 2026-05-21 19:30
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:40 | Created run_zhihu_live.bat | — | ~1811 |
+| 19:41 | Read OpenWolf/GitNexus context for URL branch live-stream analysis | .wolf/OPENWOLF.md, .wolf/anatomy.md, .wolf/cerebrum.md | context loaded | ~6000 |
+| 19:43 | Refreshed GitNexus index and located URL/live stream implementation | zhihuTTS_stream.py, run_zhihu_live.bat, stream_extractors.py | analysis in progress | ~12000 |
+| 19:44 | Completed URL/live browser/session dependency analysis | run_zhihu_live.bat, zhihuTTS_stream.py, stream_extractors.py | ready to answer | ~22000 |

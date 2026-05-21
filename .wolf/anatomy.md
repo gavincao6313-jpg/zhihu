@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-20T07:24:53.642Z
-> Files: 49 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-21T11:40:54.258Z
+> Files: 52 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -12,11 +12,16 @@
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `COLLABORATION.md` — 协作流程 (~321 tok)
 - `extract_slides.py` — extract_slides, main (~2128 tok)
+- `extract_slides.py` — 从已处理视频提取幻灯片：读 manifest.json 事件 → ffmpeg 高清抽帧 → 去重 → Slides/<stem>/slides.pdf + slides.pptx (~2800 tok)
 - `GeminiModelList.py` — 获取 API Key (~275 tok)
+- `login_save_auth.py` — Playwright 登录保存知乎认证态到 `zhihu_auth_state.json` (~900 tok)
 - `readme` (~3 tok)
 - `requirements.txt` — Python dependencies (~19 tok)
+- `run_zhihu_live.bat` — 双模式 BAT：MAIN 模式验证后 start 独立后台窗口（WORKER），主窗口实时 tail logs\run-<NAME>.log；WORKER 模式三步 Python 流程全部输出写日志 (~3200 tok)
+- `run_zhihu_live.sh` — macOS/Linux live stream runner wrapper for `zhihuTTS_stream.py` (~1800 tok)
+- `stream_extractors.py` — Page/live URL extractors: direct/yt-dlp/Playwright plus PlaywrightKeepaliveStream for CC FLV URL interception, browser refresh, stream-end detection, and auth state reuse (~12000 tok)
 - `zhihu.code-workspace` (~31 tok)
-- `extract_slides.py` — 从已处理视频提取幻灯片：读 manifest.json 事件 → ffmpeg 高清抽帧 → 去重 → Slides/<stem>/slides.pdf + slides.pptx (~2800 tok)
+- `zhihuTTS_stream.py` — Live/replay stream validation: resolves input URLs/cURL/Playwright page, keeps browser alive, slices media with ffmpeg, transcribes/extracts frames, writes checkpoint/manifest and optional Gemini output (~16000 tok)
 - `zhihuTTS_video.py` — analyze_frames, extract_keyframes, requested_transcribe_backend, transcript_backend_matches (~7387 tok)
 - `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~8552 tok)
 
