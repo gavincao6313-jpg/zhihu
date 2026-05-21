@@ -1015,11 +1015,27 @@ def run_validation(args: argparse.Namespace) -> dict:
                 chunk_count = min(chunk_count, args.max_chunks)
 
         chunks: list[dict] = []
+        saved_chunks: list[dict] = []
         stream_ended_reason = ""
         browser_restart_count = 0
         chunk_index = 0
         RUNS_DIR.mkdir(exist_ok=True)
         checkpoint_path = RUNS_DIR / f"stream-{base_stem}.checkpoint.json"
+
+        if getattr(args, "resume", False) and checkpoint_path.exists():
+            try:
+                saved = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+                saved_chunks = saved.get("chunks", [])
+                if saved_chunks:
+                    created_at = saved.get("created_at", created_at)
+                    chunk_index = saved_chunks[-1]["chunk"]["index"]
+                    last_slice = saved_chunks[-1]["slice"]
+                    start_s = last_slice["start_s"] + last_slice["duration_s"]
+                    print(f"[resume] 从 chunk {chunk_index} 之后继续，时间点 {fmt_time(start_s)}", flush=True)
+                else:
+                    print("[resume] checkpoint 存在但为空，从头开始", flush=True)
+            except Exception as e:
+                print(f"[resume] 读取 checkpoint 失败，从头开始: {e}", flush=True)
 
         while True:
             chunk_index += 1
@@ -1099,10 +1115,12 @@ def run_validation(args: argparse.Namespace) -> dict:
                 break
 
         timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-        combined_text = "\n\n".join(
+        pre_text = "\n\n".join(c["global_transcript_text"] for c in saved_chunks)
+        new_text = "\n\n".join(
             Path(c["outputs"]["global_transcript_txt"]).read_text(encoding="utf-8")
             for c in chunks
         )
+        combined_text = "\n\n".join(filter(None, [pre_text, new_text]))
         combined_transcript_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.combined-transcript.txt"
         manifest_json_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.json"
         manifest_md_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.md"
@@ -1287,6 +1305,14 @@ def build_parser() -> argparse.ArgumentParser:
             "After all chunks are processed, call Gemini to produce a "
             "NotebookLM-ready notes document (.notes.md). "
             "Requires GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var."
+        ),
+    )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help=(
+            "从已有 checkpoint 恢复：读取 stream-{name}.checkpoint.json，"
+            "从最后完成的 chunk 结束时间点继续，combined transcript 包含全部内容。"
         ),
     )
     return parser

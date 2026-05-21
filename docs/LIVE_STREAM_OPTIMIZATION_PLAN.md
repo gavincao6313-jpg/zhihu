@@ -243,7 +243,7 @@ def process_segment_file(
 
 ## P1-C — Checkpoint Resume
 
-**状态：[ ] 待讨论**
+**状态：[x] 已完成**
 
 ### 现状
 `zhihuTTS_stream.py` 已有 `stream-{base}.checkpoint.json`，但恢复能力不完整。
@@ -344,7 +344,7 @@ BAT 启动前检查以下项，发现问题立刻给出明确提示：
 | P0 录流解耦 | ✅ 方案已定，待实现 |
 | P1-A 专用账号 | ✅ 已完成 |
 | P1-B BAT 固化 | ✅ 已完成 |
-| P1-C Checkpoint Resume | ⬜ 待讨论 |
+| P1-C Checkpoint Resume | ✅ 已完成 |
 | P2-A 主动 URL 刷新 | ⬜ 待讨论 |
 | P2-B 启动前诊断 | ⬜ 待讨论 |
 | P2-C 错误细分日志 | ⬜ 待讨论 |

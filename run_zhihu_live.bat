@@ -4,12 +4,14 @@ setlocal enabledelayedexpansion
 :: run_zhihu_live.bat  知乎直播流一键转写
 ::
 :: 用法:
-::   run_zhihu_live.bat <直播间URL> [输出名]
+::   run_zhihu_live.bat <直播间URL> [输出名] [--resume]
 ::
 :: 示例:
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx"
 ::     （不填名称时用 live-YYYYMMDD-HHMMSS 自动命名）
+::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519 --resume
+::     （--resume 从上次中断的 chunk 结束时间点继续，需同名 checkpoint 文件存在）
 ::
 :: 输出（位于 runs\ 目录）:
 ::   stream-<NAME>-<时间>.combined-transcript.txt   完整逐字转写
@@ -41,6 +43,8 @@ set "AUTH_STATE=%SCRIPT_DIR%zhihu_auth_state.json"
 set "STREAM_WORK_DIR=%SCRIPT_DIR%Videos\.stream"
 set "PAGE_URL=%~1"
 set "NAME=%~2"
+set "RESUME_FLAG="
+if /i "%~3"=="--resume" set "RESUME_FLAG=--resume"
 
 :: merge_vad=true 适合 60s 分片（短片段内 VAD 合并让文本更连贯）
 set "SENSEVOICE_MERGE_VAD=true"
@@ -170,7 +174,7 @@ echo [%date% %TIME: =0%] [1/3] 开始直播转写... >> "!LOG_FILE!" 2>&1
   --stream-work-dir "!STREAM_WORK_DIR!" ^
   --cleanup-slices ^
   --name "!NAME!" ^
-  !GEMINI_FLAG! >> "!LOG_FILE!" 2>&1
+  !GEMINI_FLAG! !RESUME_FLAG! >> "!LOG_FILE!" 2>&1
 
 if errorlevel 1 (
     echo. >> "!LOG_FILE!" 2>&1
