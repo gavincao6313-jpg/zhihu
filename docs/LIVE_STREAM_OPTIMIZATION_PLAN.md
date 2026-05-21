@@ -6,28 +6,119 @@
 
 ## P0 — 录流与转写彻底解耦
 
-**状态：[ ] 待讨论**
+**状态：[x] 方案已定，待实现**
 
 ### 现状问题
 当前流程是串行的：抓 60s 片段 → 本地转写/抽帧 → 再抓下一段。
 转写/抽帧耗时约 20s 时，这 20s 内没有录流，真实直播会漏内容。
 
-### 目标结构
-- Thread-A（录制）：ffmpeg 持续录制并分段写入 60s 文件
-- Thread-B（处理）：监听新文件，异步做 SenseVoice + 抽帧 + 合并
+### 已确认：媒体数据路径
 
-### 关键技术细节（已讨论）
-- 用 `-segment_list segments.csv -segment_list_flags +live` 而不是轮询文件大小
-  — ffmpeg 每写完一个分段才 append 到 CSV，Consumer tail 这个 CSV 拿完整文件名
-- Thread-A 维持现有 Playwright keepalive + URL 刷新逻辑不动
-- 两线程间用 `queue.Queue` 传文件名，Thread-B 失败不中断 Thread-A
-- 改动集中在 `zhihuTTS_stream.py` 的 `run_validation()` + 新增 `consume_segment()` 线程
-- BAT 层不需要变
+```
+ffmpeg → CC/FLV URL（直接拉）
+Playwright 不在媒体路径上，只负责：
+  1. 首次提取 FLV URL
+  2. URL 失效时刷新页面重新抓 URL
+  3. 通过 DOM 判断直播是否结束
+```
 
-### 待讨论
-- Thread-B 崩溃时是否要 restart，还是仅记错误继续？
-- 同一时刻 Thread-B 还在处理上一个 chunk 时，如果又来了新 chunk，是排队还是丢弃？
-- checkpoint 文件格式是否需要随架构变化调整？
+### 已确认：完成信号方案
+
+**采用 HLS `temp_file` + 目录监听**（不依赖 m3u8 文件）
+
+- ffmpeg 用 HLS muxer，开 `-hls_flags temp_file`
+- ffmpeg 内部流程：写 `seg_xxx.ts.tmp` → 完成后 rename 为 `seg_xxx.ts`
+- Consumer 只扫描目录里的 `.ts` 文件（不含 `.tmp`），出现即已完整
+- 不读 m3u8：m3u8 在 ffmpeg 重启时会被重写，消费端依赖它会乱序
+
+放弃的方案：
+- 轮询文件大小：直播网络抖动时大小短暂稳定，误判率高
+- 单一 m3u8 依赖：ffmpeg 重启后 m3u8 被截断重写，processed set 对不上
+
+### 已确认：segment 命名策略
+
+**采用方案 2：session epoch + 局部序号**
+
+```
+seg_{session_epoch}_{index:06d}.ts
+示例：seg_1716339612_000000.ts
+      seg_1716339612_000001.ts   ← 同一次 ffmpeg 运行
+      seg_1716340284_000000.ts   ← ffmpeg 重启后，新 session epoch
+```
+
+放弃方案 1（supervisor 维护 `next_segment_index`）：需持久化计数器，supervisor 崩溃后仍有命名碰撞风险。
+放弃方案 3（session 子目录）：Consumer 需监听多个目录，拼接逻辑复杂。
+
+文件名字典排序 = 录制时间顺序（同 session 内按序号，跨 session 按 epoch 前缀）。
+
+### 已确认：ffmpeg 命令
+
+```bash
+ffmpeg \
+  -reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 3 \
+  -headers "<headers>" \
+  -i "<flv_url>" \
+  -c copy -f hls \
+  -hls_time 60 -hls_list_size 0 \
+  -hls_segment_type mpegts \
+  -hls_flags temp_file \
+  -hls_segment_filename "Videos\.stream\seg_{session_epoch}_%06d.ts" \
+  "Videos\.stream\seg_{session_epoch}_capture.m3u8"
+```
+
+关键决策：
+- `-reconnect_delay_max 3`（不是 5）：URL 过期后不让 ffmpeg 自己重试太久，Python supervisor 更快介入
+- 不用 `append_list`：用独立 m3u8（含 session epoch），Consumer 不读 m3u8
+- 不用 `delete_segments`：Consumer 处理完之前段不能被 ffmpeg 删除
+
+### 已确认：线程模型（2 线程）
+
+```
+主线程
+  ├── Recorder（Thread）        ← Playwright URL supervisor + ffmpeg manager 合并
+  └── SegmentConsumer（Thread） ← 目录监听 + ffprobe 验证 + SenseVoice + 抽帧 合并
+
+协调：recorder_stopped = threading.Event()
+```
+
+**Recorder 职责：**
+- 启动 Playwright，首次提取 FLV URL
+- 启动 ffmpeg subprocess（HLS 分段写入）
+- ffmpeg 退出（非正常）→ Playwright 刷新 URL → 用新 session_ts 重启 ffmpeg
+- `is_stream_ended()` 返回 True → 设置 `recorder_stopped` → 退出
+
+**SegmentConsumer 职责：**
+- 每 5 秒扫描目录，找出未处理的 `.ts` 文件（过滤 `.tmp`）
+- 按文件名排序（= 录制时序）逐个处理
+- ffprobe 验证（duration ≥ 10s，有 audio stream）→ SenseVoice → 抽帧 → 写 checkpoint
+- 处理失败：log + 跳过（**不**加入 processed set，保留下轮重试机会）
+- 退出条件：`recorder_stopped` 已设置 **且** 扫描无新段（防止尾部内容丢失）
+
+**流结束判断权威：**
+DOM `is_stream_ended()` 为准，不依赖 ffmpeg returncode（部分直播结束时 FLV 服务器不发 EOS，ffmpeg 超时退出返回非 0）。
+
+### 已确认：checkpoint 格式调整
+
+原 checkpoint 记录 chunk index，新架构改为 filename set：
+
+```json
+{
+  "processed_segments": [
+    "seg_1716339612_000000.ts",
+    "seg_1716339612_000001.ts"
+  ],
+  "failed_segments": {
+    "seg_1716339612_000003.ts": {"retries": 1, "last_error": "ffprobe failed"}
+  }
+}
+```
+
+### 待实现（改动边界）
+
+- `zhihuTTS_stream.py`：`run_validation()` 重构为 `Recorder` + `SegmentConsumer` 双线程
+- `stream_extractors.py`：`PlaywrightKeepaliveStream` 接口基本不变，补 `refresh()` 方法（目前已有）
+- checkpoint 格式从 chunk index 迁移到 filename set
+- BAT 层：**不需要改动**
 
 ---
 
@@ -176,7 +267,7 @@ BAT 启动前检查以下项，发现问题立刻给出明确提示：
 
 | 项目 | 状态 |
 |------|------|
-| P0 录流解耦 | ⬜ 待讨论 |
+| P0 录流解耦 | ✅ 方案已定，待实现 |
 | P1-A 专用账号 | ⬜ 待讨论 |
 | P1-B BAT 固化 | ⬜ 待讨论 |
 | P1-C Checkpoint Resume | ⬜ 待讨论 |
