@@ -360,3 +360,22 @@
 | 21:10 | Edited run_zhihu_live.bat | inline fix | ~17 |
 | 21:10 | Edited run_zhihu_live.bat | inline fix | ~10 |
 | 21:10 | Edited run_zhihu_live.bat | inline fix | ~5 |
+| 21:18 | Saved live stream optimization backlog for future one-by-one discussion | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md, .wolf/anatomy.md, .wolf/cerebrum.md | backlog created | ~1800 |
+| 21:18 | Created docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | — | ~938 |
+| 21:19 | Added P0 segment completion design note during live stream optimization discussion | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md | completion-signal guidance saved | ~700 |
+| 21:23 | Saved P0 discussion follow-up about temp_file+m3u8, directory consumer, ffmpeg restart naming, and thread model | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md | P0 design details preserved | ~1600 |
+| 21:30 | Saved agreed P0 recorder architecture conclusions | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md, .wolf/cerebrum.md | P0 design updated | ~2200 |
+| 21:31 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | expanded (+91 lines) | ~779 |
+| 21:32 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | inline fix | ~7 |
+| 21:33 | Saved P0 reuse/refactor boundary analysis for continuous recorder | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md | reuse boundary documented | ~2600 |
+| 21:38 | Saved P0 process_segment_file signature, checkpoint ordering, TS validation, gap handling, and migration step details | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md | implementation boundary refined | ~2200 |
+
+## Session: 2026-05-21 21:40
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:41 | Edited docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | modified process_segment_file() | ~776 |
+| 21:42 | P0 函数边界分析 + 5个技术确认点补入计划文档（Step1-4迁移路径、复用/拆分/淘汰表、输出命名兼容） | docs/LIVE_STREAM_OPTIMIZATION_PLAN.md | 完成 | ~800 |
+| 21:45 | Saved P0 Step 1/Step 2 implementation checklist and validation standards | docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md | checklist preserved | ~2600 |
+| 21:49 | Edited zhihuTTS_stream.py | modified process_segment_file() | ~1401 |
+| 22:05 | P0 Step1 完成：抽出 process_segment_file()（接受 .mp4/.ts），process_slice() 委托调用，签名/行为/输出格式不变，syntax OK | zhihuTTS_stream.py | 完成 | ~600 |

@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-21T11:40:54.258Z
-> Files: 52 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-21T13:49:43.852Z
+> Files: 58 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -17,11 +17,11 @@
 - `login_save_auth.py` — Playwright 登录保存知乎认证态到 `zhihu_auth_state.json` (~900 tok)
 - `readme` (~3 tok)
 - `requirements.txt` — Python dependencies (~19 tok)
-- `run_zhihu_live.bat` — 双模式 BAT：MAIN 模式验证后 start 独立后台窗口（WORKER），主窗口实时 tail logs\run-<NAME>.log；WORKER 模式三步 Python 流程全部输出写日志 (~3200 tok)
+- `run_zhihu_live.bat` (~1886 tok)
 - `run_zhihu_live.sh` — macOS/Linux live stream runner wrapper for `zhihuTTS_stream.py` (~1800 tok)
 - `stream_extractors.py` — Page/live URL extractors: direct/yt-dlp/Playwright plus PlaywrightKeepaliveStream for CC FLV URL interception, browser refresh, stream-end detection, and auth state reuse (~12000 tok)
 - `zhihu.code-workspace` (~31 tok)
-- `zhihuTTS_stream.py` — Live/replay stream validation: resolves input URLs/cURL/Playwright page, keeps browser alive, slices media with ffmpeg, transcribes/extracts frames, writes checkpoint/manifest and optional Gemini output (~16000 tok)
+- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time (~14341 tok)
 - `zhihuTTS_video.py` — analyze_frames, extract_keyframes, requested_transcribe_backend, transcript_backend_matches (~7387 tok)
 - `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~8552 tok)
 
@@ -77,6 +77,8 @@
 
 - `BRANCH_USAGE.md` — Branch separation guide for production batch, stream transcript validation, active branch names, commands, and obsolete branch warning (~457 tok)
 - `ENGINEERING_HISTORY.md` — Engineering history including 2026-05-17 transcript output and video stream validation branch split (~825 tok)
+- `LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md` — Saved discussion backlog for URL/live BAT reliability improvements: capture/processing decoupling, runner account, worker mode, resume, URL refresh, diagnostics, and failure classification (~1600 tok)
+- `LIVE_STREAM_OPTIMIZATION_PLAN.md` — 直播流优化讨论计划 (~2106 tok)
 - `SENSEVOICE_MP4_BACKFILL_CHANGELOG_20260517.md` — Process record for MP4/FUNASR backfill branch change, review checks, pushed commit, and Windows commands (~700 tok)
 - `STREAM_AUTOMATION_PLAN_20260517.md` — Discussion record and engineering plan for replacing manual stream URL capture with Python yt-dlp/Playwright extractors and later supervisor logic (~950 tok)
 - `WHISPER_BACKEND_IMPROVEMENT_PLAN.md` — Mac/Windows handoff plan for CPU transcription optimization, whisper.cpp CLI Vulkan backend, D-drive temp files, caching, and run reports (~2150 tok)

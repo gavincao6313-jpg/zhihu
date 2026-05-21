@@ -652,38 +652,39 @@ def offset_transcript_text(transcript: dict, offset_s: float) -> str:
     return "\n".join(lines)
 
 
-def process_slice(
-    args: argparse.Namespace,
-    url: str,
-    headers: dict[str, str],
-    host: str,
-    source_summary: dict,
-    base_stem: str,
+def process_segment_file(
+    segment_path: Path,
     start_s: float,
     duration_s: float,
     chunk_index: int,
     chunk_total: int,
+    base_stem: str,
+    args: argparse.Namespace,
+    host: str,
+    source_summary: dict,
+    headers: dict[str, str],
     reextracts: int = 0,
     recovery_errors: list[str] | None = None,
 ) -> dict | None:
+    """Transcribe, extract keyframes, and write outputs for an already-downloaded segment file.
+
+    Accepts .mp4 (legacy slice mode) or .ts (continuous HLS mode). transcribe_audio()
+    converts input to 16kHz WAV internally, so both containers work without changes here.
+    """
     started = time.monotonic()
     created_at = datetime.now().isoformat(timespec="seconds")
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     slice_stem = safe_name(f"{base_stem}_chunk{chunk_index:03d}_{int(start_s)}s")
-    stream_work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
-    slice_path = stream_work_dir / f"{slice_stem}.mp4"
-    print(f"Slicing {fmt_time(start_s)} + {fmt_time(duration_s)} -> {slice_path}")
-    slice_url(url, start_s, duration_s, slice_path, headers)
 
-    transcript = transcribe_audio(slice_path)
+    transcript = transcribe_audio(segment_path)
     if not transcript.get("segments"):
-        slice_path.unlink(missing_ok=True)
+        segment_path.unlink(missing_ok=True)
         print(f"  [skip] chunk {chunk_index}: no speech detected, skipping output", flush=True)
         return None
-    events, frames = extract_keyframes(slice_path)
+    events, frames = extract_keyframes(segment_path)
     transcript_text = transcript_to_text(transcript)
     global_transcript_text = offset_transcript_text(transcript, start_s)
-    payload = build_gemini_payload(slice_path.stem, transcript, events, frames)
+    payload = build_gemini_payload(slice_stem, transcript, events, frames)
 
     transcript_path = RUNS_DIR / f"stream-{slice_stem}-{timestamp}.transcript.txt"
     global_transcript_path = RUNS_DIR / f"stream-{slice_stem}-{timestamp}.global-transcript.txt"
@@ -695,10 +696,10 @@ def process_slice(
     global_transcript_path.write_text(global_transcript_text, encoding="utf-8")
     payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    slice_size = slice_path.stat().st_size
+    slice_size = segment_path.stat().st_size
     slice_kept = not args.cleanup_slices
     if args.cleanup_slices:
-        slice_path.unlink(missing_ok=True)
+        segment_path.unlink(missing_ok=True)
 
     data = {
         "created_at": created_at,
@@ -710,7 +711,7 @@ def process_slice(
         "slice": {
             "start_s": start_s,
             "duration_s": duration_s,
-            "path": str(slice_path),
+            "path": str(segment_path),
             "size_bytes": slice_size,
             "kept": slice_kept,
         },
@@ -746,6 +747,41 @@ def process_slice(
     print(f"Report: {report_path}")
     print(f"Elapsed: {data['processing']['elapsed_s']}s")
     return data
+
+
+def process_slice(
+    args: argparse.Namespace,
+    url: str,
+    headers: dict[str, str],
+    host: str,
+    source_summary: dict,
+    base_stem: str,
+    start_s: float,
+    duration_s: float,
+    chunk_index: int,
+    chunk_total: int,
+    reextracts: int = 0,
+    recovery_errors: list[str] | None = None,
+) -> dict | None:
+    slice_stem = safe_name(f"{base_stem}_chunk{chunk_index:03d}_{int(start_s)}s")
+    stream_work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
+    slice_path = stream_work_dir / f"{slice_stem}.mp4"
+    print(f"Slicing {fmt_time(start_s)} + {fmt_time(duration_s)} -> {slice_path}")
+    slice_url(url, start_s, duration_s, slice_path, headers)
+    return process_segment_file(
+        slice_path,
+        start_s,
+        duration_s,
+        chunk_index,
+        chunk_total,
+        base_stem,
+        args,
+        host,
+        source_summary,
+        headers,
+        reextracts,
+        recovery_errors,
+    )
 
 
 def process_slice_with_recovery(

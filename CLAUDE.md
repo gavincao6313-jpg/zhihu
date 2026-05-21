@@ -74,6 +74,7 @@ stricter active limits:
 |---|---:|---:|---:|
 | `gemini-2.5-pro` | 5 | 250,000 | 100 |
 | `gemini-2.5-flash` | 10 | 250,000 | 250 |
+| `gemini-3.5-flash` | 10 | 250,000 | 250 |
 
 Project engineering constraints:
 

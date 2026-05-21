@@ -15,6 +15,7 @@
 - **Quota/session preservation:** When user says the 5-hour quota is about to run out, immediately write discussion results into repo docs and OpenWolf memory so work can resume after quota recovery.
 - **Stream API-cost fixes workflow:** For `feature/stream-transcript-validation` Google/Gemini API consumption risks, do not apply a broad one-shot patch. Discuss and confirm fixes one by one before modifying code.
 - **Gemini free-tier quota is a hard project constraint:** User is on Gemini API Free tier. All future code changes that can call Gemini must explicitly control RPM/TPM/RPD usage, avoid duplicate/default-on API calls, cap retries/continuations, and follow the project limits now documented in `CLAUDE.md`.
+- **Discussion backlog preservation:** When multiple optimization ideas are raised, user prefers saving them to a repo document first, then discussing/analyzing them one by one so later items are not forgotten.
 
 ## Key Learnings
 
@@ -44,6 +45,7 @@
 - **A/B methodology caveat (2026-05-21):** Windows A/B commits `6c5f842` and `88b24d6` show the URL branch wins, but `run_ab_url.py` downloads the CDN URL to local MP4 and then applies fixed 60s SenseVoice chunks. The validated improvement is mainly chunked timestamp-anchor density vs single-pass transcript, not URL transport quality by itself.
 - **GitNexus MCP status caveat (2026-05-21):** `npx gitnexus status` can report current `main` indexed and up to date while the MCP `list_repos`/context resource still reports an older lastCommit and staleness. For branch artifact reviews, use GitNexus as auxiliary context and trust `git show`/commit artifacts for exact pushed content.
 - **URL/live browser dependency (2026-05-21):** `run_zhihu_live.bat` live flow uses Playwright keepalive only to capture/refresh CC FLV URLs and stream-ended DOM state. Each 60s ffmpeg slice runs against the currently captured URL/headers; closing an unrelated manual browser window does not affect it, but killing the Playwright page or invalidating the Zhihu/CC session can stop later refresh/recovery once the signed URL fails or expires.
+- **P0 live recorder design direction (2026-05-21):** For live streams, prefer a continuous ffmpeg HLS recorder plus consumer architecture. Segment names should use `seg_{session_epoch}_{index:06d}.ts`; use `hls_flags temp_file`, one playlist per ffmpeg session, no `delete_segments`, and a directory-based consumer with ffprobe validation and checkpointed processed set.
 
 ## Do-Not-Repeat
 

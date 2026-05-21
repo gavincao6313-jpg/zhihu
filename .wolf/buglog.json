@@ -368,7 +368,12 @@
       "file": "zhihuTTS_stream.py",
       "root_cause": "Outer retry loop fell through without printing a final failure message; callers had no visibility that synthesis was abandoned",
       "fix": "Added stderr print before final return: 'All N retries exhausted — Gemini synthesis failed.'",
-      "tags": ["silent-failure", "gemini", "stream", "logging"],
+      "tags": [
+        "silent-failure",
+        "gemini",
+        "stream",
+        "logging"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-21T00:00:00+08:00"
@@ -380,10 +385,112 @@
       "file": "zhihuTTS_stream.py",
       "root_cause": "cleanup_slices block only called slice_path.unlink(); did not remove transcript_path, global_transcript_path, payload_path, report_path",
       "fix": "Added cleanup block after write_report(): when args.cleanup_slices, unlink all 4 per-slice RUNS_DIR files",
-      "tags": ["cleanup", "disk-space", "stream", "runs-dir"],
+      "tags": [
+        "cleanup",
+        "disk-space",
+        "stream",
+        "runs-dir"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-21T00:00:00+08:00"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-05-21T16:30:11+08:00",
+      "error_message": "git show ... | jq ... failed with: zsh:1: command not found: jq",
+      "file": "shell command",
+      "root_cause": "This Mac environment does not have jq installed.",
+      "fix": "Used Node.js JSON.parse with git show output to summarize A/B transcript and payload artifacts without installing dependencies.",
+      "tags": [
+        "environment",
+        "jq",
+        "validation-command",
+        "ab-test"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T16:30:11+08:00"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-05-21T19:42:00+08:00",
+      "error_message": "sed: stream_extractors.py: No such file or directory",
+      "file": "stream_extractors.py",
+      "root_cause": "Current working tree is on main with URL/live stream files partially present, but stream_extractors.py only exists on feature/stream-transcript-validation.",
+      "fix": "Read stream_extractors.py from feature/stream-transcript-validation with git show for analysis instead of treating the current dirty main worktree as complete.",
+      "tags": [
+        "branch-mismatch",
+        "stream",
+        "analysis-command"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T19:42:00+08:00"
+    },
+    {
+      "id": "bug-027",
+      "timestamp": "2026-05-21T13:10:01.147Z",
+      "error_message": "Significant refactor of ",
+      "file": "run_zhihu_live.bat",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "bat"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T13:10:01.147Z"
+    },
+    {
+      "id": "bug-028",
+      "timestamp": "2026-05-21T13:10:35.494Z",
+      "error_message": "Wrong reference: gemini should be GEMINI_FLAG",
+      "file": "run_zhihu_live.bat",
+      "root_cause": "Used \"gemini\" instead of \"GEMINI_FLAG\"",
+      "fix": "Changed gemini → GEMINI_FLAG",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "bat"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-21T13:10:53.662Z"
+    },
+    {
+      "id": "bug-029",
+      "timestamp": "2026-05-21T13:31:57.024Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_STREAM_OPTIMIZATION_PLAN.md",
+      "root_cause": "15 lines replaced/restructured",
+      "fix": "Rewrote 24→115 lines (15 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T13:31:57.024Z"
+    },
+    {
+      "id": "bug-030",
+      "timestamp": "2026-05-21T13:41:56.364Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_STREAM_OPTIMIZATION_PLAN.md",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 8→82 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T13:41:56.364Z"
     }
   ]
 }
