@@ -48,6 +48,7 @@ GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_MAX_RETRIES = 6
 GEMINI_RETRY_DELAY = 65
 GEMINI_MAX_CONTINUATIONS = 20
+GEMINI_CONTINUATION_COOLDOWN = 6   # free tier: 10 RPM → 1 req / 6 s
 
 GEMINI_PROMPT_TEXT = """
 # 角色与目标
@@ -140,6 +141,7 @@ def _call_gemini_stream(client, parts: list, label: str) -> dict:
                     break
                 print(f"[{label}] Output truncated, continuing ({cont + 1}/{GEMINI_MAX_CONTINUATIONS})...", flush=True)
                 gemini_calls += 1
+                time.sleep(GEMINI_CONTINUATION_COOLDOWN)
                 response = chat.send_message("继续")
                 text = response.text
                 if not text:

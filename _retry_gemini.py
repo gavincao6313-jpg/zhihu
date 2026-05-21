@@ -1,43 +1,17 @@
-"""Post-stream Gemini synthesis: assemble all live chunks → NotebookLM document.
-
-Run after zhihuTTS_stream.py finishes and merge_stream_chunks.py has produced
-the raw merged transcript. This script:
-  1. Loads all per-chunk global-transcript.txt → combined full transcript
-  2. Loads all per-chunk payload.json → all keyframe images, globally sorted
-  3. Calls Gemini 2.5 Flash with the full prompt + all frames (no cap)
-  4. Writes a NotebookLM-ready document to Markdowns/TTS_stream-<base>.md
-
-Requires GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var.
-
-Usage (Windows):
-    set GEMINI_API_KEY=your_key
-    python scripts\\build_stream_markdown.py --base zhihu-gaowei-20260518
-
-Usage (Mac/Linux):
-    GEMINI_API_KEY=your_key python scripts/build_stream_markdown.py --base zhihu-gaowei-20260518
-
-Options:
-    --base          Stream base name (required). Matches stream-{base}_chunk* files.
-    --runs-dir      Directory with per-chunk files (default: runs)
-    --markdowns-dir Output directory for NotebookLM document (default: Markdowns)
-    --run-ts        Use a specific run timestamp YYYYMMDD-HHMMSS (default: latest run)
-"""
-import argparse
+"""Retry Gemini NotebookLM for live stream — fixes per-chunk timestamp grouping."""
 import json
 import os
 import re
 import sys
 import time
-from collections import defaultdict
 from pathlib import Path
 
 from google import genai
 from google.genai import types
 
-# ── Gemini config ─────────────────────────────────────────────────────────────
-
+# ── Config ────────────────────────────────────────────────────────────────────
 GEMINI_MODEL            = "gemini-2.5-flash"
-GEMINI_IMAGE_HARD_LIMIT = 3000   # API ceiling; fallback priority sampling above this
+GEMINI_IMAGE_HARD_LIMIT = 3000
 MAX_RETRIES             = 6
 MAX_CONTINUATIONS       = 20
 RETRY_DELAY             = 65
@@ -92,7 +66,6 @@ GEMINI_PROMPT_TEXT = """
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
-
 def fmt_ts(seconds: float) -> str:
     h = int(seconds // 3600)
     m = int((seconds % 3600) // 60)
@@ -101,17 +74,8 @@ def fmt_ts(seconds: float) -> str:
 
 
 def parse_chunk_start(path: Path) -> int:
-    """Extract global start_s from filename: stream-base_chunk001_120s-ts.ext → 120"""
     m = re.search(r'_chunk\d+_(\d+)s[-.]', path.name)
     return int(m.group(1)) if m else 0
-
-
-def extract_run_ts(path: Path) -> str:
-    m = re.search(r'-(\d{8}-\d{6})\.', path.name)
-    if not m:
-        print(f"[warn] cannot parse run timestamp from: {path.name}", file=sys.stderr)
-        return "00000000-000000"
-    return m.group(1)
 
 
 def _parse_retry_delay(error: Exception) -> int:
@@ -120,33 +84,16 @@ def _parse_retry_delay(error: Exception) -> int:
 
 
 # ── Data loading ──────────────────────────────────────────────────────────────
-
-def build_combined_transcript(chunk_files: list[Path]) -> str:
-    """Concatenate per-chunk global-transcript.txt files in chronological order."""
-    parts = []
-    for cf in chunk_files:
-        if cf.exists():
-            text = cf.read_text(encoding="utf-8").strip()
-            if text:
-                parts.append(text)
-    return "\n".join(parts)
-
-
-def load_chunk_frames(payload_path: Path, chunk_start_s: int) -> list[dict]:
-    """Load frames from a per-chunk payload.json, adjusting timestamps to global seconds."""
+def load_chunk_frames(payload_path: Path, chunk_start_s: int, frames_list: list):
     if not payload_path.exists():
-        return []
+        return
     try:
         payload = json.loads(payload_path.read_text(encoding="utf-8"))
     except Exception:
-        return []
-
-    result = []
+        return
     for f in payload.get("frames", []):
-        local_ts  = f.get("timestamp_s", 0)
+        local_ts = f.get("timestamp_s", 0)
         global_ts = chunk_start_s + local_ts
-
-        # Rewrite marker display timestamp from local to global
         marker = f.get("marker", "")
         if marker:
             marker = re.sub(
@@ -154,61 +101,39 @@ def load_chunk_frames(payload_path: Path, chunk_start_s: int) -> list[dict]:
                 f'Frame [{fmt_ts(global_ts)}]',
                 marker,
             )
-
-        result.append({
-            "path":        f.get("path", ""),
+        frames_list.append({
+            "path": f.get("path", ""),
             "timestamp_s": global_ts,
-            "marker":      marker,
+            "marker": marker,
         })
-    return result
 
 
-def collect_all_frames(chunk_files: list[Path]) -> list[dict]:
-    """Assemble all keyframes from all chunks, sorted by global timestamp."""
-    all_frames: list[dict] = []
-    for cf in chunk_files:
-        chunk_start_s = parse_chunk_start(cf)
-        payload_path  = cf.with_name(
-            cf.name.removesuffix(".global-transcript.txt") + ".payload.json"
-        )
-        all_frames.extend(load_chunk_frames(payload_path, chunk_start_s))
-    all_frames.sort(key=lambda f: f.get("timestamp_s", 0))
-    return all_frames
-
-
-# ── Gemini input assembly ─────────────────────────────────────────────────────
-
-def select_frames(frames: list[dict]) -> list[dict]:
-    """Return all frames; apply priority sampling only when > GEMINI_IMAGE_HARD_LIMIT."""
+def select_frames(frames: list) -> list:
     if len(frames) <= GEMINI_IMAGE_HARD_LIMIT:
         return frames
-
-    slide_frames = [f for f in frames if "type=slide"      in f.get("marker", "")]
+    slide_frames = [f for f in frames if "type=slide" in f.get("marker", "")]
     annot_frames = [f for f in frames if "type=annotation" in f.get("marker", "")]
-    ctx_frames   = [f for f in frames
-                    if "type=slide"      not in f.get("marker", "")
-                    and "type=annotation" not in f.get("marker", "")]
-
-    cap      = GEMINI_IMAGE_HARD_LIMIT
+    ctx_frames = [f for f in frames if "type=slide" not in f.get("marker", "")
+                  and "type=annotation" not in f.get("marker", "")]
+    cap = GEMINI_IMAGE_HARD_LIMIT
     selected = list(slide_frames[:cap])
     remaining = cap - len(selected)
     if remaining > 0:
-        step = max(1, len(annot_frames) // remaining)
+        step = max(1, len(annot_frames) // remaining) if annot_frames else 1
         selected += annot_frames[::step][:remaining]
         remaining = cap - len(selected)
     if remaining > 0 and ctx_frames:
-        step = max(1, len(ctx_frames) // remaining)
+        step = max(1, len(ctx_frames) // remaining) if ctx_frames else 1
         selected += ctx_frames[::step][:remaining]
     selected.sort(key=lambda f: f.get("timestamp_s", 0))
     return selected
 
 
-def build_gemini_parts(transcript: str, frames: list[dict]) -> list:
-    selected    = select_frames(frames)
-    slide_count = sum(1 for f in selected if "type=slide"      in f.get("marker", ""))
+def build_gemini_parts(transcript: str, frames: list) -> list:
+    selected = select_frames(frames)
+    slide_count = sum(1 for f in selected if "type=slide" in f.get("marker", ""))
     annot_count = sum(1 for f in selected if "type=annotation" in f.get("marker", ""))
-
-    parts: list = [GEMINI_PROMPT_TEXT, transcript]
+    parts = [GEMINI_PROMPT_TEXT, transcript]
     loaded = 0
     for frame in selected:
         fp = Path(frame["path"])
@@ -219,14 +144,11 @@ def build_gemini_parts(transcript: str, frames: list[dict]) -> list:
             inline_data=types.Blob(mime_type="image/jpeg", data=fp.read_bytes())
         ))
         loaded += 1
-
     print(f"  Gemini parts: transcript {len(transcript):,} chars, "
           f"{loaded}/{len(frames)} frames (slide={slide_count}, annot={annot_count})",
           flush=True)
     return parts
 
-
-# ── Gemini call ───────────────────────────────────────────────────────────────
 
 def call_gemini(client, parts: list, label: str) -> str | None:
     config = types.GenerateContentConfig(
@@ -238,13 +160,12 @@ def call_gemini(client, parts: list, label: str) -> str | None:
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             print(f"[{label}] Sending to Gemini ({len(parts)} parts)...", flush=True)
-            chat      = client.chats.create(model=GEMINI_MODEL, config=config)
+            chat = client.chats.create(model=GEMINI_MODEL, config=config)
             gemini_calls += 1
-            response  = chat.send_message(parts)
+            response = chat.send_message(parts)
             full_text = response.text
             if not full_text:
                 raise RuntimeError("Gemini returned empty response")
-
             candidate = response.candidates[0] if response.candidates else None
             for cont in range(MAX_CONTINUATIONS):
                 if not candidate or candidate.finish_reason != types.FinishReason.MAX_TOKENS:
@@ -252,20 +173,17 @@ def call_gemini(client, parts: list, label: str) -> str | None:
                 print(f"[{label}] Truncated, continuing ({cont + 1})...", flush=True)
                 gemini_calls += 1
                 time.sleep(CONTINUATION_COOLDOWN)
-                response  = chat.send_message("继续")
+                response = chat.send_message("继续")
                 chunk_txt = response.text
                 if not chunk_txt:
                     break
                 full_text += "\n" + chunk_txt
-                candidate  = response.candidates[0] if response.candidates else None
-
-            print(f"[{label}] Done: {len(full_text):,} chars, {gemini_calls} calls",
-                  flush=True)
+                candidate = response.candidates[0] if response.candidates else None
+            print(f"[{label}] Done: {len(full_text):,} chars, {gemini_calls} calls", flush=True)
             return full_text
-
         except Exception as e:
             is_rate = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
-            delay   = _parse_retry_delay(e) if is_rate else RETRY_DELAY
+            delay = _parse_retry_delay(e) if is_rate else RETRY_DELAY
             print(f"[{label}] {'Rate limit' if is_rate else 'Error'}: {e} "
                   f"— retry in {delay}s ({attempt}/{MAX_RETRIES})", flush=True)
             if attempt < MAX_RETRIES:
@@ -274,19 +192,7 @@ def call_gemini(client, parts: list, label: str) -> str | None:
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
-
-def main() -> None:
-    ap = argparse.ArgumentParser(
-        description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-    )
-    ap.add_argument("--base",           required=True,       help="Stream base name")
-    ap.add_argument("--runs-dir",       default="runs",      help="Dir with chunk files")
-    ap.add_argument("--markdowns-dir",  default="Markdowns", help="Output dir")
-    ap.add_argument("--run-ts",         default=None,
-                    help="Specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
-    args = ap.parse_args()
-
+def main():
     api_key = (
         os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY") or ""
     ).strip()
@@ -294,55 +200,62 @@ def main() -> None:
         print("[!] No GEMINI_API_KEY — set the env var and re-run.")
         sys.exit(1)
 
-    runs_dir      = Path(args.runs_dir)
-    markdowns_dir = Path(args.markdowns_dir)
-    pattern       = f"stream-{args.base}_chunk*.global-transcript.txt"
-    all_found     = list(runs_dir.glob(pattern))
+    runs_dir = Path("runs")
 
-    if not all_found:
-        print(f"ERROR: no files matching {runs_dir / pattern}", file=sys.stderr)
+    # Scan ALL files to avoid glob encoding issues
+    all_files = list(runs_dir.iterdir())
+    chunk_files = sorted(
+        f for f in all_files
+        if f.name.startswith("stream-live-") and "_chunk" in f.name
+        and f.name.endswith(".global-transcript.txt")
+    )
+    if not chunk_files:
+        print("ERROR: no live stream chunk files found")
         sys.exit(1)
 
-    groups: dict[str, list[Path]] = defaultdict(list)
-    for f in all_found:
-        groups[extract_run_ts(f)].append(f)
+    # Extract base name
+    base_name = chunk_files[0].name.removeprefix("stream-").split("_chunk")[0]
+    print(f"Base name : {base_name}")
+    print(f"Chunks    : {len(chunk_files)}")
 
-    selected_ts = args.run_ts if args.run_ts else max(groups.keys())
-    if selected_ts not in groups:
-        print(f"ERROR: run-ts '{selected_ts}' not found. Available: {sorted(groups)}",
-              file=sys.stderr)
-        sys.exit(1)
+    # Build combined transcript from ALL chunks
+    transcript_parts = []
+    for cf in chunk_files:
+        text = cf.read_text(encoding="utf-8").strip()
+        if text:
+            transcript_parts.append(text)
+    transcript = "\n".join(transcript_parts)
+    print(f"Transcript: {len(transcript):,} chars")
 
-    if len(groups) > 1:
-        print(f"[warn] {len(groups)} runs for '{args.base}' — using: {selected_ts}")
-
-    chunk_files = sorted(groups[selected_ts], key=parse_chunk_start)
-    print(f"Chunks   : {len(chunk_files)} (run: {selected_ts})")
-
-    transcript = build_combined_transcript(chunk_files)
-    all_frames = collect_all_frames(chunk_files)
+    # Collect ALL frames from ALL payload files
+    all_frames = []
+    for cf in chunk_files:
+        chunk_start_s = parse_chunk_start(cf)
+        payload_path = cf.with_name(
+            cf.name.removesuffix(".global-transcript.txt") + ".payload.json"
+        )
+        load_chunk_frames(payload_path, chunk_start_s, all_frames)
+    all_frames.sort(key=lambda f: f.get("timestamp_s", 0))
+    print(f"Frames    : {len(all_frames)} total")
 
     if not transcript.strip():
-        print("ERROR: no transcript content — check chunk files", file=sys.stderr)
+        print("ERROR: no transcript content")
         sys.exit(1)
-
-    print(f"Transcript: {len(transcript):,} chars")
-    print(f"Frames    : {len(all_frames)} total")
 
     print("\n=== Gemini: Building NotebookLM document ===")
     parts = build_gemini_parts(transcript, all_frames)
 
     http_opts = types.HttpOptions(timeout=3600000)
-    client    = genai.Client(api_key=api_key, http_options=http_opts)
+    client = genai.Client(api_key=api_key, http_options=http_opts)
 
-    gemini_text = call_gemini(client, parts, label=args.base)
+    gemini_text = call_gemini(client, parts, label=base_name)
     if not gemini_text:
-        print("[!] Gemini synthesis failed — merged raw transcript still available.",
-              file=sys.stderr)
+        print("[!] Gemini synthesis failed — merged raw transcript still available.", file=sys.stderr)
         sys.exit(1)
 
+    markdowns_dir = Path("Markdowns")
     markdowns_dir.mkdir(parents=True, exist_ok=True)
-    out_path = markdowns_dir / f"TTS_stream-{args.base}.md"
+    out_path = markdowns_dir / f"TTS_stream-{base_name}.md"
     out_path.write_text(gemini_text, encoding="utf-8")
     print(f"\nNotebookLM document : {out_path}")
     print(f"  Size              : {len(gemini_text):,} chars")

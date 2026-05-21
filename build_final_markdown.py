@@ -39,6 +39,7 @@ GEMINI_IMAGE_HARD_LIMIT = 3000   # Gemini 2.5 Flash API hard ceiling; ~50hr+ str
 MAX_RETRIES             = 6
 MAX_CONTINUATIONS       = 20
 RETRY_DELAY             = 65
+CONTINUATION_COOLDOWN   = 6     # free tier: 10 RPM → 1 req / 6 s
 
 GEMINI_PROMPT_TEXT = """
 # 角色与目标
@@ -196,6 +197,7 @@ def call_gemini_with_retry(client, parts: list, label: str) -> str | None:
                     break
                 print(f"[{label}] Output truncated, auto-continuing ({cont + 1})...", flush=True)
                 gemini_calls += 1
+                time.sleep(CONTINUATION_COOLDOWN)
                 response = chat.send_message("继续")
                 chunk = response.text
                 if not chunk:
