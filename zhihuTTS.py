@@ -17,10 +17,12 @@ from utils import parse_retry_delay
 from zhihuTTS_video import (
     extract_keyframes,
     transcribe_audio,
+    transcribe_audio_chunked,
     transcript_to_text,
     requested_transcribe_backend,
     transcript_backend_matches,
     KEYFRAMES_DIR,
+    TRANSCRIBE_CHUNK_DURATION_S,
     frame_marker,
 )
 
@@ -461,7 +463,7 @@ def _load_transcript_text_for_backfill(video_path: Path, video_label: str,
         return None, "missing"
 
     tprint(f"[{video_label}] 未找到逐字稿缓存，开始重新转写音频...")
-    transcript = transcribe_audio(video_path)
+    transcript = transcribe_audio_chunked(video_path, TRANSCRIBE_CHUNK_DURATION_S)
     paths["transcript"].parent.mkdir(parents=True, exist_ok=True)
     with open(paths["transcript"], "w", encoding="utf-8") as f:
         json.dump(transcript, f, ensure_ascii=False, indent=2)
@@ -599,7 +601,7 @@ def process_video(client, video_path: Path, output_path: Path, video_label: str)
         else:
             tprint(f"[{video_label}] 提取关键帧 & 转录音频...")
             events, kept_frames = extract_keyframes(video_path)
-            transcript = transcribe_audio(video_path)
+            transcript = transcribe_audio_chunked(video_path, TRANSCRIBE_CHUNK_DURATION_S)
             _save_preprocess_cache(video_path, events, kept_frames, transcript)
 
         result["backend_used"] = transcript.get("backend_used")

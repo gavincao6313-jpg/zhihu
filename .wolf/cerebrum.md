@@ -53,4 +53,5 @@
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
+- **[2026-05-21] 三路 A/B 测试计划（待执行）：** 用同一场直播素材，跑「本地 MP4 分片 / 回放 URL 流 / 实时直播流」三条路径，统一 Gemini 合成输出对比。触发时机：下次直播结束后，拿到回放 URL 即可。需新建 `run_ab_3way.py`，复用 `gemini_synthesis_ab.py` 的合成逻辑。
 - **[2026-05-21] 离线 MP4 转写策略：60s 分片 > 单次全量。** Windows A/B 测试（153min 视频，gemini-3.5-flash）证明：60s 分片输出 10,556 chars / 6章节 / 精确到秒的时间戳 vs 单次全量 8,017 chars / 5章节 / 粗粒度时间戳。URL 分支胜出 +32%。根因：153 个时间锚点让 Gemini 精确切分章节；单次全量只有 1 个起止时间，Gemini 只能猜测。转写耗时翻倍（1258s vs 567s）但值得。**即使是本地 MP4 离线处理，也应使用 60s 分片方案**，而非单次 SenseVoice 全量调用。

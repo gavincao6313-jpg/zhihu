@@ -4,6 +4,8 @@
 > Old sessions are consolidated by the daemon weekly.
 
 | 23:50 | 拉取 Windows A/B 测试结果 (commits 6c5f842+88b24d6 on experiment/inline-and-uri-upload)，分析 AB_TEST_REPORT.md，URL 分支胜出 +32%，写入 Decision Log | .wolf/cerebrum.md | completed | ~800 |
+| 00:15 | 优化本地 MP4 转写：提取 _transcribe_wav_with_backend()，新增 transcribe_audio_chunked() + TRANSCRIBE_CHUNK_DURATION_S，zhihuTTS.py 两处调用点替换 | zhihuTTS_video.py, zhihuTTS.py | completed | ~600 |
+| 00:20 | 记录三路 A/B 测试计划（本地MP4分片/回放流/实时直播流），待下次直播后执行，需新建 run_ab_3way.py | .wolf/cerebrum.md | noted | ~100 |
 | 2026-05-21 | 改造 run_zhihu_live.bat 为双模式自调用：MAIN 验证+start 后台窗口，WORKER 三步 Python 全输出写 logs\run-NAME.log，主窗口 tail 日志可随时关闭 | run_zhihu_live.bat | success | ~800 |
 
 ## Session: 2026-05-20
@@ -352,3 +354,9 @@
 | 19:41 | Read OpenWolf/GitNexus context for URL branch live-stream analysis | .wolf/OPENWOLF.md, .wolf/anatomy.md, .wolf/cerebrum.md | context loaded | ~6000 |
 | 19:43 | Refreshed GitNexus index and located URL/live stream implementation | zhihuTTS_stream.py, run_zhihu_live.bat, stream_extractors.py | analysis in progress | ~12000 |
 | 19:44 | Completed URL/live browser/session dependency analysis | run_zhihu_live.bat, zhihuTTS_stream.py, stream_extractors.py | ready to answer | ~22000 |
+| 21:09 | Edited run_zhihu_live.bat | 7→4 lines | ~53 |
+| 21:09 | Edited run_zhihu_live.bat | expanded (+7 lines) | ~66 |
+| 21:10 | Edited run_zhihu_live.bat | 4→5 lines | ~59 |
+| 21:10 | Edited run_zhihu_live.bat | inline fix | ~17 |
+| 21:10 | Edited run_zhihu_live.bat | inline fix | ~10 |
+| 21:10 | Edited run_zhihu_live.bat | inline fix | ~5 |
