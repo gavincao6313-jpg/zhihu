@@ -56,11 +56,23 @@ python -u zhihuTTS_stream.py --url <replay-url> --name regression-check --chunk-
 
 ## 结果速查表
 
-| 验证 | 耗时 | 依赖 |
-|------|------|------|
-| 1 — `--continuous-hls` | 直播全程 | 真实直播 |
-| 2 — `--max-chunks` 修复 | ~2 min | 已有 .ts 文件 |
-| 3 — 旧路径回归 | ~5 min | 任意回放 URL |
+| 验证 | 耗时 | 依赖 | 状态 |
+|------|------|------|------|
+| 1 — `--continuous-hls` | 直播全程 | 真实直播 | ❓ 等今晚直播 |
+| 2 — `--max-chunks` 修复 | ~2 min | 已有 .ts 文件 | ✅ b7525fc |
+| 3 — 旧路径回归 | ~5 min | 任意回放 URL | ✅ 7686e30 |
+
+---
+
+## V2 结果 (2026-05-22)
+- `--max-chunks=3` → `Reached --max-chunks=3, stopping.` → 恰好 3 chunk
+- Manifest: `stream-step2-fix2-20260522-002531.manifest.md`
+- 修复提交: `b7525fc`
+
+## V3 结果 (2026-05-22)
+- `--url <vdn3.vzuu.com>` → 3 chunk, extractor=direct, mode=fixed duration
+- 0 re-extracts, 3/3 slices kept, 与 Step 1 表现一致
+- Manifest: `stream-regression-check-20260522-003925.manifest.md`
 
 ---
 
