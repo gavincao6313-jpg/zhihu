@@ -521,21 +521,30 @@ def slice_url(
         str(out_path),
     ]
     cmd = with_headers(cmd, headers or {})
-    # Live FLV slices should finish in roughly chunk_duration seconds.
-    # Use a tighter per-attempt timeout so a dead stream doesn't block for hours.
-    effective_timeout = int(duration_s * 3 + 60) if is_live else FFMPEG_TIMEOUT
+    # Live FLV slices finish in roughly chunk_duration seconds of real time.
+    # Tight timeout: 1× duration + 45s connection/startup buffer.
+    # TimeoutExpired → StreamSliceError so the caller's is_stream_ended() check fires.
+    effective_timeout = int(duration_s + 45) if is_live else FFMPEG_TIMEOUT
     last_error = ""
     for attempt in range(1, SLICE_RETRIES + 1):
         if out_path.exists():
             out_path.unlink()
-        completed = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            timeout=effective_timeout,
-        )
+        try:
+            completed = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=effective_timeout,
+            )
+        except subprocess.TimeoutExpired:
+            if out_path.exists():
+                out_path.unlink()
+            raise StreamSliceError(
+                f"ffmpeg timed out after {effective_timeout}s at {fmt_time(start_s)} "
+                f"(live={is_live}) — stream may have ended"
+            )
         size = out_path.stat().st_size if out_path.exists() else 0
         if completed.returncode == 0 and size >= MIN_SLICE_BYTES:
             return
