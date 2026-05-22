@@ -327,12 +327,12 @@ def live_final_qc(
     }
 
 
-def check_markdown_body_coverage(gemini_text: str, manifest: dict) -> None:
+def check_markdown_body_coverage(gemini_text: str, manifest: dict) -> dict:
     """Warn if the last timestamped chapter in the output ends too early.
 
     Parses '### [HH:MM:SS - HH:MM:SS]' headings; compares to timeline_end_s.
-    This catches the one-shot attention-compression problem where Gemini stops
-    summarising the last N minutes even though the source transcript is complete.
+    Returns body_last_chapter_end_s, body_tail_gap_s, body_coverage_status
+    so the caller can persist these fields to the QC JSON.
     """
     heading_ends = re.findall(
         r'###\s+\[\d{2}:\d{2}:\d{2}\s*-\s*(\d{2}):(\d{2}):(\d{2})\]',
@@ -340,7 +340,7 @@ def check_markdown_body_coverage(gemini_text: str, manifest: dict) -> None:
     )
     if not heading_ends:
         print("[warn] body_coverage: no '### [HH:MM:SS - HH:MM:SS]' headings found")
-        return
+        return {"body_last_chapter_end_s": 0, "body_tail_gap_s": 0, "body_coverage_status": "no_headings"}
 
     lh, lm, ls = heading_ends[-1]
     body_end_s     = int(lh) * 3600 + int(lm) * 60 + int(ls)
@@ -354,14 +354,17 @@ def check_markdown_body_coverage(gemini_text: str, manifest: dict) -> None:
                 f" stream ends {fmt_ts(timeline_end_s)} — gap {gap_s}s"
                 f" (threshold {BODY_COVERAGE_GAP_S}s): tail may be truncated"
             )
+            return {"body_last_chapter_end_s": body_end_s, "body_tail_gap_s": gap_s, "body_coverage_status": "warning"}
         else:
             print(
                 f"[ok]  body_coverage: last chapter {fmt_ts(body_end_s)},"
                 f" stream end {fmt_ts(timeline_end_s)}, gap {gap_s}s"
             )
+            return {"body_last_chapter_end_s": body_end_s, "body_tail_gap_s": gap_s, "body_coverage_status": "ok"}
     else:
         print(f"[ok]  body_coverage: last chapter {fmt_ts(body_end_s)}"
               f" (no stream timeline reference)")
+        return {"body_last_chapter_end_s": body_end_s, "body_tail_gap_s": 0, "body_coverage_status": "ok"}
 
 
 def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
@@ -399,6 +402,10 @@ def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
             lines.append(f"> - 已知缺口: {w[len('gaps_detected:'):].strip()}")
         elif w.startswith("tail_coverage_low:"):
             lines.append(f"> - ⚠️ 尾部覆盖不足: {w[len('tail_coverage_low:'):].strip()}")
+        elif w.startswith("body_tail_coverage_low:"):
+            lines.append(f"> - ⚠️ 正文尾段截断: {w[len('body_tail_coverage_low:'):].strip()}")
+        elif w.startswith("body_coverage_unverifiable:"):
+            lines.append(f"> - ⚠️ 正文覆盖无法验证: {w[len('body_coverage_unverifiable:'):].strip()}")
 
     return "\n".join(lines) + "\n\n" + gemini_text
 
@@ -479,6 +486,21 @@ def main() -> None:
               file=sys.stderr)
         sys.exit(1)
 
+    # Check body coverage before building the header so the warning appears in the QC block.
+    coverage = check_markdown_body_coverage(gemini_text, manifest)
+    manifest.update(coverage)
+    if coverage["body_coverage_status"] == "warning":
+        manifest["warnings"].append(
+            f"body_tail_coverage_low: last chapter {fmt_ts(coverage['body_last_chapter_end_s'])},"
+            f" gap {coverage['body_tail_gap_s']}s"
+        )
+    elif coverage["body_coverage_status"] == "no_headings":
+        manifest["warnings"].append(
+            "body_coverage_unverifiable: no timestamped chapter headings found in Gemini output"
+        )
+    # Re-write QC JSON with body coverage fields included.
+    qc_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+
     gemini_text = prepend_quality_header(gemini_text, manifest)
 
     markdowns_dir.mkdir(parents=True, exist_ok=True)
@@ -486,7 +508,6 @@ def main() -> None:
     out_path.write_text(gemini_text, encoding="utf-8")
     print(f"\nNotebookLM document : {out_path}")
     print(f"  Size              : {len(gemini_text):,} chars")
-    check_markdown_body_coverage(gemini_text, manifest)
 
 
 if __name__ == "__main__":

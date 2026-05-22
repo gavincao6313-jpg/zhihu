@@ -981,6 +981,84 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-22T15:00:02.262Z"
+    },
+    {
+      "id": "bug-061",
+      "timestamp": "2026-05-22T23:10:00+08:00",
+      "error_message": "merge_stream_chunks.py default path selects only 1 chunk from 105 (same root cause as bug-058)",
+      "file": "scripts/merge_stream_chunks.py",
+      "root_cause": "Default branch used max(groups.keys()) to pick the group with the latest per-chunk completion timestamp; for a 105-chunk live stream each chunk has a unique ts, so max() selected the single last chunk's group.",
+      "fix": "When --run-ts absent: skip group selection, use sorted(all_found, key=parse_chunk_start). Added multi-group warn. Mirrors build_stream_markdown.py:448.",
+      "tags": [
+        "merge",
+        "chunk-selection",
+        "bug-058-followup",
+        "merge_stream_chunks"
+      ],
+      "related_bugs": [
+        "bug-058"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T23:10:00+08:00"
+    },
+    {
+      "id": "bug-062",
+      "timestamp": "2026-05-22T23:10:00+08:00",
+      "error_message": "check_markdown_body_coverage() only printed to stdout; body coverage gap not persisted to final-qc.json",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "Function returned None and was called after prepend_quality_header; coverage data never added to manifest or QC JSON so source_status=full masked a 610s tail truncation.",
+      "fix": "Return type changed to dict (body_last_chapter_end_s, body_tail_gap_s, body_coverage_status). Call moved before prepend_quality_header. Manifest updated with coverage fields + body_tail_coverage_low warning. qc_path re-written post-Gemini.",
+      "tags": [
+        "qc",
+        "body-coverage",
+        "final-qc-json",
+        "build_stream_markdown"
+      ],
+      "related_bugs": [
+        "bug-058"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T23:10:00+08:00"
+    },
+    {
+      "id": "bug-063",
+      "timestamp": "2026-05-22T15:18:48.795Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/merge_stream_chunks.py",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 8→11 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:18:48.795Z"
+    },
+    {
+      "id": "bug-064",
+      "timestamp": "2026-05-22T23:30:00+08:00",
+      "error_message": "merge_stream_chunks.py warning text misled operators to use --run-ts, which resolves per-chunk timestamps not session ids",
+      "file": "scripts/merge_stream_chunks.py",
+      "root_cause": "Warning said 'pass --run-ts to restrict' but --run-ts matches per-chunk completion timestamp; on a 105-chunk live run every chunk has a unique ts so following the hint reduces merge back to 1 chunk. Warning also dumped all 105 ts groups as noise.",
+      "fix": "Single-line warn explaining all-chunks stop-gap, multi-session mixing risk, and explicit note that --run-ts is not a live session selector until run-manifest lands.",
+      "tags": ["merge", "ux", "warning-text", "merge_stream_chunks", "bug-061-followup"],
+      "related_bugs": ["bug-061", "bug-058"],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T23:30:00+08:00"
+    },
+    {
+      "id": "bug-065",
+      "timestamp": "2026-05-22T23:30:00+08:00",
+      "error_message": "body_coverage_status='no_headings' not persisted to manifest warnings; Markdown header showed no anomaly",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "main() only appended warning for status=='warning'; 'no_headings' branch was missing so warnings[] stayed empty and header rendered nothing.",
+      "fix": "Added elif for 'no_headings': appends body_coverage_unverifiable to manifest warnings. Added renderer in prepend_quality_header.",
+      "tags": ["qc", "body-coverage", "no-headings", "build_stream_markdown", "bug-062-followup"],
+      "related_bugs": ["bug-062"],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T23:30:00+08:00"
     }
   ]
 }

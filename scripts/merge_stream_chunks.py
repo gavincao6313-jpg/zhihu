@@ -83,7 +83,8 @@ def main() -> None:
         print(f"ERROR: no files matching {runs_dir / pattern}", file=sys.stderr)
         sys.exit(1)
 
-    # Group by run timestamp to avoid merging chunks from multiple runs with the same base name
+    # Group by per-chunk completion timestamp — used only for --run-ts disambiguation.
+    # Each chunk file's trailing timestamp is its own completion time, not a run id.
     groups: dict[str, list[Path]] = defaultdict(list)
     for f in all_found:
         groups[extract_run_ts(f)].append(f)
@@ -92,17 +93,22 @@ def main() -> None:
         if args.run_ts not in groups:
             print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {sorted(groups)}", file=sys.stderr)
             sys.exit(1)
+        chunk_files = sorted(groups[args.run_ts], key=parse_chunk_start)
         selected_ts = args.run_ts
     else:
-        selected_ts = max(groups.keys())
+        if len(groups) > 1:
+            # Each chunk has its own completion ts, so len(groups)==len(chunks) for
+            # a normal live run. Don't dump the full list — it's noise.
+            print(
+                f"[warn] base '{args.base}' has {len(all_found)} chunks across"
+                f" {len(groups)} timestamp groups — merging ALL chunks as stop-gap."
+                f" If multiple live sessions share this base, results may mix sessions."
+                f" (--run-ts targets per-chunk timestamps, not session ids;"
+                f" do not rely on it until run-manifest is implemented)"
+            )
+        chunk_files = sorted(all_found, key=parse_chunk_start)
+        selected_ts = extract_run_ts(chunk_files[-1])
 
-    if len(groups) > 1:
-        print(f"[warn] {len(groups)} runs found for base '{args.base}' — using latest: {selected_ts}")
-        for ts in sorted(groups.keys()):
-            marker = " ← selected" if ts == selected_ts else ""
-            print(f"  {ts}: {len(groups[ts])} chunks{marker}")
-
-    chunk_files = sorted(groups[selected_ts], key=parse_chunk_start)
     print(f"Found {len(chunk_files)} chunks in {runs_dir} (run: {selected_ts})")
 
     # Collect all sentences and all slide times across chunks

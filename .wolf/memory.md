@@ -3,6 +3,11 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 23:10 | fix merge_stream_chunks.py default chunk selection (bug-061): use all chunks when --run-ts absent | scripts/merge_stream_chunks.py | done | ~300 |
+| 23:10 | fix build_stream_markdown.py body_coverage: persist to final-qc.json + QC header (bug-062) | scripts/build_stream_markdown.py | done | ~400 |
+| 23:30 | fix misleading --run-ts hint in merge warning (bug-064); fix no_headings not in manifest warnings (bug-065) | scripts/merge_stream_chunks.py, scripts/build_stream_markdown.py | done | ~200 |
+| 23:35 | review cycle closed, 0 remaining findings; 2 Do-Not-Repeat learnings added to cerebrum | .wolf/cerebrum.md, .wolf/buglog.json | done | ~150 |
+
 | 11:54 | 重写 CLAUDE.md PR 规则块为精简 Change Control + Driver Rules；新建 .claude/rules/review.md（diff 生成、审查包格式、Auditor prompt、对质步骤） | CLAUDE.md, .claude/rules/review.md | completed | ~600 |
 | 23:50 | 拉取 Windows A/B 测试结果 (commits 6c5f842+88b24d6 on experiment/inline-and-uri-upload)，分析 AB_TEST_REPORT.md，URL 分支胜出 +32%，写入 Decision Log | .wolf/cerebrum.md | completed | ~800 |
 | 00:15 | 优化本地 MP4 转写：提取 _transcribe_wav_with_backend()，新增 transcribe_audio_chunked() + TRANSCRIBE_CHUNK_DURATION_S，zhihuTTS.py 两处调用点替换 | zhihuTTS_video.py, zhihuTTS.py | completed | ~600 |
@@ -600,3 +605,15 @@
 | 23:00 | Edited scripts/build_stream_markdown.py | modified check_markdown_body_coverage() | ~472 |
 | 23:00 | Edited scripts/build_stream_markdown.py | modified print() | ~64 |
 | 23:02 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | expanded (+38 lines) | ~369 |
+
+## Session: 2026-05-22 23:06
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:08 | Edited scripts/merge_stream_chunks.py | max() → chunks() | ~326 |
+| 23:09 | Edited scripts/build_stream_markdown.py | modified check_markdown_body_coverage() | ~545 |
+| 23:10 | Edited scripts/build_stream_markdown.py | modified get() | ~125 |
+| 23:10 | Edited scripts/build_stream_markdown.py | modified print() | ~315 |
+| 23:18 | Edited scripts/merge_stream_chunks.py | 8→11 lines | ~196 |
+| 23:19 | Edited scripts/build_stream_markdown.py | modified startswith() | ~85 |
+| 23:19 | Edited scripts/build_stream_markdown.py | 6→10 lines | ~139 |

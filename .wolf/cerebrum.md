@@ -62,6 +62,10 @@
 <!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
 - [2026-05-22] Do not review or expose a new Gemini multi-request workflow before checking the explicit RPM/TPM/RPD budget against `CLAUDE.md`; prefer the one-call live final path unless the user approves a bounded alternative.
 
+- [2026-05-22] **Warning messages must not recommend unreliable options.** When a stop-gap is in place (e.g., all-chunks merge), any warning to operators must explicitly say the stop-gap is temporary and must NOT suggest using a known-broken alternative (e.g., `--run-ts` which matches per-chunk completion timestamps, not session ids). Misleading guidance turns a benign warning into a footgun.
+
+- [2026-05-22] **All abnormal body coverage states must enter manifest warnings[], not just "warning" status.** `no_headings` is equally unauditable as a tail gap — both must produce an entry in `manifest["warnings"]` and render in the QC header. Rule: whenever `check_markdown_body_coverage` returns a non-"ok" status, append a warning.
+
 - **[2026-05-22] P0 final-qc.json 只证明"源完整"，不证明"成品完整"。** 今晚 source_status=full 但 Markdown 章节只到 01:14:10，而 transcript 到 01:45:00（最后 30 分钟尾段被 Gemini 注意力压缩掉）。规则：Gemini 输出写入后必须解析最后章节时间戳与 timeline_end_s 比较，gap >120s 输出 warn。已实现 `check_markdown_body_coverage()`。
 
 - **[2026-05-22] chunk 分组不能用 extract_run_ts()。** 每个 chunk 文件名末尾 timestamp 是该 chunk 自己的完成时间而非 run id，用此字段分组导致 105 groups → 只选中 1 个 chunk。临时修复：--run-ts 未指定时用全部 chunk。正确设计：用 capture manifest 的 run_id 作为主键选 chunk。
