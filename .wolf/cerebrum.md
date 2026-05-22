@@ -61,6 +61,8 @@
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
 <!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
 
+- **[2026-05-22] 不得在 BAT/SH 入口默认开启多次 Gemini 调用。** 把 `--sectioned` 加进 `run_zhihu_live.bat` 导致 180 分钟直播消耗 ~20 次 API 调用，打满单日 Free-tier 配额。根因：修改 BAT（高风险区域）前未对照 CLAUDE.md Gemini 配额约束检查。规则：**修改任何 BAT/SH 入口前，必须先逐条核查 CLAUDE.md 中的 Gemini API 工程约束**，尤其是"Prefer one Gemini synthesis call per video/stream"和"Do not add default-on Gemini calls in wrapper scripts"。`--sectioned` 只能作为 CLI 手动 opt-in，永远不进 BAT 默认调用链。
+
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
