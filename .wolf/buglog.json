@@ -148,246 +148,738 @@
     },
     {
       "id": "bug-010",
-      "timestamp": "2026-05-17T19:02:00+08:00",
-      "error_message": "git pull --ff-only failed with curl 28: Failed to connect to github.com port 443 after 75008 ms",
-      "file": "feature/stream-transcript-validation worktree",
-      "root_cause": "Network connection to GitHub timed out while updating the stream worktree.",
-      "fix": "Used the already-fetched origin/feature/stream-transcript-validation ref and fast-forwarded the worktree with git merge --ff-only.",
+      "timestamp": "2026-05-17T02:28:52Z",
+      "error_message": "git worktree add /private/tmp/zhihu-stream-validation feature/stream-transcript-validation failed with: fatal: could not create leading directories of '.git/worktrees/zhihu-stream-validation': Operation not permitted",
+      "file": ".git/worktrees",
+      "root_cause": "Sandbox blocked Git from creating worktree metadata under the repository .git directory.",
+      "fix": "Reran the same git worktree command with explicit user-approved escalation; temporary worktree was created successfully.",
       "tags": [
-        "git",
-        "network",
+        "sandbox",
+        "git-worktree",
         "stream-validation"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-17T19:02:00+08:00"
+      "last_seen": "2026-05-17T02:28:52Z"
     },
     {
       "id": "bug-011",
-      "timestamp": "2026-05-17T19:24:00+08:00",
-      "error_message": "git push origin feature/stream-transcript-validation failed with curl 28 after 75012 ms",
-      "file": "feature/stream-transcript-validation",
-      "root_cause": "Network connection to GitHub timed out while sending the new stream extractor commit.",
-      "fix": "Fixed by retrying with git -c http.version=HTTP/1.1 push origin feature/stream-transcript-validation.",
+      "timestamp": "2026-05-17T10:34:59+08:00",
+      "error_message": "Mac hardware cannot support the complete replay-stream validation run",
+      "file": "runs/windows-stream-replay-validation-20260517.md",
+      "root_cause": "The full replay source is about 02:42:53 long, and local CPU Whisper validation is expected to take multiple hours on Mac.",
+      "fix": "Stopped Mac-side full validation and created a Windows handoff with branch, ffprobe result, and command instructions.",
       "tags": [
-        "git",
-        "network",
-        "push",
-        "stream-validation"
+        "stream-validation",
+        "hardware",
+        "windows-handoff"
       ],
-      "related_bugs": [
-        "bug-010"
-      ],
-      "occurrences": 2,
-      "last_seen": "2026-05-17T19:31:00+08:00"
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T10:34:59+08:00"
     },
     {
       "id": "bug-012",
-      "timestamp": "2026-05-17T20:23:41+08:00",
-      "error_message": "Stream media URLs can expire or disconnect during live/replay validation, causing ffmpeg slicing to fail before a chunk is transcribed.",
-      "file": "zhihuTTS_stream.py",
-      "root_cause": "The runner previously retried only the same signed media URL; once the URL expired or the media connection became invalid, there was no page-level refresh path.",
-      "fix": "Added StreamSliceError handling and chunk-scoped recovery that re-runs the page extractor for --page-url inputs, retries temporary extraction/probe failures within the same budget, probes the refreshed URL, and retries the failed chunk while recording recovery details.",
+      "timestamp": "2026-05-17T10:39:00+08:00",
+      "error_message": "pre-commit rejected mixed commit: avoid mixing code/collaboration docs with runs/*.md",
+      "file": "githooks/pre-commit",
+      "root_cause": "The staged change mixed OpenWolf memory files with a new runs/*.md Windows handoff report.",
+      "fix": "Unstaged the mixed change and split into separate commits.",
       "tags": [
-        "stream-validation",
-        "url-expiration",
-        "disconnect",
-        "recovery"
+        "pre-commit",
+        "commit-policy",
+        "runs"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-17T20:23:41+08:00"
+      "last_seen": "2026-05-17T10:39:00+08:00"
     },
     {
       "id": "bug-013",
-      "timestamp": "2026-05-17T20:27:00+08:00",
-      "error_message": "Monkeypatch recovery test failed with TypeError: ExtractedStream.__init__() got an unexpected keyword argument 'source_page_url'",
-      "file": "stream_extractors.py",
-      "root_cause": "The ad hoc test used an old field name; ExtractedStream uses page_url.",
-      "fix": "Corrected the test fixture to construct ExtractedStream with page_url, then reran the recovery test successfully.",
+      "timestamp": "2026-05-17T18:03:17+08:00",
+      "error_message": "Whisper audio transcription quality is poor for the completed stream replay transcript",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "The current stream replay runner uses the Whisper-compatible backend, which produced lower-quality Chinese lecture transcripts than the Windows SenseVoice probe.",
+      "fix": "Not fixed yet. Analyze Windows SenseVoice validation and add FunASR SenseVoice as an optional backend with Whisper fallback and domain glossary normalization.",
       "tags": [
-        "test",
-        "stream-validation",
-        "extractor"
-      ],
-      "related_bugs": [],
-      "occurrences": 1,
-      "last_seen": "2026-05-17T20:27:00+08:00"
-    },
-    {
-      "id": "bug-014",
-      "timestamp": "2026-05-17T20:31:00+08:00",
-      "error_message": "git add failed with fatal: Unable to create '/Users/caojiapeng/projects/zhihu/.git/worktrees/zhihu-stream-validation/index.lock': Operation not permitted",
-      "file": "feature/stream-transcript-validation worktree",
-      "root_cause": "The linked worktree stores Git metadata under the main repository .git/worktrees directory, which is outside the sandbox writable root for /private/tmp.",
-      "fix": "Reran git add with escalated permissions so Git could update the worktree index lock.",
-      "tags": [
-        "git",
-        "worktree",
-        "sandbox",
-        "permissions"
-      ],
-      "related_bugs": [],
-      "occurrences": 1,
-      "last_seen": "2026-05-17T20:31:00+08:00"
-    },
-    {
-      "id": "bug-015",
-      "timestamp": "2026-05-17T20:48:16+08:00",
-      "error_message": "rg failed with docs/STREAM_AUTOMATION_PLAN_20260517.md: No such file or directory",
-      "file": "docs/STREAM_AUTOMATION_PLAN_20260517.md",
-      "root_cause": "The stream worktree does not contain that documentation file even though the main worktree anatomy listed it.",
-      "fix": "Continued with docs/STREAM_SENSEVOICE_RUNBOOK.md and live stream files present in the stream validation worktree.",
-      "tags": [
-        "docs",
-        "worktree",
+        "asr",
+        "whisper",
+        "sensevoice",
         "stream-validation"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-17T20:48:16+08:00"
+      "last_seen": "2026-05-17T18:03:17+08:00"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-17T18:03:17+08:00",
+      "error_message": "Windows report says stream slicing retry code and sensevoice_probe.py were used, but pushed branch contains only reports and no corresponding code files",
+      "file": "origin/feature/stream-transcript-validation",
+      "root_cause": "Validation code appears to have stayed local on Windows or was not included in the pushed commits.",
+      "fix": "Fixed by Windows commit 5371c70, which added sensevoice_probe.py and hardened zhihuTTS_stream.py slice retries.",
+      "tags": [
+        "windows-handoff",
+        "missing-code",
+        "stream-validation",
+        "sensevoice"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T18:14:04+08:00"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-17T18:14:04+08:00",
+      "error_message": "python3 -m py_compile - failed with: No such file or directory",
+      "file": "shell command",
+      "root_cause": "Used py_compile with '-' as if it accepted source code from stdin; py_compile treats '-' as a file path.",
+      "fix": "Re-ran syntax checks by loading git show output in python and calling compile(source, filename, 'exec').",
+      "tags": [
+        "validation-command",
+        "python",
+        "operator-error"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T18:14:04+08:00"
     },
     {
       "id": "bug-016",
-      "timestamp": "2026-05-18T07:50:19+08:00",
-      "error_message": "cleanup slice monkeypatch test failed with KeyError: 'duration_s'",
-      "file": "zhihuTTS_stream.py",
-      "root_cause": "The ad hoc test fixture passed an incomplete source_summary missing duration_s, while write_report expects source duration metadata.",
-      "fix": "Reran the cleanup-slices test with duration_s, size_bytes, video, and audio fields in source_summary; the slice was deleted after report output as expected.",
+      "timestamp": "2026-05-20T06:26:43.861Z",
+      "error_message": "Significant refactor of ",
+      "file": "zhihuTTS_video.py",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 20→31 lines (4 removed)",
       "tags": [
-        "test",
-        "stream-validation",
-        "cleanup-slices"
+        "auto-detected",
+        "refactor",
+        "py"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-18T07:50:19+08:00"
+      "last_seen": "2026-05-20T06:26:43.861Z"
     },
     {
       "id": "bug-017",
-      "timestamp": "2026-05-18T10:25:31+08:00",
-      "error_message": "apply_patch verification failed while replacing run_validation for Playwright keepalive integration",
-      "file": "zhihuTTS_stream.py",
-      "root_cause": "The expected hunk text did not exactly match the current stream worktree after the latest Windows documentation fast-forward.",
-      "fix": "Split the change into smaller hunks: import/start helper, recovery hook, run_validation replacement, and parser arguments.",
+      "timestamp": "2026-05-20T06:31:52.848Z",
+      "error_message": "Incorrect value in code",
+      "file": "zhihuTTS.py",
+      "root_cause": "Had \"gemini-2.5-flash\"",
+      "fix": "Changed to \"GEMINI_MODEL\"",
       "tags": [
-        "patch",
-        "stream-validation",
-        "playwright-keepalive"
+        "auto-detected",
+        "wrong-value",
+        "py"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-18T10:25:31+08:00"
+      "last_seen": "2026-05-20T06:31:52.848Z"
     },
     {
       "id": "bug-018",
-      "timestamp": "2026-05-18T10:25:31+08:00",
-      "error_message": "zsh startup prints compinit:527: no such file or directory: /usr/local/share/zsh/site-functions/_brew_services",
-      "file": "zsh startup environment",
-      "root_cause": "The shell completion cache references a missing Homebrew service completion file.",
-      "fix": "Not fixed in this task; command output still completed successfully, but future sessions should expect this noisy local shell warning.",
+      "timestamp": "2026-05-20T06:32:33.150Z",
+      "error_message": "Significant refactor of ",
+      "file": "zhihuTTS.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 14→23 lines (2 removed)",
       "tags": [
-        "shell",
-        "environment",
-        "zsh"
+        "auto-detected",
+        "refactor",
+        "py"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-18T10:25:31+08:00"
+      "last_seen": "2026-05-20T06:32:33.150Z"
     },
     {
       "id": "bug-019",
-      "timestamp": "2026-05-18T12:58:00+08:00",
-      "error_message": "SenseVoice 未返回有效转写文本 — aborted 28/30 chunk bilibili live validation run",
-      "file": "zhihuTTS_video.py",
-      "root_cause": "_transcribe_sensevoice() raises RuntimeError when VAD detects zero speech segments. Live streams frequently have music-only or silent intermission chunks where no speech is present. The hard error aborts the entire multi-chunk run instead of skipping the silent chunk.",
-      "fix": "Not fixed on Windows (Run Owner boundary). Handoff to Mac: change the empty-segments check at zhihuTTS_video.py:317-318 from raise RuntimeError to return {\"segments\": [], \"sensevoice\": {...}} with a print warning. Also ensure zhihuTTS_stream.py process_slice() handles empty segments gracefully (write report with speech_detected: false).",
+      "timestamp": "2026-05-20T19:31:20+08:00",
+      "error_message": "git fetch origin failed with: error: cannot open '.git/FETCH_HEAD': Operation not permitted",
+      "file": ".git/FETCH_HEAD",
+      "root_cause": "Default workspace sandbox prevented updating Git fetch metadata.",
+      "fix": "Re-ran git fetch origin with approved escalated permissions; fetch completed successfully.",
       "tags": [
-        "sensevoice",
-        "stream-validation",
-        "empty-transcript",
-        "handoff"
+        "git",
+        "sandbox",
+        "fetch"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-18T12:58:00+08:00"
+      "last_seen": "2026-05-20T19:31:20+08:00"
     },
     {
       "id": "bug-020",
-      "timestamp": "2026-05-18T12:40:00+08:00",
-      "error_message": "Playwright 未拦截到 .m3u8/.mpd/.flv/.mp4 媒体请求 on live.bilibili.com",
-      "file": "stream_extractors.py",
-      "root_cause": "Bilibili's live player loads inside a cross-origin iframe or uses MSE (Media Source Extensions), so Playwright's page-level network interception sees no direct media requests. This is a platform limitation, not a code defect. The auto-routing in extract_stream() correctly sends bilibili to yt-dlp.",
-      "fix": "No code change needed. Confirmed that --extractor auto correctly routes live.bilibili.com → yt-dlp. Document as a known platform limitation in docs/STREAM_SENSEVOICE_RUNBOOK.md: Playwright extraction is for zhihu.com and unknown hosts; bilibili/douyin/youtube should always use yt-dlp.",
+      "timestamp": "2026-05-20T19:31:48+08:00",
+      "error_message": "python -m json.tool .wolf/buglog.json failed with: zsh:1: command not found: python",
+      "file": "shell command",
+      "root_cause": "This environment exposes Python as python3, not python.",
+      "fix": "Re-ran validation with python3 -m json.tool .wolf/buglog.json; JSON parsed successfully.",
       "tags": [
-        "playwright",
-        "bilibili",
-        "stream-extraction",
-        "platform-limitation"
+        "python",
+        "environment",
+        "validation-command"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-05-18T12:40:00+08:00"
-    },
-    {
-      "id": "bug-024",
-      "timestamp": "2026-05-19T13:00:00+08:00",
-      "error_message": "build_replay_gemini_parts 只取前 N 个 annotation 帧，后半段讲座标注画面缺失",
-      "file": "build_final_markdown.py",
-      "root_cause": "annot_frames[:remaining] 截头取样，200 annotation 事件只发前 59 帧给 Gemini，覆盖约前 30 分钟，2.5 小时无标注帧覆盖",
-      "fix": "改为均匀采样 annot_frames[::step][:remaining]，与 ctx_frames 策略一致，全时段分布覆盖",
-      "tags": ["gemini", "frame-sampling", "annotation", "build_final_markdown"],
-      "related_bugs": ["bug-022"],
-      "occurrences": 1,
-      "last_seen": "2026-05-19T13:00:00+08:00"
-    },
-    {
-      "id": "bug-023",
-      "timestamp": "2026-05-19T13:00:00+08:00",
-      "error_message": "payload.json 中 frames 列表为空，Gemini 收到 0 张关键帧图片",
-      "file": "transcribe_replay.py",
-      "root_cause": "保存 payload.json 时主动过滤了 frames 键（if k != 'frames'），只保留 frames_count 数字。build_final_markdown.py 读取后 frames=[] → build_replay_gemini_parts 发送 0 张图片",
-      "fix": "在 ser 中显式写入 frames 列表：[{path, timestamp_s, marker} for f in payload['frames']]，frame 路径是纯字符串可序列化",
-      "tags": ["payload", "frames", "gemini", "transcribe_replay", "critical"],
-      "related_bugs": ["bug-022"],
-      "occurrences": 1,
-      "last_seen": "2026-05-19T13:00:00+08:00"
-    },
-    {
-      "id": "bug-022",
-      "timestamp": "2026-05-19T12:00:00+08:00",
-      "error_message": "zhihu_url 回放输出质量 6.3/10，远低于 zhihu_file 的 8+/10",
-      "file": "build_final_markdown.py",
-      "root_cause": "build_final_markdown.py 只做机械排版，从不调用 Gemini。缺少 PROMPT_TEXT 驱动的全视频知识提炼，导致输出缺少元数据/Glossary/金句/视觉内容描述。帧数上限50对3小时视频过低，PROMPT 缺少中文AI领域背景提示，thinking_budget=0 减弱结构分析能力。",
-      "fix": "build_final_markdown.py 末尾加 Gemini 合成：复用 GEMINI_PROMPT_TEXT + 中文AI背景段，优先级帧采样(slide>annot>ctx)上限100帧，thinking_budget=4096，自动续写20次，输出到 Markdowns/TTS_replay-*.md。",
-      "tags": ["gemini", "quality", "replay", "notebooklm", "build_final_markdown"],
-      "related_bugs": ["bug-021"],
-      "occurrences": 1,
-      "last_seen": "2026-05-19T12:00:00+08:00"
-    },
-    {
-      "id": "bug-025",
-      "timestamp": "2026-05-19T14:00:00+08:00",
-      "error_message": "frame marker 匹配显示 slide=0, annot=155（实际 41 slides）— 所有幻灯片帧未能识别类型",
-      "file": "zhihuTTS_video.py",
-      "root_cause": "frame_marker() 用 filename 数字（1-based, ffmpeg %05d 从1开始）直接与 events[frame_idx]（0-based）比对。幻灯片帧 frames[N] 对应 frame_{N+1:05d}.jpg，timestamp_s=N+1，但 event.frame_idx=N → 差1，永远匹配不到 type=slide。标注"前一帧"frames[N-1]=frame_N.jpg，timestamp_s=N=event.frame_idx → 偶然命中，所以 annot=155 正常。",
-      "fix": "frame_marker() 改为先尝试 frame_idx == timestamp_s - 1（修正 off-by-one），找不到再 fallback 到 timestamp_s（保留标注前帧的偶然命中）。slide 帧现在能正确标记 type=slide，build_replay_gemini_parts() 的优先级采样生效。",
-      "tags": ["frame_marker", "off-by-one", "slide", "keyframe", "zhihuTTS_video"],
-      "related_bugs": ["bug-023", "bug-022"],
-      "occurrences": 1,
-      "last_seen": "2026-05-19T14:00:00+08:00"
+      "last_seen": "2026-05-20T19:31:48+08:00"
     },
     {
       "id": "bug-021",
-      "timestamp": "2026-05-19T00:00:00+08:00",
-      "error_message": "replay transcript has no accurate timestamps — entire 171-min video mapped to [0, 10299s] single segment",
-      "file": "transcribe_replay.py",
-      "root_cause": "FunASR/SenseVoice 1.3.1 never returns sentence_info regardless of merge_vad setting (confirmed by WIN debug_output.txt). Feeding the entire MP4 at once gives one segment with no per-sentence timestamps.",
-      "fix": "Rewrote transcribe_replay.py to split audio into REPLAY_CHUNK_S (default 60s) slices via ffmpeg, run _transcribe_sensevoice() on each chunk WAV, then offset segment timestamps by chunk_start_s before merging. Mirrors the stream-mode approach in zhihuTTS_stream.py.",
-      "tags": ["sensevoice", "funasr", "timestamps", "replay", "chunking"],
-      "related_bugs": ["bug-019"],
+      "timestamp": "2026-05-20T21:09:34+08:00",
+      "error_message": "git worktree prune failed with Operation not permitted; git branch --force failed to create .git refs lock with Operation not permitted",
+      "file": ".git/worktrees and .git/refs/heads/feature/stream-transcript-validation",
+      "root_cause": "Default workspace sandbox blocked Git metadata writes while clearing stale worktree state and updating a local branch ref.",
+      "fix": "Re-ran git worktree prune and git branch --force with approved escalated permissions; local feature/stream-transcript-validation now matches origin at ddd77a4.",
+      "tags": [
+        "git",
+        "sandbox",
+        "worktree",
+        "branch-sync"
+      ],
+      "related_bugs": [
+        "bug-019"
+      ],
       "occurrences": 1,
-      "last_seen": "2026-05-19T00:00:00+08:00"
+      "last_seen": "2026-05-20T21:09:34+08:00"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-05-20T21:11:30+08:00",
+      "error_message": "Code review found potential abnormal Google API consumption on feature/stream-transcript-validation",
+      "file": "run_zhihu_live.bat, run_zhihu_live.sh, zhihuTTS_stream.py, scripts/build_stream_markdown.py",
+      "root_cause": "Wrapper scripts pass --gemini by default; Windows BAT also invokes scripts/build_stream_markdown.py afterward when GEMINI_API_KEY is set, duplicating full-stream Gemini synthesis. Retry/continuation limits can further multiply calls.",
+      "fix": "Partially fixed first issue on stream branch worktree: removed --gemini from run_zhihu_live.bat's zhihuTTS_stream.py invocation so Windows BAT keeps scripts/build_stream_markdown.py as the single final NotebookLM Gemini synthesis path. Remaining recommendations: gate other wrapper defaults behind explicit flags, add max-call/max-frame budgets, and avoid retrying deterministic non-rate-limit errors.",
+      "tags": [
+        "google-api",
+        "gemini",
+        "cost",
+        "stream",
+        "code-review"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-20T21:11:30+08:00"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-05-21T00:00:00+08:00",
+      "error_message": "_call_gemini_stream() silently returns {text: None} when all retries exhausted — no log message",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "Outer retry loop fell through without printing a final failure message; callers had no visibility that synthesis was abandoned",
+      "fix": "Added stderr print before final return: 'All N retries exhausted — Gemini synthesis failed.'",
+      "tags": [
+        "silent-failure",
+        "gemini",
+        "stream",
+        "logging"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T00:00:00+08:00"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-05-21T00:00:00+08:00",
+      "error_message": "--cleanup-slices only deleted slice audio/video files; per-slice RUNS_DIR intermediate files accumulated indefinitely",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "cleanup_slices block only called slice_path.unlink(); did not remove transcript_path, global_transcript_path, payload_path, report_path",
+      "fix": "Added cleanup block after write_report(): when args.cleanup_slices, unlink all 4 per-slice RUNS_DIR files",
+      "tags": [
+        "cleanup",
+        "disk-space",
+        "stream",
+        "runs-dir"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T00:00:00+08:00"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-05-21T16:30:11+08:00",
+      "error_message": "git show ... | jq ... failed with: zsh:1: command not found: jq",
+      "file": "shell command",
+      "root_cause": "This Mac environment does not have jq installed.",
+      "fix": "Used Node.js JSON.parse with git show output to summarize A/B transcript and payload artifacts without installing dependencies.",
+      "tags": [
+        "environment",
+        "jq",
+        "validation-command",
+        "ab-test"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T16:30:11+08:00"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-05-21T19:42:00+08:00",
+      "error_message": "sed: stream_extractors.py: No such file or directory",
+      "file": "stream_extractors.py",
+      "root_cause": "Current working tree is on main with URL/live stream files partially present, but stream_extractors.py only exists on feature/stream-transcript-validation.",
+      "fix": "Read stream_extractors.py from feature/stream-transcript-validation with git show for analysis instead of treating the current dirty main worktree as complete.",
+      "tags": [
+        "branch-mismatch",
+        "stream",
+        "analysis-command"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T19:42:00+08:00"
+    },
+    {
+      "id": "bug-027",
+      "timestamp": "2026-05-21T13:10:01.147Z",
+      "error_message": "Significant refactor of ",
+      "file": "run_zhihu_live.bat",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "bat"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T13:10:01.147Z"
+    },
+    {
+      "id": "bug-028",
+      "timestamp": "2026-05-21T13:10:35.494Z",
+      "error_message": "Wrong reference: gemini should be GEMINI_FLAG",
+      "file": "run_zhihu_live.bat",
+      "root_cause": "Used \"gemini\" instead of \"GEMINI_FLAG\"",
+      "fix": "Changed gemini → GEMINI_FLAG",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "bat"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-21T13:10:53.662Z"
+    },
+    {
+      "id": "bug-029",
+      "timestamp": "2026-05-21T13:31:57.024Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_STREAM_OPTIMIZATION_PLAN.md",
+      "root_cause": "15 lines replaced/restructured",
+      "fix": "Rewrote 24→115 lines (15 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T13:31:57.024Z"
+    },
+    {
+      "id": "bug-030",
+      "timestamp": "2026-05-21T13:41:56.364Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_STREAM_OPTIMIZATION_PLAN.md",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 8→82 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T13:41:56.364Z"
+    },
+    {
+      "id": "bug-031",
+      "timestamp": "2026-05-21T14:01:41.993Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/check_auth.py",
+      "root_cause": "Had \"[auth] z_c0 cookie not found -- please re-login: ",
+      "fix": "Changed to \"value\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T14:01:41.993Z"
+    },
+    {
+      "id": "bug-032",
+      "timestamp": "2026-05-21T14:12:34.347Z",
+      "error_message": "Wrong reference: tail should be WORKER",
+      "file": "run_zhihu_live.bat",
+      "root_cause": "Used \"tail\" instead of \"WORKER\"",
+      "fix": "Changed tail → WORKER",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "bat"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T14:12:34.347Z"
+    },
+    {
+      "id": "bug-033",
+      "timestamp": "2026-05-21T14:32:36.740Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_STREAM_OPTIMIZATION_PLAN.md",
+      "root_cause": "12 lines replaced/restructured",
+      "fix": "Rewrote 18→20 lines (12 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T14:32:36.740Z"
+    },
+    {
+      "id": "bug-034",
+      "timestamp": "2026-05-21T15:34:05.051Z",
+      "error_message": "Significant refactor of ",
+      "file": "../../../../private/tmp/zhihu-stream-fix/zhihuTTS_stream.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 27→36 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T15:34:05.051Z"
+    },
+    {
+      "id": "bug-036",
+      "timestamp": "2026-05-21T00:00:00+08:00",
+      "error_message": "subprocess.TimeoutExpired: ffmpeg slice timed out after 240s when stream ended — StreamEndedError never raised",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "slice_url() used duration*3+60 timeout (240s for 60s chunk); TimeoutExpired propagated as-is, bypassing is_stream_ended() check path.",
+      "fix": "Fixed 2026-05-21: timeout changed to duration+45 (105s); TimeoutExpired caught and re-raised as StreamSliceError so caller's is_stream_ended() fires. Committed to feature/stream-transcript-validation.",
+      "tags": [
+        "stream-end",
+        "timeout",
+        "ffmpeg",
+        "slice_url",
+        "stream"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T00:00:00+08:00"
+    },
+    {
+      "id": "bug-037",
+      "timestamp": "2026-05-21T00:00:00+08:00",
+      "error_message": "merge_stream_chunks.py and build_stream_markdown.py only processed 1 of 157 chunks — used max(groups.keys()) timestamp grouping",
+      "file": "scripts/build_stream_markdown.py, scripts/merge_stream_chunks.py",
+      "root_cause": "extract_run_ts() grouped each chunk by its per-chunk completion timestamp; max() picked the single latest group (1 chunk out of 157).",
+      "fix": "Fixed 2026-05-21: removed defaultdict grouping from default path; --run-ts flag preserved as explicit override. Committed to feature/stream-transcript-validation.",
+      "tags": [
+        "merge",
+        "build",
+        "timestamp-grouping",
+        "chunks",
+        "stream"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-21T00:00:00+08:00"
+    },
+    {
+      "id": "bug-038",
+      "timestamp": "2026-05-22",
+      "error_message": "--max-chunks ignored in --hls-consumer-only mode (processed all .ts files regardless of cap)",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "run_hls_consumer_only() directly collected all seg_*.ts files without checking args.max_chunks. The max_chunks cap logic only existed in the Recorder flow.",
+      "fix": "Added args.max_chunks check before processing: if set and len(ts_files) > args.max_chunks, truncate ts_files to first N files with a console notice.",
+      "tags": [
+        "max-chunks",
+        "consumer-only",
+        "hls",
+        "cap"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22"
+    },
+    {
+      "id": "bug-038",
+      "timestamp": "2026-05-22T00:34:59.082Z",
+      "error_message": "Wrong reference: from should be MARKDOWNS_DIR",
+      "file": "run_single_file.py",
+      "root_cause": "Used \"from\" instead of \"MARKDOWNS_DIR\"",
+      "fix": "Changed from → MARKDOWNS_DIR",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T00:34:59.082Z"
+    },
+    {
+      "id": "bug-039",
+      "timestamp": "2026-05-22T04:12:31.181Z",
+      "error_message": "Missing error handling in unknown",
+      "file": "CLAUDE.md",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T04:12:31.181Z"
+    },
+    {
+      "id": "bug-040",
+      "timestamp": "2026-05-22T04:17:33.468Z",
+      "error_message": "Significant refactor of ",
+      "file": "CLAUDE.md",
+      "root_cause": "22 lines replaced/restructured",
+      "fix": "Rewrote 30→30 lines (22 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T04:17:33.468Z"
+    },
+    {
+      "id": "bug-041",
+      "timestamp": "2026-05-22T12:15:00+08:00",
+      "error_message": "Analysis failed: EPERM: operation not permitted, open '/Users/caojiapeng/.gitnexus/registry.json'",
+      "file": "/Users/caojiapeng/.gitnexus/registry.json",
+      "root_cause": "Sandboxed GitNexus refresh could not write the home-directory registry.",
+      "fix": "Re-ran npx gitnexus analyze with approved escalated permissions.",
+      "tags": [
+        "gitnexus",
+        "sandbox",
+        "analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:15:00+08:00"
+    },
+    {
+      "id": "bug-042",
+      "timestamp": "2026-05-22T12:15:00+08:00",
+      "error_message": "fatal: ambiguous argument 'e0df61f': unknown revision or path not in the working tree.",
+      "file": ".git/objects",
+      "root_cause": "The user-provided feature-branch commit object is not present in the local repository.",
+      "fix": "Checked local and remote branch refs before continuing artifact analysis from available commits.",
+      "tags": [
+        "git",
+        "missing-commit",
+        "analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:15:00+08:00"
+    },
+    {
+      "id": "bug-043",
+      "timestamp": "2026-05-22T12:30:00+08:00",
+      "error_message": "error: cannot open '.git/FETCH_HEAD': Operation not permitted",
+      "file": ".git/FETCH_HEAD",
+      "root_cause": "Sandboxed git fetch could not update fetch metadata inside the repository.",
+      "fix": "Re-ran git fetch origin with approved escalated permissions.",
+      "tags": [
+        "git",
+        "sandbox",
+        "fetch"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:30:00+08:00"
+    },
+    {
+      "id": "bug-044",
+      "timestamp": "2026-05-22T12:30:00+08:00",
+      "error_message": "sed: AB_TEST_REPORT.md: No such file or directory",
+      "file": "AB_TEST_REPORT.md",
+      "root_cause": "The A/B report exists on the stream feature ref, not in the checked-out main worktree.",
+      "fix": "Read the branch artifact with git show origin/feature/stream-transcript-validation:AB_TEST_REPORT.md.",
+      "tags": [
+        "git",
+        "branch-artifact",
+        "analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:30:00+08:00"
+    },
+    {
+      "id": "bug-045",
+      "timestamp": "2026-05-22T05:27:07.704Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 6→9 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T05:27:07.704Z"
+    },
+    {
+      "id": "bug-046",
+      "timestamp": "2026-05-22T05:27:43.158Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_FINAL_QUALITY_ROADMAP.md",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 6→6 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T05:27:43.158Z"
+    },
+    {
+      "id": "bug-047",
+      "timestamp": "2026-05-22T05:29:46.546Z",
+      "error_message": "Wrong reference: warning should be step1",
+      "file": "docs/LIVE_FINAL_QUALITY_ROADMAP.md",
+      "root_cause": "Used \"warning\" instead of \"step1\"",
+      "fix": "Changed warning → step1",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T05:29:46.546Z"
+    },
+    {
+      "id": "bug-048",
+      "timestamp": "2026-05-22T07:32:35.620Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 11→65 lines (2 removed) | Also: \"\"\"Verify directory layout and manifest operations; # Directory structure",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-22T07:33:13.871Z"
+    },
+    {
+      "id": "bug-049",
+      "timestamp": "2026-05-22T08:46:40.654Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 19→34 lines (2 removed) | Also: \"section_id\": section_id,; \"start_s\":    start_s,",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-22T08:50:56.889Z"
+    },
+    {
+      "id": "bug-050",
+      "timestamp": "2026-05-22T08:51:05.573Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "Had \"transcript\"",
+      "fix": "Changed to \"cleaned_transcript\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T08:51:05.573Z"
+    },
+    {
+      "id": "bug-051",
+      "timestamp": "2026-05-22T08:59:06.894Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_FINAL_QUALITY_ROADMAP.md",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 11→12 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T08:59:06.894Z"
+    },
+    {
+      "id": "bug-052",
+      "timestamp": "2026-05-22T09:37:28.215Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 3→8 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:37:28.215Z"
+    },
+    {
+      "id": "bug-053",
+      "timestamp": "2026-05-22T11:30:57.333Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 6→14 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T11:30:57.333Z"
+    },
+    {
+      "id": "bug-054",
+      "timestamp": "2026-05-22T11:31:18.392Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 7→11 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T11:31:18.392Z"
     }
   ]
 }
