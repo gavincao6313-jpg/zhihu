@@ -1027,7 +1027,8 @@ def run_validation(args: argparse.Namespace) -> dict:
             source_summary["audio"],
         )
         live_mode = requested_duration_s <= 0
-        base_stem = safe_name(args.name or f"{host}_{int(start_s)}_{'live' if live_mode else int(requested_duration_s)}")
+        _title = stream.title or (keepalive.get_page_title() if keepalive else "")
+        base_stem = safe_name(args.name or (f"replay_{_title}" if _title else f"replay_{host}"))
         if live_mode:
             chunk_count = args.max_chunks or 0
             print("Live mode: running until stream ends (no duration limit).")
@@ -1564,7 +1565,9 @@ def run_continuous_hls(args: argparse.Namespace) -> dict:
         keepalive, stream = start_keepalive_stream(args)
         host = urlparse(stream.url).hostname or "unknown-host"
         headers = stream.headers
-        base_stem = safe_name(args.name or f"live_{int(time.time())}")
+        _title = keepalive.get_page_title() if keepalive else ""
+        _date = datetime.now().strftime("%Y%m%d")
+        base_stem = safe_name(args.name or (f"live_{_date}_{_title}" if _title else f"live_{_date}"))
         chunk_duration_s = parse_time(args.chunk_duration or "60")
 
         work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
@@ -1607,7 +1610,7 @@ def run_hls_consumer_only(args: argparse.Namespace) -> dict:
     work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
     host = "local"
     headers: dict[str, str] = {}
-    base_stem = safe_name(args.name or f"hls_consumer_{int(time.time())}")
+    base_stem = safe_name(args.name or f"ts_{int(time.time())}")
     chunk_duration_s = parse_time(args.chunk_duration or "60")
 
     recorder_stopped = threading.Event()

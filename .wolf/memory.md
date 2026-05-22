@@ -460,3 +460,9 @@
 | 08:27 | Edited zhihuTTS_stream.py | 10→14 lines | ~122 |
 | 08:30 | Edited zhihuTTS_stream.py | 7→7 lines | ~78 |
 | 08:30 | Edited zhihuTTS_stream.py | 4→4 lines | ~37 |
+| 09:22 | Edited stream_extractors.py | 8→9 lines | ~66 |
+| 09:23 | Edited stream_extractors.py | 7→8 lines | ~67 |
+| 09:23 | Edited stream_extractors.py | modified is_browser_alive() | ~229 |
+| 09:23 | Edited zhihuTTS_stream.py | 1→3 lines | ~62 |
+| 09:23 | Edited zhihuTTS_stream.py | int() → get_page_title() | ~52 |
+| 09:24 | Edited zhihuTTS_stream.py | "hls_consumer_{int(time.ti" → "ts_{int(time.time())}" | ~19 |
