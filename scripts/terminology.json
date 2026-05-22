@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "description": "Project-level terminology table for ASR transcript normalization.",
+  "terms": [
+    {
+      "canonical": "Claude Code",
+      "variants": ["claude code", "claudecode", "克劳德代码", "克劳德Code", "克劳德code"]
+    },
+    {
+      "canonical": "Cursor",
+      "variants": ["cursor", "coser", "光标编辑器"]
+    },
+    {
+      "canonical": "MiniMax Agent",
+      "variants": ["minimax agent", "minimaxagent", "迷你最大agent", "迷你最大Agent"]
+    },
+    {
+      "canonical": "RAG",
+      "variants": ["rag", "Rag", "检索增强生成", "检索增强"]
+    },
+    {
+      "canonical": "MCP",
+      "variants": ["mcp", "Mcp"]
+    },
+    {
+      "canonical": "CLI",
+      "variants": ["cli", "Cli", "命令行界面"]
+    },
+    {
+      "canonical": "API",
+      "variants": ["api", "Api"]
+    },
+    {
+      "canonical": "错题本",
+      "variants": ["错题册", "错题薄", "错题册子"]
+    },
+    {
+      "canonical": "教师 Agent",
+      "variants": ["教师agent", "教师Agent", "老师Agent", "老师agent"]
+    }
+  ]
+}
