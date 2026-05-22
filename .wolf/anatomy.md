@@ -1,7 +1,16 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-21T14:42:21.058Z
-> Files: 59 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-22T00:30:38.690Z
+> Files: 63 tracked | Anatomy hits: 0 | Misses: 0
+
+## ../../../../private/tmp/zhihu-stream-fix/
+
+- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time, safe_name + 1 more (~14016 tok)
+
+## ../../../../private/tmp/zhihu-stream-fix/scripts/
+
+- `build_stream_markdown.py` — Post-stream Gemini synthesis: assemble all live chunks → NotebookLM document. (~3683 tok)
+- `merge_stream_chunks.py` — fmt_ts, parse_chunk_start, extract_run_ts, parse_timestamp (~1898 tok)
 
 ## ./
 
@@ -21,7 +30,7 @@
 - `run_zhihu_live.sh` — macOS/Linux live stream runner wrapper for `zhihuTTS_stream.py` (~1800 tok)
 - `stream_extractors.py` — Page/live URL extractors: direct/yt-dlp/Playwright plus PlaywrightKeepaliveStream for CC FLV URL interception, browser refresh, stream-end detection, and auth state reuse (~12000 tok)
 - `zhihu.code-workspace` (~31 tok)
-- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time (~14701 tok)
+- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time (~20082 tok)
 - `zhihuTTS_video.py` — analyze_frames, extract_keyframes, requested_transcribe_backend, transcript_backend_matches (~7387 tok)
 - `zhihuTTS.py` — tprint, load_progress, save_progress, discover_videos (~8552 tok)
 
@@ -89,6 +98,7 @@
 
 ## runs/
 
+- `P0-Step2-continuous-validation-plan.md` — P0 Step 2 — --continuous-hls 直播验证计划 (~387 tok)
 - `runs/2026-05-20-MAC-pipeline-verification.md` — branch-only MAC pipeline verification report on `origin/feature/local-transcript-appendix`: 5/9 completed, 4 Mac optimization issues (~1200 tok)
 
 ## scripts/

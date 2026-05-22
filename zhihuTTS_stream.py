@@ -797,6 +797,14 @@ def process_slice(
     )
 
 
+def _print_refresh_error_label(exc: Exception) -> None:
+    _msg = str(exc).lower()
+    if any(k in _msg for k in ("signin", "login", "re-login", "session expired")):
+        print("[账号态失效] 跳转登录页，请重新登录", flush=True)
+    elif "no media url" in _msg:
+        print("[直播未开始或已结束] 页面无流 URL", flush=True)
+
+
 def process_slice_with_recovery(
     args: argparse.Namespace,
     stream: ExtractedStream,
@@ -888,11 +896,7 @@ def process_slice_with_recovery(
                         ) from refresh_error
                     if keepalive and keepalive.is_stream_ended():
                         raise StreamEndedError("DOM confirms stream has ended") from refresh_error
-                    _msg = str(refresh_error).lower()
-                    if any(k in _msg for k in ("signin", "login", "re-login", "session expired")):
-                        print("[账号态失效] 跳转登录页，请重新登录", flush=True)
-                    elif "no media url" in _msg:
-                        print("[直播未开始或已结束] 页面无流 URL", flush=True)
+                    _print_refresh_error_label(refresh_error)
                     redaction_stream = refreshed_stream or current_stream
                     recovery_errors.append(redacted_error(refresh_error, redaction_stream))
                     if reextract_count >= max_reextracts:
@@ -1227,12 +1231,17 @@ class Recorder(threading.Thread):
         self._recorder_stopped = recorder_stopped
         self._gap_queue = gap_queue
         self._stop_requested = threading.Event()
+        self._proc: subprocess.Popen | None = None
 
     def request_stop(self) -> None:
         self._stop_requested.set()
+        proc = self._proc
+        if proc is not None:
+            proc.terminate()
 
     def run(self) -> None:
         last_exit_wall: float | None = None
+        chunk_secs = int(parse_time(self._args.chunk_duration or "60"))
         try:
             while not self._stop_requested.is_set():
                 if last_exit_wall is not None:
@@ -1241,7 +1250,6 @@ class Recorder(threading.Thread):
                     print(f"[Recorder] Session gap: {gap_s:.1f}s", flush=True)
 
                 session_ts = int(time.time())
-                chunk_secs = int(parse_time(self._args.chunk_duration or "60"))
                 seg_pattern = str(self._work_dir / f"seg_{session_ts}_%06d.ts")
                 m3u8_path = self._work_dir / f"seg_{session_ts}_capture.m3u8"
 
@@ -1269,12 +1277,12 @@ class Recorder(threading.Thread):
                         cmd, stderr=subprocess.PIPE,
                         text=True, encoding="utf-8", errors="replace",
                     )
+                    self._proc = proc
                 except Exception as e:
                     print(f"[Recorder] Failed to launch ffmpeg: {e}", flush=True)
                     break
 
-                assert proc.stderr is not None
-                for line in proc.stderr:
+                for line in proc.stderr or []:
                     stripped = line.rstrip()
                     if stripped:
                         print(f"  [ffmpeg] {stripped}", flush=True)
@@ -1300,11 +1308,7 @@ class Recorder(threading.Thread):
                     print("[Recorder] Stream ended during URL refresh.", flush=True)
                     break
                 except Exception as e:
-                    _msg = str(e).lower()
-                    if any(k in _msg for k in ("signin", "login", "re-login", "session expired")):
-                        print("[账号态失效] 跳转登录页，请重新登录", flush=True)
-                    elif "no media url" in _msg:
-                        print("[直播未开始或已结束] 页面无流 URL", flush=True)
+                    _print_refresh_error_label(e)
                     print(f"[Recorder] URL refresh failed: {e}", flush=True)
                     break
         finally:
@@ -1397,11 +1401,15 @@ class SegmentConsumer(threading.Thread):
 
         gap_before_s = self._pop_gap(seg_name)
         self._chunk_index += 1
+        try:
+            _seg_size = seg_path.stat().st_size
+        except OSError:
+            _seg_size = 0
         source_summary = {
             "extractor": "hls-continuous",
             "media_type": "ts",
             "duration_s": duration_s,
-            "size_bytes": seg_path.stat().st_size if seg_path.exists() else 0,
+            "size_bytes": _seg_size,
             "video": {},
             "audio": {},
         }
@@ -1437,7 +1445,7 @@ class SegmentConsumer(threading.Thread):
             if gap_before_s > 0:
                 chunk["slice"]["gap_before_s"] = gap_before_s
             self._chunks.append(chunk)
-            self._start_s += duration_s
+        self._start_s += duration_s
         self._write_checkpoint()
 
     def _write_checkpoint(self) -> None:
@@ -1462,6 +1470,33 @@ class SegmentConsumer(threading.Thread):
             "failed_segments": self._failed,
             "global_start_s": self._start_s,
         }
+
+
+def _run_gemini_synthesis(manifest: dict, args: argparse.Namespace, base_stem: str, timestamp: str) -> "Path | None":
+    """Call Gemini to build a notes document from the manifest; return the notes path or None."""
+    if not getattr(args, "gemini", False) or not manifest["chunks"]:
+        return None
+    print("\n=== Gemini: Building notes document ===")
+    try:
+        from google import genai as _genai
+        api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY", "")
+        if not api_key:
+            print("[!] GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var required — skipping Gemini")
+            return None
+        client = _genai.Client(api_key=api_key)
+        parts = build_stream_gemini_parts(manifest)
+        result = _call_gemini_stream(client, parts, base_stem)
+        if result["text"]:
+            notes_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.notes.md"
+            notes_path.write_text(result["text"], encoding="utf-8")
+            print(f"Notes: {notes_path} ({len(result['text'])} chars, {result['gemini_calls']} Gemini calls)")
+            return notes_path
+        print("[!] Gemini returned no text")
+    except ImportError as e:
+        print(f"[!] {e}")
+    except Exception as e:
+        print(f"[!] Gemini error: {e}")
+    return None
 
 
 def _finalize_hls_run(
@@ -1508,34 +1543,16 @@ def _finalize_hls_run(
         "combined_transcript_text": combined_text,
         "preview": combined_text[:1200],
     }
+    notes_path = _run_gemini_synthesis(manifest, args, base_stem, timestamp)
+    if notes_path is not None:
+        manifest["notes_md_path"] = str(notes_path)
+
     manifest_json_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     write_manifest(manifest_md_path, manifest)
 
     (RUNS_DIR / f"stream-{base_stem}.checkpoint.json").unlink(missing_ok=True)
     print(f"\nManifest: {manifest_md_path}")
     print(f"Combined transcript: {combined_transcript_path}")
-
-    if getattr(args, "gemini", False) and chunks:
-        print("\n=== Gemini: Building notes document ===")
-        try:
-            from google import genai as _genai
-            api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY", "")
-            if not api_key:
-                print("[!] GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var required — skipping Gemini")
-            else:
-                client = _genai.Client(api_key=api_key)
-                parts = build_stream_gemini_parts(manifest)
-                result = _call_gemini_stream(client, parts, base_stem)
-                if result["text"]:
-                    notes_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.notes.md"
-                    notes_path.write_text(result["text"], encoding="utf-8")
-                    print(f"Notes: {notes_path} ({len(result['text'])} chars, {result['gemini_calls']} Gemini calls)")
-                else:
-                    print("[!] Gemini returned no text")
-        except ImportError as e:
-            print(f"[!] {e}")
-        except Exception as e:
-            print(f"[!] Gemini error: {e}")
 
     return manifest
 
@@ -1773,9 +1790,9 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
-    if getattr(args, "hls_consumer_only", False):
+    if args.hls_consumer_only:
         run_hls_consumer_only(args)
-    elif getattr(args, "continuous_hls", False):
+    elif args.continuous_hls:
         run_continuous_hls(args)
     else:
         run_validation(args)
