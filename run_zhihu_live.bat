@@ -252,11 +252,10 @@ if "!GEMINI_API_KEY!"=="" (
     "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
       --base "!NAME!" ^
       --runs-dir "!SCRIPT_DIR!runs" ^
-      --markdowns-dir "!SCRIPT_DIR!Markdowns" ^
-      --sectioned >> "!LOG_FILE!" 2>&1
+      --markdowns-dir "!SCRIPT_DIR!Markdowns" >> "!LOG_FILE!" 2>&1
     if errorlevel 1 (
         echo [%date% %TIME: =0%] [提示] NotebookLM 文档生成失败，手动运行: >> "!LOG_FILE!" 2>&1
-        echo   python scripts\build_stream_markdown.py --base !NAME! --sectioned >> "!LOG_FILE!" 2>&1
+        echo   python scripts\build_stream_markdown.py --base !NAME! >> "!LOG_FILE!" 2>&1
     ) else (
         echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!.md >> "!LOG_FILE!" 2>&1
     )
