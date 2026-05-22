@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-22T14:51:54.103Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-22T15:02:29.137Z
 > Files: 17 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -37,7 +37,7 @@
 
 - `docs/LIVE_FINAL_QUALITY_ROADMAP.md` — 直播流质量提升路线图，P0→P1→P2，18个带验证标准的 checkbox 任务，进度表。 (~2800 tok)
 - `docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md` — 旧版问题 backlog，已被 ROADMAP 取代。 (~100 tok)
-- `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~2855 tok)
+- `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~3188 tok)
 
 ## githooks/
 
@@ -47,7 +47,7 @@
 
 ## scripts/
 
-- `build_stream_markdown.py` — Post-stream Gemini synthesis: assemble all live chunks → NotebookLM document. (~4789 tok)
+- `build_stream_markdown.py` — Post-stream Gemini synthesis: assemble all live chunks → NotebookLM document. (~5260 tok)
 - `live_sectioned_synthesis.py` — P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents. (~30063 tok)
 - `merge_stream_chunks.py` — parse_chunk_start, parse_timestamp, load_chunk_lines, load_chunk_slides (~1883 tok)
 - `scripts/build_stream_markdown.py` — P0 一键合成入口，新增 `--sectioned` 路由至 P1 三段合成（Fix1）。Fix5: `tail_coverage_low` 纳入 `source_status` 判断。 (~4910 tok)

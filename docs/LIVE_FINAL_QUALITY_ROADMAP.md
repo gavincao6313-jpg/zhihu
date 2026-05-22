@@ -475,3 +475,41 @@ Markdowns/
 | P2-4 cleaned transcript | ✅ 完成 2026-05-22 |
 | P2-5 术语归一化 | ✅ 完成 2026-05-22 |
 | P2-6 三路对照评测 | ⏳ 待验证（需下次直播产出三路 final.md 后人工比对） |
+
+---
+
+## 2026-05-22 真实直播复盘（105 chunks / 1h45m）
+
+### 结论
+
+| 环节 | 判断 |
+|------|------|
+| 实时采集 | ✅ 合格（105 chunks, 0 gaps, 0 failed） |
+| chunk 连续性 | ✅ 合格 |
+| transcript 合并 | ✅ 修复后合格（bug-058 已修） |
+| frame 输入 | ✅ 合格（335 frames） |
+| P0 final-qc.json | ✅ 有效，证明源可审计 |
+| one-shot 最终正文 | ⚠️ 可用，但尾段覆盖不足（最后章节 01:14，transcript 到 01:45） |
+| P1 sectioned live 方案 | ❌ 当前不可进生产（违反 Gemini 配额约束） |
+
+### Findings 与对应动作
+
+| Finding | 级别 | 状态 |
+|---------|------|------|
+| P1 --sectioned 仍可达生产路径 | High | ✅ main BAT/build_stream_markdown.py 已无 --sectioned（ad2deb1 revert） |
+| 最终 Markdown 正文尾段压缩（最后 30min 未进章节） | High | ✅ 新增 `check_markdown_body_coverage()` 自动检测 gap>120s 时 warn |
+| chunk 分组逻辑错误（105 chunks → 105 groups → 1 chunk） | High | ⚠️ 临时修复（bug-058）：--run-ts 未指定时用全部 chunk；run identity 正确设计待做 |
+| utils.py 缺失（feature 分支 cherry-pick 漏带依赖） | High | ✅ WIN 43f43f5 已补；cerebrum 已记录规则 |
+| merge_stream_chunks.py SyntaxWarning | Medium | ✅ bug-059 已修 |
+
+### 待落地（P0.1）
+
+- [ ] **run identity 重设计**：用 capture manifest session_ts 作为主键，chunk 记录所属 run_id，finalizer 从 manifest 选 chunk，不再依赖文件名 timestamp
+- [ ] **P0.2 验证**：用今晚 105-chunk transcript 重跑，确认章节覆盖到 01:45:00 或 warn 正确触发
+
+### 不走的路
+
+| 方向 | 原因 |
+|------|------|
+| P1 live sectioned（每 section 一次 Gemini） | 180min 直播 ≥20 次调用，打满 Free-tier RPD |
+| 提升质量靠加 Gemini 请求数 | 配额约束优先；应走输入前处理 + tail emphasis + coverage QC |
