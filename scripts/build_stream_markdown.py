@@ -50,6 +50,7 @@ RETRY_DELAY             = 65
 GAP_THRESHOLD_S     = 30    # seconds above typical chunk interval → counts as a gap
 SILENT_CHARS_LIMIT  = 10    # transcript chars below this → silent chunk
 TAIL_COVERAGE_RATIO = 0.85  # transcript must reach ≥ 85% of estimated stream end
+BODY_COVERAGE_GAP_S = 120   # warn if last Markdown chapter ends >2 min before stream end
 
 GEMINI_PROMPT_TEXT = """
 # 角色与目标
@@ -326,6 +327,43 @@ def live_final_qc(
     }
 
 
+def check_markdown_body_coverage(gemini_text: str, manifest: dict) -> None:
+    """Warn if the last timestamped chapter in the output ends too early.
+
+    Parses '### [HH:MM:SS - HH:MM:SS]' headings; compares to timeline_end_s.
+    This catches the one-shot attention-compression problem where Gemini stops
+    summarising the last N minutes even though the source transcript is complete.
+    """
+    heading_ends = re.findall(
+        r'###\s+\[\d{2}:\d{2}:\d{2}\s*-\s*(\d{2}):(\d{2}):(\d{2})\]',
+        gemini_text,
+    )
+    if not heading_ends:
+        print("[warn] body_coverage: no '### [HH:MM:SS - HH:MM:SS]' headings found")
+        return
+
+    lh, lm, ls = heading_ends[-1]
+    body_end_s     = int(lh) * 3600 + int(lm) * 60 + int(ls)
+    timeline_end_s = manifest.get("timeline_end_s", 0)
+
+    if timeline_end_s > 0:
+        gap_s = timeline_end_s - body_end_s
+        if gap_s > BODY_COVERAGE_GAP_S:
+            print(
+                f"[warn] body_coverage: last chapter ends {fmt_ts(body_end_s)},"
+                f" stream ends {fmt_ts(timeline_end_s)} — gap {gap_s}s"
+                f" (threshold {BODY_COVERAGE_GAP_S}s): tail may be truncated"
+            )
+        else:
+            print(
+                f"[ok]  body_coverage: last chapter {fmt_ts(body_end_s)},"
+                f" stream end {fmt_ts(timeline_end_s)}, gap {gap_s}s"
+            )
+    else:
+        print(f"[ok]  body_coverage: last chapter {fmt_ts(body_end_s)}"
+              f" (no stream timeline reference)")
+
+
 def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
     """Inject a deterministic QC blockquote at the top of the final Markdown.
 
@@ -448,6 +486,7 @@ def main() -> None:
     out_path.write_text(gemini_text, encoding="utf-8")
     print(f"\nNotebookLM document : {out_path}")
     print(f"  Size              : {len(gemini_text):,} chars")
+    check_markdown_body_coverage(gemini_text, manifest)
 
 
 if __name__ == "__main__":

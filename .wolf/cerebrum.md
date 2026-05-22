@@ -62,10 +62,19 @@
 <!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
 - [2026-05-22] Do not review or expose a new Gemini multi-request workflow before checking the explicit RPM/TPM/RPD budget against `CLAUDE.md`; prefer the one-call live final path unless the user approves a bounded alternative.
 
+- **[2026-05-22] P0 final-qc.json 只证明"源完整"，不证明"成品完整"。** 今晚 source_status=full 但 Markdown 章节只到 01:14:10，而 transcript 到 01:45:00（最后 30 分钟尾段被 Gemini 注意力压缩掉）。规则：Gemini 输出写入后必须解析最后章节时间戳与 timeline_end_s 比较，gap >120s 输出 warn。已实现 `check_markdown_body_coverage()`。
+
+- **[2026-05-22] chunk 分组不能用 extract_run_ts()。** 每个 chunk 文件名末尾 timestamp 是该 chunk 自己的完成时间而非 run id，用此字段分组导致 105 groups → 只选中 1 个 chunk。临时修复：--run-ts 未指定时用全部 chunk。正确设计：用 capture manifest 的 run_id 作为主键选 chunk。
+
+- **[2026-05-22] cherry-pick 到 feature 分支时必须同时带上依赖 commit。** build_stream_markdown.py 的 `from utils import ...` 依赖 utils.py (commit 39dd0c9)，cherry-pick 7615267 时未带依赖，导致 WIN 端 ModuleNotFoundError。规则：cherry-pick 前先确认依赖文件是否在目标分支上。
+
 - **[2026-05-22] 不得在 BAT/SH 入口默认开启多次 Gemini 调用。** 把 `--sectioned` 加进 `run_zhihu_live.bat` 导致 180 分钟直播消耗 ~20 次 API 调用，打满单日 Free-tier 配额。根因：修改 BAT（高风险区域）前未对照 CLAUDE.md Gemini 配额约束检查。规则：**修改任何 BAT/SH 入口前，必须先逐条核查 CLAUDE.md 中的 Gemini API 工程约束**，尤其是"Prefer one Gemini synthesis call per video/stream"和"Do not add default-on Gemini calls in wrapper scripts"。`--sectioned` 只能作为 CLI 手动 opt-in，永远不进 BAT 默认调用链。
 
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
+- **[2026-05-22] run identity 设计方向（待实现）：** 当前 build_stream_markdown.py 靠 chunk 文件名末尾 timestamp 推断 run，有"同 base 多次直播混跑"隐患。正确设计：`zhihuTTS_stream.py` 在采集开始时写入 `runs/stream-{base}.run_id.json`（含 session_ts、base、chunk 路径列表），finalizer 从此 manifest 选 chunk，不再依赖文件名 timestamp。`--run-ts` 参数改为引用 session_ts。实现前保持当前"全量 chunk"临时方案。
+
+
 - **[2026-05-21] 三路 A/B 测试计划（待执行）：** 用同一场直播素材，跑「本地 MP4 分片 / 回放 URL 流 / 实时直播流」三条路径，统一 Gemini 合成输出对比。触发时机：下次直播结束后，拿到回放 URL 即可。需新建 `run_ab_3way.py`，复用 `gemini_synthesis_ab.py` 的合成逻辑。
 - **[2026-05-21] 离线 MP4 转写策略：60s 分片 > 单次全量。** Windows A/B 测试（153min 视频，gemini-3.5-flash）证明：60s 分片输出 10,556 chars / 6章节 / 精确到秒的时间戳 vs 单次全量 8,017 chars / 5章节 / 粗粒度时间戳。URL 分支胜出 +32%。根因：153 个时间锚点让 Gemini 精确切分章节；单次全量只有 1 个起止时间，Gemini 只能猜测。转写耗时翻倍（1258s vs 567s）但值得。**即使是本地 MP4 离线处理，也应使用 60s 分片方案**，而非单次 SenseVoice 全量调用。

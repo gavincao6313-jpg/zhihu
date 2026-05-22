@@ -596,3 +596,7 @@
 | 22:51 | Edited scripts/merge_stream_chunks.py | inline fix | ~22 |
 | 22:55 | fix bug-058: chunk grouping in build_stream_markdown.py — use all chunks when --run-ts absent | scripts/build_stream_markdown.py | fixed, syntax OK | ~80 |
 | 22:55 | fix bug-059: SyntaxWarning \m in merge_stream_chunks.py docstring | scripts/merge_stream_chunks.py | fixed | ~10 |
+| 22:59 | Edited scripts/build_stream_markdown.py | 1→2 lines | ~49 |
+| 23:00 | Edited scripts/build_stream_markdown.py | modified check_markdown_body_coverage() | ~472 |
+| 23:00 | Edited scripts/build_stream_markdown.py | modified print() | ~64 |
+| 23:02 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | expanded (+38 lines) | ~369 |
