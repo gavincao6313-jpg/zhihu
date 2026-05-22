@@ -624,6 +624,262 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-22T00:34:59.082Z"
+    },
+    {
+      "id": "bug-039",
+      "timestamp": "2026-05-22T04:12:31.181Z",
+      "error_message": "Missing error handling in unknown",
+      "file": "CLAUDE.md",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T04:12:31.181Z"
+    },
+    {
+      "id": "bug-040",
+      "timestamp": "2026-05-22T04:17:33.468Z",
+      "error_message": "Significant refactor of ",
+      "file": "CLAUDE.md",
+      "root_cause": "22 lines replaced/restructured",
+      "fix": "Rewrote 30→30 lines (22 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T04:17:33.468Z"
+    },
+    {
+      "id": "bug-041",
+      "timestamp": "2026-05-22T12:15:00+08:00",
+      "error_message": "Analysis failed: EPERM: operation not permitted, open '/Users/caojiapeng/.gitnexus/registry.json'",
+      "file": "/Users/caojiapeng/.gitnexus/registry.json",
+      "root_cause": "Sandboxed GitNexus refresh could not write the home-directory registry.",
+      "fix": "Re-ran npx gitnexus analyze with approved escalated permissions.",
+      "tags": [
+        "gitnexus",
+        "sandbox",
+        "analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:15:00+08:00"
+    },
+    {
+      "id": "bug-042",
+      "timestamp": "2026-05-22T12:15:00+08:00",
+      "error_message": "fatal: ambiguous argument 'e0df61f': unknown revision or path not in the working tree.",
+      "file": ".git/objects",
+      "root_cause": "The user-provided feature-branch commit object is not present in the local repository.",
+      "fix": "Checked local and remote branch refs before continuing artifact analysis from available commits.",
+      "tags": [
+        "git",
+        "missing-commit",
+        "analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:15:00+08:00"
+    },
+    {
+      "id": "bug-043",
+      "timestamp": "2026-05-22T12:30:00+08:00",
+      "error_message": "error: cannot open '.git/FETCH_HEAD': Operation not permitted",
+      "file": ".git/FETCH_HEAD",
+      "root_cause": "Sandboxed git fetch could not update fetch metadata inside the repository.",
+      "fix": "Re-ran git fetch origin with approved escalated permissions.",
+      "tags": [
+        "git",
+        "sandbox",
+        "fetch"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:30:00+08:00"
+    },
+    {
+      "id": "bug-044",
+      "timestamp": "2026-05-22T12:30:00+08:00",
+      "error_message": "sed: AB_TEST_REPORT.md: No such file or directory",
+      "file": "AB_TEST_REPORT.md",
+      "root_cause": "The A/B report exists on the stream feature ref, not in the checked-out main worktree.",
+      "fix": "Read the branch artifact with git show origin/feature/stream-transcript-validation:AB_TEST_REPORT.md.",
+      "tags": [
+        "git",
+        "branch-artifact",
+        "analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:30:00+08:00"
+    },
+    {
+      "id": "bug-045",
+      "timestamp": "2026-05-22T05:27:07.704Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 6→9 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T05:27:07.704Z"
+    },
+    {
+      "id": "bug-046",
+      "timestamp": "2026-05-22T05:27:43.158Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_FINAL_QUALITY_ROADMAP.md",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 6→6 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T05:27:43.158Z"
+    },
+    {
+      "id": "bug-047",
+      "timestamp": "2026-05-22T05:29:46.546Z",
+      "error_message": "Wrong reference: warning should be step1",
+      "file": "docs/LIVE_FINAL_QUALITY_ROADMAP.md",
+      "root_cause": "Used \"warning\" instead of \"step1\"",
+      "fix": "Changed warning → step1",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T05:29:46.546Z"
+    },
+    {
+      "id": "bug-048",
+      "timestamp": "2026-05-22T07:32:35.620Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 11→65 lines (2 removed) | Also: \"\"\"Verify directory layout and manifest operations; # Directory structure",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-22T07:33:13.871Z"
+    },
+    {
+      "id": "bug-049",
+      "timestamp": "2026-05-22T08:46:40.654Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 19→34 lines (2 removed) | Also: \"section_id\": section_id,; \"start_s\":    start_s,",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-22T08:50:56.889Z"
+    },
+    {
+      "id": "bug-050",
+      "timestamp": "2026-05-22T08:51:05.573Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "Had \"transcript\"",
+      "fix": "Changed to \"cleaned_transcript\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T08:51:05.573Z"
+    },
+    {
+      "id": "bug-051",
+      "timestamp": "2026-05-22T08:59:06.894Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/LIVE_FINAL_QUALITY_ROADMAP.md",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 11→12 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T08:59:06.894Z"
+    },
+    {
+      "id": "bug-052",
+      "timestamp": "2026-05-22T09:37:28.215Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 3→8 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:37:28.215Z"
+    },
+    {
+      "id": "bug-053",
+      "timestamp": "2026-05-22T11:30:57.333Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 6→14 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T11:30:57.333Z"
+    },
+    {
+      "id": "bug-054",
+      "timestamp": "2026-05-22T11:31:18.392Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/live_sectioned_synthesis.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 7→11 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T11:31:18.392Z"
     }
   ]
 }

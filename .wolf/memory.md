@@ -3,6 +3,7 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 11:54 | 重写 CLAUDE.md PR 规则块为精简 Change Control + Driver Rules；新建 .claude/rules/review.md（diff 生成、审查包格式、Auditor prompt、对质步骤） | CLAUDE.md, .claude/rules/review.md | completed | ~600 |
 | 23:50 | 拉取 Windows A/B 测试结果 (commits 6c5f842+88b24d6 on experiment/inline-and-uri-upload)，分析 AB_TEST_REPORT.md，URL 分支胜出 +32%，写入 Decision Log | .wolf/cerebrum.md | completed | ~800 |
 | 00:15 | 优化本地 MP4 转写：提取 _transcribe_wav_with_backend()，新增 transcribe_audio_chunked() + TRANSCRIBE_CHUNK_DURATION_S，zhihuTTS.py 两处调用点替换 | zhihuTTS_video.py, zhihuTTS.py | completed | ~600 |
 | 00:20 | 记录三路 A/B 测试计划（本地MP4分片/回放流/实时直播流），待下次直播后执行，需新建 run_ab_3way.py | .wolf/cerebrum.md | noted | ~100 |
@@ -445,3 +446,141 @@
 | 08:24 | Created run_single_file.py | — | ~290 |
 | 08:34 | Edited run_single_file.py | 2→1 lines | ~17 |
 | 08:36 | Edited run_single_file.py | 2→2 lines | ~16 |
+
+## Session: 2026-05-22 11:44
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:49 | Located local Claude constraints and OpenWolf session context for review | CLAUDE.md, .wolf/OPENWOLF.md, .wolf/anatomy.md, .wolf/cerebrum.md | ready to assess rules | ~5700 |
+| 11:49 | Reviewed new local change-control and AI review constraints | CLAUDE.md, .wolf/cerebrum.md | assessment recorded | ~4300 |
+
+## Session: 2026-05-22 11:59
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-22 12:02
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 12:08 | Created .claude/rules/review.md | — | ~697 |
+| 12:12 | Edited CLAUDE.md | added error handling | ~566 |
+| 12:17 | Edited CLAUDE.md | 30→30 lines | ~268 |
+| 12:15 | Read OpenWolf protocol/anatomy, refreshed GitNexus index, and inventoried A/B test refs | .wolf/OPENWOLF.md, .wolf/anatomy.md, git refs | artifact analysis underway | ~5300 |
+| 12:15 | Logged analysis command failures for sandboxed GitNexus registry write and missing feature commit object | .wolf/buglog.json | continued with available refs | ~900 |
+| 12:30 | Fetched latest origin refs and inspected WIN three-way A/B outputs across replay, local MP4, and live refs | origin/main@2a74b00, origin/feature/stream-transcript-validation@e0df61f, Markdowns outputs | quality findings ready | ~16000 |
+| 12:30 | Recorded three-way A/B artifact comparability caveat and branch lookup failures | .wolf/cerebrum.md, .wolf/buglog.json | future artifact reviews should normalize coverage and appendices | ~1400 |
+| 12:30 | Session summary: replay/local file-pipeline outputs are structurally strong but carry inline transcript appendices; live output is more granular but shorter-coverage and not directly comparable by raw size | A/B artifacts | optimization plan drafted | ~900 |
+| 13:01 | Reviewed live final Markdown synthesis path against file/replay finalizer and existing live backlog | scripts/build_stream_markdown.py, build_final_markdown.py, docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md, utils.call_gemini | live quality plan grounded in current one-shot final stage | ~9000 |
+| 12:18 | Created .claude/rules/review.md | — | ~372 |
+| 13:17 | Created docs/LIVE_FINAL_QUALITY_ROADMAP.md | — | ~2925 |
+| 13:18 | 设计并写入 P0→P2 直播流质量提升路线图，含18个任务+验证标准 | docs/LIVE_FINAL_QUALITY_ROADMAP.md | created | ~2800 |
+| 13:23 | Edited scripts/build_stream_markdown.py | expanded (+6 lines) | ~154 |
+| 13:24 | Edited scripts/build_stream_markdown.py | added 1 condition(s) | ~1538 |
+| 13:24 | Edited scripts/build_stream_markdown.py | modified strip() | ~211 |
+| 13:24 | Edited scripts/build_stream_markdown.py | 9→11 lines | ~129 |
+| 13:27 | Edited scripts/build_stream_markdown.py | 6→9 lines | ~118 |
+| 13:27 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 6→6 lines | ~52 |
+| 13:27 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 2→2 lines | ~31 |
+| 13:28 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 4→4 lines | ~38 |
+| 13:28 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 4→4 lines | ~47 |
+| 13:29 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 4→4 lines | ~29 |
+| 13:29 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~18 |
+| 13:32 | Created scripts/live_sectioned_synthesis.py | — | ~2598 |
+| 13:32 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~9 |
+| 13:33 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 3→3 lines | ~20 |
+| 13:33 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 2→2 lines | ~26 |
+| 15:07 | Edited scripts/live_sectioned_synthesis.py | added 2 import(s) | ~43 |
+| 15:08 | Edited scripts/live_sectioned_synthesis.py | added 1 condition(s) | ~2075 |
+
+## Session: 2026-05-22 15:11
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:32 | Edited scripts/live_sectioned_synthesis.py | modified pending_sections() | ~628 |
+| 15:33 | Edited scripts/live_sectioned_synthesis.py | modified _smoke_test() | ~1598 |
+| 15:33 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 2→2 lines | ~23 |
+| 15:34 | P1-3 section state machine: added running to pending_sections, update_pass_state/pass_b_needs_rerun/pass_c_needs_rerun, extended smoke test 5-state | scripts/live_sectioned_synthesis.py | PASSED | ~800 |
+| 15:37 | Edited scripts/live_sectioned_synthesis.py | added 1 import(s) | ~36 |
+| 15:38 | Edited scripts/live_sectioned_synthesis.py | modified all_sections_done() | ~1910 |
+| 15:38 | Edited scripts/live_sectioned_synthesis.py | modified range() | ~1221 |
+| 15:41 | Edited scripts/live_sectioned_synthesis.py | modified _pass_a_prompt() | ~212 |
+| 15:41 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~13 |
+| 15:42 | P1-4 Pass A: run_pass_a / run_pass_a_all / _build_pass_a_parts / _pass_a_prompt, escalation logic, pass_b stale on note re-done, smoke test extended | scripts/live_sectioned_synthesis.py | PASSED | ~1200 |
+| 15:44 | Edited scripts/live_sectioned_synthesis.py | modified _load_section_notes() | ~2111 |
+| 15:45 | Edited scripts/live_sectioned_synthesis.py | expanded (+117 lines) | ~1624 |
+| 15:46 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~13 |
+| 15:46 | P1-5 Pass B: run_pass_b (flash→pro fallback), _pass_b_prompt, _extract_json_from_response, _validate_outline, _load_section_notes, pass_c stale on rerun | scripts/live_sectioned_synthesis.py | PASSED | ~900 |
+| 15:49 | Edited scripts/live_sectioned_synthesis.py | modified _build_pass_c_prompt() | ~1552 |
+| 15:50 | Edited scripts/live_sectioned_synthesis.py | modified exists() | ~1200 |
+| 15:51 | Edited scripts/live_sectioned_synthesis.py | modified exists() | ~392 |
+| 15:51 | Edited scripts/live_sectioned_synthesis.py | modified all_sections_done() | ~332 |
+| 15:51 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~12 |
+| 15:52 | P1-6 Pass C: _PASS_C_PROMPT_PREFIX, _build_pass_c_prompt, run_pass_c (pro default, continuation), lazy import fix for run_pass_b+run_pass_c | scripts/live_sectioned_synthesis.py | PASSED | ~900 |
+| 15:55 | Edited scripts/live_sectioned_synthesis.py | modified _extract_timestamps_s_from_text() | ~2922 |
+| 15:56 | Edited scripts/live_sectioned_synthesis.py | expanded (+109 lines) | ~1524 |
+| 15:57 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~12 |
+| 15:57 | P1-7 Markdown QC: final_markdown_qc (8 checks), _fix_fence_balance, _inject_qc_header, run_markdown_qc; smoke: H1/section/coverage/fence/heading/seam/header | scripts/live_sectioned_synthesis.py | PASSED | ~1100 |
+
+## Session: 2026-05-22 16:00
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 16:01 | Edited scripts/live_sectioned_synthesis.py | modified _update_notebooklm_usage() | ~871 |
+| 16:01 | Edited scripts/live_sectioned_synthesis.py | expanded (+26 lines) | ~500 |
+| 16:02 | Edited scripts/live_sectioned_synthesis.py | 11→13 lines | ~208 |
+| 16:03 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 16→16 lines | ~106 |
+| 16:03 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~13 |
+| 16:03 | P1-8 publish_section_sidecar + _update_notebooklm_usage | scripts/live_sectioned_synthesis.py | smoke PASSED, roadmap ✅ | ~400 |
+| 16:15 | Edited scripts/live_sectioned_synthesis.py | modified _frame_features() | ~1410 |
+| 16:16 | Edited scripts/live_sectioned_synthesis.py | modified in() | ~1028 |
+| 16:21 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 8→8 lines | ~65 |
+| 16:21 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~8 |
+| 16:21 | P2-1 classify_frame + classify_evidence_frames | scripts/live_sectioned_synthesis.py | smoke PASSED (slide/demo/transition confirmed, skip/force idempotent) | ~400 |
+| 16:26 | Edited scripts/live_sectioned_synthesis.py | added 1 condition(s) | ~1636 |
+| 16:30 | Edited scripts/live_sectioned_synthesis.py | expanded (+67 lines) | ~1022 |
+| 16:33 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 13→13 lines | ~81 |
+| 16:34 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~10 |
+| 16:34 | P2-2 dedup_frames + dedup_evidence_frames (dHash sim, Laplacian sharpness, speaker throttle) | scripts/live_sectioned_synthesis.py | smoke PASSED 10→5 frames | ~500 |
+| 16:46 | Edited scripts/live_sectioned_synthesis.py | modified detect_slide_boundaries() | ~616 |
+| 16:46 | Edited scripts/live_sectioned_synthesis.py | modified _compute_section_boundaries() | ~320 |
+| 16:47 | Edited scripts/live_sectioned_synthesis.py | 4→7 lines | ~89 |
+| 16:47 | Edited scripts/live_sectioned_synthesis.py | expanded (+43 lines) | ~738 |
+| 16:47 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 3→3 lines | ~32 |
+| 16:48 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~13 |
+| 16:48 | P2-3 detect_slide_boundaries + _compute_section_boundaries priority-1.5 | scripts/live_sectioned_synthesis.py | smoke PASSED, dedup+overlap tests pass | ~300 |
+| 16:50 | Edited scripts/live_sectioned_synthesis.py | modified clean_transcript() | ~582 |
+| 16:50 | Edited scripts/live_sectioned_synthesis.py | 9→10 lines | ~119 |
+| 16:51 | Edited scripts/live_sectioned_synthesis.py | 1→3 lines | ~35 |
+| 16:51 | Edited scripts/live_sectioned_synthesis.py | modified in() | ~666 |
+| 16:51 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 7→7 lines | ~62 |
+| 16:52 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~12 |
+| 16:52 | P2-4 clean_transcript + save_cleaned_transcript + Pass A preference | scripts/live_sectioned_synthesis.py | smoke PASSED -11.1% on test input | ~250 |
+| 16:54 | Created scripts/terminology.json | — | ~278 |
+| 16:54 | Edited scripts/live_sectioned_synthesis.py | modified load_terminology() | ~409 |
+| 16:54 | Edited scripts/live_sectioned_synthesis.py | 4→7 lines | ~91 |
+| 16:54 | Edited scripts/live_sectioned_synthesis.py | 10→13 lines | ~150 |
+| 16:55 | Edited scripts/live_sectioned_synthesis.py | expanded (+42 lines) | ~534 |
+| 16:55 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 5→5 lines | ~57 |
+| 16:55 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~9 |
+| 16:56 | P2-5 terminology.json + load_terminology + normalize_transcript + evidence builder integration | scripts/terminology.json, live_sectioned_synthesis.py | smoke PASSED | ~200 |
+| 16:58 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | inline fix | ~14 |
+| 16:59 | Edited docs/LIVE_FINAL_QUALITY_ROADMAP.md | 11→12 lines | ~103 |
+
+## Session: 2026-05-22 17:14
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 17:37 | Edited scripts/live_sectioned_synthesis.py | 3→8 lines | ~104 |
+| 19:30 | Edited scripts/build_stream_markdown.py | expanded (+8 lines) | ~120 |
+| 19:31 | Edited scripts/live_sectioned_synthesis.py | modified _hash_evidence() | ~137 |
+| 19:31 | Edited scripts/live_sectioned_synthesis.py | 5→7 lines | ~81 |
+| 19:31 | Edited scripts/live_sectioned_synthesis.py | 5→7 lines | ~83 |
+| 19:31 | Edited scripts/live_sectioned_synthesis.py | 1→5 lines | ~68 |
+| 19:34 | Edited scripts/live_sectioned_synthesis.py | modified run_full_pipeline() | ~480 |
+| 19:34 | Edited scripts/build_stream_markdown.py | 2→3 lines | ~44 |
+| 19:35 | Edited scripts/build_stream_markdown.py | 3→5 lines | ~93 |
+| 19:35 | Edited scripts/build_stream_markdown.py | expanded (+7 lines) | ~208 |
+| 今日 | Apply 5 external-AI-review fixes (Fix1–5) to live synthesis pipeline | scripts/live_sectioned_synthesis.py, scripts/build_stream_markdown.py | ✅ syntax clean | ~800 |
+| 19:40 | Re-reviewed Fix1-Fix5 live final pipeline changes | scripts/build_stream_markdown.py, scripts/live_sectioned_synthesis.py | found remaining resume/QC/slide-boundary gaps; py_compile + smoke passed | ~900 |
+| 19:41 | Edited run_zhihu_live.bat | 7→8 lines | ~112 |

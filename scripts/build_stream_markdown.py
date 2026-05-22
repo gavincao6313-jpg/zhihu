@@ -35,6 +35,7 @@ from google import genai
 from google.genai import types
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.insert(0, str(Path(__file__).parent))
 from utils import call_gemini, extract_run_ts, fmt_ts
 
 # ── Gemini config ─────────────────────────────────────────────────────────────
@@ -44,6 +45,12 @@ GEMINI_IMAGE_HARD_LIMIT = 3000   # API ceiling; fallback priority sampling above
 MAX_RETRIES             = 6
 MAX_CONTINUATIONS       = 20
 RETRY_DELAY             = 65
+
+# ── P0 QC config ──────────────────────────────────────────────────────────────
+
+GAP_THRESHOLD_S     = 30    # seconds above typical chunk interval → counts as a gap
+SILENT_CHARS_LIMIT  = 10    # transcript chars below this → silent chunk
+TAIL_COVERAGE_RATIO = 0.85  # transcript must reach ≥ 85% of estimated stream end
 
 GEMINI_PROMPT_TEXT = """
 # 角色与目标
@@ -208,6 +215,157 @@ def build_gemini_parts(transcript: str, frames: list[dict]) -> list:
     return parts
 
 
+# ── P0 QC ─────────────────────────────────────────────────────────────────────
+
+def live_final_qc(
+    chunk_files: list[Path],
+    transcript: str,
+    all_frames: list[dict],
+    base: str,
+    selected_ts: str,
+) -> dict:
+    """Build a quality manifest from per-chunk files before Gemini synthesis.
+
+    Reads chunk filenames and transcript files only; does NOT call Gemini.
+    """
+    starts = [parse_chunk_start(cf) for cf in chunk_files]
+
+    # Typical inter-chunk interval (median) — used for gap detection and timeline estimate
+    if len(starts) >= 2:
+        intervals     = sorted(starts[i + 1] - starts[i] for i in range(len(starts) - 1))
+        typical_ivl_s = intervals[len(intervals) // 2]
+    else:
+        typical_ivl_s = 60
+
+    first_timestamp_s   = starts[0] if starts else 0
+    timeline_end_s      = (starts[-1] + typical_ivl_s) if starts else 0
+    timeline_duration_s = timeline_end_s - first_timestamp_s
+
+    # Per-chunk silent / failed counts
+    silent_chunk_count = 0
+    failed_chunk_count = 0
+    for cf in chunk_files:
+        payload_path = cf.with_name(
+            cf.name.removesuffix(".global-transcript.txt") + ".payload.json"
+        )
+        if not payload_path.exists():
+            failed_chunk_count += 1
+        chunk_txt = cf.read_text(encoding="utf-8").strip() if cf.exists() else ""
+        if len(chunk_txt) < SILENT_CHARS_LIMIT:
+            silent_chunk_count += 1
+
+    # Gap analysis: intervals significantly larger than typical → gap
+    gap_min_ivl = typical_ivl_s + GAP_THRESHOLD_S
+    gaps: list[dict] = []
+    for i in range(len(starts) - 1):
+        ivl = starts[i + 1] - starts[i]
+        if ivl > gap_min_ivl:
+            gaps.append({
+                "start_s":    starts[i] + typical_ivl_s,
+                "end_s":      starts[i + 1],
+                "duration_s": ivl - typical_ivl_s,
+            })
+    gap_count   = len(gaps)
+    gap_seconds = sum(g["duration_s"] for g in gaps)
+
+    # Last timestamp in transcript — handles both [HH:MM:SS] and [HH:MM:SS - HH:MM:SS]
+    # Captures the END time of each bracketed range so we get the true coverage end.
+    ts_matches = re.findall(
+        r'\[(?:\d{2}:\d{2}:\d{2}\s*-\s*)?(\d{2}):(\d{2}):(\d{2})\]', transcript
+    )
+    transcript_end_s = max(
+        (int(h) * 3600 + int(m) * 60 + int(s) for h, m, s in ts_matches),
+        default=0,
+    )
+
+    # Tail coverage flag — computed before source_status so both can use it
+    tail_coverage_low = (
+        timeline_end_s > 0
+        and transcript_end_s < timeline_end_s * TAIL_COVERAGE_RATIO
+    )
+
+    # Source status
+    source_status = "partial" if (
+        failed_chunk_count > 0 or gap_seconds > 60 or tail_coverage_low
+    ) else "full"
+
+    # Warnings
+    warnings: list[str] = []
+    if tail_coverage_low:
+        threshold = int(timeline_end_s * TAIL_COVERAGE_RATIO)
+        warnings.append(
+            f"tail_coverage_low: transcript ends at {transcript_end_s}s,"
+            f" expected ≥{threshold}s (estimated stream end: {timeline_end_s}s)"
+        )
+    if gaps:
+        gap_detail = ", ".join(
+            f"{fmt_ts(g['start_s'])}–{fmt_ts(g['end_s'])} ({g['duration_s']}s)"
+            for g in gaps
+        )
+        warnings.append(f"gaps_detected: {gap_detail}")
+
+    return {
+        "base":                base,
+        "run_ts":              selected_ts,
+        "source_type":         "live",
+        "source_status":       source_status,
+        "chunk_count":         len(chunk_files),
+        "transcript_chars":    len(transcript.strip()),
+        "frame_count":         len(all_frames),
+        "first_timestamp_s":   first_timestamp_s,
+        "last_timestamp_s":    transcript_end_s,
+        "timeline_end_s":      timeline_end_s,
+        "timeline_duration_s": timeline_duration_s,
+        "gap_count":           gap_count,
+        "gap_seconds":         int(gap_seconds),
+        "gaps":                gaps,
+        "silent_chunk_count":  silent_chunk_count,
+        "failed_chunk_count":  failed_chunk_count,
+        "synthesis_model":     GEMINI_MODEL,
+        "synthesis_pass":      "one-shot",
+        "warnings":            warnings,
+    }
+
+
+def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
+    """Inject a deterministic QC blockquote at the top of the final Markdown.
+
+    Called after Gemini returns, before file write. Does not touch Gemini body.
+    """
+    def s_to_hms(s: int) -> str:
+        h, r = divmod(s, 3600)
+        m, sec = divmod(r, 60)
+        return f"{h:02d}:{m:02d}:{sec:02d}"
+
+    status  = manifest["source_status"]
+    lines   = [
+        "> **Live Final QC**",
+        f"> - 输入类型: live | 合成模型: {manifest['synthesis_model']}"
+        f" | synthesis_pass: {manifest['synthesis_pass']}",
+        f"> - 采集状态: {status}",
+        f"> - 覆盖时间: {s_to_hms(manifest['first_timestamp_s'])}"
+        f" – {s_to_hms(manifest['timeline_end_s'])}",
+        f"> - chunks: {manifest['chunk_count']}"
+        f" | gaps: {manifest['gap_count']}"
+        f" | transcript: {manifest['transcript_chars']:,} 字"
+        f" | frames: {manifest['frame_count']}",
+    ]
+
+    if status in ("partial", "interrupted"):
+        lines.append(
+            f"> - ⚠️ 采集状态: {status}"
+            " — 当前文档仅覆盖已采集片段，不代表完整直播内容。"
+        )
+
+    for w in manifest.get("warnings", []):
+        if w.startswith("gaps_detected:"):
+            lines.append(f"> - 已知缺口: {w[len('gaps_detected:'):].strip()}")
+        elif w.startswith("tail_coverage_low:"):
+            lines.append(f"> - ⚠️ 尾部覆盖不足: {w[len('tail_coverage_low:'):].strip()}")
+
+    return "\n".join(lines) + "\n\n" + gemini_text
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -220,6 +378,8 @@ def main() -> None:
     ap.add_argument("--markdowns-dir",  default="Markdowns", help="Output dir")
     ap.add_argument("--run-ts",         default=None,
                     help="Specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
+    ap.add_argument("--sectioned",      action="store_true",
+                    help="Use three-pass sectioned synthesis (P1 pipeline) instead of one-shot")
     args = ap.parse_args()
 
     api_key = (
@@ -264,17 +424,33 @@ def main() -> None:
     print(f"Transcript: {len(transcript):,} chars")
     print(f"Frames    : {len(all_frames)} total")
 
-    print("\n=== Gemini: Building NotebookLM document ===")
-    parts = build_gemini_parts(transcript, all_frames)
+    manifest = live_final_qc(chunk_files, transcript, all_frames, args.base, selected_ts)
+    qc_path  = runs_dir / f"stream-{args.base}-{selected_ts}.final-qc.json"
+    qc_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"QC manifest : {qc_path}  [{manifest['source_status']}]")
+    for w in manifest["warnings"]:
+        print(f"  [warn] {w}")
 
+    print("\n=== Gemini: Building NotebookLM document ===")
     http_opts = types.HttpOptions(timeout=3600000)
     client    = genai.Client(api_key=api_key, http_options=http_opts)
 
-    gemini_text = call_gemini(client, parts, args.base)
+    if args.sectioned:
+        from live_sectioned_synthesis import run_full_pipeline  # noqa: PLC0415
+        gemini_text = run_full_pipeline(
+            runs_dir, args.base, selected_ts,
+            transcript, all_frames, manifest, client,
+        )
+    else:
+        parts = build_gemini_parts(transcript, all_frames)
+        gemini_text = call_gemini(client, parts, args.base)
+
     if not gemini_text:
         print("[!] Gemini synthesis failed — merged raw transcript still available.",
               file=sys.stderr)
         sys.exit(1)
+
+    gemini_text = prepend_quality_header(gemini_text, manifest)
 
     markdowns_dir.mkdir(parents=True, exist_ok=True)
     out_path = markdowns_dir / f"TTS_stream-{args.base}.md"
