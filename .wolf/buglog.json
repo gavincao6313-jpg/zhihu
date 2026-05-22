@@ -880,6 +880,81 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-22T11:31:18.392Z"
+    },
+    {
+      "id": "bug-055",
+      "timestamp": "2026-05-22T19:49:17+08:00",
+      "error_message": "User reports sectioned live synthesis would spend about 20 Gemini API requests for a 180-minute live stream, violating CLAUDE.md quota constraints",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "The experimental sectioned Pass A/B/C pipeline was exposed through the production live final CLI without enforcing the project's one-call default or request budget controls.",
+      "fix": "Removed the production --sectioned route so build_stream_markdown.py remains the one-shot live synthesis path; marked live_sectioned_synthesis.py usage text experimental pending a budget-compliant design.",
+      "tags": [
+        "gemini",
+        "quota",
+        "live-final",
+        "sectioned",
+        "claude-md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T19:49:17+08:00"
+    },
+    {
+      "id": "bug-056",
+      "timestamp": "2026-05-22T19:50:00+08:00",
+      "error_message": "rg: unrecognized flag --sectioned|run_full_pipeline\\(|Usage \\(experimental|Gemini API Free-Tier Limits|Prefer one Gemini",
+      "file": "shell verification command",
+      "root_cause": "The ripgrep pattern began with --sectioned and was parsed as an rg option.",
+      "fix": "Reran ripgrep with -- before the pattern so --sectioned is treated as search text.",
+      "tags": [
+        "rg",
+        "verification",
+        "shell"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T19:50:00+08:00"
+    },
+    {
+      "id": "bug-057",
+      "timestamp": "2026-05-22T19:55:00+08:00",
+      "error_message": "rg: unrecognized flag - ",
+      "file": "shell verification command",
+      "root_cause": "The roadmap checklist search pattern started with a dash and ripgrep parsed it as an option.",
+      "fix": "Stopped relying on that failing search; the roadmap sections and progress table were already read with line numbers for review.",
+      "tags": [
+        "rg",
+        "verification",
+        "shell",
+        "review"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T19:55:00+08:00"
+    },
+    {
+      "id": "bug-058",
+      "timestamp": "2026-05-22T22:50:00+08:00",
+      "error_message": "build_stream_markdown.py: 105 chunks → 105 groups → only 1 chunk selected; Transcript: 320 chars (should be 37,749); Frames: 2 (should be 335)",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "extract_run_ts() groups chunks by individual completion timestamps. Each chunk has unique timestamp → 105 groups → max() picks most-recent single-chunk group instead of all chunks.",
+      "fix": "When --run-ts not specified, use all found chunk files sorted by chunk start time. When --run-ts specified, filter by that timestamp with error listing available timestamps.",
+      "tags": ["chunk-grouping", "build_stream_markdown", "live-synthesis", "win-bug-report"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T22:50:00+08:00"
+    },
+    {
+      "id": "bug-059",
+      "timestamp": "2026-05-22T22:50:00+08:00",
+      "error_message": "SyntaxWarning: invalid escape sequence '\\m' in merge_stream_chunks.py line 9 docstring",
+      "file": "scripts/merge_stream_chunks.py",
+      "root_cause": "Docstring usage example used Windows backslash path; Python 3.12+ warns on unrecognized escape sequences in string literals.",
+      "fix": "Changed backslash to forward slash in Windows usage example in docstring.",
+      "tags": ["syntax-warning", "docstring", "merge_stream_chunks", "win-bug-report"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T22:50:00+08:00"
     }
   ]
 }

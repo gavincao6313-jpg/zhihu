@@ -35,7 +35,6 @@ from google import genai
 from google.genai import types
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-sys.path.insert(0, str(Path(__file__).parent))
 from utils import call_gemini, extract_run_ts, fmt_ts
 
 # ── Gemini config ─────────────────────────────────────────────────────────────
@@ -378,8 +377,6 @@ def main() -> None:
     ap.add_argument("--markdowns-dir",  default="Markdowns", help="Output dir")
     ap.add_argument("--run-ts",         default=None,
                     help="Specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
-    ap.add_argument("--sectioned",      action="store_true",
-                    help="Use three-pass sectioned synthesis (P1 pipeline) instead of one-shot")
     args = ap.parse_args()
 
     api_key = (
@@ -398,20 +395,21 @@ def main() -> None:
         print(f"ERROR: no files matching {runs_dir / pattern}", file=sys.stderr)
         sys.exit(1)
 
-    groups: dict[str, list[Path]] = defaultdict(list)
-    for f in all_found:
-        groups[extract_run_ts(f)].append(f)
+    if args.run_ts:
+        chunk_files = sorted(
+            [f for f in all_found if extract_run_ts(f) == args.run_ts],
+            key=parse_chunk_start,
+        )
+        if not chunk_files:
+            all_ts = sorted({extract_run_ts(f) for f in all_found})
+            print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {all_ts}",
+                  file=sys.stderr)
+            sys.exit(1)
+        selected_ts = args.run_ts
+    else:
+        chunk_files = sorted(all_found, key=parse_chunk_start)
+        selected_ts = extract_run_ts(sorted(chunk_files, key=parse_chunk_start)[-1])
 
-    selected_ts = args.run_ts if args.run_ts else max(groups.keys())
-    if selected_ts not in groups:
-        print(f"ERROR: run-ts '{selected_ts}' not found. Available: {sorted(groups)}",
-              file=sys.stderr)
-        sys.exit(1)
-
-    if len(groups) > 1:
-        print(f"[warn] {len(groups)} runs for '{args.base}' — using: {selected_ts}")
-
-    chunk_files = sorted(groups[selected_ts], key=parse_chunk_start)
     print(f"Chunks   : {len(chunk_files)} (run: {selected_ts})")
 
     transcript = build_combined_transcript(chunk_files)
@@ -435,15 +433,8 @@ def main() -> None:
     http_opts = types.HttpOptions(timeout=3600000)
     client    = genai.Client(api_key=api_key, http_options=http_opts)
 
-    if args.sectioned:
-        from live_sectioned_synthesis import run_full_pipeline  # noqa: PLC0415
-        gemini_text = run_full_pipeline(
-            runs_dir, args.base, selected_ts,
-            transcript, all_frames, manifest, client,
-        )
-    else:
-        parts = build_gemini_parts(transcript, all_frames)
-        gemini_text = call_gemini(client, parts, args.base)
+    parts = build_gemini_parts(transcript, all_frames)
+    gemini_text = call_gemini(client, parts, args.base)
 
     if not gemini_text:
         print("[!] Gemini synthesis failed — merged raw transcript still available.",
