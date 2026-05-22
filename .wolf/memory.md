@@ -437,32 +437,11 @@
 |------|--------|---------|---------|--------|
 | 00:02 | Edited zhihuTTS_stream.py | 6→9 lines | ~124 |
 | 01:05 | 拉取 WIN Step2 验证结果 (commit 4421184): 100 chunks, 32K chars, 0 gap, 0 error, 全通过；修复 --max-chunks 在 --hls-consumer-only 被忽略的 bug (bug-038) | zhihuTTS_stream.py, .wolf/buglog.json | completed | ~800 |
-| 02:10 | 拉取 WIN 真正修复 b7525fc (--max-chunks 放进 SegmentConsumer)，更新 buglog、推送 P0 Step 2 验证计划到 WIN | zhihuTTS_stream.py, .wolf/buglog.json, runs/P0-Step2-continuous-validation-plan.md | completed | ~400 |
-| 00:29 | Created runs/P0-Step2-continuous-validation-plan.md | — | ~413 |
 
-## Session: 2026-05-21 07:43
+## Session: 2026-05-21 07:46
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
-
-## Session: 2026-05-21 07:44
-
-| Time | Action | File(s) | Outcome | ~Tokens |
-|------|--------|---------|---------|--------|
-| 08:24 | Edited zhihuTTS_stream.py | modified _print_refresh_error_label() | ~96 |
-| 08:24 | Edited zhihuTTS_stream.py | 6→2 lines | ~28 |
-| 08:25 | Edited zhihuTTS_stream.py | modified request_stop() | ~73 |
-| 08:25 | Edited zhihuTTS_stream.py | modified run() | ~139 |
-| 08:26 | Edited zhihuTTS_stream.py | 11→11 lines | ~127 |
-| 08:26 | Edited zhihuTTS_stream.py | 8→4 lines | ~55 |
-| 08:27 | Edited zhihuTTS_stream.py | modified _run_gemini_synthesis() | ~385 |
-| 08:27 | Edited zhihuTTS_stream.py | reduced (-18 lines) | ~149 |
-| 08:27 | Edited zhihuTTS_stream.py | 10→14 lines | ~122 |
-| 08:30 | Edited zhihuTTS_stream.py | 7→7 lines | ~78 |
-| 08:30 | Edited zhihuTTS_stream.py | 4→4 lines | ~37 |
-| 09:22 | Edited stream_extractors.py | 8→9 lines | ~66 |
-| 09:23 | Edited stream_extractors.py | 7→8 lines | ~67 |
-| 09:23 | Edited stream_extractors.py | modified is_browser_alive() | ~229 |
-| 09:23 | Edited zhihuTTS_stream.py | 1→3 lines | ~62 |
-| 09:23 | Edited zhihuTTS_stream.py | int() → get_page_title() | ~52 |
-| 09:24 | Edited zhihuTTS_stream.py | "hls_consumer_{int(time.ti" → "ts_{int(time.time())}" | ~19 |
+| 08:24 | Created run_single_file.py | — | ~290 |
+| 08:34 | Edited run_single_file.py | 2→1 lines | ~17 |
+| 08:36 | Edited run_single_file.py | 2→2 lines | ~16 |
