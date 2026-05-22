@@ -35,7 +35,6 @@ from google import genai
 from google.genai import types
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-sys.path.insert(0, str(Path(__file__).parent))
 from utils import call_gemini, extract_run_ts, fmt_ts
 
 # ── Gemini config ─────────────────────────────────────────────────────────────
@@ -398,21 +397,19 @@ def main() -> None:
         print(f"ERROR: no files matching {runs_dir / pattern}", file=sys.stderr)
         sys.exit(1)
 
-    groups: dict[str, list[Path]] = defaultdict(list)
-    for f in all_found:
-        groups[extract_run_ts(f)].append(f)
-
-    selected_ts = args.run_ts if args.run_ts else max(groups.keys())
-    if selected_ts not in groups:
-        print(f"ERROR: run-ts '{selected_ts}' not found. Available: {sorted(groups)}",
-              file=sys.stderr)
-        sys.exit(1)
-
-    if len(groups) > 1:
-        print(f"[warn] {len(groups)} runs for '{args.base}' — using: {selected_ts}")
-
-    chunk_files = sorted(groups[selected_ts], key=parse_chunk_start)
-    print(f"Chunks   : {len(chunk_files)} (run: {selected_ts})")
+    if args.run_ts:
+        chunk_files = [f for f in all_found if extract_run_ts(f) == args.run_ts]
+        if not chunk_files:
+            available = sorted({extract_run_ts(f) for f in all_found})
+            print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {available}",
+                  file=sys.stderr)
+            sys.exit(1)
+        selected_ts = args.run_ts
+        print(f"Chunks   : {len(chunk_files)} (run-ts filter: {args.run_ts})")
+    else:
+        chunk_files = all_found
+        selected_ts = extract_run_ts(sorted(chunk_files, key=parse_chunk_start)[-1]) if chunk_files else "00000000-000000"
+        print(f"Chunks   : {len(chunk_files)}")
 
     transcript = build_combined_transcript(chunk_files)
     all_frames = collect_all_frames(chunk_files)

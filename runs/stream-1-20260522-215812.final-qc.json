@@ -1,0 +1,21 @@
+{
+  "base": "1",
+  "run_ts": "20260522-215812",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 105,
+  "transcript_chars": 37749,
+  "frame_count": 335,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 6300,
+  "timeline_end_s": 6300,
+  "timeline_duration_s": 6300,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_model": "gemini-2.5-flash",
+  "synthesis_pass": "one-shot",
+  "warnings": []
+}
