@@ -22,7 +22,7 @@ runs/live-final/<base>-<run-ts>/
   final.md
   final-markdown-qc.json
 
-Usage (invoked by build_stream_markdown.py --sectioned, or standalone):
+Usage (experimental only; production live synthesis remains one Gemini call):
     python scripts/live_sectioned_synthesis.py smoke   # smoke test
 """
 from __future__ import annotations
@@ -1863,7 +1863,7 @@ def run_full_pipeline(
 ) -> str | None:
     """Orchestrate the full three-pass sectioned synthesis pipeline.
 
-    Invoked by build_stream_markdown.py --sectioned.
+    Kept as an experimental orchestration entry pending a budget-compliant CLI.
 
     Steps:
       1. Set up run directory.

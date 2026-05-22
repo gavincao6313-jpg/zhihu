@@ -6,7 +6,7 @@ into semantic sections at slide-change keyframe boundaries, and writes a single
 structured Markdown file — matching the format of replay-20260518-final.md.
 
 Usage (Windows):
-    python scripts\merge_stream_chunks.py --base zhihu-gaowei-agent-20260518
+    python scripts/merge_stream_chunks.py --base zhihu-gaowei-agent-20260518
 
 Usage (Mac/Linux):
     python scripts/merge_stream_chunks.py --base zhihu-gaowei-agent-20260518

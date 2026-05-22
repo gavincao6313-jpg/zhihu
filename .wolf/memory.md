@@ -584,3 +584,15 @@
 | 今日 | Apply 5 external-AI-review fixes (Fix1–5) to live synthesis pipeline | scripts/live_sectioned_synthesis.py, scripts/build_stream_markdown.py | ✅ syntax clean | ~800 |
 | 19:40 | Re-reviewed Fix1-Fix5 live final pipeline changes | scripts/build_stream_markdown.py, scripts/live_sectioned_synthesis.py | found remaining resume/QC/slide-boundary gaps; py_compile + smoke passed | ~900 |
 | 19:41 | Edited run_zhihu_live.bat | 7→8 lines | ~112 |
+| 19:47 | Edited run_zhihu_live.bat | 8→7 lines | ~104 |
+| 19:49 | Blocked sectioned live CLI after quota review | scripts/build_stream_markdown.py, scripts/live_sectioned_synthesis.py, .wolf/buglog.json | removed multi-request production route that violated CLAUDE Gemini budget rules | ~700 |
+| 19:55 | Re-audited 2026-05-22 live-final changes against roadmap and CLAUDE quota rules | CLAUDE.md, docs/LIVE_FINAL_QUALITY_ROADMAP.md, live final scripts | P0 fits one-shot audit goal; P1/P2 production-complete claim rejected | ~1100 |
+
+## Session: 2026-05-22 22:47
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:51 | Edited scripts/build_stream_markdown.py | 15→16 lines | ~190 |
+| 22:51 | Edited scripts/merge_stream_chunks.py | inline fix | ~22 |
+| 22:55 | fix bug-058: chunk grouping in build_stream_markdown.py — use all chunks when --run-ts absent | scripts/build_stream_markdown.py | fixed, syntax OK | ~80 |
+| 22:55 | fix bug-059: SyntaxWarning \m in merge_stream_chunks.py docstring | scripts/merge_stream_chunks.py | fixed | ~10 |
