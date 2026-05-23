@@ -7,8 +7,8 @@
 
 - `CLAUDE.md` — OpenWolf (~1508 tok)
 - `run_single_file.py` — Run zhihuTTS file pipeline on a single video for A/B testing. (~280 tok)
-- `run_zhihu_live.bat` — Windows live runner; starts `zhihuTTS_stream.py`, then merge + final Gemini synthesis. Uses a base marker to read Python-resolved output naming; default Gemini path is final one-shot only with dry-run/no-gemini controls. (~3000 tok)
-- `zhihuTTS_stream.py` — Stream/replay/live chunk capture and transcription pipeline; resolves stream `base_stem`, writes chunk artifacts/manifests, optional Gemini notes, and `--base-marker` for wrappers. (~18000 tok)
+- `run_zhihu_live.bat` — Windows live runner; defaults real live capture to continuous HLS recorder + async consumer, then merge + final Gemini synthesis. Uses a base marker to read Python-resolved output naming; default Gemini path is final one-shot only with dry-run/no-gemini controls. (~3000 tok)
+- `zhihuTTS_stream.py` — Stream/replay/live chunk capture and transcription pipeline; resolves stream `base_stem`, writes chunk artifacts/manifests, supports continuous HLS per-run work dirs, optional Gemini notes, and `--base-marker` for wrappers. (~18000 tok)
 
 ## .claude/
 
@@ -21,6 +21,9 @@
 
 - `anatomy.md` — File navigation index for the current workspace. (~164 tok)
 - `OPENWOLF.md` — OpenWolf session protocol and memory rules. (~1638 tok)
+- `memory.md` — OpenWolf session action log; append-only timeline of significant actions. (~variable)
+- `cerebrum.md` — OpenWolf persistent learnings, user preferences, do-not-repeat notes, and decisions. (~5200 tok)
+- `buglog.json` — OpenWolf bug/error log for reported or discovered issues. (~variable)
 
 ## C:/Users/Admin/.claude/projects/D--zhihu-zhihu/memory/
 
@@ -51,7 +54,7 @@
 - `build_stream_markdown.py` — Post-stream Gemini synthesis: assemble all live chunks → NotebookLM document. (~5673 tok)
 - `live_sectioned_synthesis.py` — P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents. (~30063 tok)
 - `merge_stream_chunks.py` — parse_chunk_start, parse_timestamp, load_chunk_lines, load_chunk_slides (~2020 tok)
-- `scripts/build_stream_markdown.py` — P0 live final one-shot Gemini synthesis入口；生成 final-qc/body coverage，支持 `--max-retries`/`--max-continuations`/`--dry-run` 预算控制。 (~5700 tok)
+- `scripts/build_stream_markdown.py` — P0 live final one-shot Gemini synthesis入口；生成 final-qc/body coverage，支持 `--max-retries`/`--max-continuations`/`--dry-run` 预算控制，并确定性追加完整逐字稿/视觉证据索引；`--mock-gemini-text` 用于离线端到端验证。 (~6500 tok)
 - `scripts/check_auth.py` — 鉴权检查工具。 (~80 tok)
 - `scripts/live_sectioned_synthesis.py` — P1-P2 分层合成主模块。新增 `run_full_pipeline()` 公共入口（Fix1）。Fix2: evidence hash 含 cleaned_transcript+frame type/ts+stale传播。Fix3: slide边界 frame key 归一化。Fix4: 术语词边界。 (~23000 tok)
 - `scripts/merge_stream_chunks.py` — 合并 stream chunk 文件。 (~300 tok)

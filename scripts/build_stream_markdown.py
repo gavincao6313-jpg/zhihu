@@ -21,6 +21,9 @@ Options:
     --runs-dir      Directory with per-chunk files (default: runs)
     --markdowns-dir Output directory for NotebookLM document (default: Markdowns)
     --run-ts        Use a specific run timestamp YYYYMMDD-HHMMSS (default: latest run)
+    --dry-run       Print QC and Gemini budget without calling Gemini
+    --mock-gemini-text FILE
+                    Offline validation only: use FILE as Gemini output and write final Markdown
 """
 import argparse
 import json
@@ -389,6 +392,9 @@ def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
         f" | gaps: {manifest['gap_count']}"
         f" | transcript: {manifest['transcript_chars']:,} 字"
         f" | frames: {manifest['frame_count']}",
+        f"> - 确定性附录: 完整逐字稿"
+        f" ({manifest.get('transcript_appendix_chars', 0):,} 字)"
+        f" | 视觉证据索引 ({manifest.get('visual_evidence_count', 0)} 帧)",
     ]
 
     if status in ("partial", "interrupted"):
@@ -410,6 +416,48 @@ def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
     return "\n".join(lines) + "\n\n" + gemini_text
 
 
+def _md_cell(text: str) -> str:
+    return str(text).replace("\n", " ").replace("|", "\\|").strip()
+
+
+def build_visual_evidence_index(frames: list[dict]) -> str:
+    """Build a deterministic, searchable index of frames sent to Gemini."""
+    lines = [
+        "## 附录 B：视觉证据索引",
+        "",
+        f"共 {len(frames)} 帧。该索引由本地 payload 确定性生成，不消耗 Gemini API。",
+        "",
+        "| 时间 | 标记 | 文件 |",
+        "|------|------|------|",
+    ]
+    for frame in frames:
+        ts = fmt_ts(int(frame.get("timestamp_s", 0)))
+        marker = frame.get("marker") or f"Frame [{ts}]"
+        path = frame.get("path", "")
+        lines.append(f"| {ts} | {_md_cell(marker)} | `{_md_cell(path)}` |")
+    return "\n".join(lines)
+
+
+def append_deterministic_appendices(gemini_text: str, transcript: str, frames: list[dict]) -> str:
+    """Append auditable local artifacts after Gemini body without extra API calls."""
+    transcript = transcript.rstrip()
+    sections = [
+        gemini_text.rstrip(),
+        "---",
+        "## 附录 A：完整逐字稿",
+        "",
+        "以下为本地转写得到的完整文字记录，保留时间戳，便于检索、复盘和重新生成摘要。",
+        "",
+        "````text",
+        transcript,
+        "````",
+        "",
+        build_visual_evidence_index(frames),
+        "",
+    ]
+    return "\n".join(sections)
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -428,12 +476,14 @@ def main() -> None:
                     help=f"Gemini continuation cap after MAX_TOKENS (default: {MAX_CONTINUATIONS})")
     ap.add_argument("--dry-run", action="store_true",
                     help="Print input/QC/Gemini budget only; do not call Gemini or write Markdown")
+    ap.add_argument("--mock-gemini-text", default="",
+                    help="Offline validation only: use this file as Gemini output and do not call Gemini")
     args = ap.parse_args()
 
     api_key = (
         os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY") or ""
     ).strip()
-    if not api_key and not args.dry_run:
+    if not api_key and not args.dry_run and not args.mock_gemini_text:
         print("[!] No GEMINI_API_KEY — set the env var and re-run.")
         sys.exit(1)
 
@@ -487,21 +537,28 @@ def main() -> None:
     print(f"  max successful calls : {max_successful_calls} (1 initial + {args.max_continuations} continuation)")
     print(f"  retry cap            : {args.max_retries}")
     print("  duplicate synthesis  : false")
+    if args.mock_gemini_text:
+        print(f"  offline validation   : {args.mock_gemini_text} (no API call)")
 
     if args.dry_run:
         print("\n[dry-run] Skipping Gemini call and Markdown write.")
         return
 
-    print("\n=== Gemini: Building NotebookLM document ===")
-    http_opts = types.HttpOptions(timeout=3600000)
-    client    = genai.Client(api_key=api_key, http_options=http_opts)
+    if args.mock_gemini_text:
+        print("\n=== Offline validation: using mock Gemini text ===")
+        gemini_text = Path(args.mock_gemini_text).read_text(encoding="utf-8")
+        manifest["synthesis_pass"] = "mock-one-shot"
+    else:
+        print("\n=== Gemini: Building NotebookLM document ===")
+        http_opts = types.HttpOptions(timeout=3600000)
+        client    = genai.Client(api_key=api_key, http_options=http_opts)
 
-    parts = build_gemini_parts(transcript, all_frames)
-    gemini_text = call_gemini(
-        client, parts, args.base,
-        max_retries=args.max_retries,
-        max_continuations=args.max_continuations,
-    )
+        parts = build_gemini_parts(transcript, all_frames)
+        gemini_text = call_gemini(
+            client, parts, args.base,
+            max_retries=args.max_retries,
+            max_continuations=args.max_continuations,
+        )
 
     if not gemini_text:
         print("[!] Gemini synthesis failed — merged raw transcript still available.",
@@ -520,10 +577,14 @@ def main() -> None:
         manifest["warnings"].append(
             "body_coverage_unverifiable: no timestamped chapter headings found in Gemini output"
         )
+    manifest["transcript_appendix_chars"] = len(transcript.strip())
+    manifest["visual_evidence_count"] = len(all_frames)
+    manifest["deterministic_appendices"] = ["full_transcript", "visual_evidence_index"]
     # Re-write QC JSON with body coverage fields included.
     qc_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
     gemini_text = prepend_quality_header(gemini_text, manifest)
+    gemini_text = append_deterministic_appendices(gemini_text, transcript, all_frames)
 
     markdowns_dir.mkdir(parents=True, exist_ok=True)
     out_path = markdowns_dir / f"TTS_stream-{args.base}.md"

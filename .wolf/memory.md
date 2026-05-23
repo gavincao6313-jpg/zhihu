@@ -452,7 +452,6 @@
 | 08:34 | Edited run_single_file.py | 2→1 lines | ~17 |
 | 08:36 | Edited run_single_file.py | 2→2 lines | ~16 |
 
-<<<<<<< Updated upstream
 ## Session: 2026-05-22 11:44
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -618,9 +617,16 @@
 | 23:18 | Edited scripts/merge_stream_chunks.py | 8→11 lines | ~196 |
 | 23:19 | Edited scripts/build_stream_markdown.py | modified startswith() | ~85 |
 | 23:19 | Edited scripts/build_stream_markdown.py | 6→10 lines | ~139 |
-=======
-## Session: 2026-05-22 10:25
+
+## Session: 2026-05-23 09:37
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
->>>>>>> Stashed changes
+| 09:37 | Fixed WIN-reported live naming propagation bug | run_zhihu_live.bat, zhihuTTS_stream.py, .wolf/buglog.json, .wolf/cerebrum.md, .wolf/anatomy.md | BAT no longer passes fallback --name in auto mode; Python writes resolved base marker; BAT uses marker for merge/final Gemini | ~1600 |
+| 09:40 | Verified naming fix | zhihuTTS_stream.py, run_zhihu_live.bat, .wolf/buglog.json | py_compile, --help, marker helper, buglog JSON, diff check all passed; Windows BAT runtime not executed on Mac | ~500 |
+| 09:54 | Implemented live Gemini quota guardrails from retrospective | run_zhihu_live.bat, scripts/build_stream_markdown.py, .wolf/buglog.json, .wolf/cerebrum.md, .wolf/anatomy.md | Stream-stage --gemini removed from BAT default; added --dry-run/--no-gemini and max retry/continuation budget controls | ~1500 |
+| 10:49 | Fetched latest WIN validation artifacts | origin/main, origin/feature/stream-transcript-validation | Remote refs advanced to origin/main@effc9c1 and stream branch@6c07234; local dirty files preserved | ~300 |
+| 11:24 | Reviewed three-way live/replay/local validation artifacts | origin/main@effc9c1, origin/feature/stream-transcript-validation@6c07234, .wolf/cerebrum.md | Found replay/local stable; live final body under-covers captured transcript; latest live run does not validate main-branch P0/naming/budget fixes | ~3500 |
+| 11:38 | Aligned live transcript against replay transcript | stream-1 combined transcript, TTS_0523_replay markdown, .wolf/cerebrum.md, .wolf/buglog.json | Live start maps to replay ~00:10:27; sequential chunk overhead explains ~13.0 min missing after start; ASR density is not the 42% gap driver | ~1800 |
+| 11:57 | Implemented P0-P2 live pipeline hardening | run_zhihu_live.bat, zhihuTTS_stream.py, scripts/build_stream_markdown.py, .wolf/anatomy.md, .wolf/cerebrum.md | BAT defaults to continuous HLS without stream-stage Gemini; HLS uses per-run work dirs; final Markdown appends transcript and visual evidence index; offline E2E mock path added | ~2400 |
+| 12:01 | Tightened continuous-HLS BAT resume handling | run_zhihu_live.bat | --resume is now rejected in default continuous HLS entry instead of being silently ignored; operator is pointed to --hls-consumer-only for existing .ts segments | ~300 |
