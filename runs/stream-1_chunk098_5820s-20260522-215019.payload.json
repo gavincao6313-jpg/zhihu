@@ -1,0 +1,64 @@
+{
+  "video_name": "1_chunk098_5820s",
+  "full_text": "[00:00:00 - 00:01:00] 去调控一下不同的。啊，身份和不同的背景和不同的特长的孩子的比例和构成。所以这样才能让1个40人的赢的分组和活动能比较顺利的进行。所以呢啊价格上面，他会有一个啊标价，你去加那个老师他就会告诉你那个标价是多少。但是在那个标价的基础上，你的孩子如果面试的比较顺利。可能还能拿到拿到更多优惠。但是在这个更多优惠的这个金额上面，可能啊就就首先是你的那个500块钱能抵1000块钱吧。然后再看你的面试是不是能拿到一个比较好的评价。如果能的话，可能还能在那个价格上能拿到更多的优惠，所以你的最好的方式就是直接先去扫一个码，付了500块钱的那个啊面试预约金之后，那个老师会先告诉你定价就是标准价是多少钱啊，会告诉你。OK.",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk098_5820s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk098_5820s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.3303"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk098_5820s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.0928"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk098_5820s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.2881"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk098_5820s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.2881"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk098_5820s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=slide diff=0.362"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.3303
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.0928
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.2881
+    },
+    {
+      "type": "slide",
+      "frame_idx": 55,
+      "diff": 0.362
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 325
+  }
+}

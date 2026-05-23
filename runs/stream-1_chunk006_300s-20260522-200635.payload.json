@@ -1,0 +1,44 @@
+{
+  "video_name": "1_chunk006_300s",
+  "full_text": "[00:00:00 - 00:01:00] 学过AI课，就是但是我们可能不主要在学模型训练，所以可能也没有那么熟。就是什么时候32有点小了，什么时候应该可以调到256。这个其实已经挺难的一件事情了。就是我听了大概几个小孩在给我讲题。我会发现他可能按照我们平时比如我们知乎的招聘标准，他已经完全超越了一个大学毕业生，可能他掌握的能力，大概是一个人工智能专业的研究生一年级或者研究生二年级的水平。所以这样我们非常非常吃惊。这是一个高一的孩子。高一你看他的校服，这个校服你能看出来这个校服是哪个学校，能看出这个校服是哪个学校。😊你这个孩子就是一个可能不是受家庭影响的，就受学校影响会比较严重。因为学校提供了这种比较好的资源，人大附中对吧？人大附中所以。对人大附中的。所以嗯这个就是那个比赛啊，它的在全球的呃AI的奥林匹克竞赛的全称叫做IOAI啊，在中国区的比赛叫。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk006_300s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk006_300s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.022"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk006_300s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.022"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk006_300s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=slide diff=0.3683"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.022
+    },
+    {
+      "type": "slide",
+      "frame_idx": 47,
+      "diff": 0.3683
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 379
+  }
+}

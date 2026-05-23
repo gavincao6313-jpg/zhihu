@@ -1,0 +1,34 @@
+{
+  "video_name": "1_chunk043_2520s",
+  "full_text": "[00:00:00 - 00:01:00] 你的这件事情是不是应该这样这样做或那样那样做才有更好的可能性。我们见过这样的孩子，真的十二三岁。他就能说得出来的这样这样的话，而且我们并不会哄堂大笑，甚至会引发我们的一些思考，说可能还真的是一个角度。虽然可能再过几秒钟又被我们推翻了，但是。但我们会觉得现在的十二三岁的孩子真的是挺厉害的啊，9岁差不多啊，9岁可以试一试，9岁可以试一试。😊所以这个过程当中是为了让他去体验千行百业，千行百业的智能化和AI化的进程到底是怎么样的，落地的困难到底是怎么样？让他理解什么叫做行业。什么样叫做场景，什么样东西叫做需求，然后什么样的东西叫做方案，什么东西叫AI的落地，这是第一个啊，你可能你的孩子入选之后会去体验到的叫AI产业转型。第二个叫做AI生产力验证。如果有需求的情况下，我们大多。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk043_2520s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk043_2520s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.1076"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk043_2520s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.1076"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.1076
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 360
+  }
+}

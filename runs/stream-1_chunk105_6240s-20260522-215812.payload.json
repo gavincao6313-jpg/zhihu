@@ -1,0 +1,29 @@
+{
+  "video_name": "1_chunk105_6240s",
+  "full_text": "[00:00:00 - 00:01:00] 此为止啊，又是10点钟了。看我们这个时间的拿捏，大家还有问题没有，没有，我准备下播了啊，据说名额也已经差不多了。OK没有问题了。行，那我们今天的直播就暂时先到这里，然后给大家上线的几个计划也都介绍清楚了。那接下来会希望能在更多的活动上面跟大家见面，看看，不管是工作坊还是夏令营还是专家的一对一，对吧？我也是专家专家的一对一里面的辅导老师之一，也希望未来可能能跟你或跟你的孩子啊，或者是跟你们一起有见面和交流的机会。好吧，那我们今天的直播就到这里没有扫码的，赶紧扫码啊，没有报名的，赶紧报名，然后啊希望在未来的时间里面能跟大家有更多的交流机会。OK那我们今天就这样，那我们直播就结束了。大家拜拜。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk105_6240s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk105_6240s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=slide diff=0.3409"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 48,
+      "diff": 0.3409
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 320
+  }
+}

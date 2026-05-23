@@ -1,0 +1,34 @@
+{
+  "video_name": "1_chunk024_1380s",
+  "full_text": "[00:00:00 - 00:01:00] 提示跟真实的成年人世界相关的时候，你会发现他们能做得出来的。不管是一个网站，一个小程序还是1个APP。就是我我觉得可能我我们过去呃小小看他们了，一个中一个初中生，一个高中生，他们真的会做一个炒股票的软件。他上来就跟你说，I wna be rich,我想变得我想变有钱啊，我就想变有钱的孩子真的不是一个两个的，就是他不是说他现在有多穷，是因为家长管他的零花钱。所以孩子们对于赚钱的诉求非常迫切，对吧？非常非常有趣，这就是就炒股票赚钱或者这个什么什么或者个什么，所以他对成年人世界是非常非常感兴趣，非常有探索欲。然后如果能跟赚钱相关，他会更加有兴趣。因为他可以去给自己的游戏充值，去去去买自己的什么收集卡片，对吧？就可以呃给自己赚更多的零花钱。所以。你会发现成年人的世界里面的东西放到他们的课堂上，好像我们也收到了非常多非常正向的反馈。于是这。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk024_1380s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk024_1380s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.2548"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk024_1380s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2548"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.2548
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 393
+  }
+}

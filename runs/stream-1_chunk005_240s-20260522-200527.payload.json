@@ -1,0 +1,29 @@
+{
+  "video_name": "1_chunk005_240s",
+  "full_text": "[00:00:00 - 00:01:00] 啊。变成0.97OK那然后但是呢这个其实还不是最重的版本，就是因为我当会还能看到，就是他用的是resnet18这一个模型。res。那那其实这个res18的话，它呃后面还有一个更强一点的强强一些的模型，叫做resnet的呃。就是叫r赛50。大家有感受到一个高一的小孩说出来的话，就是呃比如提到了epo，提到了bach size32太小GPU占率太低，所以他调到了256。比如说提到了res18这个模型可能还不太不太够。然后他就换成了res50。就如果你听过我的原理科的话，可能听过这些词对吧？s就是一个卷积神经网络，就是就是当年何凯明，何凯明那个大神就是res，就是那个那个卷积神经网络的一个图像识别的模型，然后里面啊对吧？然后其实就是卷积了，然后但但但是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk005_240s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk005_240s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.1344"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1344
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 2,
+    "text_chars": 350
+  }
+}

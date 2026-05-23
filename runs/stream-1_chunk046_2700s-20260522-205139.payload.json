@@ -1,0 +1,34 @@
+{
+  "video_name": "1_chunk046_2700s",
+  "full_text": "[00:00:00 - 00:01:00] 那就是技术落地的实践。第三个呢就是我们偏社会偏联合国SDJ。因为我们有太多的项目。比如说我们呃昨天有一个合作伙伴，一个一个抖音上面的一个知识教育类的博大博主，一个大网红在跟我们讲说他有1个孩子做了1个AI的应用是帮助老年人是老年人过马路还是老年人急救来着，好像是老年人急救，就是有很多跟社会问题相关的，有一些弱势群体，有很多有很多不不平等，有很多不普惠，有很多跟环境相关，很多跟人口相关，很多跟跟阶级相关或或或等等之类的。所以你会发现跟社会相关，跟联合国可持续发展的目标相关的，其实是有一系列的啊，包括教育普惠，包括等等之类的。你会发现这里面可做的工作还是挺多的。而且。如果你家的孩子是啊啊比如说要锻炼英语，要你希望他他接触更多啊呃全世界。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk046_2700s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk046_2700s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.2705"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk046_2700s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.2705"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.2705
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 342
+  }
+}

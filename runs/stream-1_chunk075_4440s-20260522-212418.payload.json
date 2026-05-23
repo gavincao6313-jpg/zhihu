@@ -1,0 +1,79 @@
+{
+  "video_name": "1_chunk075_4440s",
+  "full_text": "[00:00:00 - 00:01:00] 场地，然后呢住和这个活动应该就是在同一个酒店。所以他的这个这个营的详细的介绍呢，我来给大家播放一段我们的QR老师专门给大家录制一段视频啊，来介绍一下这个暑期赢清华附中同款。hello,学生教育系统证OK从这儿开始。😊孵化营的理念和初心。那下面我们来看一下这个项目。首先呢他是为10到18岁的青少年打造的。在2026年暑假的7到8月份，北京和深圳两个地方开营有一能见到崔老师。是的，我我会去，我还有讲课呢。就你家孩子我也得讲课，对吧？是可以见到我。的AI专家带队6天5晚的时间。那听到这里可能会有家长或者老师会问十几岁的孩子创业，这真的不是噱头嘛。那其实我个人认为这个项目最妙的地方就在这里啊，以前让一个小朋友去创业确实不现实，没有技术，没有资源，对吧？但是现在我们会发现这个时代AI的出现，会把创业的门槛降。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.2865"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.1219"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.1219"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.1885"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0289"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk075_4440s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0289"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.2865
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.1219
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.1885
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.0289
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 377
+  }
+}

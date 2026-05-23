@@ -1,0 +1,109 @@
+{
+  "video_name": "1_chunk012_660s",
+  "full_text": "[00:00:00 - 00:01:00] 他的这个大纲基本上也跟刚刚的那个NOAI的奥林匹克竞赛的呃大纲是差不多的，基本上都是模型训练那套东西，预训练模型架构对吧？等等之类的东西。你看这里面的啊具体的知识点啊，继续学习神经网络混合专家模型，对吧？上下文transformer对吧？transformer都要考，对吧？transformer监督学习回归自监督学习率优化啊批次，对吧？于是我们发现好好吧，可能这就是国家设定的国家设定的中小学生应该要去学习的AI的知识点。于是我们就做了一件很有意思的事情。因为我们也想说，我们能不能也啊培养一批孩子去参加这样的比赛，然后帮助国家去拿更多的金牌回来。于是我们就跟这样一个学校建立了一个合作关系。这个学校是。😊广东中山的一个一所中学叫做中山纪念中学。这个中山纪念中学呢，它的信息学奥赛特别强。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.1372"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.1372"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0588"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.0588"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.0495"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.0495"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=slide diff=0.3393"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.061"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.0504"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.0504"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk012_660s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=slide diff=0.3301"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.1372
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.0588
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.0495
+    },
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.3393
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.061
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.0504
+    },
+    {
+      "type": "slide",
+      "frame_idx": 48,
+      "diff": 0.3301
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 5,
+    "frames_total": 12,
+    "text_chars": 367
+  }
+}

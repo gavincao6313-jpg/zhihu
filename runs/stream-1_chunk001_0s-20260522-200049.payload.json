@@ -1,0 +1,69 @@
+{
+  "video_name": "1_chunk001_0s",
+  "full_text": "[00:00:00 - 00:01:00] 到点了，我们我们先我们开始今天直播，然后我们。讲讲我们今天要上线两个什么样的这个东西啊，今天是公益免费项目的上线，但是可能十几岁的，就十0岁及以上的，你们可能呃是适合直接报名的。那你们这些6岁的9个月的，你们就先跟着听一听这个看看这个未来你的培养方向大概是什么样子吧。呃今天大概内容就两个公益活动，一个是线下的这个工作坊，一个是专家一对一，而且两个都是公益的免费的。一会儿我会呃简单好好讲讲也会讲讲我们提供的青少的完整的培养体系，到现在大概打磨成什么样的。这其实是呃怎么讲，我们大概有半年多的时间了吧。其实其实这方面的工作已经半年多时间了。这半年多其实一直没有在公众面前去露面，一直在做一些非常扎实的工作。然后呢，今天终于可以开始上线一些事情了。然后呢，希望有一些招募。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk001_0s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk001_0s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.2638"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk001_0s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.2638"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk001_0s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=slide diff=0.3838"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk001_0s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1611"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk001_0s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1611"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk001_0s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.3915"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.2638
+    },
+    {
+      "type": "slide",
+      "frame_idx": 24,
+      "diff": 0.3838
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.1611
+    },
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.3915
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 7,
+    "text_chars": 358
+  }
+}

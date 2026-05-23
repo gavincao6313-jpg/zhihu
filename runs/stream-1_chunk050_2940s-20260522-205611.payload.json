@@ -1,0 +1,59 @@
+{
+  "video_name": "1_chunk050_2940s",
+  "full_text": "[00:00:00 - 00:01:00] 莫欣老师也加入到这个项目里面来了啊，也会这个这几个老师呃呃都是我刷脸找来的对吧？我跟他们说没没有钱赚，没有钱赚，都是公益项目。都都是公益项目没有钱赚，这老师说没问题呀，没问题，对吧？就要搞这个的话，就肯定不是为了赚钱去的。所以呢包括我们的这个雷拉老师，来自于字节跳动，十几年的互联网产品和设计经验。我们的燕文老师本身也是自媒体大V，全网30多万粉丝，本身也是我们前知乎的呃MCN的负责人，是我们知乎的MCN负责人，一直一直做大量的市场工作。所以来自于字节跳动的雷拉老师，来自于知乎的燕文老师，来自于这个美团和百度的莫心老师，来自于这个这这这只是部分老师呀，只是部分老师。所以这些部分老师都参与到了这个免费的公益的一对一的这个。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk050_2940s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk050_2940s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.0397"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk050_2940s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.0397"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk050_2940s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.0405"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk050_2940s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.0405"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk050_2940s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=slide diff=0.6796"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 21,
+      "diff": 0.0397
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.0405
+    },
+    {
+      "type": "slide",
+      "frame_idx": 54,
+      "diff": 0.6796
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 336
+  }
+}

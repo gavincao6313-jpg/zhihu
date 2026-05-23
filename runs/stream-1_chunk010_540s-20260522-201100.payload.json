@@ -1,0 +1,49 @@
+{
+  "video_name": "1_chunk010_540s",
+  "full_text": "[00:00:00 - 00:01:00] 那道题在国内所有的高1高2的孩子，所有做过那道题，在比赛现场做过那道题的全中国内的这个高1高2的孩子，大概有几百人。其中有这么多人做过那道题，做过这道题的孩子里面，居然有这么多人的得分是在90分以上的。57%的孩子。在做刚刚那道题的分数是这个90分以上，也就是他训练了一个呃图像识别模型去检测音频是不是AI生成的。这个真的挺惊讶的。所以这个就是我们从去年开始接触这件事情的时候，我们就发现真的挺有意思的。于是啊一个中学生到底适合学习什么样的AI内内容，我们会发现okK好吧，可能是这样一个方向。于是我们也就非常欣喜的，非常欣然的加入到了这个AI的奥林匹克竞赛的出题组对吧？我也成了这个出题组的里面的一员啊，因为除了呃大概有5个呃出题组的专家是来。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk010_540s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk010_540s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.1777"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk010_540s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.1777"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk010_540s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.0235"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk010_540s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.0235"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.1777
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.0235
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 345
+  }
+}

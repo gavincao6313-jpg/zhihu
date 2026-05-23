@@ -1,0 +1,34 @@
+{
+  "video_name": "1_chunk036_2100s",
+  "full_text": "[00:00:00 - 00:01:00] 商业化也好，但是你会发现，99%的孩子的AI的学习可能截止到这样一个位置就结束了啊，不能算真正的落地。但是这个落地呢看我们对于落地的标准是什么了啊，对于落地的标准是很好奇，我可以听的课是什么啊？你可以听的我们没有提供大家成年人可以听的课，我们提供我们现在提供的是孩子要听的课没有提供成年人。那你你那个成年人可以带着带着带着小孩一起来线下，对吧？可以一起来线下。所以所谓的落地，我们在我们合作的一个学校里面找到了一个不错的孩子的样本，这是我们合作的一个学校里面的一个高中部的孩子啊，王同学。😊。他是他们学校的那个排课系统，特别难用啊，我们发现这个几乎所有的学校的里面的排课系统都非常难用。他们学校的排课系统也非常难用。然后呢，他用AI coding嘛，AI coding帮学校做了一套新的排课系统做的非常好。而且呢又对于学校的人力资源啊和老。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk036_2100s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk036_2100s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.0218"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk036_2100s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.0218"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.0218
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 393
+  }
+}

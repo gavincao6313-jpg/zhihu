@@ -1,0 +1,34 @@
+{
+  "video_name": "1_chunk027_1560s",
+  "full_text": "[00:00:00 - 00:01:00] 错了，所以我们也顺势觉得okK我们做这些工作已经做了半年了，不管是偏。奥赛的偏神经网络机续学习的，还是偏AIcoing的和真实生活的，还是跟产业对接的。我们都已经磨了半年了。那当清华附中的老师们提出这个诉求，我们我们也就欣然接受。那就说好吧。那啊你们的这个呃商业性的这个夏令营，就由我们来去做做交付吧。所以现在也在也在紧锣密鼓的再去做啊所有的交付工作的这个筹备工作。所以但是这个过程当中，我们也得到一些呃比较重要的结论吧。第一个事情是说，算法工程商业确实都是一些很不错的方向，确实是但是可能体系筛选和适配才是更重要的教学方法，就是这个过这个这个过程当中其实不是考验的，我们教的好不好，其实适配可能才是最重要的呃那个结果，就是你到底在。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk027_1560s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk027_1560s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.163"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk027_1560s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.163"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.163
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 339
+  }
+}

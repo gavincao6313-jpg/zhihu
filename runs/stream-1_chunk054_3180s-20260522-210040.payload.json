@@ -1,0 +1,34 @@
+{
+  "video_name": "1_chunk054_3180s",
+  "full_text": "[00:00:00 - 00:01:00] 。到了今年下半年，这些资源都不可能再是免费的。到了今年下半年都不太。所以这第二个公益活动的报名方式呢比较简单啊，还是扫码啊还是扫码扫码呢，那首先它的这个第二个公益活动，他的全称呢叫做专家AI专家一V1啊，是青少年精英跃迁计划，也是公益的免费的，也是适合10到16岁，但你说你家小孩9岁行不行？那9岁也差不多，17岁行不行？17岁也差不多，那18岁可能基本上不是在高考就是在申请这个国外学校，这个可能就不一定有空的啊。如果你如果如果1817八岁的，你家孩子也有空来报名也没啥问题，但是核心主力肯定是10到16岁是最合适。😊时间上也合适，然后呢精历上也合适，这个智力发展水平也是最合适。然后呢，我们的这个报名的这个截止呢，它是一个滚动性的开启啊，就是每一轮的报名呢。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk054_3180s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk054_3180s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.1403"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk054_3180s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.1403"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.1403
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 353
+  }
+}
