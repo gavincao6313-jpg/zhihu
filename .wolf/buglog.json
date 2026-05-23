@@ -880,6 +880,24 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-22T11:31:18.392Z"
+    },
+    {
+      "id": "bug-055",
+      "timestamp": "2026-05-23T10:00:00.000Z",
+      "error_message": "Naming rule from 94b2a71 (live_YYYYMMDD_<title>) not applied to final Gemini synthesis output — TTS_stream-1.md instead of TTS_stream-live_20260522_<title>.md",
+      "file": "scripts/build_stream_markdown.py, run_zhihu_live.bat",
+      "root_cause": "94b2a71 only updated zhihuTTS_stream.py fallback naming; BAT still passes --name explicitly (overriding new rule); build_stream_markdown.py uses --base from BAT; merge step also uses BAT's NAME variable. Three-link chain break: zhihuTTS_stream.py (new rule skipped when --name set) → BAT (never reads back base_stem) → build_stream_markdown.py (no title/date formatting).",
+      "fix": "See runs/BUG_EVIDENCE_NAMING_20260523.md for full analysis. Recommended: BAT stops passing --name, zhihuTTS_stream.py writes base_stem to marker file, BAT reads marker for merge/synthesis --base args.",
+      "tags": [
+        "naming",
+        "gemini-synthesis",
+        "bat-wrapper",
+        "cross-module",
+        "L2"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T10:00:00.000Z"
     }
   ]
 }
