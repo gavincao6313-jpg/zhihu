@@ -4,14 +4,12 @@ setlocal enabledelayedexpansion
 :: run_zhihu_live.bat  知乎直播流一键转写
 ::
 :: 用法:
-::   run_zhihu_live.bat <直播间URL> [输出名] [--resume] [--no-gemini] [--dry-run]
+::   run_zhihu_live.bat <直播间URL> [输出名] [--no-gemini] [--dry-run]
 ::
 :: 示例:
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx"
 ::     （不填名称时由 Python 按 live_YYYYMMDD_<页面标题> 自动命名）
-::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519 --resume
-::     （--resume 从上次中断的 chunk 结束时间点继续，需同名 checkpoint 文件存在）
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" --dry-run
 ::     （只打印命令和 Gemini 预算，不启动直播转写）
 ::
@@ -65,12 +63,19 @@ if /i "%~2"=="--resume" (
     set "NAME=%~2"
 ) else (
     echo [错误] 无法识别或重复的参数: %~2
-    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--resume] [--no-gemini] [--dry-run]
+    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--no-gemini] [--dry-run]
     exit /b 1
 )
 shift /2
 goto PARSE_ARGS
 :ARGS_DONE
+
+if not "!RESUME_FLAG!"=="" (
+    echo [错误] 当前默认 continuous HLS 直播入口不支持 --resume。
+    echo        若需处理中断后已落盘的 .ts 分片，请手动使用:
+    echo        python zhihuTTS_stream.py --hls-consumer-only --stream-work-dir ^<上次日志中的 HLS work dir^>
+    exit /b 1
+)
 
 :: merge_vad=true 适合 60s 分片（短片段内 VAD 合并让文本更连贯）
 set "SENSEVOICE_MERGE_VAD=true"
@@ -123,6 +128,7 @@ if "!DRY_RUN!"=="1" (
         echo  输出名              : !REQUESTED_NAME!
     )
     echo  Python               : !PYTHON!
+    echo  采集模式            : continuous HLS recorder + async consumer
     echo  直播转写 Gemini       : disabled
     if "!FINAL_GEMINI_ENABLED!"=="1" (
         echo  最终 NotebookLM Gemini: enabled
@@ -133,7 +139,7 @@ if "!DRY_RUN!"=="1" (
         echo  最终 NotebookLM Gemini: disabled
     )
     echo.
-    echo  Step 1: zhihuTTS_stream.py --base-marker ^<marker^> ^(no --gemini^)
+    echo  Step 1: zhihuTTS_stream.py --continuous-hls --base-marker ^<marker^> ^(no --gemini^)
     echo  Step 2: merge_stream_chunks.py --base ^<resolved marker base^>
     echo  Step 3: build_stream_markdown.py --base ^<resolved marker base^> --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS!
     echo ====================================================
@@ -219,6 +225,7 @@ if "!REQUESTED_NAME!"=="" (
 )
 echo  URL   : !PAGE_URL!
 echo  Auth  : !AUTH_STATE!
+echo  Mode  : continuous HLS recorder + async consumer
 if "!GEMINI_API_KEY!"=="" (
     echo  Gemini: 未设置 GEMINI_API_KEY，将跳过最终 NotebookLM 生成
 ) else if "!NO_GEMINI!"=="1" (
@@ -268,30 +275,30 @@ echo.
 ) >> "!LOG_FILE!" 2>&1
 
 :: ---- [1/3] 主转写（-u 保证实时刷入日志，不缓冲）----
-echo [%date% %TIME: =0%] [1/3] 开始直播转写... >> "!LOG_FILE!" 2>&1
+echo [%date% %TIME: =0%] [1/3] 开始直播转写（continuous HLS，不在采集阶段调用 Gemini）... >> "!LOG_FILE!" 2>&1
 if exist "!BASE_MARKER!" del "!BASE_MARKER!" >nul 2>&1
 if "!REQUESTED_NAME!"=="" (
     "!PYTHON!" -u "!SCRIPT_DIR!zhihuTTS_stream.py" ^
       --playwright-keepalive ^
+      --continuous-hls ^
       --page-url "!PAGE_URL!" ^
       --playwright-storage-state "!AUTH_STATE!" ^
       --playwright-save-storage-state "!AUTH_STATE!" ^
       --duration 0 ^
       --chunk-duration 60 ^
       --stream-work-dir "!STREAM_WORK_DIR!" ^
-      --cleanup-slices ^
       --base-marker "!BASE_MARKER!" ^
       !RESUME_FLAG! >> "!LOG_FILE!" 2>&1
 ) else (
     "!PYTHON!" -u "!SCRIPT_DIR!zhihuTTS_stream.py" ^
       --playwright-keepalive ^
+      --continuous-hls ^
       --page-url "!PAGE_URL!" ^
       --playwright-storage-state "!AUTH_STATE!" ^
       --playwright-save-storage-state "!AUTH_STATE!" ^
       --duration 0 ^
       --chunk-duration 60 ^
       --stream-work-dir "!STREAM_WORK_DIR!" ^
-      --cleanup-slices ^
       --name "!REQUESTED_NAME!" ^
       --base-marker "!BASE_MARKER!" ^
       !RESUME_FLAG! >> "!LOG_FILE!" 2>&1

@@ -1471,6 +1471,7 @@ class SegmentConsumer(threading.Thread):
             "version": 2,
             "created_at": self._created_at,
             "base_stem": self._base_stem,
+            "work_dir": str(self._work_dir),
             "processed_segments": sorted(self._processed),
             "failed_segments": self._failed,
             "chunks": self._chunks,
@@ -1483,6 +1484,7 @@ class SegmentConsumer(threading.Thread):
         return {
             "created_at": self._created_at,
             "base_stem": self._base_stem,
+            "work_dir": str(self._work_dir),
             "chunks": self._chunks,
             "processed_segments": sorted(self._processed),
             "failed_segments": self._failed,
@@ -1558,6 +1560,7 @@ def _finalize_hls_run(
         "combined_transcript_path": str(combined_transcript_path),
         "manifest_json_path": str(manifest_json_path),
         "manifest_md_path": str(manifest_md_path),
+        "hls_work_dir": results.get("work_dir", ""),
         "combined_transcript_text": combined_text,
         "preview": combined_text[:1200],
     }
@@ -1588,7 +1591,9 @@ def run_continuous_hls(args: argparse.Namespace) -> dict:
         write_base_marker(getattr(args, "base_marker", ""), base_stem)
         chunk_duration_s = parse_time(args.chunk_duration or "60")
 
-        work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
+        root_work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
+        session_ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+        work_dir = root_work_dir / f"{base_stem}-{session_ts}"
         work_dir.mkdir(parents=True, exist_ok=True)
 
         recorder_stopped = threading.Event()
@@ -1602,6 +1607,7 @@ def run_continuous_hls(args: argparse.Namespace) -> dict:
         print(f"Name    : {base_stem}")
         print(f"Work dir: {work_dir}")
         print(f"Chunk   : {chunk_duration_s}s")
+        print("Gemini  : disabled during capture/consumer; final synthesis is a separate step")
         print()
 
         recorder.start()

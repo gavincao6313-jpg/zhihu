@@ -1099,6 +1099,63 @@
       ],
       "occurrences": 1,
       "last_seen": "2026-05-23T09:54:28+08:00"
+    },
+    {
+      "id": "bug-068",
+      "timestamp": "2026-05-23T11:24:00+08:00",
+      "error_message": "Local review commands hit environment/tooling errors: sandbox denied git fetch writing .git/FETCH_HEAD, sandbox denied npx gitnexus analyze writing ~/.gitnexus/registry.json, and jq was not installed",
+      "file": "environment",
+      "root_cause": "Workspace sandbox blocks writes to .git and ~/.gitnexus without approval; jq is not available in the local shell environment.",
+      "fix": "Retried git fetch and npx gitnexus analyze with approved escalation; replaced jq JSON summarization with a node stdin parser.",
+      "tags": [
+        "environment",
+        "sandbox",
+        "gitnexus",
+        "tooling",
+        "jq"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T11:24:00+08:00"
+    },
+    {
+      "id": "bug-069",
+      "timestamp": "2026-05-23T11:38:19+08:00",
+      "error_message": "2026-05-22 live URL-slice validation accumulated about 13 minutes of unrecorded time after aligning live transcript to replay transcript",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "The validated live run used sequential 60s URL slicing. Each chunk recorded 60s, then spent processing/transcription time before starting the next slice while the real live stream continued. Manifest shows 105 chunks recorded 6300s but summed elapsed was 7082.69s, about 782.69s of overhead.",
+      "fix": "Use the continuous HLS recorder/consumer architecture for real live streams, or otherwise decouple recording from transcription so processing overhead cannot create capture gaps. Keep URL-slice mode for replay/non-live only or mark it as lossy for real-time live capture.",
+      "tags": [
+        "live-stream",
+        "url-slice",
+        "capture-gap",
+        "continuous-hls",
+        "validation"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T11:38:19+08:00"
+    },
+    {
+      "id": "bug-070",
+      "timestamp": "2026-05-23T11:57:32+08:00",
+      "error_message": "Live final Markdown quality depended only on Gemini body attention and Windows live runner still used lossy sequential URL-slice capture by default",
+      "file": "run_zhihu_live.bat, zhihuTTS_stream.py, scripts/build_stream_markdown.py",
+      "root_cause": "The Windows live runner did not opt into continuous HLS, so real-time live capture could accumulate gaps while processing chunks. The final live Markdown also lacked deterministic transcript and visual evidence appendices, so Gemini body omissions directly reduced NotebookLM coverage.",
+      "fix": "Changed run_zhihu_live.bat to pass --continuous-hls by default without stream-stage --gemini. run_continuous_hls now creates a per-run HLS work directory and records it in checkpoints/manifests. build_stream_markdown.py now appends full transcript and a visual evidence index after the Gemini body, and adds --mock-gemini-text for offline end-to-end validation without API calls.",
+      "tags": [
+        "live-stream",
+        "continuous-hls",
+        "gemini-quota",
+        "notebooklm",
+        "coverage"
+      ],
+      "related_bugs": [
+        "bug-069",
+        "bug-067"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T11:57:32+08:00"
     }
   ]
 }
