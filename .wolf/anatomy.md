@@ -40,6 +40,7 @@
 
 ## docs/
 
+- `docs/WIN_LIVE_VALIDATION_PREP_20260523.md` — Windows 今晚真实直播 continuous HLS 验证操作清单；包含 dry-run、正式运行、Gemini 预算、产物检查、验证报告与提交步骤。 (~3000 tok)
 - `docs/LIVE_FINAL_QUALITY_ROADMAP.md` — 直播流质量提升路线图，P0→P1→P2，18个带验证标准的 checkbox 任务，进度表。 (~2800 tok)
 - `docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md` — 旧版问题 backlog，已被 ROADMAP 取代。 (~100 tok)
 - `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~3188 tok)
