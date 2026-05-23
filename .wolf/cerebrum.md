@@ -63,6 +63,7 @@
 - **Continuous HLS resume boundary (2026-05-23):** `run_zhihu_live.bat` rejects `--resume` in default continuous-HLS mode because URL-slice checkpoint resume does not apply. If a continuous-HLS run is interrupted after `.ts` files are written, use `zhihuTTS_stream.py --hls-consumer-only --stream-work-dir <logged HLS work dir>` to drain existing segments.
 - **Stream slide extraction selection (2026-05-23):** `extract_slides.py --stream-base` should prefer `runs/stream-{base}-{run_ts}.manifest.json` chunk payload paths, not a broad payload glob. Broad `stream-{base}_chunk*.payload.json` matching can mix same-base reruns; keep it only as a legacy fallback with a warning.
 - **Slide extraction idempotency (2026-05-23):** Before writing `Slides/<base>/frames`, clear the frames directory and replace outputs. Re-running slide extraction over an existing `Slides/<base>` must not reuse stale `raw_*.jpg` or fail on existing `slide_*.jpg`.
+- **Windows slide verification result (2026-05-23):** WIN verified `21ec8b2` / bug-071 on Windows with two consecutive `extract_slides.py --stream-base ab-replay-20260522` runs. Both selected `source=manifest`, collected 47 frames, deduped to 23 slides, produced PDF 211KB/23p and PPTX 227KB/23p, with no stale raw frames or rename/overwrite failures.
 
 ## Do-Not-Repeat
 
