@@ -1,0 +1,84 @@
+{
+  "video_name": "1_chunk014_780s",
+  "full_text": "[00:00:00 - 00:01:00] 他们对这些内容感兴趣的就非常感兴趣，他不感兴趣，真的就是一点都不感兴趣。然后不感兴趣的孩子什么样的大概就是这个样子啊，这是在今年冬天的时候，早些日子，冬天的时候在一家在一个上海的一个学校。哇，这些孩子真的是对这些内容真是一丁点兴趣你看他们脸上的表情。😊真是一丁点兴趣都没有。于是我们就开始发现说是不是。嗯，那这个是不是有点太小众了？同时在这个我们正在正在纳闷这个事情是不是太小众的时候，我们收到了来自于刚刚的那个中山青年中学，就也就这个学校的一个通知，说他们的这批孩子今年的寒假参加不了这个集训了啊参加不了这个集训了，为什么呢？是因为这个呃年级主任年级主任要求他们要寒假要去补文化课，说你们这帮孩子。说你们这帮孩子这个呃高一的时候就没有好好学习，对吧，这个高一的时候。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0427"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.0427"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.044"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.044"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=slide diff=0.335"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.1892"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1892"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk014_780s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=slide diff=0.3678"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.0427
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.044
+    },
+    {
+      "type": "slide",
+      "frame_idx": 34,
+      "diff": 0.335
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.1892
+    },
+    {
+      "type": "slide",
+      "frame_idx": 42,
+      "diff": 0.3678
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 3,
+    "frames_total": 9,
+    "text_chars": 357
+  }
+}

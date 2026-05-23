@@ -1,0 +1,44 @@
+{
+  "video_name": "1_chunk104_6180s",
+  "full_text": "[00:00:00 - 00:01:00] 在我们的辅导下拿出好成绩，这样的话可能明年我们才能真正的好好去做商业化。就今年吧可能。今年大多数我们的工作可能还是以免费和公益为主吧，除了这种暑期营，实在是公益不起的这种。但今年的大多数的工作还是会以免费和公益为主。但是今年的免费的公益如果做的足够好的情况下，那明年的商业化应该就不太是问题了，这是大概我们的计划。所以今年今年我们不是着重商业化的一年啊，所以今年可能这件事情是我们最需要砸重注。所以大家一定要多多关注我们的这个啊青少年的精英跃迁计划啊，一定要多多关注，我们也会经常去啊录制和发布一些视频，就我们的一些小孩，可能已经到达什么阶段了，可能已经有些什么样的成果了，然后大家也可以去多多关注。那如果你觉得你想加速整个过程啊，来工作坊或者是来我们的暑期训练营。O。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk104_6180s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk104_6180s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.0386"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk104_6180s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.0386"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk104_6180s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=slide diff=0.5127"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.0386
+    },
+    {
+      "type": "slide",
+      "frame_idx": 57,
+      "diff": 0.5127
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 357
+  }
+}

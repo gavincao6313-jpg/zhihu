@@ -1,0 +1,34 @@
+{
+  "video_name": "1_chunk059_3480s",
+  "full_text": "[00:00:00 - 00:01:00] 别的保证不了，起码能保证了是说你把孩子交给我们去做这种类型的辅导。我们提供的都是国内的头部的科技企业AI资深的从业者，要不然是算法专家，要不然是产业落地的领军者，要不然是AI科，要不然是青少年的科创和AI的专家去一对一的去做这个代教工作。然后呢，而且还不收钱。而且还不抽钱，对吧，这个不抽钱可能也就是今年暑假吧，也就是今年暑假。😊6月底小孩中考就6月底小孩中考，那不是时间刚刚合适嘛，我们就6月底开始啊，6月底开始，你可以刚开始发发给你的一些资料，发给你一些资料。如果那个那个来不及看到7月初开始呗，对吧？完全没问题。OK这个就是我们的这个AI专家的一对一的这个精英的这个跃迁计划。对，开始灵活对，时间是灵活的，这个没问题。那另另外也说你的申请过程就是如果你假小孩零基础，你觉得没有。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk059_3480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk059_3480s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.058"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk059_3480s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.058"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.058
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 364
+  }
+}

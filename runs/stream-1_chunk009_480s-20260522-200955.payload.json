@@ -1,0 +1,44 @@
+{
+  "video_name": "1_chunk009_480s",
+  "full_text": "[00:00:00 - 00:01:00] 方法再去去识别这个东西。然后呃resnet18也好，啊，这是最初的这个baseline的这个准确率可能只有0.8几。然后你只需要改一改，其中一些参数可能就能变成0.9几。然后进而可能更好的一些做法能到0.98甚至0.99这样的呃更好的这个数字比这个基础模基础提供的模型可能要更好。而且你会发现这个比赛里面。。你在比赛的过程当中是是有1个GPT可以用的。你在比赛过程当中是随时可以跟GPT对话的。就是如果你有任何的专业知识，你不懂，你是可以随时让GPT去告诉你这个专业知识什么意思。啊，就是这个比赛他会认为说呃呃呃我们任何的专业知识，不知道什么叫音频，不知道什么叫频谱，不应该阻挡一个孩子去解决这个实际问题。这个还挺有意思。而且这个GPT在现场的时候，能能随时帮你写代码，也就意味着呃这些孩子去训练模型的过程当中，代码能力弱一些，也可以借助GPT去写代码只。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk009_480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk009_480s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.123"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk009_480s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk009_480s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0491"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.123
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0491
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 4,
+    "text_chars": 401
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "1_chunk091_5400s",
+  "full_text": "[00:00:00 - 00:01:00] 这个面试预约金之后，去详细咨询我们的这个这个课程老师啊，这个课程老师。于是这就是当然了，如果你对现在的这个暑期营还不是特别了解，你很感兴趣。另外呢你但是你更那更纳闷的一件事情是说，你家孩子到底是不是这块料。。对吧还是一样。其实我最推荐的，如果你特别不清楚你家孩子感不感兴趣，特别不清楚你家孩子是不是这块料到底是哪块料。其实我其实最推荐的是，如果你那个比较犹豫呢，可能先去线下的工作坊，也是一个比较好的选择。然后只要我的时间比较ok的话，呃，这两场北京和深圳的工作坊呢，我尽可能的都到现场。然后呢，如果大家有什么问题，哪怕你是从外地来的家长，对吧？我们多留一些时间跟你去做交流。哪怕你是从外地来的家长，我们啊包括我自己在内也会多留一些时间跟大家去在这做交流啊，因为孩子的时间呢大概两个小时或者是延长一。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk091_5400s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk091_5400s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk091_5400s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.1052"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk091_5400s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.1045"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk091_5400s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.1045"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.1052
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.1045
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 373
+  }
+}
