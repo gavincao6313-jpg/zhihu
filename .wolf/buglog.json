@@ -1156,6 +1156,46 @@
       ],
       "occurrences": 1,
       "last_seen": "2026-05-23T11:57:32+08:00"
+    },
+    {
+      "id": "bug-071",
+      "timestamp": "2026-05-23T17:13:49+08:00",
+      "error_message": "WIN slide extraction integration could mix same-base stream reruns and reuse stale slide frame outputs on repeated runs",
+      "file": "extract_slides.py, run_single_file.py, run_zhihu_live.bat",
+      "root_cause": "extract_slides.py --stream-base selected payloads with a broad stream-{base}_chunk*.payload.json glob instead of the stream manifest for the current run. The slide output frames directory was not cleared before re-running, and file-pipeline slide extraction was imported/executed as a hard dependency of run_single_file.py.",
+      "fix": "Stream slide extraction now prefers stream-{base}-{run_ts}.manifest.json payload paths, keeps broad glob only as a warning fallback, resolves moved Windows absolute paths back into the repo, clears Slides/<base>/frames before writing, replaces slide files idempotently, and makes run_single_file.py slide extraction a non-fatal warning path.",
+      "tags": [
+        "slides",
+        "stream-manifest",
+        "rerun-idempotency",
+        "windows-path",
+        "pipeline-hardening"
+      ],
+      "related_bugs": [
+        "bug-058"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T17:13:49+08:00"
+    },
+    {
+      "id": "bug-072",
+      "timestamp": "2026-05-23T17:24:00+08:00",
+      "error_message": "git push origin HEAD:main failed: Failed to connect to github.com port 443 after 75017 ms: Couldn't connect to server",
+      "file": "environment",
+      "root_cause": "Transient network connectivity failure to github.com during push from the local environment.",
+      "fix": "Record the failure and retry the push after the verified commit is amended with the bug log entry.",
+      "tags": [
+        "git",
+        "push",
+        "network",
+        "github",
+        "environment"
+      ],
+      "related_bugs": [
+        "bug-068"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T17:24:00+08:00"
     }
   ]
 }
