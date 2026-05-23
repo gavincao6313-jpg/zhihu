@@ -41,8 +41,8 @@ from utils import call_gemini, extract_run_ts, fmt_ts
 
 GEMINI_MODEL            = "gemini-2.5-flash"
 GEMINI_IMAGE_HARD_LIMIT = 3000   # API ceiling; fallback priority sampling above this
-MAX_RETRIES             = 6
-MAX_CONTINUATIONS       = 20
+MAX_RETRIES             = 2      # Gemini quota guard: keep automatic retries small
+MAX_CONTINUATIONS       = 2      # Gemini quota guard: 1 initial + 2 continuation calls max
 RETRY_DELAY             = 65
 
 # ── P0 QC config ──────────────────────────────────────────────────────────────
@@ -422,12 +422,18 @@ def main() -> None:
     ap.add_argument("--markdowns-dir",  default="Markdowns", help="Output dir")
     ap.add_argument("--run-ts",         default=None,
                     help="Specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
+    ap.add_argument("--max-retries", type=int, default=MAX_RETRIES,
+                    help=f"Gemini retry cap (default: {MAX_RETRIES})")
+    ap.add_argument("--max-continuations", type=int, default=MAX_CONTINUATIONS,
+                    help=f"Gemini continuation cap after MAX_TOKENS (default: {MAX_CONTINUATIONS})")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="Print input/QC/Gemini budget only; do not call Gemini or write Markdown")
     args = ap.parse_args()
 
     api_key = (
         os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY") or ""
     ).strip()
-    if not api_key:
+    if not api_key and not args.dry_run:
         print("[!] No GEMINI_API_KEY — set the env var and re-run.")
         sys.exit(1)
 
@@ -474,12 +480,28 @@ def main() -> None:
     for w in manifest["warnings"]:
         print(f"  [warn] {w}")
 
+    max_successful_calls = 1 + max(0, args.max_continuations)
+    print("\n=== Gemini budget ===")
+    print(f"  model                : {GEMINI_MODEL}")
+    print("  synthesis_pass       : one-shot")
+    print(f"  max successful calls : {max_successful_calls} (1 initial + {args.max_continuations} continuation)")
+    print(f"  retry cap            : {args.max_retries}")
+    print("  duplicate synthesis  : false")
+
+    if args.dry_run:
+        print("\n[dry-run] Skipping Gemini call and Markdown write.")
+        return
+
     print("\n=== Gemini: Building NotebookLM document ===")
     http_opts = types.HttpOptions(timeout=3600000)
     client    = genai.Client(api_key=api_key, http_options=http_opts)
 
     parts = build_gemini_parts(transcript, all_frames)
-    gemini_text = call_gemini(client, parts, args.base)
+    gemini_text = call_gemini(
+        client, parts, args.base,
+        max_retries=args.max_retries,
+        max_continuations=args.max_continuations,
+    )
 
     if not gemini_text:
         print("[!] Gemini synthesis failed — merged raw transcript still available.",

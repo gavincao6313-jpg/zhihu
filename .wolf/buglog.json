@@ -1059,6 +1059,46 @@
       "related_bugs": ["bug-062"],
       "occurrences": 1,
       "last_seen": "2026-05-22T23:30:00+08:00"
+    },
+    {
+      "id": "bug-066",
+      "timestamp": "2026-05-23T09:37:38+08:00",
+      "error_message": "WIN reported naming rule from 94b2a71 did not propagate to final Gemini output: BAT produced Markdowns/TTS_stream-1.md instead of TTS_stream-live_YYYYMMDD_<title>.md",
+      "file": "run_zhihu_live.bat, zhihuTTS_stream.py",
+      "root_cause": "run_zhihu_live.bat generated a fallback NAME and always passed --name to zhihuTTS_stream.py, so Python's title/date naming fallback never ran. The BAT then used the stale NAME for merge_stream_chunks.py and build_stream_markdown.py. Additionally, the non-continuous live path in run_validation would have used replay_<title> when --name was omitted.",
+      "fix": "Added --base-marker to zhihuTTS_stream.py and write_base_marker() to persist the resolved base_stem. run_validation now chooses live_YYYYMMDD_<title> when live_mode is true and no explicit --name is provided. run_zhihu_live.bat no longer passes --name in auto mode, passes --base-marker, reads the marker after transcription, and uses the resolved NAME for merge and final Gemini synthesis.",
+      "tags": [
+        "naming",
+        "bat-wrapper",
+        "base-marker",
+        "gemini-synthesis",
+        "live-stream"
+      ],
+      "related_bugs": [
+        "bug-055"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T09:37:38+08:00"
+    },
+    {
+      "id": "bug-067",
+      "timestamp": "2026-05-23T09:54:28+08:00",
+      "error_message": "run_zhihu_live.bat could trigger duplicate/default-on Gemini synthesis: zhihuTTS_stream.py --gemini notes plus final build_stream_markdown.py NotebookLM generation",
+      "file": "run_zhihu_live.bat, scripts/build_stream_markdown.py",
+      "root_cause": "BAT set GEMINI_FLAG=--gemini whenever GEMINI_API_KEY existed, so the stream transcription phase could call Gemini before the final NotebookLM synthesis. The final synthesis also had high retry/continuation defaults and no CLI dry-run/budget controls.",
+      "fix": "Removed default --gemini from the live transcription phase. Added --no-gemini and --dry-run to run_zhihu_live.bat. BAT now prints a Gemini budget and only calls build_stream_markdown.py for the final one-shot document, passing --max-retries 2 and --max-continuations 2. build_stream_markdown.py now exposes --max-retries, --max-continuations, --dry-run, and prints its Gemini budget before any API call.",
+      "tags": [
+        "gemini-quota",
+        "bat-wrapper",
+        "budget-control",
+        "dry-run",
+        "duplicate-synthesis"
+      ],
+      "related_bugs": [
+        "bug-066"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T09:54:28+08:00"
     }
   ]
 }
