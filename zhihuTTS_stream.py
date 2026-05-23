@@ -292,6 +292,16 @@ def safe_name(value: str, max_len: int = 80) -> str:
     return (name or "stream")[:max_len]
 
 
+def write_base_marker(marker_path: str, base_stem: str) -> None:
+    """Write the resolved output base for wrapper scripts that need it."""
+    if not marker_path:
+        return
+    path = Path(marker_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(base_stem + "\n", encoding="utf-8")
+    print(f"Base marker: {path}", flush=True)
+
+
 def parse_headers_text(text: str) -> dict[str, str]:
     headers: dict[str, str] = {}
     for raw_line in text.splitlines():
@@ -1028,7 +1038,14 @@ def run_validation(args: argparse.Namespace) -> dict:
         )
         live_mode = requested_duration_s <= 0
         _title = stream.title or (keepalive.get_page_title() if keepalive else "")
-        base_stem = safe_name(args.name or (f"replay_{_title}" if _title else f"replay_{host}"))
+        _date = datetime.now().strftime("%Y%m%d")
+        if args.name:
+            base_stem = safe_name(args.name)
+        elif live_mode:
+            base_stem = safe_name(f"live_{_date}_{_title}" if _title else f"live_{_date}")
+        else:
+            base_stem = safe_name(f"replay_{_title}" if _title else f"replay_{host}")
+        write_base_marker(getattr(args, "base_marker", ""), base_stem)
         if live_mode:
             chunk_count = args.max_chunks or 0
             print("Live mode: running until stream ends (no duration limit).")
@@ -1568,6 +1585,7 @@ def run_continuous_hls(args: argparse.Namespace) -> dict:
         _title = keepalive.get_page_title() if keepalive else ""
         _date = datetime.now().strftime("%Y%m%d")
         base_stem = safe_name(args.name or (f"live_{_date}_{_title}" if _title else f"live_{_date}"))
+        write_base_marker(getattr(args, "base_marker", ""), base_stem)
         chunk_duration_s = parse_time(args.chunk_duration or "60")
 
         work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
@@ -1611,6 +1629,7 @@ def run_hls_consumer_only(args: argparse.Namespace) -> dict:
     host = "local"
     headers: dict[str, str] = {}
     base_stem = safe_name(args.name or f"ts_{int(time.time())}")
+    write_base_marker(getattr(args, "base_marker", ""), base_stem)
     chunk_duration_s = parse_time(args.chunk_duration or "60")
 
     recorder_stopped = threading.Event()
@@ -1753,6 +1772,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Maximum browser auto-restarts in live mode before requiring manual intervention.",
     )
     parser.add_argument("--name", default="", help="Optional output stem.")
+    parser.add_argument(
+        "--base-marker",
+        default="",
+        help="Optional file path where the resolved output base stem is written.",
+    )
     parser.add_argument(
         "--gemini",
         action="store_true",

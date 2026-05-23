@@ -4,19 +4,21 @@ setlocal enabledelayedexpansion
 :: run_zhihu_live.bat  知乎直播流一键转写
 ::
 :: 用法:
-::   run_zhihu_live.bat <直播间URL> [输出名] [--resume]
+::   run_zhihu_live.bat <直播间URL> [输出名] [--resume] [--no-gemini] [--dry-run]
 ::
 :: 示例:
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx"
-::     （不填名称时用 live-YYYYMMDD-HHMMSS 自动命名）
+::     （不填名称时由 Python 按 live_YYYYMMDD_<页面标题> 自动命名）
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519 --resume
 ::     （--resume 从上次中断的 chunk 结束时间点继续，需同名 checkpoint 文件存在）
+::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" --dry-run
+::     （只打印命令和 Gemini 预算，不启动直播转写）
 ::
 :: 输出（位于 runs\ 目录）:
 ::   stream-<NAME>-<时间>.combined-transcript.txt   完整逐字转写
 ::   stream-<NAME>-<时间>.manifest.md               逐块统计
-::   stream-<NAME>-<时间>.notes.md                  Gemini 结构化笔记（需要 GEMINI_API_KEY）
+::   Markdowns\TTS_stream-<NAME>.md                NotebookLM 文档（默认最多 1+2 次 Gemini 成功调用）
 ::   logs\run-<NAME>.log                            完整运行日志（本机保留，不入 Git）
 ::
 :: 依赖（首次使用前确认）:
@@ -42,24 +44,48 @@ set "VENV_PYTHON=d:\zhihu\zhihu_file\.venv-sensevoice\Scripts\python.exe"
 set "AUTH_STATE=%SCRIPT_DIR%zhihu_auth_state.json"
 set "STREAM_WORK_DIR=%SCRIPT_DIR%Videos\.stream"
 set "PAGE_URL=%~1"
-set "NAME=%~2"
+set "REQUESTED_NAME="
+set "NAME=%REQUESTED_NAME%"
 set "RESUME_FLAG="
-if /i "%~3"=="--resume" set "RESUME_FLAG=--resume"
+set "NO_GEMINI=0"
+set "DRY_RUN=0"
+set "BUILD_MAX_RETRIES=2"
+set "BUILD_MAX_CONTINUATIONS=2"
+
+:PARSE_ARGS
+if "%~2"=="" goto ARGS_DONE
+if /i "%~2"=="--resume" (
+    set "RESUME_FLAG=--resume"
+) else if /i "%~2"=="--no-gemini" (
+    set "NO_GEMINI=1"
+) else if /i "%~2"=="--dry-run" (
+    set "DRY_RUN=1"
+) else if "!REQUESTED_NAME!"=="" (
+    set "REQUESTED_NAME=%~2"
+    set "NAME=%~2"
+) else (
+    echo [错误] 无法识别或重复的参数: %~2
+    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--resume] [--no-gemini] [--dry-run]
+    exit /b 1
+)
+shift /2
+goto PARSE_ARGS
+:ARGS_DONE
 
 :: merge_vad=true 适合 60s 分片（短片段内 VAD 合并让文本更连贯）
 set "SENSEVOICE_MERGE_VAD=true"
 
-:: --gemini 仅在 GEMINI_API_KEY 存在时传递，避免无 key 时 Python 内部触发无效 Gemini 调用
-if not "!GEMINI_API_KEY!"=="" (
-    set "GEMINI_FLAG=--gemini"
-) else (
-    set "GEMINI_FLAG="
+:: Gemini 预算：直播转写阶段永不传 --gemini；只允许最终 NotebookLM 合成一次。
+set "FINAL_GEMINI_ENABLED=0"
+if "!NO_GEMINI!"=="0" if not "!GEMINI_API_KEY!"=="" (
+    set "FINAL_GEMINI_ENABLED=1"
 )
 
-:: ---- 自动生成名称（未提供时，用 PowerShell 保证跨 locale 格式一致）----
+:: ---- 日志名（未提供输出名时仅用于本次 BAT 日志；真实输出名由 Python 回写）----
 if "!NAME!"=="" (
     for /f "usebackq" %%t in (`powershell -NoProfile -Command "Get-Date -Format 'yyyyMMdd-HHmmss'"`) do set "NAME=live-%%t"
 )
+set "BASE_MARKER=%SCRIPT_DIR%runs\stream-base-!NAME!.txt"
 
 :: ---- URL 检查（双击时弹出输入提示）----
 if "!PAGE_URL!"=="" (
@@ -84,6 +110,34 @@ if exist "!VENV_PYTHON!" (
 ) else (
     set "PYTHON=python"
     echo [提示] 未找到 venv python，使用系统 python（确保已激活对应环境）
+)
+
+if "!DRY_RUN!"=="1" (
+    echo.
+    echo ====================================================
+    echo  DRY RUN: 知乎直播转写计划
+    echo  URL                  : !PAGE_URL!
+    if "!REQUESTED_NAME!"=="" (
+        echo  输出名              : Python 自动生成 live_YYYYMMDD_页面标题
+    ) else (
+        echo  输出名              : !REQUESTED_NAME!
+    )
+    echo  Python               : !PYTHON!
+    echo  直播转写 Gemini       : disabled
+    if "!FINAL_GEMINI_ENABLED!"=="1" (
+        echo  最终 NotebookLM Gemini: enabled
+        echo  Gemini model         : gemini-2.5-flash
+        echo  max successful calls : 3 ^(1 initial + !BUILD_MAX_CONTINUATIONS! continuation^)
+        echo  retry cap            : !BUILD_MAX_RETRIES!
+    ) else (
+        echo  最终 NotebookLM Gemini: disabled
+    )
+    echo.
+    echo  Step 1: zhihuTTS_stream.py --base-marker ^<marker^> ^(no --gemini^)
+    echo  Step 2: merge_stream_chunks.py --base ^<resolved marker base^>
+    echo  Step 3: build_stream_markdown.py --base ^<resolved marker base^> --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS!
+    echo ====================================================
+    exit /b 0
 )
 
 :: ---- 登录状态检查 ----
@@ -158,13 +212,20 @@ echo. >> "!LOG_FILE!"
 echo.
 echo ====================================================
 echo  知乎直播转写启动
-echo  名称  : !NAME!
+if "!REQUESTED_NAME!"=="" (
+    echo  名称  : 自动（live_日期_页面标题）
+) else (
+    echo  名称  : !REQUESTED_NAME!
+)
 echo  URL   : !PAGE_URL!
 echo  Auth  : !AUTH_STATE!
 if "!GEMINI_API_KEY!"=="" (
-    echo  Gemini: 未设置 GEMINI_API_KEY，将跳过笔记生成
+    echo  Gemini: 未设置 GEMINI_API_KEY，将跳过最终 NotebookLM 生成
+) else if "!NO_GEMINI!"=="1" (
+    echo  Gemini: 已通过 --no-gemini 禁用
 ) else (
-    echo  Gemini: 已配置，直播结束后自动生成笔记
+    echo  Gemini: 最终 NotebookLM 生成启用（直播转写阶段不调用 Gemini）
+    echo  Gemini预算: max successful calls=3, retry cap=!BUILD_MAX_RETRIES!
 )
 echo.
 echo  转写任务已在后台静默启动，本窗口可随时关闭
@@ -186,7 +247,7 @@ exit /b 0
 :: ================================================================
 :: WORKER: 无窗口静默运行，所有输出写入 LOG_FILE
 :: 所需变量（NAME / PAGE_URL / PYTHON / AUTH_STATE / STREAM_WORK_DIR
-::          / SENSEVOICE_MERGE_VAD / GEMINI_API_KEY）
+::          / SENSEVOICE_MERGE_VAD / GEMINI_API_KEY / FINAL_GEMINI_ENABLED）
 :: 均由父进程环境继承，无需重新传参。
 :: ================================================================
 :WORKER
@@ -194,7 +255,11 @@ exit /b 0
 (
 echo ====================================================
 echo  知乎直播转写 - 后台任务
-echo  名称  : !NAME!
+if "!REQUESTED_NAME!"=="" (
+    echo  名称  : 自动（live_日期_页面标题）
+) else (
+    echo  名称  : !REQUESTED_NAME!
+)
 echo  URL   : !PAGE_URL!
 echo  Python: !PYTHON!
 echo  开始  : %date% %TIME: =0%
@@ -204,17 +269,33 @@ echo.
 
 :: ---- [1/3] 主转写（-u 保证实时刷入日志，不缓冲）----
 echo [%date% %TIME: =0%] [1/3] 开始直播转写... >> "!LOG_FILE!" 2>&1
-"!PYTHON!" -u "!SCRIPT_DIR!zhihuTTS_stream.py" ^
-  --playwright-keepalive ^
-  --page-url "!PAGE_URL!" ^
-  --playwright-storage-state "!AUTH_STATE!" ^
-  --playwright-save-storage-state "!AUTH_STATE!" ^
-  --duration 0 ^
-  --chunk-duration 60 ^
-  --stream-work-dir "!STREAM_WORK_DIR!" ^
-  --cleanup-slices ^
-  --name "!NAME!" ^
-  !GEMINI_FLAG! !RESUME_FLAG! >> "!LOG_FILE!" 2>&1
+if exist "!BASE_MARKER!" del "!BASE_MARKER!" >nul 2>&1
+if "!REQUESTED_NAME!"=="" (
+    "!PYTHON!" -u "!SCRIPT_DIR!zhihuTTS_stream.py" ^
+      --playwright-keepalive ^
+      --page-url "!PAGE_URL!" ^
+      --playwright-storage-state "!AUTH_STATE!" ^
+      --playwright-save-storage-state "!AUTH_STATE!" ^
+      --duration 0 ^
+      --chunk-duration 60 ^
+      --stream-work-dir "!STREAM_WORK_DIR!" ^
+      --cleanup-slices ^
+      --base-marker "!BASE_MARKER!" ^
+      !RESUME_FLAG! >> "!LOG_FILE!" 2>&1
+) else (
+    "!PYTHON!" -u "!SCRIPT_DIR!zhihuTTS_stream.py" ^
+      --playwright-keepalive ^
+      --page-url "!PAGE_URL!" ^
+      --playwright-storage-state "!AUTH_STATE!" ^
+      --playwright-save-storage-state "!AUTH_STATE!" ^
+      --duration 0 ^
+      --chunk-duration 60 ^
+      --stream-work-dir "!STREAM_WORK_DIR!" ^
+      --cleanup-slices ^
+      --name "!REQUESTED_NAME!" ^
+      --base-marker "!BASE_MARKER!" ^
+      !RESUME_FLAG! >> "!LOG_FILE!" 2>&1
+)
 
 if errorlevel 1 (
     echo. >> "!LOG_FILE!" 2>&1
@@ -228,6 +309,26 @@ if errorlevel 1 (
     pause
     exit /b 1
 )
+
+set "BASE_STEM="
+if exist "!BASE_MARKER!" (
+    for /f "usebackq delims=" %%b in ("!BASE_MARKER!") do (
+        if not "%%~b"=="" set "BASE_STEM=%%~b"
+    )
+)
+if "!BASE_STEM!"=="" (
+    echo [%date% %TIME: =0%] [错误] 未读取到 Python 回写的输出名称 marker: !BASE_MARKER! >> "!LOG_FILE!" 2>&1
+    echo.
+    echo ==============================
+    echo  转写失败！未读取到输出名称:
+    echo  !BASE_MARKER!
+    echo ==============================
+    echo.
+    pause
+    exit /b 1
+)
+set "NAME=!BASE_STEM!"
+echo [%date% %TIME: =0%] 实际输出名称: !NAME! >> "!LOG_FILE!" 2>&1
 
 :: ---- [2/3] 分片合并 ----
 echo. >> "!LOG_FILE!" 2>&1
@@ -244,18 +345,25 @@ if errorlevel 1 (
 
 :: ---- [3/3] Gemini 综合调用 → NotebookLM 文档 ----
 echo. >> "!LOG_FILE!" 2>&1
-if "!GEMINI_API_KEY!"=="" (
-    echo [%date% %TIME: =0%] [3/3] 跳过 NotebookLM 生成（未设置 GEMINI_API_KEY） >> "!LOG_FILE!" 2>&1
-    echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! >> "!LOG_FILE!" 2>&1
+if "!FINAL_GEMINI_ENABLED!"=="0" (
+    if "!NO_GEMINI!"=="1" (
+        echo [%date% %TIME: =0%] [3/3] 跳过 NotebookLM 生成（--no-gemini） >> "!LOG_FILE!" 2>&1
+    ) else (
+        echo [%date% %TIME: =0%] [3/3] 跳过 NotebookLM 生成（未设置 GEMINI_API_KEY） >> "!LOG_FILE!" 2>&1
+    )
+    echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
 ) else (
     echo [%date% %TIME: =0%] [3/3] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] Gemini budget: model=gemini-2.5-flash, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
     "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
       --base "!NAME!" ^
       --runs-dir "!SCRIPT_DIR!runs" ^
-      --markdowns-dir "!SCRIPT_DIR!Markdowns" >> "!LOG_FILE!" 2>&1
+      --markdowns-dir "!SCRIPT_DIR!Markdowns" ^
+      --max-retries "!BUILD_MAX_RETRIES!" ^
+      --max-continuations "!BUILD_MAX_CONTINUATIONS!" >> "!LOG_FILE!" 2>&1
     if errorlevel 1 (
         echo [%date% %TIME: =0%] [提示] NotebookLM 文档生成失败，手动运行: >> "!LOG_FILE!" 2>&1
-        echo   python scripts\build_stream_markdown.py --base !NAME! >> "!LOG_FILE!" 2>&1
+        echo   python scripts\build_stream_markdown.py --base !NAME! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
     ) else (
         echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!.md >> "!LOG_FILE!" 2>&1
     )
