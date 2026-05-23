@@ -28,10 +28,12 @@ from PIL import Image
 
 # ── 路径配置 ─────────────────────────────────────────────────────────────────
 
-VIDEOS_DIR         = Path(__file__).parent / "Videos"
-CACHE_DIR          = Path(__file__).parent / "cache"
+PROJECT_ROOT       = Path(__file__).resolve().parent
+VIDEOS_DIR         = PROJECT_ROOT / "Videos"
+CACHE_DIR          = PROJECT_ROOT / "cache"
 KEYFRAME_CACHE_DIR = CACHE_DIR / "keyframes"
-SLIDES_DIR         = Path(__file__).parent / "Slides"
+SLIDES_DIR         = PROJECT_ROOT / "Slides"
+RUNS_DIR           = PROJECT_ROOT / "runs"
 FFMPEG_TIMEOUT     = 30
 VIDEO_EXTS         = {".mp4", ".mkv", ".avi", ".mov"}
 
@@ -75,8 +77,23 @@ def _deduplicate(frames: list[Path], threshold: float) -> list[Path]:
 
 # ── 输出 ─────────────────────────────────────────────────────────────────────
 
+def _prepare_frames_dir(out_dir: Path) -> Path:
+    """Create a clean frames directory so repeated runs are deterministic."""
+    frames_dir = out_dir / "frames"
+    if frames_dir.exists():
+        shutil.rmtree(frames_dir)
+    frames_dir.mkdir(parents=True, exist_ok=True)
+    return frames_dir
+
+
+def _unlink_outputs(out_dir: Path) -> None:
+    for name in ("slides.pdf", "slides.pptx"):
+        (out_dir / name).unlink(missing_ok=True)
+
+
 def _output_slides(final_frames: list[Path], out_dir: Path, stem: str) -> None:
     """Write slides.pdf and slides.pptx from sorted, deduplicated frame JPEGs."""
+    _unlink_outputs(out_dir)
     pdf_path = out_dir / "slides.pdf"
     images = [Image.open(p).convert("RGB") for p in final_frames]
     images[0].save(pdf_path, save_all=True, append_images=images[1:], resolution=150)
@@ -106,20 +123,95 @@ def _output_slides(final_frames: list[Path], out_dir: Path, stem: str) -> None:
 
 # ── 流管线帧收集 ─────────────────────────────────────────────────────────────
 
-def _load_stream_slide_frames(base_stem: str) -> list[Path]:
+def _resolve_repo_path(path_value: str, fallback_dir: Path | None = None) -> Path | None:
+    """Resolve paths recorded on Windows after repo moves or cross-machine tests."""
+    if not path_value:
+        return None
+
+    direct = Path(path_value)
+    if direct.exists():
+        return direct
+
+    normalized = path_value.replace("\\", "/")
+    known_roots = {
+        "Videos/keyframes/": PROJECT_ROOT / "Videos" / "keyframes",
+        "runs/": RUNS_DIR,
+    }
+    for marker, root in known_roots.items():
+        if marker in normalized:
+            suffix = normalized.split(marker, 1)[1]
+            candidate = root / Path(suffix)
+            if candidate.exists():
+                return candidate
+
+    if fallback_dir is not None:
+        candidate = fallback_dir / Path(normalized).name
+        if candidate.exists():
+            return candidate
+
+    if not direct.is_absolute():
+        candidate = PROJECT_ROOT / direct
+        if candidate.exists():
+            return candidate
+
+    return None
+
+
+def _extract_manifest_run_ts(path: Path) -> str:
+    match = re.search(r"-(\d{8}-\d{6})\.manifest\.json$", path.name)
+    return match.group(1) if match else ""
+
+
+def _load_manifest_payloads(base_stem: str, run_ts: str | None = None) -> tuple[list[Path], str | None]:
+    """Return payload paths from the selected stream manifest, if available."""
+    if run_ts:
+        manifests = [RUNS_DIR / f"stream-{base_stem}-{run_ts}.manifest.json"]
+    else:
+        manifests = sorted(
+            RUNS_DIR.glob(f"stream-{base_stem}-*.manifest.json"),
+            key=lambda p: (_extract_manifest_run_ts(p), p.stat().st_mtime, p.name),
+            reverse=True,
+        )
+
+    for manifest_path in manifests:
+        if not manifest_path.exists():
+            continue
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        payloads: list[Path] = []
+        for chunk in manifest.get("chunks", []):
+            payload_value = chunk.get("outputs", {}).get("payload_json", "")
+            payload_path = _resolve_repo_path(payload_value, RUNS_DIR)
+            if payload_path is not None:
+                payloads.append(payload_path)
+
+        if payloads:
+            return payloads, _extract_manifest_run_ts(manifest_path)
+
+    return [], run_ts
+
+
+def _load_stream_slide_frames(base_stem: str, run_ts: str | None = None) -> tuple[list[Path], str | None, str]:
     """Collect slide-type frame JPEGs from stream chunk payloads.
 
-    Reads payload.json files matching runs/stream-{base_stem}_chunk*.payload.json,
-    filters frames whose marker contains "type=slide", and returns the sorted
-    list of existing Paths. Prepends the first frame of the first chunk.
+    Prefer the stream manifest for the selected run to avoid mixing same-base
+    reruns. Falls back to legacy glob matching only when no manifest is present.
     """
-    RUNS_DIR = Path(__file__).parent / "runs"
-    pattern = f"stream-{base_stem}_chunk*.payload.json"
-    payload_files = list(RUNS_DIR.glob(pattern))
-    if not payload_files:
-        return []
+    payload_files, selected_run_ts = _load_manifest_payloads(base_stem, run_ts)
+    source = "manifest"
 
-    # Deduplicate by chunk stem (keep latest by mtime so re-runs don't double-count)
+    if not payload_files:
+        pattern = f"stream-{base_stem}_chunk*.payload.json"
+        payload_files = list(RUNS_DIR.glob(pattern))
+        source = "legacy-glob"
+
+    if not payload_files:
+        return [], selected_run_ts, source
+
+    # Legacy fallback: deduplicate by chunk stem to reduce same-chunk duplicates.
     chunk_map: dict[str, Path] = {}
     for pf in payload_files:
         m = re.match(r"^(stream-.+_chunk\d+_\d+s)", pf.stem)
@@ -143,8 +235,8 @@ def _load_stream_slide_frames(base_stem: str) -> list[Path]:
             continue
         for frame in data.get("frames", []):
             if "type=slide" in frame.get("marker", ""):
-                fp = Path(frame["path"])
-                if fp.exists():
+                fp = _resolve_repo_path(frame.get("path", ""))
+                if fp is not None:
                     slide_frames.append(fp)
 
     # Prepend first frame of first chunk (mirrors [0] + slide_ts in file pipeline)
@@ -153,13 +245,13 @@ def _load_stream_slide_frames(base_stem: str) -> list[Path]:
             first_data = json.loads(sorted_payloads[0].read_text(encoding="utf-8"))
             first_frames = first_data.get("frames", [])
             if first_frames:
-                first_path = Path(first_frames[0].get("path", ""))
-                if first_path.exists() and first_path not in slide_frames:
+                first_path = _resolve_repo_path(first_frames[0].get("path", ""))
+                if first_path is not None and first_path not in slide_frames:
                     slide_frames.insert(0, first_path)
         except (json.JSONDecodeError, OSError):
             pass
 
-    return slide_frames
+    return slide_frames, selected_run_ts, source
 
 
 # ── 事件加载 ─────────────────────────────────────────────────────────────────
@@ -192,8 +284,7 @@ def extract_slides(
     print(f"  [{stem}] 幻灯片事件: {len(timestamps)} 个（含初始帧）")
 
     out_dir    = SLIDES_DIR / stem
-    frames_dir = out_dir / "frames"
-    frames_dir.mkdir(parents=True, exist_ok=True)
+    frames_dir = _prepare_frames_dir(out_dir)
 
     # ── Step 1: 高清抽帧 ──────────────────────────────────────────────────────
     extracted: list[Path] = []
@@ -222,7 +313,7 @@ def extract_slides(
     final_frames: list[Path] = []
     for i, src in enumerate(deduped):
         dst = frames_dir / f"slide_{i+1:03d}.jpg"
-        src.rename(dst)
+        src.replace(dst)
         final_frames.append(dst)
 
     # 清理未入选的 raw 帧
@@ -239,6 +330,7 @@ def extract_slides_stream(
     base_stem: str,
     sim_threshold: float = 8.0,
     dedup: bool = True,
+    run_ts: str | None = None,
 ) -> Path | None:
     """Stream pipeline: collect slide frames from chunk payloads → PDF + PPTX.
 
@@ -246,23 +338,24 @@ def extract_slides_stream(
     from Videos/keyframes/<chunk_stem>/, deduplicates, and writes to
     Slides/<base_stem>/.
     """
-    slide_frames = _load_stream_slide_frames(base_stem)
+    slide_frames, selected_run_ts, source = _load_stream_slide_frames(base_stem, run_ts)
     if not slide_frames:
         print(f"  [{base_stem}] 无 slide 帧（stream payload 中无 type=slide），跳过")
         return None
 
-    print(f"  [{base_stem}] 收集到 slide 帧: {len(slide_frames)}（来自 stream chunks）")
+    run_label = selected_run_ts or "unknown"
+    print(f"  [{base_stem}] 收集到 slide 帧: {len(slide_frames)}（run={run_label}, source={source}）")
+    if source == "legacy-glob":
+        print("  [warn] 未找到 stream manifest，使用 legacy glob；同 base 多次运行可能混入旧分片")
 
     out_dir = SLIDES_DIR / base_stem
-    frames_dir = out_dir / "frames"
-    frames_dir.mkdir(parents=True, exist_ok=True)
+    frames_dir = _prepare_frames_dir(out_dir)
 
     # Copy frames to working directory (originals in Videos/keyframes/ are shared)
     working_frames: list[Path] = []
     for i, src in enumerate(slide_frames):
         dst = frames_dir / f"raw_{i+1:03d}.jpg"
-        if not dst.exists():
-            shutil.copy2(src, dst)
+        shutil.copy2(src, dst)
         working_frames.append(dst)
 
     # ── Dedup ──
@@ -279,7 +372,7 @@ def extract_slides_stream(
     for i, src in enumerate(deduped):
         dst = frames_dir / f"slide_{i+1:03d}.jpg"
         if src.resolve() != dst.resolve():
-            src.rename(dst)
+            src.replace(dst)
         final_frames.append(dst)
 
     # Clean raw frames
@@ -314,6 +407,10 @@ def main():
         help="处理流管线数据：收集 runs/stream-{BASE}_chunk*/payload.json 中的 "
              "slide 帧，从 Videos/keyframes/ 复用已有 JPEG",
     )
+    parser.add_argument(
+        "--run-ts", metavar="YYYYMMDD-HHMMSS",
+        help="与 --stream-base 配合使用：指定 stream-{BASE}-{run-ts}.manifest.json",
+    )
     args = parser.parse_args()
 
     if args.stream_base:
@@ -321,6 +418,7 @@ def main():
             args.stream_base,
             sim_threshold=args.sim_threshold,
             dedup=not args.no_dedup,
+            run_ts=args.run_ts,
         )
     elif args.video:
         video_path = VIDEOS_DIR / args.video

@@ -6,6 +6,7 @@
 ## ./
 
 - `CLAUDE.md` — OpenWolf (~1508 tok)
+- `extract_slides.py` — 从文件管线 keyframe manifest 或流管线 stream manifest/payload 收集 slide 帧，去重后输出 `Slides/<base>/slides.pdf` 和可选 PPTX；流模式支持 `--stream-base`/`--run-ts`，并对 Windows 绝对路径做 repo fallback。 (~13000 tok)
 - `run_single_file.py` — Run zhihuTTS file pipeline on a single video for A/B testing. (~280 tok)
 - `run_zhihu_live.bat` — Windows live runner; defaults real live capture to continuous HLS recorder + async consumer, then merge + final Gemini synthesis. Uses a base marker to read Python-resolved output naming; default Gemini path is final one-shot only with dry-run/no-gemini controls. (~3000 tok)
 - `zhihuTTS_stream.py` — Stream/replay/live chunk capture and transcription pipeline; resolves stream `base_stem`, writes chunk artifacts/manifests, supports continuous HLS per-run work dirs, optional Gemini notes, and `--base-marker` for wrappers. (~18000 tok)

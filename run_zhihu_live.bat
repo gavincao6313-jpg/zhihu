@@ -380,13 +380,13 @@ if "!FINAL_GEMINI_ENABLED!"=="0" (
 
 :: ---- [4/4] 幻灯片提取 ----
 echo. >> "!LOG_FILE!" 2>&1
-echo [%date% %TIME: =0%] [4/4] 从流关键帧提取幻灯片 (PDF + PPTX)... >> "!LOG_FILE!" 2>&1
+echo [%date% %TIME: =0%] [4/4] 从流关键帧提取幻灯片 (PDF + optional PPTX)... >> "!LOG_FILE!" 2>&1
 "!PYTHON!" "!SCRIPT_DIR!extract_slides.py" --stream-base "!NAME!" >> "!LOG_FILE!" 2>&1
 if errorlevel 1 (
     echo [%date% %TIME: =0%] [提示] 幻灯片提取失败，手动运行: >> "!LOG_FILE!" 2>&1
     echo   python extract_slides.py --stream-base !NAME! >> "!LOG_FILE!" 2>&1
 ) else (
-    echo [%date% %TIME: =0%] 幻灯片: Slides\!NAME!\slides.pdf + slides.pptx >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] 幻灯片: Slides\!NAME!\slides.pdf （若已安装 python-pptx，则同时输出 slides.pptx） >> "!LOG_FILE!" 2>&1
 )
 
 echo. >> "!LOG_FILE!" 2>&1
