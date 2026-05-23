@@ -452,6 +452,7 @@
 | 08:34 | Edited run_single_file.py | 2→1 lines | ~17 |
 | 08:36 | Edited run_single_file.py | 2→2 lines | ~16 |
 
+<<<<<<< Updated upstream
 ## Session: 2026-05-22 11:44
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -617,11 +618,9 @@
 | 23:18 | Edited scripts/merge_stream_chunks.py | 8→11 lines | ~196 |
 | 23:19 | Edited scripts/build_stream_markdown.py | modified startswith() | ~85 |
 | 23:19 | Edited scripts/build_stream_markdown.py | 6→10 lines | ~139 |
-
-## Session: 2026-05-23 09:37
+=======
+## Session: 2026-05-22 10:25
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
-| 09:37 | Fixed WIN-reported live naming propagation bug | run_zhihu_live.bat, zhihuTTS_stream.py, .wolf/buglog.json, .wolf/cerebrum.md, .wolf/anatomy.md | BAT no longer passes fallback --name in auto mode; Python writes resolved base marker; BAT uses marker for merge/final Gemini | ~1600 |
-| 09:40 | Verified naming fix | zhihuTTS_stream.py, run_zhihu_live.bat, .wolf/buglog.json | py_compile, --help, marker helper, buglog JSON, diff check all passed; Windows BAT runtime not executed on Mac | ~500 |
-| 09:54 | Implemented live Gemini quota guardrails from retrospective | run_zhihu_live.bat, scripts/build_stream_markdown.py, .wolf/buglog.json, .wolf/cerebrum.md, .wolf/anatomy.md | Stream-stage --gemini removed from BAT default; added --dry-run/--no-gemini and max retry/continuation budget controls | ~1500 |
+>>>>>>> Stashed changes
