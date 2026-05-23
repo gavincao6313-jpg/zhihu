@@ -17,6 +17,7 @@ setlocal enabledelayedexpansion
 ::   stream-<NAME>-<时间>.combined-transcript.txt   完整逐字转写
 ::   stream-<NAME>-<时间>.manifest.md               逐块统计
 ::   Markdowns\TTS_stream-<NAME>.md                NotebookLM 文档（默认最多 1+2 次 Gemini 成功调用）
+::   Slides\<NAME>\slides.pdf + slides.pptx        幻灯片 PDF + PPTX
 ::   logs\run-<NAME>.log                            完整运行日志（本机保留，不入 Git）
 ::
 :: 依赖（首次使用前确认）:
@@ -142,6 +143,7 @@ if "!DRY_RUN!"=="1" (
     echo  Step 1: zhihuTTS_stream.py --continuous-hls --base-marker ^<marker^> ^(no --gemini^)
     echo  Step 2: merge_stream_chunks.py --base ^<resolved marker base^>
     echo  Step 3: build_stream_markdown.py --base ^<resolved marker base^> --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS!
+    echo  Step 4: extract_slides.py --stream-base ^<resolved marker base^> ^(PDF + PPTX^)
     echo ====================================================
     exit /b 0
 )
@@ -274,8 +276,8 @@ echo ====================================================
 echo.
 ) >> "!LOG_FILE!" 2>&1
 
-:: ---- [1/3] 主转写（-u 保证实时刷入日志，不缓冲）----
-echo [%date% %TIME: =0%] [1/3] 开始直播转写（continuous HLS，不在采集阶段调用 Gemini）... >> "!LOG_FILE!" 2>&1
+:: ---- [1/4] 主转写（-u 保证实时刷入日志，不缓冲）----
+echo [%date% %TIME: =0%] [1/4] 开始直播转写（continuous HLS，不在采集阶段调用 Gemini）... >> "!LOG_FILE!" 2>&1
 if exist "!BASE_MARKER!" del "!BASE_MARKER!" >nul 2>&1
 if "!REQUESTED_NAME!"=="" (
     "!PYTHON!" -u "!SCRIPT_DIR!zhihuTTS_stream.py" ^
@@ -337,9 +339,9 @@ if "!BASE_STEM!"=="" (
 set "NAME=!BASE_STEM!"
 echo [%date% %TIME: =0%] 实际输出名称: !NAME! >> "!LOG_FILE!" 2>&1
 
-:: ---- [2/3] 分片合并 ----
+:: ---- [2/4] 分片合并 ----
 echo. >> "!LOG_FILE!" 2>&1
-echo [%date% %TIME: =0%] [2/3] 合并分片为结构化 Markdown... >> "!LOG_FILE!" 2>&1
+echo [%date% %TIME: =0%] [2/4] 合并分片为结构化 Markdown... >> "!LOG_FILE!" 2>&1
 "!PYTHON!" "!SCRIPT_DIR!scripts\merge_stream_chunks.py" ^
   --base "!NAME!" ^
   --runs-dir "!SCRIPT_DIR!runs" >> "!LOG_FILE!" 2>&1
@@ -350,17 +352,17 @@ if errorlevel 1 (
     echo [%date% %TIME: =0%] 结构化 Markdown: runs\stream-!NAME!-merged.md >> "!LOG_FILE!" 2>&1
 )
 
-:: ---- [3/3] Gemini 综合调用 → NotebookLM 文档 ----
+:: ---- [3/4] Gemini 综合调用 → NotebookLM 文档 ----
 echo. >> "!LOG_FILE!" 2>&1
 if "!FINAL_GEMINI_ENABLED!"=="0" (
     if "!NO_GEMINI!"=="1" (
-        echo [%date% %TIME: =0%] [3/3] 跳过 NotebookLM 生成（--no-gemini） >> "!LOG_FILE!" 2>&1
+        echo [%date% %TIME: =0%] [3/4] 跳过 NotebookLM 生成（--no-gemini） >> "!LOG_FILE!" 2>&1
     ) else (
-        echo [%date% %TIME: =0%] [3/3] 跳过 NotebookLM 生成（未设置 GEMINI_API_KEY） >> "!LOG_FILE!" 2>&1
+        echo [%date% %TIME: =0%] [3/4] 跳过 NotebookLM 生成（未设置 GEMINI_API_KEY） >> "!LOG_FILE!" 2>&1
     )
     echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
 ) else (
-    echo [%date% %TIME: =0%] [3/3] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] [3/4] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
     echo [%date% %TIME: =0%] Gemini budget: model=gemini-2.5-flash, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
     "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
       --base "!NAME!" ^
@@ -376,6 +378,17 @@ if "!FINAL_GEMINI_ENABLED!"=="0" (
     )
 )
 
+:: ---- [4/4] 幻灯片提取 ----
+echo. >> "!LOG_FILE!" 2>&1
+echo [%date% %TIME: =0%] [4/4] 从流关键帧提取幻灯片 (PDF + PPTX)... >> "!LOG_FILE!" 2>&1
+"!PYTHON!" "!SCRIPT_DIR!extract_slides.py" --stream-base "!NAME!" >> "!LOG_FILE!" 2>&1
+if errorlevel 1 (
+    echo [%date% %TIME: =0%] [提示] 幻灯片提取失败，手动运行: >> "!LOG_FILE!" 2>&1
+    echo   python extract_slides.py --stream-base !NAME! >> "!LOG_FILE!" 2>&1
+) else (
+    echo [%date% %TIME: =0%] 幻灯片: Slides\!NAME!\slides.pdf + slides.pptx >> "!LOG_FILE!" 2>&1
+)
+
 echo. >> "!LOG_FILE!" 2>&1
 echo [%date% %TIME: =0%] ======== 全部完成 ======== >> "!LOG_FILE!" 2>&1
 
@@ -384,6 +397,7 @@ echo ==============================
 echo  全部完成！输出文件:
 echo    runs\       转写 + 统计
 echo    Markdowns\  NotebookLM 文档
+echo    Slides\     幻灯片 PDF + PPTX
 echo    !LOG_FILE!
 echo ==============================
 echo.

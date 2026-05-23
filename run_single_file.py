@@ -7,6 +7,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 os.chdir(str(Path(__file__).parent))
 
 from zhihuTTS import process_video, tprint, MARKDOWNS_DIR
+from extract_slides import extract_slides
 from google import genai
 from google.genai import types
 from datetime import date
@@ -28,3 +29,5 @@ MARKDOWNS_DIR.mkdir(exist_ok=True)
 
 result = process_video(client, video_path, output_path, f"AB-file {video_path.stem[:40]}")
 print(f"\nResult: {result}")
+
+extract_slides(video_path)
