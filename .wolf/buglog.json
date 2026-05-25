@@ -663,15 +663,15 @@
       "error_message": "Analysis failed: EPERM: operation not permitted, open '/Users/caojiapeng/.gitnexus/registry.json'",
       "file": "/Users/caojiapeng/.gitnexus/registry.json",
       "root_cause": "Sandboxed GitNexus refresh could not write the home-directory registry.",
-      "fix": "Re-ran npx gitnexus analyze with approved escalated permissions.",
+      "fix": "For the original occurrence, re-ran npx gitnexus analyze with approved escalated permissions. For the 2026-05-25 temporary-clone review, GitNexus could not register the temp path under the sandbox, so the review fell back to git diff plus existing GitNexus impact data from the indexed main workspace.",
       "tags": [
         "gitnexus",
         "sandbox",
         "analysis"
       ],
       "related_bugs": [],
-      "occurrences": 1,
-      "last_seen": "2026-05-22T12:15:00+08:00"
+      "occurrences": 2,
+      "last_seen": "2026-05-25T23:58:00+08:00"
     },
     {
       "id": "bug-042",
@@ -1196,6 +1196,25 @@
       ],
       "occurrences": 1,
       "last_seen": "2026-05-23T17:24:00+08:00"
+    },
+    {
+      "id": "bug-073",
+      "timestamp": "2026-05-25T23:55:00+08:00",
+      "error_message": "WIN validation commit claimed a Windows verification report and Gemini 3.5 validation, but only final-qc/base-marker artifacts were committed and the final-qc recorded synthesis_model=gemini-2.5-flash",
+      "file": "runs/windows-live-validation-20260525.md, zhihuTTS_mac_test.py",
+      "root_cause": "The runtime validation evidence was not summarized in the expected report file, and the code/model upgrade was committed together with an artifact generated before the model switch. A standalone temporary Mac test script was also committed to the mainline with no references.",
+      "fix": "Added runs/windows-live-validation-20260525.md with the exact final-qc metrics and caveat that gemini-3.5-flash still needs separate validation. Removed the unreferenced zhihuTTS_mac_test.py temporary script from the mainline.",
+      "tags": [
+        "live-validation",
+        "gemini-model",
+        "evidence",
+        "cleanup"
+      ],
+      "related_bugs": [
+        "bug-070"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-25T23:55:00+08:00"
     }
   ]
 }

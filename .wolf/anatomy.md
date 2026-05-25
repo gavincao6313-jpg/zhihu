@@ -50,6 +50,8 @@
 
 ## runs/
 
+- `runs/windows-live-validation-20260525.md` — Windows 2026-05-25 真实直播 validation summary; records continuous-HLS metrics from final-qc and notes that the run used gemini-2.5-flash, so gemini-3.5-flash still needs separate validation. (~300 tok)
+
 
 ## scripts/
 
