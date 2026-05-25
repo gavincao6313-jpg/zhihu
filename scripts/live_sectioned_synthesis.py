@@ -1,7 +1,7 @@
 """P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents.
 
 Replaces the one-shot Gemini call in build_stream_markdown.py with:
-  Pass A — per-section fact extraction  (gemini-2.5-flash, one call per section)
+  Pass A — per-section fact extraction  (gemini-3.5-flash, one call per section)
   Pass B — global outline merge         (flash by default, pro if needed)
   Pass C — final document assembly      (configurable, pro recommended)
 
@@ -191,7 +191,7 @@ def all_sections_done(manifest: dict) -> bool:
 
 # ── P1-4 Pass A ───────────────────────────────────────────────────────────────
 
-PASS_A_MODEL              = "gemini-2.5-flash"
+PASS_A_MODEL              = "gemini-3.5-flash"
 PASS_A_PRO_MODEL          = "gemini-2.5-pro"
 MAX_PASS_A_FLASH_ATTEMPTS = 2    # escalate to pro after this many flash failures
 PASS_A_CALL_DELAY_S       = 6.0  # 10 RPM free-tier → 6 s between calls
@@ -419,7 +419,7 @@ def pass_c_needs_rerun(manifest: dict) -> bool:
 
 # ── P1-5 Pass B ───────────────────────────────────────────────────────────────
 
-PASS_B_MODEL         = "gemini-2.5-flash"
+PASS_B_MODEL         = "gemini-3.5-flash"
 PASS_B_PRO_MODEL     = "gemini-2.5-pro"
 OUTLINE_MIN_CHAPTERS = 2
 OUTLINE_MAX_CHAPTERS = 20
@@ -538,7 +538,7 @@ def run_pass_b(
 ) -> dict | None:
     """Execute Pass B: merge all section notes into a global chapter outline.
 
-    Tries gemini-2.5-flash first; if outline QC fails, re-runs with
+    Tries gemini-3.5-flash first; if outline QC fails, re-runs with
     gemini-2.5-pro.  Writes outline.json and updates manifest.
 
     Raises RuntimeError if not all sections are done.
@@ -1938,7 +1938,7 @@ def _smoke_test() -> None:
         # ── Five note_status states ────────────────────────────────────────────
         # section_001 → done (Pass A success)
         update_section(run_dir, "section_001",
-                       note_status="done", note_model="gemini-2.5-flash",
+                       note_status="done", note_model="gemini-3.5-flash",
                        note_path="notes/section_001.md")
         # section_002 → failed (Gemini error)
         update_section(run_dir, "section_002",

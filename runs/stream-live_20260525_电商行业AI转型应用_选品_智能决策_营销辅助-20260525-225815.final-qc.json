@@ -1,0 +1,30 @@
+{
+  "base": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助",
+  "run_ts": "20260525-225815",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 183,
+  "transcript_chars": 55447,
+  "frame_count": 499,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 11000,
+  "timeline_end_s": 11003,
+  "timeline_duration_s": 11003,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_model": "gemini-2.5-flash",
+  "synthesis_pass": "one-shot",
+  "warnings": [],
+  "body_last_chapter_end_s": 11000,
+  "body_tail_gap_s": 3,
+  "body_coverage_status": "ok",
+  "transcript_appendix_chars": 55447,
+  "visual_evidence_count": 499,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
