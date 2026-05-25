@@ -53,7 +53,7 @@ def call_gemini(
     parts: list,
     label: str,
     *,
-    model: str = "gemini-2.5-flash",
+    model: str = "gemini-3.5-flash",
     thinking_budget: int = 4096,
     max_retries: int = 6,
     retry_delay: int = 65,

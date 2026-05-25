@@ -133,7 +133,7 @@ if "!DRY_RUN!"=="1" (
     echo  直播转写 Gemini       : disabled
     if "!FINAL_GEMINI_ENABLED!"=="1" (
         echo  最终 NotebookLM Gemini: enabled
-        echo  Gemini model         : gemini-2.5-flash
+        echo  Gemini model         : gemini-3.5-flash
         echo  max successful calls : 3 ^(1 initial + !BUILD_MAX_CONTINUATIONS! continuation^)
         echo  retry cap            : !BUILD_MAX_RETRIES!
     ) else (
@@ -321,7 +321,7 @@ if errorlevel 1 (
 
 set "BASE_STEM="
 if exist "!BASE_MARKER!" (
-    for /f "usebackq delims=" %%b in ("!BASE_MARKER!") do (
+    for /f "usebackq delims=" %%b in (`"!PYTHON!" -c "print(open(r'!BASE_MARKER!',encoding='utf-8').read().strip())"`) do (
         if not "%%~b"=="" set "BASE_STEM=%%~b"
     )
 )
@@ -363,7 +363,7 @@ if "!FINAL_GEMINI_ENABLED!"=="0" (
     echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
 ) else (
     echo [%date% %TIME: =0%] [3/4] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
-    echo [%date% %TIME: =0%] Gemini budget: model=gemini-2.5-flash, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] Gemini budget: model=gemini-3.5-flash, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
     "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
       --base "!NAME!" ^
       --runs-dir "!SCRIPT_DIR!runs" ^

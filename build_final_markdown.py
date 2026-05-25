@@ -36,7 +36,7 @@ NOTEBOOKLM_PATH = MARKDOWNS_DIR / "TTS_replay-20260518.md"    # Gemini knowledge
 
 # ── Gemini config ────────────────────────────────────────────────────────────
 
-GEMINI_MODEL            = "gemini-2.5-flash"
+GEMINI_MODEL            = "gemini-3.5-flash"
 GEMINI_IMAGE_HARD_LIMIT = 3000   # Gemini 2.5 Flash API hard ceiling; ~50hr+ streams only
 MAX_RETRIES             = 6
 MAX_CONTINUATIONS       = 20

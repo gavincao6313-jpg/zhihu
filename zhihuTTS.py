@@ -42,7 +42,7 @@ RETRY_DELAY = 65
 CONTINUATION_COOLDOWN = 6      # free tier: 10 RPM → 1 req / 6 s
 DAILY_QUOTA_LIMIT = 20
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-pro")
-_GEMINI_MODEL_FALLBACK = "gemini-2.5-flash"
+_GEMINI_MODEL_FALLBACK = "gemini-3.5-flash"
 _gemini_model_active = [GEMINI_MODEL]  # mutable singleton for runtime fallback
 
 PROMPT_TEXT = """

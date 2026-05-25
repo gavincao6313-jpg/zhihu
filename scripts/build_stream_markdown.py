@@ -42,7 +42,7 @@ from utils import call_gemini, extract_run_ts, fmt_ts
 
 # ── Gemini config ─────────────────────────────────────────────────────────────
 
-GEMINI_MODEL            = "gemini-2.5-flash"
+GEMINI_MODEL            = "gemini-3.5-flash"
 GEMINI_IMAGE_HARD_LIMIT = 3000   # API ceiling; fallback priority sampling above this
 MAX_RETRIES             = 2      # Gemini quota guard: keep automatic retries small
 MAX_CONTINUATIONS       = 2      # Gemini quota guard: 1 initial + 2 continuation calls max
