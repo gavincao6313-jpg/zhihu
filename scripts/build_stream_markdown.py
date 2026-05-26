@@ -1,36 +1,36 @@
-"""Post-stream Gemini synthesis: assemble all live chunks → NotebookLM document.
+"""Post-stream LLM synthesis: assemble all live chunks → NotebookLM document.
 
 Run after zhihuTTS_stream.py finishes and merge_stream_chunks.py has produced
 the raw merged transcript. This script:
   1. Loads all per-chunk global-transcript.txt → combined full transcript
   2. Loads all per-chunk payload.json → all keyframe images, globally sorted
-  3. Calls Gemini 2.5 Flash with the full prompt + all frames (no cap)
+  3. Calls Gemini/Qwen with the full prompt + selected frames
   4. Writes a NotebookLM-ready document to Markdowns/TTS_stream-<base>.md
 
-Requires GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var.
+Requires GEMINI_API_KEY / OPENCLAW_GOOGLE_API_KEY for Gemini, or
+DASHSCOPE_API_KEY for Qwen.
 
 Usage (Windows):
     set GEMINI_API_KEY=your_key
-    python scripts\\build_stream_markdown.py --base zhihu-gaowei-20260518
+    python scripts\\build_stream_markdown.py --base zhihu-gaowei-20260518 --provider gemini
 
 Usage (Mac/Linux):
-    GEMINI_API_KEY=your_key python scripts/build_stream_markdown.py --base zhihu-gaowei-20260518
+    DASHSCOPE_API_KEY=your_key python scripts/build_stream_markdown.py --base zhihu-gaowei-20260518 --provider qwen
 
 Options:
     --base          Stream base name (required). Matches stream-{base}_chunk* files.
     --runs-dir      Directory with per-chunk files (default: runs)
     --markdowns-dir Output directory for NotebookLM document (default: Markdowns)
     --run-ts        Use a specific run timestamp YYYYMMDD-HHMMSS (default: latest run)
-    --dry-run       Print QC and Gemini budget without calling Gemini
+    --dry-run       Print QC and provider budget without calling the model API
     --mock-gemini-text FILE
-                    Offline validation only: use FILE as Gemini output and write final Markdown
+                    Offline validation only: use FILE as provider output and write final Markdown
 """
 import argparse
 import json
 import os
 import re
 import sys
-import time
 from collections import defaultdict
 from pathlib import Path
 
@@ -38,12 +38,15 @@ from google import genai
 from google.genai import types
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import call_gemini, extract_run_ts, fmt_ts
+from utils import call_gemini, call_qwen, extract_run_ts, fmt_ts
 
-# ── Gemini config ─────────────────────────────────────────────────────────────
+# ── Provider config ───────────────────────────────────────────────────────────
 
-GEMINI_MODEL            = "gemini-3.5-flash"
+GEMINI_MODEL            = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
+QWEN_MODEL              = os.environ.get("QWEN_MODEL", "qwen3.6-flash")
 GEMINI_IMAGE_HARD_LIMIT = 3000   # API ceiling; fallback priority sampling above this
+QWEN_IMAGE_HARD_LIMIT   = 256
+QWEN_DEFAULT_MAX_FRAMES = 128
 MAX_RETRIES             = 2      # Gemini quota guard: keep automatic retries small
 MAX_CONTINUATIONS       = 2      # Gemini quota guard: 1 initial + 2 continuation calls max
 RETRY_DELAY             = 65
@@ -168,11 +171,13 @@ def collect_all_frames(chunk_files: list[Path]) -> list[dict]:
     return all_frames
 
 
-# ── Gemini input assembly ─────────────────────────────────────────────────────
+# ── Provider input assembly ───────────────────────────────────────────────────
 
-def select_frames(frames: list[dict]) -> list[dict]:
-    """Return all frames; apply priority sampling only when > GEMINI_IMAGE_HARD_LIMIT."""
-    if len(frames) <= GEMINI_IMAGE_HARD_LIMIT:
+def select_frames(frames: list[dict], *, image_limit: int = GEMINI_IMAGE_HARD_LIMIT) -> list[dict]:
+    """Return selected frames, prioritizing slides/annotations when over limit."""
+    if image_limit <= 0:
+        return []
+    if len(frames) <= image_limit:
         return frames
 
     slide_frames = [f for f in frames if "type=slide"      in f.get("marker", "")]
@@ -181,7 +186,7 @@ def select_frames(frames: list[dict]) -> list[dict]:
                     if "type=slide"      not in f.get("marker", "")
                     and "type=annotation" not in f.get("marker", "")]
 
-    cap      = GEMINI_IMAGE_HARD_LIMIT
+    cap      = image_limit
     selected = list(slide_frames[:cap])
     remaining = cap - len(selected)
     if remaining > 0:
@@ -195,8 +200,14 @@ def select_frames(frames: list[dict]) -> list[dict]:
     return selected
 
 
-def build_gemini_parts(transcript: str, frames: list[dict]) -> list:
-    selected    = select_frames(frames)
+def build_gemini_parts(
+    transcript: str,
+    frames: list[dict],
+    *,
+    provider: str = "gemini",
+    image_limit: int = GEMINI_IMAGE_HARD_LIMIT,
+) -> tuple[list, dict]:
+    selected    = select_frames(frames, image_limit=image_limit)
     slide_count = sum(1 for f in selected if "type=slide"      in f.get("marker", ""))
     annot_count = sum(1 for f in selected if "type=annotation" in f.get("marker", ""))
 
@@ -212,10 +223,19 @@ def build_gemini_parts(transcript: str, frames: list[dict]) -> list:
         ))
         loaded += 1
 
-    print(f"  Gemini parts: transcript {len(transcript):,} chars, "
-          f"{loaded}/{len(frames)} frames (slide={slide_count}, annot={annot_count})",
+    frame_policy = {
+        "provider": provider,
+        "total_frames": len(frames),
+        "selected_frames": loaded,
+        "dropped_frames": max(0, len(frames) - loaded),
+        "cap": image_limit,
+        "slide_frames": slide_count,
+        "annotation_frames": annot_count,
+    }
+    print(f"  {provider} parts: transcript {len(transcript):,} chars, "
+          f"{loaded}/{len(frames)} frames (slide={slide_count}, annot={annot_count}, cap={image_limit})",
           flush=True)
-    return parts
+    return parts, frame_policy
 
 
 # ── P0 QC ─────────────────────────────────────────────────────────────────────
@@ -324,6 +344,7 @@ def live_final_qc(
         "gaps":                gaps,
         "silent_chunk_count":  silent_chunk_count,
         "failed_chunk_count":  failed_chunk_count,
+        "synthesis_provider":  "gemini",
         "synthesis_model":     GEMINI_MODEL,
         "synthesis_pass":      "one-shot",
         "warnings":            warnings,
@@ -381,9 +402,10 @@ def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
         return f"{h:02d}:{m:02d}:{sec:02d}"
 
     status  = manifest["source_status"]
+    provider = manifest.get("synthesis_provider", "gemini")
     lines   = [
         "> **Live Final QC**",
-        f"> - 输入类型: live | 合成模型: {manifest['synthesis_model']}"
+        f"> - 输入类型: live | provider: {provider} | 合成模型: {manifest['synthesis_model']}"
         f" | synthesis_pass: {manifest['synthesis_pass']}",
         f"> - 采集状态: {status}",
         f"> - 覆盖时间: {s_to_hms(manifest['first_timestamp_s'])}"
@@ -425,7 +447,7 @@ def build_visual_evidence_index(frames: list[dict]) -> str:
     lines = [
         "## 附录 B：视觉证据索引",
         "",
-        f"共 {len(frames)} 帧。该索引由本地 payload 确定性生成，不消耗 Gemini API。",
+        f"共 {len(frames)} 帧。该索引由本地 payload 确定性生成，不额外消耗模型 API。",
         "",
         "| 时间 | 标记 | 文件 |",
         "|------|------|------|",
@@ -470,21 +492,43 @@ def main() -> None:
     ap.add_argument("--markdowns-dir",  default="Markdowns", help="Output dir")
     ap.add_argument("--run-ts",         default=None,
                     help="Specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
+    ap.add_argument("--provider", choices=("gemini", "qwen"), default="gemini",
+                    help="Synthesis provider (default: gemini)")
+    ap.add_argument("--output-label", default="",
+                    help="Optional suffix for A/B outputs, e.g. gemini35 or qwen")
+    ap.add_argument("--qwen-max-frames", type=int, default=QWEN_DEFAULT_MAX_FRAMES,
+                    help=f"Qwen image cap, 1-{QWEN_IMAGE_HARD_LIMIT} (default: {QWEN_DEFAULT_MAX_FRAMES})")
+    ap.add_argument("--qwen-thinking", action="store_true",
+                    help="Enable Qwen thinking mode; off by default to control token cost")
+    ap.add_argument("--thinking-budget", type=int, default=4096,
+                    help="Thinking token budget for providers that support it")
     ap.add_argument("--max-retries", type=int, default=MAX_RETRIES,
-                    help=f"Gemini retry cap (default: {MAX_RETRIES})")
+                    help=f"Provider retry cap (default: {MAX_RETRIES})")
     ap.add_argument("--max-continuations", type=int, default=MAX_CONTINUATIONS,
-                    help=f"Gemini continuation cap after MAX_TOKENS (default: {MAX_CONTINUATIONS})")
+                    help=f"Provider continuation cap after truncation (default: {MAX_CONTINUATIONS})")
     ap.add_argument("--dry-run", action="store_true",
-                    help="Print input/QC/Gemini budget only; do not call Gemini or write Markdown")
+                    help="Print input/QC/provider budget only; do not call provider or write Markdown")
     ap.add_argument("--mock-gemini-text", default="",
-                    help="Offline validation only: use this file as Gemini output and do not call Gemini")
+                    help="Offline validation only: use this file as provider output and do not call provider")
     args = ap.parse_args()
 
-    api_key = (
-        os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY") or ""
-    ).strip()
+    provider = args.provider
+    output_label = args.output_label.strip()
+    if provider == "qwen" and not output_label:
+        output_label = "qwen"
+    qwen_max_frames = max(1, min(args.qwen_max_frames, QWEN_IMAGE_HARD_LIMIT))
+
+    if provider == "gemini":
+        api_key = (
+            os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY") or ""
+        ).strip()
+        provider_model = GEMINI_MODEL
+    else:
+        api_key = os.environ.get("DASHSCOPE_API_KEY", "").strip()
+        provider_model = QWEN_MODEL
     if not api_key and not args.dry_run and not args.mock_gemini_text:
-        print("[!] No GEMINI_API_KEY — set the env var and re-run.")
+        env_name = "DASHSCOPE_API_KEY" if provider == "qwen" else "GEMINI_API_KEY"
+        print(f"[!] No {env_name} — set the env var and re-run.")
         sys.exit(1)
 
     runs_dir      = Path(args.runs_dir)
@@ -524,44 +568,105 @@ def main() -> None:
     print(f"Frames    : {len(all_frames)} total")
 
     manifest = live_final_qc(chunk_files, transcript, all_frames, args.base, selected_ts)
-    qc_path  = runs_dir / f"stream-{args.base}-{selected_ts}.final-qc.json"
+    manifest["synthesis_provider"] = provider
+    manifest["synthesis_model"] = provider_model
+    if provider == "qwen":
+        manifest["qwen_thinking_enabled"] = bool(args.qwen_thinking)
+    label_part = f".{output_label}" if output_label else ""
+    qc_path  = runs_dir / f"stream-{args.base}-{selected_ts}{label_part}.final-qc.json"
     qc_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"QC manifest : {qc_path}  [{manifest['source_status']}]")
     for w in manifest["warnings"]:
         print(f"  [warn] {w}")
 
     max_successful_calls = 1 + max(0, args.max_continuations)
-    print("\n=== Gemini budget ===")
-    print(f"  model                : {GEMINI_MODEL}")
+    image_limit = GEMINI_IMAGE_HARD_LIMIT if provider == "gemini" else qwen_max_frames
+    print(f"\n=== {provider} budget ===")
+    print(f"  model                : {provider_model}")
     print("  synthesis_pass       : one-shot")
     print(f"  max successful calls : {max_successful_calls} (1 initial + {args.max_continuations} continuation)")
     print(f"  retry cap            : {args.max_retries}")
+    print(f"  image cap            : {image_limit}")
     print("  duplicate synthesis  : false")
+    if output_label:
+        print(f"  output label         : {output_label}")
     if args.mock_gemini_text:
         print(f"  offline validation   : {args.mock_gemini_text} (no API call)")
 
     if args.dry_run:
-        print("\n[dry-run] Skipping Gemini call and Markdown write.")
+        dry_parts, dry_policy = build_gemini_parts(
+            transcript,
+            all_frames,
+            provider=provider,
+            image_limit=image_limit,
+        )
+        manifest["frame_policy"] = dry_policy
+        manifest["provider_parts_count"] = len(dry_parts)
+        qc_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\n[dry-run] Skipping {provider} call and Markdown write.")
         return
 
     if args.mock_gemini_text:
-        print("\n=== Offline validation: using mock Gemini text ===")
+        print("\n=== Offline validation: using mock provider text ===")
         gemini_text = Path(args.mock_gemini_text).read_text(encoding="utf-8")
         manifest["synthesis_pass"] = "mock-one-shot"
+        manifest["frame_policy"] = {
+            "provider": provider,
+            "total_frames": len(all_frames),
+            "selected_frames": 0,
+            "dropped_frames": len(all_frames),
+            "cap": image_limit,
+        }
     else:
-        print("\n=== Gemini: Building NotebookLM document ===")
-        http_opts = types.HttpOptions(timeout=3600000)
-        client    = genai.Client(api_key=api_key, http_options=http_opts)
-
-        parts = build_gemini_parts(transcript, all_frames)
-        gemini_text = call_gemini(
-            client, parts, args.base,
-            max_retries=args.max_retries,
-            max_continuations=args.max_continuations,
+        print(f"\n=== {provider}: Building NotebookLM document ===")
+        parts, frame_policy = build_gemini_parts(
+            transcript,
+            all_frames,
+            provider=provider,
+            image_limit=image_limit,
         )
+        manifest["frame_policy"] = frame_policy
+        manifest["provider_parts_count"] = len(parts)
+
+        if provider == "gemini":
+            http_opts = types.HttpOptions(timeout=3600000)
+            client    = genai.Client(api_key=api_key, http_options=http_opts)
+            gemini_text = call_gemini(
+                client, parts, args.base,
+                model=provider_model,
+                thinking_budget=args.thinking_budget,
+                max_retries=args.max_retries,
+                max_continuations=args.max_continuations,
+            )
+            manifest["provider_usage"] = {
+                "provider": "gemini",
+                "model": provider_model,
+                "api_calls": None,
+                "usage": {},
+            }
+        else:
+            try:
+                from openai import OpenAI
+            except ImportError:
+                print("[!] openai not installed — run: pip install openai", file=sys.stderr)
+                sys.exit(1)
+            client = OpenAI(
+                api_key=api_key,
+                base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+            )
+            qwen_result = call_qwen(
+                client, parts, args.base,
+                model=provider_model,
+                enable_thinking=args.qwen_thinking,
+                thinking_budget=args.thinking_budget,
+                max_retries=args.max_retries,
+                max_continuations=args.max_continuations,
+            )
+            gemini_text = qwen_result.get("text")
+            manifest["provider_usage"] = {k: v for k, v in qwen_result.items() if k != "text"}
 
     if not gemini_text:
-        print("[!] Gemini synthesis failed — merged raw transcript still available.",
+        print(f"[!] {provider} synthesis failed — merged raw transcript still available.",
               file=sys.stderr)
         sys.exit(1)
 
@@ -587,7 +692,7 @@ def main() -> None:
     gemini_text = append_deterministic_appendices(gemini_text, transcript, all_frames)
 
     markdowns_dir.mkdir(parents=True, exist_ok=True)
-    out_path = markdowns_dir / f"TTS_stream-{args.base}.md"
+    out_path = markdowns_dir / f"TTS_stream-{args.base}{('-' + output_label) if output_label else ''}.md"
     out_path.write_text(gemini_text, encoding="utf-8")
     print(f"\nNotebookLM document : {out_path}")
     print(f"  Size              : {len(gemini_text):,} chars")
