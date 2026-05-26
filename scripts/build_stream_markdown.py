@@ -28,6 +28,7 @@ Options:
                     Offline validation only: use FILE as provider output and write final Markdown
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -54,6 +55,10 @@ QWEN_MODEL              = os.environ.get("QWEN_MODEL", "qwen3.6-flash")
 GEMINI_IMAGE_HARD_LIMIT = 3000   # API ceiling; fallback priority sampling above this
 QWEN_IMAGE_HARD_LIMIT   = 250
 QWEN_DEFAULT_MAX_FRAMES = 128
+QWEN_WINDOW_TARGET_FRAMES = 200
+QWEN_WINDOW_OVERLAP_FRAMES = 20
+QWEN_WINDOW_NOTE_VERSION = "qwen-window-note-v1"
+QWEN_FINAL_ASSEMBLY_VERSION = "qwen-final-assembly-v1"
 MAX_RETRIES             = 2      # Gemini quota guard: keep automatic retries small
 MAX_CONTINUATIONS       = 2      # Gemini quota guard: 1 initial + 2 continuation calls max
 RETRY_DELAY             = 65
@@ -64,6 +69,7 @@ GAP_THRESHOLD_S     = 30    # seconds above typical chunk interval → counts as
 SILENT_CHARS_LIMIT  = 10    # transcript chars below this → silent chunk
 TAIL_COVERAGE_RATIO = 0.85  # transcript must reach ≥ 85% of estimated stream end
 BODY_COVERAGE_GAP_S = 120   # warn if last Markdown chapter ends >2 min before stream end
+QWEN_BODY_MIN_TRANSCRIPT_RATIO = 0.35
 
 GEMINI_PROMPT_TEXT = """
 # 角色与目标
@@ -110,6 +116,144 @@ GEMINI_PROMPT_TEXT = """
 
 # 执行要求
 由于视频信息量极大，请保持极高的专注度，不要省略中间章节。如果你的输出达到了字数上限，请停在当前完整的段落，我会回复"继续"，你再接着上文输出。
+"""
+
+QWEN_NOTEBOOKLM_PROMPT_TEXT = """
+# 角色与目标
+你是一个面向 NotebookLM / 长文本 RAG 的中文直播知识库文档生成器。你的任务不是写高管摘要，也不是帮读者节省篇幅，而是把输入的完整逐字稿和关键帧截图转成一份**可检索、可追溯、细节保真的 Markdown 知识库源文档**。
+
+# 最高优先级：禁止过度压缩
+Qwen 容易把口语内容整理成短 bullet points。当前任务明确禁止这种做法。请保留讲师的原生语境、案例链路、具体数字、打分、提示词、屏幕文字和重要原话。宁可输出更长，也不要把长案例压缩成一句概括。
+
+# 必须保留的高价值证据
+- 讲师现场展示或口述的 Prompt / 提示词 / 配置 / 代码 / 命令 / UI 文案，必须原样或近原样保留，并用 Markdown 代码块包裹。
+- 具体案例的因果链路必须完整保留：问题是什么、讲师怎么判断、改了什么、为什么这样改、效果如何。
+- 具体数字、时间、评分、比例、工具名、人名和课程名不能省略。例如 75 分、99.9%、15 秒/30 秒、Remotion、HyperFrames、Coze、FDE 等。
+- 对讲师原话、金句、判断标准，要尽量保留原始表达，不要改写成抽象口号。
+- 视觉/屏幕内容不能只写"展示了截图"。要描述截图上出现的标题、表格、红字、圈注、代码、配置项或演示结果。
+
+# 输入说明
+- **逐字稿**: 带全局时间戳的中文直播转写。
+- **关键帧**: 按时间排序的视频截图，包含幻灯片切换、画笔标注、代码/配置界面、群聊或产品演示画面。
+- 当截图信息和逐字稿不一致或互补时，请把截图内容作为视觉证据写入正文。
+
+# 必须输出的 Markdown 结构
+
+必须从 H1 开始，不能省略标题：
+
+# （给这场直播起一个准确、具体的中文标题）
+
+## 1. 视频元数据
+- **推测主题：**
+- **核心关键词：** 5-12 个关键词，优先保留原始术语。
+- **适用受众/场景：**
+
+## 2. 核心知识字典（Glossary）
+请提炼 5-8 个概念。定义要清晰，但不要牺牲细节。优先包含 FDE、AI播客生成、人物一致性、流量重组洗稿、安全底线、Remotion/HyperFrames/Coze 等实际出现的概念。
+
+## 3. 详尽内容解析
+请按真实时间线拆分章节。每个章节标题必须独立成行，并使用：
+
+### [HH:MM:SS - HH:MM:SS] 章节标题
+
+每个章节必须包含以下四项，不能缺项：
+- **核心论点：** 本段结论。
+- **详细展开：** 详尽保留讲师解释、案例背景、判断过程、操作步骤、数字、评分、因果关系。不要只列短 bullet。
+- **视觉/屏幕内容：** 详细转写屏幕信息。若出现 Prompt、配置、代码、命令、UI 文案，请用代码块保留。
+- **重要金句/原话：** 1-3 句原话或近原话。
+
+## 4. 遗留问题与下一步行动
+记录视频结尾、课程安排、项目报名建议、待办事项或未解决问题。
+
+# 质量自检
+输出前自检：
+1. 是否有 H1 标题？
+2. 是否保留了 Prompt/提示词/配置/代码块？
+3. 是否保留了具体案例的细节、数字、评分和原话？
+4. 是否每个时间线章节都有视觉/屏幕内容？
+5. 是否避免了"高管摘要"式过度压缩？
+
+如果不确定某个细节是否重要，保留它。NotebookLM 后续检索依赖这些细节。
+"""
+
+QWEN_WINDOW_NOTE_PROMPT_TEXT = """
+# 角色与目标
+你是 NotebookLM 知识库的"窗口级证据采集员"。我会提供长直播中的一个时间窗口：本窗口逐字稿 + 本窗口关键帧。你的任务是生成**保真窗口笔记**，不是最终文章，也不是摘要。
+
+# 最高优先级
+禁止高管摘要化，禁止把长案例压缩成一句话。请捕获本窗口中所有后续 RAG 检索可能需要的细节。
+
+# 必须保留
+- Prompt / 提示词 / 配置 / 代码 / 命令 / UI 文案：用 Markdown 代码块保存。
+- 具体案例链路：问题、判断、修改、原因、效果。
+- 具体数字和标签：评分、比例、时长、工具名、人名、项目名。
+- 视觉证据：截图/幻灯片/群聊/产品界面上的标题、表格、红字、圈注、代码、配置项。
+- 讲师原话或近原话：尤其是判断标准、金句、风险提示。
+
+# 输出格式
+请严格使用以下结构：
+
+## Window Metadata
+- **时间范围：** [HH:MM:SS - HH:MM:SS]
+- **窗口序号：**
+- **覆盖帧数：**
+- **是否包含重叠上下文：**
+
+## Faithful Notes
+按时间顺序记录本窗口信息。不要为了简洁而删除细节。
+
+## Preserved Prompts / Code / Config
+如果本窗口出现提示词、代码、配置、命令或 UI 文案，必须放在这里并用代码块保留。没有则写"未发现"。
+
+## Visual Evidence
+逐条记录关键视觉证据，包括时间戳和屏幕内容。
+
+## Quotes
+记录 3-8 条重要原话或近原话。
+
+## Merge Hints
+写给最终组装步骤的提示：本窗口应归入哪个章节、与前后窗口的关系、哪些内容不能丢。
+"""
+
+QWEN_FINAL_ASSEMBLY_PROMPT_TEXT = """
+# 角色与目标
+你是 NotebookLM / 长文本 RAG 知识库文档的最终组装器。你将收到多个 Qwen 窗口级保真笔记。这些窗口笔记是唯一权威来源。请把它们合并成一份详尽、可检索、细节保真的 Markdown 文档。
+
+# 关键规则
+- 不能把窗口笔记压缩成高管摘要。
+- 不能删除窗口笔记中保存的 Prompt、代码块、配置、UI 文案、案例打分、数字、金句和视觉证据。
+- 可以去重 overlap，但不能因为去重丢掉上下文。
+- Glossary 可以更清晰，但正文必须保留 Gemini 风格的丰富细节。
+
+# 必须输出
+# （准确具体的中文标题）
+
+## 1. 视频元数据
+- **推测主题：**
+- **核心关键词：**
+- **适用受众/场景：**
+
+## 2. 核心知识字典（Glossary）
+提炼 5-10 个概念，定义清晰且保留细节。
+
+## 3. 详尽内容解析
+章节标题必须为：
+### [HH:MM:SS - HH:MM:SS] 章节标题
+
+每章必须包含：
+- **核心论点：**
+- **详细展开：**
+- **视觉/屏幕内容：**
+- **重要金句/原话：**
+
+## 4. 遗留问题与下一步行动
+
+# 自检
+输出前确认：H1 存在；所有窗口都有内容进入正文；Prompt/代码块没有丢；视觉证据没有被泛化成"展示了截图"；正文不是短摘要。
+
+# 隐藏覆盖标记（必须输出）
+在文档最后一行添加 HTML 注释，列出已纳入最终正文的窗口编号，格式必须严格为：
+<!-- qwen_window_coverage: 1,2,3 -->
 """
 
 
@@ -213,12 +357,15 @@ def build_gemini_parts(
     *,
     provider: str = "gemini",
     image_limit: int = GEMINI_IMAGE_HARD_LIMIT,
+    prompt_text: str | None = None,
 ) -> tuple[list, dict]:
     selected    = select_frames(frames, image_limit=image_limit)
     slide_count = sum(1 for f in selected if "type=slide"      in f.get("marker", ""))
     annot_count = sum(1 for f in selected if "type=annotation" in f.get("marker", ""))
 
-    parts: list = [GEMINI_PROMPT_TEXT, transcript]
+    if prompt_text is None:
+        prompt_text = QWEN_NOTEBOOKLM_PROMPT_TEXT if provider == "qwen" else GEMINI_PROMPT_TEXT
+    parts: list = [prompt_text, transcript]
     loaded = 0
     for frame in selected:
         fp = Path(frame["path"])
@@ -248,6 +395,257 @@ def build_gemini_parts(
           f"{loaded}/{len(frames)} frames (slide={slide_count}, annot={annot_count}, cap={image_limit})",
           flush=True)
     return parts, frame_policy
+
+
+# ── Qwen sliding-window planning ──────────────────────────────────────────────
+
+def _frame_type(frame: dict) -> str:
+    marker = frame.get("marker", "")
+    if "type=slide" in marker:
+        return "slide"
+    if "type=annotation" in marker:
+        return "annotation"
+    return "context"
+
+
+def _frame_type_counts(frames: list[dict]) -> dict:
+    counts = {"slide": 0, "annotation": 0, "context": 0}
+    for frame in frames:
+        counts[_frame_type(frame)] += 1
+    return counts
+
+
+def load_chunk_segments(chunk_files: list[Path]) -> list[dict]:
+    """Load transcript chunks with estimated start/end seconds for window slicing."""
+    sorted_files = sorted(chunk_files, key=parse_chunk_start)
+    starts = [parse_chunk_start(cf) for cf in sorted_files]
+    segments: list[dict] = []
+    for idx, cf in enumerate(sorted_files):
+        start_s = starts[idx]
+        if idx + 1 < len(starts):
+            end_s = starts[idx + 1]
+        elif idx > 0:
+            end_s = start_s + max(1, starts[idx] - starts[idx - 1])
+        else:
+            end_s = start_s + 60
+        text = cf.read_text(encoding="utf-8").strip() if cf.exists() else ""
+        segments.append({"start_s": start_s, "end_s": end_s, "text": text})
+    return segments
+
+
+def _transcript_for_window(segments: list[dict], start_s: int, end_s: int) -> str:
+    parts = [
+        seg["text"]
+        for seg in segments
+        if seg["text"] and seg["end_s"] >= start_s and seg["start_s"] <= end_s
+    ]
+    return "\n".join(parts)
+
+
+def build_qwen_windows(
+    chunk_files: list[Path],
+    transcript: str,
+    frames: list[dict],
+    *,
+    max_frames: int = QWEN_IMAGE_HARD_LIMIT,
+    target_new_frames: int = QWEN_WINDOW_TARGET_FRAMES,
+    overlap_frames: int = QWEN_WINDOW_OVERLAP_FRAMES,
+) -> list[dict]:
+    """Create dynamic Qwen windows that cover all frames without exceeding cap."""
+    if max_frames <= 0:
+        max_frames = QWEN_IMAGE_HARD_LIMIT
+    max_frames = min(max_frames, QWEN_IMAGE_HARD_LIMIT)
+    target_new_frames = max(1, min(target_new_frames, max_frames))
+    overlap_frames = max(0, min(overlap_frames, max(0, (max_frames - target_new_frames) // 2)))
+
+    segments = load_chunk_segments(chunk_files)
+    if not frames:
+        start_s = segments[0]["start_s"] if segments else 0
+        end_s = segments[-1]["end_s"] if segments else 0
+        return [{
+            "index": 1,
+            "start_s": start_s,
+            "end_s": end_s,
+            "frames": [],
+            "new_frame_count": 0,
+            "selected_frame_count": 0,
+            "overlap_frame_count": 0,
+            "frame_type_counts": {"slide": 0, "annotation": 0, "context": 0},
+            "transcript": transcript,
+            "transcript_chars": len(transcript.strip()),
+            "has_overlap": False,
+        }]
+
+    windows: list[dict] = []
+    total = len(frames)
+    new_start = 0
+    while new_start < total:
+        new_end = min(total, new_start + target_new_frames)
+        left = max(0, new_start - overlap_frames)
+        right = min(total, new_end + overlap_frames)
+
+        # Keep total frame count under the provider hard cap. Prefer preserving
+        # the new frame span; trim overlap first.
+        if right - left > max_frames:
+            extra = right - left - max_frames
+            trim_left = min(extra, max(0, new_start - left))
+            left += trim_left
+            extra -= trim_left
+            if extra > 0:
+                trim_right = min(extra, max(0, right - new_end))
+                right -= trim_right
+                extra -= trim_right
+            if extra > 0:
+                right = min(total, left + max_frames)
+
+        window_frames = frames[left:right]
+        start_s = int(window_frames[0].get("timestamp_s", 0))
+        end_s = int(window_frames[-1].get("timestamp_s", start_s))
+        transcript_slice = _transcript_for_window(segments, start_s - 60, end_s + 60)
+        if not transcript_slice:
+            transcript_slice = transcript
+
+        overlap_count = len(window_frames) - (new_end - new_start)
+        windows.append({
+            "index": len(windows) + 1,
+            "start_s": start_s,
+            "end_s": end_s,
+            "new_frame_start_index": new_start,
+            "new_frame_end_index": new_end,
+            "selected_frame_count": len(window_frames),
+            "new_frame_count": new_end - new_start,
+            "overlap_frame_count": max(0, overlap_count),
+            "frame_type_counts": _frame_type_counts(window_frames),
+            "frames": window_frames,
+            "transcript": transcript_slice,
+            "transcript_chars": len(transcript_slice.strip()),
+            "has_overlap": left < new_start or right > new_end,
+        })
+        new_start = new_end
+
+    return windows
+
+
+def summarize_qwen_windows(windows: list[dict], total_frames: int) -> dict:
+    covered_new_frames = sum(w["new_frame_count"] for w in windows)
+    selected_frames = sum(w["selected_frame_count"] for w in windows)
+    overlap_frames = sum(w["overlap_frame_count"] for w in windows)
+    type_counts = {"slide": 0, "annotation": 0, "context": 0}
+    for window in windows:
+        for key, value in window["frame_type_counts"].items():
+            type_counts[key] += value
+    return {
+        "window_count": len(windows),
+        "total_frames": total_frames,
+        "covered_new_frames": covered_new_frames,
+        "selected_frames_across_windows": selected_frames,
+        "overlap_frames": overlap_frames,
+        "dropped_frames": max(0, total_frames - covered_new_frames),
+        "frame_type_counts_across_windows": type_counts,
+        "windows": [
+            {
+                "index": w["index"],
+                "start_s": w["start_s"],
+                "end_s": w["end_s"],
+                "selected_frame_count": w["selected_frame_count"],
+                "new_frame_count": w["new_frame_count"],
+                "overlap_frame_count": w["overlap_frame_count"],
+                "transcript_chars": w["transcript_chars"],
+                "frame_type_counts": w["frame_type_counts"],
+            }
+            for w in windows
+        ],
+    }
+
+
+def qwen_window_note_path(runs_dir: Path, base: str, selected_ts: str, window: dict) -> Path:
+    return runs_dir / (
+        f"stream-{base}-{selected_ts}.qwen-window-"
+        f"{window['index']:03d}.notes.md"
+    )
+
+
+def qwen_window_source_hash(window: dict, *, model: str) -> str:
+    """Hash the window source and prompt contract so stale notes are not reused."""
+    h = hashlib.sha256()
+    h.update(QWEN_WINDOW_NOTE_VERSION.encode("utf-8"))
+    h.update(model.encode("utf-8"))
+    h.update(QWEN_WINDOW_NOTE_PROMPT_TEXT.encode("utf-8"))
+    h.update(str(window.get("start_s", 0)).encode("ascii"))
+    h.update(str(window.get("end_s", 0)).encode("ascii"))
+    h.update(window.get("transcript", "").encode("utf-8"))
+    for frame in window.get("frames", []):
+        fp = Path(frame.get("path", ""))
+        h.update(str(frame.get("timestamp_s", "")).encode("utf-8"))
+        h.update(frame.get("marker", "").encode("utf-8"))
+        h.update(str(fp).encode("utf-8"))
+        if fp.exists():
+            st = fp.stat()
+            h.update(str(st.st_size).encode("ascii"))
+            h.update(str(st.st_mtime_ns).encode("ascii"))
+        else:
+            h.update(b"missing")
+    return h.hexdigest()
+
+
+def build_qwen_window_note_metadata(
+    window: dict,
+    *,
+    model: str,
+    source_hash: str,
+    frame_policy: dict,
+    result: dict | None = None,
+) -> dict:
+    result = result or {}
+    return {
+        "format": "qwen_window_note",
+        "version": QWEN_WINDOW_NOTE_VERSION,
+        "model": model,
+        "source_hash": source_hash,
+        "window_index": window["index"],
+        "start_s": window["start_s"],
+        "end_s": window["end_s"],
+        "selected_frame_count": window["selected_frame_count"],
+        "new_frame_count": window["new_frame_count"],
+        "overlap_frame_count": window["overlap_frame_count"],
+        "transcript_chars": window["transcript_chars"],
+        "frame_type_counts": window["frame_type_counts"],
+        "frame_policy": frame_policy,
+        "api_calls": result.get("api_calls", 0),
+        "finish_reason": result.get("finish_reason", ""),
+        "usage": result.get("usage", {}),
+    }
+
+
+def write_qwen_window_note(note_path: Path, metadata: dict, text: str) -> None:
+    header = [
+        "<!-- qwen_window_note",
+        json.dumps(metadata, ensure_ascii=False, sort_keys=True),
+        "-->",
+        "",
+    ]
+    note_path.write_text("\n".join(header) + text.strip() + "\n", encoding="utf-8")
+
+
+def read_qwen_window_note_if_current(note_path: Path, source_hash: str) -> dict | None:
+    if not note_path.exists():
+        return None
+    text = note_path.read_text(encoding="utf-8")
+    m = re.match(r'<!-- qwen_window_note\s*\n(.*?)\n-->\s*\n?', text, re.S)
+    if not m:
+        return None
+    try:
+        metadata = json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return None
+    if metadata.get("version") != QWEN_WINDOW_NOTE_VERSION:
+        return None
+    if metadata.get("source_hash") != source_hash:
+        return None
+    return {
+        "metadata": metadata,
+        "text": text[m.end():].strip(),
+    }
 
 
 # ── P0 QC ─────────────────────────────────────────────────────────────────────
@@ -413,6 +811,107 @@ def check_markdown_body_coverage(gemini_text: str, manifest: dict) -> dict:
         return {"body_last_chapter_end_s": body_end_s, "body_tail_gap_s": 0, "body_coverage_status": "ok"}
 
 
+def check_qwen_notebooklm_quality(markdown_body: str, transcript: str, manifest: dict) -> dict:
+    """Detect Qwen outputs that are too compressed for NotebookLM source use."""
+    body = markdown_body.strip()
+    transcript_chars = max(1, len(transcript.strip()))
+    body_chars = len(body)
+    body_ratio = body_chars / transcript_chars
+
+    h1_exists = bool(re.search(r'(?m)^#\s+[^#\s].+', body))
+    required_sections = [
+        "## 1. 视频元数据",
+        "## 2. 核心知识字典",
+        "## 3. 详尽内容解析",
+    ]
+    missing_sections = [s for s in required_sections if s not in body]
+    chapter_count = len(re.findall(r'(?m)^###\s+\[\d{2}:\d{2}:\d{2}\s+-\s+\d{2}:\d{2}:\d{2}\]', body))
+    field_names = ["**核心论点：**", "**详细展开：**", "**视觉/屏幕内容：**", "**重要金句/原话：**"]
+    missing_chapter_fields = [name for name in field_names if chapter_count and name not in body]
+
+    code_fence_count = body.count("```")
+    source_prompt_markers = ["Prompt", "prompt", "提示词", "所见即所得", "不要替换", "配置", "代码"]
+    source_has_prompt_like_detail = any(marker in transcript for marker in source_prompt_markers)
+    missing_prompt_markers = [
+        marker for marker in ["提示词", "所见即所得", "不要替换"]
+        if marker in transcript and marker not in body
+    ]
+
+    warnings: list[str] = []
+    if not h1_exists:
+        warnings.append("qwen_missing_h1: final body must start with a concrete H1 title")
+    if missing_sections:
+        warnings.append("qwen_missing_required_sections: " + ", ".join(missing_sections))
+    if chapter_count == 0:
+        warnings.append("qwen_missing_timestamped_chapters: no ### [HH:MM:SS - HH:MM:SS] chapters found")
+    if missing_chapter_fields:
+        warnings.append("qwen_missing_chapter_fields: " + ", ".join(missing_chapter_fields))
+    if body_ratio < QWEN_BODY_MIN_TRANSCRIPT_RATIO:
+        warnings.append(
+            f"qwen_overcompressed_body: body/transcript ratio {body_ratio:.2f},"
+            f" expected >= {QWEN_BODY_MIN_TRANSCRIPT_RATIO:.2f}"
+        )
+    if source_has_prompt_like_detail and code_fence_count < 2:
+        warnings.append(
+            "qwen_missing_code_blocks: source contains prompt/config/code-like details"
+            " but model body has no fenced code block"
+        )
+    if missing_prompt_markers:
+        warnings.append("qwen_missing_prompt_keywords: " + ", ".join(missing_prompt_markers))
+
+    return {
+        "warnings": warnings,
+        "metrics": {
+            "h1_exists": h1_exists,
+            "body_chars": body_chars,
+            "body_transcript_ratio": round(body_ratio, 4),
+            "required_sections_missing": missing_sections,
+            "timestamped_chapter_count": chapter_count,
+            "chapter_fields_missing": missing_chapter_fields,
+            "code_fence_count": code_fence_count,
+            "prompt_keywords_missing": missing_prompt_markers,
+            "body_min_transcript_ratio": QWEN_BODY_MIN_TRANSCRIPT_RATIO,
+            "source_frame_count": manifest.get("frame_count", 0),
+        },
+    }
+
+
+def check_qwen_window_coverage(markdown_body: str, manifest: dict) -> dict:
+    policy = manifest.get("qwen_window_policy") or {}
+    windows = policy.get("windows") or []
+    expected = {int(w["index"]) for w in windows if "index" in w}
+    if not expected:
+        return {"warnings": [], "metrics": {"expected_windows": [], "covered_windows": []}}
+
+    m = re.search(r'<!--\s*qwen_window_coverage:\s*([0-9,\s]+)\s*-->', markdown_body)
+    if not m:
+        return {
+            "warnings": ["qwen_window_unreferenced: missing qwen_window_coverage marker"],
+            "metrics": {
+                "expected_windows": sorted(expected),
+                "covered_windows": [],
+                "missing_windows": sorted(expected),
+            },
+        }
+    covered = {
+        int(part.strip())
+        for part in m.group(1).split(",")
+        if part.strip().isdigit()
+    }
+    missing = sorted(expected - covered)
+    warnings = []
+    if missing:
+        warnings.append("qwen_window_unreferenced: missing windows " + ",".join(map(str, missing)))
+    return {
+        "warnings": warnings,
+        "metrics": {
+            "expected_windows": sorted(expected),
+            "covered_windows": sorted(covered),
+            "missing_windows": missing,
+        },
+    }
+
+
 def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
     """Inject a deterministic QC blockquote at the top of the final Markdown.
 
@@ -460,6 +959,8 @@ def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
             lines.append(f"> - ⚠️ Payload 缺失: {w[len('payload_missing:'):].strip()}")
         elif w.startswith("visual_evidence_missing:"):
             lines.append(f"> - ⚠️ 视觉证据缺失: {w[len('visual_evidence_missing:'):].strip()}")
+        else:
+            lines.append(f"> - ⚠️ {w}")
 
     return "\n".join(lines) + "\n\n" + gemini_text
 
@@ -520,6 +1021,8 @@ def main() -> None:
                     help="Specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
     ap.add_argument("--provider", choices=("gemini", "qwen"), default="gemini",
                     help="Synthesis provider (default: gemini)")
+    ap.add_argument("--synthesis-pass", choices=("one-shot", "sliding-window"), default="one-shot",
+                    help="Synthesis strategy; sliding-window is Qwen-only and explicit opt-in")
     ap.add_argument("--output-label", default="",
                     help="Optional suffix for A/B outputs, e.g. gemini35 or qwen")
     ap.add_argument("--qwen-max-frames", type=int, default=QWEN_DEFAULT_MAX_FRAMES,
@@ -538,9 +1041,20 @@ def main() -> None:
                     help="Print input/QC/provider budget only; do not call provider or write Markdown")
     ap.add_argument("--mock-gemini-text", default="",
                     help="Offline validation only: use this file as provider output and do not call provider")
+    ap.add_argument("--resume-window-notes", action="store_true",
+                    help="Qwen sliding-window only: reuse existing window notes when source hashes match")
     args = ap.parse_args()
 
     provider = args.provider
+    synthesis_pass = args.synthesis_pass
+    if synthesis_pass == "sliding-window" and provider != "qwen":
+        print("ERROR: --synthesis-pass sliding-window is only supported with --provider qwen",
+              file=sys.stderr)
+        sys.exit(2)
+    if args.resume_window_notes and synthesis_pass != "sliding-window":
+        print("ERROR: --resume-window-notes requires --synthesis-pass sliding-window",
+              file=sys.stderr)
+        sys.exit(2)
     output_label = args.output_label.strip()
     if provider == "qwen" and not output_label:
         output_label = "qwen"
@@ -598,6 +1112,7 @@ def main() -> None:
     manifest = live_final_qc(chunk_files, transcript, all_frames, args.base, selected_ts)
     manifest["synthesis_provider"] = provider
     manifest["synthesis_model"] = provider_model
+    manifest["synthesis_pass"] = synthesis_pass
     if provider == "qwen":
         manifest["qwen_thinking_enabled"] = bool(args.qwen_thinking)
     label_part = f".{output_label}" if output_label else ""
@@ -607,18 +1122,41 @@ def main() -> None:
     for w in manifest["warnings"]:
         print(f"  [warn] {w}")
 
-    max_successful_calls = 1 + max(0, args.max_continuations)
     provider_image_limit = GEMINI_IMAGE_HARD_LIMIT if provider == "gemini" else qwen_max_frames
     if args.max_frames > 0:
         image_limit = max(1, min(args.max_frames, provider_image_limit))
     else:
         image_limit = provider_image_limit
+    qwen_windows: list[dict] = []
+    qwen_window_summary: dict | None = None
+    if synthesis_pass == "sliding-window":
+        qwen_windows = build_qwen_windows(
+            chunk_files,
+            transcript,
+            all_frames,
+            max_frames=image_limit,
+        )
+        qwen_window_summary = summarize_qwen_windows(qwen_windows, len(all_frames))
+        manifest["qwen_window_policy"] = qwen_window_summary
+        manifest["warnings"].extend(
+            [] if qwen_window_summary["dropped_frames"] == 0 else [
+                f"qwen_frame_coverage_low: dropped {qwen_window_summary['dropped_frames']} frames"
+            ]
+        )
+        qc_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    max_successful_calls = 1 + max(0, args.max_continuations)
+    if synthesis_pass == "sliding-window":
+        max_successful_calls = (len(qwen_windows) + 1) * max_successful_calls
     print(f"\n=== {provider} budget ===")
     print(f"  model                : {provider_model}")
-    print("  synthesis_pass       : one-shot")
-    print(f"  max successful calls : {max_successful_calls} (1 initial + {args.max_continuations} continuation)")
+    print(f"  synthesis_pass       : {synthesis_pass}")
+    print(f"  max successful calls : {max_successful_calls}")
     print(f"  retry cap            : {args.max_retries}")
     print(f"  image cap            : {image_limit}")
+    if qwen_window_summary:
+        print(f"  qwen windows         : {qwen_window_summary['window_count']}")
+        print(f"  frame coverage       : {qwen_window_summary['covered_new_frames']}/{len(all_frames)}"
+              f" new frames, overlap {qwen_window_summary['overlap_frames']}")
     if args.max_frames > 0:
         print(f"  fair A/B max frames  : {args.max_frames}")
     print("  duplicate synthesis  : false")
@@ -628,14 +1166,41 @@ def main() -> None:
         print(f"  offline validation   : {args.mock_gemini_text} (no API call)")
 
     if args.dry_run:
-        dry_parts, dry_policy = build_gemini_parts(
-            transcript,
-            all_frames,
-            provider=provider,
-            image_limit=image_limit,
-        )
-        manifest["frame_policy"] = dry_policy
-        manifest["provider_parts_count"] = len(dry_parts)
+        if synthesis_pass == "sliding-window":
+            total_parts = 0
+            dry_window_policies = []
+            for window in qwen_windows:
+                window_text = (
+                    f"Window {window['index']}/{len(qwen_windows)}\n"
+                    f"Time range: {fmt_ts(window['start_s'])} - {fmt_ts(window['end_s'])}\n"
+                    f"Frames: {window['selected_frame_count']}\n\n"
+                    f"{window['transcript']}"
+                )
+                dry_parts, dry_policy = build_gemini_parts(
+                    window_text,
+                    window["frames"],
+                    provider=provider,
+                    image_limit=image_limit,
+                    prompt_text=QWEN_WINDOW_NOTE_PROMPT_TEXT,
+                )
+                total_parts += len(dry_parts)
+                dry_window_policies.append(dry_policy)
+            manifest["frame_policy"] = {
+                "provider": provider,
+                "mode": synthesis_pass,
+                "window_count": len(qwen_windows),
+                "windows": dry_window_policies,
+            }
+            manifest["provider_parts_count"] = total_parts
+        else:
+            dry_parts, dry_policy = build_gemini_parts(
+                transcript,
+                all_frames,
+                provider=provider,
+                image_limit=image_limit,
+            )
+            manifest["frame_policy"] = dry_policy
+            manifest["provider_parts_count"] = len(dry_parts)
         qc_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"\n[dry-run] Skipping {provider} call and Markdown write.")
         return
@@ -643,7 +1208,7 @@ def main() -> None:
     if args.mock_gemini_text:
         print("\n=== Offline validation: using mock provider text ===")
         gemini_text = Path(args.mock_gemini_text).read_text(encoding="utf-8")
-        manifest["synthesis_pass"] = "mock-one-shot"
+        manifest["synthesis_pass"] = f"mock-{synthesis_pass}"
         manifest["frame_policy"] = {
             "provider": provider,
             "total_frames": len(all_frames),
@@ -653,16 +1218,15 @@ def main() -> None:
         }
     else:
         print(f"\n=== {provider}: Building NotebookLM document ===")
-        parts, frame_policy = build_gemini_parts(
-            transcript,
-            all_frames,
-            provider=provider,
-            image_limit=image_limit,
-        )
-        manifest["frame_policy"] = frame_policy
-        manifest["provider_parts_count"] = len(parts)
-
         if provider == "gemini":
+            parts, frame_policy = build_gemini_parts(
+                transcript,
+                all_frames,
+                provider=provider,
+                image_limit=image_limit,
+            )
+            manifest["frame_policy"] = frame_policy
+            manifest["provider_parts_count"] = len(parts)
             if not _GENAI_AVAILABLE:
                 print("[!] google-genai not installed — run: pip install google-genai", file=sys.stderr)
                 sys.exit(1)
@@ -691,16 +1255,139 @@ def main() -> None:
                 api_key=api_key,
                 base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
             )
-            qwen_result = call_qwen(
-                client, parts, args.base,
-                model=provider_model,
-                enable_thinking=args.qwen_thinking,
-                thinking_budget=args.thinking_budget,
-                max_retries=args.max_retries,
-                max_continuations=args.max_continuations,
-            )
-            gemini_text = qwen_result.get("text")
-            manifest["provider_usage"] = {k: v for k, v in qwen_result.items() if k != "text"}
+            if synthesis_pass == "one-shot":
+                parts, frame_policy = build_gemini_parts(
+                    transcript,
+                    all_frames,
+                    provider=provider,
+                    image_limit=image_limit,
+                )
+                manifest["frame_policy"] = frame_policy
+                manifest["provider_parts_count"] = len(parts)
+                qwen_result = call_qwen(
+                    client, parts, args.base,
+                    model=provider_model,
+                    enable_thinking=args.qwen_thinking,
+                    thinking_budget=args.thinking_budget,
+                    max_retries=args.max_retries,
+                    max_continuations=args.max_continuations,
+                )
+                gemini_text = qwen_result.get("text")
+                manifest["provider_usage"] = {k: v for k, v in qwen_result.items() if k != "text"}
+            else:
+                note_texts: list[str] = []
+                note_paths: list[str] = []
+                total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+                total_calls = 0
+                finish_reasons: list[str] = []
+                window_policies = []
+                reused_window_notes = 0
+
+                for window in qwen_windows:
+                    window_label = f"{args.base}-window-{window['index']:03d}"
+                    note_path = qwen_window_note_path(runs_dir, args.base, selected_ts, window)
+                    source_hash = qwen_window_source_hash(window, model=provider_model)
+                    if args.resume_window_notes:
+                        cached = read_qwen_window_note_if_current(note_path, source_hash)
+                        if cached:
+                            note_paths.append(str(note_path))
+                            note_texts.append(cached["text"])
+                            cached_policy = cached["metadata"].get("frame_policy", {})
+                            if cached_policy:
+                                window_policies.append(cached_policy)
+                            reused_window_notes += 1
+                            print(f"[{window_label}] Reusing window note: {note_path}", flush=True)
+                            continue
+
+                    window_text = (
+                        f"Window {window['index']}/{len(qwen_windows)}\n"
+                        f"Time range: {fmt_ts(window['start_s'])} - {fmt_ts(window['end_s'])}\n"
+                        f"Selected frames: {window['selected_frame_count']}\n"
+                        f"New frames: {window['new_frame_count']}\n"
+                        f"Overlap frames: {window['overlap_frame_count']}\n\n"
+                        f"{window['transcript']}"
+                    )
+                    parts, frame_policy = build_gemini_parts(
+                        window_text,
+                        window["frames"],
+                        provider=provider,
+                        image_limit=image_limit,
+                        prompt_text=QWEN_WINDOW_NOTE_PROMPT_TEXT,
+                    )
+                    window_policies.append(frame_policy)
+                    result = call_qwen(
+                        client, parts, window_label,
+                        model=provider_model,
+                        enable_thinking=args.qwen_thinking,
+                        thinking_budget=args.thinking_budget,
+                        max_retries=args.max_retries,
+                        max_continuations=args.max_continuations,
+                    )
+                    note_text = result.get("text")
+                    if not note_text:
+                        print(f"[!] qwen window {window['index']} synthesis failed", file=sys.stderr)
+                        sys.exit(1)
+                    metadata = build_qwen_window_note_metadata(
+                        window,
+                        model=provider_model,
+                        source_hash=source_hash,
+                        frame_policy=frame_policy,
+                        result=result,
+                    )
+                    write_qwen_window_note(note_path, metadata, note_text)
+                    note_paths.append(str(note_path))
+                    note_texts.append(note_text)
+                    usage = result.get("usage", {})
+                    total_usage = {
+                        "input_tokens": total_usage["input_tokens"] + int(usage.get("input_tokens", 0)),
+                        "output_tokens": total_usage["output_tokens"] + int(usage.get("output_tokens", 0)),
+                        "total_tokens": total_usage["total_tokens"] + int(usage.get("total_tokens", 0)),
+                    }
+                    total_calls += int(result.get("api_calls", 0) or 0)
+                    finish_reasons.append(str(result.get("finish_reason", "")))
+
+                combined_notes = "\n\n---\n\n".join(
+                    f"<!-- window {idx + 1} -->\n{text.strip()}"
+                    for idx, text in enumerate(note_texts)
+                )
+                final_result = call_qwen(
+                    client,
+                    [QWEN_FINAL_ASSEMBLY_PROMPT_TEXT, combined_notes],
+                    f"{args.base}-final-assembly",
+                    model=provider_model,
+                    enable_thinking=args.qwen_thinking,
+                    thinking_budget=args.thinking_budget,
+                    max_retries=args.max_retries,
+                    max_continuations=args.max_continuations,
+                )
+                gemini_text = final_result.get("text")
+                final_usage = final_result.get("usage", {})
+                total_usage = {
+                    "input_tokens": total_usage["input_tokens"] + int(final_usage.get("input_tokens", 0)),
+                    "output_tokens": total_usage["output_tokens"] + int(final_usage.get("output_tokens", 0)),
+                    "total_tokens": total_usage["total_tokens"] + int(final_usage.get("total_tokens", 0)),
+                }
+                total_calls += int(final_result.get("api_calls", 0) or 0)
+                finish_reasons.append(str(final_result.get("finish_reason", "")))
+                manifest["frame_policy"] = {
+                    "provider": provider,
+                    "mode": synthesis_pass,
+                    "window_count": len(qwen_windows),
+                    "windows": window_policies,
+                }
+                manifest["provider_parts_count"] = sum(2 + p.get("selected_frames", 0) * 2 for p in window_policies) + 2
+                manifest["qwen_window_notes"] = note_paths
+                manifest["qwen_window_notes_reused"] = reused_window_notes
+                manifest["qwen_final_assembly_version"] = QWEN_FINAL_ASSEMBLY_VERSION
+                manifest["provider_usage"] = {
+                    "provider": "qwen",
+                    "model": provider_model,
+                    "api_calls": total_calls,
+                    "finish_reason": finish_reasons[-1] if finish_reasons else "",
+                    "window_finish_reasons": finish_reasons,
+                    "usage": total_usage,
+                    "estimated_cost_cny": None,
+                }
 
     if not gemini_text:
         print(f"[!] {provider} synthesis failed — merged raw transcript still available.",
@@ -719,6 +1406,14 @@ def main() -> None:
         manifest["warnings"].append(
             "body_coverage_unverifiable: no timestamped chapter headings found in Gemini output"
         )
+    if provider == "qwen":
+        qwen_quality = check_qwen_notebooklm_quality(gemini_text, transcript, manifest)
+        manifest["qwen_notebooklm_qc"] = qwen_quality["metrics"]
+        manifest["warnings"].extend(qwen_quality["warnings"])
+        if synthesis_pass == "sliding-window":
+            qwen_window_coverage = check_qwen_window_coverage(gemini_text, manifest)
+            manifest["qwen_window_coverage_qc"] = qwen_window_coverage["metrics"]
+            manifest["warnings"].extend(qwen_window_coverage["warnings"])
     manifest["transcript_appendix_chars"] = len(transcript.strip())
     manifest["visual_evidence_count"] = len(all_frames)
     manifest["deterministic_appendices"] = ["full_transcript", "visual_evidence_index"]
