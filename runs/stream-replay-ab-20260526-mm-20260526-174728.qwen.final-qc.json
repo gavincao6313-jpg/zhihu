@@ -1,0 +1,54 @@
+{
+  "base": "replay-ab-20260526-mm",
+  "run_ts": "20260526-174728",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 186,
+  "transcript_chars": 56397,
+  "frame_count": 503,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 11102,
+  "timeline_end_s": 11160,
+  "timeline_duration_s": 11160,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.6-flash",
+  "synthesis_pass": "one-shot",
+  "warnings": [],
+  "qwen_thinking_enabled": false,
+  "frame_policy": {
+    "provider": "qwen",
+    "total_frames": 503,
+    "selected_frames": 128,
+    "dropped_frames": 375,
+    "cap": 128,
+    "slide_frames": 46,
+    "annotation_frames": 82
+  },
+  "provider_parts_count": 258,
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.6-flash",
+    "api_calls": 1,
+    "finish_reason": "stop",
+    "usage": {
+      "input_tokens": 46676,
+      "output_tokens": 4351,
+      "total_tokens": 51027
+    },
+    "estimated_cost_cny": null
+  },
+  "body_last_chapter_end_s": 11100,
+  "body_tail_gap_s": 60,
+  "body_coverage_status": "ok",
+  "transcript_appendix_chars": 56397,
+  "visual_evidence_count": 503,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
