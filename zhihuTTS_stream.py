@@ -516,6 +516,7 @@ def slice_url(
 ) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     is_live = infer_media_type(url) in ("flv",)
+    is_remote = urlparse(url).scheme in ("http", "https")
     cmd = [
         "ffmpeg",
         "-hide_banner",
@@ -525,15 +526,14 @@ def slice_url(
     ]
     if not is_live:
         cmd += ["-ss", fmt_time(start_s)]
+    if is_remote:
+        cmd += [
+            "-reconnect", "1",
+            "-reconnect_streamed", "1",
+            "-reconnect_on_network_error", "1",
+            "-reconnect_delay_max", "10",
+        ]
     cmd += [
-        "-reconnect",
-        "1",
-        "-reconnect_streamed",
-        "1",
-        "-reconnect_on_network_error",
-        "1",
-        "-reconnect_delay_max",
-        "10",
         "-i",
         url,
         "-t",
