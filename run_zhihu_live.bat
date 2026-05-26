@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 :: run_zhihu_live.bat  知乎直播流一键转写
 ::
 :: 用法:
-::   run_zhihu_live.bat <直播间URL> [输出名] [--provider gemini^|qwen] [--best-ab] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--no-gemini] [--dry-run]
+::   run_zhihu_live.bat <直播间URL> [输出名] [--provider gemini^|qwen] [--best-ab] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--qwen-sliding-window] [--resume-window-notes] [--no-gemini] [--dry-run]
 ::
 :: 示例:
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519
@@ -57,6 +57,9 @@ set "BEST_AB=0"
 set "QWEN_BEST_MAX_FRAMES=250"
 set "FAIR_AB=0"
 set "FAIR_AB_MAX_FRAMES=128"
+set "FINAL_SYNTHESIS_PASS=one-shot"
+set "RESUME_WINDOW_NOTES=0"
+set "RESUME_WINDOW_NOTES_ARG="
 
 :PARSE_ARGS
 if "%~2"=="" goto ARGS_DONE
@@ -70,6 +73,11 @@ if /i "%~2"=="--resume" (
     set "BEST_AB=1"
 ) else if /i "%~2"=="--fair-ab" (
     set "FAIR_AB=1"
+) else if /i "%~2"=="--qwen-sliding-window" (
+    set "FINAL_SYNTHESIS_PASS=sliding-window"
+) else if /i "%~2"=="--resume-window-notes" (
+    set "RESUME_WINDOW_NOTES=1"
+    set "RESUME_WINDOW_NOTES_ARG=--resume-window-notes"
 ) else if /i "%~2"=="--provider" (
     if "%~3"=="" (
         echo [错误] --provider 需要参数: gemini 或 qwen
@@ -96,7 +104,7 @@ if /i "%~2"=="--resume" (
     set "NAME=%~2"
 ) else (
     echo [错误] 无法识别或重复的参数: %~2
-    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--provider gemini^|qwen] [--best-ab] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--no-gemini] [--dry-run]
+    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--provider gemini^|qwen] [--best-ab] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--qwen-sliding-window] [--resume-window-notes] [--no-gemini] [--dry-run]
     exit /b 1
 )
 shift /2
@@ -111,6 +119,14 @@ if not "!RESUME_FLAG!"=="" (
 )
 if /i not "!FINAL_PROVIDER!"=="gemini" if /i not "!FINAL_PROVIDER!"=="qwen" (
     echo [错误] --provider 只能是 gemini 或 qwen，当前: !FINAL_PROVIDER!
+    exit /b 1
+)
+if /i "!FINAL_SYNTHESIS_PASS!"=="sliding-window" if /i not "!FINAL_PROVIDER!"=="qwen" (
+    echo [错误] --qwen-sliding-window 只能与 --provider qwen 一起使用。
+    exit /b 1
+)
+if "!RESUME_WINDOW_NOTES!"=="1" if /i not "!FINAL_SYNTHESIS_PASS!"=="sliding-window" (
+    echo [错误] --resume-window-notes 需要同时指定 --qwen-sliding-window。
     exit /b 1
 )
 if "!BEST_AB!"=="1" if "!FAIR_AB!"=="1" (
@@ -195,6 +211,7 @@ if "!DRY_RUN!"=="1" (
     echo  采集模式            : continuous HLS recorder + async consumer
     echo  直播转写模型 API      : disabled
     echo  最终 Provider        : !FINAL_PROVIDER!
+    echo  synthesis pass       : !FINAL_SYNTHESIS_PASS!
     if "!BEST_AB!"=="1" (
         echo  最佳能力 A/B 模式   : enabled ^(Gemini all frames / Qwen max frames !QWEN_MAX_FRAMES!^)
     )
@@ -208,11 +225,19 @@ if "!DRY_RUN!"=="1" (
         ) else (
             echo  Qwen model           : qwen3.6-flash
             echo  Qwen max frames      : !QWEN_MAX_FRAMES!
+            if /i "!FINAL_SYNTHESIS_PASS!"=="sliding-window" (
+                echo  Qwen sliding window : enabled
+                if "!RESUME_WINDOW_NOTES!"=="1" echo  resume window notes : enabled
+            )
         )
         if not "!FINAL_MAX_FRAMES!"=="0" (
             echo  A/B max frames       : !FINAL_MAX_FRAMES!
         )
-        echo  max successful calls : 3 ^(1 initial + !BUILD_MAX_CONTINUATIONS! continuation^)
+        if /i "!FINAL_SYNTHESIS_PASS!"=="sliding-window" (
+            echo  max successful calls : dynamic ^(window count + final assembly; each allows 1+!BUILD_MAX_CONTINUATIONS!^)
+        ) else (
+            echo  max successful calls : 3 ^(1 initial + !BUILD_MAX_CONTINUATIONS! continuation^)
+        )
         echo  retry cap            : !BUILD_MAX_RETRIES!
     ) else (
         echo  最终 NotebookLM 生成 : disabled
@@ -220,7 +245,7 @@ if "!DRY_RUN!"=="1" (
     echo.
     echo  Step 1: zhihuTTS_stream.py --continuous-hls --base-marker ^<marker^> ^(no --gemini^)
     echo  Step 2: merge_stream_chunks.py --base ^<resolved marker base^>
-    echo  Step 3: build_stream_markdown.py --base ^<resolved marker base^> --provider !FINAL_PROVIDER! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! --qwen-max-frames !QWEN_MAX_FRAMES!
+    echo  Step 3: build_stream_markdown.py --base ^<resolved marker base^> --provider !FINAL_PROVIDER! --synthesis-pass !FINAL_SYNTHESIS_PASS! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! --qwen-max-frames !QWEN_MAX_FRAMES! !RESUME_WINDOW_NOTES_ARG!
     echo  Step 4: extract_slides.py --stream-base ^<resolved marker base^> ^(PDF + PPTX^)
     echo ====================================================
     exit /b 0
@@ -370,7 +395,8 @@ exit /b 0
 :: WORKER: 无窗口静默运行，所有输出写入 LOG_FILE
 :: 所需变量（NAME / PAGE_URL / PYTHON / AUTH_STATE / AUTH_STATE_SAVE / STREAM_WORK_DIR
 ::          / SENSEVOICE_MERGE_VAD / API KEY / FINAL_GEMINI_ENABLED / FINAL_PROVIDER
-::          / OUTPUT_LABEL / FINAL_MAX_FRAMES / BEST_AB / FAIR_AB）
+::          / OUTPUT_LABEL / FINAL_MAX_FRAMES / BEST_AB / FAIR_AB
+::          / FINAL_SYNTHESIS_PASS / RESUME_WINDOW_NOTES_ARG）
 :: 均由父进程环境继承，无需重新传参。
 :: ================================================================
 :WORKER
@@ -390,6 +416,10 @@ if "!BEST_AB!"=="1" (
 )
 if "!FAIR_AB!"=="1" (
     echo  Fair A/B: enabled ^(max frames !FINAL_MAX_FRAMES!^)
+)
+echo  Synthesis pass: !FINAL_SYNTHESIS_PASS!
+if "!RESUME_WINDOW_NOTES!"=="1" (
+    echo  Resume window notes: enabled
 )
 echo  开始  : %date% %TIME: =0%
 echo ====================================================
@@ -479,27 +509,29 @@ if "!FINAL_GEMINI_ENABLED!"=="0" (
         echo [%date% %TIME: =0%] [3/4] 跳过 NotebookLM 生成（--no-gemini） >> "!LOG_FILE!" 2>&1
     ) else if /i "!FINAL_PROVIDER!"=="gemini" (
         echo [%date% %TIME: =0%] [3/4] 跳过 NotebookLM 生成（未设置 GEMINI_API_KEY） >> "!LOG_FILE!" 2>&1
-        echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider gemini --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
+        echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider gemini --synthesis-pass !FINAL_SYNTHESIS_PASS! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
     ) else (
         echo [%date% %TIME: =0%] [3/4] 跳过 NotebookLM 生成（未设置 DASHSCOPE_API_KEY） >> "!LOG_FILE!" 2>&1
-        echo   手动生成: set DASHSCOPE_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider qwen --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
+        echo   手动生成: set DASHSCOPE_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider qwen --synthesis-pass !FINAL_SYNTHESIS_PASS! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! !RESUME_WINDOW_NOTES_ARG! >> "!LOG_FILE!" 2>&1
     )
 ) else (
     echo [%date% %TIME: =0%] [3/4] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
-    echo [%date% %TIME: =0%] Provider budget: provider=!FINAL_PROVIDER!, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, qwen_max_frames=!QWEN_MAX_FRAMES!, max_frames=!FINAL_MAX_FRAMES!, best_ab=!BEST_AB!, fair_ab=!FAIR_AB!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] Provider budget: provider=!FINAL_PROVIDER!, pass=!FINAL_SYNTHESIS_PASS!, max_successful_calls=dynamic_if_sliding_window_else_3, retry_cap=!BUILD_MAX_RETRIES!, qwen_max_frames=!QWEN_MAX_FRAMES!, max_frames=!FINAL_MAX_FRAMES!, best_ab=!BEST_AB!, fair_ab=!FAIR_AB!, resume_window_notes=!RESUME_WINDOW_NOTES!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
     "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
       --base "!NAME!" ^
       --runs-dir "!SCRIPT_DIR!runs" ^
       --markdowns-dir "!SCRIPT_DIR!Markdowns" ^
       --provider "!FINAL_PROVIDER!" ^
+      --synthesis-pass "!FINAL_SYNTHESIS_PASS!" ^
       --output-label "!OUTPUT_LABEL!" ^
       --max-frames "!FINAL_MAX_FRAMES!" ^
       --qwen-max-frames "!QWEN_MAX_FRAMES!" ^
       --max-retries "!BUILD_MAX_RETRIES!" ^
-      --max-continuations "!BUILD_MAX_CONTINUATIONS!" >> "!LOG_FILE!" 2>&1
+      --max-continuations "!BUILD_MAX_CONTINUATIONS!" ^
+      !RESUME_WINDOW_NOTES_ARG! >> "!LOG_FILE!" 2>&1
     if errorlevel 1 (
         echo [%date% %TIME: =0%] [提示] NotebookLM 文档生成失败，手动运行: >> "!LOG_FILE!" 2>&1
-        echo   python scripts\build_stream_markdown.py --base !NAME! --provider !FINAL_PROVIDER! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
+        echo   python scripts\build_stream_markdown.py --base !NAME! --provider !FINAL_PROVIDER! --synthesis-pass !FINAL_SYNTHESIS_PASS! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! !RESUME_WINDOW_NOTES_ARG! >> "!LOG_FILE!" 2>&1
     ) else (
         echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!-!OUTPUT_LABEL!.md >> "!LOG_FILE!" 2>&1
     )
