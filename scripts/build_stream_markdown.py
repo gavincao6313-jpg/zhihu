@@ -326,6 +326,16 @@ def live_final_qc(
             for g in gaps
         )
         warnings.append(f"gaps_detected: {gap_detail}")
+    if failed_chunk_count:
+        warnings.append(
+            f"payload_missing: {failed_chunk_count}/{len(chunk_files)} chunk payload files missing;"
+            " visual frames may be unavailable for multimodal synthesis"
+        )
+    if chunk_files and not all_frames:
+        warnings.append(
+            "visual_evidence_missing: no keyframe payloads were loaded;"
+            " this run is transcript-only and is not a fair multimodal A/B test"
+        )
 
     return {
         "base":                base,
@@ -434,6 +444,10 @@ def prepend_quality_header(gemini_text: str, manifest: dict) -> str:
             lines.append(f"> - ⚠️ 正文尾段截断: {w[len('body_tail_coverage_low:'):].strip()}")
         elif w.startswith("body_coverage_unverifiable:"):
             lines.append(f"> - ⚠️ 正文覆盖无法验证: {w[len('body_coverage_unverifiable:'):].strip()}")
+        elif w.startswith("payload_missing:"):
+            lines.append(f"> - ⚠️ Payload 缺失: {w[len('payload_missing:'):].strip()}")
+        elif w.startswith("visual_evidence_missing:"):
+            lines.append(f"> - ⚠️ 视觉证据缺失: {w[len('visual_evidence_missing:'):].strip()}")
 
     return "\n".join(lines) + "\n\n" + gemini_text
 
