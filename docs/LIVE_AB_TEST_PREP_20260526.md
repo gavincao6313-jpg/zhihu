@@ -9,7 +9,7 @@
 - 两个进程必须使用不同输出名，建议固定为：
   - `live-ab-20260526-gemini`
   - `live-ab-20260526-qwen`
-- 今晚正式 A/B 一律使用 `--fair-ab`，BAT 会自动把 Gemini/Qwen final synthesis 都限制为同样的 128 帧视觉输入。
+- 今晚正式质量验证一律使用 `--best-ab`：Gemini 使用全部可用视觉帧，Qwen 使用当前代码允许的最高 256 帧。`--fair-ab` 只保留给以后做同输入条件横评，不用于今晚主验证。
 - 双进程会录制两份 HLS，CPU/磁盘/网络压力约等于单进程的 2 倍；如果机器明显吃紧，改用“单采集、双合成”方案。
 - 不要使用 `--resume`。continuous HLS 默认入口会拒绝 `--resume`。
 
@@ -47,22 +47,22 @@ where ffprobe
 ```bat
 set GEMINI_API_KEY=your_gemini_key
 set DASHSCOPE_API_KEY=
-run_zhihu_live.bat "<直播间URL>" live-ab-20260526-gemini --provider gemini --fair-ab --dry-run
+run_zhihu_live.bat "<直播间URL>" live-ab-20260526-gemini --provider gemini --best-ab --dry-run
 ```
 
 ```bat
 set DASHSCOPE_API_KEY=your_dashscope_key
 set GEMINI_API_KEY=
-run_zhihu_live.bat "<直播间URL>" live-ab-20260526-qwen --provider qwen --fair-ab --dry-run
+run_zhihu_live.bat "<直播间URL>" live-ab-20260526-qwen --provider qwen --best-ab --dry-run
 ```
 
 dry-run 应确认：
 
 - `采集模式: continuous HLS recorder + async consumer`
 - `直播转写模型 API: disabled`
-- 两个窗口都显示 `公平 A/B 模式: enabled (max frames 128)`
-- Gemini 窗口显示 `最终 Provider: gemini` 和 `A/B max frames: 128`
-- Qwen 窗口显示 `最终 Provider: qwen`、`Qwen max frames: 128` 和 `A/B max frames: 128`
+- 两个窗口都显示 `最佳能力 A/B 模式: enabled`
+- Gemini 窗口显示 `最终 Provider: gemini`，且 Step 3 中 `--max-frames 0`
+- Qwen 窗口显示 `最终 Provider: qwen`、`Qwen max frames: 256`，且 Step 3 中 `--max-frames 0`
 - Step 3 是 `build_stream_markdown.py --provider ...`
 - Step 4 是 `extract_slides.py --stream-base ...`
 
@@ -74,7 +74,7 @@ Gemini CMD：
 cd /d d:\zhihu\zhihu_file
 set GEMINI_API_KEY=your_gemini_key
 set DASHSCOPE_API_KEY=
-run_zhihu_live.bat "<直播间URL>" live-ab-20260526-gemini --provider gemini --fair-ab
+run_zhihu_live.bat "<直播间URL>" live-ab-20260526-gemini --provider gemini --best-ab
 ```
 
 Qwen CMD：
@@ -83,7 +83,7 @@ Qwen CMD：
 cd /d d:\zhihu\zhihu_file
 set DASHSCOPE_API_KEY=your_dashscope_key
 set GEMINI_API_KEY=
-run_zhihu_live.bat "<直播间URL>" live-ab-20260526-qwen --provider qwen --fair-ab
+run_zhihu_live.bat "<直播间URL>" live-ab-20260526-qwen --provider qwen --best-ab
 ```
 
 建议两个命令在 30 秒内启动，记录两个窗口日志文件名。
@@ -162,6 +162,6 @@ run_zhihu_live.bat "<直播间URL>" live-ab-20260526-source --no-gemini
 直播结束后，用同一个 source base 做双合成：
 
 ```bat
-python scripts\build_stream_markdown.py --base live-ab-20260526-source --provider gemini --output-label gemini35 --max-frames 128 --max-retries 2 --max-continuations 2
-python scripts\build_stream_markdown.py --base live-ab-20260526-source --provider qwen --output-label qwen --qwen-max-frames 128 --max-frames 128 --max-retries 2 --max-continuations 2
+python scripts\build_stream_markdown.py --base live-ab-20260526-source --provider gemini --output-label gemini35 --max-retries 2 --max-continuations 2
+python scripts\build_stream_markdown.py --base live-ab-20260526-source --provider qwen --output-label qwen --qwen-max-frames 256 --max-retries 2 --max-continuations 2
 ```
