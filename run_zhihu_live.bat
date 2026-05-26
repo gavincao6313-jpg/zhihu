@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 :: run_zhihu_live.bat  知乎直播流一键转写
 ::
 :: 用法:
-::   run_zhihu_live.bat <直播间URL> [输出名] [--provider gemini^|qwen] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--no-gemini] [--dry-run]
+::   run_zhihu_live.bat <直播间URL> [输出名] [--provider gemini^|qwen] [--best-ab] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--no-gemini] [--dry-run]
 ::
 :: 示例:
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519
@@ -53,6 +53,8 @@ set "BUILD_MAX_CONTINUATIONS=2"
 set "FINAL_PROVIDER=gemini"
 set "QWEN_MAX_FRAMES=128"
 set "FINAL_MAX_FRAMES=0"
+set "BEST_AB=0"
+set "QWEN_BEST_MAX_FRAMES=256"
 set "FAIR_AB=0"
 set "FAIR_AB_MAX_FRAMES=128"
 
@@ -64,6 +66,8 @@ if /i "%~2"=="--resume" (
     set "NO_GEMINI=1"
 ) else if /i "%~2"=="--dry-run" (
     set "DRY_RUN=1"
+) else if /i "%~2"=="--best-ab" (
+    set "BEST_AB=1"
 ) else if /i "%~2"=="--fair-ab" (
     set "FAIR_AB=1"
 ) else if /i "%~2"=="--provider" (
@@ -92,7 +96,7 @@ if /i "%~2"=="--resume" (
     set "NAME=%~2"
 ) else (
     echo [错误] 无法识别或重复的参数: %~2
-    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--provider gemini^|qwen] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--no-gemini] [--dry-run]
+    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--provider gemini^|qwen] [--best-ab] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--no-gemini] [--dry-run]
     exit /b 1
 )
 shift /2
@@ -108,6 +112,17 @@ if not "!RESUME_FLAG!"=="" (
 if /i not "!FINAL_PROVIDER!"=="gemini" if /i not "!FINAL_PROVIDER!"=="qwen" (
     echo [错误] --provider 只能是 gemini 或 qwen，当前: !FINAL_PROVIDER!
     exit /b 1
+)
+if "!BEST_AB!"=="1" if "!FAIR_AB!"=="1" (
+    echo [错误] --best-ab 和 --fair-ab 不能同时使用。今晚质量验证请用 --best-ab。
+    exit /b 1
+)
+if "!BEST_AB!"=="1" if not "!FINAL_MAX_FRAMES!"=="0" (
+    echo [错误] --best-ab 代表各模型最佳视觉输入，不应同时指定 --max-frames。
+    exit /b 1
+)
+if "!BEST_AB!"=="1" if /i "!FINAL_PROVIDER!"=="qwen" (
+    set "QWEN_MAX_FRAMES=!QWEN_BEST_MAX_FRAMES!"
 )
 if "!FAIR_AB!"=="1" if "!FINAL_MAX_FRAMES!"=="0" (
     set "FINAL_MAX_FRAMES=!FAIR_AB_MAX_FRAMES!"
@@ -180,6 +195,9 @@ if "!DRY_RUN!"=="1" (
     echo  采集模式            : continuous HLS recorder + async consumer
     echo  直播转写模型 API      : disabled
     echo  最终 Provider        : !FINAL_PROVIDER!
+    if "!BEST_AB!"=="1" (
+        echo  最佳能力 A/B 模式   : enabled ^(Gemini all frames / Qwen max frames !QWEN_MAX_FRAMES!^)
+    )
     if "!FAIR_AB!"=="1" (
         echo  公平 A/B 模式       : enabled ^(max frames !FINAL_MAX_FRAMES!^)
     )
@@ -312,6 +330,9 @@ if "!REQUESTED_NAME!"=="" (
 echo  URL   : !PAGE_URL!
 echo  Auth  : !AUTH_STATE!
 echo  Mode  : continuous HLS recorder + async consumer
+if "!BEST_AB!"=="1" (
+    echo  Best A/B: enabled ^(Gemini all frames / Qwen max frames !QWEN_MAX_FRAMES!^)
+)
 if "!FAIR_AB!"=="1" (
     echo  Fair A/B: enabled ^(max frames !FINAL_MAX_FRAMES!^)
 )
@@ -349,7 +370,7 @@ exit /b 0
 :: WORKER: 无窗口静默运行，所有输出写入 LOG_FILE
 :: 所需变量（NAME / PAGE_URL / PYTHON / AUTH_STATE / AUTH_STATE_SAVE / STREAM_WORK_DIR
 ::          / SENSEVOICE_MERGE_VAD / API KEY / FINAL_GEMINI_ENABLED / FINAL_PROVIDER
-::          / OUTPUT_LABEL / FINAL_MAX_FRAMES / FAIR_AB）
+::          / OUTPUT_LABEL / FINAL_MAX_FRAMES / BEST_AB / FAIR_AB）
 :: 均由父进程环境继承，无需重新传参。
 :: ================================================================
 :WORKER
@@ -364,6 +385,9 @@ if "!REQUESTED_NAME!"=="" (
 )
 echo  URL   : !PAGE_URL!
 echo  Python: !PYTHON!
+if "!BEST_AB!"=="1" (
+    echo  Best A/B: enabled ^(Gemini all frames / Qwen max frames !QWEN_MAX_FRAMES!^)
+)
 if "!FAIR_AB!"=="1" (
     echo  Fair A/B: enabled ^(max frames !FINAL_MAX_FRAMES!^)
 )
@@ -462,7 +486,7 @@ if "!FINAL_GEMINI_ENABLED!"=="0" (
     )
 ) else (
     echo [%date% %TIME: =0%] [3/4] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
-    echo [%date% %TIME: =0%] Provider budget: provider=!FINAL_PROVIDER!, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, qwen_max_frames=!QWEN_MAX_FRAMES!, max_frames=!FINAL_MAX_FRAMES!, fair_ab=!FAIR_AB!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] Provider budget: provider=!FINAL_PROVIDER!, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, qwen_max_frames=!QWEN_MAX_FRAMES!, max_frames=!FINAL_MAX_FRAMES!, best_ab=!BEST_AB!, fair_ab=!FAIR_AB!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
     "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
       --base "!NAME!" ^
       --runs-dir "!SCRIPT_DIR!runs" ^
