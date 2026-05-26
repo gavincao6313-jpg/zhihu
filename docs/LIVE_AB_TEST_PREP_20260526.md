@@ -46,21 +46,21 @@ where ffprobe
 ```bat
 set GEMINI_API_KEY=your_gemini_key
 set DASHSCOPE_API_KEY=
-run_zhihu_live.bat "<直播间URL>" live-ab-20260526-gemini --provider gemini --dry-run
+run_zhihu_live.bat "<直播间URL>" live-ab-20260526-gemini --provider gemini --max-frames 128 --dry-run
 ```
 
 ```bat
 set DASHSCOPE_API_KEY=your_dashscope_key
 set GEMINI_API_KEY=
-run_zhihu_live.bat "<直播间URL>" live-ab-20260526-qwen --provider qwen --qwen-max-frames 128 --dry-run
+run_zhihu_live.bat "<直播间URL>" live-ab-20260526-qwen --provider qwen --qwen-max-frames 128 --max-frames 128 --dry-run
 ```
 
 dry-run 应确认：
 
 - `采集模式: continuous HLS recorder + async consumer`
 - `直播转写模型 API: disabled`
-- Gemini 窗口显示 `最终 Provider: gemini`
-- Qwen 窗口显示 `最终 Provider: qwen` 和 `Qwen max frames: 128`
+- Gemini 窗口显示 `最终 Provider: gemini` 和 `A/B max frames: 128`
+- Qwen 窗口显示 `最终 Provider: qwen`、`Qwen max frames: 128` 和 `A/B max frames: 128`
 - Step 3 是 `build_stream_markdown.py --provider ...`
 - Step 4 是 `extract_slides.py --stream-base ...`
 
@@ -72,7 +72,7 @@ Gemini CMD：
 cd /d d:\zhihu\zhihu_file
 set GEMINI_API_KEY=your_gemini_key
 set DASHSCOPE_API_KEY=
-run_zhihu_live.bat "<直播间URL>" live-ab-20260526-gemini --provider gemini
+run_zhihu_live.bat "<直播间URL>" live-ab-20260526-gemini --provider gemini --max-frames 128
 ```
 
 Qwen CMD：
@@ -81,7 +81,7 @@ Qwen CMD：
 cd /d d:\zhihu\zhihu_file
 set DASHSCOPE_API_KEY=your_dashscope_key
 set GEMINI_API_KEY=
-run_zhihu_live.bat "<直播间URL>" live-ab-20260526-qwen --provider qwen --qwen-max-frames 128
+run_zhihu_live.bat "<直播间URL>" live-ab-20260526-qwen --provider qwen --qwen-max-frames 128 --max-frames 128
 ```
 
 建议两个命令在 30 秒内启动，记录两个窗口日志文件名。
@@ -107,8 +107,8 @@ powershell Get-Content -Wait -Tail 80 "logs\run-live-ab-20260526-qwen.log"
 Gemini：
 
 ```text
-runs\stream-live-ab-20260526-gemini-*.final-qc.json
-Markdowns\TTS_stream-live-ab-20260526-gemini.md
+runs\stream-live-ab-20260526-gemini-*.gemini35.final-qc.json
+Markdowns\TTS_stream-live-ab-20260526-gemini-gemini35.md
 Slides\live-ab-20260526-gemini\slides.pdf
 ```
 
@@ -125,6 +125,7 @@ Slides\live-ab-20260526-qwen\slides.pdf
 - Gemini 未设置 `GEMINI_API_KEY`
 - Qwen 未设置 `DASHSCOPE_API_KEY`
 - Qwen 环境缺 `openai` 包，需要重新执行 `pip install -r requirements.txt`
+- Gemini 环境缺 `google-genai` 包，需要重新执行 `pip install -r requirements.txt`
 
 ## 6. 对比记录项
 
@@ -159,6 +160,6 @@ run_zhihu_live.bat "<直播间URL>" live-ab-20260526-source --no-gemini
 直播结束后，用同一个 source base 做双合成：
 
 ```bat
-python scripts\build_stream_markdown.py --base live-ab-20260526-source --provider gemini --output-label gemini35 --max-retries 2 --max-continuations 2
-python scripts\build_stream_markdown.py --base live-ab-20260526-source --provider qwen --qwen-max-frames 128 --max-retries 2 --max-continuations 2
+python scripts\build_stream_markdown.py --base live-ab-20260526-source --provider gemini --output-label gemini35 --max-frames 128 --max-retries 2 --max-continuations 2
+python scripts\build_stream_markdown.py --base live-ab-20260526-source --provider qwen --output-label qwen --qwen-max-frames 128 --max-frames 128 --max-retries 2 --max-continuations 2
 ```

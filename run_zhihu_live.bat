@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 :: run_zhihu_live.bat  知乎直播流一键转写
 ::
 :: 用法:
-::   run_zhihu_live.bat <直播间URL> [输出名] [--provider gemini^|qwen] [--no-gemini] [--dry-run]
+::   run_zhihu_live.bat <直播间URL> [输出名] [--provider gemini^|qwen] [--qwen-max-frames N] [--max-frames N] [--no-gemini] [--dry-run]
 ::
 :: 示例:
 ::   run_zhihu_live.bat "https://www.zhihu.com/xen/training/live/room/xxx" gaowei-20260519
@@ -16,7 +16,7 @@ setlocal enabledelayedexpansion
 :: 输出（位于 runs\ 目录）:
 ::   stream-<NAME>-<时间>.combined-transcript.txt   完整逐字转写
 ::   stream-<NAME>-<时间>.manifest.md               逐块统计
-::   Markdowns\TTS_stream-<NAME>.md                NotebookLM 文档（默认最多 1+2 次 Gemini 成功调用）
+::   Markdowns\TTS_stream-<NAME>-<provider>.md     NotebookLM 文档（默认最多 1+2 次成功调用）
 ::   Slides\<NAME>\slides.pdf + slides.pptx        幻灯片 PDF + PPTX
 ::   logs\run-<NAME>.log                            完整运行日志（本机保留，不入 Git）
 ::
@@ -52,6 +52,7 @@ set "BUILD_MAX_RETRIES=2"
 set "BUILD_MAX_CONTINUATIONS=2"
 set "FINAL_PROVIDER=gemini"
 set "QWEN_MAX_FRAMES=128"
+set "FINAL_MAX_FRAMES=0"
 
 :PARSE_ARGS
 if "%~2"=="" goto ARGS_DONE
@@ -75,12 +76,19 @@ if /i "%~2"=="--resume" (
     )
     set "QWEN_MAX_FRAMES=%~3"
     shift /2
+) else if /i "%~2"=="--max-frames" (
+    if "%~3"=="" (
+        echo [错误] --max-frames 需要数字参数
+        exit /b 1
+    )
+    set "FINAL_MAX_FRAMES=%~3"
+    shift /2
 ) else if "!REQUESTED_NAME!"=="" (
     set "REQUESTED_NAME=%~2"
     set "NAME=%~2"
 ) else (
     echo [错误] 无法识别或重复的参数: %~2
-    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--provider gemini^|qwen] [--no-gemini] [--dry-run]
+    echo 用法: run_zhihu_live.bat ^<直播间URL^> [输出名] [--provider gemini^|qwen] [--qwen-max-frames N] [--max-frames N] [--no-gemini] [--dry-run]
     exit /b 1
 )
 shift /2
@@ -115,6 +123,16 @@ if "!NAME!"=="" (
     for /f "usebackq" %%t in (`powershell -NoProfile -Command "Get-Date -Format 'yyyyMMdd-HHmmss'"`) do set "NAME=live-%%t"
 )
 set "BASE_MARKER=%SCRIPT_DIR%runs\stream-base-!NAME!.txt"
+
+:: ---- 并发安全：每次运行用独立的 auth state 保存路径（双进程同时结束时不互相覆盖）----
+set "AUTH_STATE_SAVE=%SCRIPT_DIR%zhihu_auth_state-!NAME!.save.json"
+
+:: ---- 输出标签（防止同 base 多次合成时 Markdown 被静默覆盖）----
+if /i "!FINAL_PROVIDER!"=="gemini" (
+    set "OUTPUT_LABEL=gemini35"
+) else (
+    set "OUTPUT_LABEL=qwen"
+)
 
 :: ---- URL 检查（双击时弹出输入提示）----
 if "!PAGE_URL!"=="" (
@@ -163,6 +181,9 @@ if "!DRY_RUN!"=="1" (
             echo  Qwen model           : qwen3.6-flash
             echo  Qwen max frames      : !QWEN_MAX_FRAMES!
         )
+        if not "!FINAL_MAX_FRAMES!"=="0" (
+            echo  A/B max frames       : !FINAL_MAX_FRAMES!
+        )
         echo  max successful calls : 3 ^(1 initial + !BUILD_MAX_CONTINUATIONS! continuation^)
         echo  retry cap            : !BUILD_MAX_RETRIES!
     ) else (
@@ -171,7 +192,7 @@ if "!DRY_RUN!"=="1" (
     echo.
     echo  Step 1: zhihuTTS_stream.py --continuous-hls --base-marker ^<marker^> ^(no --gemini^)
     echo  Step 2: merge_stream_chunks.py --base ^<resolved marker base^>
-    echo  Step 3: build_stream_markdown.py --base ^<resolved marker base^> --provider !FINAL_PROVIDER! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS!
+    echo  Step 3: build_stream_markdown.py --base ^<resolved marker base^> --provider !FINAL_PROVIDER! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! --qwen-max-frames !QWEN_MAX_FRAMES!
     echo  Step 4: extract_slides.py --stream-base ^<resolved marker base^> ^(PDF + PPTX^)
     echo ====================================================
     exit /b 0
@@ -214,6 +235,30 @@ if errorlevel 1 (
     echo [错误] 未找到 ffprobe（通常与 ffmpeg 同包），请检查 PATH。
     echo.
     exit /b 1
+)
+
+:: ---- Final provider Python dependency preflight ----
+if "!NO_GEMINI!"=="0" if "!FINAL_GEMINI_ENABLED!"=="1" if /i "!FINAL_PROVIDER!"=="gemini" (
+    "!PYTHON!" -c "import google.genai" >nul 2>&1
+    if errorlevel 1 (
+        echo.
+        echo [错误] 当前 Python 环境缺少 google-genai，Gemini final synthesis 会失败。
+        echo 请先运行:
+        echo   !PYTHON! -m pip install -r requirements.txt
+        echo.
+        exit /b 1
+    )
+)
+if "!NO_GEMINI!"=="0" if "!FINAL_GEMINI_ENABLED!"=="1" if /i "!FINAL_PROVIDER!"=="qwen" (
+    "!PYTHON!" -c "import openai" >nul 2>&1
+    if errorlevel 1 (
+        echo.
+        echo [错误] 当前 Python 环境缺少 openai，Qwen final synthesis 会失败。
+        echo 请先运行:
+        echo   !PYTHON! -m pip install -r requirements.txt
+        echo.
+        exit /b 1
+    )
 )
 
 :: ---- Videos\.stream 目录可写检查 ----
@@ -262,6 +307,9 @@ if "!NO_GEMINI!"=="1" (
 ) else if "!FINAL_GEMINI_ENABLED!"=="1" (
     echo  Provider: !FINAL_PROVIDER! 最终 NotebookLM 生成启用（直播转写阶段不调用模型 API）
     echo  Provider预算: max successful calls=3, retry cap=!BUILD_MAX_RETRIES!
+    if not "!FINAL_MAX_FRAMES!"=="0" (
+        echo  A/B视觉帧上限: !FINAL_MAX_FRAMES!
+    )
 ) else if /i "!FINAL_PROVIDER!"=="gemini" (
     echo  Provider: gemini（未设置 GEMINI_API_KEY，将跳过最终 NotebookLM 生成）
 ) else (
@@ -286,8 +334,8 @@ exit /b 0
 
 :: ================================================================
 :: WORKER: 无窗口静默运行，所有输出写入 LOG_FILE
-:: 所需变量（NAME / PAGE_URL / PYTHON / AUTH_STATE / STREAM_WORK_DIR
-::          / SENSEVOICE_MERGE_VAD / API KEY / FINAL_GEMINI_ENABLED / FINAL_PROVIDER）
+:: 所需变量（NAME / PAGE_URL / PYTHON / AUTH_STATE / AUTH_STATE_SAVE / STREAM_WORK_DIR
+::          / SENSEVOICE_MERGE_VAD / API KEY / FINAL_GEMINI_ENABLED / FINAL_PROVIDER / OUTPUT_LABEL / FINAL_MAX_FRAMES）
 :: 均由父进程环境继承，无需重新传参。
 :: ================================================================
 :WORKER
@@ -316,7 +364,7 @@ if "!REQUESTED_NAME!"=="" (
       --continuous-hls ^
       --page-url "!PAGE_URL!" ^
       --playwright-storage-state "!AUTH_STATE!" ^
-      --playwright-save-storage-state "!AUTH_STATE!" ^
+      --playwright-save-storage-state "!AUTH_STATE_SAVE!" ^
       --duration 0 ^
       --chunk-duration 60 ^
       --stream-work-dir "!STREAM_WORK_DIR!" ^
@@ -328,7 +376,7 @@ if "!REQUESTED_NAME!"=="" (
       --continuous-hls ^
       --page-url "!PAGE_URL!" ^
       --playwright-storage-state "!AUTH_STATE!" ^
-      --playwright-save-storage-state "!AUTH_STATE!" ^
+      --playwright-save-storage-state "!AUTH_STATE_SAVE!" ^
       --duration 0 ^
       --chunk-duration 60 ^
       --stream-work-dir "!STREAM_WORK_DIR!" ^
@@ -390,31 +438,29 @@ if "!FINAL_GEMINI_ENABLED!"=="0" (
         echo [%date% %TIME: =0%] [3/4] 跳过 NotebookLM 生成（--no-gemini） >> "!LOG_FILE!" 2>&1
     ) else if /i "!FINAL_PROVIDER!"=="gemini" (
         echo [%date% %TIME: =0%] [3/4] 跳过 NotebookLM 生成（未设置 GEMINI_API_KEY） >> "!LOG_FILE!" 2>&1
-        echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider gemini --output-label gemini35 --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
+        echo   手动生成: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider gemini --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
     ) else (
         echo [%date% %TIME: =0%] [3/4] 跳过 NotebookLM 生成（未设置 DASHSCOPE_API_KEY） >> "!LOG_FILE!" 2>&1
-        echo   手动生成: set DASHSCOPE_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider qwen --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
+        echo   手动生成: set DASHSCOPE_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider qwen --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
     )
 ) else (
     echo [%date% %TIME: =0%] [3/4] 生成 NotebookLM 文档（预计 2-5 分钟）... >> "!LOG_FILE!" 2>&1
-    echo [%date% %TIME: =0%] Provider budget: provider=!FINAL_PROVIDER!, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, qwen_max_frames=!QWEN_MAX_FRAMES!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] Provider budget: provider=!FINAL_PROVIDER!, pass=one-shot, max_successful_calls=3, retry_cap=!BUILD_MAX_RETRIES!, qwen_max_frames=!QWEN_MAX_FRAMES!, max_frames=!FINAL_MAX_FRAMES!, duplicate_synthesis=false >> "!LOG_FILE!" 2>&1
     "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
       --base "!NAME!" ^
       --runs-dir "!SCRIPT_DIR!runs" ^
       --markdowns-dir "!SCRIPT_DIR!Markdowns" ^
       --provider "!FINAL_PROVIDER!" ^
+      --output-label "!OUTPUT_LABEL!" ^
+      --max-frames "!FINAL_MAX_FRAMES!" ^
       --qwen-max-frames "!QWEN_MAX_FRAMES!" ^
       --max-retries "!BUILD_MAX_RETRIES!" ^
       --max-continuations "!BUILD_MAX_CONTINUATIONS!" >> "!LOG_FILE!" 2>&1
     if errorlevel 1 (
         echo [%date% %TIME: =0%] [提示] NotebookLM 文档生成失败，手动运行: >> "!LOG_FILE!" 2>&1
-        echo   python scripts\build_stream_markdown.py --base !NAME! --provider !FINAL_PROVIDER! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
+        echo   python scripts\build_stream_markdown.py --base !NAME! --provider !FINAL_PROVIDER! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
     ) else (
-        if /i "!FINAL_PROVIDER!"=="qwen" (
-            echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!-qwen.md >> "!LOG_FILE!" 2>&1
-        ) else (
-            echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!.md >> "!LOG_FILE!" 2>&1
-        )
+        echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!-!OUTPUT_LABEL!.md >> "!LOG_FILE!" 2>&1
     )
 )
 

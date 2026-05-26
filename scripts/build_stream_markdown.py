@@ -5,7 +5,7 @@ the raw merged transcript. This script:
   1. Loads all per-chunk global-transcript.txt → combined full transcript
   2. Loads all per-chunk payload.json → all keyframe images, globally sorted
   3. Calls Gemini/Qwen with the full prompt + selected frames
-  4. Writes a NotebookLM-ready document to Markdowns/TTS_stream-<base>.md
+  4. Writes a NotebookLM-ready document to Markdowns/TTS_stream-<base>[-label].md
 
 Requires GEMINI_API_KEY / OPENCLAW_GOOGLE_API_KEY for Gemini, or
 DASHSCOPE_API_KEY for Qwen.
@@ -23,6 +23,7 @@ Options:
     --markdowns-dir Output directory for NotebookLM document (default: Markdowns)
     --run-ts        Use a specific run timestamp YYYYMMDD-HHMMSS (default: latest run)
     --dry-run       Print QC and provider budget without calling the model API
+    --max-frames N  Optional provider-neutral image cap for fair A/B tests
     --mock-gemini-text FILE
                     Offline validation only: use FILE as provider output and write final Markdown
 """
@@ -34,8 +35,14 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from google import genai
-from google.genai import types
+try:
+    from google import genai
+    from google.genai import types
+    _GENAI_AVAILABLE = True
+except ImportError:
+    genai = None  # type: ignore[assignment]
+    types = None  # type: ignore[assignment]
+    _GENAI_AVAILABLE = False
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import call_gemini, call_qwen, extract_run_ts, fmt_ts
@@ -218,9 +225,14 @@ def build_gemini_parts(
         if not fp.exists():
             continue
         parts.append(frame.get("marker", f"Frame [{fmt_ts(frame.get('timestamp_s', 0))}]"))
-        parts.append(types.Part(
-            inline_data=types.Blob(mime_type="image/jpeg", data=fp.read_bytes())
-        ))
+        img_data = fp.read_bytes()
+        if _GENAI_AVAILABLE:
+            parts.append(types.Part(
+                inline_data=types.Blob(mime_type="image/jpeg", data=img_data)
+            ))
+        else:
+            from types import SimpleNamespace as _NS
+            parts.append(_NS(inline_data=_NS(data=img_data, mime_type="image/jpeg")))
         loaded += 1
 
     frame_policy = {
@@ -512,6 +524,8 @@ def main() -> None:
                     help="Optional suffix for A/B outputs, e.g. gemini35 or qwen")
     ap.add_argument("--qwen-max-frames", type=int, default=QWEN_DEFAULT_MAX_FRAMES,
                     help=f"Qwen image cap, 1-{QWEN_IMAGE_HARD_LIMIT} (default: {QWEN_DEFAULT_MAX_FRAMES})")
+    ap.add_argument("--max-frames", type=int, default=0,
+                    help="Provider-neutral image cap for fair A/B tests; 0 keeps provider default")
     ap.add_argument("--qwen-thinking", action="store_true",
                     help="Enable Qwen thinking mode; off by default to control token cost")
     ap.add_argument("--thinking-budget", type=int, default=4096,
@@ -594,13 +608,19 @@ def main() -> None:
         print(f"  [warn] {w}")
 
     max_successful_calls = 1 + max(0, args.max_continuations)
-    image_limit = GEMINI_IMAGE_HARD_LIMIT if provider == "gemini" else qwen_max_frames
+    provider_image_limit = GEMINI_IMAGE_HARD_LIMIT if provider == "gemini" else qwen_max_frames
+    if args.max_frames > 0:
+        image_limit = max(1, min(args.max_frames, provider_image_limit))
+    else:
+        image_limit = provider_image_limit
     print(f"\n=== {provider} budget ===")
     print(f"  model                : {provider_model}")
     print("  synthesis_pass       : one-shot")
     print(f"  max successful calls : {max_successful_calls} (1 initial + {args.max_continuations} continuation)")
     print(f"  retry cap            : {args.max_retries}")
     print(f"  image cap            : {image_limit}")
+    if args.max_frames > 0:
+        print(f"  fair A/B max frames  : {args.max_frames}")
     print("  duplicate synthesis  : false")
     if output_label:
         print(f"  output label         : {output_label}")
@@ -643,6 +663,9 @@ def main() -> None:
         manifest["provider_parts_count"] = len(parts)
 
         if provider == "gemini":
+            if not _GENAI_AVAILABLE:
+                print("[!] google-genai not installed — run: pip install google-genai", file=sys.stderr)
+                sys.exit(1)
             http_opts = types.HttpOptions(timeout=3600000)
             client    = genai.Client(api_key=api_key, http_options=http_opts)
             gemini_text = call_gemini(
