@@ -1,0 +1,173 @@
+{
+  "base": "live-ab-20260526-qwen",
+  "run_ts": "20260526-220403",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 130,
+  "transcript_chars": 41749,
+  "frame_count": 439,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 7806,
+  "timeline_end_s": 7817,
+  "timeline_duration_s": 7817,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.6-flash",
+  "synthesis_pass": "sliding-window",
+  "warnings": [
+    "qwen_overcompressed_body: body/transcript ratio 0.24, expected >= 0.35"
+  ],
+  "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 3,
+    "total_frames": 439,
+    "covered_new_frames": 439,
+    "selected_frames_across_windows": 519,
+    "overlap_frames": 80,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 44,
+      "annotation": 261,
+      "context": 214
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 1,
+        "end_s": 3429,
+        "selected_frame_count": 220,
+        "new_frame_count": 200,
+        "overlap_frame_count": 20,
+        "transcript_chars": 18873,
+        "frame_type_counts": {
+          "slide": 30,
+          "annotation": 108,
+          "context": 82
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 2646,
+        "end_s": 7637,
+        "selected_frame_count": 240,
+        "new_frame_count": 200,
+        "overlap_frame_count": 40,
+        "transcript_chars": 28012,
+        "frame_type_counts": {
+          "slide": 8,
+          "annotation": 129,
+          "context": 103
+        }
+      },
+      {
+        "index": 3,
+        "start_s": 6172,
+        "end_s": 7798,
+        "selected_frame_count": 59,
+        "new_frame_count": 39,
+        "overlap_frame_count": 20,
+        "transcript_chars": 8975,
+        "frame_type_counts": {
+          "slide": 6,
+          "annotation": 24,
+          "context": 29
+        }
+      }
+    ]
+  },
+  "frame_policy": {
+    "provider": "qwen",
+    "mode": "sliding-window",
+    "window_count": 3,
+    "windows": [
+      {
+        "annotation_frames": 108,
+        "cap": 250,
+        "dropped_frames": 0,
+        "provider": "qwen",
+        "selected_frames": 220,
+        "slide_frames": 30,
+        "total_frames": 220
+      },
+      {
+        "annotation_frames": 129,
+        "cap": 250,
+        "dropped_frames": 0,
+        "provider": "qwen",
+        "selected_frames": 240,
+        "slide_frames": 8,
+        "total_frames": 240
+      },
+      {
+        "annotation_frames": 24,
+        "cap": 250,
+        "dropped_frames": 0,
+        "provider": "qwen",
+        "selected_frames": 59,
+        "slide_frames": 6,
+        "total_frames": 59
+      }
+    ]
+  },
+  "provider_parts_count": 1046,
+  "qwen_window_notes": [
+    "runs\\stream-live-ab-20260526-qwen-20260526-220403.qwen-window-001.notes.md",
+    "runs\\stream-live-ab-20260526-qwen-20260526-220403.qwen-window-002.notes.md",
+    "runs\\stream-live-ab-20260526-qwen-20260526-220403.qwen-window-003.notes.md"
+  ],
+  "qwen_window_notes_reused": 3,
+  "qwen_final_assembly_version": "qwen-final-assembly-v1",
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.6-flash",
+    "api_calls": 1,
+    "finish_reason": "stop",
+    "window_finish_reasons": [
+      "stop"
+    ],
+    "usage": {
+      "input_tokens": 8341,
+      "output_tokens": 5672,
+      "total_tokens": 14013
+    },
+    "estimated_cost_cny": null
+  },
+  "body_last_chapter_end_s": 7798,
+  "body_tail_gap_s": 19,
+  "body_coverage_status": "ok",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 10212,
+    "body_transcript_ratio": 0.2446,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 13,
+    "chapter_fields_missing": [],
+    "code_fence_count": 12,
+    "prompt_keywords_missing": [],
+    "body_min_transcript_ratio": 0.35,
+    "source_frame_count": 439
+  },
+  "qwen_window_coverage_qc": {
+    "expected_windows": [
+      1,
+      2,
+      3
+    ],
+    "covered_windows": [
+      1,
+      2,
+      3
+    ],
+    "missing_windows": []
+  },
+  "transcript_appendix_chars": 41749,
+  "visual_evidence_count": 439,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
