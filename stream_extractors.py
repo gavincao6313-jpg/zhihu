@@ -34,6 +34,8 @@ YTDLP_HOST_HINTS = (
     "live.bilibili.com",
     "douyin.com",
     "iesdouyin.com",
+    "toutiao.com",
+    "ixigua.com",
     "douyu.com",
     "huya.com",
     "kuaishou.com",
