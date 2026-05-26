@@ -1,0 +1,32 @@
+{
+  "base": "replay-ab-20260526",
+  "run_ts": "20260526-145918",
+  "source_type": "live",
+  "source_status": "partial",
+  "chunk_count": 186,
+  "transcript_chars": 56397,
+  "frame_count": 0,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 11102,
+  "timeline_end_s": 11160,
+  "timeline_duration_s": 11160,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 186,
+  "synthesis_provider": "gemini",
+  "synthesis_model": "gemini-3.5-flash",
+  "synthesis_pass": "one-shot",
+  "warnings": [],
+  "frame_policy": {
+    "provider": "gemini",
+    "total_frames": 0,
+    "selected_frames": 0,
+    "dropped_frames": 0,
+    "cap": 3000,
+    "slide_frames": 0,
+    "annotation_frames": 0
+  },
+  "provider_parts_count": 2
+}
