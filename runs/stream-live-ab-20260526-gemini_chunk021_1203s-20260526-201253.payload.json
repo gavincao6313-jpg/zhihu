@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk021_1203s",
+  "full_text": "[00:00:00 - 00:01:00] 那最简单就是静态图片，现在说的是AI播客的画面啊，现在说的是画面。因为AI播客的音频其实差异不大，或者说我们在音频控制的比较比较好的情况下，其实可做比较大的动作的就是画面。所以判断完这个之后呢，我认为如果真人一致性保持比较难，口对口型比较难。然后最后这个所有的呃匹配度比较难的话，那我们不如做这个和做这个。因为这两个同样能满足用户的需求，用户的需求就是科技类对话AI播客。在抖音和视频号上发布可以不出现真人的。好。对吧所以做AI工具比较重要的原则，我在这里提炼出来，并不仅仅适用于AI博客这个项目，适用于所有AI自媒体的项目啊，甚至所有其他的AI项目我觉得都差不多，就是核心功能一定尽量没有瑕疵。前提是我们真的。找到了核心需求啊，这个其实是第一位的，这个是第零位的。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000020\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000020\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.0796"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000020\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.0796"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.0796
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 356
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk106_6313s",
+  "full_text": "[00:00:00 - 00:01:01] 一样能搞清楚，我一样能把它变成内化成我自己的能力的一部分。然后怎么去拿到结果呢？就是内化，并且我能输出，并且我也同样能交付一样的工具，并且我能迁移，做出类似的甚至比它更难的东西。好吧。😊OK所以拓展自己的能力边界和无限可能啊，你不需要成为很厉害的人。但你需要在每一个项目中实打实的实战项目中，或者你的实操练习中，在下面这三个维度上拓展自己啊，包括技术的理解力益，行业的洞察，还有沟通的交付啊，就是我要不然就知道这个有什么工具能做什么，不能做什么，我非常清楚，要不然就是我知道这个行业怎么赚钱，痛点在哪，卡点在哪市场规则，还有商业运行的底层逻辑。我给你分析的清清楚楚，明明白白要不然就是呢我超级nice能链接需求和交付，把所有难搞的人都搞定，然后能够把想法最终变成可用的产品和服务。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000105\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000105\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0694"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000105\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.0694"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.0694
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 362
+  }
+}

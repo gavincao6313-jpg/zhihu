@@ -1,0 +1,49 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk009_482s",
+  "full_text": "[00:00:00 - 00:00:59] 呃，这些那个教育赛道啊，高歌猛进的时候，跟公司从300人干到了6000人，差一丢丢就实现了所谓的财富自由，最后崩盘收尾非常惨烈，真的是呃心酸史啊，这个算了，不回溯这段了，我们一会儿我们开始上课吧，现在8点有时间的时候再跟你们聊，有时间再聊那些有的没的啊，8点了。。嗯，bueno snowch哎呀，真的有人会西班牙语啊，欧ola是你好，bueno snowch晚上好。西班牙语的晚上好。OK同学们，欢迎大家来上课周二的晚上8点，我们正式开始今天的课程。😊AI自媒体交付过程中的问题解析啊，因为。虽然不是所有的人最终都进入了项目，但是呢我还是想把项目中发现的一些问题，尤其是我觉得会是普遍的问题，不是个人的问题，甚至我自己在做工具的时候也。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000008\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000008\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.1486"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000008\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1486"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000008\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0759"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000008\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0759"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.1486
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0759
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 341
+  }
+}

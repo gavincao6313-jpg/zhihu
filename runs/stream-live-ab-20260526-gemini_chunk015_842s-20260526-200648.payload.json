@@ -1,0 +1,29 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk015_842s",
+  "full_text": "[00:00:00 - 00:00:59] 是你吗。全变了完全变了。对了，就是整体看，其实一开始的效果还好。因为我觉得女生的这个表情啊，包括这个口型对的都挺好的。但是突然人物一致性崩了，这个肯定是不能接受的这是比较大的问题啊，这是完全不能接受的问题。但是这种问题其实很普遍，或者说视频生成模型本身听过我AI自媒体的课，就知道我在那里面说，这就是它能力局限，是需要我们听过通过很多动作才能保持它一致性的。包括用图片来锚定，包括用结构化的提示词，包括我们怎么去强调让它保持人物画面背景这个服装妆造发型等等，反这确实是一个难点。然后我们再看后面的。嗯，首先就是我觉得这个呃首先先鼓励一下这个同学啊，他是第一个交作业的呃。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000014\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000014\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=slide diff=0.3644"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 50,
+      "diff": 0.3644
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 308
+  }
+}

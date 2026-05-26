@@ -1,0 +1,29 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk050_2947s",
+  "full_text": "[00:00:00 - 00:00:59] 年终奖重要太多了，他没有犹豫，拿到offer当天就提了离职，做好交接就直接入职。现在回头看，当时大家都觉得新媒体已经是红海，可和后来几年自媒体平台居然到白热化的程度比，那个节点对于零件的转行者来说，其实已经是最友好的入场时机了。那个时候很多时候我们总想着等最适合的时机。等拿完礼包等熬过淡季等市场变好，可真等你把所有的条件都等齐了，时间窗口早就关上了。与其好着等不确定的收益不如当机立断，抓住确定的机会，你想要的赛道不一定一直在原地等你准备好，早点决策果断出击才不会错过本属于你的窗口。这版我就觉得写的非常好了，这版写的非常好。的前提是不是因为我给了他一段非常个性化的东西。而这段个性化的东西在他改写之后已经占比很高了。这个是核心原因啊，所以我最后解析的。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000049\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000049\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=slide diff=0.6085"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 57,
+      "diff": 0.6085
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 351
+  }
+}

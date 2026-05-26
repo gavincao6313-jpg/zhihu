@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk081_4811s",
+  "full_text": "[00:00:00 - 00:00:59] 时间上现在大家就能看到了嗯。在这儿就是也是举个例子啊，因为做技术的，其实你们非常清楚你们能做什么。然后做所有技术门槛高，甚至是中高的，更能体现你们本身的价值。比如说需要PA自动化集成的，比如需要端到端自动生成流程的，比如需要封装更简易的界面的对吧？小王同学，比如说用到remotion，用代码生成视频的替代手工剪辑的对吧？这其实是很多人的痛，极其痛啊，就手工剪辑这一点痛死了。😊。不仅对于个体的自媒体创作者，对于很多呃有团队的，甚至对于MCN公司，甚至对于电商老板，甚至对于很多慢剧短剧的制作者来说都是极大的痛。所以这个痛你一旦解决，就是整个行业的效率都被你改变了。有老师有软硬件交互的单子，也可以记嗯。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000080\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000080\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.1082"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000080\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.1082"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.1082
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 324
+  }
+}

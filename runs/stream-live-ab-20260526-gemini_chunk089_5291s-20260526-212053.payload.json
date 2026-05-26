@@ -1,0 +1,49 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk089_5291s",
+  "full_text": "[00:00:00 - 00:01:00] 其实和今天的FD都不一样都不一样，就看起来解决方案工程师对吧？落地的。然后这个做这些什么这个亚马逊语音，还有最大的CRM这个软件公司的，然后有客户成功工程师、技术测客户成功啊，这个sars公司的，还有所谓的技术步道师啊，交付工程师、应用工程师看起来呢都是有特别懂技术的，有懂一点技术的，有特别会对接客户的，有懂一点对接客户。这咨询公司的，肯定是比较会对接客户的。😊对吧所以但是今天这个FDE呀，我觉得它和这些类似的岗位，很多人说过的岗位都不一样了，它比这些岗位的要求都更高了。因为他要具备三种能力，技术理解力、行业洞察，还有交付沟通。妈呀，好难呀，刚才还说是两种呢是吧？这么快又加了一种又加了一种。然后每一种呢我就给大家。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000088\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000088\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.2354"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000088\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.2354"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000088\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.0596"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000088\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.0596"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.2354
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.0596
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 334
+  }
+}

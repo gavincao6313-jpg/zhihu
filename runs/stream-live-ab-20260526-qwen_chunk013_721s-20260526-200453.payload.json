@@ -1,0 +1,74 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk013_721s",
+  "full_text": "[00:00:00 - 00:01:00] 呃，项目的承接人去对需求的第一轮也明确的说，很多同学问说老师这个交付周期是多少，大家很怕很怕没有时间，对吧？一直在问，我说不着急，但是你一定按照你的节奏，把第一个项目做好，把功能打磨好，把基础功能变成优先级。第一。所以其他没有做的，没有交付的，不要着急啊，然后没有接到承接到项目的同学不要着急，后面还有，所以今天我们就来继续嗯讲我们第一个项目就是AI播客视频生成，先给大家看看这个学员的成果吧。这是第一波啊，这只是第一波。第一版应该这样说。🎼今天咱们聊女性困境，我先给你说个数据，2023年国内职场女性平均薪资还是比同职级男性低18本左右，你知道吧？太有共鸣了。我闺蜜去年怀孕，本来升部门经理的名额，直接给了资历，比她浅的男同事。领导明说怕她休产假耽误事。对，这就是最常见。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000012\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000012\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0433"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000012\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0433"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000012\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=slide diff=0.354"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000012\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000012\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0438"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000012\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000012\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=annotation diff=0.2451"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.0433
+    },
+    {
+      "type": "slide",
+      "frame_idx": 31,
+      "diff": 0.354
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0438
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.2451
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 359
+  }
+}

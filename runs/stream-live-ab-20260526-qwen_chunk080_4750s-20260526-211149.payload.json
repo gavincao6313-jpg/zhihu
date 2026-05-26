@@ -1,0 +1,59 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk080_4750s",
+  "full_text": "[00:00:00 - 00:01:00] 可干那个。好吧，业务卡点适合的就是你知道业务的痛点，卡脖子的地方，AI负责写，你必须判断什么是必须解决的问题啊，就是这个点绝对不能再卡了。因为AI来了，就是帮我解决这个卡点的。😊好，产品技术型适合谁呢？那肯定是有编程能力，产品思维或者能搭建工具链的人，能够把手工操作变成自动化或者半自动化流程的人。就是你虽然不是创作者，比如说在AI自媒体的项目中，你不是创作者，但你能给创作者提供弹药和武器以及弹药武器的生产线。。啊，你虽然没有做过电商，但你能给电商的从业者提供弹药武器以及生产线。因为电商从业者大概率他们也是需要海量的素材的，也是需要很多自动化的工作流的。所以本质上我觉得电商行业呀、自媒体行业啊，其实对于AI的依赖程度是最高的，没有之一。好吧，因为我在录制电商，所以我在对这这一部分简直是太有体感了。嗯，等贵。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000079\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000079\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.1282"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000079\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.083"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000079\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.083"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000079\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000079\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.1097"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.1282
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.083
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.1097
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 6,
+    "text_chars": 380
+  }
+}

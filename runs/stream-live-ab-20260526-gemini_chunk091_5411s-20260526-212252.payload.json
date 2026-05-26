@@ -1,0 +1,64 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk091_5411s",
+  "full_text": "[00:00:00 - 00:00:59] 今天可能行业洞察是更重要的。呃，为什么我拿自媒体举例啊，因为我现在教的就是AI自媒体嘛，然后未来可能还会有AI电商的一些例子。所以拿自媒体举例。你们就能看到这往下拆拆的是什么。比如说第一层行业术语，就是我在课课里就是AI自媒体的那八节课里介绍过的各种玩播率啊、互动率啊、曝光率啊，引流款呀、利润款啊，这个应该是电商课的啊，这个不在自媒体里面，然后比如切片二状矩阵号还包括口播还包括分镜分镜脚本，对吧？这些看起来是生词。但是后来我们学过之后，是不是两三天学习之后，你就能懂了。😊对。对吧，但是你知道什么意思和你真正掌握和你成为肌肉记忆和那条件反射，看到这个就知道该调什么还是有一定距离的。但是它至少是以天为维度，周围维度是能拿到你的进阶认知的。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000090\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000090\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.1972"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000090\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.1972"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000090\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.1969"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000090\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.1969"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000090\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.199"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000090\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.199"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.1972
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.1969
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.199
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 344
+  }
+}

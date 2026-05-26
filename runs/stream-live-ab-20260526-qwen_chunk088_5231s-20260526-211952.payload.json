@@ -1,0 +1,79 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk088_5231s",
+  "full_text": "[00:00:00 - 00:00:59] 好，所以给所有非技术背景的同学说一句话，就是技术其实只是工具，真正有价值是你脑子里的东西。然后同时再给技术和产品背景的同学说啊，AI驾育能力是你的杠杆，你可以撬动一整个行业的，你是可以的，你非常厉害的。然后我们再聊最后聊一点呃这个FDEFDE其实是最很火的一个词儿，是不是forward deployed engineer前沿部署工程师，我查了挺多资料，也看了很多这个博主的分析，然后再加上我做了这么长时间的AI讲师带学员带项目，以及我自己手搓了100多个智能体的经验，我觉得FD首先很多人会觉得他是驻场开发。因为以前就有这个岗位。对吧这课内容太多了，得好好琢磨多吗？信息量大吗？我觉得还好吧，你们觉得呢现场实施人员对，有很多类似的岗位啊，但我觉得这些。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0505"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.0505"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0654"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0654"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0649"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0649"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.161"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000087\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.161"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.0505
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0654
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.0649
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.161
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 350
+  }
+}

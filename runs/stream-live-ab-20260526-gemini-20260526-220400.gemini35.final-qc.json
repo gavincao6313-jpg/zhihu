@@ -1,0 +1,47 @@
+{
+  "base": "live-ab-20260526-gemini",
+  "run_ts": "20260526-220400",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 130,
+  "transcript_chars": 41749,
+  "frame_count": 439,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 7806,
+  "timeline_end_s": 7817,
+  "timeline_duration_s": 7817,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "gemini",
+  "synthesis_model": "gemini-3.5-flash",
+  "synthesis_pass": "one-shot",
+  "warnings": [],
+  "frame_policy": {
+    "provider": "gemini",
+    "total_frames": 439,
+    "selected_frames": 439,
+    "dropped_frames": 0,
+    "cap": 3000,
+    "slide_frames": 43,
+    "annotation_frames": 226
+  },
+  "provider_parts_count": 880,
+  "provider_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash",
+    "api_calls": null,
+    "usage": {}
+  },
+  "body_last_chapter_end_s": 7806,
+  "body_tail_gap_s": 11,
+  "body_coverage_status": "ok",
+  "transcript_appendix_chars": 41749,
+  "visual_evidence_count": 439,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk122_7276s",
+  "full_text": "[00:00:00 - 00:01:00] 花更大的价钱嗯，但现阶段我们接到的还是比如说是嗯网红啊呃是一些呃中型的或者小型的弊端企业。一个项目从环境到工程框架搭建，再到可以调用哪些kill，先完成最基础的搭建，这个最需要。哪些项目都需要这些co编程最初版给的UI有点丑，好多用的是原生UI布局和按钮，还是要多次沟通，是要先给提供。参考UI吗？哦，出版肯定是丑的，但是你后面去调吧，你后面去调。你可以给他一个参考图，比如说我想要什么风格的，你给他一个你喜欢的界面参考图，你试试，但我基本上都是通过提示词来调的。老师下次是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000121\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 260
+  }
+}

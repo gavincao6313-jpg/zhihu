@@ -1,0 +1,79 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk063_3728s",
+  "full_text": "[00:00:00 - 00:00:59] 的评论区是用来干什么的，或者说他怎么能发挥出最大的价值。同时。不要触碰平台的风险底线，对吧？这个也是很重要。刚才应该大家已经意识深刻了，安全问题是底线问题。同时就是我们在提效和帮博主减轻负担的同时，一定不要触碰平台的这个底线，不要出现安全和各种各样的风险问题。😊好吧，我觉得我应该呃说清楚了啊。好，下面聊聊后续的实战项目安排。其实后续实战实战项目安排呢，我们还在讨论之中，这个是第一波的自媒体博主招聘外包、个人量化交易、教配工作室在线教育公司，还有其他一些大概十几二十多个项目。还有一波项目正在聊的过程中。然后今天想跟大家聊一聊，就是因为大概率会有很多视频类的工。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.062"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.062"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.1249"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.1249"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.052"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.052"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000062\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.1162"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.062
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.1249
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.052
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.1162
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 304
+  }
+}

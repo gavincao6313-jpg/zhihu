@@ -1,0 +1,49 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk067_3969s",
+  "full_text": "[00:00:00 - 00:00:59] 有视频难吗？FFMPEG就可以开发，包括这个。🎼零基础要学多久才能掌握。接下来告诉你一条最快的学习路线，只要你的年龄在20到45岁，且不是3分钟热度，不出3个月，就能让你进阶成大模型高手。建议先收藏，避免以后走弯路。第一阶段先刻基础，还省基础transformer神经网络的底层原理，必须这个也好像PPT风格是吧？就好像是做了很多图，然后就往里拼的，它应该不是一次生成的视频吧。。🎼gen拥有短期记忆、长期记忆和使用真实世界工具的能力，试着做一个带记忆的客服。第四阶段，深入了解多智能体协作，学习并掌握aual或CI框架，理解管理者、执行者、辩论等常见的协作模式。再完成2到3个小项目。类似于这样的视频，这样的视频一个人开发需要多长时间，你有经验吗？转行。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000066\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000066\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000066\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.2843"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000066\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000066\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.2303"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.2843
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.2303
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 350
+  }
+}

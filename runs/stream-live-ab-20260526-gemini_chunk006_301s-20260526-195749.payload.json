@@ -1,0 +1,18 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk006_301s",
+  "full_text": "[00:00:00 - 00:01:00] 对，HOLA。😊我们今天重点是讲一讲自媒体AI的几个项目中的问题。然后也给大家分享一下我们承接项目的学员，他们做出的成果啊，虽然不是所有的项目都做出来了，有一些还在进行中，但是已经有部分项目呢唉开始出现一些可以交付的东西了。当然整体上还是有提升的空间的。😊老师是全职自媒体吗？这怎么说全职不全职呢？肯定是有很多工作，但是自媒体也是非常重要的一部分。嗯，没有办法说是不是全职。因为就是自从做超级个体吧，其实任何事情都可以说作为自己商业闭环的一部分，你没有办法。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000005\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 251
+  }
+}

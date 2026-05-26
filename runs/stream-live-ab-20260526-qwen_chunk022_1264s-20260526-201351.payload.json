@@ -1,0 +1,49 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk022_1264s",
+  "full_text": "[00:00:00 - 00:00:59] 啊。P0级是第0位的。第一就是一定要满足用户的核心需求。那满足用户的核心需需求就意味着你的核心功能尽量是okK的，没有瑕疵的，分数越高越好的。那如果你能做到，但是满足不了最高标准可以退而求其次。因为只要满足核心需求就够了，满足这个才是比较重要的啊。不是说我一定要做到这个类型的最高指标，我要做最难的那种，千万不要这样挑战自己啊，要做最适合的，要做最能把控质量的，最能完成交付的。且能满足甲方和用户和项目的需求的。😊好吧，那于是第三点就非常重要，就是非核心功能都可以砍掉，可以不出现的不重要的东西，不仅我们可以退而求其次，不那么要求高，甚至可它都可以直接没有。我说清楚吧，其实这个其实是很重要的，尤其是当我们承接的项目还不多。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000021\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000021\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0809"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000021\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0809"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000021\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000021\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0822"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.0809
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.0822
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 334
+  }
+}

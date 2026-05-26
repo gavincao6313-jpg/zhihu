@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk110_6555s",
+  "full_text": "[00:00:00 - 00:01:00] 就可以报名啊，大家不要着急啊，我今天相当于先给大家宣讲了一次啊，有问题可以提啊。今天主要的课程就就就差不多了。😊可是感觉自己知道的都很普通的，感觉没有那种很难的。你看这就是很多普通人的共性，就是把自己当做普通人这件事本身就不OK。我们要想办法挖掘自己的优势，要想办法找到自己的长板，要想办法找到那个我干起来是有感觉不抵触，甚至有强烈的好奇心和驱动力的。啊，这种事情就容易帮你拿到结果，这种事情就容易让你克服困难。这种事情也很容易让你在不断的试错中真正的看到成长。好吗，找哇，一定有一定有的啊，不要轻易的说没有。😡",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000109\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000109\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0388"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000109\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0388"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.0388
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 278
+  }
+}

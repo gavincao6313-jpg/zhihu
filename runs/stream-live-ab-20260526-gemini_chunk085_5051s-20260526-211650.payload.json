@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk085_5051s",
+  "full_text": "[00:00:00 - 00:00:59] 自己懂一点技术，然后又懂一点业务，就把自己干成T型人才或者判刑人才。我可以是一方面90分。那我能不能找到另外一方面，我也勉勉强强拉到60分以上及格以上或者70分的水平。啊，这样的话你就比较均衡了。所以看上去是业务思维的人负责做什么呃，说错了啊，技术思维的人负责做什么业务思维的人负责做什么。对，但实际上当你同时具备两种思维的时候，你就无敌了。🤧。😊好，后面列出了这个适合的赛道啊，因为通常产品协作型啊，那产品应该是比较复杂的，可能涉及到线下，可能涉及到实体，可能涉及到一些非常深的业务场景。它并不是通用的。大家说一说就能明白的，就是你没有在这个行业摸爬滚打几年，你根本不知道别人在说什么，大概就是这个这样这样去理解啊，所以也是给大家启发啊，不一定对，就是你们看到如果能想到你们适合做的项目。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000084\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000084\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.12"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000084\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.12"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.12
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 367
+  }
+}
