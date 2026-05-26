@@ -1,0 +1,64 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk109_6494s",
+  "full_text": "[00:00:00 - 00:01:01] 给大家答复，我相信我们带项目的其他老师也都是如此的。因为我们项目的所有老师都是很忙的。所以希望能够在这个项目做项目，还要学习的过程中，让大家边学边做，然后做工具修bug拿结果。呃，最后说两句话就是进攻就是最好的防守，实战就是最好的学习啊，祝大家都拿能拿到自己想要的突破自己，实现这个用AI编程，用AI赋能自己的行业拓展自己的边界，让自己在今天在巨大的波动下，依然找到自己的位置。生态位和自己的商业模式和自己的生存模式。好吧。在哪展示也不清哪哪里能交流。我们下一波的报名呃会。😊过一段时间同步给大家，因为现在还在对很多需求还在谈帮大家去谈。所以下一波出来的时候应该会给到班主任，然后去找班主任。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000108\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000108\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.1061"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000108\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.1061"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000108\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.074"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000108\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.074"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000108\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0732"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000108\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.0732"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.1061
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.074
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.0732
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 318
+  }
+}

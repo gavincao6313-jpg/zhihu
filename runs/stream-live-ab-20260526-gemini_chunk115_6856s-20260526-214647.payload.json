@@ -1,0 +1,18 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk115_6856s",
+  "full_text": "[00:00:00 - 00:01:00] 大哥厉害啊，又快不行了，别说不行。老师，我用te快做不下去了，一个bug修了3天都解决不了，不知道别人用着顺不顺手。te嗯吹是有点难度的，但是我觉得你能用就证明你已经用起来了，是不是修bug，那只是小问题啊，没有人在做工具的时候不修bug的，嗯，所有人都是一边修bug一边调整啊，换codeex吧，反正程序员都觉得code codeex更好用，是吧？😊嗯。老师生视频直接用即梦端嘛，嗯，一看就没有听我的视频生成模型的那一刻，用计梦还是用手搓工具啊，它是适合两种人，就是如果你是玩票，你就升一次，或者你想发个朋友圈，或者你是专业的就是视频生产特效的从业者，你想做demo，或者你想给品牌方甲方展示做demo，那你是适合直接用视频模型做的。因为。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000114\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 343
+  }
+}

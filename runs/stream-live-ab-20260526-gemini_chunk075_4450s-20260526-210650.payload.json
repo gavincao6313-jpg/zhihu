@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk075_4450s",
+  "full_text": "[00:00:00 - 00:01:00] 啊，从业者可以是教育，可以是医疗，可以是房地产，可以是母婴。就是你知道什么信息对别人有价值。比如说我我做了多年的投放，做多流量，做多年的内容，做了一段时间的IP自媒体创业者啊虽然不算很长一年多，但是也积累经验挺多的。因为毕竟做了做出了一点小成绩，积累了30万粉丝，对吧？所以说那我当然就能判断所有这些方向上到底什么是有价值的，什么是绝对不能碰的。那你也可以呀，因为你也有自己的行业，对不对？你的行业如果有一点护城河，有一点门槛儿，有一点这个壁垒，那肯定这个价值是很大的。所以典型的我都列在这儿了啊，你们不要对号入座。其实我只是想给大家一个启发，就是可能我写的不对，但没关系，你看完了以后，你知哦，原来我是适合做这一类型的项目的，因为。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000074\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000074\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.1172"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000074\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.1172"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.1172
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 340
+  }
+}

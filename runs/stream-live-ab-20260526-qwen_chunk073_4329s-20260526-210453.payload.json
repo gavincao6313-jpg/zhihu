@@ -1,0 +1,29 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk073_4329s",
+  "full_text": "[00:00:00 - 00:00:59] 哎，我是断了吗？能看到吗？为什么我看不到自己了？没有断哈。好，那是我这手机网的问题。好，那我继续，我不管了。然后就是最有业务手感的。因为你一直在业务的一线啊带项目或者是深度的参与项目或者是项目的骨干。还有就是最有搭建经验的。这一看就是有技术背景，对吧？然后还有对照客户是什么，要什么的人啊，就是谈单的，可能是销售，可能是冲在这个客户谈判的一线或者是对接需求的，也有可能是产品经理岗位啊。所以这四种类型，你总得把自己靠到一种类型上去啊，尽量靠啊，你可以不做到某一个类型的顶尖，但你应该有一项长板，尽量的去找自己的。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000072\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000072\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.028"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.028
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 2,
+    "text_chars": 279
+  }
+}

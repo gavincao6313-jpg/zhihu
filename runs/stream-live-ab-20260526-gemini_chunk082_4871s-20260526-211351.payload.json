@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk082_4871s",
+  "full_text": "[00:00:00 - 00:00:59] 是的是的是的，RP我有引导的证书，厉害了，可以啊，领可以可以可以。好，那所以产品基础型项目适合谁呢？就是你能更轻松的做复杂的AI搭建工作。你能发挥AI的能力最大，而且能控制生成的结果。生成的结果呀，通常它不是通过语言控制的。我现在发现了，虽然我们一直在教大家要好好的这个写提示词，对吧？要好好的就是给他图片啊，用图片来控制一致性。但是实际上啊。😊真正能控制的是工作流，是模块，是选型。就是这样，你看我一个零代码基础经验的人，能发现这个底层原理，就是因为我做了太多的工具，我发现这个bug啊确实要从底从最基础内部开始解决，就是控制。😊如果。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000081\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000081\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.1261"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000081\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.1261"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.1261
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 291
+  }
+}

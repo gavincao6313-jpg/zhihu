@@ -1,0 +1,59 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk032_1864s",
+  "full_text": "[00:00:00 - 00:00:59] 面的总之这一段下棋确实改观多了。台湾腔更自然了是吧？好，再给大家看看另外一个同学啊，这个同学虽然一开始没有承接项目，但是后来入群，然后我看了他自己做出来，这个我真的觉得很好。哎，所以给大家展示一下啊。😊这是他录制的一个使用的过程。使用的过程。大家好，我叫花花。大家好，我是小黑。😊。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000031\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000031\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=slide diff=0.4183"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000031\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000031\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0388"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000031\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000031\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.1259"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 6,
+      "diff": 0.4183
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.0388
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.1259
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 163
+  }
+}

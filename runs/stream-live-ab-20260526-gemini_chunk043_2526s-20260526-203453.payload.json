@@ -1,0 +1,79 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk043_2526s",
+  "full_text": "[00:00:00 - 00:00:59] 第二个吧，嗯，其实每一个我觉得我举例子的都是做的比较好的，就是其实是鼓励大家向这些同学学习。首先做的非常认真，然后改的也很认真，基本上就是提问。然后我给大家建议，我给他们建议之后，都按照呃自己的想法以及综合了我的建议之后再进行调整和优化，执行力也非常强。好，我们再看这个流量重组洗稿的这个项目啊。😊我先找到了一条视频啊，作为这个喜稿的对标。我们看一眼态，现在打场很多很多人的工作状态都是。🎼因为我从去年到现在一直上班的一个同事，我一直在等他，他一直在等礼保，这都半年了，因为我很熟啊，所以也不看全了啊诶。最近就非常诚恳的劝你了，不管你想不想来我这儿，我都建议。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.1299"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1299"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0396"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.1797"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000042\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.1878"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.1299
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.0396
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.1797
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.1878
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 302
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk049_2887s",
+  "full_text": "[00:00:00 - 00:00:59] 原创你只要增加个人经历，它就是原创，是不是？只要增加个人经历，那没有和你重合的。我刚才那一段有几个和我重合，一个都没有，我就敢下保证对吧？所以只有这样改出来的东西啊，我觉得他才是能看的。比如说你看他最后改写出来是这样的。虽然他是变了第三人称，我觉得第一人称会更好啊，但是第三人称也还okK。😊。来，我们看一下姐妹们有没有拿过有没有过拿offer钱，纠结死要不要熬到年底拿了年终奖再走的时刻。之前有个34岁的职场女性，就遇到这个坎，在传统外贸外企待了十几年，年底12月拿到心仪的新媒体offer。身边所有人都劝她再等等，辛苦干了一整年，最终连年终奖都不要了，是不是太亏了，但她心里很清楚，那年是2017年，新媒体上升期已经到尾声，公众号的红利眼看就要吃完，她既没有相关的经验，也没有行业背景，想中想从传统行业跨到新媒体赛道。这个时间窗口的价值，比那。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000048\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000048\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.1532"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000048\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.1532"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.1532
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 397
+  }
+}

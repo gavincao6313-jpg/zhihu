@@ -1,0 +1,74 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk023_1323s",
+  "full_text": "[00:00:00 - 00:01:00] 的时候经常容易陷到一个细节里啊，我就开始调他的声音了，我开始调他画面了，我开始调口型，我开始调他的服装了，我开始调呃非常多的细节，包括人的和画面。但实际上我们第一步一定是回来看看这个核心需求是不是对的。如果不对的话，想办法。马上返工重新做，是不是？这个是最快的啊？马这个时候没有没有可聊的，没有可商量的核心需求，核心功能不满足，马上重做就对了。然后我们再看看后面出现的几版啊，就是这个问题解决了，OK知道和谐需求了，然后又做了几版。姐妹们，我最近刷到个事儿，真的啊，这个这个是核谐需求解决之前的那些不会说话的小可怜，我误了，原来他们也有法定权益啊，救命。我之前只知道不能随便虐猫虐狗，没想到还有这么细。来再看看这版啊。😊姐妹们最近刷到好多关于小动物受伤害的新闻，我真的破防了。今天突然发。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000022\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000022\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.084"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000022\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.084"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000022\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0847"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000022\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.0847"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000022\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.5289"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000022\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0257"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000022\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.0257"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.084
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.0847
+    },
+    {
+      "type": "slide",
+      "frame_idx": 32,
+      "diff": 0.5289
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.0257
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 366
+  }
+}

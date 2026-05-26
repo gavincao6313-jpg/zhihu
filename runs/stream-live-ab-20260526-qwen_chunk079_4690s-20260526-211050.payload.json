@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk079_4690s",
+  "full_text": "[00:00:00 - 00:01:00] 啊，甚至仅仅数据口径啊，就这么一点点小的都要对很长时间。所以这对于我来说是巨大的卡点。但是我用完AI工具之后，我发现天哪，一个人两个小时搞定。😊就是因为我在这件事儿卡的足够长，我才知道这事儿有多痛。我才知道这件事儿，AI到底能赋能业务多少，它都不是人效的问题了，它简直就是把天盖给捅开了的感觉。我只是举个例子啊，你们也可以去想一想你们在工作中业务型的卡点到底是什么。这个卡点能不能被AI击穿？谁先找到谁就是最先能够用好AI的人，因为你们自己才有体感，就自己的痛是真的痛，是不是？所以后面又给了一些方向啊，一些方向其实也是启发型的启发型。希望从这里你能感受到哦，原来我适合干这个。原来我是。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000078\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000078\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000078\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.1284"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.1284
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 317
+  }
+}

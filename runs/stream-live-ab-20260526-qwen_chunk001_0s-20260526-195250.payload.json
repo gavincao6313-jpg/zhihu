@@ -1,0 +1,59 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk001_0s",
+  "full_text": "[00:00:00 - 00:01:01] 音你把这个关上这个是吧哦，好多噪音OK关上了，现在没有了吧。大家能听到声音吗？我们先测试一下OK现在好了哈。。OK欢迎大家来到直播。我们今天来讲一些这个交付过程中的问题。欧啦欧拉先给大家打招呼吧。欧拉是西班牙语的。😊你好的意思，相当于英语的hello欧同学，你来的有点早啊，别有寒，刚52分，eric晚上好。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000000\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000000\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.1989"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000000\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.157"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000000\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.157"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000000\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.0212"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000000\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0212"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.1989
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.157
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.0212
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 6,
+    "text_chars": 176
+  }
+}

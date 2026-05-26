@@ -1,0 +1,29 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk034_1984s",
+  "full_text": "[00:00:00 - 00:01:00] 画有模板，然后最终的播客有模板，也就是他只要按照模板走啊，生出来的，不会超出他的预期，也不会给他其他的东西。就是眼卡沿，就是他想要的，甚至到什么情况。那我在这儿如果字太小，我给你们念出来，你们就知道这个它的细致程度啊，它其实还规定的镜头，把什么哪张图作为整个背景参考镜头全程定格不动，画面中的宠物自然动起来。无论呃。😊。无任何多余镜头切换，整体是演播时互动真实感。两只猫咪讲话，根据内容互动思考状，表情也有变化，包含手的动作和身体的摆动，眼神会根据情境左右呃情境转动、眨眼等互动自然丰富。一般情况下对话时会。转向对方或者互动有眼神动作，哎写的多细致，非常细致啊。所以这个是我用它。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000033\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000033\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=slide diff=0.3289"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 58,
+      "diff": 0.3289
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 312
+  }
+}

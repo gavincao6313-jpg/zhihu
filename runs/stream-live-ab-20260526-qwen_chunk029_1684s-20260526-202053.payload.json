@@ -1,0 +1,64 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk029_1684s",
+  "full_text": "[00:00:00 - 00:00:59] 直接让他调了，但是有更多零代码或者说代码能力经验不是很高的人，一定要学会把你遇到的问题清晰的通过语言，通过提示词的方式丢给AI让他去改。那到底应该怎么去改呢？我在这里呢也把我因为这个同学把他的那个我考了一个他的副本，所以我测试了一下。给大家展示一下，这个是我觉得这款情还炸涨的。open AI官宣GPT5要来了。哇，我前几天刷到传闻说他接近AGI了，真的假的？目前官方没说能力细节，但业内已经炸锅会影响了。我先听普通姐妹我。。然后在这儿的时候，我就贴上去不错，然后下载视频，然后发现这个视频不OK。呃，因为下载的和原来那个预览的版本不一样嘛，但我首先让他调了一下这个播客的时长。呃，因为我想测试更短，所以我是增加了一段让。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000028\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000028\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.599"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000028\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000028\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.0635"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000028\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=slide diff=0.3111"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000028\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.316"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.599
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.0635
+    },
+    {
+      "type": "slide",
+      "frame_idx": 24,
+      "diff": 0.3111
+    },
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.316
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 1,
+    "frames_total": 6,
+    "text_chars": 334
+  }
+}

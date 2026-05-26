@@ -1,0 +1,104 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk069_4088s",
+  "full_text": "[00:00:00 - 00:00:59] 呃，规范好，他哪怕有一定的发散，它也应该是规范的比较这个在框架之内的，只要手工剪辑就可以用。不要手工剪辑啊不要手工剪辑，这个就比较简单，之间的一个交。这个就很像我们做的AI课啦，这个不看了，这个太简单了，对于你们来说太简单了，是不是还有这个。😊作者只需要一对一的把它还原成文字就行了。就是为什么我们说token是大模型处理文本的最小单元，它不仅是输入时的碎片，也是输出时的积木。最后呢我们。这个呢这个手绘就是一个常见的误区。很多人觉得token就是词其实不是也挺好的。呃，复杂的需要看什么视频，你说复杂的需要时间还是需要剪辑呀，还是不是用手工专业转行。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.1252"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.1252"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.271"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.271"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=slide diff=0.3284"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.0391"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0415"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0415"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000068\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.2002"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.1252
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.271
+    },
+    {
+      "type": "slide",
+      "frame_idx": 26,
+      "diff": 0.3284
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 37,
+      "diff": 0.0391
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.0415
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2002
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 5,
+    "frames_total": 12,
+    "text_chars": 298
+  }
+}

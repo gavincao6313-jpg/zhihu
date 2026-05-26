@@ -1,0 +1,149 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk030_1744s",
+  "full_text": "[00:00:00 - 00:01:00] 他测试让他这个时长有一个选项，可以选15秒、30秒呃，1分钟和3分钟。然后又增加了这段提示词来解决这个呃预览和下载不一样的问题。一会儿我把提示词都贴出来了，这个是在咖啡厅录的，所以有点乱。大家凑合凑看哎，在这你看就要主要就是这个这一句。一个是增加播客时长选项，包括15秒30秒1分钟几个选项加完了以后，哎，这就出现了这部分了，之前是没有的。然后我们再次测试的时候，就可以直接点这啊，它不就是需要等待的时间短了嘛。然后我们每一次让他做修改的时候，建议大家一定要看看左边左边其实就是在告诉你他有没有听懂你说他到底有。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0244"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=slide diff=0.3063"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0317"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0317"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=slide diff=0.3088"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0234"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=slide diff=0.3129"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1041"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.1041"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=slide diff=0.3922"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.1324"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=slide diff=0.4368"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000029\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.2292"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.0244
+    },
+    {
+      "type": "slide",
+      "frame_idx": 4,
+      "diff": 0.3063
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0317
+    },
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.3088
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.0234
+    },
+    {
+      "type": "slide",
+      "frame_idx": 20,
+      "diff": 0.3129
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1041
+    },
+    {
+      "type": "slide",
+      "frame_idx": 24,
+      "diff": 0.3922
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.1324
+    },
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.4368
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.2292
+    }
+  ],
+  "stats": {
+    "slide_changes": 5,
+    "annotations": 6,
+    "frames_total": 16,
+    "text_chars": 278
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk003_122s",
+  "full_text": "[00:00:00 - 00:01:00] 卖起之后就忘了本了，再也没有说过西班牙语，低调的猫，低调的喵哦。先生是C new，什么意思？snew哦，先生还还真有懂的啊，不是snew是snewsud的是女士sil的是先生。你看今天怎么改教西班牙语了呢？我们等待同学上课这个。😊时间我们就教一教西班牙语也挺好的，是不是？我们等等一等小伙伴们等一等一会儿我们再开始正式的课程。我们大家。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.1453"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1453"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=slide diff=0.3073"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.0321"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.0321"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=slide diff=0.4089"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.1586"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000002\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=slide diff=0.321"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.1453
+    },
+    {
+      "type": "slide",
+      "frame_idx": 38,
+      "diff": 0.3073
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.0321
+    },
+    {
+      "type": "slide",
+      "frame_idx": 49,
+      "diff": 0.4089
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.1586
+    },
+    {
+      "type": "slide",
+      "frame_idx": 52,
+      "diff": 0.321
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 3,
+    "frames_total": 9,
+    "text_chars": 190
+  }
+}

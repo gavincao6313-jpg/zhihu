@@ -1,0 +1,34 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk057_3366s",
+  "full_text": "[00:00:00 - 00:01:01] 能接受吗？如果你自己接受不了，就把它咔掉啊，它是不能出现在和客户对接的问题中的啊，当然和我说没问题啊，因为我代表你们和甲方对接和客户对接，所以我们聊的时候绝对不会这么说，我们聊的时候就放心吧，绝对安全。是不是就是我们要想想一想，就是你作为一个服务商，一个服务承接商，你去和甲方谈谈，你让甲方选是要中风险还是高风险，那甲方不直接站起来走了。所以一定杜绝这个问题。然后其他的我觉得还好啊，其他的我觉得还好。比如说这个这个呃回复内容的类型啊，或者是设置时间点啊，这些我就是正常的去处理回复他就行了。所安全是底线，最最主要的问题就是想跟大家说这件事儿，安全是底线，尤其是自媒体平台，做账号，做IP，哪怕是做营销号都是大家不要觉得营销号就那么好做，对吧？就不要觉得哎又不是这个什么IP号。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000056\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000056\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.0756"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000056\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.0756"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.0756
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 362
+  }
+}

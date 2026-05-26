@@ -1,0 +1,44 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk024_1384s",
+  "full_text": "[00:00:00 - 00:01:00] 原来还有动物法这个东西真的绝了，感觉终于有地方能替毛孩子们撑腰了。就感觉还是挺有爱的。很喜欢动物。hello姐妹们，但是我也跟他说啊，作为测试功能其实没问题，但是我建议大家在测试功能的时候就直接按照目标需求去做啊，这样确实少走弯路啊，兄弟们，今天咱们来聊刚出的GPT5救命我上周提前抢完内测资格，最后真的绝了真的吗？快说和GPT4比到底升级在哪啊，到这一版话题对了，音波也出来了，呃，基本上满足，但是其实还有一个比较大的bug，他自己也找到了，就是呃在预览的时候的视频和最终下载的视频不是同一版啊，主要就是画面不一样，节省了很多东西，但是语音的部分是一样的。听说GPT5要发布了，你敢信他能干掉一半文案，你以为他只抢文字岗，其实设计代码全要重新洗牌，现在企业招文案已经要求会用。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000023\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000023\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0223"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000023\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0223"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000023\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=slide diff=0.4575"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0223
+    },
+    {
+      "type": "slide",
+      "frame_idx": 35,
+      "diff": 0.4575
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 362
+  }
+}

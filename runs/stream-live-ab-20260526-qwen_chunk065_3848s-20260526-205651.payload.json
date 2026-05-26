@@ -1,0 +1,54 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk065_3848s",
+  "full_text": "[00:00:00 - 00:01:00] 怎么做的？你们有想法吗？有想法的可以在评论区聊一聊啊。因为有很多其实是可以直接代码写的，有的能用代码写的那大概率确实是需要一些技术背景。🎼包括这类的这个就相对简单了啊。😊你做我做过像简映的剪辑软件，也做过加密播放器开发转行岗。A。你说的是第一个第一个是吧，不是第二个这种简简笔换人的，你说的是第一个是不是？okK我们再看看别的啊。😊QW试试哦，剪辑软件现在很多视频可以直接用代码数据和模板自动。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000064\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000064\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000064\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.1647"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000064\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=slide diff=0.3662"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000064\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0472"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.1647
+    },
+    {
+      "type": "slide",
+      "frame_idx": 50,
+      "diff": 0.3662
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.0472
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 219
+  }
+}

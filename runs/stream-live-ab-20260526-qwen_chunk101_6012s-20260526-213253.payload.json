@@ -1,0 +1,49 @@
+{
+  "video_name": "live-ab-20260526-qwen_chunk101_6012s",
+  "full_text": "[00:00:00 - 00:00:59] 的格局。我觉得我做这个职业规划，做面试辅导。这段时间，我对于人才结构的变化发展，包括各个行业的趋势还是很敏感的。虽然我是自媒体博主，但是咱的主业咱的主页其实是。😊和人才和这个职业发展相关。一段时间的主页吧。因为我现在也分不清到底哪个是主页。好，最后就是说一说零代码今验能做FDE吗？当然可以啊。对啊，讲了这么多，不就是说可以吗？有很多技术门槛低的中的中低的都是适合的，大家不要管这个岗位的title叫叫什么，title根本不重要。因为这个title一时一变。有的时候叫分析师，有的时候叫专家，叫工程师，叫配置师叫顾问都无所谓，但是最重要的是他不需要你写代码，或者写少量的代码，或者仅少少的做调试，就能干。然后这些背景的行政运营销售。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000100\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000100\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.1623"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000100\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.1623"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000100\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796310_000100\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.1286"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 18,
+      "diff": 0.1623
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.1286
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 339
+  }
+}

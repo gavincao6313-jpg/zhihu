@@ -1,0 +1,74 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk004_182s",
+  "full_text": "[00:00:00 - 00:00:59] 都是下班了，是不是？要学的以后可以去那边玩。对呀，我觉得学个小语种还挺有意思的，尤其西班牙语，其实西班牙语本质上不应该算小语种啊，它是挺大的。呃，拉丁美洲、南美洲都说西班牙语。😊实际上还是算挺大的，使用范围挺大的育种。学一学还挺有意思的。而且我觉得学语言最关键啊，其实现在AI这么厉害，好像也不需要翻译，但实际上学语言是能帮你打开一扇窗，去更快的了解世界和拥有呃另外一种思维。啊，这个还是挺不一样的。就是你天然的就会对比不同的文化，不同的背景，不同的民族不同的世界观，然后产生的不一样的交流方式。我觉得学语言这个背景其实是很。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000003\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=annotation diff=0.0536"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000003\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0536"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000003\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=slide diff=0.533"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000003\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.1886"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000003\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=slide diff=0.3912"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000003\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0734"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000003\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0734"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.0536
+    },
+    {
+      "type": "slide",
+      "frame_idx": 2,
+      "diff": 0.533
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.1886
+    },
+    {
+      "type": "slide",
+      "frame_idx": 4,
+      "diff": 0.3912
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.0734
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 285
+  }
+}

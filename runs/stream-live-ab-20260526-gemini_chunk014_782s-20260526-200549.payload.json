@@ -1,0 +1,79 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk014_782s",
+  "full_text": "[00:00:00 - 00:00:59] 的母职惩罚，不光是职场，很多家庭里，女性还要承担七成以上的无偿家务劳动。没错啊，我妈当了一辈子家庭主妇，我爸还总说我们就不看完了，我给大家快进啊，就是整体风格其实到这儿。呃，就有了一点点问题，然后后面这从这开始啊，问题就出现了。标签真的太烦了。仔细看，那你觉得最核心的问题到底在哪啊？我觉得核心还是默认分工，整个社会默认女性要为家庭是不打破，困境就很难彻底消失。哎，这个时候男生已经变了，虽然他只是漏了一点点，但刚才是一个看上去是四五十岁的中年男子，现在变成一个小年轻，所以人物一致性出现了非常大的对吧？问题，说白了就是让大家看见女性的付出，不管是职场还是家庭，都不用被身份绑架。那到这儿人物一致性崩盘了啊，不仅这个这个形象变了，连衣服也换了嗯，就是好像声音也变有选自己想要的生活就好了。。今天咱们聊女。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000013\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000013\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.2954"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000013\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000013\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.1053"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000013\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000013\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.1054"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000013\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=slide diff=0.3058"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000013\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.2419"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.2954
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.1053
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.1054
+    },
+    {
+      "type": "slide",
+      "frame_idx": 58,
+      "diff": 0.3058
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2419
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 4,
+    "frames_total": 8,
+    "text_chars": 375
+  }
+}

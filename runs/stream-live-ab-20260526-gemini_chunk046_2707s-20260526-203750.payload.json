@@ -1,0 +1,64 @@
+{
+  "video_name": "live-ab-20260526-gemini_chunk046_2707s",
+  "full_text": "[00:00:00 - 00:00:58] 中的这个文案内容为什么？哎呀，我接下来放这页，大家就知道，这是他内容改写的改写配置页面。我第一次啊改写配置。没有放这一段自定义要求什么都没写，出来的很一般，非常一般。呃，也也还好吧，其实就是没有什么毛病，但是呢就有点AI大家懂吧？就那种感觉有点AI看上去呢好像也也是在模仿一个爆款结构，但是不是很自然，所以我后面又增加了呃，首先呃主题方向面试攻略。😊哎呀。然后策略选的是结构仿写，目标受众25到35岁的职场女性，核心观点是早点决策，果断出击，传递的情绪是励志激发动力语言风格、叙事、故事叙事引人入胜字600字2分钟啊，这些大家都会配。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000045\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000045\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.2769"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000045\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2769"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000045\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000045\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.035"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000045\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779796308_000045\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.2848"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.2769
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.035
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.2848
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 289
+  }
+}
