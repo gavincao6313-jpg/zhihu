@@ -764,9 +764,6 @@ def process_segment_file(
         "global_transcript_text": global_transcript_text,
     }
     write_report(report_path, data)
-    if args.cleanup_slices:
-        for _p in (transcript_path, global_transcript_path, payload_path, report_path):
-            _p.unlink(missing_ok=True)
     print(f"Report: {report_path}")
     print(f"Elapsed: {data['processing']['elapsed_s']}s")
     return data
