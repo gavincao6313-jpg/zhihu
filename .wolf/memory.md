@@ -3,6 +3,8 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 21:43 | P2 implementation complete in short_video_pipeline.py: removed P0 guard from synthesize, added --skip-done+progress to preprocess, output-reuse+--force+progress to call-pack, command_retry_failed, retry-failed subparser | scripts/short_video_pipeline.py | smoke-test passed (5/5 split, progress=done, retry-failed plan generated) | ~2400 |
+
 | 2026-05-26 | code review (9 findings) + fix: call_qwen inner retry / base64 pre-encode / lazy genai import / fail-fast non-rate / frame_count QC / retry_delay 65s / BAT dry-run echo | utils.py, scripts/build_stream_markdown.py, run_zhihu_live.bat | syntax OK | ~8k |
 
 | 23:10 | fix merge_stream_chunks.py default chunk selection (bug-061): use all chunks when --run-ts absent | scripts/merge_stream_chunks.py | done | ~300 |
@@ -744,3 +746,17 @@
 | 21:27 | Edited scripts/short_video_pipeline.py | modified __init__() | ~478 |
 | 21:27 | Edited scripts/short_video_pipeline.py | modified _retry_missing_video() | ~560 |
 | 21:30 | 准备 P1 阶段代码：修复 short_video_pipeline.py 三个问题 | scripts/short_video_pipeline.py, .wolf/buglog.json | BUG090 sys.path未设置→加REPO_ROOT插入；BUG091 google.genai依赖→改用_Part/_InlineData本地类；新增_retry_missing_video()单视频重试；5/5 mock split验证通过 | ~6000 |
+| 21:33 | Edited scripts/short_video_pipeline.py | modified _default_sv_record() | ~508 |
+
+## Session: 2026-05-27 21:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:37 | Edited scripts/short_video_pipeline.py | modified command_synthesize() | ~24 |
+| 21:38 | Edited scripts/short_video_pipeline.py | modified command_preprocess() | ~1059 |
+| 21:39 | Edited scripts/short_video_pipeline.py | modified command_call_pack() | ~1127 |
+| 21:39 | Edited scripts/short_video_pipeline.py | modified command_retry_failed() | ~523 |
+| 21:40 | Edited scripts/short_video_pipeline.py | 8→10 lines | ~232 |
+| 21:40 | Edited scripts/short_video_pipeline.py | 4→6 lines | ~166 |
+| 21:40 | Edited scripts/short_video_pipeline.py | 5→5 lines | ~128 |
+| 21:41 | Edited scripts/short_video_pipeline.py | expanded (+8 lines) | ~173 |

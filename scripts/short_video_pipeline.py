@@ -45,6 +45,59 @@ QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.6-flash")
 
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".m4v", ".mov", ".avi", ".mkv", ".mpeg"}
 
+# P2: per-video progress tracking (separate from long-video .progress.json)
+SHORT_VIDEO_PROGRESS = DEFAULT_RUN_DIR / "short-video-progress.json"
+
+
+def _default_sv_record(video_id: str) -> dict:
+    return {
+        "video_id": video_id,
+        "preprocess_status": "pending",
+        "synthesis_status": "pending",
+        "classification": "",
+        "pack_id": "",
+        "provider": "",
+        "api_calls": 0,
+        "usage": {},
+        "estimated_cost_cny": 0.0,
+        "last_error": "",
+    }
+
+
+def load_sv_progress(progress_path: Path = SHORT_VIDEO_PROGRESS) -> dict:
+    if not progress_path.exists():
+        return {}
+    try:
+        data = json.loads(progress_path.read_text(encoding="utf-8"))
+        return data.get("short_videos") or {}
+    except Exception:
+        return {}
+
+
+def save_sv_progress(records: dict, progress_path: Path = SHORT_VIDEO_PROGRESS) -> None:
+    progress_path.parent.mkdir(parents=True, exist_ok=True)
+    existing: dict = {}
+    if progress_path.exists():
+        try:
+            existing = json.loads(progress_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    existing["short_videos"] = records
+    existing["updated_at"] = datetime.now().isoformat(timespec="seconds")
+    progress_path.write_text(
+        json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
+
+def update_sv_video(
+    video_id: str, updates: dict, progress_path: Path = SHORT_VIDEO_PROGRESS
+) -> None:
+    records = load_sv_progress(progress_path)
+    record = records.get(video_id) or _default_sv_record(video_id)
+    record.update(updates)
+    records[video_id] = record
+    save_sv_progress(records, progress_path)
+
 SHORT_VIDEO_PACK_PROMPT = """
 你正在处理一个短视频包。每个 VIDEO_ID 都是一个独立视频，必须独立输出，禁止跨视频混写、合并、写“同上”。
 
@@ -704,6 +757,7 @@ def command_preprocess(args: argparse.Namespace) -> int:
 
     payload_dir = args.payload_dir
     payload_dir.mkdir(parents=True, exist_ok=True)
+    progress_path: Path = getattr(args, "progress", SHORT_VIDEO_PROGRESS)
 
     from zhihuTTS_video import (
         extract_keyframes,
@@ -714,65 +768,79 @@ def command_preprocess(args: argparse.Namespace) -> int:
     )
 
     for index, source in enumerate(sources, 1):
+        _src_path = None if is_url(source) else Path(source).expanduser()
+        video_id = stable_video_id(source, _src_path)
+
+        if getattr(args, "skip_done", False):
+            rec = load_sv_progress(progress_path).get(video_id)
+            if rec and rec.get("preprocess_status") == "done":
+                print(f"[{index}/{len(sources)}] skip {video_id}")
+                continue
+
         print(f"[{index}/{len(sources)}] preprocess {source}")
-        if is_url(source):
-            video_path, source_info = resolve_url_to_video(
-                source,
-                args.download_dir,
-                extractor=args.extractor,
-                cookies_browser=args.cookies_browser,
-            )
-            video_id = stable_video_id(source)
-        else:
-            video_path, source_info = resolve_local_video(source)
-            video_id = stable_video_id(source, video_path)
+        try:
+            if is_url(source):
+                video_path, source_info = resolve_url_to_video(
+                    source,
+                    args.download_dir,
+                    extractor=args.extractor,
+                    cookies_browser=args.cookies_browser,
+                )
+                video_id = stable_video_id(source)
+            else:
+                video_path, source_info = resolve_local_video(source)
+                video_id = stable_video_id(source, video_path)
 
-        media = ffprobe_media(video_path)
-        events, kept_frames = extract_keyframes(video_path)
-        transcript = transcribe_audio_chunked(video_path, TRANSCRIBE_CHUNK_DURATION_S)
-        transcript_text = transcript_to_text(transcript)
+            media = ffprobe_media(video_path)
+            events, kept_frames = extract_keyframes(video_path)
+            transcript = transcribe_audio_chunked(video_path, TRANSCRIBE_CHUNK_DURATION_S)
+            transcript_text = transcript_to_text(transcript)
 
-        transcript_path = payload_dir / f"{video_id}.transcript.txt"
-        frames_path = payload_dir / f"{video_id}.frames.json"
-        payload_path = payload_dir / f"{video_id}.payload.json"
-        transcript_path.write_text(transcript_text, encoding="utf-8")
+            transcript_path = payload_dir / f"{video_id}.transcript.txt"
+            frames_path = payload_dir / f"{video_id}.frames.json"
+            payload_path = payload_dir / f"{video_id}.payload.json"
+            transcript_path.write_text(transcript_text, encoding="utf-8")
 
-        frame_records = [
-            {
-                "path": str(path),
-                "marker": frame_marker(path, events),
+            frame_records = [
+                {
+                    "path": str(path),
+                    "marker": frame_marker(path, events),
+                }
+                for path in kept_frames
+            ]
+            write_json(frames_path, {"video_id": video_id, "frames": frame_records, "events": events})
+
+            classification = classify_payload(media["duration_s"], len(transcript_text), len(frame_records))
+            payload = {
+                "schema_version": SCHEMA_VERSION,
+                "video_id": video_id,
+                "source": source_info,
+                "media": media,
+                "transcript": {
+                    "backend": transcript.get("backend_used") or "",
+                    "chars": len(transcript_text),
+                    "path": str(transcript_path),
+                },
+                "frames": frame_records,
+                "classification": classification,
             }
-            for path in kept_frames
-        ]
-        write_json(frames_path, {"video_id": video_id, "frames": frame_records, "events": events})
-
-        classification = classify_payload(media["duration_s"], len(transcript_text), len(frame_records))
-        payload = {
-            "schema_version": SCHEMA_VERSION,
-            "video_id": video_id,
-            "source": source_info,
-            "media": media,
-            "transcript": {
-                "backend": transcript.get("backend_used") or "",
-                "chars": len(transcript_text),
-                "path": str(transcript_path),
-            },
-            "frames": frame_records,
-            "classification": classification,
-        }
-        write_json(payload_path, payload)
-        print(
-            f"  wrote {payload_path} [{classification['kind']}] "
-            f"{len(transcript_text)} chars, {len(frame_records)} frames"
-        )
+            write_json(payload_path, payload)
+            print(
+                f"  wrote {payload_path} [{classification['kind']}] "
+                f"{len(transcript_text)} chars, {len(frame_records)} frames"
+            )
+            update_sv_video(
+                video_id,
+                {"preprocess_status": "done", "classification": classification["kind"]},
+                progress_path,
+            )
+        except Exception as exc:
+            update_sv_video(video_id, {"preprocess_status": "failed", "last_error": str(exc)}, progress_path)
+            print(f"  failed: {exc}", file=sys.stderr)
     return 0
 
 
 def command_synthesize(args: argparse.Namespace) -> int:
-    if not args.dry_run:
-        print("P0 only supports synthesize --dry-run. Real Qwen calls are P1.", file=sys.stderr)
-        return 2
-
     limits = PackLimits(
         max_videos=args.pack_max_videos,
         max_transcript_chars=args.pack_max_transcript_chars,
@@ -800,15 +868,22 @@ def command_call_pack(args: argparse.Namespace) -> int:
     pack_dir = args.pack_dir
     input_path = pack_dir / f"{pack_input['pack_id']}.input.json"
     output_path = args.output_md or (pack_dir / f"{pack_input['pack_id']}.output.md")
+    progress_path: Path = getattr(args, "progress", SHORT_VIDEO_PROGRESS)
     write_json(input_path, pack_input)
 
-    if args.mock_output:
+    force = getattr(args, "force", False)
+    if not force and not args.mock_output and output_path.exists():
+        print(f"Output already exists (use --force to re-call): {output_path}")
+        result_meta = {"provider": "reused", "api_calls": 0, "finish_reason": "reused"}
+    elif args.mock_output:
         text = build_mock_pack_output(pack_input)
         result_meta = {
             "provider": "mock",
             "api_calls": 0,
             "finish_reason": "mock",
         }
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(text, encoding="utf-8")
     else:
         try:
             result = call_qwen_pack(pack_input, args)
@@ -817,8 +892,8 @@ def command_call_pack(args: argparse.Namespace) -> int:
             return 1
         text = result.get("text") or ""
         result_meta = {key: value for key, value in result.items() if key != "text"}
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(text, encoding="utf-8")
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(text, encoding="utf-8")
 
     manifest = {
         "schema_version": "short-video-pack-call-v1",
@@ -841,6 +916,32 @@ def command_call_pack(args: argparse.Namespace) -> int:
         qc = split_pack_output(pack_input, output_path, args.markdowns_dir, args.qc_dir)
         print(f"Split videos : {qc['written_video_count']}/{qc['expected_video_count']}")
         print(f"QC warnings  : {len(qc['warnings'])}")
+
+        for item in qc["videos"]:
+            vid = item["video_id"]
+            if item.get("markdown_path"):
+                update_sv_video(
+                    vid,
+                    {
+                        "synthesis_status": "done",
+                        "pack_id": pack_input["pack_id"],
+                        "provider": result_meta.get("provider", "qwen"),
+                        "api_calls": int(result_meta.get("api_calls") or 0),
+                        "usage": {k: v for k, v in result_meta.items()
+                                  if k not in ("provider", "finish_reason")},
+                    },
+                    progress_path,
+                )
+            else:
+                update_sv_video(
+                    vid,
+                    {
+                        "synthesis_status": "failed",
+                        "pack_id": pack_input["pack_id"],
+                        "last_error": "; ".join(item.get("warnings") or ["missing_video_id"]),
+                    },
+                    progress_path,
+                )
 
         missing_ids = [
             w[len("missing_video_id: "):]
@@ -903,6 +1004,55 @@ def command_split_pack(args: argparse.Namespace) -> int:
         for warning in qc["warnings"]:
             print(f"  [warn] {warning}")
     return 0 if not qc["warnings"] else 1
+
+
+def command_retry_failed(args: argparse.Namespace) -> int:
+    progress_path: Path = getattr(args, "progress", SHORT_VIDEO_PROGRESS)
+    records = load_sv_progress(progress_path)
+
+    retry_ids: set[str] = {
+        vid for vid, rec in records.items()
+        if rec.get("synthesis_status") in ("failed", "pending")
+    }
+
+    limits = PackLimits(
+        max_videos=args.pack_max_videos,
+        max_transcript_chars=args.pack_max_transcript_chars,
+        max_frames=args.pack_max_frames,
+        per_video_max_frames=args.per_video_max_frames,
+    )
+
+    all_items = load_payloads(args.payload_dir, limits)
+    items = [item for item in all_items if item.video_id in retry_ids]
+
+    if not items:
+        print("No failed/pending videos with existing payloads.")
+        return 0
+
+    print(f"Retrying {len(items)} video(s):")
+    for item in items:
+        rec = records.get(item.video_id, {})
+        err = (rec.get("last_error") or "")[:80]
+        print(f"  {item.video_id}{': ' + err if err else ''}")
+
+    packs, deferred = build_pack_plan(items, limits, include_medium=getattr(args, "include_medium", False))
+    plan_ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+    plan = pack_plan_to_dict(packs, deferred, limits, plan_ts)
+    print_pack_plan(plan)
+
+    pack_dir = args.pack_dir
+    plan_path = pack_dir / f"retry-{plan_ts}.plan.json"
+    write_json(plan_path, plan)
+    print(f"\nRetry plan: {plan_path}")
+    print("Run each pack with:")
+    for pack in plan["packs"]:
+        print(
+            f"  python scripts/short_video_pipeline.py call-pack "
+            f"--plan {plan_path} --pack-id {pack['pack_id']} --split"
+        )
+    if deferred:
+        print(f"\nDeferred ({len(deferred)} videos) — exceed pack limits, handle individually.")
+    return 0
 
 
 def command_status(args: argparse.Namespace) -> int:
@@ -989,12 +1139,14 @@ def build_parser() -> argparse.ArgumentParser:
     preprocess.add_argument("--download-dir", type=Path, default=DEFAULT_SHORT_VIDEO_DIR)
     preprocess.add_argument("--extractor", default="auto", choices=("auto", "direct", "ytdlp", "playwright"))
     preprocess.add_argument("--cookies-browser", default="")
+    preprocess.add_argument("--skip-done", action="store_true", help="Skip videos already marked preprocess_status=done")
+    preprocess.add_argument("--progress", type=Path, default=SHORT_VIDEO_PROGRESS)
     preprocess.set_defaults(func=command_preprocess)
 
     synthesize = sub.add_parser("synthesize", help="Build a Qwen pack plan")
     synthesize.add_argument("--payload-dir", type=Path, default=DEFAULT_PAYLOAD_DIR)
     synthesize.add_argument("--pack-dir", type=Path, default=DEFAULT_PACK_DIR)
-    synthesize.add_argument("--dry-run", action="store_true", help="Required in P0; do not call Qwen")
+    synthesize.add_argument("--dry-run", action="store_true", help="No-op flag kept for backward compatibility")
     synthesize.add_argument("--write-plan", action="store_true", help="Write pack plan JSON")
     synthesize.add_argument("--plan-ts", default="")
     synthesize.add_argument("--short-only", action="store_true")
@@ -1016,7 +1168,9 @@ def build_parser() -> argparse.ArgumentParser:
     call_pack.add_argument("--qwen-thinking", action="store_true")
     call_pack.add_argument("--mock-output", action="store_true", help="Do not call Qwen; write deterministic mock Markdown")
     call_pack.add_argument("--split", action="store_true", help="Split output into per-video Markdown after call")
+    call_pack.add_argument("--force", action="store_true", help="Re-call Qwen even if output.md already exists")
     call_pack.add_argument("--per-video-max-frames", type=int, default=PER_VIDEO_MAX_FRAMES)
+    call_pack.add_argument("--progress", type=Path, default=SHORT_VIDEO_PROGRESS)
     call_pack.set_defaults(func=command_call_pack)
 
     split_pack = sub.add_parser("split-pack", help="Split pack output Markdown into per-video files")
@@ -1029,6 +1183,14 @@ def build_parser() -> argparse.ArgumentParser:
     split_pack.add_argument("--qc-dir", type=Path, default=DEFAULT_QC_DIR)
     split_pack.add_argument("--per-video-max-frames", type=int, default=PER_VIDEO_MAX_FRAMES)
     split_pack.set_defaults(func=command_split_pack)
+
+    retry_failed = sub.add_parser("retry-failed", help="Build a new pack plan for failed/pending videos")
+    retry_failed.add_argument("--payload-dir", type=Path, default=DEFAULT_PAYLOAD_DIR)
+    retry_failed.add_argument("--pack-dir", type=Path, default=DEFAULT_PACK_DIR)
+    retry_failed.add_argument("--include-medium", action="store_true")
+    retry_failed.add_argument("--progress", type=Path, default=SHORT_VIDEO_PROGRESS)
+    add_pack_limit_args(retry_failed)
+    retry_failed.set_defaults(func=command_retry_failed)
 
     status = sub.add_parser("status", help="Summarize payload classifications")
     status.add_argument("--payload-dir", type=Path, default=DEFAULT_PAYLOAD_DIR)
