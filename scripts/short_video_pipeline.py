@@ -28,14 +28,6 @@ DEFAULT_SHORT_VIDEO_DIR = REPO_ROOT / "Videos" / "short"
 SCHEMA_VERSION = "short-video-payload-v1"
 PACK_PLAN_VERSION = "short-video-pack-plan-v1"
 
-SHORT_MAX_DURATION_S = 600
-SHORT_MAX_TRANSCRIPT_CHARS = 12_000
-SHORT_MAX_FRAMES = 32
-
-MEDIUM_MAX_DURATION_S = 1_800
-MEDIUM_MAX_TRANSCRIPT_CHARS = 40_000
-MEDIUM_MAX_FRAMES = 128
-
 PACK_MAX_VIDEOS = 8
 PACK_MAX_TRANSCRIPT_CHARS = 80_000
 PACK_MAX_FRAMES = 96
@@ -332,22 +324,20 @@ def resolve_local_video(source: str) -> tuple[Path, dict]:
 
 
 def classify_payload(duration_s: float, transcript_chars: int, kept_frames: int) -> dict:
-    # kept_frames is intentionally excluded from short/medium thresholds: toutiao short
-    # videos often extract 40-150 frames due to fast cuts, but the packer caps each video
-    # at PER_VIDEO_MAX_FRAMES=12 anyway. Classification based on duration+transcript only.
-    if duration_s <= SHORT_MAX_DURATION_S and transcript_chars <= SHORT_MAX_TRANSCRIPT_CHARS:
+    # Route by transcript volume, not duration.  PACK_MAX_TRANSCRIPT_CHARS is the
+    # single boundary: videos at or below it are processed here (packed together or
+    # as a solo one-shot call); videos above it go to the sliding-window pipeline
+    # (build_stream_markdown.py).  duration_s and kept_frames are unused — the packer
+    # caps per-video frames anyway and a 2000s+ video with a sparse transcript fits
+    # in a single Qwen call just fine.
+    if transcript_chars <= PACK_MAX_TRANSCRIPT_CHARS:
         return {
             "kind": "short_video",
-            "reason": f"duration<={SHORT_MAX_DURATION_S}s, transcript<={SHORT_MAX_TRANSCRIPT_CHARS}chars",
-        }
-    if duration_s <= MEDIUM_MAX_DURATION_S and transcript_chars <= MEDIUM_MAX_TRANSCRIPT_CHARS:
-        return {
-            "kind": "medium_video",
-            "reason": "within medium duration/transcript thresholds",
+            "reason": f"transcript<={PACK_MAX_TRANSCRIPT_CHARS}chars — packable or solo one-shot",
         }
     return {
         "kind": "long_or_dense_video",
-        "reason": "exceeds medium duration/transcript thresholds",
+        "reason": f"transcript>{PACK_MAX_TRANSCRIPT_CHARS}chars — route to sliding-window pipeline",
     }
 
 
@@ -389,12 +379,8 @@ def load_payloads(payload_dir: Path, limits: PackLimits) -> list[PackItem]:
     return items
 
 
-def build_pack_plan(items: list[PackItem], limits: PackLimits,
-                    include_medium: bool = False) -> tuple[list[Pack], list[PackItem]]:
-    candidates = [
-        item for item in items
-        if item.classification == "short_video" or (include_medium and item.classification == "medium_video")
-    ]
+def build_pack_plan(items: list[PackItem], limits: PackLimits) -> tuple[list[Pack], list[PackItem]]:
+    candidates = [item for item in items if item.classification == "short_video"]
     deferred = [item for item in items if item not in candidates]
     packs: list[Pack] = []
 
@@ -876,9 +862,7 @@ def command_synthesize(args: argparse.Namespace) -> int:
         per_video_max_frames=args.per_video_max_frames,
     )
     items = load_payloads(args.payload_dir, limits)
-    if args.short_only:
-        items = [item for item in items if item.classification == "short_video"]
-    packs, deferred = build_pack_plan(items, limits, include_medium=args.include_medium)
+    packs, deferred = build_pack_plan(items, limits)
     plan_ts = args.plan_ts or datetime.now().strftime("%Y%m%d-%H%M%S")
     plan = pack_plan_to_dict(packs, deferred, limits, plan_ts)
     print_pack_plan(plan)
@@ -1102,7 +1086,7 @@ def command_retry_failed(args: argparse.Namespace) -> int:
         err = (rec.get("last_error") or "")[:80]
         print(f"  {item.video_id}{': ' + err if err else ''}")
 
-    packs, deferred = build_pack_plan(items, limits, include_medium=getattr(args, "include_medium", False))
+    packs, deferred = build_pack_plan(items, limits)
     plan_ts = datetime.now().strftime("%Y%m%d-%H%M%S")
     plan = pack_plan_to_dict(packs, deferred, limits, plan_ts)
     print_pack_plan(plan)
@@ -1247,11 +1231,10 @@ def command_status(args: argparse.Namespace) -> int:
         print(f"  {key}: {counts[key]}")
     long_items = [item for item in items if item.classification == "long_or_dense_video"]
     if long_items:
-        print(f"\nlong_or_dense_video ({len(long_items)}) — route to long-video pipeline:")
+        print(f"\nlong_or_dense_video ({len(long_items)}) — transcript>{PACK_MAX_TRANSCRIPT_CHARS}chars, route to sliding-window:")
         for item in long_items:
             print(f"  {item.video_id}: {item.duration_s:.0f}s, {item.transcript_chars}chars, {item.total_frames}frames")
-        print("  python scripts/short_video_pipeline.py call-pack --plan <plan> \\")
-        print("         --pack-id <id> --split  # single-video pack, or use build_stream_markdown.py")
+        print("  python scripts/build_stream_markdown.py --base <base> --synthesis-pass sliding-window")
     return 0
 
 
@@ -1336,9 +1319,10 @@ def build_parser() -> argparse.ArgumentParser:
     synthesize.add_argument("--dry-run", action="store_true", help="No-op flag kept for backward compatibility")
     synthesize.add_argument("--write-plan", action="store_true", help="Write pack plan JSON")
     synthesize.add_argument("--plan-ts", default="")
-    synthesize.add_argument("--short-only", action="store_true")
-    synthesize.add_argument("--include-medium", action="store_true", default=True,
-                            help="Include medium videos in pack plan (default: on)")
+    synthesize.add_argument("--short-only", action="store_true",
+                            help="Deprecated no-op: classification is now transcript-based")
+    synthesize.add_argument("--include-medium", action="store_true", default=False,
+                            help="Deprecated no-op: all packable videos are included by default")
     add_pack_limit_args(synthesize)
     synthesize.set_defaults(func=command_synthesize)
 
