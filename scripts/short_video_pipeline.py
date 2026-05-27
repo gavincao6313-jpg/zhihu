@@ -43,6 +43,13 @@ PER_VIDEO_MAX_FRAMES = 12
 PACK_ESTIMATED_INPUT_TOKENS = 160_000
 QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.6-flash")
 
+# P3: CNY per million tokens (conservative DashScope public rates, <=256K context tier)
+QWEN_PRICING: dict[str, dict[str, float]] = {
+    "qwen3.6-flash": {"input_per_m": 1.2, "output_per_m": 7.2},
+    "qwen-long": {"input_per_m": 0.5, "output_per_m": 2.0},
+}
+_QWEN_PRICING_DEFAULT = {"input_per_m": 1.2, "output_per_m": 7.2}
+
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".m4v", ".mov", ".avi", ".mkv", ".mpeg"}
 
 # P2: per-video progress tracking (separate from long-video .progress.json)
@@ -97,6 +104,16 @@ def update_sv_video(
     record.update(updates)
     records[video_id] = record
     save_sv_progress(records, progress_path)
+
+
+def estimate_cost_cny(input_tokens: int, output_tokens: int, model: str = QWEN_MODEL) -> float:
+    prices = QWEN_PRICING.get(model) or _QWEN_PRICING_DEFAULT
+    return round(
+        input_tokens / 1_000_000 * prices["input_per_m"]
+        + output_tokens / 1_000_000 * prices["output_per_m"],
+        6,
+    )
+
 
 SHORT_VIDEO_PACK_PROMPT = """
 你正在处理一个短视频包。每个 VIDEO_ID 都是一个独立视频，必须独立输出，禁止跨视频混写、合并、写“同上”。
@@ -917,6 +934,13 @@ def command_call_pack(args: argparse.Namespace) -> int:
         print(f"Split videos : {qc['written_video_count']}/{qc['expected_video_count']}")
         print(f"QC warnings  : {len(qc['warnings'])}")
 
+        usage_dict = (result_meta.get("usage") or {})
+        in_tok = int(usage_dict.get("input_tokens") or 0)
+        out_tok = int(usage_dict.get("output_tokens") or 0)
+        pack_cost = estimate_cost_cny(in_tok, out_tok, args.model)
+        video_count = max(len(pack_input["videos"]), 1)
+        cost_per_video = round(pack_cost / video_count, 6)
+
         for item in qc["videos"]:
             vid = item["video_id"]
             if item.get("markdown_path"):
@@ -929,6 +953,7 @@ def command_call_pack(args: argparse.Namespace) -> int:
                         "api_calls": int(result_meta.get("api_calls") or 0),
                         "usage": {k: v for k, v in result_meta.items()
                                   if k not in ("provider", "finish_reason")},
+                        "estimated_cost_cny": cost_per_video,
                     },
                     progress_path,
                 )
@@ -1055,6 +1080,111 @@ def command_retry_failed(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_report(args: argparse.Namespace) -> int:
+    progress_path: Path = getattr(args, "progress", SHORT_VIDEO_PROGRESS)
+    pack_dir: Path = args.pack_dir
+    model: str = getattr(args, "model", QWEN_MODEL)
+    records = load_sv_progress(progress_path)
+
+    total = len(records)
+    if total == 0:
+        print("No progress records found.")
+        return 0
+
+    preprocess_done = sum(1 for r in records.values() if r.get("preprocess_status") == "done")
+    preprocess_failed = sum(1 for r in records.values() if r.get("preprocess_status") == "failed")
+    synth_done = sum(1 for r in records.values() if r.get("synthesis_status") == "done")
+    synth_failed = sum(1 for r in records.values() if r.get("synthesis_status") == "failed")
+    synth_pending = total - synth_done - synth_failed
+
+    # Aggregate tokens from pack manifests (authoritative source)
+    total_input_tokens = 0
+    total_output_tokens = 0
+    pack_count = 0
+    pack_costs: list[float] = []
+    for manifest_path in sorted(pack_dir.glob("*.manifest.json")):
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            if manifest.get("schema_version") != "short-video-pack-call-v1":
+                continue
+            pack_count += 1
+            inner = (manifest.get("usage") or {}).get("usage") or {}
+            in_t = int(inner.get("input_tokens") or 0)
+            out_t = int(inner.get("output_tokens") or 0)
+            total_input_tokens += in_t
+            total_output_tokens += out_t
+            pack_costs.append(estimate_cost_cny(in_t, out_t, model))
+        except Exception:
+            continue
+
+    total_cost = sum(pack_costs)
+
+    print("Short-video Pipeline Report")
+    print(f"  Progress file     : {progress_path}")
+    print(f"  Model             : {model}")
+    print(f"  Total videos      : {total}")
+    print(f"  Preprocess done   : {preprocess_done} / {total}  (failed: {preprocess_failed})")
+    print(f"  Synthesis done    : {synth_done} / {total}  (failed: {synth_failed}, pending: {synth_pending})")
+    print(f"  Pack manifests    : {pack_count}")
+    print(f"  Total input tok   : {total_input_tokens:,}")
+    print(f"  Total output tok  : {total_output_tokens:,}")
+    if total_cost > 0:
+        print(f"  Est. total (CNY)  : {total_cost:.4f}")
+        if synth_done > 0:
+            per_video = total_cost / synth_done
+            calls_per_100 = pack_count / synth_done * 100
+            print(f"  Cost/video        : {per_video:.6f} CNY")
+            print(f"  Proj. 100 videos  : {per_video * 100:.4f} CNY  (~{calls_per_100:.1f} Qwen calls)")
+        if pack_costs:
+            print(f"  Avg cost/pack     : {total_cost / len(pack_costs):.4f} CNY")
+    else:
+        print("  Est. total (CNY)  : 0.000000  (no real Qwen calls yet)")
+    return 0
+
+
+def command_batch_export(args: argparse.Namespace) -> int:
+    """Export pack inputs as DashScope Batch File API JSONL (schema draft)."""
+    from utils import _parts_to_openai_messages  # internal helper, batch-export path only
+
+    plan = json.loads(args.plan.read_text(encoding="utf-8"))
+    packs = plan.get("packs") or []
+    if not packs:
+        print("No packs in plan.", file=sys.stderr)
+        return 2
+
+    ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+    output_path = args.output or (args.pack_dir / f"batch-export-{ts}.jsonl")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    written = 0
+    with output_path.open("w", encoding="utf-8") as f:
+        for pack_def in packs:
+            pack_input = build_pack_input(pack_def, args.per_video_max_frames)
+            parts = build_qwen_pack_parts(pack_input)
+            messages = _parts_to_openai_messages(parts)
+            entry = {
+                "custom_id": pack_input["pack_id"],
+                "method": "POST",
+                "url": "/v1/chat/completions",
+                "body": {
+                    "model": args.model,
+                    "messages": messages,
+                    "max_tokens": 64000,
+                    "temperature": 0.1,
+                },
+            }
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+            written += 1
+
+    print(f"Exported {written} pack(s) → {output_path}")
+    print("DashScope Batch API submit steps:")
+    print("  1. Upload JSONL : POST https://dashscope.aliyuncs.com/compatible-mode/v1/files")
+    print("  2. Create batch : POST /v1/batches  {input_file_id, endpoint, completion_window}")
+    print("  3. Poll status  : GET  /v1/batches/{batch_id}")
+    print("  4. Retrieve out : GET  /v1/files/{output_file_id}/content")
+    return 0
+
+
 def command_status(args: argparse.Namespace) -> int:
     limits = PackLimits(per_video_max_frames=args.per_video_max_frames)
     items = load_payloads(args.payload_dir, limits)
@@ -1129,7 +1259,7 @@ def add_pack_limit_args(parser: argparse.ArgumentParser) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="P0 short-video Qwen pipeline planner")
+    parser = argparse.ArgumentParser(description="Short-video Qwen pipeline (preprocess / synthesize / report / batch)")
     sub = parser.add_subparsers(dest="command", required=True)
 
     preprocess = sub.add_parser("preprocess", help="Generate short-video payloads; no LLM calls")
@@ -1196,6 +1326,20 @@ def build_parser() -> argparse.ArgumentParser:
     status.add_argument("--payload-dir", type=Path, default=DEFAULT_PAYLOAD_DIR)
     status.add_argument("--per-video-max-frames", type=int, default=PER_VIDEO_MAX_FRAMES)
     status.set_defaults(func=command_status)
+
+    report = sub.add_parser("report", help="Aggregate usage, token counts, and cost estimates")
+    report.add_argument("--pack-dir", type=Path, default=DEFAULT_PACK_DIR)
+    report.add_argument("--model", default=QWEN_MODEL)
+    report.add_argument("--progress", type=Path, default=SHORT_VIDEO_PROGRESS)
+    report.set_defaults(func=command_report)
+
+    batch_export = sub.add_parser("batch-export", help="Export packs as DashScope Batch API JSONL (schema draft)")
+    batch_export.add_argument("--plan", type=Path, required=True)
+    batch_export.add_argument("--pack-dir", type=Path, default=DEFAULT_PACK_DIR)
+    batch_export.add_argument("--output", type=Path)
+    batch_export.add_argument("--model", default=QWEN_MODEL)
+    batch_export.add_argument("--per-video-max-frames", type=int, default=PER_VIDEO_MAX_FRAMES)
+    batch_export.set_defaults(func=command_batch_export)
 
     mock = sub.add_parser("mock-payloads", help="Create mock payloads for offline pack-plan tests")
     mock.add_argument("--payload-dir", type=Path, default=DEFAULT_PAYLOAD_DIR)
