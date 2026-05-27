@@ -14,6 +14,10 @@ from urllib.parse import urlparse
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+# utils, zhihuTTS_video etc. live in repo root, not in scripts/
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 DEFAULT_RUN_DIR = REPO_ROOT / "runs" / "short-video"
 DEFAULT_PAYLOAD_DIR = DEFAULT_RUN_DIR / "preprocess"
 DEFAULT_PACK_DIR = DEFAULT_RUN_DIR / "packs"
@@ -482,6 +486,21 @@ def build_pack_input(pack: dict, per_video_max_frames: int) -> dict:
     }
 
 
+class _InlineData:
+    __slots__ = ("data", "mime_type")
+
+    def __init__(self, data: bytes, mime_type: str) -> None:
+        self.data = data
+        self.mime_type = mime_type
+
+
+class _Part:
+    __slots__ = ("inline_data",)
+
+    def __init__(self, inline_data: _InlineData) -> None:
+        self.inline_data = inline_data
+
+
 def build_qwen_pack_parts(pack_input: dict) -> list:
     parts: list = [SHORT_VIDEO_PACK_PROMPT]
     manifest_lines = [
@@ -490,11 +509,6 @@ def build_qwen_pack_parts(pack_input: dict) -> list:
         "Required VIDEO_IDs: " + ", ".join(v["video_id"] for v in pack_input["videos"]),
     ]
     parts.append("\n".join(manifest_lines))
-
-    try:
-        from google.genai import types
-    except ImportError:
-        types = None
 
     for video in pack_input["videos"]:
         parts.append(
@@ -513,12 +527,10 @@ def build_qwen_pack_parts(pack_input: dict) -> list:
             marker = frame.get("marker") or f"Frame {frame.get('ts_s', '')}"
             parts.append(f"[VIDEO_ID={video['video_id']}] {marker}")
             frame_path = Path(frame.get("path") or "")
-            if types is not None and frame_path.exists():
-                parts.append(types.Part(
-                    inline_data=types.Blob(mime_type="image/jpeg", data=frame_path.read_bytes())
-                ))
+            if frame_path.exists():
+                parts.append(_Part(_InlineData(frame_path.read_bytes(), "image/jpeg")))
             elif frame_path:
-                parts.append(f"[frame_path_unavailable_for_inline_image] {frame_path}")
+                parts.append(f"[frame_not_found] {frame_path}")
         parts.append("--- VIDEO END ---")
     return parts
 
@@ -829,7 +841,50 @@ def command_call_pack(args: argparse.Namespace) -> int:
         qc = split_pack_output(pack_input, output_path, args.markdowns_dir, args.qc_dir)
         print(f"Split videos : {qc['written_video_count']}/{qc['expected_video_count']}")
         print(f"QC warnings  : {len(qc['warnings'])}")
+
+        missing_ids = [
+            w[len("missing_video_id: "):]
+            for w in qc["warnings"]
+            if w.startswith("missing_video_id: ")
+        ]
+        if missing_ids and not args.mock_output:
+            print(f"Retrying {len(missing_ids)} missing video(s)...")
+            for vid in missing_ids:
+                _retry_missing_video(vid, pack_input, args, pack_dir)
     return 0
+
+
+def _retry_missing_video(
+    video_id: str,
+    pack_input: dict,
+    args: argparse.Namespace,
+    pack_dir: Path,
+) -> None:
+    single = next((v for v in pack_input["videos"] if v["video_id"] == video_id), None)
+    if not single:
+        print(f"  [retry] video_id not in pack_input: {video_id}", file=sys.stderr)
+        return
+    retry_pack_id = f"{pack_input['pack_id']}-retry-{slugify(video_id)}"
+    retry_input = {
+        "schema_version": pack_input["schema_version"],
+        "pack_id": retry_pack_id,
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "video_count": 1,
+        "videos": [single],
+    }
+    try:
+        result = call_qwen_pack(retry_input, args)
+        text = result.get("text") or ""
+    except Exception as exc:
+        print(f"  [retry] {video_id}: call failed — {exc}", file=sys.stderr)
+        return
+    retry_output = pack_dir / f"{retry_pack_id}.output.md"
+    retry_output.write_text(text, encoding="utf-8")
+    qc = split_pack_output(retry_input, retry_output, args.markdowns_dir, args.qc_dir)
+    if qc["warnings"]:
+        print(f"  [retry] {video_id}: still has warnings — {qc['warnings']}", file=sys.stderr)
+    else:
+        print(f"  [retry] {video_id}: ok → {args.markdowns_dir / ('TTS_short_' + slugify(video_id) + '.md')}")
 
 
 def command_split_pack(args: argparse.Namespace) -> int:

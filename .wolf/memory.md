@@ -740,3 +740,7 @@
 | 17:35 | Edited scripts/toutiao_common.py | expanded (+6 lines) | ~80 |
 | 17:35 | Edited scripts/toutiao_download_favorites.py | expanded (+7 lines) | ~111 |
 | 17:45 | 拉取 WIN BUG087-089 并修复 | scripts/toutiao_common.py, scripts/toutiao_download_favorites.py, .wolf/buglog.json | BUG087(sha1_short缺失) WIN已修复，MAC merge；BUG088(stream_extractors import路径)在download脚本模块级插入REPO_ROOT到sys.path；BUG089(live.ixigua.com误判)新增LIVE_URL_BLOCKLIST并更新looks_like_video_url；6个测试用例全通过 | ~3500 |
+| 21:26 | Edited scripts/short_video_pipeline.py | 2→6 lines | ~69 |
+| 21:27 | Edited scripts/short_video_pipeline.py | modified __init__() | ~478 |
+| 21:27 | Edited scripts/short_video_pipeline.py | modified _retry_missing_video() | ~560 |
+| 21:30 | 准备 P1 阶段代码：修复 short_video_pipeline.py 三个问题 | scripts/short_video_pipeline.py, .wolf/buglog.json | BUG090 sys.path未设置→加REPO_ROOT插入；BUG091 google.genai依赖→改用_Part/_InlineData本地类；新增_retry_missing_video()单视频重试；5/5 mock split验证通过 | ~6000 |
