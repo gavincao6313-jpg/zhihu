@@ -71,6 +71,8 @@ In this architecture, Qwen sliding-window must produce the final user-facing doc
 | D12 | End-to-end Qwen usage aggregation | Done | Separates `current_run_usage` and `end_to_end_usage`. |
 | D13 | Long narrative retention | Done locally | Added Narrative Evidence Blocks, narrative retention QC, and deterministic narrative appendix fallback. Needs WIN real-output validation under U1. |
 | D14 | Balanced frame quota tuning | Done locally | Frame sampling now keeps representative context frames instead of letting slide anchors consume the whole image cap. Needs WIN real-output validation under U1. |
+| D15 | Critical fact source-retention hardening | Done locally | Added deterministic `## 7. 关键事实索引`, separate body/source fact-retention metrics, and stricter number-sentence prompt contract. Needs WIN real-output validation under U1. |
+| D16 | Replay frame timestamp normalization | Done locally | Detects payloads whose frame timestamps are already global and avoids adding chunk offsets twice; adds frame timestamp QC. Needs WIN real-output validation under U1. |
 | U1 | WIN real-output validation after P2 hardening | Not done | Need rerun with `--resume-window-notes` and inspect final QC. |
 | U2 | Offline benchmark report | Not done | Optional comparison report only; must not become production dependency. |
 | U3 | Comparative scoring | Not done | Detail retention, prompt preservation, case depth, visual coverage, NotebookLM readiness. |
@@ -227,6 +229,13 @@ In this architecture, Qwen sliding-window must produce the final user-facing doc
   - When a provider image cap forces sampling, selected frames reserve representative context coverage instead of letting slide anchors consume the whole cap.
   - Kept chronological output order after per-type even sampling.
   - Bumped `QWEN_WINDOW_NOTE_VERSION` to `qwen-window-note-v2` so old window notes are not reused after the Narrative Evidence Blocks prompt change.
+- 2026-05-27: Critical fact and replay timestamp hardening.
+  - Bumped `QWEN_WINDOW_NOTE_VERSION` to `qwen-window-note-v3` and `QWEN_FINAL_ASSEMBLY_VERSION` to `qwen-final-assembly-v2`.
+  - Added a strict `Critical Number Sentences` section to the window-note contract.
+  - Added deterministic `## 7. 关键事实索引` so NotebookLM source retention no longer depends only on Qwen final assembly remembering every fact in prose.
+  - Split fact retention into body absorption (`qwen_fact_body_retention_qc`) and final source retention (`qwen_fact_retention_qc`).
+  - Added detection for payload frame timestamps that are already global seconds; this prevents replay keyframes from being shifted by `chunk_start_s` twice.
+  - Added `frame_timestamp_qc` and `frame_timestamp_exceeds_timeline` warning for future timestamp regressions.
 
 ## P2: Single-Provider Qwen Hardening
 
@@ -269,6 +278,16 @@ In this architecture, Qwen sliding-window must produce the final user-facing doc
   - Frame downsampling now allocates roughly 55% slide, 25% annotation, and 20% context when frames exceed the image cap.
   - Each type is sampled evenly across time before the selected frames are restored to chronological order.
   - This prevents slide anchors from starving representative context frames in long-window or constrained-cap runs.
+
+- [x] Add critical fact source-retention hardening.
+  - Window notes now include a dedicated `Critical Number Sentences` block for years, ages, percentages, durations, scores, costs, points, and ratios.
+  - Final Markdown gets a deterministic `## 7. 关键事实索引` built from `qwen_critical_facts`.
+  - QC keeps `qwen_fact_body_retention_qc` for generated-body absorption and `qwen_fact_retention_qc` for final source-document retention.
+
+- [x] Add replay frame timestamp normalization.
+  - Payload frame timestamps are detected as local or already-global before applying `chunk_start_s`.
+  - `frame_timestamp_qc` records min/max frame timestamps and timestamp-scope counts.
+  - A warning is emitted if visual frame timestamps exceed transcript timeline end by more than the configured body coverage gap.
 
 ## P3: Optional Offline Benchmarking
 

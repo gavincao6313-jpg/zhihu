@@ -1421,6 +1421,43 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-27T08:36:00+08:00"
+    },
+    {
+      "id": "bug-085",
+      "timestamp": "2026-05-27T10:25:00+08:00",
+      "error_message": "WIN Qwen replay validation reported `qwen_fact_retention_low: retained 16/24 (0.67), expected >= 0.90`.",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "Qwen final assembly did not absorb every deterministic critical fact into the generated body. The missing facts were present in window notes and later full-transcript appendix, but QC runs before deterministic transcript appendices and therefore measures body retention only.",
+      "fix": "Added a dedicated `Critical Number Sentences` window-note section, deterministic `## 7. 关键事实索引`, `qwen_fact_body_retention_qc`, and final source-document `qwen_fact_retention_qc` after the fact index is appended.",
+      "tags": [
+        "qwen",
+        "fact-retention",
+        "qc",
+        "notebooklm"
+      ],
+      "related_bugs": [
+        "bug-084"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T10:25:00+08:00"
+    },
+    {
+      "id": "bug-086",
+      "timestamp": "2026-05-27T10:25:00+08:00",
+      "error_message": "WIN replay validation showed Qwen frame windows ending at 15623s / 04:20:23 while transcript timeline ends at 7860s / 02:11:00.",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "Replay payload frame timestamps appear to already be global seconds, but `load_chunk_frames()` added the chunk start again. This can distort Qwen window boundaries and transcript slices.",
+      "fix": "Added payload timestamp-scope detection before applying `chunk_start_s`, preserved `timestamp_scope` per frame, and added `frame_timestamp_qc` plus `frame_timestamp_exceeds_timeline` warning.",
+      "tags": [
+        "qwen",
+        "frames",
+        "timestamp",
+        "replay",
+        "windowing"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T10:25:00+08:00"
     }
   ]
 }
