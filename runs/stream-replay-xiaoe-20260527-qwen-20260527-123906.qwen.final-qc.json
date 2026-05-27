@@ -1,0 +1,150 @@
+{
+  "base": "replay-xiaoe-20260527-qwen",
+  "run_ts": "20260527-123906",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 133,
+  "transcript_chars": 41647,
+  "frame_count": 143,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 7958,
+  "timeline_end_s": 7980,
+  "timeline_duration_s": 7980,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.6-flash",
+  "synthesis_pass": "sliding-window",
+  "warnings": [
+    "body_tail_coverage_low: last chapter 02:07:00, gap 360s",
+    "qwen_overcompressed_body: body/transcript ratio 0.24, expected >= 0.35"
+  ],
+  "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 2,
+    "total_frames": 143,
+    "covered_new_frames": 143,
+    "selected_frames_across_windows": 143,
+    "overlap_frames": 0,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 0,
+      "annotation": 0,
+      "context": 143
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 0,
+        "end_s": 14287,
+        "selected_frame_count": 128,
+        "new_frame_count": 128,
+        "overlap_frame_count": 0,
+        "transcript_chars": 41647,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 128
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 14288,
+        "end_s": 15863,
+        "selected_frame_count": 15,
+        "new_frame_count": 15,
+        "overlap_frame_count": 0,
+        "transcript_chars": 41647,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 15
+        }
+      }
+    ]
+  },
+  "frame_policy": {
+    "provider": "qwen",
+    "mode": "sliding-window",
+    "window_count": 2,
+    "windows": [
+      {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 15,
+        "selected_frames": 15,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      }
+    ]
+  },
+  "provider_parts_count": 292,
+  "qwen_window_notes": [
+    "D:\\zhihu\\zhihu_url\\runs\\stream-replay-xiaoe-20260527-qwen-20260527-123906.qwen-window-001.notes.md",
+    "D:\\zhihu\\zhihu_url\\runs\\stream-replay-xiaoe-20260527-qwen-20260527-123906.qwen-window-002.notes.md"
+  ],
+  "qwen_window_notes_reused": 0,
+  "qwen_final_assembly_version": "qwen-final-assembly-v1",
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.6-flash",
+    "api_calls": 3,
+    "finish_reason": "stop",
+    "window_finish_reasons": [
+      "stop",
+      "stop",
+      "stop"
+    ],
+    "usage": {
+      "input_tokens": 70148,
+      "output_tokens": 12792,
+      "total_tokens": 82940
+    },
+    "estimated_cost_cny": null
+  },
+  "body_last_chapter_end_s": 7620,
+  "body_tail_gap_s": 360,
+  "body_coverage_status": "warning",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 10032,
+    "body_transcript_ratio": 0.2409,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 8,
+    "chapter_fields_missing": [],
+    "code_fence_count": 8,
+    "prompt_keywords_missing": [],
+    "body_min_transcript_ratio": 0.35,
+    "source_frame_count": 143
+  },
+  "qwen_window_coverage_qc": {
+    "expected_windows": [
+      1,
+      2
+    ],
+    "covered_windows": [
+      1,
+      2
+    ],
+    "missing_windows": []
+  },
+  "transcript_appendix_chars": 41647,
+  "visual_evidence_count": 143,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
