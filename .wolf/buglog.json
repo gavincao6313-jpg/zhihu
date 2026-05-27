@@ -1575,6 +1575,30 @@
       "related_bugs": ["bug-088"],
       "occurrences": 1,
       "last_seen": "2026-05-27T22:20:00.000Z"
+    },
+    {
+      "id": "bug-094",
+      "timestamp": "2026-05-27T23:00:00.000Z",
+      "error_message": "split_pack_output reports missing_video_id for single-video retry outputs that have content",
+      "file": "scripts/short_video_pipeline.py",
+      "root_cause": "extract_video_blocks regex requires both <!-- VIDEO_ID: xxx --> and <!-- END_VIDEO_ID: xxx --> markers. Qwen consistently omits the END marker on single-video retry outputs (1-video packs). Files had 78-141 lines of real content but zero regex matches, causing false missing_video_id warnings.",
+      "fix": "Added fallback pass in extract_video_blocks: for any VIDEO_ID opener with no matching END marker, take content to next VIDEO_ID opener or EOF and synthesize the closing <!-- END_VIDEO_ID: xxx --> marker.",
+      "tags": ["split", "extract_video_blocks", "END_VIDEO_ID", "regex", "single-video", "retry", "false-positive"],
+      "related_bugs": ["bug-093"],
+      "occurrences": 3,
+      "last_seen": "2026-05-27T22:30:00.000Z"
+    },
+    {
+      "id": "bug-095",
+      "timestamp": "2026-05-27T23:00:00.000Z",
+      "error_message": "Qwen DataInspectionFailed (content moderation) causes empty retry output; not distinguished from generic failure",
+      "file": "scripts/short_video_pipeline.py",
+      "root_cause": "When Qwen rejects image frames as inappropriate content, the API returns an empty response with finish_reason='' or raises an exception with DataInspectionFailed in the message. _retry_missing_video treated this as a generic failure and did not mark the video distinctly, so retry-failed would retry it again indefinitely.",
+      "fix": "In _retry_missing_video: (1) catch exception and check message for DataInspectionFailed/inappropriate content, (2) after successful call, check if text is empty or finish_reason contains DataInspectionFailed. In both cases mark synthesis_status=moderation_blocked and record last_error.",
+      "tags": ["content-moderation", "DataInspectionFailed", "qwen", "retry", "moderation_blocked"],
+      "related_bugs": ["bug-094"],
+      "occurrences": 2,
+      "last_seen": "2026-05-27T22:30:00.000Z"
     }
   ]
 }

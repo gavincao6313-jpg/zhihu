@@ -673,6 +673,7 @@ def build_mock_pack_output(pack_input: dict) -> str:
 
 
 def extract_video_blocks(markdown_text: str) -> dict[str, str]:
+    # Primary: strict match requiring END_VIDEO_ID marker
     pattern = re.compile(
         r"<!--\s*VIDEO_ID:\s*([^>]+?)\s*-->(.*?)<!--\s*END_VIDEO_ID:\s*\1\s*-->",
         re.S,
@@ -681,6 +682,19 @@ def extract_video_blocks(markdown_text: str) -> dict[str, str]:
     for match in pattern.finditer(markdown_text):
         video_id = match.group(1).strip()
         blocks[video_id] = match.group(0).strip() + "\n"
+    # Fallback: Qwen omits END_VIDEO_ID on single-video outputs; take content to
+    # the next VIDEO_ID opener or EOF and synthesize a closing marker.
+    fallback = re.compile(
+        r"<!--\s*VIDEO_ID:\s*([^>]+?)\s*-->(.*?)(?=<!--\s*VIDEO_ID:|\Z)",
+        re.S,
+    )
+    for match in fallback.finditer(markdown_text):
+        video_id = match.group(1).strip()
+        if video_id not in blocks:
+            body = match.group(2).rstrip()
+            blocks[video_id] = (
+                f"<!-- VIDEO_ID: {video_id} -->{body}\n<!-- END_VIDEO_ID: {video_id} -->\n"
+            )
     return blocks
 
 
@@ -995,11 +1009,26 @@ def _retry_missing_video(
         "video_count": 1,
         "videos": [single],
     }
+    progress_path: Path = getattr(args, "progress", SHORT_VIDEO_PROGRESS)
     try:
         result = call_qwen_pack(retry_input, args)
         text = result.get("text") or ""
     except Exception as exc:
-        print(f"  [retry] {video_id}: call failed — {exc}", file=sys.stderr)
+        err_str = str(exc)
+        if "DataInspectionFailed" in err_str or "inappropriate content" in err_str.lower():
+            print(f"  [retry] {video_id}: moderation blocked — {exc}", file=sys.stderr)
+            update_sv_video(video_id, {"synthesis_status": "moderation_blocked",
+                                       "last_error": f"DataInspectionFailed: {err_str[:200]}"}, progress_path)
+        else:
+            print(f"  [retry] {video_id}: call failed — {exc}", file=sys.stderr)
+        return
+    # Detect content moderation via empty response (no exception, but Qwen rejected the images)
+    finish_reason = result.get("finish_reason") or ""
+    if not text.strip() or "DataInspectionFailed" in finish_reason:
+        reason = finish_reason or "empty response"
+        print(f"  [retry] {video_id}: moderation blocked ({reason})", file=sys.stderr)
+        update_sv_video(video_id, {"synthesis_status": "moderation_blocked",
+                                   "last_error": f"DataInspectionFailed: {reason}"}, progress_path)
         return
     retry_output = pack_dir / f"{retry_pack_id}.output.md"
     retry_output.write_text(text, encoding="utf-8")
