@@ -3,6 +3,8 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 23:30 | expand critical facts regex to v3 — historical years, amounts, durations, counts; 19 facts vs 8 on live content | scripts/build_stream_markdown.py | smoke test passed | ~800 |
+
 | 21:43 | P2 implementation complete in short_video_pipeline.py: removed P0 guard from synthesize, added --skip-done+progress to preprocess, output-reuse+--force+progress to call-pack, command_retry_failed, retry-failed subparser | scripts/short_video_pipeline.py | smoke-test passed (5/5 split, progress=done, retry-failed plan generated) | ~2400 |
 
 | 2026-05-27 | pulled live-xiaoe-20260527 dual-model validation; fixed narrative retention: replace flat-appendix-all with chapter-level injection of missing blocks (_inject_narrative_into_chapters + _hms_to_s); flat appendix now only for time-range-less stragglers | scripts/build_stream_markdown.py | syntax OK, 5/5 smoke tests passed | ~3k |
@@ -807,3 +809,27 @@
 | 23:15 | Edited scripts/short_video_pipeline.py | expanded (+7 lines) | ~140 |
 | 23:15 | Edited scripts/short_video_pipeline.py | 3→4 lines | ~102 |
 | 23:15 | Edited scripts/short_video_pipeline.py | "  Synthesis done    : {sy" → "  Synthesis done    : {sy" | ~39 |
+| 23:21 | Edited scripts/build_stream_markdown.py | "qwen-critical-facts-v2" → "qwen-critical-facts-v3" | ~16 |
+| 23:23 | Edited scripts/build_stream_markdown.py | expanded (+7 lines) | ~222 |
+
+## Session: 2026-05-27 23:25
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-27 23:26
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-27 23:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:28 | Edited scripts/short_video_pipeline.py | removed 9 lines | ~6 |
+
+## Session: 2026-05-27 23:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:30 | Edited scripts/short_video_pipeline.py | modified classify_payload() | ~263 |

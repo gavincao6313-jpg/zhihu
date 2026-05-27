@@ -59,7 +59,7 @@ QWEN_WINDOW_TARGET_FRAMES = 200
 QWEN_WINDOW_OVERLAP_FRAMES = 20
 QWEN_WINDOW_NOTE_VERSION = "qwen-window-note-v3"
 QWEN_FINAL_ASSEMBLY_VERSION = "qwen-final-assembly-v2"
-QWEN_CRITICAL_FACT_VERSION = "qwen-critical-facts-v2"
+QWEN_CRITICAL_FACT_VERSION = "qwen-critical-facts-v3"
 QWEN_NARRATIVE_BLOCK_VERSION = "qwen-narrative-blocks-v1"
 MAX_RETRIES             = 2      # Gemini quota guard: keep automatic retries small
 MAX_CONTINUATIONS       = 2      # Gemini quota guard: 1 initial + 2 continuation calls max
@@ -855,10 +855,17 @@ def extract_qwen_critical_facts(note_texts: list[str]) -> list[dict]:
 
         for pattern, kind in [
             (r'\d+(?:\.\d+)?\s*%', "percentage"),
-            (r'\d+(?:\.\d+)?\s*分(?!钟)', "score"),
+            (r'\d+(?:\.\d+)?\s*分(?!钟|之)', "score"),
             (r'\d+(?:\.\d+)?\s*万?\s*积分', "cost"),
-            (r'20\d{2}年', "date_or_age"),
+            (r'(?:1[5-9]\d{2}|20\d{2})年', "date_or_age"),   # 历史+现代年份
             (r'\d+\s*岁', "date_or_age"),
+            (r'\d+(?:\.\d+)?\s*亿元?', "amount"),             # 亿级金额
+            (r'\d+(?:\.\d+)?\s*万元', "amount"),              # 万元金额
+            (r'\d+(?:\.\d+)?\s*万(?!积分|元|年|人)', "amount"), # 独立万（15.6万）
+            (r'\d+(?:\.\d+)?\s*秒(?!钟)', "duration"),        # 秒（不含"秒钟"）
+            (r'\d+(?:\.\d+)?\s*分钟', "duration"),            # 分钟
+            (r'\d+(?:\.\d+)?\s*小时', "duration"),            # 小时
+            (r'\d+\s*人(?:遇难|受伤|死亡|牺牲|获奖)', "count"), # 伤亡/获奖人数
         ]:
             for m in re.finditer(pattern, text):
                 add_fact(kind, re.sub(r'\s+', '', m.group(0)), idx, text)
