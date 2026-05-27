@@ -57,9 +57,9 @@ QWEN_IMAGE_HARD_LIMIT   = 250
 QWEN_DEFAULT_MAX_FRAMES = 128
 QWEN_WINDOW_TARGET_FRAMES = 200
 QWEN_WINDOW_OVERLAP_FRAMES = 20
-QWEN_WINDOW_NOTE_VERSION = "qwen-window-note-v2"
-QWEN_FINAL_ASSEMBLY_VERSION = "qwen-final-assembly-v1"
-QWEN_CRITICAL_FACT_VERSION = "qwen-critical-facts-v1"
+QWEN_WINDOW_NOTE_VERSION = "qwen-window-note-v3"
+QWEN_FINAL_ASSEMBLY_VERSION = "qwen-final-assembly-v2"
+QWEN_CRITICAL_FACT_VERSION = "qwen-critical-facts-v2"
 QWEN_NARRATIVE_BLOCK_VERSION = "qwen-narrative-blocks-v1"
 MAX_RETRIES             = 2      # Gemini quota guard: keep automatic retries small
 MAX_CONTINUATIONS       = 2      # Gemini quota guard: 1 initial + 2 continuation calls max
@@ -219,6 +219,9 @@ QWEN_WINDOW_NOTE_PROMPT_TEXT = """
 - 视觉证据：截图/幻灯片/群聊/产品界面上的标题、表格、红字、圈注、代码、配置项。
 - 讲师原话或近原话：尤其是判断标准、金句、风险提示。
 
+# 严厉指令：数字与时间句强制留存
+看到任何包含具体数字、年份、年龄、百分比、时长（秒/分钟）、金额、积分、分数、比例的句子，必须原文或近原文保留。不要把“35岁转型”改成“中年转型”，不要把“15秒/30秒/1分钟/3分钟”改成“短时长”，不要把“60分/90分”改成“较低/较高评分”。这些句子后续会被程序抽取为 Critical Facts，缺失会导致最终 QC 失败。
+
 # 输出格式
 请严格使用以下结构：
 
@@ -230,6 +233,9 @@ QWEN_WINDOW_NOTE_PROMPT_TEXT = """
 
 ## Faithful Notes
 按时间顺序记录本窗口信息。不要为了简洁而删除细节。
+
+## Critical Number Sentences
+逐条列出本窗口所有包含年份、年龄、百分比、时长、金额、积分、分数、比例的完整句子或近原文句子。没有则写"未发现"。
 
 ## Narrative Evidence Blocks
 保留本窗口中 2-6 段最有 NotebookLM 检索价值的长叙事证据块。每段 300-800 字，尽量接近讲师原始表达，不要改成思维导图短句。优先保留：
@@ -267,7 +273,7 @@ QWEN_FINAL_ASSEMBLY_PROMPT_TEXT = """
 # 关键规则
 - 不能把窗口笔记压缩成高管摘要。
 - 不能删除窗口笔记中保存的 Prompt、代码块、配置、UI 文案、案例打分、数字、金句和视觉证据。
-- Critical Facts Checklist 中的每一项都必须出现在最终正文或技术资产附录中。不能遗漏分数、年份、金额、积分、工具名、Prompt 关键词。
+- Critical Facts Checklist 中的每一项都必须出现在最终正文、技术资产附录或关键事实索引中。不能遗漏分数、年份、年龄、百分比、时长、金额、积分、工具名、Prompt 关键词。
 - Narrative Evidence Blocks 是防止长文叙事被压缩的保底证据。最终正文必须吸收这些长段的细节和语气；不能只把它们改写成一句 bullet。
 - 可以去重 overlap，但不能因为去重丢掉上下文。
 - 章节必须按真实时间线线性展开，禁止出现大章节包住小章节的重叠时间段。
@@ -303,8 +309,11 @@ QWEN_FINAL_ASSEMBLY_PROMPT_TEXT = """
 ## 6. 叙事证据附录
 集中保留最重要的长叙事证据块。每条要标明来源窗口和时间范围。这个附录用于 NotebookLM 检索，不要压缩成短句。
 
+## 7. 关键事实索引
+集中列出 Critical Facts Checklist 中的关键数字、年份、年龄、百分比、时长、金额、积分、评分、工具名和 Prompt 关键词。每条要标明来源窗口，并保留上下文短句。这个索引用于 NotebookLM 精确检索，不要省略任何一条。
+
 # 自检
-输出前确认：H1 存在；所有窗口都有内容进入正文；Critical Facts Checklist 全部落地；Narrative Evidence Blocks 已进入正文或叙事证据附录；Prompt/代码块没有丢；技术资产附录存在；视觉证据没有被泛化成"展示了截图"；章节时间线不重叠；正文不是短摘要。
+输出前确认：H1 存在；所有窗口都有内容进入正文；Critical Facts Checklist 全部落地到正文/技术资产附录/关键事实索引；Narrative Evidence Blocks 已进入正文或叙事证据附录；Prompt/代码块没有丢；技术资产附录存在；关键事实索引存在；视觉证据没有被泛化成"展示了截图"；章节时间线不重叠；正文不是短摘要。
 
 # 隐藏覆盖标记（必须输出）
 在文档最后一行添加 HTML 注释，列出已纳入最终正文的窗口编号，格式必须严格为：
@@ -333,6 +342,21 @@ def build_combined_transcript(chunk_files: list[Path]) -> str:
     return "\n".join(parts)
 
 
+def _payload_timestamps_are_global(frames: list[dict], chunk_start_s: int) -> bool:
+    if chunk_start_s <= 0 or not frames:
+        return False
+    timestamps = [
+        float(f.get("timestamp_s", 0) or 0)
+        for f in frames
+        if isinstance(f.get("timestamp_s", 0), (int, float))
+    ]
+    if not timestamps:
+        return False
+    first_ts = min(timestamps)
+    last_ts = max(timestamps)
+    return first_ts >= max(0, chunk_start_s - 5) and last_ts >= chunk_start_s
+
+
 def load_chunk_frames(payload_path: Path, chunk_start_s: int) -> list[dict]:
     """Load frames from a per-chunk payload.json, adjusting timestamps to global seconds."""
     if not payload_path.exists():
@@ -342,10 +366,12 @@ def load_chunk_frames(payload_path: Path, chunk_start_s: int) -> list[dict]:
     except Exception:
         return []
 
+    payload_frames = payload.get("frames", [])
+    timestamps_are_global = _payload_timestamps_are_global(payload_frames, chunk_start_s)
     result = []
-    for f in payload.get("frames", []):
+    for f in payload_frames:
         local_ts  = f.get("timestamp_s", 0)
-        global_ts = chunk_start_s + local_ts
+        global_ts = local_ts if timestamps_are_global else chunk_start_s + local_ts
 
         # Rewrite marker display timestamp from local to global
         marker = f.get("marker", "")
@@ -360,6 +386,7 @@ def load_chunk_frames(payload_path: Path, chunk_start_s: int) -> list[dict]:
             "path":        f.get("path", ""),
             "timestamp_s": global_ts,
             "marker":      marker,
+            "timestamp_scope": "global" if timestamps_are_global else "local",
         })
     return result
 
@@ -999,6 +1026,65 @@ def check_qwen_fact_retention(markdown_body: str, facts: list[dict]) -> dict:
     }
 
 
+def format_qwen_critical_fact_appendix(facts: list[dict]) -> str:
+    if not facts:
+        return ""
+    lines = [
+        "## 7. 关键事实索引",
+        "",
+        "> 以下索引由程序从 Qwen window notes 确定性生成，用于避免关键数字、年份、评分、时长和工具名在最终组装时被压缩丢失。",
+        "",
+        "| # | 类型 | 事实 | 来源窗口 | 上下文 |",
+        "|---|---|---|---:|---|",
+    ]
+    for idx, fact in enumerate(facts, start=1):
+        context = _strip_markdown_noise(str(fact.get("context", "")))
+        context = context.replace("|", " / ")
+        if len(context) > 180:
+            context = context[:177].rstrip() + "..."
+        value = str(fact.get("value", "")).replace("|", " / ")
+        kind = str(fact.get("kind", "")).replace("|", " / ")
+        window_index = fact.get("window_index", "")
+        lines.append(f"| {idx} | {kind} | {value} | {window_index} | {context} |")
+    return "\n".join(lines).strip() + "\n"
+
+
+def ensure_qwen_critical_fact_appendix(markdown_body: str, facts: list[dict]) -> tuple[str, dict]:
+    if not facts:
+        return markdown_body, {"appended": False, "reason": "no_facts", "appended_facts": 0}
+    if "## 7. 关键事实索引" in markdown_body or "## 关键事实索引" in markdown_body:
+        retention = check_qwen_fact_retention(markdown_body, facts)
+        if not retention["metrics"]["missing_facts"]:
+            return markdown_body, {
+                "appended": False,
+                "reason": "already_present",
+                "appended_facts": 0,
+                "source_metrics": retention["metrics"],
+            }
+
+    marker = "<!-- qwen_window_coverage:"
+    coverage_tail = ""
+    body = markdown_body.rstrip()
+    if marker in body:
+        idx = body.rfind(marker)
+        coverage_tail = body[idx:].strip()
+        body = body[:idx].rstrip()
+
+    appendix = format_qwen_critical_fact_appendix(facts)
+    if "## 7. 关键事实索引" in body or "## 关键事实索引" in body:
+        appendix = appendix.replace("## 7. 关键事实索引", "## 7. 关键事实索引（程序补全）", 1)
+    updated = body + "\n\n" + appendix.rstrip() + "\n"
+    if coverage_tail:
+        updated += "\n" + coverage_tail + "\n"
+    retention = check_qwen_fact_retention(updated, facts)
+    return updated, {
+        "appended": True,
+        "reason": "deterministic_source_retention",
+        "appended_facts": len(facts),
+        "source_metrics": retention["metrics"],
+    }
+
+
 def check_qwen_timeline_overlaps(markdown_body: str) -> dict:
     chapters = []
     for m in re.finditer(
@@ -1059,6 +1145,45 @@ def check_qwen_technical_asset_appendix(markdown_body: str, facts: list[dict]) -
             "has_technical_asset_appendix": has_section,
             "code_fence_count": code_fence_count,
             "prompt_fact_count": len(prompt_facts),
+        },
+    }
+
+
+def check_frame_timestamp_alignment(frames: list[dict], manifest: dict) -> dict:
+    timeline_end_s = int(manifest.get("timeline_end_s", 0) or 0)
+    if not frames or timeline_end_s <= 0:
+        return {
+            "warnings": [],
+            "metrics": {
+                "frame_count": len(frames),
+                "max_frame_timestamp_s": 0,
+                "timeline_end_s": timeline_end_s,
+                "timestamp_scope_counts": {},
+            },
+        }
+
+    max_ts = max(int(f.get("timestamp_s", 0) or 0) for f in frames)
+    min_ts = min(int(f.get("timestamp_s", 0) or 0) for f in frames)
+    scope_counts: dict[str, int] = {}
+    for frame in frames:
+        scope = str(frame.get("timestamp_scope", "unknown"))
+        scope_counts[scope] = scope_counts.get(scope, 0) + 1
+
+    warnings = []
+    if max_ts > timeline_end_s + BODY_COVERAGE_GAP_S:
+        warnings.append(
+            f"frame_timestamp_exceeds_timeline: max frame {fmt_ts(max_ts)},"
+            f" timeline end {fmt_ts(timeline_end_s)}"
+        )
+    return {
+        "warnings": warnings,
+        "metrics": {
+            "frame_count": len(frames),
+            "min_frame_timestamp_s": min_ts,
+            "max_frame_timestamp_s": max_ts,
+            "timeline_end_s": timeline_end_s,
+            "max_frame_tail_delta_s": max_ts - timeline_end_s,
+            "timestamp_scope_counts": scope_counts,
         },
     }
 
@@ -1639,6 +1764,9 @@ def main() -> None:
     manifest["synthesis_provider"] = provider
     manifest["synthesis_model"] = provider_model
     manifest["synthesis_pass"] = synthesis_pass
+    frame_timestamp = check_frame_timestamp_alignment(all_frames, manifest)
+    manifest["frame_timestamp_qc"] = frame_timestamp["metrics"]
+    manifest["warnings"].extend(frame_timestamp["warnings"])
     if provider == "qwen":
         manifest["qwen_thinking_enabled"] = bool(args.qwen_thinking)
     label_part = f".{output_label}" if output_label else ""
@@ -1956,6 +2084,15 @@ def main() -> None:
             transcript,
         )
         manifest["qwen_narrative_appendix"] = narrative_appendix
+        qwen_facts = manifest.get("qwen_critical_facts", [])
+        qwen_fact_body_retention = check_qwen_fact_retention(gemini_text, qwen_facts)
+        manifest["qwen_fact_body_retention_qc"] = qwen_fact_body_retention["metrics"]
+        manifest["qwen_fact_body_retention_warnings"] = qwen_fact_body_retention["warnings"]
+        gemini_text, critical_fact_appendix = ensure_qwen_critical_fact_appendix(
+            gemini_text,
+            qwen_facts,
+        )
+        manifest["qwen_critical_fact_appendix"] = critical_fact_appendix
 
     # Check body coverage before building the header so the warning appears in the QC block.
     coverage = check_markdown_body_coverage(gemini_text, manifest)
@@ -1997,6 +2134,8 @@ def main() -> None:
     manifest["transcript_appendix_chars"] = len(transcript.strip())
     manifest["visual_evidence_count"] = len(all_frames)
     manifest["deterministic_appendices"] = ["full_transcript", "visual_evidence_index"]
+    if provider == "qwen" and synthesis_pass == "sliding-window":
+        manifest["deterministic_appendices"].insert(0, "critical_fact_index")
     # Re-write QC JSON with body coverage fields included.
     qc_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
