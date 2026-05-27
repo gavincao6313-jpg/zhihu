@@ -1,0 +1,398 @@
+{
+  "base": "replay-xiaoe-20260527-qwen",
+  "run_ts": "20260527-123906",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 133,
+  "transcript_chars": 41647,
+  "frame_count": 143,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 7958,
+  "timeline_end_s": 7980,
+  "timeline_duration_s": 7980,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.6-flash",
+  "synthesis_pass": "sliding-window",
+  "warnings": [],
+  "frame_timestamp_qc": {
+    "frame_count": 143,
+    "min_frame_timestamp_s": 0,
+    "max_frame_timestamp_s": 7943,
+    "timeline_end_s": 7980,
+    "max_frame_tail_delta_s": -37,
+    "timestamp_scope_counts": {
+      "local": 1,
+      "global": 142
+    }
+  },
+  "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 2,
+    "total_frames": 143,
+    "covered_new_frames": 143,
+    "selected_frames_across_windows": 143,
+    "overlap_frames": 0,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 0,
+      "annotation": 0,
+      "context": 143
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 0,
+        "end_s": 7147,
+        "selected_frame_count": 128,
+        "new_frame_count": 128,
+        "overlap_frame_count": 0,
+        "transcript_chars": 37801,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 128
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 7148,
+        "end_s": 7943,
+        "selected_frame_count": 15,
+        "new_frame_count": 15,
+        "overlap_frame_count": 0,
+        "transcript_chars": 4843,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 15
+        }
+      }
+    ]
+  },
+  "frame_policy": {
+    "provider": "qwen",
+    "mode": "sliding-window",
+    "window_count": 2,
+    "windows": [
+      {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 15,
+        "selected_frames": 15,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      }
+    ]
+  },
+  "provider_parts_count": 292,
+  "qwen_window_notes": [
+    "runs\\stream-replay-xiaoe-20260527-qwen-20260527-123906.qwen-window-001.notes.md",
+    "runs\\stream-replay-xiaoe-20260527-qwen-20260527-123906.qwen-window-002.notes.md"
+  ],
+  "qwen_window_notes_reused": 0,
+  "qwen_window_note_metadata": [
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.6-flash",
+      "source_hash": "b93d602df50f1f9249dfb84ae400139dfda63dea2a134655e6a2a3a217de74b1",
+      "window_index": 1,
+      "start_s": 0,
+      "end_s": 7147,
+      "selected_frame_count": 128,
+      "new_frame_count": 128,
+      "overlap_frame_count": 0,
+      "transcript_chars": 37801,
+      "frame_type_counts": {
+        "slide": 0,
+        "annotation": 0,
+        "context": 128
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 33894,
+        "output_tokens": 5224,
+        "total_tokens": 39118
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.6-flash",
+      "source_hash": "efd8afc462fabc672b1e0d4b2a89b878d8752558b938b757e1fe3b393e80b4b9",
+      "window_index": 2,
+      "start_s": 7148,
+      "end_s": 7943,
+      "selected_frame_count": 15,
+      "new_frame_count": 15,
+      "overlap_frame_count": 0,
+      "transcript_chars": 4843,
+      "frame_type_counts": {
+        "slide": 0,
+        "annotation": 0,
+        "context": 15
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 15,
+        "selected_frames": 15,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 4792,
+        "output_tokens": 2627,
+        "total_tokens": 7419
+      }
+    }
+  ],
+  "qwen_final_assembly_version": "qwen-final-assembly-v2",
+  "qwen_critical_fact_version": "qwen-critical-facts-v2",
+  "qwen_critical_facts": [
+    {
+      "kind": "percentage",
+      "value": "99%",
+      "aliases": [
+        "99%"
+      ],
+      "window_index": 1,
+      "context": "状态。 7. 哪怕就是你买一个东西，03年04年的时候，我就开始趋向于在网上去买东西。 8. 现在这种几十万行的代码完全基于Web Codinging。 9. 99%用Web Codinging，我觉得是一个很正常的一件事。 10. 大模型是他的大脑，规划能力是他的思考方式，记忆力是他的记忆，外部工具是他的手脚。 11. 智"
+    },
+    {
+      "kind": "percentage",
+      "value": "10%",
+      "aliases": [
+        "10%"
+      ],
+      "window_index": 1,
+      "context": "，知善知恶是良知，去为善去恶是格物。 22. 这是温达agent四种模式中的refrection反思者模式。 23. 我测试过我测试过，我个人觉得是超过百分就是10%以内肯定是稳的。超过10%之后我觉得。我觉得不好说不好说。 24. 2月份的时候，这个这个这个这个open pro突然火爆起来了，峰值用户2600万。 25."
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2000年",
+      "aliases": [
+        "2000年"
+      ],
+      "window_index": 1,
+      "context": "，我要用古法来去炮制的方法来去核核着你好，我们应该以使用AI为荣。你使用手工为耻。 6. 我在二十来岁的时候，当时也有类似的一个状况。我不知道大家在那个时候，在2000年初的时候有没有这样的一个状态。 7. 哪怕就是你买一个东西，03年04年的时候，我就开始趋向于在网上去买东西。 8. 现在这种几十万行的代码完全基于Web Co"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2006年",
+      "aliases": [
+        "2006年"
+      ],
+      "window_index": 2,
+      "context": "其能力，增强其参数。现在在工程层面的话，除了一般的其尔斯调用之外的话，其实全都又回来了，全回来了，全回来了...有点像什么？就是有这个东西有点像这个是从这个这个2006年开始大这样的这个程序自就是得自带监控，自带单元测试。所有的这些东西就是又是典型的控制工程的这一套。” ### Narrative Block [02:07:0"
+    }
+  ],
+  "qwen_narrative_block_version": "qwen-narrative-blocks-v1",
+  "qwen_narrative_blocks": [
+    {
+      "window_index": 1,
+      "title": "驾驭工程的起源与编程范式的转变",
+      "time_range": "00:05:00 - 00:09:59",
+      "chars": 357,
+      "anchor": "讲师首先介绍了“驾驭工程”（Harness Engineering）这一概念的来源，主要基于OpenAI发布的一个案例：三个人经过5个月的时间，完全借助Code",
+      "text": "讲师首先介绍了“驾驭工程”（Harness Engineering）这一概念的来源，主要基于OpenAI发布的一个案例：三个人经过5个月的时间，完全借助CodeX上线了一个百万行代码的产品级项目。核心在于该项目完全采用Web Coding模式，工程师没有手写一行代码。讲师指出，过去人们认为Web Coding只是“搓玩具”，担心会产生技术债，但现在随着AI能力的提升，由AI完成代码编写、审核、审计甚至上线已成为可能。讲师强调，这是一种不可逆的趋势，任何工作流都不应再固守“古法”人工炮制，而应以使用AI为荣。他类比了2000年代初互联网普及时的场景，当时上网贵、信息不对称，人们倾向于在线购物但也面临风险，如今AI工具如同当年的互联网一样，正在重塑工作流。因此，我们需要拥抱新的工具，摒弃旧的、低效的手工方式。"
+    },
+    {
+      "window_index": 1,
+      "title": "Agent的层级与管理学隐喻：从Prompt到Skill再到Manager",
+      "time_range": "00:10:00 - 00:25:59",
+      "chars": 540,
+      "anchor": "讲师深入探讨了Agent的构建方式，并将其与人力资源管理进行类比。 1. **Prompt（提示词）：** 类似于给大学生发“岗位要求”。告诉AI你是谁、做什么",
+      "text": "讲师深入探讨了Agent的构建方式，并将其与人力资源管理进行类比。 1. **Prompt（提示词）：** 类似于给大学生发“岗位要求”。告诉AI你是谁、做什么、不能做什么、什么风格。但这只解决了“说什么”的问题，缺乏行业经验和实际操作能力。 2. **Workflow（工作流）：** 类似于工厂流水线。将不同的角色（Agent）固定在流水线上，如打螺丝、焊接、喷漆。每个环节输入输出固定，适合标准化、重复性的任务。但如果涉及多Agent协作或复杂逻辑，单纯的工作流显得僵化。 3. **Skill（技能）：** 类似于给员工发“操作手册”或“技能包”。员工遇到特定情况时，查阅手册并按步骤执行。这使得单个Agent具备一定的独立解决问题的能力，如竞品调研、PPT制作等。 4. **Manager/带教（高阶Agent）：** 对于创造力极强的员工（或高能力模型），不应限制其手脚，而是划定边界（“不能做的事”），给予充分自主权。 讲师指出，人类职场中，能力弱者给严格SOP，能力强者给宽边界。但在AI时代，模型能力普遍强大且成本降低，未来的组织形式不再是“因人设岗”，而是“因港设人”——即根据场景需求，将大模型框定在特定的Agent结构中（入模子），使其成为可控的生产力。"
+    },
+    {
+      "window_index": 1,
+      "title": "王阳明心学与驾驭工程的哲学映射",
+      "time_range": "00:26:00 - 00:45:59",
+      "chars": 562,
+      "anchor": "讲师将中国传统哲学（王阳明心学）与AI Agent架构进行了深度对标，提出了独特的理论框架： 1. **本自具足 vs. 预训练：** 大模型通过预训练囊括了人",
+      "text": "讲师将中国传统哲学（王阳明心学）与AI Agent架构进行了深度对标，提出了独特的理论框架： 1. **本自具足 vs. 预训练：** 大模型通过预训练囊括了人类几乎所有知识，本性中具备善良、勇气、智慧等品质，无需向外求索，这对应“本自具足”。 2. **格物致知 vs. RAG/微调：** “格”意为格式化、标准化、切词；“物”指非数字化数据。通过RAG和微调，将外部数据转化为模型可用的知识，即“格物致知”。 3. **无善无恶心之体 vs. Agent本体：** 在没有具体任务（Prompt）触发时，大模型处于纯净、无偏见的状态，如同镜子，无善无恶。 4. **有善有恶意之动 vs. Prompt/目标：** 一旦产生目标（意念一动），就有了具体的任务场景，结果的好坏（善恶）便由此产生。 5. **知善知恶是良知 vs. Reflection（反思）：** 模型本身不知善恶，需要通过“反思者模式”（Reflection）来检查输出是否符合要求、是否有误。这种自我纠错机制即为“良知”。 6. **为善去恶是格物 vs. 驾驭工程：** 在明确对错后，通过约束体系（缰绳）引导模型只做正确的事，去除错误念头。驾驭工程就是这套“为善去恶”的约束和支撑体系，确保模型在安全轨道内运行，达到“随心所欲不逾矩”的状态。"
+    },
+    {
+      "window_index": 1,
+      "title": "驾驭工程的六大要素与Hermes的实践",
+      "time_range": "00:46:00 - 01:20:59",
+      "chars": 643,
+      "anchor": "讲师详细拆解了驾驭工程（Harness Engineering）的六大核心要素，并对比了Prompt工程、Context工程和Harness工程的区别。 **区",
+      "text": "讲师详细拆解了驾驭工程（Harness Engineering）的六大核心要素，并对比了Prompt工程、Context工程和Harness工程的区别。 **区别：** Prompt是内核（指令表达），Context是状态供给（数据流），Harness是外壳（契约、缺陷回滚、监控）。 **六大要素：** 1. **完成定义可机器验证：** 模型需知道任务何时真正完成，输出格式、数据结构、终止条件需明确。 2. **知识必须可验证且可打开：** 知识需有出处、作者、审核机制（如医疗知识需多级审核），确保权威性和可追溯性。 3. **给Agent感官手脚做自证：** 赋予Agent调用浏览器、查看日志、运行测试代码的能力，让它自己测试自己，因为Token比人力便宜。 4. **解决长时序失忆：** 通过文件写入、Git提交等物理手段保存状态，而非仅依赖易腐烂的内存上下文。 5. **验证外置回路：** 设置外部“监工”（如Eva/QA Agent）对主Agent的输出进行客观审视。 6. **边界沙箱机械化：** 定期清理熵增（垃圾回收、代码重构），保持环境健康。 随后，讲师介绍了**Hermes**，一个将Harness能力内建为系统原生的开源Agent框架。相比OpenClaw，Hermes更“乖”，能在使用中自动沉淀Skill、管理长期记忆（SQLite+全文索引），并具备五层安全防线。讲师演示了其安装和使用，强调其自动化程度高，适合希望Agent越用越强的场景。"
+    },
+    {
+      "window_index": 1,
+      "title": "AI产品的未来：人是瓶颈与AI员工化",
+      "time_range": "01:21:00 - 01:59:07",
+      "chars": 370,
+      "anchor": "讲师分析了当前AI发展的瓶颈并非模型能力，而是**人**。随着模型执行力、逻辑性的增强，人类的注意力成为稀缺资源。讲师展示了自身多屏工作流（左侧Coding/R",
+      "text": "讲师分析了当前AI发展的瓶颈并非模型能力，而是**人**。随着模型执行力、逻辑性的增强，人类的注意力成为稀缺资源。讲师展示了自身多屏工作流（左侧Coding/Research，右侧Communication/Media），指出未来需要更多屏幕来并行处理AI生成的信息。 核心观点：**喜欢是放肆，而爱是克制**。AI生产力的释放需要减少人工干预，推动“AI员工化”。产品设计应从“给每个人配AI助理”转向“让AI成为独立员工”，人的角色仅限于关键节点判断和处理AI无法解决的权限/伦理问题。 最后，讲师总结了基于Harness的工程化产品设计四步走： 1. 定义完成（明确交付物）。 2. 设计中间产物。 3. 配置环境（感官手脚）。 4. 上Eva监控（外置回路）。 这一趋势要求我们从“聊天”转向“一站式干活”，以终为始地设计AI应用。"
+    },
+    {
+      "window_index": 2,
+      "title": "Harness工程的四大产品设计要素",
+      "time_range": "02:00:00 - 02:02:59",
+      "chars": 771,
+      "anchor": "原文或近原文长段内容： “所以对于产品设计，我们在后面应该有什么样的变化。基于这个加于工程的这种方式，我们得做四个事。第一个是要定义完成定义啊，这个是拗口的定义",
+      "text": "原文或近原文长段内容： “所以对于产品设计，我们在后面应该有什么样的变化。基于这个加于工程的这种方式，我们得做四个事。第一个是要定义完成定义啊，这个是拗口的定义完成定义。第二是设计中间产，第三是配置环境。第四个上伊外去做监控。这个其实是我觉得在新时代，基于这个这个harness的这种这种工程，它的产品设计的一些要素。首先最关键是要去定义一个完成定义。就是你先确定我所需要的成果到底应该是个什么东西，它是一段字还是一段图，它的要求是什么。也就是说有点像我告诉大家，这个东西你做管理，对于在harness上去用大模型特别有帮助。你得对于新的员工，对于小员工你得去说明白我这个工作到底要你的交付中产物是什么。我能够准确描述我的交中产物的结果就好办了。比如说这边要什么样的内容，要什么样的效果，要什么样的状态。要什么样的格式，先把这件事定清楚，再考虑其他的...然后还要去设计一些中间产物，就是加驭工程，特别是强调过程的可见性。什么是过程的可见性呢？就是你得要求Aent能够在执行过程中产生一些人类可读的中间产物。过程中的思考，过程中的这个to do等等一些东西。比如说崩溃之后，可以通过中间产物去做恢复。比如说随时可以看agent的思考逻辑，可以去纠偏，然后出现错误，可以去做回溯，可以调整步骤的约束条件来去改变这个agent所最后输出的东西...第三步要配置环境，配置环境包括了就是所谓的感官集成。所谓的感官集成是什么呢？就是你的浏览器它能够去调用，包括有头无头的等等一些，对吧？包括log他可以看到，包括指标他可以看到，你得告诉大模型，这是这是log，这是指标，这是文件，这是数据库，这是终端，能够把这些环境给它配置上。同时呢还要有一些失意环境的一些解决，包括刚才所说的进度文件，包括get的回滚点，包括初始化脚本的这一系列的这些东西...”"
+    },
+    {
+      "window_index": 2,
+      "title": "从提示词到测试集：软件工程的回归",
+      "time_range": "02:03:00 - 02:05:59",
+      "chars": 594,
+      "anchor": "原文或近原文长段内容： “他们家的这个产品经理，这个ca吴说了一个东西，他们他们现在内部做产品的话，其实产品经理就是定义什么呢？去做一个web coding，再",
+      "text": "原文或近原文长段内容： “他们家的这个产品经理，这个ca吴说了一个东西，他们他们现在内部做产品的话，其实产品经理就是定义什么呢？去做一个web coding，再去把相应的伊va去做定义，就OK了，然后就让他去跑了。所以...永远不相信所谓有完美的防的。这东西不存在，对吧？尤其是在这种复杂的业务场景中，就永远没有完美的提示词，只有能够不断完善的测的测的测的测试集，才能让你的最后这个产品最后交付的结果，它能够达到一种商业可生产的这样一个地步和状态。然后另外就是重视回归，就是AI的非确定性，意味着每微调一个小地方，你改一个promp的一小段化的描述，有可能整个全局就崩盘了。所以还需要为此来去建立这种自动化的回归测试流啊，使得你每改一个东西它就自动的来去运行，自动的来去修改，自动来去判断它是否能够符合你的要求。因为越大的这种工程性的东西的话，它越需要通过自动化测试来去解决这个人力的这个问题...他开始回归软件工程了，你们觉不觉得他有始回归软件工程的时候了...就是大模型这个东西发展是真的快，真的是快。一开始是增强其能力，增强其参数。现在在工程层面的话，除了一般的其尔斯调用之外的话，其实全都又回来了，全回来了，全回来了...有点像什么？就是有这个东西有点像这个是从这个这个2006年开始大这样的这个程序自就是得自带监控，自带单元测试。所有的这些东西就是又是典型的控制工程的这一套。”"
+    },
+    {
+      "window_index": 2,
+      "title": "个人知识库管理的崩溃与“内部涌现”",
+      "time_range": "02:07:00 - 02:11:59",
+      "chars": 555,
+      "anchor": "原文或近原文长段内容： “就是我的个人知识库，我现在管理崩溃了，我直接说吧。我自己的个人知识库，我自己的管理崩溃了，为什么会出现这么一个状态呢？我原本的知识库是",
+      "text": "原文或近原文长段内容： “就是我的个人知识库，我现在管理崩溃了，我直接说吧。我自己的个人知识库，我自己的管理崩溃了，为什么会出现这么一个状态呢？我原本的知识库是基于notebook的。什什么基弄，我基于ever note的现在ever note这个的能力实在是太差了。所以呢导致我有我有一小阵子想想去用nion啊，然后呢发现ntion也有他的问题。然后又有一阵用sideder，然后又有一阵试图再去用这个notebook，对吧...而且因为我的知识又属于这种杂和多，所以没有一个特别好的方案...所以就是我自己的知识管理的话，现在更多的是靠大脑。更多的是靠大脑是吧？火山石是吧？火山石试过，但是还是不能完全满足我我的需求...同学们，你们能想到我有的时候，我有些时候。我有些时候讲课的时候是突然间悟道的状态吗？你们能想能能想到这个事儿吗？就是我的知识有的时候不是外部性的，是内部性的涌现，你知道吗？就是讲着讲着，突然间有一个特别好的东西，它涌现了，这东西我往哪放？...讲着讲着，有的时候是教互的教学相长嘛，大家问我的这么一个问题，突然把我启发了。这种灵光一闪的东西，其实在我的这个知识体系中非常的多。我也不知道用什么样的方法去做...就是你脑子里的这个突出结构慢慢连着连着连着连着连着连着，突然间啪起来了。”"
+    }
+  ],
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.6-flash",
+    "api_calls": 3,
+    "finish_reason": "stop",
+    "window_finish_reasons": [
+      "stop",
+      "stop",
+      "stop"
+    ],
+    "usage": {
+      "input_tokens": 50648,
+      "output_tokens": 17037,
+      "total_tokens": 67685
+    },
+    "current_run_usage": {
+      "input_tokens": 50648,
+      "output_tokens": 17037,
+      "total_tokens": 67685
+    },
+    "current_run_api_calls": 3,
+    "end_to_end_usage": {
+      "input_tokens": 50648,
+      "output_tokens": 17037,
+      "total_tokens": 67685
+    },
+    "end_to_end_api_calls": 3,
+    "reused_window_note_api_calls": 0,
+    "estimated_cost_cny": null
+  },
+  "qwen_narrative_appendix": {
+    "appended": false,
+    "reason": "already_retained",
+    "appended_blocks": 0
+  },
+  "qwen_fact_body_retention_qc": {
+    "fact_count": 4,
+    "retained_count": 4,
+    "retention_ratio": 1.0,
+    "missing_facts": [],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_fact_body_retention_warnings": [],
+  "qwen_critical_fact_appendix": {
+    "appended": false,
+    "reason": "already_present",
+    "appended_facts": 0,
+    "source_metrics": {
+      "fact_count": 4,
+      "retained_count": 4,
+      "retention_ratio": 1.0,
+      "missing_facts": [],
+      "min_retention_ratio": 0.9
+    }
+  },
+  "body_last_chapter_end_s": 7943,
+  "body_tail_gap_s": 37,
+  "body_coverage_status": "ok",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 17946,
+    "body_transcript_ratio": 0.4309,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 9,
+    "chapter_fields_missing": [],
+    "code_fence_count": 8,
+    "prompt_keywords_missing": [],
+    "body_min_transcript_ratio": 0.2,
+    "source_frame_count": 143
+  },
+  "qwen_window_coverage_qc": {
+    "expected_windows": [
+      1,
+      2
+    ],
+    "covered_windows": [
+      1,
+      2
+    ],
+    "missing_windows": []
+  },
+  "qwen_fact_retention_qc": {
+    "fact_count": 4,
+    "retained_count": 4,
+    "retention_ratio": 1.0,
+    "missing_facts": [],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_timeline_qc": {
+    "chapter_count": 9,
+    "overlap_count": 0,
+    "overlaps": []
+  },
+  "qwen_technical_asset_qc": {
+    "has_technical_asset_appendix": true,
+    "code_fence_count": 4,
+    "prompt_fact_count": 0
+  },
+  "qwen_narrative_retention_qc": {
+    "narrative_block_count": 8,
+    "retained_block_count": 8,
+    "retention_ratio": 1.0,
+    "body_transcript_ratio": 0.4309,
+    "min_body_transcript_ratio": 0.32,
+    "missing_blocks": []
+  },
+  "transcript_appendix_chars": 41647,
+  "visual_evidence_count": 143,
+  "deterministic_appendices": [
+    "critical_fact_index",
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
