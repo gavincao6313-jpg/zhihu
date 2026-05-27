@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk111_6596s",
+  "full_text": "[00:00:00 - 00:01:00] 审核没审出来的。人民接批了，举报了调查了，下架了，等着锒铛入狱吧，等着误会挨哉了。这就是中国人民史观的好处，天下兴亡，匹夫有责。你在这搞，我就是一帮人一帮人的去举报。这就是中国这个特特别好的一个点。这实话真的是好，真的是好。就是我不得不去说啊，这个胜利属于伟大的人民啊，胜利属于伟大的人民，真的是棒真的是棒。这个这个背景下，我个人认为文科生的历史机遇真的是到了。呃，汪涵啊。前半是这样的，我好歹也是芒果TV的顾问，让我为我的老东家留点脸行不行？让我为我的老东家留点脸好吗？啊，留点脸啊。没吧。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000110\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000110\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0323"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000110\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.0323"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.0323
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 268
+  }
+}

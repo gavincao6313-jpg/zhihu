@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk031_1800s",
+  "full_text": "[00:00:00 - 00:00:59] 去讲出来，否则你们。有时看不破这个事儿，这件事儿是一个给大家去开灵视的一节课。这种传播方式最恶心一件事儿叫做把大众的愤怒做祭品，换取内部圈层的狂热忠诚，以身份认同策略替代品牌传播策略。这么干之后的话，是会把好不容易做出来的一点点中国品牌全他妈给毁掉的。😊太恶心了太恶心了，真的真的太恶心了。😡而且我告诉你，为什么百分之百是狗哨，我们看一下这有个更深层次的狗哨。你们觉得这个模特和右侧的这个人。装造和感觉像不像？😡我们认真的说。装造和感觉像不像我认真的说。😡像不像？它的纯色的纯的颜色颜。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000030\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000030\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.0714"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000030\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0714"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.0714
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 265
+  }
+}

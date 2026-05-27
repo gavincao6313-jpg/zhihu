@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk039_2280s",
+  "full_text": "[00:00:00 - 00:00:59] 有情节。这才是最可怕的。扒来扒去发现一点问题都没有。而且在中国，在这十几年的法律院的事实上的司法实践中，如果是家庭。这种七杀夫的案件有一点家暴的情节，就不会判15年，就不会判20年，就不会判这么久。一般来讲，很多时候甚至有判五缓三的案例，有判三缓二的案例都有。绝对不会判到这么久。所以这个的判决书包括所有在这本当时的所有的推定，全都没有任何的家暴的一丝一毫的东西。所以这个时候这帮女权女性的博主就出来了，居然是这样，这事儿可能没有这么正常。并且我们看一下当时的裁定书。这事儿很可怕啊，同学们想一想这个的我们想一下当时这个这个这个场景啊，经检验，死者张伯胸骨上平骨间样一个这个四角斜向右下入胸腔，注意是斜向右下入胸腔。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000038\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000038\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.2403"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000038\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2403"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2403
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 330
+  }
+}

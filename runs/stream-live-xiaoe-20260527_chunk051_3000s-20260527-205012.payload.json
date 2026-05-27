@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk051_3000s",
+  "full_text": "[00:00:00 - 00:01:00] 救国团全名叫做中国青年反共救国团。嗯。😀嘿嘿。😊1952年成立，长期由蒋经国直接领导，背后连接的是当时台湾最核心的政战体系、青年动员体系、校园宣传体系和意识形态体系。简单来讲意识形态旺君。这是现在台湾网军。的前身。这是台湾网就的前身。你们明白到这一层挖出什么东西来了吗？挖出什么东西来了吧，看出来了吗？对吧？好。然后。还有谁背后的股东有谁？这面看啊吴飞跃蔡庆增。邱培贤吴凯元，然后这个是这个大象。这个大笑他背后的。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000050\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000050\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.1822"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000050\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.1822"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.1822
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 229
+  }
+}

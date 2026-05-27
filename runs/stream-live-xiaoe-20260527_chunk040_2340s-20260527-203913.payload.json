@@ -1,0 +1,49 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk040_2340s",
+  "full_text": "[00:00:00 - 00:01:00] 这把刀全长19厘米。任长9.5厘米。高深有血迹。从赵晓红捅刺张波的部位和力度上，他其伤害人身体的健康犯罪。明显，而且最后他下意识挥了一刀，刀子就扎进了张博的胸部，抽出刀子，见胸部流血了。然后平时不干家务，夫妻两人吵过架，但吵好马上就和好。他俩哥嫂关系很好，但有时为家务事吵嘴，婚后关系较好，有时候因琐事吵架，但事后就就好。导火索是22时许，张博说，床没有织好，叫他下来重新织床。床织好，他又躺下。床。张说床还没有治好，让他再下来，他不下来，张就拉他，他还不下来，就用拳头打了他，然后他就拿刀把他捅死了。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000039\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000039\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.1536"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000039\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.1536"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000039\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.127"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000039\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.127"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.1536
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.127
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 273
+  }
+}

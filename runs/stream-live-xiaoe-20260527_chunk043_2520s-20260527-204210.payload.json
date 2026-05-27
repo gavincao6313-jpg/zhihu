@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk043_2520s",
+  "full_text": "[00:00:00 - 00:01:00] 拿刀嘛，这样拿刀正常时候咱们都会拿切个西瓜削个皮儿啊，划个快递都这么难。😡你会这么拿刀吗？你会这么难弄吗？真的我非常认真的说这个这个这个这个这个这个细节看的我非常的害怕，这么拿刀说句实在话，我觉得。😊我觉得是非常不正常的，哪有这么正常的时候，你就算是俩你就算是俩俩人打起来了。那正常时候也也是拿拿这刀，我砍我砍我砍死你，对不对？😡谁也没有是这样啊。砍砍是砍不死人的。同学们，我要告诉你一个点，我告诉你们，砍是砍不死人的。为什么这个刃儿砍这有骨头，只有追我能够戳戳才是能死人的。懂了吧。太恐怖了，一刀致命了一刀致命了。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000042\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000042\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.1558"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000042\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.1558"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.1558
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 280
+  }
+}

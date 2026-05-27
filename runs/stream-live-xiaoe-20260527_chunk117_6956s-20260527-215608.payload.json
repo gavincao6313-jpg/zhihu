@@ -1,0 +1,49 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk117_6956s",
+  "full_text": "[00:00:00 - 00:00:59] 狗进出了大门，敞开着，有一个人有一个声音高叫着。😊钻出来吧，给你自由。😡条件下。文科成功只有两条路，跨国续世的买办。不解决本土任何问题，就是把本土的苦难包装成西方定制的标本。对吧张大国时对吧？对吧假摄影师对吧？这些大国师们不都是这个样子吗？然后在境外电影节拿奖，在境内就去煽动对立，对吧？然后第二个叫法理的军火商。对吧。😊罗老师，对不对？对正义本身不感兴趣，但对于规则的漏洞和流量的流向有兴趣，帮小作文设计合规的控诉模板，在互联网高频兜售法律武器。去撕裂传统的道德和秩序，这就是这两方，这这是文科生在现在最容易挣钱的两两种方式，对吧？",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000116\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000116\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0341"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000116\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0341"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000116\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.0598"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000116\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0598"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.0341
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.0598
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 289
+  }
+}

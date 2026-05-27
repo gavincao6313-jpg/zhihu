@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk008_420s",
+  "full_text": "[00:00:00 - 00:01:00] 你们觉得这件事神奇吗？你们觉得这件事儿他神奇吗？啊。这咱们认真的说一件事儿，这件事儿的话，这不是抽不抽，这不是抽不抽象事儿，而且还洗洗，他是因为家暴才反抗才杀了人。你们觉得这件事儿。😊他是个阳间的事儿吗？你们觉得这是个阳间的事儿吗？对吧？不光是歪曲的问题。同学们，我们看看连豆瓣都是这种画风。这个豆瓣咱们客观一点讲，这个我在很多年前也很喜欢，包括我自己的所有书也都在这边去登记，它是怎么出来的，他是刑满释放，他是刑满释放，有两次减刑。在这边打异星的非常的多，在这各种的骂的也非常多，甚至有一有很多原本是打拳的都在骂。😊为什么呢？他说你这部片子出来之后，使得女性的这个整个的处境会变得更加的难的对吧？然。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000007\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000007\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.2361"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000007\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.2361"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.2361
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 323
+  }
+}

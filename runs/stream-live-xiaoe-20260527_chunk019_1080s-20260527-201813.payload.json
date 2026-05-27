@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk019_1080s",
+  "full_text": "[00:00:00 - 00:01:00] 买个热搜的头条叫姚晨干大事儿啊，那个导演是个男的OK十几年前一口一个上帝呀、耶稣啊啊、哈利路亚呀，现在天天宣传福建妈祖，你说他是个什么人，你说他是个什么人？😊我告诉你我告诉你，我个人认为啊，我可能我可能认为的有问题。但是我认为这几件事儿加起来，你发现这个人啊这个人其实嘴上都是主意，心里全是生意，对吧？但是他是一个对于狗哨特别敏感的人。啊，首先我先说为什么他是都是主义，他都是生意，他的特别强大能。为什么她当年是微波女王，为什么她以前是微波女王啊？😊他对于流量特别敏感，他对于流量特别敏感，他特别知道发什么东西，他能火。对于这里面的本质上的三观里面的逻辑底层未来东西。他脑子不够，算力不够。对吧。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000018\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000018\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0243"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000018\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0243"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0243
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 321
+  }
+}

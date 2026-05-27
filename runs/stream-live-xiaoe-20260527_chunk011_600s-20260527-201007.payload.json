@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk011_600s",
+  "full_text": "[00:00:00 - 00:00:59] 银贝壳影后，大家想一想一个问题啊，银贝壳这个圣塞巴斯蒂安是不是路边一条啊，其实不是的，圣塞巴斯蒂安电影节不是个野鸡奖，不是个路边一条的奖，这是国际A类的电影节创办于1953年。1953年这个事儿很重要啊，你们知道1953年是一个什么样的情况吗？这是洪秀全进南京的100周年，跟这事儿没有关系啊。因为洪秀全进南京是1853年，哎，适合周冬雨也也也有关系。但周冬雨现在没有实锤，我不愿意去说这个事儿，需要注意一点，既然但既然丹青说到这点。这一届圣塞拉斯蒂安的电影节的评委，里面有周冬雨里面有周冬雨O在这次之前，中国女演员获得影后的只有谁。这个影后不是说路边一条他就能拿的，得是什么样的咖才能拿。1994年宁静。😊通过炮打双灯。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000010\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000010\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0391"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000010\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0391"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0391
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 333
+  }
+}

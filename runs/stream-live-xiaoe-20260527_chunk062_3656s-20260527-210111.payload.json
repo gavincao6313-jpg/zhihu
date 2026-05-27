@@ -1,0 +1,64 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk062_3656s",
+  "full_text": "[00:00:00 - 00:01:00] 一柄水果刀撕裂阴晴云圆缺的世界，世界上最美最美的是月亮，比月亮更美更美的是你。你唇间有芬芳的月色，你的歌声里有特色的归期，说的是他把谁呀？他发髻高婉，像公素然笔下的昭君在金戈铁马寒风中辞别故人和故乡，同样沉于落雁之法，身不由己，纸端有同样的寒风与辞别。他的笑容甚至甚于你刺向他的刀刃。好出去。😔所以同学们。这叉P可以偏门，但不能斜门。这俩人真是一对苦命的鸳鸯。这个人啊这个秦小伟应该是非常压抑的，这是他在2013年，他曾经在一个这个诗的诗画里面。然后这个这是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000061\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000061\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0898"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000061\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0898"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000061\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.2438"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000061\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.2438"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000061\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.2176"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000061\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.2176"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.0898
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.2438
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.2176
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 252
+  }
+}

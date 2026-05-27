@@ -1,0 +1,64 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk048_2820s",
+  "full_text": "[00:00:00 - 00:00:59] 红龙的标志啊，觉得这个片没有龙标啊，又是不是通过没有审查呀？上314线大概率是没有审核的版本。注意没有龙标的蓝本到国际电影节，这是非法的这是非法的啊，什么公司做的呢？这里面有一个参饮公司叫上海大象伙伴影业有限公司。扒到了他的这个制作公司，扒到了制作公司。大象伙伴上海大象伙伴注意看他的这个企业的这张抬头的这张图是什么？这个企业的这个头像是什么？未识别出人脸。呵呵。会识别出人脸。大家注意这三个人是谁吗？这都是谁啊啊。😊这都是谁呀啊。中间是克林顿同同学们中间也不认识比尔克林顿，美国前总统对吧？对吧？罗莉岛的老。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000047\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000047\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.1508"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000047\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.1508"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000047\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0385"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000047\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.0385"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000047\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000047\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.11"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.1508
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.0385
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.11
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 277
+  }
+}
