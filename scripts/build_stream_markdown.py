@@ -1339,7 +1339,10 @@ def _inject_narrative_into_chapters(
 def ensure_qwen_narrative_appendix(markdown_body: str, blocks: list[dict], transcript: str) -> tuple[str, dict]:
     """Inject missing narrative blocks into chapter body; append stragglers to flat appendix."""
     if not blocks:
-        return markdown_body, {"appended": False, "reason": "no_blocks", "appended_blocks": 0}
+        return markdown_body, {
+            "appended": False, "reason": "no_blocks", "appended_blocks": 0,
+            "injected_into_chapters": 0, "appended_to_appendix": 0,
+        }
 
     missing = [
         b for b in blocks
@@ -1357,6 +1360,8 @@ def ensure_qwen_narrative_appendix(markdown_body: str, blocks: list[dict], trans
             "appended": False,
             "reason": "already_retained",
             "appended_blocks": 0,
+            "injected_into_chapters": 0,
+            "appended_to_appendix": 0,
             "pre_append_metrics": retention["metrics"],
         }
 

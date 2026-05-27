@@ -6,6 +6,7 @@
 | 21:43 | P2 implementation complete in short_video_pipeline.py: removed P0 guard from synthesize, added --skip-done+progress to preprocess, output-reuse+--force+progress to call-pack, command_retry_failed, retry-failed subparser | scripts/short_video_pipeline.py | smoke-test passed (5/5 split, progress=done, retry-failed plan generated) | ~2400 |
 
 | 2026-05-27 | pulled live-xiaoe-20260527 dual-model validation; fixed narrative retention: replace flat-appendix-all with chapter-level injection of missing blocks (_inject_narrative_into_chapters + _hms_to_s); flat appendix now only for time-range-less stragglers | scripts/build_stream_markdown.py | syntax OK, 5/5 smoke tests passed | ~3k |
+| 2026-05-27 | v3 verified 100% narrative retention; field consistency fix: add injected_into_chapters/appended_to_appendix=0 to all early-return paths of ensure_qwen_narrative_appendix | scripts/build_stream_markdown.py | syntax OK | ~300 |
 
 | 2026-05-26 | code review (9 findings) + fix: call_qwen inner retry / base64 pre-encode / lazy genai import / fail-fast non-rate / frame_count QC / retry_delay 65s / BAT dry-run echo | utils.py, scripts/build_stream_markdown.py, run_zhihu_live.bat | syntax OK | ~8k |
 
@@ -802,3 +803,4 @@
 | 23:00 | WIN fix(2f8c3a9): narrative inject into chapters (85% Qwen drop fixed) | build_stream_markdown.py | committed |
 | 23:05 | Progress summary: 58 done, 7 failed (pack-002 retries), 1 moderation_blocked, cost 0.81 CNY | progress.json | analysed |
 | 23:20 | BUG-097: _retry_missing_video missing update_sv_video on success; fixed | short_video_pipeline.py | fixed |
+| 23:05 | Edited scripts/build_stream_markdown.py | 21→26 lines | ~254 |
