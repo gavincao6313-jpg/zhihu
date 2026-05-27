@@ -1,0 +1,47 @@
+{
+  "base": "replay-xiaoe-20260527-qwen",
+  "run_ts": "20260527-123906",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 133,
+  "transcript_chars": 41647,
+  "frame_count": 143,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 7958,
+  "timeline_end_s": 7980,
+  "timeline_duration_s": 7980,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "gemini",
+  "synthesis_model": "gemini-3.5-flash",
+  "synthesis_pass": "one-shot",
+  "warnings": [],
+  "frame_policy": {
+    "provider": "gemini",
+    "total_frames": 143,
+    "selected_frames": 143,
+    "dropped_frames": 0,
+    "cap": 3000,
+    "slide_frames": 0,
+    "annotation_frames": 0
+  },
+  "provider_parts_count": 288,
+  "provider_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash",
+    "api_calls": null,
+    "usage": {}
+  },
+  "body_last_chapter_end_s": 7958,
+  "body_tail_gap_s": 22,
+  "body_coverage_status": "ok",
+  "transcript_appendix_chars": 41647,
+  "visual_evidence_count": 143,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
