@@ -226,6 +226,7 @@ In this architecture, Qwen sliding-window must produce the final user-facing doc
   - Changed frame downsampling from slide-first fill to balanced type quotas.
   - When a provider image cap forces sampling, selected frames reserve representative context coverage instead of letting slide anchors consume the whole cap.
   - Kept chronological output order after per-type even sampling.
+  - Bumped `QWEN_WINDOW_NOTE_VERSION` to `qwen-window-note-v2` so old window notes are not reused after the Narrative Evidence Blocks prompt change.
 
 ## P2: Single-Provider Qwen Hardening
 
