@@ -1,0 +1,22 @@
+{
+  "schema_version": "short-video-pack-qc-v1",
+  "pack_id": "pack-20260527-221133-002-retry-toutiao-7643900150066184255-7b28afffb3a5",
+  "output_md": "runs\\short-video\\packs\\pack-20260527-221133-002-retry-toutiao-7643900150066184255-7b28afffb3a5.output.md",
+  "expected_video_count": 1,
+  "parsed_video_count": 1,
+  "written_video_count": 1,
+  "warnings": [],
+  "videos": [
+    {
+      "video_id": "toutiao-7643900150066184255-7b28afffb3a5",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 2224,
+      "body_chars": 5587,
+      "body_transcript_ratio": 2.5121,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7643900150066184255-7b28afffb3a5.md"
+    }
+  ]
+}
