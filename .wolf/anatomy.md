@@ -49,6 +49,8 @@
 - `docs/LIVE_FINAL_QUALITY_ROADMAP.md` — 直播流质量提升路线图，P0→P1→P2，18个带验证标准的 checkbox 任务，进度表。 (~2800 tok)
 - `docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md` — 旧版问题 backlog，已被 ROADMAP 取代。 (~100 tok)
 - `docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md` — Qwen 长视频 NotebookLM 文档优化计划；记录保真抽取优先、动态滑动窗口、frame 覆盖、QC 门禁和混合 Glossary/body 策略。 (~2600 tok)
+- `docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md` — Qwen 短视频批量抽取工作流设计；定义 preprocess-only、synthesize-only、packing、VIDEO_ID 拆分、短视频 QC、CLI 和 P0-P3 实施阶段。 (~7600 tok)
+- `docs/TOUTIAO_FAVORITES_RUNBOOK.md` — 今日头条收藏夹同步运行手册；说明登录态保存、收藏页探测、manifest 更新、下载到 Videos/short/toutiao 以及接短视频 pipeline 的命令。 (~2500 tok)
 - `docs/qwen_api_migration_analysis.md` — WIN 端关于从 Gemini 迁移/增补到 Qwen API 的可行性分析，围绕配额、OpenAI-compatible 接入、风险和迁移策略供 MAC review。 (~4200 tok)
 - `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~3188 tok)
 
@@ -71,4 +73,9 @@
 - `scripts/check_auth.py` — 鉴权检查工具。 (~80 tok)
 - `scripts/live_sectioned_synthesis.py` — P1-P2 分层合成主模块。新增 `run_full_pipeline()` 公共入口（Fix1）。Fix2: evidence hash 含 cleaned_transcript+frame type/ts+stale传播。Fix3: slide边界 frame key 归一化。Fix4: 术语词边界。 (~23000 tok)
 - `scripts/merge_stream_chunks.py` — 合并 stream chunk 文件。 (~300 tok)
+- `scripts/short_video_pipeline.py` — P0 Qwen 短视频批量入口；支持 preprocess 生成 payload、synthesize --dry-run 装包计划、status 和 mock-payloads 离线验证，不调用 Qwen API。 (~7200 tok)
 - `scripts/terminology.json` — 项目术语表，9 条规则（Claude Code/RAG/MCP 等），供 normalize_transcript 使用。 (~60 tok)
+- `scripts/toutiao_common.py` — 今日头条收藏同步公共工具；定义 cache/auth/manifest/video 路径、URL/ID 规范化、manifest merge、Playwright context 和 storage_state 到 yt-dlp cookie 转换。 (~3300 tok)
+- `scripts/toutiao_download_favorites.py` — 从 cache/toutiao/manifest.json 下载今日头条收藏视频；优先 yt-dlp，失败后 Playwright 捕获媒体 URL + ffmpeg，落盘 Videos/short/toutiao。 (~3000 tok)
+- `scripts/toutiao_login.py` — 打开 Playwright 有头浏览器登录今日头条，并保存登录态到 cache/toutiao/auth_state.json。 (~700 tok)
+- `scripts/toutiao_probe_favorites.py` — 使用 Playwright 登录态打开今日头条收藏页、滚动探测视频链接/网络候选项，可写 probe JSON、screenshot 并更新 manifest。 (~2700 tok)
