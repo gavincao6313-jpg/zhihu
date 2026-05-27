@@ -663,15 +663,15 @@
       "error_message": "Analysis failed: EPERM: operation not permitted, open '/Users/caojiapeng/.gitnexus/registry.json'",
       "file": "/Users/caojiapeng/.gitnexus/registry.json",
       "root_cause": "Sandboxed GitNexus refresh could not write the home-directory registry.",
-      "fix": "For the original occurrence, re-ran npx gitnexus analyze with approved escalated permissions. For the 2026-05-25 temporary-clone review, GitNexus could not register the temp path under the sandbox, so the review fell back to git diff plus existing GitNexus impact data from the indexed main workspace.",
+      "fix": "Re-ran npx gitnexus analyze with approved escalated permissions.",
       "tags": [
         "gitnexus",
         "sandbox",
         "analysis"
       ],
       "related_bugs": [],
-      "occurrences": 2,
-      "last_seen": "2026-05-25T23:58:00+08:00"
+      "occurrences": 1,
+      "last_seen": "2026-05-22T12:15:00+08:00"
     },
     {
       "id": "bug-042",
@@ -1043,8 +1043,17 @@
       "file": "scripts/merge_stream_chunks.py",
       "root_cause": "Warning said 'pass --run-ts to restrict' but --run-ts matches per-chunk completion timestamp; on a 105-chunk live run every chunk has a unique ts so following the hint reduces merge back to 1 chunk. Warning also dumped all 105 ts groups as noise.",
       "fix": "Single-line warn explaining all-chunks stop-gap, multi-session mixing risk, and explicit note that --run-ts is not a live session selector until run-manifest lands.",
-      "tags": ["merge", "ux", "warning-text", "merge_stream_chunks", "bug-061-followup"],
-      "related_bugs": ["bug-061", "bug-058"],
+      "tags": [
+        "merge",
+        "ux",
+        "warning-text",
+        "merge_stream_chunks",
+        "bug-061-followup"
+      ],
+      "related_bugs": [
+        "bug-061",
+        "bug-058"
+      ],
       "occurrences": 1,
       "last_seen": "2026-05-22T23:30:00+08:00"
     },
@@ -1055,8 +1064,16 @@
       "file": "scripts/build_stream_markdown.py",
       "root_cause": "main() only appended warning for status=='warning'; 'no_headings' branch was missing so warnings[] stayed empty and header rendered nothing.",
       "fix": "Added elif for 'no_headings': appends body_coverage_unverifiable to manifest warnings. Added renderer in prepend_quality_header.",
-      "tags": ["qc", "body-coverage", "no-headings", "build_stream_markdown", "bug-062-followup"],
-      "related_bugs": ["bug-062"],
+      "tags": [
+        "qc",
+        "body-coverage",
+        "no-headings",
+        "build_stream_markdown",
+        "bug-062-followup"
+      ],
+      "related_bugs": [
+        "bug-062"
+      ],
       "occurrences": 1,
       "last_seen": "2026-05-22T23:30:00+08:00"
     },
@@ -1158,63 +1175,252 @@
       "last_seen": "2026-05-23T11:57:32+08:00"
     },
     {
-      "id": "bug-071",
-      "timestamp": "2026-05-23T17:13:49+08:00",
-      "error_message": "WIN slide extraction integration could mix same-base stream reruns and reuse stale slide frame outputs on repeated runs",
-      "file": "extract_slides.py, run_single_file.py, run_zhihu_live.bat",
-      "root_cause": "extract_slides.py --stream-base selected payloads with a broad stream-{base}_chunk*.payload.json glob instead of the stream manifest for the current run. The slide output frames directory was not cleared before re-running, and file-pipeline slide extraction was imported/executed as a hard dependency of run_single_file.py.",
-      "fix": "Stream slide extraction now prefers stream-{base}-{run_ts}.manifest.json payload paths, keeps broad glob only as a warning fallback, resolves moved Windows absolute paths back into the repo, clears Slides/<base>/frames before writing, replaces slide files idempotently, and makes run_single_file.py slide extraction a non-fatal warning path.",
-      "tags": [
-        "slides",
-        "stream-manifest",
-        "rerun-idempotency",
-        "windows-path",
-        "pipeline-hardening"
-      ],
-      "related_bugs": [
-        "bug-058"
-      ],
-      "occurrences": 1,
-      "last_seen": "2026-05-23T17:13:49+08:00"
-    },
-    {
-      "id": "bug-072",
-      "timestamp": "2026-05-23T17:24:00+08:00",
-      "error_message": "git push origin HEAD:main failed: Failed to connect to github.com port 443 after 75017 ms: Couldn't connect to server",
-      "file": "environment",
-      "root_cause": "Transient network connectivity failure to github.com during push from the local environment.",
-      "fix": "Record the failure and retry the push after the verified commit is amended with the bug log entry.",
-      "tags": [
-        "git",
-        "push",
-        "network",
-        "github",
-        "environment"
-      ],
-      "related_bugs": [
-        "bug-068"
-      ],
-      "occurrences": 1,
-      "last_seen": "2026-05-23T17:24:00+08:00"
-    },
-    {
       "id": "bug-073",
-      "timestamp": "2026-05-25T23:55:00+08:00",
-      "error_message": "WIN validation commit claimed a Windows verification report and Gemini 3.5 validation, but only final-qc/base-marker artifacts were committed and the final-qc recorded synthesis_model=gemini-2.5-flash",
-      "file": "runs/windows-live-validation-20260525.md, zhihuTTS_mac_test.py",
-      "root_cause": "The runtime validation evidence was not summarized in the expected report file, and the code/model upgrade was committed together with an artifact generated before the model switch. A standalone temporary Mac test script was also committed to the mainline with no references.",
-      "fix": "Added runs/windows-live-validation-20260525.md with the exact final-qc metrics and caveat that gemini-3.5-flash still needs separate validation. Removed the unreferenced zhihuTTS_mac_test.py temporary script from the mainline.",
+      "timestamp": "2026-05-23T17:40:00+08:00",
+      "error_message": "git grep -n \"--gemini\\|build_stream_markdown.py\\|call_gemini\\|generate_content\" origin/main failed because git grep parsed --gemini as an option",
+      "file": "environment",
+      "root_cause": "The grep pattern began with -- and was not passed with -e, so git grep treated it as a command option.",
+      "fix": "Reran the remote-code search with multiple -e patterns, including -e --gemini.",
       "tags": [
-        "live-validation",
-        "gemini-model",
-        "evidence",
-        "cleanup"
+        "git-grep",
+        "command-syntax",
+        "analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-23T17:40:00+08:00"
+    },
+    {
+      "id": "bug-074",
+      "timestamp": "2026-05-25T16:36:03+08:00",
+      "error_message": "Local inspection commands failed with `zsh:1: command not found: python`",
+      "file": "environment",
+      "root_cause": "The Mac shell environment does not provide a `python` executable on PATH; Python is available as `python3`.",
+      "fix": "Reran the inspection commands with `python3`.",
+      "tags": [
+        "environment",
+        "python",
+        "analysis"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-25T17:16:00+08:00"
+    },
+    {
+      "id": "bug-075",
+      "timestamp": "2026-05-26T13:22:04+08:00",
+      "error_message": "MVP can run end-to-end, but daily Gemini API key limits prevent high-volume video processing, especially many short videos.",
+      "file": "zhihuTTS.py, scripts/build_stream_markdown.py, run_zhihu_live.bat",
+      "root_cause": "Current production flows still require at least one Gemini synthesis request per video/stream, and local MP4 progress limits batch size by video count rather than a scheduler that budgets actual requests, retries, continuations, TPM, and RPD. Short videos therefore hit request-per-day throughput even when local ASR/keyframe preprocessing is cheap.",
+      "fix": "Discussion pending. Candidate directions: decouple local preprocessing from Gemini synthesis, add a quota-aware synthesis queue, pack multiple short videos per Gemini request where safe, use deterministic local outputs for low-value items, and evaluate paid-tier/Batch API paths for backlog processing.",
+      "tags": [
+        "gemini-quota",
+        "batch-processing",
+        "short-video",
+        "architecture",
+        "discussion"
       ],
       "related_bugs": [
         "bug-070"
       ],
       "occurrences": 1,
-      "last_seen": "2026-05-25T23:55:00+08:00"
+      "last_seen": "2026-05-26T13:22:04+08:00"
+    },
+    {
+      "id": "bug-076",
+      "timestamp": "2026-05-26T14:05:00+08:00",
+      "error_message": "build_stream_markdown dry-run failed with `ERROR: no files matching .../stream-stream-step1-verify_chunk*.global-transcript.txt`",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "Operator passed `--base stream-step1-verify`; the script itself prepends `stream-` when building the glob pattern. The correct base is `step1-verify`.",
+      "fix": "Reran dry-run with `--base step1-verify` and added the base-name rule to `docs/AB_TEST_RUNBOOK_20260526.md`.",
+      "tags": [
+        "operator-error",
+        "dry-run",
+        "ab-test",
+        "base-name"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T14:05:00+08:00"
+    },
+    {
+      "id": "bug-077",
+      "timestamp": "2026-05-26T14:07:00+08:00",
+      "error_message": "Local environment check failed with `ModuleNotFoundError: No module named 'openai'`",
+      "file": "requirements.txt",
+      "root_cause": "Qwen provider uses Dashscope's OpenAI-compatible API and requires the `openai` Python package, which was not installed in the current Mac environment.",
+      "fix": "Added `openai>=1.0.0` to requirements.txt and documented Windows venv install commands in `docs/AB_TEST_RUNBOOK_20260526.md`.",
+      "tags": [
+        "dependency",
+        "qwen",
+        "openai",
+        "ab-test"
+      ],
+      "related_bugs": [
+        "bug-075"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T14:07:00+08:00"
+    },
+    {
+      "id": "bug-078",
+      "timestamp": "2026-05-26T13:52:00+08:00",
+      "error_message": "Review inspection command failed with `rg: ...payload.json: No such file or directory`",
+      "file": "runs/",
+      "root_cause": "The command referenced a guessed fixture payload filename with timestamp `20260521-221534`; the actual chunk001 fixture payload uses timestamp `20260521-221515`, while chunk002 uses `20260521-221534`.",
+      "fix": "Reran discovery with `rg --files runs | rg 'step1-verify.*payload\\.json$'` and inspected the correct fixture payload path.",
+      "tags": [
+        "operator-error",
+        "review",
+        "fixture",
+        "runs"
+      ],
+      "related_bugs": [
+        "bug-076"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T13:52:00+08:00"
+    },
+    {
+      "id": "bug-077",
+      "timestamp": "2026-05-26T06:39:17.462Z",
+      "error_message": "Incorrect value in code",
+      "file": "utils.py",
+      "root_cause": "Had \"Qwen returned empty response\"",
+      "fix": "Changed to \"[{label}] Empty initial response (content filtere",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T06:39:17.462Z"
+    },
+    {
+      "id": "bug-078",
+      "timestamp": "2026-05-26T06:41:05.951Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "Had \"provider_parts_count\"",
+      "fix": "Changed to \"frame_count\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T06:41:05.951Z"
+    },
+    {
+      "id": "bug-079",
+      "timestamp": "2026-05-26T14:25:00+08:00",
+      "error_message": "WIN replay A/B test found `--cleanup-slices` deleted global-transcript, payload JSON, and report artifacts after each chunk, causing merge/final synthesis to lose outputs and visual frames.",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "`process_segment_file()` cleaned not only the temporary slice MP4 but also durable per-chunk artifacts (`*.global-transcript.txt`, `*.payload.json`, report markdown) whenever `args.cleanup_slices` was true.",
+      "fix": "WIN commit 33d55ea removed the extra artifact-unlink block; `--cleanup-slices` now only deletes the temporary segment file after keyframes/transcripts/payload/report are written.",
+      "tags": [
+        "cleanup-slices",
+        "replay-ab",
+        "payload-json",
+        "global-transcript",
+        "critical"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T14:25:00+08:00"
+    },
+    {
+      "id": "bug-080",
+      "timestamp": "2026-05-26T22:00:00+08:00",
+      "error_message": "Tonight's live Gemini/Qwen A/B flow could give Gemini many more visual frames than Qwen and could fail Qwen late if google-genai/openai imports were missing.",
+      "file": "scripts/build_stream_markdown.py; run_zhihu_live.bat",
+      "root_cause": "The finalizer only had a Qwen-specific image cap, while Gemini used its hard cap; the BAT also did not preflight final provider Python dependencies before starting a long live capture.",
+      "fix": "Added provider-neutral `--max-frames`, wired BAT to pass it, documented `--max-frames 128` for both providers, added provider dependency preflight, and made google-genai lazy so Qwen can run without Gemini SDK.",
+      "tags": [
+        "live-ab",
+        "fairness",
+        "max-frames",
+        "dependency-preflight",
+        "qwen"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T22:00:00+08:00"
+    },
+    {
+      "id": "bug-081",
+      "timestamp": "2026-05-26T22:30:00+08:00",
+      "error_message": "User pointed out `max frames 128` forces Gemini below its best capability and is therefore unsuitable for judging final generation quality.",
+      "file": "run_zhihu_live.bat; docs/LIVE_AB_TEST_PREP_20260526.md",
+      "root_cause": "The previous BAT handoff optimized for same-input fairness rather than the user's stated goal: compare each provider's best achievable production-quality output.",
+      "fix": "Added `--best-ab` to leave Gemini uncapped (`--max-frames 0`) and raise Qwen to `--qwen-max-frames 256`; updated tonight's runbook to use `--best-ab` and keep `--fair-ab` only for later controlled model comparison.",
+      "tags": [
+        "live-ab",
+        "best-ab",
+        "quality-validation",
+        "gemini",
+        "qwen"
+      ],
+      "related_bugs": [
+        "bug-080"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T22:30:00+08:00"
+    },
+    {
+      "id": "bug-082",
+      "timestamp": "2026-05-26T23:12:00+08:00",
+      "error_message": "Draft Qwen sliding-window branch would have executed the one-shot Qwen call before windowed extraction.",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "The initial implementation built one-shot provider parts before branching on `synthesis_pass`, so `sliding-window` still entered the normal Qwen call path first.",
+      "fix": "Restructured provider execution so Gemini always uses one-shot, Qwen `one-shot` uses the normal path, and Qwen `sliding-window` goes directly into per-window notes plus final assembly.",
+      "tags": [
+        "qwen",
+        "sliding-window",
+        "duplicate-api-call",
+        "budget"
+      ],
+      "related_bugs": [
+        "bug-080",
+        "bug-081"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T23:12:00+08:00"
+    },
+    {
+      "id": "bug-083",
+      "timestamp": "2026-05-26T23:22:00+08:00",
+      "error_message": "rg: unrecognized flag --qwen-sliding-window|--resume-window-notes|--synthesis-pass|pass",
+      "file": "terminal verification command",
+      "root_cause": "The ripgrep search pattern began with `--`, so rg interpreted it as command-line flags.",
+      "fix": "Re-ran the check using `rg -n -- \"pattern\" run_zhihu_live.bat` so the following argument is treated as a pattern.",
+      "tags": [
+        "verification",
+        "ripgrep",
+        "command-error"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-26T23:22:00+08:00"
+    },
+    {
+      "id": "bug-084",
+      "timestamp": "2026-05-27T08:36:00+08:00",
+      "error_message": "Qwen critical fact extractor misclassified `1分钟` as score `1分` during offline validation.",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "The score regex matched `分` inside the word `分钟`, producing false positive score facts from duration text.",
+      "fix": "Changed the score regex to `分(?!钟)` and deduplicated critical facts by normalized value.",
+      "tags": [
+        "qwen",
+        "critical-facts",
+        "regex",
+        "qc"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T08:36:00+08:00"
     }
   ]
 }
