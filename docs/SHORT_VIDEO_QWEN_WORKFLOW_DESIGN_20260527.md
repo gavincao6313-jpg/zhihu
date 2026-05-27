@@ -545,6 +545,36 @@ P0 约束：
 - 5 个 Markdown 全部落盘。
 - 缺失 `VIDEO_ID` 时能重试/拆包。
 
+当前实现入口：
+
+```text
+python scripts/short_video_pipeline.py call-pack \
+  --plan runs/short-video/packs/pack-<ts>.plan.json \
+  --pack-index 1 \
+  --mock-output \
+  --split
+
+python scripts/short_video_pipeline.py call-pack \
+  --plan runs/short-video/packs/pack-<ts>.plan.json \
+  --pack-index 1 \
+  --split
+
+python scripts/short_video_pipeline.py split-pack \
+  --input-json runs/short-video/packs/pack-<ts>-001.input.json \
+  --output-md runs/short-video/packs/pack-<ts>-001.output.md
+```
+
+说明：
+
+- `--mock-output` 不调用 Qwen，只生成确定性 Markdown，用于验证拆分和 QC。
+- 不带 `--mock-output` 时必须设置 `DASHSCOPE_API_KEY`，并显式调用 Qwen。
+- `call-pack --split` 会写：
+  - `runs/short-video/packs/<pack_id>.input.json`
+  - `runs/short-video/packs/<pack_id>.output.md`
+  - `runs/short-video/packs/<pack_id>.manifest.json`
+  - `Markdowns/TTS_short_<video_id>.md`
+  - `runs/short-video/qc/<pack_id>.qc.json`
+
 ### P2: 失败恢复和调度
 
 目标：大量短视频可断点续跑。

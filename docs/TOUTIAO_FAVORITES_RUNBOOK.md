@@ -112,7 +112,32 @@ python3 scripts/short_video_pipeline.py preprocess --videos-dir Videos/short/tou
 python3 scripts/short_video_pipeline.py synthesize --dry-run --write-plan
 ```
 
-当前 P0 只生成 payload 和 pack plan，不会调用 Qwen。后续 P1 才会接真实 Qwen packing。
+先用 mock 输出验证拆分/QC：
+
+```bash
+python3 scripts/short_video_pipeline.py call-pack \
+  --plan runs/short-video/packs/pack-<ts>.plan.json \
+  --pack-index 1 \
+  --mock-output \
+  --split
+```
+
+真实 Qwen packing 必须显式设置 `DASHSCOPE_API_KEY`，并去掉 `--mock-output`：
+
+```bash
+python3 scripts/short_video_pipeline.py call-pack \
+  --plan runs/short-video/packs/pack-<ts>.plan.json \
+  --pack-index 1 \
+  --split
+```
+
+如果已经有 `*.output.md`，只想重新拆分和 QC：
+
+```bash
+python3 scripts/short_video_pipeline.py split-pack \
+  --input-json runs/short-video/packs/pack-<ts>-001.input.json \
+  --output-md runs/short-video/packs/pack-<ts>-001.output.md
+```
 
 ## 6. 推荐日常流程
 

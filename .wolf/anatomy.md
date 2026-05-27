@@ -73,7 +73,7 @@
 - `scripts/check_auth.py` — 鉴权检查工具。 (~80 tok)
 - `scripts/live_sectioned_synthesis.py` — P1-P2 分层合成主模块。新增 `run_full_pipeline()` 公共入口（Fix1）。Fix2: evidence hash 含 cleaned_transcript+frame type/ts+stale传播。Fix3: slide边界 frame key 归一化。Fix4: 术语词边界。 (~23000 tok)
 - `scripts/merge_stream_chunks.py` — 合并 stream chunk 文件。 (~300 tok)
-- `scripts/short_video_pipeline.py` — P0 Qwen 短视频批量入口；支持 preprocess 生成 payload、synthesize --dry-run 装包计划、status 和 mock-payloads 离线验证，不调用 Qwen API。 (~7200 tok)
+- `scripts/short_video_pipeline.py` — Qwen 短视频批量入口；支持 preprocess payload、synthesize dry-run pack plan、call-pack Qwen/mock 输出、split-pack 按 VIDEO_ID 拆 Markdown/QC、status 和 mock-payloads。 (~11000 tok)
 - `scripts/terminology.json` — 项目术语表，9 条规则（Claude Code/RAG/MCP 等），供 normalize_transcript 使用。 (~60 tok)
 - `scripts/toutiao_common.py` — 今日头条收藏同步公共工具；定义 cache/auth/manifest/video 路径、URL/ID 规范化、manifest merge、Playwright context 和 storage_state 到 yt-dlp cookie 转换。 (~3300 tok)
 - `scripts/toutiao_download_favorites.py` — 从 cache/toutiao/manifest.json 下载今日头条收藏视频；优先 yt-dlp，失败后 Playwright 捕获媒体 URL + ffmpeg，落盘 Videos/short/toutiao。 (~3000 tok)

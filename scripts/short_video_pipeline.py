@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -16,6 +17,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RUN_DIR = REPO_ROOT / "runs" / "short-video"
 DEFAULT_PAYLOAD_DIR = DEFAULT_RUN_DIR / "preprocess"
 DEFAULT_PACK_DIR = DEFAULT_RUN_DIR / "packs"
+DEFAULT_QC_DIR = DEFAULT_RUN_DIR / "qc"
+DEFAULT_MARKDOWNS_DIR = REPO_ROOT / "Markdowns"
 DEFAULT_SHORT_VIDEO_DIR = REPO_ROOT / "Videos" / "short"
 
 SCHEMA_VERSION = "short-video-payload-v1"
@@ -34,8 +37,44 @@ PACK_MAX_TRANSCRIPT_CHARS = 80_000
 PACK_MAX_FRAMES = 96
 PER_VIDEO_MAX_FRAMES = 12
 PACK_ESTIMATED_INPUT_TOKENS = 160_000
+QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.6-flash")
 
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".m4v", ".mov", ".avi", ".mkv", ".mpeg"}
+
+SHORT_VIDEO_PACK_PROMPT = """
+你正在处理一个短视频包。每个 VIDEO_ID 都是一个独立视频，必须独立输出，禁止跨视频混写、合并、写“同上”。
+
+你的目标是生成适合导入 NotebookLM 的中文 Markdown 源文档。不要写成短摘要；要保留逐字稿中的事实、数字、例子、观点、步骤、术语、提示词、代码/配置片段和可检索细节。
+
+输出必须严格遵守以下 schema。每个视频必须有一组完整边界：
+
+<!-- SHORT_VIDEO_PACK_ID: <pack_id> -->
+<!-- VIDEO_ID: <video_id> -->
+# <视频标题>
+
+## 1. 内容概览
+
+## 2. 时间线
+
+### [00:00:00 - 00:00:15] <章节标题>
+
+## 3. 关键事实
+
+## 4. 可检索细节
+
+## 5. 视觉证据索引
+
+## 6. 完整逐字稿
+
+<!-- END_VIDEO_ID: <video_id> -->
+
+硬性要求：
+- 每个输入视频必须输出 exactly one 个 VIDEO_ID 块。
+- VIDEO_ID 必须与输入完全一致。
+- 每个视频的完整逐字稿必须放入该视频自己的 `## 6. 完整逐字稿`。
+- 如果某个视频信息不足，只能在该视频块内说明 `source_insufficient`，不能影响其他视频。
+- 不要输出总文档，不要在所有视频外再总结。
+""".strip()
 
 
 @dataclass
@@ -376,6 +415,270 @@ def print_pack_plan(plan: dict) -> None:
             print(f"  - {item['video_id']} [{item['classification']}]")
 
 
+def load_pack_from_plan(plan_path: Path, pack_id: str = "", pack_index: int = 1) -> dict:
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    packs = plan.get("packs") or []
+    if pack_id:
+        pack = next((p for p in packs if p.get("pack_id") == pack_id), None)
+    else:
+        pack = packs[pack_index - 1] if 0 <= pack_index - 1 < len(packs) else None
+    if not pack:
+        available = [p.get("pack_id") for p in packs]
+        raise ValueError(f"Pack not found. Available: {available}")
+    return pack
+
+
+def load_payload_for_item(item: dict) -> dict:
+    payload_path = Path(item["payload_path"])
+    return json.loads(payload_path.read_text(encoding="utf-8"))
+
+
+def read_transcript_text(payload: dict) -> str:
+    path = Path((payload.get("transcript") or {}).get("path") or "")
+    if path.exists():
+        return path.read_text(encoding="utf-8")
+    return str(payload.get("transcript_text") or "")
+
+
+def choose_frame_records(payload: dict, max_frames: int) -> list[dict]:
+    frames = list(payload.get("frames") or [])
+    if len(frames) <= max_frames:
+        return frames
+    if max_frames <= 1:
+        return frames[:1]
+    step = (len(frames) - 1) / (max_frames - 1)
+    indexes = sorted({round(i * step) for i in range(max_frames)})
+    return [frames[i] for i in indexes if 0 <= i < len(frames)]
+
+
+def build_pack_input(pack: dict, per_video_max_frames: int) -> dict:
+    videos = []
+    for item in pack.get("items") or []:
+        payload = load_payload_for_item(item)
+        transcript_text = read_transcript_text(payload)
+        frame_records = choose_frame_records(payload, per_video_max_frames)
+        source = payload.get("source") or {}
+        media = payload.get("media") or {}
+        videos.append({
+            "video_id": item["video_id"],
+            "title": item.get("title") or item["video_id"],
+            "duration_s": media.get("duration_s") or item.get("duration_s"),
+            "source": {
+                "kind": source.get("kind") or item.get("source_kind"),
+                "original": source.get("original") or item.get("source_original"),
+                "local_media_path": source.get("local_media_path") or "",
+            },
+            "transcript_text": transcript_text,
+            "transcript_chars": len(transcript_text),
+            "frames": frame_records,
+            "payload_path": item["payload_path"],
+        })
+    return {
+        "schema_version": "short-video-pack-input-v1",
+        "pack_id": pack["pack_id"],
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "video_count": len(videos),
+        "videos": videos,
+    }
+
+
+def build_qwen_pack_parts(pack_input: dict) -> list:
+    parts: list = [SHORT_VIDEO_PACK_PROMPT]
+    manifest_lines = [
+        f"PACK_ID: {pack_input['pack_id']}",
+        f"VIDEO_COUNT: {pack_input['video_count']}",
+        "Required VIDEO_IDs: " + ", ".join(v["video_id"] for v in pack_input["videos"]),
+    ]
+    parts.append("\n".join(manifest_lines))
+
+    try:
+        from google.genai import types
+    except ImportError:
+        types = None
+
+    for video in pack_input["videos"]:
+        parts.append(
+            "\n".join([
+                "\n--- VIDEO START ---",
+                f"VIDEO_ID: {video['video_id']}",
+                f"TITLE: {video['title']}",
+                f"DURATION_S: {video['duration_s']}",
+                f"SOURCE: {video['source'].get('original', '')}",
+                "TRANSCRIPT:",
+                video["transcript_text"],
+                "VISUAL_FRAMES:",
+            ])
+        )
+        for frame in video["frames"]:
+            marker = frame.get("marker") or f"Frame {frame.get('ts_s', '')}"
+            parts.append(f"[VIDEO_ID={video['video_id']}] {marker}")
+            frame_path = Path(frame.get("path") or "")
+            if types is not None and frame_path.exists():
+                parts.append(types.Part(
+                    inline_data=types.Blob(mime_type="image/jpeg", data=frame_path.read_bytes())
+                ))
+            elif frame_path:
+                parts.append(f"[frame_path_unavailable_for_inline_image] {frame_path}")
+        parts.append("--- VIDEO END ---")
+    return parts
+
+
+def call_qwen_pack(pack_input: dict, args: argparse.Namespace) -> dict:
+    api_key = os.environ.get("DASHSCOPE_API_KEY", "").strip()
+    if not api_key:
+        raise EnvironmentError("DASHSCOPE_API_KEY is required for call-pack without --mock-output")
+    try:
+        from openai import OpenAI
+    except ImportError as exc:
+        raise RuntimeError("openai package is required for Qwen calls. Run: pip install -r requirements.txt") from exc
+    from utils import call_qwen
+
+    client = OpenAI(
+        api_key=api_key,
+        base_url=os.environ.get("DASHSCOPE_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1"),
+    )
+    result = call_qwen(
+        client,
+        build_qwen_pack_parts(pack_input),
+        label=pack_input["pack_id"],
+        model=args.model,
+        enable_thinking=args.qwen_thinking,
+        max_retries=args.max_retries,
+        max_continuations=args.max_continuations,
+    )
+    return result
+
+
+def build_mock_pack_output(pack_input: dict) -> str:
+    lines = [f"<!-- SHORT_VIDEO_PACK_ID: {pack_input['pack_id']} -->"]
+    for video in pack_input["videos"]:
+        transcript = video["transcript_text"].strip()
+        if not transcript:
+            transcript = f"[00:00:00 - 00:00:10] Mock transcript for {video['video_id']}."
+        excerpt = transcript[:500]
+        lines.extend([
+            f"<!-- VIDEO_ID: {video['video_id']} -->",
+            f"# {video['title']}",
+            "",
+            "## 1. 内容概览",
+            "",
+            f"该短视频围绕 `{video['title']}` 展开，以下内容为 mock 输出，用于验证拆分和 QC。",
+            "",
+            "## 2. 时间线",
+            "",
+            "### [00:00:00 - 00:00:10] 开场与核心信息",
+            "",
+            excerpt,
+            "",
+            "## 3. 关键事实",
+            "",
+            f"- VIDEO_ID: `{video['video_id']}`",
+            f"- duration_s: `{video['duration_s']}`",
+            "",
+            "## 4. 可检索细节",
+            "",
+            "- mock_detail: 用于离线验证 pack 输出 schema。",
+            "",
+            "## 5. 视觉证据索引",
+            "",
+            f"- selected_frames: {len(video['frames'])}",
+            "",
+            "## 6. 完整逐字稿",
+            "",
+            transcript,
+            "",
+            f"<!-- END_VIDEO_ID: {video['video_id']} -->",
+            "",
+        ])
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def extract_video_blocks(markdown_text: str) -> dict[str, str]:
+    pattern = re.compile(
+        r"<!--\s*VIDEO_ID:\s*([^>]+?)\s*-->(.*?)<!--\s*END_VIDEO_ID:\s*\1\s*-->",
+        re.S,
+    )
+    blocks: dict[str, str] = {}
+    for match in pattern.finditer(markdown_text):
+        video_id = match.group(1).strip()
+        blocks[video_id] = match.group(0).strip() + "\n"
+    return blocks
+
+
+def qc_video_block(video_id: str, block: str, expected: dict) -> dict:
+    warnings: list[str] = []
+    if not re.search(r"^#\s+\S+", block, re.M):
+        warnings.append("missing_h1")
+    required = ["## 1. 内容概览", "## 2. 时间线", "## 3. 关键事实", "## 4. 可检索细节", "## 6. 完整逐字稿"]
+    missing = [section for section in required if section not in block]
+    if missing:
+        warnings.append("missing_sections: " + ", ".join(missing))
+    if not re.search(r"###\s+\[\d{2}:\d{2}:\d{2}\s+-\s+\d{2}:\d{2}:\d{2}\]", block):
+        warnings.append("missing_timestamped_timeline")
+    body_chars = len(block)
+    transcript_chars = int(expected.get("transcript_chars") or 0)
+    if transcript_chars < 2000 and body_chars < 600:
+        warnings.append("body_too_short_for_short_transcript")
+    elif transcript_chars >= 2000 and body_chars / max(transcript_chars, 1) < 0.25:
+        warnings.append("body_transcript_ratio_low")
+    return {
+        "video_id": video_id,
+        "source_status": "full",
+        "body_status": "ok" if not warnings else "warning",
+        "transcript_chars": transcript_chars,
+        "body_chars": body_chars,
+        "body_transcript_ratio": round(body_chars / max(transcript_chars, 1), 4),
+        "timeline_status": "ok" if not any("timeline" in w for w in warnings) else "warning",
+        "warnings": warnings,
+    }
+
+
+def split_pack_output(pack_input: dict, output_md: Path, markdowns_dir: Path, qc_dir: Path) -> dict:
+    markdown_text = output_md.read_text(encoding="utf-8")
+    blocks = extract_video_blocks(markdown_text)
+    expected = {video["video_id"]: video for video in pack_input["videos"]}
+    markdowns_dir.mkdir(parents=True, exist_ok=True)
+    qc_dir.mkdir(parents=True, exist_ok=True)
+
+    video_qc = []
+    warnings: list[str] = []
+    for video_id, video in expected.items():
+        block = blocks.get(video_id)
+        if not block:
+            warnings.append(f"missing_video_id: {video_id}")
+            video_qc.append({
+                "video_id": video_id,
+                "source_status": "failed",
+                "body_status": "failed",
+                "warnings": ["missing_video_id"],
+            })
+            continue
+        out_path = markdowns_dir / f"TTS_short_{slugify(video_id)}.md"
+        out_path.write_text(block, encoding="utf-8")
+        metrics = qc_video_block(video_id, block, video)
+        metrics["markdown_path"] = str(out_path)
+        video_qc.append(metrics)
+        warnings.extend(f"{video_id}: {w}" for w in metrics["warnings"])
+
+    extra = sorted(set(blocks) - set(expected))
+    for video_id in extra:
+        warnings.append(f"unexpected_video_id: {video_id}")
+
+    qc = {
+        "schema_version": "short-video-pack-qc-v1",
+        "pack_id": pack_input["pack_id"],
+        "output_md": str(output_md),
+        "expected_video_count": len(expected),
+        "parsed_video_count": len(blocks),
+        "written_video_count": sum(1 for item in video_qc if item.get("markdown_path")),
+        "warnings": warnings,
+        "videos": video_qc,
+    }
+    qc_path = qc_dir / f"{pack_input['pack_id']}.qc.json"
+    write_json(qc_path, qc)
+    return qc
+
+
 def write_json(path: Path, data: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -479,6 +782,74 @@ def command_synthesize(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_call_pack(args: argparse.Namespace) -> int:
+    pack = load_pack_from_plan(args.plan, args.pack_id, args.pack_index)
+    pack_input = build_pack_input(pack, args.per_video_max_frames)
+    pack_dir = args.pack_dir
+    input_path = pack_dir / f"{pack_input['pack_id']}.input.json"
+    output_path = args.output_md or (pack_dir / f"{pack_input['pack_id']}.output.md")
+    write_json(input_path, pack_input)
+
+    if args.mock_output:
+        text = build_mock_pack_output(pack_input)
+        result_meta = {
+            "provider": "mock",
+            "api_calls": 0,
+            "finish_reason": "mock",
+        }
+    else:
+        try:
+            result = call_qwen_pack(pack_input, args)
+        except Exception as exc:
+            print(f"call-pack failed: {exc}", file=sys.stderr)
+            return 1
+        text = result.get("text") or ""
+        result_meta = {key: value for key, value in result.items() if key != "text"}
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(text, encoding="utf-8")
+
+    manifest = {
+        "schema_version": "short-video-pack-call-v1",
+        "pack_id": pack_input["pack_id"],
+        "input_path": str(input_path),
+        "output_path": str(output_path),
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "provider": result_meta.get("provider", "qwen"),
+        "model": args.model,
+        "usage": result_meta,
+        "video_ids": [video["video_id"] for video in pack_input["videos"]],
+    }
+    manifest_path = pack_dir / f"{pack_input['pack_id']}.manifest.json"
+    write_json(manifest_path, manifest)
+    print(f"Pack input   : {input_path}")
+    print(f"Pack output  : {output_path}")
+    print(f"Manifest     : {manifest_path}")
+
+    if args.split:
+        qc = split_pack_output(pack_input, output_path, args.markdowns_dir, args.qc_dir)
+        print(f"Split videos : {qc['written_video_count']}/{qc['expected_video_count']}")
+        print(f"QC warnings  : {len(qc['warnings'])}")
+    return 0
+
+
+def command_split_pack(args: argparse.Namespace) -> int:
+    if args.input_json:
+        pack_input = json.loads(args.input_json.read_text(encoding="utf-8"))
+    else:
+        if not args.plan:
+            print("split-pack requires --input-json or --plan", file=sys.stderr)
+            return 2
+        pack = load_pack_from_plan(args.plan, args.pack_id, args.pack_index)
+        pack_input = build_pack_input(pack, args.per_video_max_frames)
+    qc = split_pack_output(pack_input, args.output_md, args.markdowns_dir, args.qc_dir)
+    print(f"Split videos : {qc['written_video_count']}/{qc['expected_video_count']}")
+    print(f"QC path      : {args.qc_dir / (pack_input['pack_id'] + '.qc.json')}")
+    if qc["warnings"]:
+        for warning in qc["warnings"]:
+            print(f"  [warn] {warning}")
+    return 0 if not qc["warnings"] else 1
+
+
 def command_status(args: argparse.Namespace) -> int:
     limits = PackLimits(per_video_max_frames=args.per_video_max_frames)
     items = load_payloads(args.payload_dir, limits)
@@ -575,6 +946,34 @@ def build_parser() -> argparse.ArgumentParser:
     synthesize.add_argument("--include-medium", action="store_true")
     add_pack_limit_args(synthesize)
     synthesize.set_defaults(func=command_synthesize)
+
+    call_pack = sub.add_parser("call-pack", help="Call Qwen for one pack, or generate mock output")
+    call_pack.add_argument("--plan", type=Path, required=True, help="Pack plan JSON from synthesize --write-plan")
+    call_pack.add_argument("--pack-id", default="")
+    call_pack.add_argument("--pack-index", type=int, default=1)
+    call_pack.add_argument("--pack-dir", type=Path, default=DEFAULT_PACK_DIR)
+    call_pack.add_argument("--output-md", type=Path)
+    call_pack.add_argument("--markdowns-dir", type=Path, default=DEFAULT_MARKDOWNS_DIR)
+    call_pack.add_argument("--qc-dir", type=Path, default=DEFAULT_QC_DIR)
+    call_pack.add_argument("--model", default=QWEN_MODEL)
+    call_pack.add_argument("--max-retries", type=int, default=2)
+    call_pack.add_argument("--max-continuations", type=int, default=1)
+    call_pack.add_argument("--qwen-thinking", action="store_true")
+    call_pack.add_argument("--mock-output", action="store_true", help="Do not call Qwen; write deterministic mock Markdown")
+    call_pack.add_argument("--split", action="store_true", help="Split output into per-video Markdown after call")
+    call_pack.add_argument("--per-video-max-frames", type=int, default=PER_VIDEO_MAX_FRAMES)
+    call_pack.set_defaults(func=command_call_pack)
+
+    split_pack = sub.add_parser("split-pack", help="Split pack output Markdown into per-video files")
+    split_pack.add_argument("--output-md", type=Path, required=True)
+    split_pack.add_argument("--plan", type=Path, help="Pack plan JSON")
+    split_pack.add_argument("--input-json", type=Path, help="Pack input JSON written by call-pack")
+    split_pack.add_argument("--pack-id", default="")
+    split_pack.add_argument("--pack-index", type=int, default=1)
+    split_pack.add_argument("--markdowns-dir", type=Path, default=DEFAULT_MARKDOWNS_DIR)
+    split_pack.add_argument("--qc-dir", type=Path, default=DEFAULT_QC_DIR)
+    split_pack.add_argument("--per-video-max-frames", type=int, default=PER_VIDEO_MAX_FRAMES)
+    split_pack.set_defaults(func=command_split_pack)
 
     status = sub.add_parser("status", help="Summarize payload classifications")
     status.add_argument("--payload-dir", type=Path, default=DEFAULT_PAYLOAD_DIR)
