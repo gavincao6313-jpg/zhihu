@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -76,6 +77,10 @@ def ensure_dirs() -> None:
 def slugify(value: str, default: str = "toutiao") -> str:
     slug = re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-._")
     return slug[:80] or default
+
+
+def sha1_short(value: str) -> str:
+    return hashlib.sha1(value.encode("utf-8")).hexdigest()[:12]
 
 
 def canonical_url(url: str, base_url: str = DEFAULT_TOUTIAO_HOME_URL) -> str:
