@@ -5,6 +5,8 @@
 
 | 21:43 | P2 implementation complete in short_video_pipeline.py: removed P0 guard from synthesize, added --skip-done+progress to preprocess, output-reuse+--force+progress to call-pack, command_retry_failed, retry-failed subparser | scripts/short_video_pipeline.py | smoke-test passed (5/5 split, progress=done, retry-failed plan generated) | ~2400 |
 
+| 2026-05-27 | pulled live-xiaoe-20260527 dual-model validation; fixed narrative retention: replace flat-appendix-all with chapter-level injection of missing blocks (_inject_narrative_into_chapters + _hms_to_s); flat appendix now only for time-range-less stragglers | scripts/build_stream_markdown.py | syntax OK, 5/5 smoke tests passed | ~3k |
+
 | 2026-05-26 | code review (9 findings) + fix: call_qwen inner retry / base64 pre-encode / lazy genai import / fail-fast non-rate / frame_count QC / retry_delay 65s / BAT dry-run echo | utils.py, scripts/build_stream_markdown.py, run_zhihu_live.bat | syntax OK | ~8k |
 
 | 23:10 | fix merge_stream_chunks.py default chunk selection (bug-061): use all chunks when --run-ts absent | scripts/merge_stream_chunks.py | done | ~300 |
@@ -786,3 +788,12 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 22:08 | Edited scripts/short_video_pipeline.py | 13→15 lines | ~220 |
+
+## Session: 2026-05-27 22:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:40 | Edited scripts/short_video_pipeline.py | modified extract_video_blocks() | ~295 |
+| 22:41 | Edited scripts/short_video_pipeline.py | modified lower() | ~377 |
+| 22:46 | Edited scripts/build_stream_markdown.py | modified _hms_to_s() | ~1718 |
+| 22:48 | Created ../../../../tmp/test_narrative_inject.py | — | ~819 |
