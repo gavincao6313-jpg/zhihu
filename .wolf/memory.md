@@ -3,6 +3,8 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 2026-05-26 | code review (9 findings) + fix: call_qwen inner retry / base64 pre-encode / lazy genai import / fail-fast non-rate / frame_count QC / retry_delay 65s / BAT dry-run echo | utils.py, scripts/build_stream_markdown.py, run_zhihu_live.bat | syntax OK | ~8k |
+
 | 23:10 | fix merge_stream_chunks.py default chunk selection (bug-061): use all chunks when --run-ts absent | scripts/merge_stream_chunks.py | done | ~300 |
 | 23:10 | fix build_stream_markdown.py body_coverage: persist to final-qc.json + QC header (bug-062) | scripts/build_stream_markdown.py | done | ~400 |
 | 23:30 | fix misleading --run-ts hint in merge warning (bug-064); fix no_headings not in manifest warnings (bug-065) | scripts/merge_stream_chunks.py, scripts/build_stream_markdown.py | done | ~200 |
@@ -630,9 +632,86 @@
 | 11:38 | Aligned live transcript against replay transcript | stream-1 combined transcript, TTS_0523_replay markdown, .wolf/cerebrum.md, .wolf/buglog.json | Live start maps to replay ~00:10:27; sequential chunk overhead explains ~13.0 min missing after start; ASR density is not the 42% gap driver | ~1800 |
 | 11:57 | Implemented P0-P2 live pipeline hardening | run_zhihu_live.bat, zhihuTTS_stream.py, scripts/build_stream_markdown.py, .wolf/anatomy.md, .wolf/cerebrum.md | BAT defaults to continuous HLS without stream-stage Gemini; HLS uses per-run work dirs; final Markdown appends transcript and visual evidence index; offline E2E mock path added | ~2400 |
 | 12:01 | Tightened continuous-HLS BAT resume handling | run_zhihu_live.bat | --resume is now rejected in default continuous HLS entry instead of being silently ignored; operator is pointed to --hls-consumer-only for existing .ts segments | ~300 |
-| 17:13 | Hardened WIN slide extraction integration | extract_slides.py, run_single_file.py, run_zhihu_live.bat, .wolf/anatomy.md, .wolf/cerebrum.md, .wolf/buglog.json | Stream slides now prefer manifest-selected payloads, clear output frames before rerun, resolve moved Windows paths, and make file-pipeline slide extraction non-fatal | ~1900 |
-| 17:18 | Verified slide hardening and live final E2E mock | extract_slides.py, scripts/build_stream_markdown.py, .wolf/memory.md | py_compile/diff-check/buglog JSON passed; synthetic same-base stream selected latest manifest and cleaned stale slides; mock final Markdown generated 81,577 chars without API call | ~900 |
-| 17:24 | Logged transient GitHub push connectivity failure | .wolf/buglog.json, .wolf/memory.md | First push attempt failed to connect to github.com:443 after 75s; retry pending | ~200 |
-| 17:35 | Verified MAC bug-071 idempotency fixes on Windows | extract_slides.py | Two consecutive --stream-base runs on ab-replay-20260522: both collected 47 slide frames from manifest, dedup→23 slides, PDF 211KB/23p, PPTX 227KB/23p. No stale raw_*.jpg, no rename failures, output directory clean. _prepare_frames_dir + _unlink_outputs + src.replace all confirmed working on Windows. | ~400 |
-| 18:12 | Added WIN live validation preparation runbook | docs/WIN_LIVE_VALIDATION_PREP_20260523.md, .wolf/anatomy.md, .wolf/cerebrum.md, .wolf/memory.md | Documented pull, dry-run, official BAT commands, Gemini/no-Gemini choices, runtime checks, output validation, report template, and push artifact list for tonight live validation | ~900 |
-| 23:55 | Reviewed and tightened 20260525 live validation evidence | runs/windows-live-validation-20260525.md, zhihuTTS_mac_test.py, .wolf/anatomy.md, .wolf/cerebrum.md | Added explicit validation report and removed unreferenced temporary Mac test script from mainline | ~700 |
+
+## Session: 2026-05-23 11:57
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-23 12:00
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 17:00 | Fetched and reviewed WIN update 6bb4a64 | origin/main, extract_slides.py, run_zhihu_live.bat, run_single_file.py, .wolf/anatomy.md, .wolf/cerebrum.md | Slide extraction is wired into file/live pipelines without extra Gemini calls; syntax/help/synthetic stream extraction checks passed; same-base rerun mixing remains a run-id caveat | ~2500 |
+| 17:33 | Confirmed live optimization deployment and Gemini budget paths | origin/main, run_zhihu_live.bat, zhihuTTS_stream.py, scripts/build_stream_markdown.py, run_zhihu_live.sh, .wolf/buglog.json | WIN BAT on origin/main uses continuous HLS without stream-stage --gemini; final synthesis only is capped; run_zhihu_live.sh remains unsynced and should not be used for tonight validation | ~1200 |
+| 17:51 | Estimated Gemini MAX_TOKENS threshold from historical outputs | runs/windows-code-upgrade-retro-20260516.md, Markdowns, origin/main utils.py/build_stream_markdown.py | MAX_TOKENS is output-token driven around 65,536 output tokens; historical size-driven hits were ~170k-261k Markdown chars, while 82k-char live/replay outputs are below likely continuation threshold | ~900 |
+| 16:33 | Loaded OpenWolf/GitNexus workflow and cerebrum context for historical MP4 PDF/PPTX rerun question | .wolf/OPENWOLF.md, .wolf/anatomy.md, .wolf/cerebrum.md | identified extract_slides.py and stream/local output context as relevant | ~9800 |
+| 16:36 | Checked slide backfill entrypoint, local cache counts, and Python dependencies | extract_slides.py, .progress.json, .wolf/buglog.json, .wolf/cerebrum.md | found backfill does not need Gemini; current Mac has 0 keyframe manifests and no python-pptx | ~5200 |
+| 17:16 | Audited live-readiness commit state and validation checklist | origin/main, run_zhihu_live.bat, zhihuTTS_stream.py, scripts/build_stream_markdown.py, extract_slides.py, docs/WIN_LIVE_VALIDATION_PREP_20260523.md | origin/main contains live continuous-HLS and slides validation prep; local main is behind 6 with overlapping dirty changes; python3 py_compile passed | ~6200 |
+| 13:18 | 读取 OpenWolf、anatomy、cerebrum 与 GitNexus exploring 工作流；确认本轮先分析讨论、不改代码 | .wolf/OPENWOLF.md, .wolf/anatomy.md, .wolf/cerebrum.md, gitnexus-exploring/SKILL.md | 发现本地 main 落后 origin/main 8 个提交且工作区已有多处未提交改动 | ~15500 |
+| 13:18 | 执行 git fetch 并检查 origin/main 新增 8 个提交；GitNexus detect_changes 标记远端变更影响为 critical | git, GitNexus | 新增内容涉及 live/HLS、Gemini finalizer、slides、运行报告；GitNexus analyze 返回 Already up to date | ~9000 |
+| 13:22 | 分析 origin/main 的 Windows 直播验证、三路对照、Gemini 入口与官方 Gemini 3.5/rate-limit 文档 | runs/windows-live-validation-20260525.md, runs/three-way-comparison-20260523.md, zhihuTTS.py, scripts/build_stream_markdown.py, utils.py | 记录 bug-075；确认短视频吞吐瓶颈主要是一视频一请求与缺少统一预算调度 | ~28000 |
+| 13:28 | fetch WIN 新增 Qwen API migration 文档并核对阿里云官方 Qwen3.6/OpenAI-compatible/price/rate-limit/Batch 文档 | docs/qwen_api_migration_analysis.md, .wolf/anatomy.md, .wolf/cerebrum.md | 未 merge 脏工作区；确认方案方向成立但价格与限流假设需修正 | ~10000 |
+| 13:34 | 构建 API provider 优化方案文档，明确 Gemini 默认保留、Qwen 显式 opt-in、build_stream_markdown 先试点、后续预处理/合成解耦与短视频打包 | docs/API_PROVIDER_OPTIMIZATION_PLAN_20260526.md, .wolf/anatomy.md, .wolf/cerebrum.md | 新增方案文档并写入 Decision Log；尚未修改业务代码 | ~9000 |
+| 13:45 | 实现 Gemini/Qwen final synthesis A/B 试点：新增 Qwen adapter、build_stream_markdown provider 参数、直播 BAT final provider 参数和 A/B runbook | utils.py, scripts/build_stream_markdown.py, run_zhihu_live.bat, requirements.txt, docs/AB_TEST_RUNBOOK_20260526.md | py_compile 通过；Gemini/Qwen dry-run 和 Qwen mock 输出通过；GitNexus detect_changes 当前整体风险 high（含既有未提交 live/HLS 改动） | ~30000 |
+| 13:52 | 提交前 code review A/B 试点改动并复跑验证 | utils.py, scripts/build_stream_markdown.py, run_zhihu_live.bat, docs/AB_TEST_RUNBOOK_20260526.md, .wolf/buglog.json | GitNexus 显示本次回放合成核心符号影响 LOW；py_compile/help/dry-run/mock 输出通过；真实 Qwen API 未跑，因本机缺 openai 包与 API key | ~12000 |
+| 14:14 | 为今晚实时直播 Gemini/Qwen 双进程 A/B 新增执行清单 | docs/LIVE_AB_TEST_PREP_20260526.md, .wolf/anatomy.md, .wolf/cerebrum.md | 明确开播前预检、双 CMD 命令、日志监控、产物路径、停止条件和单采集双合成降级方案；代码 py_compile 通过 | ~9000 |
+| 16:42 | 拉取并分析 WIN 回放 A/B bugfix 与结果报告 | origin/main@33d55ea, docs/BUG_REPORT_20260526.md, zhihuTTS_stream.py, .wolf/anatomy.md, .wolf/cerebrum.md, .wolf/buglog.json | 确认 `--cleanup-slices` 误删 payload/global transcript 已修复；首轮 A/B 仅能证明文字生成与可靠性，因 payload 缺失/0 frames 不能证明多模态质量 | ~9000 |
+
+## Session: 2026-05-26 14:13
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:38 | Edited utils.py | 3→4 lines | ~56 |
+| 14:38 | Edited utils.py | modified range() | ~195 |
+| 14:38 | Edited utils.py | 11→14 lines | ~156 |
+| 14:38 | Edited utils.py | 2→2 lines | ~17 |
+| 14:39 | Edited utils.py | modified range() | ~74 |
+| 14:39 | Edited utils.py | 2→3 lines | ~44 |
+| 14:39 | Edited utils.py | modified range() | ~330 |
+| 14:39 | Edited utils.py | 3→4 lines | ~61 |
+| 14:39 | Edited utils.py | 12→15 lines | ~182 |
+| 14:40 | Edited scripts/build_stream_markdown.py | expanded (+6 lines) | ~68 |
+| 14:40 | Edited scripts/build_stream_markdown.py | 3→8 lines | ~99 |
+| 14:40 | Edited scripts/build_stream_markdown.py | 3→6 lines | ~97 |
+| 14:40 | Edited scripts/build_stream_markdown.py | 3→4 lines | ~82 |
+| 14:41 | Edited scripts/build_stream_markdown.py | 2→3 lines | ~54 |
+| 14:41 | Edited run_zhihu_live.bat | inline fix | ~59 |
+
+## Session: 2026-05-26 14:59
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:01 | Edited run_zhihu_live.bat | modified else() | ~99 |
+
+## Session: 2026-05-26 16:38
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 16:41 | Edited run_zhihu_live.bat | 26→26 lines | ~246 |
+| 16:44 | Edited run_zhihu_live.bat | 8→9 lines | ~111 |
+| 16:44 | Edited run_zhihu_live.bat | 10→6 lines | ~134 |
+| 16:45 | Edited run_zhihu_live.bat | 4→4 lines | ~176 |
+| 16:46 | Edited run_zhihu_live.bat | inline fix | ~67 |
+| 16:47 | Edited run_zhihu_live.bat | 3→3 lines | ~55 |
+| 16:50 | 拉取并分析 WIN 回放 A/B 完整产物包 | Markdowns/TTS_stream-replay-ab-20260526-*.md, runs/stream-replay-ab-20260526*.json/txt, .wolf/anatomy.md, .wolf/cerebrum.md | 确认 checkpoint 有 186 chunks/503 frames，但 final QC 仍为 frame_count=0；Qwen 1 call/40,325 tokens，章节更细；Gemini 正文更厚但无 usage 记录 | ~12000 |
+
+| 今日 | ISSUE 1 fix: AUTH_STATE_SAVE per-process auth write (run_zhihu_live.bat) | run_zhihu_live.bat | OK | ~400 |
+| 今日 | ISSUE 4 fix: OUTPUT_LABEL (gemini35/qwen) passed to build_stream_markdown, unified log msg | run_zhihu_live.bat | OK | ~400 |
+| 22:xx | 核对并修复今晚直播 A/B 链路 | run_zhihu_live.bat, scripts/build_stream_markdown.py, docs/LIVE_AB_TEST_PREP_20260526.md | 增加 provider-neutral --max-frames、公平 128 帧 runbook、Gemini/Qwen 依赖预检、独立 auth save 和输出标签；py_compile/dry-run/detect_changes 通过 | ~9000 |
+| 22:xx | 拉取并分析 WIN 多模态回放 A/B 结果 | Markdowns/TTS_stream-replay-ab-20260526-mm-*.md, runs/stream-replay-ab-20260526-mm-*.json/md | 确认源数据 full/503 frames；Gemini 使用 503 帧、Qwen 使用 128 帧，当前质量对比仍非严格公平；Gemini 更厚更细，Qwen 结构颗粒度更好但缺 H1/金句且有术语误标风险 | ~11000 |
+| 22:xx | 提交今晚直播公平 A/B BAT 预设 | run_zhihu_live.bat, docs/LIVE_AB_TEST_PREP_20260526.md | 新增 --fair-ab，自动设置 max frames 128；GitNexus staged risk low；已推送 2f98f30 | ~3500 |
+| 22:xx | 修正今晚直播 A/B 为最佳能力验证 | run_zhihu_live.bat, docs/LIVE_AB_TEST_PREP_20260526.md | 新增 --best-ab：Gemini 不限帧、Qwen 256 帧；禁止与 --fair-ab/--max-frames 混用；已推送 04052e7 | ~3500 |
+| 22:42 | 拉取并分析 WIN 实时直播 Gemini/Qwen 完整 A/B 产物 | origin/main@43dcfdb, Markdowns/TTS_stream-live-ab-20260526-*.md, runs/stream-live-ab-20260526-*.final-qc.json, scripts/build_stream_markdown.py | 确认源数据 full/439 frames；Gemini 输入 439 帧、Qwen 输入 250 帧且丢 189 帧；形成 Qwen 动态滑动窗口讨论方案 | ~15000 |
+| 22:46 | 结合 Gemini 评审结论细化 Qwen 优化方向 | .wolf/cerebrum.md | 记录 Qwen 需从摘要型输出改为分窗保真抽取 + 终局组装的 NotebookLM 优化方向 | ~2000 |
+| 22:48 | 记录 Qwen 长视频优化清单 | docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md, .wolf/anatomy.md, .wolf/cerebrum.md | 新增 P0/P1/P2 checklist，覆盖 prompt contract、动态滑窗、frame policy、QC 门禁和 hybrid assembly；更新 anatomy 和决策记录 | ~4000 |
+| 22:56 | 实施 Qwen P0 one-shot prompt/QC 优化 | scripts/build_stream_markdown.py, run_zhihu_live.bat, docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md, .wolf/cerebrum.md | Qwen 上限修为 250；新增 Qwen NotebookLM 保真 prompt 和 qwen_notebooklm_qc；BAT best-A/B Qwen cap 同步为 250；py_compile、dry-run、mock QC 验证通过；计划文档勾选已完成项 | ~9500 |
+| 23:12 | 实施 Qwen P1 sliding-window 初版 | scripts/build_stream_markdown.py, docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md, .wolf/cerebrum.md, .wolf/buglog.json | 新增 --synthesis-pass sliding-window、动态窗口构建、窗口级 prompt、qwen_window_policy、窗口 note 写入和最终 notes assembly；dry-run 验证通过，Gemini sliding-window 被拒绝；记录并修复 draft duplicate-call 风险；resume/hash 待补 | ~11500 |
+| 23:18 | 补齐 Qwen sliding-window resume/hash 和 coverage QC | scripts/build_stream_markdown.py, docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md, .wolf/cerebrum.md | 新增 --resume-window-notes、窗口 source hash、note JSON metadata、hash 命中复用、qwen_window_coverage marker/QC；验证 py_compile、note hash read/write、resume flag、mock coverage warning/success | ~8500 |
+| 23:22 | 接入 Windows BAT Qwen sliding-window 显式入口 | run_zhihu_live.bat, docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md, .wolf/cerebrum.md, .wolf/buglog.json | 新增 --qwen-sliding-window/--resume-window-notes 参数透传；默认仍 one-shot；dry-run、worker 日志、正式命令和手动 fallback 均带 synthesis-pass 状态；记录并修正 rg 检查命令错误 | ~4700 |
+| 23:52 | 拉取并对比 WIN Qwen sliding-window 真实产物 | Markdowns/TTS_stream-live-ab-20260526-*.md, runs/stream-live-ab-20260526-qwen-20260526-220403.qwen-window-*.notes.md, runs/*final-qc.json | 确认 qwen-sw 覆盖 439/439 帧、3 window、最终正文约 10.6k 字符、H1/代码块/coverage marker 均补齐；仍发现 final assembly 丢掉 window note 中的 75分，章节存在重叠，QC body ratio 阈值偏激进且 resume 汇总 usage 只记录最终组装调用 | ~9000 |
+| 23:53 | 根据 Gemini 复评修正 Qwen 优化方案 | docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md, .wolf/cerebrum.md | 将目标从“Qwen 独立追平 Gemini”调整为 Hybrid：Gemini 详尽正文做底座，Qwen sliding-window 提供 Glossary/index 和技术资产附录；补充 hybrid assembler、hybrid QC、standalone Qwen 后续硬化事项 | ~2500 |
+| 23:57 | 纠偏 Qwen 优化工程方向并做会话收尾记录 | docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md, .wolf/cerebrum.md, .wolf/memory.md | 用户明确当前不能采用 Gemini+Qwen 双模型生产混合方案；已将生产目标改回 Qwen 单模型滑窗：window notes -> critical facts checklist -> Qwen-only final assembly；Gemini 仅作离线 benchmark，除非未来付费 Gemini API 并显式批准 | ~1800 |
+| 08:36 | 继续 Qwen 单模型滑窗硬化实现 | scripts/build_stream_markdown.py, docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md, .wolf/buglog.json | 新增 critical facts extractor、Qwen-only final assembly checklist、技术资产附录要求、fact-retention/timeline-overlap/asset QC、resume end_to_end_usage 聚合；py_compile 通过，离线验证能抓到旧 qwen-sw 的 75分丢失/时间线重叠/技术资产附录缺失 | ~6500 |
+| 08:55 | 补充 Qwen 长文叙事留存优化 | scripts/build_stream_markdown.py, docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md | 新增进度跟踪表；window notes 要求 Narrative Evidence Blocks；final assembly 输入叙事证据块并要求正文/附录保留；新增 qwen_narrative_retention_qc 和确定性叙事证据附录 fallback；py_compile/diff-check/离线抽样通过 | ~5200 |
+| 09:10 | 补齐 Qwen 帧采样配额优化 | scripts/build_stream_markdown.py, docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md | 将超限采样从 slide-first 改成 slide/annotation/context 均衡配额，并按类型均匀抽样后恢复时间顺序；U2 改为 D14，剩余未完成项重编号为 U1-U4 | ~1800 |

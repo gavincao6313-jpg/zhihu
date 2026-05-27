@@ -25,6 +25,57 @@ full transcript + all frames
   -> NotebookLM-ready Markdown
 ```
 
+## Real-Run Finding After Sliding-Window Validation
+
+WIN validated `TTS_stream-live-ab-20260526-qwen-qwen-sw.md` after the first Qwen sliding-window implementation. The result changes the strategy:
+
+- Qwen sliding-window successfully fixes the 250-frame limit and long-tail forgetting problem.
+  - The real run covered all `439/439` frames across 3 windows.
+  - It preserved important prompts/code/config blocks much better than Qwen one-shot.
+  - It restored late-stream details such as Coze context compression, Dreamina/即梦 cost examples, Remotion, and FDE discussion.
+- Qwen still over-compresses final prose during the last assembly pass.
+  - The final body improved from about 6.1k chars to about 10.6k chars, but QC still reported `qwen_overcompressed_body`.
+  - Window note 001 preserved `75分`, but the final qwen-sw Markdown dropped it. This proves extraction worked and loss happened in final assembly.
+  - The final qwen-sw timeline also produced overlapping chapters around `01:42 - 02:10`.
+- Gemini remains the best single source body for NotebookLM because it preserves narrative context, case texture, and speaker wording more naturally.
+
+Important correction: the Gemini evaluator's "best NotebookLM document" recommendation is useful for quality analysis, but it must not become the production engineering path. Calling two large models and then merging their outputs is not acceptable for the current cost/quota constraints. Gemini stays a benchmark/evaluator unless the project later upgrades to a paid Gemini API budget.
+
+Therefore, the production-quality target remains a **single-provider Qwen workflow**:
+
+```text
+full transcript + all frames
+  -> Qwen dynamic sliding-window faithful notes
+  -> deterministic critical-fact extraction from Qwen notes
+  -> Qwen final assembly with mandatory fact checklist and technical asset appendix
+  -> NotebookLM-ready Markdown
+```
+
+In this architecture, Qwen sliding-window must produce the final user-facing document independently. Gemini output can be used only as an offline benchmark for analysis, not as a required production input.
+
+## Progress Tracking Table
+
+| ID | Item | Status | Notes |
+|---|---|---|---|
+| D1 | Qwen-specific faithful extraction prompt | Done | Window note prompt forbids executive-summary compression and requires prompt/code/config retention. |
+| D2 | Qwen final assembly prompt | Done | Qwen-only assembly now receives critical facts and window notes. |
+| D3 | Normalized NotebookLM document structure | Done | H1, metadata, Glossary, timestamped chapters, next actions. |
+| D4 | Explicit `--synthesis-pass sliding-window` | Done | Qwen-only opt-in; Gemini rejected. |
+| D5 | Dynamic Qwen windows under 250-frame cap | Done | Validated on 439-frame live source with 3 windows. |
+| D6 | Window note persistence and resume | Done | Notes include source hash and metadata; `--resume-window-notes` supported. |
+| D7 | Frame-policy reporting | Done | Global and per-window frame counts/types/overlap recorded. |
+| D8 | Window coverage QC | Done | `qwen_window_coverage` marker and QC. |
+| D9 | Critical facts checklist | Done | Extracts scores, dates, costs, tools, prompt keywords from window notes. |
+| D10 | Qwen-only final assembly hardening | Done | Requires critical facts, technical asset appendix, and non-overlap timeline. |
+| D11 | Qwen-only QC hardening | Done | Fact retention, timeline overlap, technical asset appendix checks. |
+| D12 | End-to-end Qwen usage aggregation | Done | Separates `current_run_usage` and `end_to_end_usage`. |
+| D13 | Long narrative retention | Done locally | Added Narrative Evidence Blocks, narrative retention QC, and deterministic narrative appendix fallback. Needs WIN real-output validation under U1. |
+| D14 | Balanced frame quota tuning | Done locally | Frame sampling now keeps representative context frames instead of letting slide anchors consume the whole image cap. Needs WIN real-output validation under U1. |
+| U1 | WIN real-output validation after P2 hardening | Not done | Need rerun with `--resume-window-notes` and inspect final QC. |
+| U2 | Offline benchmark report | Not done | Optional comparison report only; must not become production dependency. |
+| U3 | Comparative scoring | Not done | Detail retention, prompt preservation, case depth, visual coverage, NotebookLM readiness. |
+| U4 | Human-review diff report | Not done | Highlight dropped prompts, numbers, long stories, and shortened examples. |
+
 ## Design Principles
 
 1. **Faithful extraction before summarization.**
@@ -158,13 +209,80 @@ full transcript + all frames
   - Added `run_zhihu_live.bat --resume-window-notes` to pass `--resume-window-notes`.
   - Kept default BAT behavior as one-shot; sliding-window remains explicit opt-in and Qwen-only.
   - Updated dry-run, worker logs, finalizer command, and manual fallback commands to include synthesis-pass and resume-window-notes state.
+- 2026-05-27: P2 Qwen-only hardening started.
+  - Added deterministic critical-facts extraction from Qwen window notes.
+  - Qwen final assembly input now includes a Critical Facts Checklist before window notes.
+  - Final assembly prompt now requires a dedicated `## 5. 技术资产附录：Prompts / Code / Config` section and non-overlapping chronological chapters.
+  - Added Qwen-only QC for fact retention, timeline overlaps, and technical asset appendix presence.
+  - Resume-mode usage accounting now separates `current_run_usage` from `end_to_end_usage` and includes reused window-note metadata.
+  - Verified with `python3 -m py_compile` and offline checks against the WIN qwen-sw artifacts: old output is correctly flagged for missing `75分`, timeline overlaps, and missing technical asset appendix.
+- 2026-05-27: Long narrative retention hardening.
+  - Added `Narrative Evidence Blocks` to the Qwen window-note contract.
+  - Final assembly input now includes narrative evidence blocks.
+  - Final assembly prompt requires each chapter to include `叙事证据摘录` and requires `## 6. 叙事证据附录`.
+  - Added `qwen_narrative_retention_qc` with body/transcript ratio and narrative-block retention metrics.
+  - Added deterministic narrative appendix fallback so long-form story evidence can be appended without extra model calls when Qwen compresses it.
+- 2026-05-27: Balanced frame quota tuning.
+  - Changed frame downsampling from slide-first fill to balanced type quotas.
+  - When a provider image cap forces sampling, selected frames reserve representative context coverage instead of letting slide anchors consume the whole cap.
+  - Kept chronological output order after per-type even sampling.
 
-## P2: Hybrid Output Strategy
+## P2: Single-Provider Qwen Hardening
 
-- [ ] Support a "Qwen glossary over Gemini-style body" assembly mode.
-  - Use Qwen to produce a strong Glossary and index.
-  - Use faithful window notes to produce a detail-rich Gemini-style body.
-  - This mirrors the Gemini evaluator recommendation: Qwen Glossary + Gemini-level detail retention.
+- [x] Add a deterministic critical-facts extractor over Qwen window notes.
+  - Extract numbers, scores, dates, costs, tool names, people/project labels, and prompt/config/code blocks before final assembly.
+  - Produce a machine-readable checklist that final assembly must satisfy.
+  - Required facts for the validated live source include `75分`, `所见即所得`, `不要替换`, `34岁`, `2017年`, `年终奖`, `99.9%`, `4万积分`, `19.9万积分`, `Remotion`, `Coze/扣子`, and `Context Compression`.
+
+- [x] Add a Qwen-only final assembly contract.
+  - Inputs:
+    - Qwen window notes.
+    - Deterministic critical-facts checklist.
+    - Deterministic transcript and visual evidence indexes.
+  - Output:
+    - `Markdowns/TTS_stream-{base}-qwen-sw.md`.
+  - Requirements:
+    - Strong Glossary / retrieval index at the head.
+    - Detail-rich timeline body that accounts for every critical fact.
+    - Dedicated `## 技术资产附录：Prompts / Code / Config` section assembled from Qwen window notes.
+    - Non-overlapping chronological chapters.
+
+- [x] Add Qwen-only QC.
+  - Verify Qwen Glossary exists.
+  - Verify the technical asset appendix includes required prompt/code/config blocks.
+  - Verify every critical fact from the checklist appears in the final Markdown.
+  - Verify final timeline chapters do not overlap.
+  - Replace the current body/transcript ratio warning with an evidence-retention score; body ratio can remain a secondary metric.
+
+- [x] Aggregate Qwen usage correctly.
+  - In resume mode, read reused window-note metadata and include those calls in `end_to_end_usage`.
+  - Keep `current_run_usage` separate so cost accounting is clear.
+
+- [x] Add long narrative retention.
+  - Window notes now require `Narrative Evidence Blocks`.
+  - Qwen final assembly receives narrative evidence before window notes.
+  - QC checks `qwen_narrative_retention_qc`.
+  - If Qwen final assembly still compresses long stories, the script deterministically appends `## 6. 叙事证据附录`.
+
+- [x] Add balanced frame quota tuning.
+  - Frame downsampling now allocates roughly 55% slide, 25% annotation, and 20% context when frames exceed the image cap.
+  - Each type is sampled evenly across time before the selected frames are restored to chronological order.
+  - This prevents slide anchors from starving representative context frames in long-window or constrained-cap runs.
+
+## P3: Optional Offline Benchmarking
+
+- [ ] Keep Gemini comparison as an offline analysis tool, not a production dependency.
+  - Inputs:
+    - Gemini Markdown, only when it already exists from a separate evaluation run.
+    - Qwen one-shot Markdown.
+    - Qwen sliding-window Markdown.
+    - Qwen window notes.
+  - Output:
+    - A comparison report, not a merged production Markdown.
+  - Guardrail:
+    - Do not call Gemini from the Qwen production path.
+    - Do not require Gemini output to generate Qwen production Markdown.
+    - Only revisit mixed-model output if the project later has a paid Gemini API budget and explicit approval.
 
 - [ ] Add comparative scoring for future A/B runs.
   - Detail retention score.
@@ -185,7 +303,9 @@ full transcript + all frames
 4. Qwen sliding-window extraction pass.
 5. Final assembly pass from window notes.
 6. Resume/caching for window notes.
-7. Hybrid Glossary/body mode.
+7. Deterministic critical-facts extractor over Qwen window notes.
+8. Qwen-only final assembly hardening: fact checklist, technical asset appendix, non-overlap timeline, usage aggregation, revised compression QC.
+9. Optional offline comparison reports against Gemini artifacts when those artifacts already exist.
 
 ## Success Criteria
 
@@ -198,10 +318,71 @@ For the `live-ab-20260526` source:
 - 学员2猫咪播客评分 `75分` and reasoning are preserved.
 - Flow rewrite case keeps concrete personal-experience details.
 - Final QC has no missing-heading, tail-coverage, frame-coverage, or code-block-retention warnings.
+- Qwen-only final Markdown contains a strong Glossary, a detail-rich body, and a dedicated technical asset appendix extracted from Qwen window notes.
+- Qwen QC confirms key facts from Qwen window notes are retained, especially `75分`, `所见即所得`, `不要替换`, `34岁`, `2017年`, and `年终奖`.
 
 ## Guardrails
 
 - Do not add default-on multi-call synthesis to BAT.
 - Do not enable Qwen sliding-window mode just because `DASHSCOPE_API_KEY` exists.
 - Do not reuse Gemini free-tier multi-request assumptions for Qwen without explicit budget logging.
+- Do not make production Markdown generation depend on both Gemini and Qwen. Mixed-model output is not allowed under the current free-tier/cost constraints unless the user explicitly approves it after a paid Gemini API upgrade.
 - Do not remove the deterministic full transcript and visual evidence appendices.
+
+## Discussion Summary For Next Session
+
+Date: 2026-05-26
+
+What was validated:
+
+- WIN first produced the same-live-source Gemini/Qwen A/B outputs.
+- Gemini one-shot remained the best NotebookLM source because it preserved narrative context, case texture, original wording, long examples, and concrete details.
+- Qwen one-shot was cleaner but over-compressed, missed H1, dropped prompt/code blocks, and only used 250/439 frames due DashScope's image input cap.
+- Qwen sliding-window was implemented and validated by WIN.
+  - It covered all 439 frames across 3 windows.
+  - It generated window notes and reused them with `--resume-window-notes`.
+  - It restored late-stream content that one-shot compressed or missed.
+  - It preserved prompt/code/config blocks much better, including the Coze "所见即所得 / 不要替换" repair prompt and the cat-podcast camera-control prompt.
+
+What improved:
+
+- Qwen sliding-window fixed the frame coverage problem.
+- Qwen sliding-window fixed most long-tail forgetting.
+- Qwen sliding-window output now has H1, stronger Glossary, code blocks, and a `qwen_window_coverage` marker.
+- Qwen is valuable as a structured Chinese indexer and technical asset extractor.
+
+What still failed:
+
+- Final Qwen assembly still over-compressed prose compared with Gemini.
+- Window note 001 preserved `75分`, but the final qwen-sw Markdown dropped it. This proves extraction worked and final assembly lost a critical fact.
+- The final qwen-sw timeline produced overlapping chapters around `01:42 - 02:10`.
+- `qwen_overcompressed_body` currently uses an overly blunt body/transcript ratio threshold; it should become an evidence-retention score.
+- Resume-mode QC currently reports only final assembly usage unless reused window-note metadata is separately aggregated.
+
+Important correction:
+
+- Gemini's evaluator suggested a hybrid document: Gemini body + Qwen Glossary + Qwen technical assets.
+- That may be a good manual NotebookLM experiment, but it is not acceptable as the production engineering path under current API/cost constraints.
+- Calling two large models and then merging their outputs is too expensive and violates the project's engineering requirement unless the project later upgrades to a paid Gemini API plan and explicitly approves mixed-model generation.
+- Production must stay single-provider:
+
+```text
+Qwen dynamic sliding-window notes
+  -> deterministic critical-facts checklist
+  -> Qwen-only final assembly
+  -> Qwen-only NotebookLM Markdown with technical asset appendix
+```
+
+Tomorrow's recommended starting point:
+
+1. Implement the deterministic critical-facts extractor over Qwen window notes.
+2. Add Qwen-only final assembly requirements:
+   - account for every critical fact;
+   - emit a dedicated technical asset appendix;
+   - produce non-overlapping chronological chapters.
+3. Update Qwen QC:
+   - fact retention score;
+   - technical asset appendix checks;
+   - timeline overlap detection;
+   - end-to-end usage aggregation from reused window notes.
+4. Keep Gemini as an offline comparison artifact only, not a production dependency.

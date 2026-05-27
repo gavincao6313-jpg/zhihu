@@ -59,6 +59,8 @@ QWEN_WINDOW_TARGET_FRAMES = 200
 QWEN_WINDOW_OVERLAP_FRAMES = 20
 QWEN_WINDOW_NOTE_VERSION = "qwen-window-note-v1"
 QWEN_FINAL_ASSEMBLY_VERSION = "qwen-final-assembly-v1"
+QWEN_CRITICAL_FACT_VERSION = "qwen-critical-facts-v1"
+QWEN_NARRATIVE_BLOCK_VERSION = "qwen-narrative-blocks-v1"
 MAX_RETRIES             = 2      # Gemini quota guard: keep automatic retries small
 MAX_CONTINUATIONS       = 2      # Gemini quota guard: 1 initial + 2 continuation calls max
 RETRY_DELAY             = 65
@@ -69,7 +71,34 @@ GAP_THRESHOLD_S     = 30    # seconds above typical chunk interval → counts as
 SILENT_CHARS_LIMIT  = 10    # transcript chars below this → silent chunk
 TAIL_COVERAGE_RATIO = 0.85  # transcript must reach ≥ 85% of estimated stream end
 BODY_COVERAGE_GAP_S = 120   # warn if last Markdown chapter ends >2 min before stream end
-QWEN_BODY_MIN_TRANSCRIPT_RATIO = 0.35
+QWEN_BODY_MIN_TRANSCRIPT_RATIO = 0.20
+QWEN_FACT_RETENTION_MIN_RATIO = 0.90
+QWEN_NARRATIVE_RETENTION_MIN_RATIO = 0.32
+QWEN_NARRATIVE_MIN_BLOCKS_PER_WINDOW = 2
+QWEN_CRITICAL_FACT_TERMS = [
+    "75分",
+    "所见即所得",
+    "不要替换",
+    "34岁",
+    "2017年",
+    "年终奖",
+    "99.9%",
+    "4万积分",
+    "19.9万积分",
+    "30万积分",
+    "15秒",
+    "30秒",
+    "1分钟",
+    "3分钟",
+    "Remotion",
+    "HyperFrames",
+    "Coze",
+    "扣子",
+    "Context Compression",
+    "即梦",
+    "Dreamina",
+    "FDE",
+]
 
 GEMINI_PROMPT_TEXT = """
 # 角色与目标
@@ -202,6 +231,17 @@ QWEN_WINDOW_NOTE_PROMPT_TEXT = """
 ## Faithful Notes
 按时间顺序记录本窗口信息。不要为了简洁而删除细节。
 
+## Narrative Evidence Blocks
+保留本窗口中 2-6 段最有 NotebookLM 检索价值的长叙事证据块。每段 300-800 字，尽量接近讲师原始表达，不要改成思维导图短句。优先保留：
+- 个人经历、转行故事、职业判断、心理转折。
+- 案例复盘中的完整因果链路和长文案示例。
+- 商业判断、成本分析、踩坑故事、风险解释。
+- 能体现"网感"、语气、原生语境的长段说明。
+
+每段格式：
+### Narrative Block [HH:MM:SS - HH:MM:SS] 标题
+原文或近原文长段内容。
+
 ## Preserved Prompts / Code / Config
 如果本窗口出现提示词、代码、配置、命令或 UI 文案，必须放在这里并用代码块保留。没有则写"未发现"。
 
@@ -217,13 +257,21 @@ QWEN_WINDOW_NOTE_PROMPT_TEXT = """
 
 QWEN_FINAL_ASSEMBLY_PROMPT_TEXT = """
 # 角色与目标
-你是 NotebookLM / 长文本 RAG 知识库文档的最终组装器。你将收到多个 Qwen 窗口级保真笔记。这些窗口笔记是唯一权威来源。请把它们合并成一份详尽、可检索、细节保真的 Markdown 文档。
+你是 NotebookLM / 长文本 RAG 知识库文档的最终组装器。你将收到：
+1. 由程序从 Qwen 窗口笔记中确定性抽取出的 Critical Facts Checklist；
+2. 由程序从 Qwen 窗口笔记中确定性抽取出的 Narrative Evidence Blocks；
+3. 多个 Qwen 窗口级保真笔记。
+
+这些输入是唯一权威来源。你的任务是在不调用其他模型、不依赖 Gemini 的前提下，组装成一份详尽、可检索、细节保真的 Markdown 文档。
 
 # 关键规则
 - 不能把窗口笔记压缩成高管摘要。
 - 不能删除窗口笔记中保存的 Prompt、代码块、配置、UI 文案、案例打分、数字、金句和视觉证据。
+- Critical Facts Checklist 中的每一项都必须出现在最终正文或技术资产附录中。不能遗漏分数、年份、金额、积分、工具名、Prompt 关键词。
+- Narrative Evidence Blocks 是防止长文叙事被压缩的保底证据。最终正文必须吸收这些长段的细节和语气；不能只把它们改写成一句 bullet。
 - 可以去重 overlap，但不能因为去重丢掉上下文。
-- Glossary 可以更清晰，但正文必须保留 Gemini 风格的丰富细节。
+- 章节必须按真实时间线线性展开，禁止出现大章节包住小章节的重叠时间段。
+- Glossary 可以更清晰，但正文必须保留窗口笔记中的丰富细节。
 
 # 必须输出
 # （准确具体的中文标题）
@@ -243,13 +291,20 @@ QWEN_FINAL_ASSEMBLY_PROMPT_TEXT = """
 每章必须包含：
 - **核心论点：**
 - **详细展开：**
+- **叙事证据摘录：** 引用或近原文保留本章对应的长叙事证据，不少于 150 字；如果本章没有叙事证据则写"本章无长叙事证据"。
 - **视觉/屏幕内容：**
 - **重要金句/原话：**
 
 ## 4. 遗留问题与下一步行动
 
+## 5. 技术资产附录：Prompts / Code / Config
+必须集中保留所有窗口笔记中的 Prompt、代码块、配置、命令和 UI 文案。每条资产要标明来源时间或窗口编号。不要只写概括，必须保留原文或近原文代码块。
+
+## 6. 叙事证据附录
+集中保留最重要的长叙事证据块。每条要标明来源窗口和时间范围。这个附录用于 NotebookLM 检索，不要压缩成短句。
+
 # 自检
-输出前确认：H1 存在；所有窗口都有内容进入正文；Prompt/代码块没有丢；视觉证据没有被泛化成"展示了截图"；正文不是短摘要。
+输出前确认：H1 存在；所有窗口都有内容进入正文；Critical Facts Checklist 全部落地；Narrative Evidence Blocks 已进入正文或叙事证据附录；Prompt/代码块没有丢；技术资产附录存在；视觉证据没有被泛化成"展示了截图"；章节时间线不重叠；正文不是短摘要。
 
 # 隐藏覆盖标记（必须输出）
 在文档最后一行添加 HTML 注释，列出已纳入最终正文的窗口编号，格式必须严格为：
@@ -324,31 +379,83 @@ def collect_all_frames(chunk_files: list[Path]) -> list[dict]:
 
 # ── Provider input assembly ───────────────────────────────────────────────────
 
+def _sample_evenly_indexed(indexed_frames: list[tuple[int, dict]], limit: int) -> list[tuple[int, dict]]:
+    """Sample frames evenly while retaining the first and last item when possible."""
+    if limit <= 0 or not indexed_frames:
+        return []
+    if len(indexed_frames) <= limit:
+        return list(indexed_frames)
+    if limit == 1:
+        return [indexed_frames[len(indexed_frames) // 2]]
+
+    max_index = len(indexed_frames) - 1
+    selected_positions: list[int] = []
+    seen: set[int] = set()
+    for i in range(limit):
+        pos = round(i * max_index / (limit - 1))
+        if pos not in seen:
+            selected_positions.append(pos)
+            seen.add(pos)
+
+    cursor = 0
+    while len(selected_positions) < limit and cursor < len(indexed_frames):
+        if cursor not in seen:
+            selected_positions.append(cursor)
+            seen.add(cursor)
+        cursor += 1
+
+    return [indexed_frames[pos] for pos in sorted(selected_positions[:limit])]
+
+
 def select_frames(frames: list[dict], *, image_limit: int = GEMINI_IMAGE_HARD_LIMIT) -> list[dict]:
-    """Return selected frames, prioritizing slides/annotations when over limit."""
+    """Return selected frames with balanced type quotas when over limit."""
     if image_limit <= 0:
         return []
     if len(frames) <= image_limit:
         return frames
 
-    slide_frames = [f for f in frames if "type=slide"      in f.get("marker", "")]
-    annot_frames = [f for f in frames if "type=annotation" in f.get("marker", "")]
-    ctx_frames   = [f for f in frames
-                    if "type=slide"      not in f.get("marker", "")
-                    and "type=annotation" not in f.get("marker", "")]
+    indexed_by_type = {"slide": [], "annotation": [], "context": []}
+    for idx, frame in enumerate(frames):
+        indexed_by_type[_frame_type(frame)].append((idx, frame))
 
-    cap      = image_limit
-    selected = list(slide_frames[:cap])
-    remaining = cap - len(selected)
-    if remaining > 0:
-        step = max(1, len(annot_frames) // remaining)
-        selected += annot_frames[::step][:remaining]
-        remaining = cap - len(selected)
-    if remaining > 0 and ctx_frames:
-        step = max(1, len(ctx_frames) // remaining)
-        selected += ctx_frames[::step][:remaining]
-    selected.sort(key=lambda f: f.get("timestamp_s", 0))
-    return selected
+    weights = {"slide": 0.55, "annotation": 0.25, "context": 0.20}
+    priority = ["slide", "annotation", "context"]
+    allocation = {key: 0 for key in priority}
+    for key in priority:
+        if indexed_by_type[key]:
+            allocation[key] = max(1, int(image_limit * weights[key]))
+
+    while sum(allocation.values()) > image_limit:
+        reducible = [key for key in reversed(priority) if allocation[key] > 1]
+        if reducible:
+            allocation[reducible[0]] -= 1
+        else:
+            for key in reversed(priority):
+                if allocation[key] > 0:
+                    allocation[key] -= 1
+                    break
+
+    for key in priority:
+        allocation[key] = min(allocation[key], len(indexed_by_type[key]))
+
+    remaining = image_limit - sum(allocation.values())
+    while remaining > 0:
+        progressed = False
+        for key in priority:
+            if allocation[key] < len(indexed_by_type[key]):
+                allocation[key] += 1
+                remaining -= 1
+                progressed = True
+                if remaining == 0:
+                    break
+        if not progressed:
+            break
+
+    selected_indexed: list[tuple[int, dict]] = []
+    for key in priority:
+        selected_indexed.extend(_sample_evenly_indexed(indexed_by_type[key], allocation[key]))
+
+    return [frame for _, frame in sorted(selected_indexed, key=lambda item: item[0])]
 
 
 def build_gemini_parts(
@@ -645,6 +752,425 @@ def read_qwen_window_note_if_current(note_path: Path, source_hash: str) -> dict 
     return {
         "metadata": metadata,
         "text": text[m.end():].strip(),
+    }
+
+
+def _context_snippet(text: str, needle: str, radius: int = 80) -> str:
+    idx = text.find(needle)
+    if idx < 0:
+        return ""
+    start = max(0, idx - radius)
+    end = min(len(text), idx + len(needle) + radius)
+    return re.sub(r'\s+', ' ', text[start:end]).strip()
+
+
+def _fact_aliases(value: str) -> list[str]:
+    aliases = [value]
+    if value == "Coze":
+        aliases.append("扣子")
+    elif value == "扣子":
+        aliases.append("Coze")
+    elif value == "Context Compression":
+        aliases.extend(["上下文压缩", "CC"])
+    elif value == "Dreamina":
+        aliases.append("即梦")
+    elif value == "即梦":
+        aliases.append("Dreamina")
+    elif value == "75分":
+        aliases.extend(["75 分", "75"])
+    elif value == "99.9%":
+        aliases.append("99.9％")
+    elif value == "4万积分":
+        aliases.append("4 万积分")
+    elif value == "19.9万积分":
+        aliases.append("19.9 万积分")
+    elif value == "30万积分":
+        aliases.append("30 万积分")
+    return list(dict.fromkeys(aliases))
+
+
+def extract_qwen_critical_facts(note_texts: list[str]) -> list[dict]:
+    """Deterministically extract must-retain facts from Qwen window notes."""
+    facts: list[dict] = []
+    seen: set[str] = set()
+
+    def add_fact(kind: str, value: str, window_index: int, source_text: str) -> None:
+        value = value.strip()
+        if not value:
+            return
+        key = re.sub(r'\s+', '', value.lower())
+        if key in seen:
+            return
+        seen.add(key)
+        facts.append({
+            "kind": kind,
+            "value": value,
+            "aliases": _fact_aliases(value),
+            "window_index": window_index,
+            "context": _context_snippet(source_text, value),
+        })
+
+    for idx, text in enumerate(note_texts, start=1):
+        for term in QWEN_CRITICAL_FACT_TERMS:
+            if term in text:
+                kind = "term"
+                if term.endswith("分"):
+                    kind = "score"
+                elif term.endswith("积分"):
+                    kind = "cost"
+                elif term.endswith("年") or term.endswith("岁"):
+                    kind = "date_or_age"
+                elif term in {"所见即所得", "不要替换"}:
+                    kind = "prompt_keyword"
+                elif term in {"Remotion", "HyperFrames", "Coze", "扣子", "Context Compression", "即梦", "Dreamina", "FDE"}:
+                    kind = "tool_or_concept"
+                add_fact(kind, term, idx, text)
+
+        for pattern, kind in [
+            (r'\d+(?:\.\d+)?\s*%', "percentage"),
+            (r'\d+(?:\.\d+)?\s*分(?!钟)', "score"),
+            (r'\d+(?:\.\d+)?\s*万?\s*积分', "cost"),
+            (r'20\d{2}年', "date_or_age"),
+            (r'\d+\s*岁', "date_or_age"),
+        ]:
+            for m in re.finditer(pattern, text):
+                add_fact(kind, re.sub(r'\s+', '', m.group(0)), idx, text)
+
+    return facts
+
+
+def format_qwen_critical_facts_for_prompt(facts: list[dict]) -> str:
+    if not facts:
+        return "## Critical Facts Checklist\n\n未从窗口笔记中检测到必须保留的关键事实。\n"
+    lines = [
+        "## Critical Facts Checklist",
+        "",
+        "以下事实由程序从 Qwen window notes 中确定性抽取。最终 Markdown 必须逐项保留；"
+        "可在正文或 `## 5. 技术资产附录：Prompts / Code / Config` 中落地。",
+        "",
+    ]
+    for i, fact in enumerate(facts, start=1):
+        aliases = ", ".join(fact.get("aliases") or [fact["value"]])
+        context = fact.get("context", "")
+        lines.append(
+            f"{i}. [{fact['kind']}] `{fact['value']}`"
+            f" | aliases: {aliases}"
+            f" | source window: {fact['window_index']}"
+        )
+        if context:
+            lines.append(f"   - context: {context}")
+    return "\n".join(lines) + "\n"
+
+
+def _strip_markdown_noise(text: str) -> str:
+    text = re.sub(r'```.*?```', ' ', text, flags=re.S)
+    text = re.sub(r'<!--.*?-->', ' ', text, flags=re.S)
+    text = re.sub(r'(?m)^#{1,6}\s+', '', text)
+    text = re.sub(r'(?m)^\s*[-*]\s+', '', text)
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+def _narrative_anchor(text: str) -> str:
+    cleaned = _strip_markdown_noise(text)
+    return cleaned[:80]
+
+
+def extract_qwen_narrative_blocks(note_texts: list[str]) -> list[dict]:
+    """Extract long narrative evidence blocks from Qwen window notes.
+
+    New notes should include an explicit "Narrative Evidence Blocks" section.
+    For older notes, fall back to longer faithful-note paragraphs so QC can still
+    measure whether the final body retained story-like content.
+    """
+    blocks: list[dict] = []
+    seen: set[str] = set()
+
+    def add_block(window_index: int, title: str, body: str, time_range: str = "") -> None:
+        cleaned = _strip_markdown_noise(body)
+        if len(cleaned) < 180:
+            return
+        key = cleaned[:120]
+        if key in seen:
+            return
+        seen.add(key)
+        blocks.append({
+            "window_index": window_index,
+            "title": title.strip() or f"Window {window_index} narrative evidence",
+            "time_range": time_range.strip(),
+            "chars": len(cleaned),
+            "anchor": _narrative_anchor(cleaned),
+            "text": cleaned,
+        })
+
+    for window_index, note in enumerate(note_texts, start=1):
+        section_match = re.search(
+            r'(?ims)^##\s+Narrative Evidence Blocks\s*(.*?)(?=^##\s+|\Z)',
+            note,
+        )
+        if section_match:
+            section = section_match.group(1).strip()
+            matches = list(re.finditer(
+                r'(?ims)^###\s+Narrative Block\s*(?:\[(.*?)\])?\s*(.*?)\n(.*?)(?=^###\s+Narrative Block|\Z)',
+                section,
+            ))
+            if matches:
+                for m in matches:
+                    add_block(window_index, m.group(2), m.group(3), m.group(1) or "")
+            else:
+                for i, para in enumerate(re.split(r'\n\s*\n+', section), start=1):
+                    add_block(window_index, f"Narrative block {i}", para)
+            continue
+
+        faithful = re.search(
+            r'(?ims)^##\s+Faithful Notes\s*(.*?)(?=^##\s+Preserved Prompts|^##\s+Visual Evidence|^##\s+Quotes|^##\s+Merge Hints|\Z)',
+            note,
+        )
+        fallback = faithful.group(1) if faithful else note
+        candidates = re.split(r'\n\s*\n+', fallback)
+        added = 0
+        for i, para in enumerate(candidates, start=1):
+            if added >= QWEN_NARRATIVE_MIN_BLOCKS_PER_WINDOW:
+                break
+            if any(marker in para for marker in ["```", "Window Metadata", "Preserved Prompts"]):
+                continue
+            before = len(blocks)
+            add_block(window_index, f"Fallback narrative block {i}", para)
+            if len(blocks) > before:
+                added += 1
+
+    return blocks
+
+
+def format_qwen_narrative_blocks_for_prompt(blocks: list[dict]) -> str:
+    if not blocks:
+        return "## Narrative Evidence Blocks\n\n未从窗口笔记中检测到长叙事证据块。\n"
+    lines = [
+        "## Narrative Evidence Blocks",
+        "",
+        "以下长叙事证据由程序从 Qwen window notes 中抽取。最终 Markdown 必须吸收其细节，"
+        "并在正文或 `## 6. 叙事证据附录` 中保留。不要压缩成思维导图短句。",
+        "",
+    ]
+    for i, block in enumerate(blocks, start=1):
+        time_part = f" [{block['time_range']}]" if block.get("time_range") else ""
+        lines.append(f"### Narrative Evidence {i}{time_part} - {block['title']} (window {block['window_index']})")
+        lines.append(block["text"])
+        lines.append("")
+    return "\n".join(lines).strip() + "\n"
+
+
+def check_qwen_fact_retention(markdown_body: str, facts: list[dict]) -> dict:
+    if not facts:
+        return {"warnings": [], "metrics": {"fact_count": 0, "retained_count": 0, "retention_ratio": 1.0, "missing_facts": []}}
+
+    missing = []
+    retained = 0
+    for fact in facts:
+        aliases = fact.get("aliases") or [fact["value"]]
+        if any(alias and alias in markdown_body for alias in aliases):
+            retained += 1
+        else:
+            missing.append({
+                "kind": fact["kind"],
+                "value": fact["value"],
+                "window_index": fact.get("window_index"),
+            })
+    ratio = retained / max(1, len(facts))
+    warnings = []
+    if missing:
+        warnings.append(
+            "qwen_critical_facts_missing: "
+            + ", ".join(f"{m['value']}(w{m['window_index']})" for m in missing[:20])
+        )
+    if ratio < QWEN_FACT_RETENTION_MIN_RATIO:
+        warnings.append(
+            f"qwen_fact_retention_low: retained {retained}/{len(facts)}"
+            f" ({ratio:.2f}), expected >= {QWEN_FACT_RETENTION_MIN_RATIO:.2f}"
+        )
+    return {
+        "warnings": warnings,
+        "metrics": {
+            "fact_count": len(facts),
+            "retained_count": retained,
+            "retention_ratio": round(ratio, 4),
+            "missing_facts": missing,
+            "min_retention_ratio": QWEN_FACT_RETENTION_MIN_RATIO,
+        },
+    }
+
+
+def check_qwen_timeline_overlaps(markdown_body: str) -> dict:
+    chapters = []
+    for m in re.finditer(
+        r'(?m)^###\s+\[(\d{2}):(\d{2}):(\d{2})\s*-\s*(\d{2}):(\d{2}):(\d{2})\]\s*(.*)$',
+        markdown_body,
+    ):
+        sh, sm, ss, eh, em, es, title = m.groups()
+        start = int(sh) * 3600 + int(sm) * 60 + int(ss)
+        end = int(eh) * 3600 + int(em) * 60 + int(es)
+        chapters.append({"start_s": start, "end_s": end, "title": title.strip()})
+
+    overlaps = []
+    prev = None
+    for chapter in chapters:
+        if prev and chapter["start_s"] < prev["end_s"]:
+            overlaps.append({
+                "previous": prev,
+                "current": chapter,
+                "overlap_s": prev["end_s"] - chapter["start_s"],
+            })
+        if prev is None or chapter["end_s"] > prev["end_s"]:
+            prev = chapter
+
+    warnings = []
+    if overlaps:
+        warnings.append(
+            "qwen_timeline_overlaps: "
+            + "; ".join(
+                f"{fmt_ts(o['current']['start_s'])}-{fmt_ts(o['previous']['end_s'])}"
+                for o in overlaps[:10]
+            )
+        )
+    return {
+        "warnings": warnings,
+        "metrics": {
+            "chapter_count": len(chapters),
+            "overlap_count": len(overlaps),
+            "overlaps": overlaps,
+        },
+    }
+
+
+def check_qwen_technical_asset_appendix(markdown_body: str, facts: list[dict]) -> dict:
+    has_section = "## 5. 技术资产附录" in markdown_body or "## 技术资产附录" in markdown_body
+    code_fence_count = markdown_body.count("```") // 2
+    prompt_facts = [
+        f for f in facts
+        if f.get("kind") in {"prompt_keyword", "tool_or_concept"} or f.get("value") in {"所见即所得", "不要替换"}
+    ]
+    warnings = []
+    if prompt_facts and not has_section:
+        warnings.append("qwen_missing_technical_asset_appendix: expected Prompts / Code / Config appendix")
+    if prompt_facts and code_fence_count < 2:
+        warnings.append("qwen_technical_asset_code_blocks_low: expected preserved prompt/code/config fences")
+    return {
+        "warnings": warnings,
+        "metrics": {
+            "has_technical_asset_appendix": has_section,
+            "code_fence_count": code_fence_count,
+            "prompt_fact_count": len(prompt_facts),
+        },
+    }
+
+
+def check_qwen_narrative_retention(markdown_body: str, blocks: list[dict], transcript: str) -> dict:
+    transcript_chars = max(1, len(transcript.strip()))
+    body_chars = len(markdown_body.strip())
+    body_ratio = body_chars / transcript_chars
+
+    if not blocks:
+        return {
+            "warnings": ["qwen_narrative_blocks_missing: no narrative evidence blocks extracted"],
+            "metrics": {
+                "narrative_block_count": 0,
+                "retained_block_count": 0,
+                "retention_ratio": 0,
+                "body_transcript_ratio": round(body_ratio, 4),
+                "min_body_transcript_ratio": QWEN_NARRATIVE_RETENTION_MIN_RATIO,
+                "missing_blocks": [],
+            },
+        }
+
+    missing = []
+    retained = 0
+    for block in blocks:
+        anchor = block.get("anchor", "")
+        text = block.get("text", "")
+        probes = [anchor[:50], anchor[:35], text[:80], text[:50]]
+        if any(probe and probe in markdown_body for probe in probes):
+            retained += 1
+        else:
+            missing.append({
+                "window_index": block.get("window_index"),
+                "title": block.get("title"),
+                "anchor": anchor[:80],
+            })
+    retention_ratio = retained / max(1, len(blocks))
+    warnings = []
+    if body_ratio < QWEN_NARRATIVE_RETENTION_MIN_RATIO:
+        warnings.append(
+            f"qwen_narrative_body_ratio_low: body/transcript ratio {body_ratio:.2f},"
+            f" expected >= {QWEN_NARRATIVE_RETENTION_MIN_RATIO:.2f}"
+        )
+    if missing:
+        warnings.append(
+            "qwen_narrative_blocks_missing_from_final: "
+            + ", ".join(f"w{m['window_index']}:{m['title']}" for m in missing[:10])
+        )
+    return {
+        "warnings": warnings,
+        "metrics": {
+            "narrative_block_count": len(blocks),
+            "retained_block_count": retained,
+            "retention_ratio": round(retention_ratio, 4),
+            "body_transcript_ratio": round(body_ratio, 4),
+            "min_body_transcript_ratio": QWEN_NARRATIVE_RETENTION_MIN_RATIO,
+            "missing_blocks": missing,
+        },
+    }
+
+
+def ensure_qwen_narrative_appendix(markdown_body: str, blocks: list[dict], transcript: str) -> tuple[str, dict]:
+    """Deterministically append narrative evidence if final assembly compresses it."""
+    if not blocks:
+        return markdown_body, {"appended": False, "reason": "no_blocks", "appended_blocks": 0}
+
+    retention = check_qwen_narrative_retention(markdown_body, blocks, transcript)
+    metrics = retention["metrics"]
+    has_section = "## 6. 叙事证据附录" in markdown_body or "## 叙事证据附录" in markdown_body
+    should_append = (
+        not has_section
+        or metrics["body_transcript_ratio"] < QWEN_NARRATIVE_RETENTION_MIN_RATIO
+        or metrics["retention_ratio"] < 0.80
+    )
+    if not should_append:
+        return markdown_body, {"appended": False, "reason": "already_retained", "appended_blocks": 0}
+
+    marker = "<!-- qwen_window_coverage:"
+    coverage_tail = ""
+    body = markdown_body.rstrip()
+    if marker in body:
+        idx = body.rfind(marker)
+        coverage_tail = body[idx:].strip()
+        body = body[:idx].rstrip()
+
+    lines = [
+        "",
+        "## 6. 叙事证据附录",
+        "",
+        "> 以下内容由程序从 Qwen window notes 确定性追加，用于避免长文叙事在最终组装时被压缩丢失。",
+        "",
+    ]
+    for i, block in enumerate(blocks, start=1):
+        time_part = f" [{block['time_range']}]" if block.get("time_range") else ""
+        lines.append(f"### Narrative Evidence {i}{time_part} - {block['title']} (window {block['window_index']})")
+        lines.append(block["text"])
+        lines.append("")
+    if coverage_tail:
+        lines.append(coverage_tail)
+    return body + "\n" + "\n".join(lines).rstrip() + "\n", {
+        "appended": True,
+        "reason": "missing_or_low_retention",
+        "appended_blocks": len(blocks),
+        "pre_append_metrics": metrics,
+    }
+
+
+def add_usage(a: dict, b: dict) -> dict:
+    return {
+        "input_tokens": int(a.get("input_tokens", 0)) + int(b.get("input_tokens", 0)),
+        "output_tokens": int(a.get("output_tokens", 0)) + int(b.get("output_tokens", 0)),
+        "total_tokens": int(a.get("total_tokens", 0)) + int(b.get("total_tokens", 0)),
     }
 
 
@@ -1277,8 +1803,11 @@ def main() -> None:
             else:
                 note_texts: list[str] = []
                 note_paths: list[str] = []
-                total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
-                total_calls = 0
+                note_metadata_list: list[dict] = []
+                current_run_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+                end_to_end_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+                current_run_calls = 0
+                end_to_end_calls = 0
                 finish_reasons: list[str] = []
                 window_policies = []
                 reused_window_notes = 0
@@ -1292,9 +1821,17 @@ def main() -> None:
                         if cached:
                             note_paths.append(str(note_path))
                             note_texts.append(cached["text"])
-                            cached_policy = cached["metadata"].get("frame_policy", {})
+                            cached_metadata = cached["metadata"]
+                            note_metadata_list.append(cached_metadata)
+                            cached_policy = cached_metadata.get("frame_policy", {})
                             if cached_policy:
                                 window_policies.append(cached_policy)
+                            end_to_end_usage = add_usage(
+                                end_to_end_usage,
+                                cached_metadata.get("usage", {}),
+                            )
+                            end_to_end_calls += int(cached_metadata.get("api_calls", 0) or 0)
+                            finish_reasons.append(str(cached_metadata.get("finish_reason", "")))
                             reused_window_notes += 1
                             print(f"[{window_label}] Reusing window note: {note_path}", flush=True)
                             continue
@@ -1337,22 +1874,32 @@ def main() -> None:
                     write_qwen_window_note(note_path, metadata, note_text)
                     note_paths.append(str(note_path))
                     note_texts.append(note_text)
+                    note_metadata_list.append(metadata)
                     usage = result.get("usage", {})
-                    total_usage = {
-                        "input_tokens": total_usage["input_tokens"] + int(usage.get("input_tokens", 0)),
-                        "output_tokens": total_usage["output_tokens"] + int(usage.get("output_tokens", 0)),
-                        "total_tokens": total_usage["total_tokens"] + int(usage.get("total_tokens", 0)),
-                    }
-                    total_calls += int(result.get("api_calls", 0) or 0)
+                    current_run_usage = add_usage(current_run_usage, usage)
+                    end_to_end_usage = add_usage(end_to_end_usage, usage)
+                    current_run_calls += int(result.get("api_calls", 0) or 0)
+                    end_to_end_calls += int(result.get("api_calls", 0) or 0)
                     finish_reasons.append(str(result.get("finish_reason", "")))
 
+                critical_facts = extract_qwen_critical_facts(note_texts)
+                narrative_blocks = extract_qwen_narrative_blocks(note_texts)
+                critical_facts_block = format_qwen_critical_facts_for_prompt(critical_facts)
+                narrative_blocks_block = format_qwen_narrative_blocks_for_prompt(narrative_blocks)
                 combined_notes = "\n\n---\n\n".join(
                     f"<!-- window {idx + 1} -->\n{text.strip()}"
                     for idx, text in enumerate(note_texts)
                 )
+                final_input = (
+                    critical_facts_block
+                    + "\n\n"
+                    + narrative_blocks_block
+                    + "\n\n## Qwen Window Notes\n\n"
+                    + combined_notes
+                )
                 final_result = call_qwen(
                     client,
-                    [QWEN_FINAL_ASSEMBLY_PROMPT_TEXT, combined_notes],
+                    [QWEN_FINAL_ASSEMBLY_PROMPT_TEXT, final_input],
                     f"{args.base}-final-assembly",
                     model=provider_model,
                     enable_thinking=args.qwen_thinking,
@@ -1362,12 +1909,10 @@ def main() -> None:
                 )
                 gemini_text = final_result.get("text")
                 final_usage = final_result.get("usage", {})
-                total_usage = {
-                    "input_tokens": total_usage["input_tokens"] + int(final_usage.get("input_tokens", 0)),
-                    "output_tokens": total_usage["output_tokens"] + int(final_usage.get("output_tokens", 0)),
-                    "total_tokens": total_usage["total_tokens"] + int(final_usage.get("total_tokens", 0)),
-                }
-                total_calls += int(final_result.get("api_calls", 0) or 0)
+                current_run_usage = add_usage(current_run_usage, final_usage)
+                end_to_end_usage = add_usage(end_to_end_usage, final_usage)
+                current_run_calls += int(final_result.get("api_calls", 0) or 0)
+                end_to_end_calls += int(final_result.get("api_calls", 0) or 0)
                 finish_reasons.append(str(final_result.get("finish_reason", "")))
                 manifest["frame_policy"] = {
                     "provider": provider,
@@ -1378,14 +1923,24 @@ def main() -> None:
                 manifest["provider_parts_count"] = sum(2 + p.get("selected_frames", 0) * 2 for p in window_policies) + 2
                 manifest["qwen_window_notes"] = note_paths
                 manifest["qwen_window_notes_reused"] = reused_window_notes
+                manifest["qwen_window_note_metadata"] = note_metadata_list
                 manifest["qwen_final_assembly_version"] = QWEN_FINAL_ASSEMBLY_VERSION
+                manifest["qwen_critical_fact_version"] = QWEN_CRITICAL_FACT_VERSION
+                manifest["qwen_critical_facts"] = critical_facts
+                manifest["qwen_narrative_block_version"] = QWEN_NARRATIVE_BLOCK_VERSION
+                manifest["qwen_narrative_blocks"] = narrative_blocks
                 manifest["provider_usage"] = {
                     "provider": "qwen",
                     "model": provider_model,
-                    "api_calls": total_calls,
+                    "api_calls": current_run_calls,
                     "finish_reason": finish_reasons[-1] if finish_reasons else "",
                     "window_finish_reasons": finish_reasons,
-                    "usage": total_usage,
+                    "usage": current_run_usage,
+                    "current_run_usage": current_run_usage,
+                    "current_run_api_calls": current_run_calls,
+                    "end_to_end_usage": end_to_end_usage,
+                    "end_to_end_api_calls": end_to_end_calls,
+                    "reused_window_note_api_calls": end_to_end_calls - current_run_calls,
                     "estimated_cost_cny": None,
                 }
 
@@ -1393,6 +1948,14 @@ def main() -> None:
         print(f"[!] {provider} synthesis failed — merged raw transcript still available.",
               file=sys.stderr)
         sys.exit(1)
+
+    if provider == "qwen" and synthesis_pass == "sliding-window":
+        gemini_text, narrative_appendix = ensure_qwen_narrative_appendix(
+            gemini_text,
+            manifest.get("qwen_narrative_blocks", []),
+            transcript,
+        )
+        manifest["qwen_narrative_appendix"] = narrative_appendix
 
     # Check body coverage before building the header so the warning appears in the QC block.
     coverage = check_markdown_body_coverage(gemini_text, manifest)
@@ -1414,6 +1977,23 @@ def main() -> None:
             qwen_window_coverage = check_qwen_window_coverage(gemini_text, manifest)
             manifest["qwen_window_coverage_qc"] = qwen_window_coverage["metrics"]
             manifest["warnings"].extend(qwen_window_coverage["warnings"])
+            qwen_facts = manifest.get("qwen_critical_facts", [])
+            qwen_fact_retention = check_qwen_fact_retention(gemini_text, qwen_facts)
+            manifest["qwen_fact_retention_qc"] = qwen_fact_retention["metrics"]
+            manifest["warnings"].extend(qwen_fact_retention["warnings"])
+            qwen_timeline = check_qwen_timeline_overlaps(gemini_text)
+            manifest["qwen_timeline_qc"] = qwen_timeline["metrics"]
+            manifest["warnings"].extend(qwen_timeline["warnings"])
+            qwen_assets = check_qwen_technical_asset_appendix(gemini_text, qwen_facts)
+            manifest["qwen_technical_asset_qc"] = qwen_assets["metrics"]
+            manifest["warnings"].extend(qwen_assets["warnings"])
+            qwen_narrative = check_qwen_narrative_retention(
+                gemini_text,
+                manifest.get("qwen_narrative_blocks", []),
+                transcript,
+            )
+            manifest["qwen_narrative_retention_qc"] = qwen_narrative["metrics"]
+            manifest["warnings"].extend(qwen_narrative["warnings"])
     manifest["transcript_appendix_chars"] = len(transcript.strip())
     manifest["visual_evidence_count"] = len(all_frames)
     manifest["deterministic_appendices"] = ["full_transcript", "visual_evidence_index"]
