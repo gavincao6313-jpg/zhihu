@@ -2,7 +2,14 @@ from __future__ import annotations
 
 import argparse
 import subprocess
+import sys
 from pathlib import Path
+
+# stream_extractors lives in the repo root, not in scripts/; ensure it's importable
+# regardless of how the venv was set up.
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from toutiao_common import (
     TOUTIAO_AUTH_STATE,

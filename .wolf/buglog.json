@@ -1465,7 +1465,7 @@
       "error_message": "NameError: name 'sha1_short' is not defined in toutiao_common.py:104",
       "file": "scripts/toutiao_common.py",
       "root_cause": "extract_item_id() fallback path calls sha1_short() but function was never defined; Mac offline validation did not hit the fallback branch (item IDs matched regex patterns)",
-      "fix": "Added import hashlib and sha1_short() function; needs Mac-side permanent fix + syntax check",
+      "fix": "WIN added import hashlib and sha1_short(); MAC merged ecc1081 (fast-forward), py_compile verified.",
       "tags": [
         "bug",
         "missing-function",
@@ -1482,7 +1482,7 @@
       "error_message": "Playwright fallback fails: No module named 'stream_extractors'",
       "file": "scripts/toutiao_download_favorites.py",
       "root_cause": ".venv-sensevoice site-packages does not include project root; stream_extractors is a local module only importable with PYTHONPATH=.",
-      "fix": "Either add project root to venv PYTHONPATH or install project as editable package; yt-dlp primary path unaffected",
+      "fix": "MAC: added `sys.path.insert(0, str(_REPO_ROOT))` at module level in toutiao_download_favorites.py before local imports. yt-dlp primary path unaffected.",
       "tags": [
         "bug",
         "import-path",
@@ -1500,7 +1500,7 @@
       "error_message": "live.ixigua.com URLs matched as video links and entered manifest; downloads fail because live streams are not downloadable",
       "file": "scripts/toutiao_common.py",
       "root_cause": "looks_like_video_url() matches ixigua.com as a video domain, but live.ixigua.com is a live streaming subdomain with no VOD",
-      "fix": "Exclude live.* or add live.ixigua.com to a blocklist in looks_like_video_url()",
+      "fix": "MAC: added LIVE_URL_BLOCKLIST = ('live.ixigua.com', 'live.toutiao.com') in toutiao_common.py; looks_like_video_url() checks blocklist before VIDEO_URL_PATTERNS. All 6 test cases pass.",
       "tags": [
         "bug",
         "false-positive",

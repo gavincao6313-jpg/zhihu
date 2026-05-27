@@ -32,6 +32,12 @@ VIDEO_URL_PATTERNS = (
     "toutiao.com/group",
 )
 
+# Live-stream subdomains that match VIDEO_URL_PATTERNS but are not downloadable VOD.
+LIVE_URL_BLOCKLIST = (
+    "live.ixigua.com",
+    "live.toutiao.com",
+)
+
 ANTI_DETECTION_ARGS = [
     "--disable-blink-features=AutomationControlled",
     "--disable-features=IsolateOrigins,site-per-process",
@@ -112,6 +118,8 @@ def extract_item_id(url: str) -> str:
 def looks_like_video_url(url: str) -> bool:
     lowered = url.lower()
     if not lowered.startswith(("http://", "https://")):
+        return False
+    if any(block in lowered for block in LIVE_URL_BLOCKLIST):
         return False
     return any(pattern in lowered for pattern in VIDEO_URL_PATTERNS)
 

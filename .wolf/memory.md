@@ -726,3 +726,17 @@
 | 16:34 | 实现 Qwen 短视频 P0 dry-run pipeline | scripts/short_video_pipeline.py, docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md, .wolf/anatomy.md | 新增 preprocess/synthesize --dry-run/status/mock-payloads；20 个 mock payload 离线装成 3 包，预估 3 次 Qwen 调用；py_compile 通过，未调用 API | ~9000 |
 | 16:51 | 实现今日头条收藏夹探测与下载基础功能 | scripts/toutiao_common.py, scripts/toutiao_login.py, scripts/toutiao_probe_favorites.py, scripts/toutiao_download_favorites.py, docs/TOUTIAO_FAVORITES_RUNBOOK.md, .wolf/anatomy.md | 新增登录态保存、收藏页 Playwright 探测/manifest 更新、yt-dlp 优先+Playwright/ffmpeg 兜底下载、运行手册；py_compile/help/空 manifest 和假 manifest dry-run 通过，未联网实测登录页 | ~11000 |
 | 17:06 | 继续实现短视频 P1 pack 输出和拆分 QC | scripts/short_video_pipeline.py, docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md, docs/TOUTIAO_FAVORITES_RUNBOOK.md, .wolf/anatomy.md | 新增 call-pack/split-pack：可 mock 输出或显式 Qwen 调用，写 pack input/output/manifest，按 VIDEO_ID 拆 Markdown 并生成 QC；5 mock 视频离线拆分 5/5，QC 0 warning | ~9000 |
+
+## Session: 2026-05-27 17:20
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-27 17:21
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 17:34 | Edited scripts/toutiao_common.py | modified looks_like_video_url() | ~86 |
+| 17:35 | Edited scripts/toutiao_common.py | expanded (+6 lines) | ~80 |
+| 17:35 | Edited scripts/toutiao_download_favorites.py | expanded (+7 lines) | ~111 |
+| 17:45 | 拉取 WIN BUG087-089 并修复 | scripts/toutiao_common.py, scripts/toutiao_download_favorites.py, .wolf/buglog.json | BUG087(sha1_short缺失) WIN已修复，MAC merge；BUG088(stream_extractors import路径)在download脚本模块级插入REPO_ROOT到sys.path；BUG089(live.ixigua.com误判)新增LIVE_URL_BLOCKLIST并更新looks_like_video_url；6个测试用例全通过 | ~3500 |
