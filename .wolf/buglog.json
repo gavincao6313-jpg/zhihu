@@ -1650,10 +1650,35 @@
       "file": "scripts/short_video_pipeline.py",
       "root_cause": "_retry_missing_video called split_pack_output but never called update_sv_video on success or on still-failed path. Moderation_blocked path was added but the success path was omitted.",
       "fix": "Added update_sv_video after split_pack_output: success → synthesis_status=done + pack_id + cost; still-failed → synthesis_status=failed + last_error from qc warnings.",
-      "tags": ["progress", "retry", "update_sv_video", "synthesis_status", "missing-update"],
-      "related_bugs": ["bug-094", "bug-095"],
+      "tags": [
+        "progress",
+        "retry",
+        "update_sv_video",
+        "synthesis_status",
+        "missing-update"
+      ],
+      "related_bugs": [
+        "bug-094",
+        "bug-095"
+      ],
       "occurrences": 7,
       "last_seen": "2026-05-27T23:00:00.000Z"
+    },
+    {
+      "id": "bug-098",
+      "timestamp": "2026-05-27T15:15:52.750Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/short_video_pipeline.py",
+      "root_cause": "Had \"  Synthesis done    : {synth_done} / {total}  (fa",
+      "fix": "Changed to \"  Synthesis done    : {synth_done} / {total}  (fa",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T15:15:52.750Z"
     }
   ]
 }

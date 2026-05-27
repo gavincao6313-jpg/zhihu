@@ -1133,11 +1133,19 @@ def command_report(args: argparse.Namespace) -> int:
         print("No progress records found.")
         return 0
 
-    preprocess_done = sum(1 for r in records.values() if r.get("preprocess_status") == "done")
+    # Count as preprocessed if explicitly marked done OR if synthesis was attempted
+    # (records created by call-pack don't carry preprocess_status)
+    _synth_attempted = {"done", "failed", "moderation_blocked"}
+    preprocess_done = sum(
+        1 for r in records.values()
+        if r.get("preprocess_status") == "done"
+        or r.get("synthesis_status") in _synth_attempted
+    )
     preprocess_failed = sum(1 for r in records.values() if r.get("preprocess_status") == "failed")
     synth_done = sum(1 for r in records.values() if r.get("synthesis_status") == "done")
     synth_failed = sum(1 for r in records.values() if r.get("synthesis_status") == "failed")
-    synth_pending = total - synth_done - synth_failed
+    synth_blocked = sum(1 for r in records.values() if r.get("synthesis_status") == "moderation_blocked")
+    synth_pending = total - synth_done - synth_failed - synth_blocked
 
     # Aggregate tokens from pack manifests (authoritative source)
     total_input_tokens = 0
@@ -1166,7 +1174,7 @@ def command_report(args: argparse.Namespace) -> int:
     print(f"  Model             : {model}")
     print(f"  Total videos      : {total}")
     print(f"  Preprocess done   : {preprocess_done} / {total}  (failed: {preprocess_failed})")
-    print(f"  Synthesis done    : {synth_done} / {total}  (failed: {synth_failed}, pending: {synth_pending})")
+    print(f"  Synthesis done    : {synth_done} / {total}  (failed: {synth_failed}, blocked: {synth_blocked}, pending: {synth_pending})")
     print(f"  Pack manifests    : {pack_count}")
     print(f"  Total input tok   : {total_input_tokens:,}")
     print(f"  Total output tok  : {total_output_tokens:,}")

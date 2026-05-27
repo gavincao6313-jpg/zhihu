@@ -804,3 +804,6 @@
 | 23:05 | Progress summary: 58 done, 7 failed (pack-002 retries), 1 moderation_blocked, cost 0.81 CNY | progress.json | analysed |
 | 23:20 | BUG-097: _retry_missing_video missing update_sv_video on success; fixed | short_video_pipeline.py | fixed |
 | 23:05 | Edited scripts/build_stream_markdown.py | 21→26 lines | ~254 |
+| 23:15 | Edited scripts/short_video_pipeline.py | expanded (+7 lines) | ~140 |
+| 23:15 | Edited scripts/short_video_pipeline.py | 3→4 lines | ~102 |
+| 23:15 | Edited scripts/short_video_pipeline.py | "  Synthesis done    : {sy" → "  Synthesis done    : {sy" | ~39 |
