@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-26T08:47:16.491Z
-> Files: 26 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-27T13:41:03.590Z
+> Files: 40 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -37,8 +37,6 @@
 
 ## Markdowns/
 
-- `Markdowns/TTS_stream-replay-ab-20260526-gemini35.md` — WIN 回放 A/B Gemini 3.5 Flash 最终 NotebookLM Markdown；正文约 9.8k 字符，7 个时间线章节，附完整逐字稿，无视觉证据帧。 (~66000 chars)
-- `Markdowns/TTS_stream-replay-ab-20260526-qwen.md` — WIN 回放 A/B Qwen3.6-Flash 最终 NotebookLM Markdown；正文约 9.6k 字符，9 个时间线章节，附完整逐字稿，无视觉证据帧。 (~66000 chars)
 
 ## docs/
 
@@ -48,10 +46,10 @@
 - `docs/LIVE_AB_TEST_PREP_20260526.md` — 今晚实时直播 Gemini/Qwen 双进程 A/B 执行清单；包含开播前预检、正式启动命令、直播中监控、产物路径、对比记录项、停止条件和单采集双合成降级方案。 (~2600 tok)
 - `docs/LIVE_FINAL_QUALITY_ROADMAP.md` — 直播流质量提升路线图，P0→P1→P2，18个带验证标准的 checkbox 任务，进度表。 (~2800 tok)
 - `docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md` — 旧版问题 backlog，已被 ROADMAP 取代。 (~100 tok)
+- `docs/qwen_api_migration_analysis.md` — WIN 端关于从 Gemini 迁移/增补到 Qwen API 的可行性分析，围绕配额、OpenAI-compatible 接入、风险和迁移策略供 MAC review。 (~4200 tok)
 - `docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md` — Qwen 长视频 NotebookLM 文档优化计划；记录保真抽取优先、动态滑动窗口、frame 覆盖、QC 门禁和混合 Glossary/body 策略。 (~2600 tok)
 - `docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md` — Qwen 短视频批量抽取工作流设计；定义 preprocess-only、synthesize-only、packing、VIDEO_ID 拆分、短视频 QC、CLI 和 P0-P3 实施阶段。 (~7600 tok)
 - `docs/TOUTIAO_FAVORITES_RUNBOOK.md` — 今日头条收藏夹同步运行手册；说明登录态保存、收藏页探测、manifest 更新、下载到 Videos/short/toutiao 以及接短视频 pipeline 的命令。 (~2500 tok)
-- `docs/qwen_api_migration_analysis.md` — WIN 端关于从 Gemini 迁移/增补到 Qwen API 的可行性分析，围绕配额、OpenAI-compatible 接入、风险和迁移策略供 MAC review。 (~4200 tok)
 - `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~3188 tok)
 
 ## githooks/
@@ -59,10 +57,8 @@
 
 ## runs/
 
-- `runs/stream-replay-ab-20260526-20260526-145918.combined-transcript.txt` — 回放 A/B 恢复后的完整逐字稿，约 56.6k 字符，覆盖 03:05:02。 (~56500 chars)
 - `runs/stream-replay-ab-20260526-20260526-145918.gemini35.final-qc.json` — Gemini A/B final QC；source_status=partial、frame_count=0、body_coverage_status=ok、body_tail_gap_s=58。 (~500 tok)
 - `runs/stream-replay-ab-20260526-20260526-145918.qwen.final-qc.json` — Qwen A/B final QC；source_status=partial、frame_count=0、body_coverage_status=ok、body_tail_gap_s=60，记录 Qwen usage 40,325 tokens。 (~600 tok)
-- `runs/stream-replay-ab-20260526.checkpoint.json` — 回放 A/B checkpoint，186 chunks，SenseVoice，记录 503 frames 路径与逐字稿文本；payload 文件本身未随提交恢复。 (~10000 lines)
 
 ## scripts/
 
@@ -79,3 +75,6 @@
 - `scripts/toutiao_download_favorites.py` — 从 cache/toutiao/manifest.json 下载今日头条收藏视频；优先 yt-dlp，失败后 Playwright 捕获媒体 URL + ffmpeg，落盘 Videos/short/toutiao。 (~3000 tok)
 - `scripts/toutiao_login.py` — 打开 Playwright 有头浏览器登录今日头条，并保存登录态到 cache/toutiao/auth_state.json。 (~700 tok)
 - `scripts/toutiao_probe_favorites.py` — 使用 Playwright 登录态打开今日头条收藏页、滚动探测视频链接/网络候选项，可写 probe JSON、screenshot 并更新 manifest。 (~2700 tok)
+- `short_video_pipeline.py` — class: load_sv_progress, save_sv_progress, update_sv_video, transcript_chars + 15 more (~13276 tok)
+- `toutiao_common.py` — from: now_iso, ensure_dirs, slugify, sha1_short + 11 more (~2113 tok)
+- `toutiao_download_favorites.py` — stream_extractors lives in the repo root, not in scripts/; ensure it's importable (~1888 tok)
