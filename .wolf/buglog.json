@@ -1518,8 +1518,15 @@
       "file": "scripts/short_video_pipeline.py",
       "root_cause": "REPO_ROOT defined but never inserted into sys.path; same pattern as BUG-088 in toutiao_download_favorites.py",
       "fix": "Added sys.path.insert(0, str(REPO_ROOT)) after REPO_ROOT definition at module level.",
-      "tags": ["bug", "import-path", "short-video-pipeline", "venv"],
-      "related_bugs": ["bug-088"],
+      "tags": [
+        "bug",
+        "import-path",
+        "short-video-pipeline",
+        "venv"
+      ],
+      "related_bugs": [
+        "bug-088"
+      ],
       "occurrences": 1,
       "last_seen": "2026-05-27T21:30:00"
     },
@@ -1530,10 +1537,44 @@
       "file": "scripts/short_video_pipeline.py",
       "root_cause": "build_qwen_pack_parts used google.genai.types.Part for image encoding; falls back to [frame_path_unavailable_for_inline_image] text when package missing. Qwen uses OpenAI-compatible format and never needed google-genai.",
       "fix": "Replaced google.genai dependency with _Part/_InlineData local classes; images now always encoded via utils._part_to_openai_content duck-typing path.",
-      "tags": ["bug", "image-encoding", "qwen", "short-video-pipeline", "dependency"],
+      "tags": [
+        "bug",
+        "image-encoding",
+        "qwen",
+        "short-video-pipeline",
+        "dependency"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-27T21:30:00"
+    },
+    {
+      "id": "bug-092",
+      "timestamp": "2026-05-27T13:51:09.974Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/short_video_pipeline.py",
+      "root_cause": "Had \"P0 short-video Qwen pipeline planner\"",
+      "fix": "Changed to \"Short-video Qwen pipeline (preprocess / synthesiz",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T13:51:09.974Z"
+    },
+    {
+      "id": "bug-093",
+      "timestamp": "2026-05-27T22:20:00.000Z",
+      "error_message": "16 of 67 toutiao payloads incorrectly deferred in synthesize pack plan",
+      "file": "scripts/short_video_pipeline.py",
+      "root_cause": "classify_payload used total_frames thresholds (SHORT_MAX_FRAMES=32, MEDIUM_MAX_FRAMES=128). Toutiao short videos extract 40-150+ frames due to fast visual cuts, so short 1-3min videos exceeded frame threshold and were classified as long_or_dense_video. Packer caps each video at PER_VIDEO_MAX_FRAMES=12 anyway, making frame count irrelevant to pack budget.",
+      "fix": "Removed kept_frames condition from classify_payload; classification now uses duration_s + transcript_chars only. Also fixed payload_to_item to dynamically recompute classification instead of reading stored classification.kind from payload JSON, so existing payloads benefit immediately. Changed --include-medium default to True.",
+      "tags": ["classification", "short_video", "toutiao", "frames", "deferred", "payload_to_item"],
+      "related_bugs": ["bug-088"],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T22:20:00.000Z"
     }
   ]
 }

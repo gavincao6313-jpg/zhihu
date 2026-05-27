@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-27T13:41:03.590Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-27T14:08:29.330Z
 > Files: 40 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -75,6 +75,6 @@
 - `scripts/toutiao_download_favorites.py` — 从 cache/toutiao/manifest.json 下载今日头条收藏视频；优先 yt-dlp，失败后 Playwright 捕获媒体 URL + ffmpeg，落盘 Videos/short/toutiao。 (~3000 tok)
 - `scripts/toutiao_login.py` — 打开 Playwright 有头浏览器登录今日头条，并保存登录态到 cache/toutiao/auth_state.json。 (~700 tok)
 - `scripts/toutiao_probe_favorites.py` — 使用 Playwright 登录态打开今日头条收藏页、滚动探测视频链接/网络候选项，可写 probe JSON、screenshot 并更新 manifest。 (~2700 tok)
-- `short_video_pipeline.py` — class: load_sv_progress, save_sv_progress, update_sv_video, transcript_chars + 15 more (~13276 tok)
+- `short_video_pipeline.py` — class: load_sv_progress, save_sv_progress, update_sv_video, estimate_cost_cny + 14 more (~15416 tok)
 - `toutiao_common.py` — from: now_iso, ensure_dirs, slugify, sha1_short + 11 more (~2113 tok)
 - `toutiao_download_favorites.py` — stream_extractors lives in the repo root, not in scripts/; ensure it's importable (~1888 tok)

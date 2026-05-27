@@ -332,27 +332,22 @@ def resolve_local_video(source: str) -> tuple[Path, dict]:
 
 
 def classify_payload(duration_s: float, transcript_chars: int, kept_frames: int) -> dict:
-    if (
-        duration_s <= SHORT_MAX_DURATION_S
-        and transcript_chars <= SHORT_MAX_TRANSCRIPT_CHARS
-        and kept_frames <= SHORT_MAX_FRAMES
-    ):
+    # kept_frames is intentionally excluded from short/medium thresholds: toutiao short
+    # videos often extract 40-150 frames due to fast cuts, but the packer caps each video
+    # at PER_VIDEO_MAX_FRAMES=12 anyway. Classification based on duration+transcript only.
+    if duration_s <= SHORT_MAX_DURATION_S and transcript_chars <= SHORT_MAX_TRANSCRIPT_CHARS:
         return {
             "kind": "short_video",
-            "reason": "duration<=600, transcript_chars<=12000, kept_frames<=32",
+            "reason": f"duration<={SHORT_MAX_DURATION_S}s, transcript<={SHORT_MAX_TRANSCRIPT_CHARS}chars",
         }
-    if (
-        duration_s <= MEDIUM_MAX_DURATION_S
-        and transcript_chars <= MEDIUM_MAX_TRANSCRIPT_CHARS
-        and kept_frames <= MEDIUM_MAX_FRAMES
-    ):
+    if duration_s <= MEDIUM_MAX_DURATION_S and transcript_chars <= MEDIUM_MAX_TRANSCRIPT_CHARS:
         return {
             "kind": "medium_video",
-            "reason": "within medium duration/transcript/frame thresholds",
+            "reason": "within medium duration/transcript thresholds",
         }
     return {
         "kind": "long_or_dense_video",
-        "reason": "exceeds medium duration/transcript/frame thresholds",
+        "reason": "exceeds medium duration/transcript thresholds",
     }
 
 
@@ -364,19 +359,21 @@ def payload_to_item(payload_path: Path, payload: dict, limits: PackLimits) -> Pa
     source = payload.get("source") or {}
     media = payload.get("media") or {}
     transcript = payload.get("transcript") or {}
-    classification = payload.get("classification") or {}
     frames = payload.get("frames") or []
     title = str(source.get("title") or payload.get("video_id") or payload_path.stem)
     transcript_chars = int(transcript.get("chars") or 0)
+    duration_s = float(media.get("duration_s") or 0)
+    # Recompute dynamically so existing payloads benefit from threshold changes
+    recomputed_cls = classify_payload(duration_s, transcript_chars, len(frames))
     return PackItem(
         payload_path=payload_path,
         video_id=str(payload.get("video_id") or payload_path.stem),
         title=title,
-        duration_s=float(media.get("duration_s") or 0),
+        duration_s=duration_s,
         transcript_chars=transcript_chars,
         total_frames=len(frames),
         selected_frames=min(len(frames), limits.per_video_max_frames),
-        classification=str(classification.get("kind") or "unknown"),
+        classification=recomputed_cls["kind"],
         source_kind=str(source.get("kind") or ""),
         source_original=str(source.get("original") or ""),
     )
@@ -1195,6 +1192,13 @@ def command_status(args: argparse.Namespace) -> int:
     print(f"Payloads   : {len(items)}")
     for key in sorted(counts):
         print(f"  {key}: {counts[key]}")
+    long_items = [item for item in items if item.classification == "long_or_dense_video"]
+    if long_items:
+        print(f"\nlong_or_dense_video ({len(long_items)}) — route to long-video pipeline:")
+        for item in long_items:
+            print(f"  {item.video_id}: {item.duration_s:.0f}s, {item.transcript_chars}chars, {item.total_frames}frames")
+        print("  python scripts/short_video_pipeline.py call-pack --plan <plan> \\")
+        print("         --pack-id <id> --split  # single-video pack, or use build_stream_markdown.py")
     return 0
 
 
@@ -1280,7 +1284,8 @@ def build_parser() -> argparse.ArgumentParser:
     synthesize.add_argument("--write-plan", action="store_true", help="Write pack plan JSON")
     synthesize.add_argument("--plan-ts", default="")
     synthesize.add_argument("--short-only", action="store_true")
-    synthesize.add_argument("--include-medium", action="store_true")
+    synthesize.add_argument("--include-medium", action="store_true", default=True,
+                            help="Include medium videos in pack plan (default: on)")
     add_pack_limit_args(synthesize)
     synthesize.set_defaults(func=command_synthesize)
 
