@@ -1,0 +1,697 @@
+{
+  "base": "replay-20260527-qwen",
+  "run_ts": "20260527-102043",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 131,
+  "transcript_chars": 41817,
+  "frame_count": 324,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 7833,
+  "timeline_end_s": 7860,
+  "timeline_duration_s": 7860,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.6-flash",
+  "synthesis_pass": "sliding-window",
+  "warnings": [
+    "qwen_critical_facts_missing: 2017年(w1), 15秒(w1), 30秒(w1), 1分钟(w1), 3分钟(w1), 35岁(w1), 99%(w2), 60分(w2)",
+    "qwen_fact_retention_low: retained 16/24 (0.67), expected >= 0.90"
+  ],
+  "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 3,
+    "total_frames": 324,
+    "covered_new_frames": 324,
+    "selected_frames_across_windows": 324,
+    "overlap_frames": 0,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 0,
+      "annotation": 0,
+      "context": 324
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 0,
+        "end_s": 5194,
+        "selected_frame_count": 128,
+        "new_frame_count": 128,
+        "overlap_frame_count": 0,
+        "transcript_chars": 28183,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 128
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 5200,
+        "end_s": 10561,
+        "selected_frame_count": 128,
+        "new_frame_count": 128,
+        "overlap_frame_count": 0,
+        "transcript_chars": 14674,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 128
+        }
+      },
+      {
+        "index": 3,
+        "start_s": 10562,
+        "end_s": 15623,
+        "selected_frame_count": 68,
+        "new_frame_count": 68,
+        "overlap_frame_count": 0,
+        "transcript_chars": 41817,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 68
+        }
+      }
+    ]
+  },
+  "frame_policy": {
+    "provider": "qwen",
+    "mode": "sliding-window",
+    "window_count": 3,
+    "windows": [
+      {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 68,
+        "selected_frames": 68,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      }
+    ]
+  },
+  "provider_parts_count": 656,
+  "qwen_window_notes": [
+    "d:\\zhihu\\zhihu_url\\runs\\stream-replay-20260527-qwen-20260527-102043.qwen-window-001.notes.md",
+    "d:\\zhihu\\zhihu_url\\runs\\stream-replay-20260527-qwen-20260527-102043.qwen-window-002.notes.md",
+    "d:\\zhihu\\zhihu_url\\runs\\stream-replay-20260527-qwen-20260527-102043.qwen-window-003.notes.md"
+  ],
+  "qwen_window_notes_reused": 0,
+  "qwen_window_note_metadata": [
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v2",
+      "model": "qwen3.6-flash",
+      "source_hash": "1ca76caebff0049c90995166b6fd5927dd3c259d376a4bbd136bff8364f6ea05",
+      "window_index": 1,
+      "start_s": 0,
+      "end_s": 5194,
+      "selected_frame_count": 128,
+      "new_frame_count": 128,
+      "overlap_frame_count": 0,
+      "transcript_chars": 28183,
+      "frame_type_counts": {
+        "slide": 0,
+        "annotation": 0,
+        "context": 128
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 29354,
+        "output_tokens": 2823,
+        "total_tokens": 32177
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v2",
+      "model": "qwen3.6-flash",
+      "source_hash": "ef072c2ae0de4e162022443d5879ea91f0fd3a4240185cf35f6d123a1a1dfff2",
+      "window_index": 2,
+      "start_s": 5200,
+      "end_s": 10561,
+      "selected_frame_count": 128,
+      "new_frame_count": 128,
+      "overlap_frame_count": 0,
+      "transcript_chars": 14674,
+      "frame_type_counts": {
+        "slide": 0,
+        "annotation": 0,
+        "context": 128
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 21328,
+        "output_tokens": 2279,
+        "total_tokens": 23607
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v2",
+      "model": "qwen3.6-flash",
+      "source_hash": "a54b109ccabd67d16b9848168829f5b424aa332ce0c0e43253c4c37943723250",
+      "window_index": 3,
+      "start_s": 10562,
+      "end_s": 15623,
+      "selected_frame_count": 68,
+      "new_frame_count": 68,
+      "overlap_frame_count": 0,
+      "transcript_chars": 41817,
+      "frame_type_counts": {
+        "slide": 0,
+        "annotation": 0,
+        "context": 68
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 68,
+        "selected_frames": 68,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 31606,
+        "output_tokens": 1975,
+        "total_tokens": 33581
+      }
+    }
+  ],
+  "qwen_final_assembly_version": "qwen-final-assembly-v1",
+  "qwen_critical_fact_version": "qwen-critical-facts-v1",
+  "qwen_critical_facts": [
+    {
+      "kind": "prompt_keyword",
+      "value": "所见即所得",
+      "aliases": [
+        "所见即所得"
+      ],
+      "window_index": 1,
+      "context": "视频与下载视频画面不一致”的问题。讲师演示了如何通过Prompt让AI增加时长选项（15s/30s/1m/3m）以节省Token测试，并专门编写Prompt解决所见即所得（WYSIWYG）的Bug。 * **优化建议：** 声音要有吸引力（如台湾腔），画面不能单调（需动起来），时长测试先用短片段（15-30s）。"
+    },
+    {
+      "kind": "prompt_keyword",
+      "value": "不要替换",
+      "aliases": [
+        "不要替换"
+      ],
+      "window_index": 1,
+      "context": "样，是什么问题？两个对话声音是一样的版本，但视频中的画面和预览的完全不一样，查清楚这个问题的原因，然后修复实现所见即所得。下载的视频就是用户预览的视频保持一致，不要替换。 ``` **2. 增加时长选项的配置描述（用于Prompt引导AI修改）：** ```markdown 增加播客时长选项，包括15秒、30秒、1分钟、3分"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "34岁",
+      "aliases": [
+        "34岁"
+      ],
+      "window_index": 1,
+      "context": "内容的原创属性。起初，仅靠AI对对标视频进行解析和仿写，出来的内容虽然结构完整，但充满了“AI味”，缺乏感染力。讲师通过在Prompt中加入一段极具个人色彩的“34岁跳槽故事”，彻底改变了生成结果的质量。 讲师提出了一套关于洗稿的底层逻辑：**复制爆款的核心元素（选题、结构），杜绝千篇一律的内容**。他建议在Prompt中"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2017年",
+      "aliases": [
+        "2017年"
+      ],
+      "window_index": 1,
+      "context": "叙事故事叙事引人入胜 * **长度要求：** 600字，2分钟 * **关键注入（原创性来源）：** “我34岁第一次跳槽，年底12月...我很清楚，2017年是新媒体上升期的尾声...这个时间窗口的价值远远大于一个年终奖...” ## Visual Evidence * **[00:26:21]** PPT标题"
+    },
+    {
+      "kind": "term",
+      "value": "年终奖",
+      "aliases": [
+        "年终奖"
+      ],
+      "window_index": 1,
+      "context": "钟 * **关键注入（原创性来源）：** “我34岁第一次跳槽，年底12月...我很清楚，2017年是新媒体上升期的尾声...这个时间窗口的价值远远大于一个年终奖...” ## Visual Evidence * **[00:26:21]** PPT标题页：【AI播客视频生成】（初版展示-学员1），画面为一男一女在"
+    },
+    {
+      "kind": "term",
+      "value": "99.9%",
+      "aliases": [
+        "99.9%",
+        "99.9％"
+      ],
+      "window_index": 1,
+      "context": "：** * **学员提问：** 询问是否接受“中风险/高风险”引流（如导私域）。 * **讲师驳斥：** 绝对禁止。博主账号安全是底线（99.9%安全）。任何可能导致封号的风险都是负价值。公开评论重互动，私信重商业目的，需区分处理。 5. **后续项目与报名建议：** * **四类人才画像"
+    },
+    {
+      "kind": "term",
+      "value": "15秒",
+      "aliases": [
+        "15秒"
+      ],
+      "window_index": 1,
+      "context": "预览的视频保持一致，不要替换。 ``` **2. 增加时长选项的配置描述（用于Prompt引导AI修改）：** ```markdown 增加播客时长选项，包括15秒、30秒、1分钟、3分钟几个选项。 ``` **3. 流量重组洗稿的Prompt配置示例：** * **主题方向：** 面试攻略 * **策略：**"
+    },
+    {
+      "kind": "term",
+      "value": "30秒",
+      "aliases": [
+        "30秒"
+      ],
+      "window_index": 1,
+      "context": "频保持一致，不要替换。 ``` **2. 增加时长选项的配置描述（用于Prompt引导AI修改）：** ```markdown 增加播客时长选项，包括15秒、30秒、1分钟、3分钟几个选项。 ``` **3. 流量重组洗稿的Prompt配置示例：** * **主题方向：** 面试攻略 * **策略：** 结构仿写"
+    },
+    {
+      "kind": "term",
+      "value": "1分钟",
+      "aliases": [
+        "1分钟"
+      ],
+      "window_index": 1,
+      "context": "致，不要替换。 ``` **2. 增加时长选项的配置描述（用于Prompt引导AI修改）：** ```markdown 增加播客时长选项，包括15秒、30秒、1分钟、3分钟几个选项。 ``` **3. 流量重组洗稿的Prompt配置示例：** * **主题方向：** 面试攻略 * **策略：** 结构仿写 *"
+    },
+    {
+      "kind": "term",
+      "value": "3分钟",
+      "aliases": [
+        "3分钟"
+      ],
+      "window_index": 1,
+      "context": "替换。 ``` **2. 增加时长选项的配置描述（用于Prompt引导AI修改）：** ```markdown 增加播客时长选项，包括15秒、30秒、1分钟、3分钟几个选项。 ``` **3. 流量重组洗稿的Prompt配置示例：** * **主题方向：** 面试攻略 * **策略：** 结构仿写 * **目"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "Remotion",
+      "aliases": [
+        "Remotion"
+      ],
+      "window_index": 1,
+      "context": ". **业务卡点型：** 熟悉一线业务痛点（如销售、HR、财务的流程自动化）。 3. **产品技术型：** 有代码能力，能搭建复杂工作流（如Remotion生成视频、RPA）。 4. **产品协作型：** 技术人员+业务人员组队。 * **核心观点：** 技术只是工具，脑子里的行业认知"
+    },
+    {
+      "kind": "score",
+      "value": "70分",
+      "aliases": [
+        "70分"
+      ],
+      "window_index": 1,
+      "context": "（如讲师分享的跳槽故事）。 * **指标分析：** 结构相似度要高（保留爆款骨架），内容相似度要低（避免违规/同质化）。结论：AI解决及格线（60-70分），人类提供灵魂（80-90分）。 4. **评论区自动回复（风险预警）：** * **学员提问：** 询问是否接受“中风险/高风险”引流（如导"
+    },
+    {
+      "kind": "score",
+      "value": "90分",
+      "aliases": [
+        "90分"
+      ],
+      "window_index": 1,
+      "context": "* **指标分析：** 结构相似度要高（保留爆款骨架），内容相似度要低（避免违规/同质化）。结论：AI解决及格线（60-70分），人类提供灵魂（80-90分）。 4. **评论区自动回复（风险预警）：** * **学员提问：** 询问是否接受“中风险/高风险”引流（如导私域）。 * **"
+    },
+    {
+      "kind": "score",
+      "value": "80分",
+      "aliases": [
+        "80分"
+      ],
+      "window_index": 1,
+      "context": "结构相似度高”（保留流量密码）但“内容相似度低”（规避平台查重风险，增加人格化色彩）。讲师金句频出：“AI能解决六七十分的部分，我们要花心思解决个性化、人格化的80分以上部分。”这部分“加灵魂”的工作，随着AI能力的增强，其价值只会越来越大，因为这是人类区别于机器的核心竞争力。 ### Narrative Block [0"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "35岁",
+      "aliases": [
+        "35岁"
+      ],
+      "window_index": 1,
+      "context": "**3. 流量重组洗稿的Prompt配置示例：** * **主题方向：** 面试攻略 * **策略：** 结构仿写 * **目标受众：** 25到35岁的职场女性 * **核心观点：** 早点决策，果断出击，传递的情绪是励志激发动力 * **语言风格：** 叙事故事叙事引人入胜 * **长度要求：*"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "Coze",
+      "aliases": [
+        "Coze",
+        "扣子"
+      ],
+      "window_index": 2,
+      "context": "怎么做，业务负责做什么对。” **实操细节与答疑** * **视频生成策略：** 区分“一次性Demo”（直接用即梦等C端工具）和“批量生产”（必须用扣子Coze搭建工作流）。 * **成本分析：** AI Token费用与人力成本相比极低（10-100倍差异）。 * **UI设计：** 不需要专门画原型图，直接"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "扣子",
+      "aliases": [
+        "扣子",
+        "Coze"
+      ],
+      "window_index": 2,
+      "context": "负责怎么做，业务负责做什么对。” **实操细节与答疑** * **视频生成策略：** 区分“一次性Demo”（直接用即梦等C端工具）和“批量生产”（必须用扣子Coze搭建工作流）。 * **成本分析：** AI Token费用与人力成本相比极低（10-100倍差异）。 * **UI设计：** 不需要专门画原型"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "即梦",
+      "aliases": [
+        "即梦",
+        "Dreamina"
+      ],
+      "window_index": 2,
+      "context": "业务人员组队，或T型人才。核心：“技术负责怎么做，业务负责做什么对。” **实操细节与答疑** * **视频生成策略：** 区分“一次性Demo”（直接用即梦等C端工具）和“批量生产”（必须用扣子Coze搭建工作流）。 * **成本分析：** AI Token费用与人力成本相比极低（10-100倍差异）。 *"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "FDE",
+      "aliases": [
+        "FDE"
+      ],
+      "window_index": 2,
+      "context": "- **窗口序号：** 2/3 - **覆盖帧数：** 128 - **是否包含重叠上下文：** 否 ## Faithful Notes 本窗口是讲师关于“FDE（前沿部署工程师）”概念的深度拆解，以及针对不同类型学员的项目匹配指南。 **核心概念：FDE (Forward Deployed Engineer)** *"
+    },
+    {
+      "kind": "percentage",
+      "value": "99%",
+      "aliases": [
+        "99%"
+      ],
+      "window_index": 2,
+      "context": "力成本相比极低（10-100倍差异）。 * **UI设计：** 不需要专门画原型图，直接通过提示词让Coze生成UI即可。 * **安全底线：** 强调99%的安全率，封号风险是红线。 * **评论区运营：** 公开回复占20%（引流），私信回复占80%（维护粘性/转化）。 ## Narrative Evide"
+    },
+    {
+      "kind": "percentage",
+      "value": "20%",
+      "aliases": [
+        "20%"
+      ],
+      "window_index": 2,
+      "context": "专门画原型图，直接通过提示词让Coze生成UI即可。 * **安全底线：** 强调99%的安全率，封号风险是红线。 * **评论区运营：** 公开回复占20%（引流），私信回复占80%（维护粘性/转化）。 ## Narrative Evidence Blocks ### Narrative Block [01:2"
+    },
+    {
+      "kind": "percentage",
+      "value": "80%",
+      "aliases": [
+        "80%"
+      ],
+      "window_index": 2,
+      "context": "词让Coze生成UI即可。 * **安全底线：** 强调99%的安全率，封号风险是红线。 * **评论区运营：** 公开回复占20%（引流），私信回复占80%（维护粘性/转化）。 ## Narrative Evidence Blocks ### Narrative Block [01:28:00 - 01:37:"
+    },
+    {
+      "kind": "percentage",
+      "value": "95%",
+      "aliases": [
+        "95%"
+      ],
+      "window_index": 2,
+      "context": ". “公开回复20%为引流，私信回复，80%为商业，20%维护粉丝粘性咨询其他等等。” 7. “安全是底线！封号、禁播、限流、隐形限流，都是非常严重的后果。95%安全才OK。” 8. “技术负责‘怎么做’，业务负责‘做什么对’。” ## Merge Hints 本窗口是连接“理论框架（FDE）”与“实战落地（项目选择"
+    },
+    {
+      "kind": "score",
+      "value": "60分",
+      "aliases": [
+        "60分"
+      ],
+      "window_index": 2,
+      "context": "成的视频效果。 2. **[01:46:17]** PPT标题：问题分析。红圈标注了“复制粘贴的核心元素”、“杜绝千人一律”、“比较重要原则”。讲师强调A级给60分，个性化、人格化的80分、90分。 3. **[01:54:33]** PPT标题：【评论区自动回复】（过程问题-学员）。列表展示了从“设置关键词”到“触发回"
+    }
+  ],
+  "qwen_narrative_block_version": "qwen-narrative-blocks-v1",
+  "qwen_narrative_blocks": [
+    {
+      "window_index": 1,
+      "title": "核心需求确认与AI工具选型原则",
+      "time_range": "00:17:00 - 00:22:00",
+      "chars": 395,
+      "anchor": "在这个部分，讲师深入剖析了第一个学员案例中出现的根本性错误。学员虽然做出了视频，但人物一致性完全崩坏，讲师指出这并非最核心的问题。最致命的是**需求错位**：项",
+      "text": "在这个部分，讲师深入剖析了第一个学员案例中出现的根本性错误。学员虽然做出了视频，但人物一致性完全崩坏，讲师指出这并非最核心的问题。最致命的是**需求错位**：项目目标是制作“科技类AI播客”，而学员却做成了“女性情感话题”。讲师强调，做AI工具的第一原则是**第零位优先级（P0）的核心需求必须满足**。如果核心方向错了，后面所有的参数调整、Bug修复都是徒劳。 讲师进一步提出了一个重要的选型策略：**核心功能尽量没有瑕疵，非核心功能可以砍掉**。针对“真人出镜”这个难点，讲师分析了不同形式的实现难度排序：真人/匹配素材 > 动物/动漫形象 > 动态台词+音波 > 静态图片。对于大多数开发者来说，死磕真人一致性是不明智的。既然用户需求是“科技类对话”和“适合抖音发布”，那么使用动物形象或动态音波同样能满足核心需求，且稳定性更高。这种“退而求其次”不是妥协，而是为了交付质量的最优解。"
+    },
+    {
+      "window_index": 1,
+      "title": "流量重组洗稿中的“灵魂注入”与原创度平衡",
+      "time_range": "00:46:00 - 00:53:00",
+      "chars": 390,
+      "anchor": "在讲解“流量重组洗稿”项目时，讲师展示了如何通过Prompt工程提升内容的原创属性。起初，仅靠AI对对标视频进行解析和仿写，出来的内容虽然结构完整，但充满了“A",
+      "text": "在讲解“流量重组洗稿”项目时，讲师展示了如何通过Prompt工程提升内容的原创属性。起初，仅靠AI对对标视频进行解析和仿写，出来的内容虽然结构完整，但充满了“AI味”，缺乏感染力。讲师通过在Prompt中加入一段极具个人色彩的“34岁跳槽故事”，彻底改变了生成结果的质量。 讲师提出了一套关于洗稿的底层逻辑：**复制爆款的核心元素（选题、结构），杜绝千篇一律的内容**。他建议在Prompt中明确设置“结构仿写”策略，并强制AI融入用户的个人经历、踩坑故事或独特观点。从数据上看，理想的洗稿结果应该是“结构相似度高”（保留流量密码）但“内容相似度低”（规避平台查重风险，增加人格化色彩）。讲师金句频出：“AI能解决六七十分的部分，我们要花心思解决个性化、人格化的80分以上部分。”这部分“加灵魂”的工作，随着AI能力的增强，其价值只会越来越大，因为这是人类区别于机器的核心竞争力。"
+    },
+    {
+      "window_index": 1,
+      "title": "学员画像分类与超级个体的生存法则",
+      "time_range": "01:11:00 - 01:26:34",
+      "chars": 449,
+      "anchor": "在课程后半段，讲师针对学员背景的多样性，梳理了四种适合承接不同类型AI项目的学员画像，旨在帮助学员找到自身的定位。 1. **数据洞察型：** 适合在某一行业（",
+      "text": "在课程后半段，讲师针对学员背景的多样性，梳理了四种适合承接不同类型AI项目的学员画像，旨在帮助学员找到自身的定位。 1. **数据洞察型：** 适合在某一行业（如金融、医疗、教育）浸泡多年，懂数据价值、懂行业潜规则的人。他们不需要写代码，只需利用AI来处理数据，做出价值判断。 2. **业务卡点型：** 适合身处业务一线，深知流程痛点（如销售、HR、财务）的人。他们的价值在于识别“哪里最痛”，然后用AI去击穿这个卡点，实现效率飞跃。 3. **产品技术型：** 适合有编程基础、产品思维强的人。他们能将手工操作转化为自动化工作流（如用代码生成视频替代剪辑），解决行业通用的效率难题。 4. **产品协作型：** 鼓励技术人员与业务人员组队，形成T型人才或互补团队。 讲师最后升华主题，指出无论什么背景，最终都要成为“超级个体”。在不确定的时代，独立生存技能是唯一确定性。技术只是工具，真正有价值的是你脑子里的行业认知和业务手感。非技术背景的同学不必焦虑，只要有一项长板，就能通过AI放大其价值。"
+    },
+    {
+      "window_index": 2,
+      "title": "FDE的三层能力拆解与自媒体案例复盘",
+      "time_range": "01:28:00 - 01:37:00",
+      "chars": 454,
+      "anchor": "讲师详细拆解了FDE（前沿部署工程师）所需的三种核心能力，并以自媒体行业为例进行了极深度的场景化拆解。 首先是**技术理解力**，包括工具认知、代码阅读和脚本能",
+      "text": "讲师详细拆解了FDE（前沿部署工程师）所需的三种核心能力，并以自媒体行业为例进行了极深度的场景化拆解。 首先是**技术理解力**，包括工具认知、代码阅读和脚本能力。其次是**行业洞察**，讲师将其细分为四个层级： 1. **行业术语：** 如播放率、互动率、切片、矩阵号等，这是入门基础。 2. **决策认知：** 理解博主、MCN、商家、平台四方博弈关系。例如，博主为了留住用户，品牌方为了获取目标用户，平台为了DAU和品牌广告费，这是一个共赢生态。 3. **挖掘需求：** 识别真痛点。例如博主以为痛点是写脚本，其实痛点是“选题枯竭”，因为“选题定生死”。 4. **优先级判断与场景拆解：** 比如自动回复比播客生成更刚需，因为覆盖面更广。而能说出一个肽店博主完整工作流、判断功能能帮客户省多少时间赚多少钱，则需要深度的商业体感。 最后是**沟通交付**，类似产品经理的工作，包括范围控制和验收。讲师强调，这三种能力要集于一身，哪怕有一个90分，其他通过AI补齐到70-80分，就能形成极强的竞争力。"
+    },
+    {
+      "window_index": 2,
+      "title": "FDE的职业护城河与零代码入局路径",
+      "time_range": "01:37:00 - 01:46:00",
+      "chars": 353,
+      "anchor": "讲师阐述了FDE作为未来职业护城河的逻辑。AI颠覆了所有行业，使得“兼容多背景”成为常态。虽然AI降低了编程门槛，但将技术应用到具体场景的能力变得极度稀缺。因此",
+      "text": "讲师阐述了FDE作为未来职业护城河的逻辑。AI颠覆了所有行业，使得“兼容多背景”成为常态。虽然AI降低了编程门槛，但将技术应用到具体场景的能力变得极度稀缺。因此，未来的职业护城河是“行业经验 + 技术落地能力”。这不仅能保住工作，还能应对职场断崖式危机，无论是做自由职业还是创业都至关重要。 针对**零代码背景**如何入局，讲师给出了明确路径：不要纠结Title（分析师、专家、顾问皆可），重点在于利用非技术优势。行政、运营、销售、市场等背景的同学，如果文字能力强、逻辑清晰、有行业经验，都可以成为FDE。对于没有技术背景的学员，在报名项目时需要展示你的“长板”：比如你是某个行业的资深从业者，你知道客户的潜规则，你能提供独家行业数据，或者你能搞定难搞的客户。这些“资源”和“认知”在今天就是最重要的能力。"
+    },
+    {
+      "window_index": 2,
+      "title": "四类项目匹配模型详解（数据/业务/技术/协作）",
+      "time_range": "02:20:29 - 02:56:01",
+      "chars": 446,
+      "anchor": "讲师通过PPT展示了针对不同背景学员的四类项目匹配建议，这是后续项目报名的核心指导原则： 1. **数据洞察型：** 适合关注股市基金、懂电商数据运营的人。典型",
+      "text": "讲师通过PPT展示了针对不同背景学员的四类项目匹配建议，这是后续项目报名的核心指导原则： 1. **数据洞察型：** 适合关注股市基金、懂电商数据运营的人。典型项目如AI热点资讯播报、领域知识问答。核心逻辑是你拥有别人没有的信息差。 2. **业务卡点型：** 适合销售ID、项目经理、HR等有具体业务痛点经验的人。典型项目如AI面试助手、SOP生成器。核心逻辑是你踩过坑，知道怎么避坑，能把SOP转化为AI工具。 3. **产品/技术型：** 适合有编程能力或产品思维的人。典型项目如RPA自动化采集、视频自动化合成。核心逻辑是用技术手段替代手工重复劳动，提升效率。 4. **产品协作型：** 适合“T型人才”或“技术+业务”组队。典型项目如AI智能生产工具包。核心逻辑是技术负责实现（怎么做），业务负责定义价值（做什么对）。 讲师特别强调，无论哪种类型，最终都要落实到“解决问题”和“产生商业价值”上，并且鼓励大家挖掘自己过往经历中的独特优势，哪怕是“认识能为你所用的人”也是一种能力。"
+    },
+    {
+      "window_index": 3,
+      "title": "FDE 的定义与能力模型重构",
+      "time_range": "02:56:02 - 03:00:53",
+      "chars": 292,
+      "anchor": "讲师首先澄清了 FDE（Forward Deployed Engineer，前沿部署工程师）的概念，指出它不同于传统的驻场开发或实施工程师。通过对比 AWS、S",
+      "text": "讲师首先澄清了 FDE（Forward Deployed Engineer，前沿部署工程师）的概念，指出它不同于传统的驻场开发或实施工程师。通过对比 AWS、Salesforce 等公司的类似岗位（如解决方案工程师、客户成功工程师），讲师提炼出 FDE 的核心能力模型是“技术理解力 + 行业洞察 + 沟通交付”。她强调这是一个高门槛岗位，要求从业者既懂技术边界和可行性判断，又懂行业术语、角色认知和需求挖掘，还能进行有效的需求对齐和风险控制。这种复合型能力使得 FDE 成为连接技术与业务的桥梁，虽然定义模糊且新人难入局，但其价值在于将技术应用到具体场景中，这是未来极其稀缺的能力。"
+    },
+    {
+      "window_index": 3,
+      "title": "行业洞察的深层拆解：以自媒体为例",
+      "time_range": "03:00:53 - 03:22:07",
+      "chars": 294,
+      "anchor": "为了具象化“行业洞察”，讲师以自媒体行业为例，将其拆解为四个难度递增的层级。L1 是词汇掌握，如知道什么是完播率、互动率、切片；L2 是决策认知，理解创作者、用",
+      "text": "为了具象化“行业洞察”，讲师以自媒体行业为例，将其拆解为四个难度递增的层级。L1 是词汇掌握，如知道什么是完播率、互动率、切片；L2 是决策认知，理解创作者、用户、平台、品牌方四方的博弈与共赢关系；L3 是需求挖掘与优先级判断，例如认识到博主真正的痛点不是写脚本而是选题枯竭，或者判断自动回复功能比 AI 播客更具普适性和刚需性；L4 则是场景拆解与价值判断，这需要极深的体感，能准确评估一个功能能为客户省多少时间、赚多少钱。讲师指出，AI 可以高效完成 L1 和 L2 的内容生成，但 L3 和 L4 的深度商业认知和痛点把握是人类专家的核心壁垒，也是 FDE 区别于普通执行者的关键。"
+    },
+    {
+      "window_index": 3,
+      "title": "零代码背景下的 FDE 路径与报名策略",
+      "time_range": "03:22:07 - 03:34:24",
+      "chars": 298,
+      "anchor": "针对“零代码经验能否做 FDE”的疑问，讲师给出了肯定答案。她指出，随着低代码平台（如扣子 Coze）的发展，许多中低技术门槛的项目可以通过配置和 API 对接",
+      "text": "针对“零代码经验能否做 FDE”的疑问，讲师给出了肯定答案。她指出，随着低代码平台（如扣子 Coze）的发展，许多中低技术门槛的项目可以通过配置和 API 对接完成。适合这类岗位的包括行政、运营、销售、市场等具备文字逻辑、细心或沟通能力的背景人员。在下一轮项目报名时，讲师给出了差异化建议：非技术背景的学员应重点展示自己在细分行业的深厚积累，如独家数据、踩过的坑、对潜规则的理解；而技术背景的学员则需展示具体的 AI 工具落地成果、模块实现细节以及解决复杂卡点的方案。讲师强调，无论背景如何，都要在项目中刻意练习“技术理解力、行业洞察、沟通交付”这三个维度，将项目作为 FDE 能力的实战训练场。"
+    }
+  ],
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.6-flash",
+    "api_calls": 4,
+    "finish_reason": "stop",
+    "window_finish_reasons": [
+      "stop",
+      "stop",
+      "stop",
+      "stop"
+    ],
+    "usage": {
+      "input_tokens": 95271,
+      "output_tokens": 16847,
+      "total_tokens": 112118
+    },
+    "current_run_usage": {
+      "input_tokens": 95271,
+      "output_tokens": 16847,
+      "total_tokens": 112118
+    },
+    "current_run_api_calls": 4,
+    "end_to_end_usage": {
+      "input_tokens": 95271,
+      "output_tokens": 16847,
+      "total_tokens": 112118
+    },
+    "end_to_end_api_calls": 4,
+    "reused_window_note_api_calls": 0,
+    "estimated_cost_cny": null
+  },
+  "qwen_narrative_appendix": {
+    "appended": true,
+    "reason": "missing_or_low_retention",
+    "appended_blocks": 9,
+    "pre_append_metrics": {
+      "narrative_block_count": 9,
+      "retained_block_count": 4,
+      "retention_ratio": 0.4444,
+      "body_transcript_ratio": 0.4141,
+      "min_body_transcript_ratio": 0.32,
+      "missing_blocks": [
+        {
+          "window_index": 1,
+          "title": "流量重组洗稿中的“灵魂注入”与原创度平衡",
+          "anchor": "在讲解“流量重组洗稿”项目时，讲师展示了如何通过Prompt工程提升内容的原创属性。起初，仅靠AI对对标视频进行解析和仿写，出来的内容虽然结构完整，但充满了“A"
+        },
+        {
+          "window_index": 1,
+          "title": "学员画像分类与超级个体的生存法则",
+          "anchor": "在课程后半段，讲师针对学员背景的多样性，梳理了四种适合承接不同类型AI项目的学员画像，旨在帮助学员找到自身的定位。 1. **数据洞察型：** 适合在某一行业（"
+        },
+        {
+          "window_index": 2,
+          "title": "FDE的三层能力拆解与自媒体案例复盘",
+          "anchor": "讲师详细拆解了FDE（前沿部署工程师）所需的三种核心能力，并以自媒体行业为例进行了极深度的场景化拆解。 首先是**技术理解力**，包括工具认知、代码阅读和脚本能"
+        },
+        {
+          "window_index": 2,
+          "title": "FDE的职业护城河与零代码入局路径",
+          "anchor": "讲师阐述了FDE作为未来职业护城河的逻辑。AI颠覆了所有行业，使得“兼容多背景”成为常态。虽然AI降低了编程门槛，但将技术应用到具体场景的能力变得极度稀缺。因此"
+        },
+        {
+          "window_index": 2,
+          "title": "四类项目匹配模型详解（数据/业务/技术/协作）",
+          "anchor": "讲师通过PPT展示了针对不同背景学员的四类项目匹配建议，这是后续项目报名的核心指导原则： 1. **数据洞察型：** 适合关注股市基金、懂电商数据运营的人。典型"
+        }
+      ]
+    }
+  },
+  "body_last_chapter_end_s": 12864,
+  "body_tail_gap_s": -5004,
+  "body_coverage_status": "ok",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 21485,
+    "body_transcript_ratio": 0.5138,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 8,
+    "chapter_fields_missing": [],
+    "code_fence_count": 6,
+    "prompt_keywords_missing": [],
+    "body_min_transcript_ratio": 0.2,
+    "source_frame_count": 324
+  },
+  "qwen_window_coverage_qc": {
+    "expected_windows": [
+      1,
+      2,
+      3
+    ],
+    "covered_windows": [
+      1,
+      2,
+      3
+    ],
+    "missing_windows": []
+  },
+  "qwen_fact_retention_qc": {
+    "fact_count": 24,
+    "retained_count": 16,
+    "retention_ratio": 0.6667,
+    "missing_facts": [
+      {
+        "kind": "date_or_age",
+        "value": "2017年",
+        "window_index": 1
+      },
+      {
+        "kind": "term",
+        "value": "15秒",
+        "window_index": 1
+      },
+      {
+        "kind": "term",
+        "value": "30秒",
+        "window_index": 1
+      },
+      {
+        "kind": "term",
+        "value": "1分钟",
+        "window_index": 1
+      },
+      {
+        "kind": "term",
+        "value": "3分钟",
+        "window_index": 1
+      },
+      {
+        "kind": "date_or_age",
+        "value": "35岁",
+        "window_index": 1
+      },
+      {
+        "kind": "percentage",
+        "value": "99%",
+        "window_index": 2
+      },
+      {
+        "kind": "score",
+        "value": "60分",
+        "window_index": 2
+      }
+    ],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_timeline_qc": {
+    "chapter_count": 8,
+    "overlap_count": 0,
+    "overlaps": []
+  },
+  "qwen_technical_asset_qc": {
+    "has_technical_asset_appendix": true,
+    "code_fence_count": 3,
+    "prompt_fact_count": 7
+  },
+  "qwen_narrative_retention_qc": {
+    "narrative_block_count": 9,
+    "retained_block_count": 9,
+    "retention_ratio": 1.0,
+    "body_transcript_ratio": 0.5138,
+    "min_body_transcript_ratio": 0.32,
+    "missing_blocks": []
+  },
+  "transcript_appendix_chars": 41817,
+  "visual_evidence_count": 324,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
