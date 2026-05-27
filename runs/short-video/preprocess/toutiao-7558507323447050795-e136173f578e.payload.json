@@ -1,0 +1,63 @@
+{
+  "schema_version": "short-video-payload-v1",
+  "video_id": "toutiao-7558507323447050795-e136173f578e",
+  "source": {
+    "kind": "file",
+    "original": "Videos\\short\\toutiao\\toutiao-7558507323447050795.mp4",
+    "canonical": "D:\\zhihu\\zhihu_file\\Videos\\short\\toutiao\\toutiao-7558507323447050795.mp4",
+    "resolved_media_url": "",
+    "local_media_path": "Videos\\short\\toutiao\\toutiao-7558507323447050795.mp4",
+    "extractor": "local",
+    "media_type": "mp4",
+    "title": "toutiao-7558507323447050795"
+  },
+  "media": {
+    "duration_s": 33.783,
+    "width": 1024,
+    "height": 576,
+    "size_bytes": 1964993
+  },
+  "transcript": {
+    "backend": "sensevoice",
+    "chars": 244,
+    "path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7558507323447050795-e136173f578e.transcript.txt"
+  },
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7558507323447050795\\frame_00001.jpg",
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7558507323447050795\\frame_00004.jpg",
+      "marker": "Frame [00:00:04] type=annotation diff=0.061"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7558507323447050795\\frame_00005.jpg",
+      "marker": "Frame [00:00:05] type=slide diff=0.8259"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7558507323447050795\\frame_00014.jpg",
+      "marker": "Frame [00:00:14] type=annotation diff=0.1119"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7558507323447050795\\frame_00018.jpg",
+      "marker": "Frame [00:00:18] type=slide diff=0.7973"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7558507323447050795\\frame_00020.jpg",
+      "marker": "Frame [00:00:20] type=annotation diff=0.0272"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7558507323447050795\\frame_00026.jpg",
+      "marker": "Frame [00:00:26] type=slide diff=0.8505"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7558507323447050795\\frame_00033.jpg",
+      "marker": "Frame [00:00:33] type=annotation diff=0.042"
+    }
+  ],
+  "classification": {
+    "kind": "short_video",
+    "reason": "duration<=600, transcript_chars<=12000, kept_frames<=32"
+  }
+}

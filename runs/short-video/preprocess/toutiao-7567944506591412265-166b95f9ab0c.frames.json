@@ -1,0 +1,519 @@
+{
+  "video_id": "toutiao-7567944506591412265-166b95f9ab0c",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00001.jpg",
+      "marker": "Frame [00:00:01] type=slide diff=0.4257"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00002.jpg",
+      "marker": "Frame [00:00:02] type=slide diff=0.4257"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00009.jpg",
+      "marker": "Frame [00:00:09] type=annotation diff=0.1502"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00010.jpg",
+      "marker": "Frame [00:00:10] type=slide diff=0.3913"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00079.jpg",
+      "marker": "Frame [00:01:19] type=annotation diff=0.2798"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00080.jpg",
+      "marker": "Frame [00:01:20] type=slide diff=0.6407"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00088.jpg",
+      "marker": "Frame [00:01:28] type=annotation diff=0.1235"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00090.jpg",
+      "marker": "Frame [00:01:30] type=slide diff=0.5932"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00093.jpg",
+      "marker": "Frame [00:01:33] type=annotation diff=0.1112"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00094.jpg",
+      "marker": "Frame [00:01:34] type=slide diff=0.3301"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00095.jpg",
+      "marker": "Frame [00:01:35] type=annotation diff=0.108"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00096.jpg",
+      "marker": "Frame [00:01:36] type=slide diff=0.3351"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00127.jpg",
+      "marker": "Frame [00:02:07] type=annotation diff=0.2921"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00128.jpg",
+      "marker": "Frame [00:02:08] type=slide diff=0.3222"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00135.jpg",
+      "marker": "Frame [00:02:15] type=annotation diff=0.2234"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00137.jpg",
+      "marker": "Frame [00:02:17] type=slide diff=0.4226"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00144.jpg",
+      "marker": "Frame [00:02:24] type=annotation diff=0.2815"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00145.jpg",
+      "marker": "Frame [00:02:25] type=slide diff=0.3864"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00150.jpg",
+      "marker": "Frame [00:02:30] type=annotation diff=0.1601"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00151.jpg",
+      "marker": "Frame [00:02:31] type=slide diff=0.3049"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00201.jpg",
+      "marker": "Frame [00:03:21] type=annotation diff=0.2477"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00202.jpg",
+      "marker": "Frame [00:03:22] type=slide diff=0.4499"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00207.jpg",
+      "marker": "Frame [00:03:27] type=annotation diff=0.0798"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00208.jpg",
+      "marker": "Frame [00:03:28] type=slide diff=0.3795"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00210.jpg",
+      "marker": "Frame [00:03:30] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00224.jpg",
+      "marker": "Frame [00:03:44] type=annotation diff=0.2159"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00225.jpg",
+      "marker": "Frame [00:03:45] type=slide diff=0.3141"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00233.jpg",
+      "marker": "Frame [00:03:53] type=annotation diff=0.2485"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00234.jpg",
+      "marker": "Frame [00:03:54] type=slide diff=0.3713"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00235.jpg",
+      "marker": "Frame [00:03:55] type=annotation diff=0.1418"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00236.jpg",
+      "marker": "Frame [00:03:56] type=slide diff=0.3069"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00239.jpg",
+      "marker": "Frame [00:03:59] type=annotation diff=0.2329"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00241.jpg",
+      "marker": "Frame [00:04:01] type=slide diff=0.6313"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00245.jpg",
+      "marker": "Frame [00:04:05] type=annotation diff=0.2891"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00246.jpg",
+      "marker": "Frame [00:04:06] type=slide diff=0.3014"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00277.jpg",
+      "marker": "Frame [00:04:37] type=annotation diff=0.2454"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00278.jpg",
+      "marker": "Frame [00:04:38] type=slide diff=0.3319"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00282.jpg",
+      "marker": "Frame [00:04:42] type=annotation diff=0.1899"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00283.jpg",
+      "marker": "Frame [00:04:43] type=slide diff=0.3739"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00294.jpg",
+      "marker": "Frame [00:04:54] type=annotation diff=0.2989"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00295.jpg",
+      "marker": "Frame [00:04:55] type=slide diff=0.3934"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00296.jpg",
+      "marker": "Frame [00:04:56] type=annotation diff=0.1655"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00297.jpg",
+      "marker": "Frame [00:04:57] type=slide diff=0.3435"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00301.jpg",
+      "marker": "Frame [00:05:01] type=annotation diff=0.2888"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00304.jpg",
+      "marker": "Frame [00:05:04] type=slide diff=0.3938"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00305.jpg",
+      "marker": "Frame [00:05:05] type=annotation diff=0.1242"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00306.jpg",
+      "marker": "Frame [00:05:06] type=slide diff=0.5441"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00452.jpg",
+      "marker": "Frame [00:07:32] type=annotation diff=0.2667"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00453.jpg",
+      "marker": "Frame [00:07:33] type=slide diff=0.3776"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00484.jpg",
+      "marker": "Frame [00:08:04] type=annotation diff=0.262"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00485.jpg",
+      "marker": "Frame [00:08:05] type=slide diff=0.3616"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00561.jpg",
+      "marker": "Frame [00:09:21] type=annotation diff=0.2943"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00562.jpg",
+      "marker": "Frame [00:09:22] type=slide diff=0.4004"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00593.jpg",
+      "marker": "Frame [00:09:53] type=annotation diff=0.1843"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00594.jpg",
+      "marker": "Frame [00:09:54] type=slide diff=0.3632"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00604.jpg",
+      "marker": "Frame [00:10:04] type=annotation diff=0.2014"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00605.jpg",
+      "marker": "Frame [00:10:05] type=slide diff=0.3655"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7567944506591412265\\frame_00638.jpg",
+      "marker": "Frame [00:10:38] type=annotation diff=0.2128"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 1,
+      "diff": 0.4257
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.1502
+    },
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.3913
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 78,
+      "diff": 0.2798
+    },
+    {
+      "type": "slide",
+      "frame_idx": 79,
+      "diff": 0.6407
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 87,
+      "diff": 0.1235
+    },
+    {
+      "type": "slide",
+      "frame_idx": 89,
+      "diff": 0.5932
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 92,
+      "diff": 0.1112
+    },
+    {
+      "type": "slide",
+      "frame_idx": 93,
+      "diff": 0.3301
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 94,
+      "diff": 0.108
+    },
+    {
+      "type": "slide",
+      "frame_idx": 95,
+      "diff": 0.3351
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 126,
+      "diff": 0.2921
+    },
+    {
+      "type": "slide",
+      "frame_idx": 127,
+      "diff": 0.3222
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 134,
+      "diff": 0.2234
+    },
+    {
+      "type": "slide",
+      "frame_idx": 136,
+      "diff": 0.4226
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 143,
+      "diff": 0.2815
+    },
+    {
+      "type": "slide",
+      "frame_idx": 144,
+      "diff": 0.3864
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 149,
+      "diff": 0.1601
+    },
+    {
+      "type": "slide",
+      "frame_idx": 150,
+      "diff": 0.3049
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 200,
+      "diff": 0.2477
+    },
+    {
+      "type": "slide",
+      "frame_idx": 201,
+      "diff": 0.4499
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 206,
+      "diff": 0.0798
+    },
+    {
+      "type": "slide",
+      "frame_idx": 207,
+      "diff": 0.3795
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 223,
+      "diff": 0.2159
+    },
+    {
+      "type": "slide",
+      "frame_idx": 224,
+      "diff": 0.3141
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 232,
+      "diff": 0.2485
+    },
+    {
+      "type": "slide",
+      "frame_idx": 233,
+      "diff": 0.3713
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 234,
+      "diff": 0.1418
+    },
+    {
+      "type": "slide",
+      "frame_idx": 235,
+      "diff": 0.3069
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 238,
+      "diff": 0.2329
+    },
+    {
+      "type": "slide",
+      "frame_idx": 240,
+      "diff": 0.6313
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 244,
+      "diff": 0.2891
+    },
+    {
+      "type": "slide",
+      "frame_idx": 245,
+      "diff": 0.3014
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 276,
+      "diff": 0.2454
+    },
+    {
+      "type": "slide",
+      "frame_idx": 277,
+      "diff": 0.3319
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 281,
+      "diff": 0.1899
+    },
+    {
+      "type": "slide",
+      "frame_idx": 282,
+      "diff": 0.3739
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 293,
+      "diff": 0.2989
+    },
+    {
+      "type": "slide",
+      "frame_idx": 294,
+      "diff": 0.3934
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 295,
+      "diff": 0.1655
+    },
+    {
+      "type": "slide",
+      "frame_idx": 296,
+      "diff": 0.3435
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 300,
+      "diff": 0.2888
+    },
+    {
+      "type": "slide",
+      "frame_idx": 303,
+      "diff": 0.3938
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 304,
+      "diff": 0.1242
+    },
+    {
+      "type": "slide",
+      "frame_idx": 305,
+      "diff": 0.5441
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 451,
+      "diff": 0.2667
+    },
+    {
+      "type": "slide",
+      "frame_idx": 452,
+      "diff": 0.3776
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 483,
+      "diff": 0.262
+    },
+    {
+      "type": "slide",
+      "frame_idx": 484,
+      "diff": 0.3616
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 560,
+      "diff": 0.2943
+    },
+    {
+      "type": "slide",
+      "frame_idx": 561,
+      "diff": 0.4004
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 592,
+      "diff": 0.1843
+    },
+    {
+      "type": "slide",
+      "frame_idx": 593,
+      "diff": 0.3632
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 603,
+      "diff": 0.2014
+    },
+    {
+      "type": "slide",
+      "frame_idx": 604,
+      "diff": 0.3655
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 637,
+      "diff": 0.2128
+    }
+  ]
+}

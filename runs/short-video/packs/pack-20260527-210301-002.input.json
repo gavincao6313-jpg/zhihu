@@ -1,0 +1,512 @@
+{
+  "schema_version": "short-video-pack-input-v1",
+  "pack_id": "pack-20260527-210301-002",
+  "created_at": "2026-05-27T21:38:10",
+  "video_count": 8,
+  "videos": [
+    {
+      "video_id": "toutiao-7586958048342573577-fb929df8a3eb",
+      "title": "toutiao-7586958048342573577",
+      "duration_s": 51.107,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7586958048342573577.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7586958048342573577.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:51] 🎼AI圈彻底炸了。当全球高校还在用他的教材手做大模型时，维斯康新教学的一位终身教授直接开挂，把价值百万美元的工业级训练代码甩上跌塔，现在就已经获得了8万多星标，反响超级热烈原本高不可攀的大模型训练，从博士生专属的高端玩法一下子变成了小白也能轻松入门的全民运动我花了不少时间找到了中英文版可以分享给需要的同学教授的初衷也非常纯粹让每一个想学AI的人都能真正理解并亲手搭建属于自己的大模型这本书分为5个部分第一部分介绍大模型的基础知识。第二部分教你如何准备和处理，用于训练的大模型文本数据，第三部分深入讲解注意力机制的原理。机器在大模型中的应用。第四部分则教你如何从零开始构建模型并进行文本生成。第五部分讨论如何在没有标签的数据上训练模型，网友们都调侃说连我奶奶看完这教程都能训出一个模型来跟着他这本从零构建大模型书籍教程以及项目来我怕搭建不了自己的专属大模型书籍全套中英文版D加项目代码放这了，快去试试吧。😊",
+      "transcript_chars": 425,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00008.jpg",
+          "marker": "Frame [00:00:08] type=annotation diff=0.2776"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00010.jpg",
+          "marker": "Frame [00:00:10] type=annotation diff=0.0299"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00011.jpg",
+          "marker": "Frame [00:00:11] type=slide diff=0.6535"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00016.jpg",
+          "marker": "Frame [00:00:16] type=annotation diff=0.1378"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00017.jpg",
+          "marker": "Frame [00:00:17] type=slide diff=0.761"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00027.jpg",
+          "marker": "Frame [00:00:27] type=slide diff=0.3115"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00039.jpg",
+          "marker": "Frame [00:00:39] type=annotation diff=0.1746"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00040.jpg",
+          "marker": "Frame [00:00:40] type=slide diff=0.6064"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00041.jpg",
+          "marker": "Frame [00:00:41] type=annotation diff=0.0578"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00044.jpg",
+          "marker": "Frame [00:00:44] type=slide diff=0.6237"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7586958048342573577\\frame_00051.jpg",
+          "marker": "Frame [00:00:51] type=annotation diff=0.1407"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7586958048342573577-fb929df8a3eb.payload.json"
+    },
+    {
+      "video_id": "toutiao-7563638599669776937-fdd2bfef4a3c",
+      "title": "toutiao-7563638599669776937",
+      "duration_s": 52.081,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7563638599669776937.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7563638599669776937.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:52] 🎼果然还是写修网站更招人喜欢。就比如这个AI工具吧，它把所有上传图片就能一键生成视频的特效全都集合在了一起，包括了可灵、通益、海螺威度等5个图生视频的模型库，目测能有几百个。全都是上传一张图片，就可以直接生成同样视频效果的AI特效模型操作也很简单，我们只需要在这个网站的首页找到这个视频特效的入口，就可以看到这里面有大量的视频特效模型，并且这里面还会根据特效的玩法进行分类，需要哪种特效风格，然后就到对应的类目里面去寻找就可以。然后随便选择一个自己喜欢的，点击这个使用特效，就可以直接进入视频生成页面了。在视频生成的时候，我们还可以自由选择不同的生成模型。这就是这些工具的名称。如果你自己懒得找的话，也可以取得某众号课虫回复工具两个字来免费领取我们的互联网供应箱。最近更新那个就是。",
+      "transcript_chars": 363,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00004.jpg",
+          "marker": "Frame [00:00:04] type=slide diff=0.5176"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00009.jpg",
+          "marker": "Frame [00:00:09] type=annotation diff=0.2649"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00014.jpg",
+          "marker": "Frame [00:00:14] type=annotation diff=0.0655"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00015.jpg",
+          "marker": "Frame [00:00:15] type=slide diff=0.3355"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00036.jpg",
+          "marker": "Frame [00:00:36] type=slide diff=0.3142"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00038.jpg",
+          "marker": "Frame [00:00:38] type=annotation diff=0.2858"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00040.jpg",
+          "marker": "Frame [00:00:40] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00042.jpg",
+          "marker": "Frame [00:00:42] type=annotation diff=0.1144"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00046.jpg",
+          "marker": "Frame [00:00:46] type=annotation diff=0.294"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00047.jpg",
+          "marker": "Frame [00:00:47] type=slide diff=0.3057"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7563638599669776937\\frame_00052.jpg",
+          "marker": "Frame [00:00:52] type=slide diff=0.3964"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7563638599669776937-fdd2bfef4a3c.payload.json"
+    },
+    {
+      "video_id": "toutiao-7644097950108680211-570fba1e5881",
+      "title": "toutiao-7644097950108680211",
+      "duration_s": 56.467,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7644097950108680211.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7644097950108680211.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:56] 🎼兄弟们，又挖到一个宝藏工具，就这个AI漫剧短剧制作工具，完全免费开源k商已经上了8000多颗星了。据说有人用它跑出了播放量破亿的AI短剧作品，它能干啥呢？你只需要把小说原文丢进去，它会自动帮你完成角色设定，剧本转化分进制作，一直到最后的视频合成整条漫剧短剧的制作链路全部打通了。过去一条短剧内容少说三个小时打底，现在几十分钟就能出片了。最关键是呢它不是无脑的一键生成，整个过程呢你可以随时介入修改，故事线人物设定分镜镜头，想动哪里动哪里，你就是个导演AI就是你的执行团队工具包本地运行数据不上传，隐私有保障，各种AI模型随意配置，玩法极高，windows和mac都有现成的运行包，你安装免部署下载即用，我已经亲自的测试过一轮了，真的很好用，感兴趣的，赶紧试一下。",
+      "transcript_chars": 354,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00003.jpg",
+          "marker": "Frame [00:00:03] type=annotation diff=0.0557"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00004.jpg",
+          "marker": "Frame [00:00:04] type=slide diff=0.3531"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00007.jpg",
+          "marker": "Frame [00:00:07] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00013.jpg",
+          "marker": "Frame [00:00:13] type=annotation diff=0.2697"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00014.jpg",
+          "marker": "Frame [00:00:14] type=slide diff=0.3104"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00040.jpg",
+          "marker": "Frame [00:00:40] type=annotation diff=0.13"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00043.jpg",
+          "marker": "Frame [00:00:43] type=slide diff=0.3145"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00049.jpg",
+          "marker": "Frame [00:00:49] type=annotation diff=0.294"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00051.jpg",
+          "marker": "Frame [00:00:51] type=slide diff=0.3702"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00054.jpg",
+          "marker": "Frame [00:00:54] type=annotation diff=0.0463"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7644097950108680211\\frame_00055.jpg",
+          "marker": "Frame [00:00:55] type=slide diff=0.5106"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7644097950108680211-570fba1e5881.payload.json"
+    },
+    {
+      "video_id": "toutiao-7630778091320787494-d7222278efdc",
+      "title": "toutiao-7630778091320787494",
+      "duration_s": 47.167,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7630778091320787494.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7630778091320787494.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:47] 🎼原来ub才是学习大模型的最强学修。前段时间我每天不低于两个小时在giub学习。3个月时间，我已经成功上岸大厂。这几个项目是我反复刷真心推荐的。首先是re从零手搓大模型，只要300行代码就能吃透GPT核心4小时跑通训练部署其次是开源社区的从零开始构建智能体，帮你吃透AI原生核心手把手搭建多智能体旅行助手代码全部开源。再就是上海交通大学张卓胜的动手学大模型系列教程，只在提供大模型相关的入门编程参考，最后就是威斯康星大学麦迪逊分校终身教授的从零构建大语言模型，应该没人不知道吧。通过详细的步骤清晰的解释和视例代码，零基础小白也能在自己的电脑上完成搭建。考虑到有些小伙伴不能科学上网，别担心我自己整理了一套大模型，从入门到进阶的视频教程和电子书籍，希望可以帮到你。😊",
+      "transcript_chars": 354,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00004.jpg",
+          "marker": "Frame [00:00:04] type=slide diff=0.3142"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00009.jpg",
+          "marker": "Frame [00:00:09] type=slide diff=0.4285"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00011.jpg",
+          "marker": "Frame [00:00:11] type=slide diff=0.682"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00016.jpg",
+          "marker": "Frame [00:00:16] type=annotation diff=0.1363"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00018.jpg",
+          "marker": "Frame [00:00:18] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00024.jpg",
+          "marker": "Frame [00:00:24] type=annotation diff=0.2818"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00026.jpg",
+          "marker": "Frame [00:00:26] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00030.jpg",
+          "marker": "Frame [00:00:30] type=slide diff=0.6028"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00032.jpg",
+          "marker": "Frame [00:00:32] type=slide diff=0.5339"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00040.jpg",
+          "marker": "Frame [00:00:40] type=annotation diff=0.084"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7630778091320787494\\frame_00047.jpg",
+          "marker": "Frame [00:00:47] type=annotation diff=0.1683"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7630778091320787494-d7222278efdc.payload.json"
+    },
+    {
+      "video_id": "toutiao-7561790740020985892-9c8b605350dc",
+      "title": "toutiao-7561790740020985892",
+      "duration_s": 49.767,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7561790740020985892.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7561790740020985892.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:49] 🎼一个19岁的天才少年大学辍学自学编程，把一个副业项目做到了估值4000万美金的股。这个项目叫superme我们都知道现在的AI很健忘，聊完健忘upme做的就是给所有的I应用都装上一个长期记忆它提供了一个通用的记忆你的个人数据可以轻松的在不同的I应用之流动I终可以只属于你是怎么做到的呢首它能连接你所有的数据源不聊天记录还是文档笔这些数据变成一个属于你自己的可移植的知识通过个任何I应用都可以调用你的专属记忆。但所有还在互联网时代的底层壁垒数据垄断。I时代数据已经被资产化这就带来了一个巨大的商业机会，那就是数据连接upme的是数据连接当用户拥有数据这些数据变成I自己的记忆才能I更好的强这将彻底重我的习生活和工换视角看。😊",
+      "transcript_chars": 334,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00008.jpg",
+          "marker": "Frame [00:00:08] type=slide diff=0.367"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00011.jpg",
+          "marker": "Frame [00:00:11] type=annotation diff=0.1597"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00013.jpg",
+          "marker": "Frame [00:00:13] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00019.jpg",
+          "marker": "Frame [00:00:19] type=slide diff=0.3728"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00020.jpg",
+          "marker": "Frame [00:00:20] type=annotation diff=0.0222"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00032.jpg",
+          "marker": "Frame [00:00:32] type=annotation diff=0.1228"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00036.jpg",
+          "marker": "Frame [00:00:36] type=slide diff=0.5172"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00041.jpg",
+          "marker": "Frame [00:00:41] type=annotation diff=0.2667"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00046.jpg",
+          "marker": "Frame [00:00:46] type=annotation diff=0.1511"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00047.jpg",
+          "marker": "Frame [00:00:47] type=slide diff=0.4351"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7561790740020985892\\frame_00050.jpg",
+          "marker": "Frame [00:00:50] type=slide diff=0.4655"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7561790740020985892-9c8b605350dc.payload.json"
+    },
+    {
+      "video_id": "toutiao-7557311954209997354-a6d41d95424e",
+      "title": "toutiao-7557311954209997354",
+      "duration_s": 52.267,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7557311954209997354.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7557311954209997354.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:52] 🎼每天认识一款高质量开源项目，第157期一篇全英文论文拖进去3分钟翻译完成，公式完整，图表在原位，排版不乱，甚至还能生成双语对照版，这就是PDFM mass translate论文里那些复杂的数学公式，拉个朗日复理页变换，矩阵方程，AI精准识别latex格式，每个符号都分毫不差，图表位置像钉子一样固定住一个像素都不会跑偏目录能点注释全在批注一个bl辣，就像人工精修过的一样，但你根本不用动手，中文英文并排显示边看边学网页版windows命令行docker想怎么用就怎么用。谷歌depoGPT主流引擎随便选近3万star，关键是完全免费，完全开源，不要会员无限次数，赶紧把它焊死在电脑上吧。",
+      "transcript_chars": 317,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00005.jpg",
+          "marker": "Frame [00:00:05] type=annotation diff=0.2207"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00019.jpg",
+          "marker": "Frame [00:00:19] type=annotation diff=0.2156"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00020.jpg",
+          "marker": "Frame [00:00:20] type=slide diff=0.3551"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00028.jpg",
+          "marker": "Frame [00:00:28] type=annotation diff=0.2749"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00029.jpg",
+          "marker": "Frame [00:00:29] type=slide diff=0.3383"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00034.jpg",
+          "marker": "Frame [00:00:34] type=slide diff=0.3174"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00037.jpg",
+          "marker": "Frame [00:00:37] type=annotation diff=0.2993"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00038.jpg",
+          "marker": "Frame [00:00:38] type=slide diff=0.31"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00042.jpg",
+          "marker": "Frame [00:00:42] type=slide diff=0.4191"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00048.jpg",
+          "marker": "Frame [00:00:48] type=annotation diff=0.2571"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7557311954209997354\\frame_00052.jpg",
+          "marker": "Frame [00:00:52] type=slide diff=0.4598"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7557311954209997354-a6d41d95424e.payload.json"
+    },
+    {
+      "video_id": "toutiao-7635653942348612096-e1ab3ea0ab58",
+      "title": "toutiao-7635653942348612096",
+      "duration_s": 52.6,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7635653942348612096.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7635653942348612096.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:52] 🎼AI全自动短视频引擎终于开源了，文案配图配音剪辑全流程，一个工具搞定，做视频的成本也降下来了。距离太遥远，现有技术很难接受的。这个工具给你建立一做视频工厂，主题进去成片出来。他把文案配图配音剪辑4个模块，串成一条流水线，每个环节输出完，自动进入下一个中间不需要你手动衔接，成本几乎为0，你不用动手，打开软件输入主题，点生成文案一条一条出来，每句话自动配好图，配音背景音乐自动就加上了，进度调走完，视频就生成了。你可以换模板，十几种竖屏横屏都有想用自己声音上传30秒录音，它帮你复刻进去。AI分析完，直接出脚本，生成完不用再剪出来就是成品做视频的门槛正在慢慢降低。😊",
+      "transcript_chars": 305,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00002.jpg",
+          "marker": "Frame [00:00:02] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00010.jpg",
+          "marker": "Frame [00:00:10] type=slide diff=0.7383"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00012.jpg",
+          "marker": "Frame [00:00:12] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00015.jpg",
+          "marker": "Frame [00:00:15] type=annotation diff=0.0457"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00017.jpg",
+          "marker": "Frame [00:00:17] type=slide diff=0.6701"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00023.jpg",
+          "marker": "Frame [00:00:23] type=annotation diff=0.0933"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00027.jpg",
+          "marker": "Frame [00:00:27] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00030.jpg",
+          "marker": "Frame [00:00:30] type=annotation diff=0.1424"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00038.jpg",
+          "marker": "Frame [00:00:38] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00045.jpg",
+          "marker": "Frame [00:00:45] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7635653942348612096\\frame_00053.jpg",
+          "marker": "Frame [00:00:53] type=annotation diff=0.0394"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7635653942348612096-e1ab3ea0ab58.payload.json"
+    },
+    {
+      "video_id": "toutiao-7540981748297941567-a11a50f65cf2",
+      "title": "toutiao-7540981748297941567",
+      "duration_s": 36.316,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7540981748297941567.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7540981748297941567.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:36] 🎼哈佛研究发现一个很恶心，但能六周吃透大模型的方法。首先，抛弃网上那些杂乱无章的教程。第一阶段，学习大模型基础概念，深入理解transformer，这是所有大模型底层架构。第二阶段，学习提示工程好的提示词能数倍提升模型输出质量，学习RAGAag动手构建知识库及搭建智能体实战，同时学习热点MCP并手写MCPserv服务。第三阶段，攻克模型微调重点学习PEFT技术及 laura和qRA实战微调大模型，跟着教程来，不怕学不会，坚持6到8周高效学习，完整学习资料和企业及实战项目代码都打包好了。只要你是我的粉丝，留个56即可获取。😊",
+      "transcript_chars": 286,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00003.jpg",
+          "marker": "Frame [00:00:03] type=annotation diff=0.0537"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00004.jpg",
+          "marker": "Frame [00:00:04] type=slide diff=0.5143"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00007.jpg",
+          "marker": "Frame [00:00:07] type=annotation diff=0.0225"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00009.jpg",
+          "marker": "Frame [00:00:09] type=slide diff=0.309"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00014.jpg",
+          "marker": "Frame [00:00:14] type=annotation diff=0.2971"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00016.jpg",
+          "marker": "Frame [00:00:16] type=slide diff=0.4256"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00017.jpg",
+          "marker": "Frame [00:00:17] type=annotation diff=0.1501"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00018.jpg",
+          "marker": "Frame [00:00:18] type=annotation diff=0.1501"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00031.jpg",
+          "marker": "Frame [00:00:31] type=annotation diff=0.2983"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00032.jpg",
+          "marker": "Frame [00:00:32] type=slide diff=0.6662"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7540981748297941567\\frame_00036.jpg",
+          "marker": "Frame [00:00:36] type=annotation diff=0.0668"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7540981748297941567-a11a50f65cf2.payload.json"
+    }
+  ]
+}

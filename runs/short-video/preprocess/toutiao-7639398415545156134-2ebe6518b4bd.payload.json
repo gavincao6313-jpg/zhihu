@@ -1,0 +1,55 @@
+{
+  "schema_version": "short-video-payload-v1",
+  "video_id": "toutiao-7639398415545156134-2ebe6518b4bd",
+  "source": {
+    "kind": "file",
+    "original": "Videos\\short\\toutiao\\toutiao-7639398415545156134.mp4",
+    "canonical": "D:\\zhihu\\zhihu_file\\Videos\\short\\toutiao\\toutiao-7639398415545156134.mp4",
+    "resolved_media_url": "",
+    "local_media_path": "Videos\\short\\toutiao\\toutiao-7639398415545156134.mp4",
+    "extractor": "local",
+    "media_type": "mp4",
+    "title": "toutiao-7639398415545156134"
+  },
+  "media": {
+    "duration_s": 27.749,
+    "width": 1920,
+    "height": 1080,
+    "size_bytes": 9396394
+  },
+  "transcript": {
+    "backend": "sensevoice",
+    "chars": 207,
+    "path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7639398415545156134-2ebe6518b4bd.transcript.txt"
+  },
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7639398415545156134\\frame_00001.jpg",
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7639398415545156134\\frame_00006.jpg",
+      "marker": "Frame [00:00:06] type=annotation diff=0.2586"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7639398415545156134\\frame_00007.jpg",
+      "marker": "Frame [00:00:07] type=slide diff=0.309"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7639398415545156134\\frame_00019.jpg",
+      "marker": "Frame [00:00:19] type=annotation diff=0.1508"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7639398415545156134\\frame_00020.jpg",
+      "marker": "Frame [00:00:20] type=slide diff=0.3381"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7639398415545156134\\frame_00028.jpg",
+      "marker": "Frame [00:00:28] type=annotation diff=0.1515"
+    }
+  ],
+  "classification": {
+    "kind": "short_video",
+    "reason": "duration<=600, transcript_chars<=12000, kept_frames<=32"
+  }
+}
