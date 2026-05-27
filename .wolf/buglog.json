@@ -1571,8 +1571,17 @@
       "file": "scripts/short_video_pipeline.py",
       "root_cause": "classify_payload used total_frames thresholds (SHORT_MAX_FRAMES=32, MEDIUM_MAX_FRAMES=128). Toutiao short videos extract 40-150+ frames due to fast visual cuts, so short 1-3min videos exceeded frame threshold and were classified as long_or_dense_video. Packer caps each video at PER_VIDEO_MAX_FRAMES=12 anyway, making frame count irrelevant to pack budget.",
       "fix": "Removed kept_frames condition from classify_payload; classification now uses duration_s + transcript_chars only. Also fixed payload_to_item to dynamically recompute classification instead of reading stored classification.kind from payload JSON, so existing payloads benefit immediately. Changed --include-medium default to True.",
-      "tags": ["classification", "short_video", "toutiao", "frames", "deferred", "payload_to_item"],
-      "related_bugs": ["bug-088"],
+      "tags": [
+        "classification",
+        "short_video",
+        "toutiao",
+        "frames",
+        "deferred",
+        "payload_to_item"
+      ],
+      "related_bugs": [
+        "bug-088"
+      ],
       "occurrences": 1,
       "last_seen": "2026-05-27T22:20:00.000Z"
     },
@@ -1583,8 +1592,18 @@
       "file": "scripts/short_video_pipeline.py",
       "root_cause": "extract_video_blocks regex requires both <!-- VIDEO_ID: xxx --> and <!-- END_VIDEO_ID: xxx --> markers. Qwen consistently omits the END marker on single-video retry outputs (1-video packs). Files had 78-141 lines of real content but zero regex matches, causing false missing_video_id warnings.",
       "fix": "Added fallback pass in extract_video_blocks: for any VIDEO_ID opener with no matching END marker, take content to next VIDEO_ID opener or EOF and synthesize the closing <!-- END_VIDEO_ID: xxx --> marker.",
-      "tags": ["split", "extract_video_blocks", "END_VIDEO_ID", "regex", "single-video", "retry", "false-positive"],
-      "related_bugs": ["bug-093"],
+      "tags": [
+        "split",
+        "extract_video_blocks",
+        "END_VIDEO_ID",
+        "regex",
+        "single-video",
+        "retry",
+        "false-positive"
+      ],
+      "related_bugs": [
+        "bug-093"
+      ],
       "occurrences": 3,
       "last_seen": "2026-05-27T22:30:00.000Z"
     },
@@ -1595,10 +1614,46 @@
       "file": "scripts/short_video_pipeline.py",
       "root_cause": "When Qwen rejects image frames as inappropriate content, the API returns an empty response with finish_reason='' or raises an exception with DataInspectionFailed in the message. _retry_missing_video treated this as a generic failure and did not mark the video distinctly, so retry-failed would retry it again indefinitely.",
       "fix": "In _retry_missing_video: (1) catch exception and check message for DataInspectionFailed/inappropriate content, (2) after successful call, check if text is empty or finish_reason contains DataInspectionFailed. In both cases mark synthesis_status=moderation_blocked and record last_error.",
-      "tags": ["content-moderation", "DataInspectionFailed", "qwen", "retry", "moderation_blocked"],
-      "related_bugs": ["bug-094"],
+      "tags": [
+        "content-moderation",
+        "DataInspectionFailed",
+        "qwen",
+        "retry",
+        "moderation_blocked"
+      ],
+      "related_bugs": [
+        "bug-094"
+      ],
       "occurrences": 2,
       "last_seen": "2026-05-27T22:30:00.000Z"
+    },
+    {
+      "id": "bug-096",
+      "timestamp": "2026-05-27T14:46:05.395Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "20 lines replaced/restructured",
+      "fix": "Rewrote 44→164 lines (20 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T14:46:05.395Z"
+    },
+    {
+      "id": "bug-097",
+      "timestamp": "2026-05-27T23:20:00.000Z",
+      "error_message": "7 pack-002 retry videos remain synthesis_status=failed after successful retry split",
+      "file": "scripts/short_video_pipeline.py",
+      "root_cause": "_retry_missing_video called split_pack_output but never called update_sv_video on success or on still-failed path. Moderation_blocked path was added but the success path was omitted.",
+      "fix": "Added update_sv_video after split_pack_output: success → synthesis_status=done + pack_id + cost; still-failed → synthesis_status=failed + last_error from qc warnings.",
+      "tags": ["progress", "retry", "update_sv_video", "synthesis_status", "missing-update"],
+      "related_bugs": ["bug-094", "bug-095"],
+      "occurrences": 7,
+      "last_seen": "2026-05-27T23:00:00.000Z"
     }
   ]
 }

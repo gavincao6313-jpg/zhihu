@@ -797,3 +797,8 @@
 | 22:41 | Edited scripts/short_video_pipeline.py | modified lower() | ~377 |
 | 22:46 | Edited scripts/build_stream_markdown.py | modified _hms_to_s() | ~1718 |
 | 22:48 | Created ../../../../tmp/test_narrative_inject.py | — | ~819 |
+| 22:57 | Edited scripts/short_video_pipeline.py | expanded (+16 lines) | ~331 |
+| 23:00 | WIN verify(a70799f): split/retry fix 3/3 OK, moderation_blocked confirmed | short_video_pipeline.py | verified |
+| 23:00 | WIN fix(2f8c3a9): narrative inject into chapters (85% Qwen drop fixed) | build_stream_markdown.py | committed |
+| 23:05 | Progress summary: 58 done, 7 failed (pack-002 retries), 1 moderation_blocked, cost 0.81 CNY | progress.json | analysed |
+| 23:20 | BUG-097: _retry_missing_video missing update_sv_video on success; fixed | short_video_pipeline.py | fixed |

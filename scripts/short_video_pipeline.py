@@ -1033,10 +1033,26 @@ def _retry_missing_video(
     retry_output = pack_dir / f"{retry_pack_id}.output.md"
     retry_output.write_text(text, encoding="utf-8")
     qc = split_pack_output(retry_input, retry_output, args.markdowns_dir, args.qc_dir)
+    usage_dict = (result.get("usage") or {})
+    in_tok = int(usage_dict.get("input_tokens") or 0)
+    out_tok = int(usage_dict.get("output_tokens") or 0)
+    retry_cost = estimate_cost_cny(in_tok, out_tok, args.model)
     if qc["warnings"]:
         print(f"  [retry] {video_id}: still has warnings — {qc['warnings']}", file=sys.stderr)
+        update_sv_video(video_id, {
+            "synthesis_status": "failed",
+            "pack_id": retry_pack_id,
+            "last_error": "; ".join(qc["warnings"])[:200],
+        }, progress_path)
     else:
         print(f"  [retry] {video_id}: ok → {args.markdowns_dir / ('TTS_short_' + slugify(video_id) + '.md')}")
+        update_sv_video(video_id, {
+            "synthesis_status": "done",
+            "pack_id": retry_pack_id,
+            "provider": result.get("provider", "qwen"),
+            "api_calls": int(result.get("api_calls") or 0),
+            "estimated_cost_cny": retry_cost,
+        }, progress_path)
 
 
 def command_split_pack(args: argparse.Namespace) -> int:
