@@ -1,14 +1,16 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-22T15:19:36.255Z
-> Files: 17 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-26T08:47:16.491Z
+> Files: 26 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
 - `CLAUDE.md` — OpenWolf (~1508 tok)
-- `extract_slides.py` — 从文件管线 keyframe manifest 或流管线 stream manifest/payload 收集 slide 帧，去重后输出 `Slides/<base>/slides.pdf` 和可选 PPTX；流模式支持 `--stream-base`/`--run-ts`，并对 Windows 绝对路径做 repo fallback。 (~13000 tok)
+- `extract_slides.py` — 从文件管线 keyframe manifest 或流管线 payload 收集 slide 帧，去重后输出 `Slides/<base>/slides.pdf` 和可选 PPTX；流模式使用 `--stream-base`。 (~12000 tok)
 - `run_single_file.py` — Run zhihuTTS file pipeline on a single video for A/B testing. (~280 tok)
-- `run_zhihu_live.bat` — Windows live runner; defaults real live capture to continuous HLS recorder + async consumer, then merge + final Gemini synthesis. Uses a base marker to read Python-resolved output naming; default Gemini path is final one-shot only with dry-run/no-gemini controls. (~3000 tok)
+- `run_zhihu_live.bat` (~4241 tok)
+- `stream_extractors.py` — URL/page extractor layer for stream/replay inputs; routes known hosts to yt-dlp or Playwright, captures media URLs/headers, and manages Playwright keepalive for Zhihu live. (~9000 tok)
+- `utils.py` — Shared utilities for zhihu pipeline scripts. (~3854 tok)
 - `zhihuTTS_stream.py` — Stream/replay/live chunk capture and transcription pipeline; resolves stream `base_stem`, writes chunk artifacts/manifests, supports continuous HLS per-run work dirs, optional Gemini notes, and `--base-marker` for wrappers. (~18000 tok)
 
 ## .claude/
@@ -21,10 +23,8 @@
 ## .wolf/
 
 - `anatomy.md` — File navigation index for the current workspace. (~164 tok)
-- `OPENWOLF.md` — OpenWolf session protocol and memory rules. (~1638 tok)
-- `memory.md` — OpenWolf session action log; append-only timeline of significant actions. (~variable)
 - `cerebrum.md` — OpenWolf persistent learnings, user preferences, do-not-repeat notes, and decisions. (~5200 tok)
-- `buglog.json` — OpenWolf bug/error log for reported or discovered issues. (~variable)
+- `OPENWOLF.md` — OpenWolf session protocol and memory rules. (~1638 tok)
 
 ## C:/Users/Admin/.claude/projects/D--zhihu-zhihu/memory/
 
@@ -37,12 +37,19 @@
 
 ## Markdowns/
 
+- `Markdowns/TTS_stream-replay-ab-20260526-gemini35.md` — WIN 回放 A/B Gemini 3.5 Flash 最终 NotebookLM Markdown；正文约 9.8k 字符，7 个时间线章节，附完整逐字稿，无视觉证据帧。 (~66000 chars)
+- `Markdowns/TTS_stream-replay-ab-20260526-qwen.md` — WIN 回放 A/B Qwen3.6-Flash 最终 NotebookLM Markdown；正文约 9.6k 字符，9 个时间线章节，附完整逐字稿，无视觉证据帧。 (~66000 chars)
 
 ## docs/
 
-- `docs/WIN_LIVE_VALIDATION_PREP_20260523.md` — Windows 今晚真实直播 continuous HLS 验证操作清单；包含 dry-run、正式运行、Gemini 预算、产物检查、验证报告与提交步骤。 (~3000 tok)
+- `docs/AB_TEST_RUNBOOK_20260526.md` — Gemini 3.5 Flash vs Qwen3.6-Flash A/B 测试操作手册；包含依赖安装、回放同 base 双合成、今晚直播双进程命令、单采集双合成替代方案和对比指标。 (~2600 tok)
+- `docs/API_PROVIDER_OPTIMIZATION_PLAN_20260526.md` — MAC 端 API provider 优化方案：保留 Gemini、显式引入 Qwen provider、先试点 build_stream_markdown，再做预处理/合成解耦、短视频打包和 Batch API。 (~5200 tok)
+- `docs/BUG_REPORT_20260526.md` — WIN 回放 A/B 测试 bug report；记录 `--cleanup-slices` 误删 global-transcript/payload/report 的 critical fix，以及 Qwen openai 依赖、Gemini 503 重试和首轮 A/B 摘要。 (~1200 tok)
+- `docs/LIVE_AB_TEST_PREP_20260526.md` — 今晚实时直播 Gemini/Qwen 双进程 A/B 执行清单；包含开播前预检、正式启动命令、直播中监控、产物路径、对比记录项、停止条件和单采集双合成降级方案。 (~2600 tok)
 - `docs/LIVE_FINAL_QUALITY_ROADMAP.md` — 直播流质量提升路线图，P0→P1→P2，18个带验证标准的 checkbox 任务，进度表。 (~2800 tok)
 - `docs/LIVE_STREAM_OPTIMIZATION_BACKLOG_20260521.md` — 旧版问题 backlog，已被 ROADMAP 取代。 (~100 tok)
+- `docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md` — Qwen 长视频 NotebookLM 文档优化计划；记录保真抽取优先、动态滑动窗口、frame 覆盖、QC 门禁和混合 Glossary/body 策略。 (~2600 tok)
+- `docs/qwen_api_migration_analysis.md` — WIN 端关于从 Gemini 迁移/增补到 Qwen API 的可行性分析，围绕配额、OpenAI-compatible 接入、风险和迁移策略供 MAC review。 (~4200 tok)
 - `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~3188 tok)
 
 ## githooks/
@@ -50,15 +57,17 @@
 
 ## runs/
 
-- `runs/windows-live-validation-20260525.md` — Windows 2026-05-25 真实直播 validation summary; records continuous-HLS metrics from final-qc and notes that the run used gemini-2.5-flash, so gemini-3.5-flash still needs separate validation. (~300 tok)
-
+- `runs/stream-replay-ab-20260526-20260526-145918.combined-transcript.txt` — 回放 A/B 恢复后的完整逐字稿，约 56.6k 字符，覆盖 03:05:02。 (~56500 chars)
+- `runs/stream-replay-ab-20260526-20260526-145918.gemini35.final-qc.json` — Gemini A/B final QC；source_status=partial、frame_count=0、body_coverage_status=ok、body_tail_gap_s=58。 (~500 tok)
+- `runs/stream-replay-ab-20260526-20260526-145918.qwen.final-qc.json` — Qwen A/B final QC；source_status=partial、frame_count=0、body_coverage_status=ok、body_tail_gap_s=60，记录 Qwen usage 40,325 tokens。 (~600 tok)
+- `runs/stream-replay-ab-20260526.checkpoint.json` — 回放 A/B checkpoint，186 chunks，SenseVoice，记录 503 frames 路径与逐字稿文本；payload 文件本身未随提交恢复。 (~10000 lines)
 
 ## scripts/
 
-- `build_stream_markdown.py` — Post-stream Gemini synthesis: assemble all live chunks → NotebookLM document. (~5673 tok)
+- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~8314 tok)
 - `live_sectioned_synthesis.py` — P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents. (~30063 tok)
 - `merge_stream_chunks.py` — parse_chunk_start, parse_timestamp, load_chunk_lines, load_chunk_slides (~2020 tok)
-- `scripts/build_stream_markdown.py` — P0 live final one-shot Gemini synthesis入口；生成 final-qc/body coverage，支持 `--max-retries`/`--max-continuations`/`--dry-run` 预算控制，并确定性追加完整逐字稿/视觉证据索引；`--mock-gemini-text` 用于离线端到端验证。 (~6500 tok)
+- `scripts/build_stream_markdown.py` — P0 live final synthesis入口；支持 Gemini/Qwen one-shot、Qwen `--synthesis-pass sliding-window` 窗口 notes+最终组装、final-qc/body/Qwen NotebookLM QC、预算 dry-run，并确定性追加完整逐字稿/视觉证据索引。 (~12000 tok)
 - `scripts/check_auth.py` — 鉴权检查工具。 (~80 tok)
 - `scripts/live_sectioned_synthesis.py` — P1-P2 分层合成主模块。新增 `run_full_pipeline()` 公共入口（Fix1）。Fix2: evidence hash 含 cleaned_transcript+frame type/ts+stale传播。Fix3: slide边界 frame key 归一化。Fix4: 术语词边界。 (~23000 tok)
 - `scripts/merge_stream_chunks.py` — 合并 stream chunk 文件。 (~300 tok)

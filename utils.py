@@ -85,7 +85,8 @@ def call_gemini(
             response = chat.send_message(parts)
             full_text = response.text
             if not full_text:
-                raise RuntimeError("Gemini returned empty response")
+                print(f"[{label}] Empty response (content filtered?), not retrying.", flush=True)
+                return None
 
             candidate = response.candidates[0] if response.candidates else None
             for cont in range(max_continuations):
@@ -100,13 +101,15 @@ def call_gemini(
                 gemini_calls += 1
                 # Inner retry: preserve accumulated full_text on 429 mid-continuation.
                 # A 429 here must NOT bubble to the outer loop (which recreates the chat).
-                for _cr in range(max_retries):
+                # Cap at 3 to prevent max_retries×max_continuations burst on quota exhaustion.
+                _cont_retries = min(max_retries, 3)
+                for _cr in range(_cont_retries):
                     try:
                         response = chat.send_message("继续")
                         break
                     except Exception as _ce:
                         is_cr = "429" in str(_ce) or "RESOURCE_EXHAUSTED" in str(_ce)
-                        if is_cr and _cr < max_retries - 1:
+                        if is_cr and _cr < _cont_retries - 1:
                             _cd = parse_retry_delay(_ce, retry_delay)
                             print(f"[{label}] Continuation rate limited, retrying in {_cd}s...", flush=True)
                             time.sleep(_cd)
@@ -126,9 +129,12 @@ def call_gemini(
 
         except Exception as e:
             is_rate = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
-            delay = parse_retry_delay(e, retry_delay) if is_rate else retry_delay
+            if not is_rate:
+                print(f"[{label}] Non-retriable error: {e}", flush=True)
+                return None
+            delay = parse_retry_delay(e, retry_delay)
             print(
-                f"[{label}] {'Rate limit' if is_rate else 'Error'}: {e}"
+                f"[{label}] Rate limit: {e}"
                 f" — retry in {delay}s ({attempt}/{max_retries})",
                 flush=True,
             )
@@ -200,7 +206,7 @@ def call_qwen(
     enable_thinking: bool = False,
     thinking_budget: int = 4096,
     max_retries: int = 2,
-    retry_delay: int = 10,
+    retry_delay: int = 65,
     max_continuations: int = 2,
     continuation_cooldown: int = 2,
     max_tokens: int = 64000,
@@ -218,8 +224,9 @@ def call_qwen(
     if enable_thinking:
         extra_body["thinking_budget"] = thinking_budget
 
+    base_messages = _parts_to_openai_messages(parts)  # encode images once; reuse on retry
     for attempt in range(1, max_retries + 1):
-        messages = _parts_to_openai_messages(parts)
+        messages = list(base_messages)
         usage_total = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
         full_text = ""
         finish_reason = ""
@@ -239,7 +246,8 @@ def call_qwen(
             if isinstance(chunk, list):
                 chunk = "\n".join(str(item) for item in chunk)
             if not chunk:
-                raise RuntimeError("Qwen returned empty response")
+                print(f"[{label}] Empty initial response (content filtered?), not retrying.", flush=True)
+                break
 
             full_text += str(chunk)
             finish_reason = choice.finish_reason or ""
@@ -258,19 +266,33 @@ def call_qwen(
                 time.sleep(continuation_cooldown)
 
                 api_calls += 1
-                response = client.chat.completions.create(
-                    model=model,
-                    messages=messages,
-                    temperature=0.1,
-                    max_tokens=max_tokens,
-                    extra_body=extra_body,
-                )
+                # Inner retry: preserve accumulated full_text on 429 mid-continuation.
+                _cont_retries = min(max_retries, 3)
+                for _cr in range(_cont_retries):
+                    try:
+                        response = client.chat.completions.create(
+                            model=model,
+                            messages=messages,
+                            temperature=0.1,
+                            max_tokens=max_tokens,
+                            extra_body=extra_body,
+                        )
+                        break
+                    except Exception as _ce:
+                        is_cr = "429" in str(_ce) or "rate" in str(_ce).lower() or "throttl" in str(_ce).lower()
+                        if is_cr and _cr < _cont_retries - 1:
+                            _cd = parse_retry_delay(_ce, retry_delay)
+                            print(f"[{label}] Continuation rate limited, retrying in {_cd}s...", flush=True)
+                            time.sleep(_cd)
+                        else:
+                            raise
                 choice = response.choices[0]
                 message = choice.message
                 chunk = message.content or ""
                 if isinstance(chunk, list):
                     chunk = "\n".join(str(item) for item in chunk)
                 if not chunk:
+                    print(f"[{label}] Continuation {cont + 1} returned empty chunk — stopping.", flush=True)
                     break
                 full_text += "\n" + str(chunk)
                 finish_reason = choice.finish_reason or ""
@@ -295,9 +317,12 @@ def call_qwen(
             final_usage = usage_total
             final_finish_reason = finish_reason
             is_rate = "429" in str(e) or "rate" in str(e).lower() or "throttl" in str(e).lower()
-            delay = parse_retry_delay(e, retry_delay) if is_rate else retry_delay
+            if not is_rate:
+                print(f"[{label}] Non-retriable error: {e}", flush=True)
+                break
+            delay = parse_retry_delay(e, retry_delay)
             print(
-                f"[{label}] {'Rate limit' if is_rate else 'Error'}: {e}"
+                f"[{label}] Rate limit: {e}"
                 f" — retry in {delay}s ({attempt}/{max_retries})",
                 flush=True,
             )
