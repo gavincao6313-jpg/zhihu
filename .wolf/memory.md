@@ -760,3 +760,15 @@
 | 21:40 | Edited scripts/short_video_pipeline.py | 4→6 lines | ~166 |
 | 21:40 | Edited scripts/short_video_pipeline.py | 5→5 lines | ~128 |
 | 21:41 | Edited scripts/short_video_pipeline.py | expanded (+8 lines) | ~173 |
+
+## Session: 2026-05-27 21:48
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:49 | Edited scripts/short_video_pipeline.py | expanded (+7 lines) | ~133 |
+| 21:49 | Edited scripts/short_video_pipeline.py | modified update_sv_video() | ~190 |
+| 21:50 | Edited scripts/short_video_pipeline.py | modified get() | ~421 |
+| 21:50 | Edited scripts/short_video_pipeline.py | modified command_report() | ~1335 |
+| 21:51 | Edited scripts/short_video_pipeline.py | modified build_parser() | ~48 |
+| 21:51 | Edited scripts/short_video_pipeline.py | expanded (+14 lines) | ~338 |
+| 22:05 | P3 complete: QWEN_PRICING, estimate_cost_cny, cost in call-pack, command_report, command_batch_export | scripts/short_video_pipeline.py | smoke-test passed (cost math verified, JSONL valid) | ~1800 |
