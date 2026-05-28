@@ -1,0 +1,29 @@
+{
+  "video_name": "live-20260528_chunk059_3488s",
+  "full_text": "[00:00:00 - 00:01:00] 营销呢，我帮你打造你的IP人设，怎么给你打造IP人设呢？哎，这有这么多好看的姑娘，只有这么多成这个这个特别符合目标人设的成功男士的这个样貌，你做一个新的号，你就按照这个人设来去发东西。我后台给你供给这些内容。你发吧，肯定一发一个这他们这么玩，这个其实是怎么说呢？让我觉得不是很唉，就不是很好，但是确实也是在这个方面一所用的很多的一个事儿。很多的个事儿。哎，这类的公司还是挺多的，说实话就是挺要命的对吧？然后呢，最后这条东西我也希望大家能够去背一下，它最后实际上是通过规模化效应来去让量让量变引发质变。呃，这个事情我多说一点吧，就是这件事情的话，我们做。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000058\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000058\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=slide diff=0.3369"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 46,
+      "diff": 0.3369
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 298
+  }
+}

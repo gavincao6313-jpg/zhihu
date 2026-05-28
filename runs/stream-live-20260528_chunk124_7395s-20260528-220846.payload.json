@@ -1,0 +1,44 @@
+{
+  "video_name": "live-20260528_chunk124_7395s",
+  "full_text": "[00:00:00 - 00:00:59] 内容通过什么方式，什么渠道去出达，这是执行的关键层常用的工具MA的营销自动化基本上是邮件短信客户培育和触达的流程。SM基本上是以企为和私域为主体，基本上是手机端短信平台邮件平台，然后这个APP的这个push，然后企为社群外呼就是基本上co centerer系的。然后客服的的这个boot，然后再加上工单任务，基本上这一套体系都是我们常见的召回的渠道，就是我们刚才所谈的这种channel这样一些channel，对吧？然后AI能做什么？其实本质上就是一是生成，二是确定时机。三是生成SOP，然后包括话术，也就是说基本上是生成端。策略端和合规检查端基本上就是这3块，对吧？你如果是想在这边去做这个更好的合规检查，你在后面再加一个大模型的。的有的组件检查什么？第一个检查你所给。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000123\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000123\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=slide diff=0.3163"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000123\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.0954"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000123\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0954"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.3163
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.0954
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 358
+  }
+}

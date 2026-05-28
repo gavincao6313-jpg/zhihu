@@ -1,0 +1,29 @@
+{
+  "video_name": "live-20260528_chunk021_1203s",
+  "full_text": "[00:00:00 - 00:00:59] 卖点副标题主要的click按钮等等的20多种元素。拿这个来讲，我有底纹，底纹是统一的。啊，这几个的底纹其实它都长一样，用这种大铺底的方法去走。然后logo好logo按照设计规范，要不然放上面，要不然居中，要不然放在左上角，这个是有一定的规范性的一些东西。然后核心是要去卖这个东西，核心是要卖狗粮啊，这个是卖什么？大家其实熟悉的已经都能看出来了。然后周边配的是这条狗，然后丝带是这种周边的配饰。然后这是核心的这个slogan。然后这是副标题，这是click的按钮，把这几个元素，根据不同平台的广告规格和不同平台的这些相应在哪里放的一些规范，重新组合成几种完全不同的在。😊完全不同态这件事儿其实AI去做非常简单，事儿都不用AI都可以去做的。所以他最早去做的一个核心能力是什么？最。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000020\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000020\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=slide diff=0.3962"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 56,
+      "diff": 0.3962
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 360
+  }
+}

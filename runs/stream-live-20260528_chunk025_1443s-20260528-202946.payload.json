@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk025_1443s",
+  "full_text": "[00:00:00 - 00:00:59] 国人去拿countUI专门去搞测色，对吧？然后这是他背后的工作有非常的复杂。为什么他只有设计师他能做，他在这他在这里边拿这个张图往这上去涂他的这个包括阿尔法通道，包括他的一些这种在图片处理上的东西。我不认为一个非设计背景的人能学明白和要学明白，好吧，它里面有很多很多的细节，这里面的话，包括这种通道，包括这个这个这个这个呃像这个U这个这个UNE等等一些东西，这个这个很复杂，这个确不确实不是产品要去干的事。对。而产品经理要去干这件事是什么？这个其实做抖音视频，做短剧，然后做这个剧的工作流就是很多是用这个东西去做出来的对吧？不要认为都是拿着海螺去做出来的，拿着可伶去做出来的。有很多专业团队是自是自己要去搭confiUI的，是要去搭的。对吧。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000024\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000024\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.0364"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000024\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.0364"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000024\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0409"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000024\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.0409"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.0364
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.0409
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 343
+  }
+}

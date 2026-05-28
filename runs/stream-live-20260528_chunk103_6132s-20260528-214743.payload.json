@@ -1,0 +1,74 @@
+{
+  "video_name": "live-20260528_chunk103_6132s",
+  "full_text": "[00:00:00 - 00:00:59] 上架你可以给我推啊，对不对？然后如果说我已经很长时间没来了，而且你还可以拿什么去算，你还可以拿积分去算。我在你们家有2万多的积分，我这个积分已经很长时间没有用，因为我我是有装的这个积分，你怎么能够让我这把这积分花掉，其实是你们一个很重要的一个小课题可以去干的，对不对？上面这段提示词，这段提示词是你需要写的呀。这段提示词是你需要写的呀，这是你的业务逻辑。这个查询数据的输入，这个是系统自带的这是系统自带的这不是你写的。明白吧？这是系统自带的这是你用cos的查询数据模块就会自己带的这个玩意儿。这一段东西不是能拿大模型写的，大模型能写，他也只能给你写。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000102\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000102\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=slide diff=0.5217"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000102\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.3656"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000102\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.2099"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000102\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.272"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000102\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.272"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000102\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=slide diff=0.3647"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.5217
+    },
+    {
+      "type": "slide",
+      "frame_idx": 32,
+      "diff": 0.3656
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.2099
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.272
+    },
+    {
+      "type": "slide",
+      "frame_idx": 56,
+      "diff": 0.3647
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 2,
+    "frames_total": 7,
+    "text_chars": 297
+  }
+}

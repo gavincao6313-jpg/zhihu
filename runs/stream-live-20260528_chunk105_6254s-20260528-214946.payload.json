@@ -1,0 +1,64 @@
+{
+  "video_name": "live-20260528_chunk105_6254s",
+  "full_text": "[00:00:00 - 00:00:58] 你们你们真觉得这是好事儿吗？那就那咱们就完了，你们知道吗？那咱们就完了，不是，那不是指日可待，做不到。我告诉你是做不到那不是隐私泄露。😡是咱们就完了好吗？那咱们就完了。这个的手艺是咱们真正是咱们真正安家，是是真正安身立命的本钱。这套东西你们可可真别指望大模型给你出啊，这真是不可能的。这是你安身立命的本钱，规则都让他定了，那你还玩什么呀，对不对？😡对吧这才是真正我们的本钱。你能够按照你家的情况去写和修正这里面的规则，这才是我们的价值。这些框你可以让大王兄写，没问题了，好吧。好，然后第一条我们是把。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000104\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000104\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=slide diff=0.4663"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000104\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=slide diff=0.4669"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000104\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.1282"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000104\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.1282"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000104\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=slide diff=0.3123"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 45,
+      "diff": 0.4663
+    },
+    {
+      "type": "slide",
+      "frame_idx": 50,
+      "diff": 0.4669
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.1282
+    },
+    {
+      "type": "slide",
+      "frame_idx": 55,
+      "diff": 0.3123
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 1,
+    "frames_total": 6,
+    "text_chars": 272
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk008_420s",
+  "full_text": "[00:00:00 - 00:01:00] mart的的和的一个价值是什么？markt的价值是什么？用技术。把用户看清楚，把触达做精准，把转化链路做成自动化，把效果变成可以衡量的这是mart所要去做的这个效果。好，我们看看mart解决的核心的五层问题。第一层是获客，是获客，对吧？第二层是用户采集和用户的识别。第三层是用户的分层和标签，然后自动化出达，最后效果分析和增长优化，这是解决了核心的五层的问题。今天呢。我们会给大家在在这个获客问题上去讲一下物料生成的一个公司的案例。在用户采集标签，用户分层标签和自动化处的家讲一个工作流。好吧。好，首先获客。霍客这层的话，我们要去解决是用户从哪来的问题。用户从哪来的问题，有三个核心的问题，用户从哪来啊？最大的痛点是什么呀？第一个是我投放给谁。第二个我投什么东西。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000007\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000007\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000007\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.2345"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000007\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000007\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.2127"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.2345
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.2127
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 354
+  }
+}

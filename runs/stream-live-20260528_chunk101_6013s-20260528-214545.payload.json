@@ -1,0 +1,39 @@
+{
+  "video_name": "live-20260528_chunk101_6013s",
+  "full_text": "[00:00:00 - 00:00:59] 大模型写提示词细说啥，我们没太懂。然后我们可以把它变成一个可读性稍好一点的版本。就是刚才那一小段的jason，我们把它变成这个。输出什么提示词，输出什么提提提，就是就是你是拿大模型写什么的提示词，写we codinging呢，你还是写什么呢？然后变成可读性好一点的版本UID小林女，26岁，杭州黄金会员最近到访时间啊，今天来的对吧？最一次购买时时间也是今天来的大早晨5点钟买零食，对吧？最近180天买了14次，花了1200多，然后最平均消费金额是91块钱，然后没有什么特别明确的喜欢的这个分类，然后喜欢的东西是这些，然后用了3次优惠券，最这个在30天总共到访6次，然后消费的比例还挺高，所以你最后整体的就得出来了这样的。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000100\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000100\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=slide diff=0.4693"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000100\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.4698"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 4,
+      "diff": 0.4693
+    },
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.4698
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 0,
+    "frames_total": 3,
+    "text_chars": 332
+  }
+}

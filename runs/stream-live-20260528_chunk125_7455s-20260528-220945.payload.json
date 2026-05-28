@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk125_7455s",
+  "full_text": "[00:00:00 - 00:01:00] 出来的箍碰符不符合你们的这个每一轮的这个效果。第二轮看一下所有的这个承诺有没有问题。第三轮检查一下你推荐的商品，库存有没有这样一些缺损。然后第四轮拿广告法查一下有没有违规表达，然后同时检测检测关键词和违禁词。你把这四个这四个合规做上去，不就okK了吗？对吧对吧。😊把这些东西做好桌上去，你的一个这个所这个这个所谓的工业级产品不就能上线了吗？对吧？然后在这上面，我们核心点就能做什么呢？其实都是围绕着这一套体系做的人群。阶段内容渠道四个要素就是括一下前面。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000124\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000124\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.112"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000124\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.112"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.112
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 249
+  }
+}

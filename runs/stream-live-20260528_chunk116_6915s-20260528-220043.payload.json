@@ -1,0 +1,64 @@
+{
+  "video_name": "live-20260528_chunk116_6915s",
+  "full_text": "[00:00:00 - 00:01:00] 福利道进口饼干新品组合可优先试吃，还享满99包免邮，快来尝鲜呀。给套这个东西，这个文案可能不够好，没有关系。这你们可以未来在文案层面上再去做优化，给模板，给demo都可以，对吧？然后我们开始做一点工程型的。这个结构的要求了，我们在这儿去做一个校验功能，校验功能。这是我们开始给除了这个复杂度变高，要求变高之外，我们开始上校开始上校验了啊，这个是我们从这一周起给大家的工作流的标准拉高了啊，校验是什么？你是一个严格的jason格式校验器，检查这组内容是不是一个合法的jason的数组，如果已经是合法请原样输出。如果不合法，请修复。我们开始去做一定的这个这个包括控制，包括这些检验的一些小功能了。下节课会更加的多。下课，因为我们讲医疗类的会更加的多。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000115\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000115\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.2693"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000115\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.2693"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000115\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.2601"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000115\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.2601"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000115\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.127"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000115\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.127"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.2693
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.2601
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.127
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 345
+  }
+}

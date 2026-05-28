@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk127_7575s",
+  "full_text": "[00:00:00 - 00:01:01] 我跟你讲啊，文章是是是你你你应该是看出来我不舒服了。我要是正常情况下，我是不喝这玩意儿的，就是确确实非常非常难受。可以说是。哎，我主要看一下页数。我把这一小块讲完我把这一小块讲完，因为剩的太多了。今天这个内容量有点大，主要是你们对这个系统不熟悉，我们后面还有40页。我，后面还有40页，我把这个板块讲完，然后第3块留在下一节课讲，量太大了，对吧？太大了。确实想给你讲的透一点，然后营销到底有没有效果怎么优化这门常用的工具，包括BI，包括漏斗，包括归因分析At呃，cohort这个分析基本上是以留存复购分析为主的。RI异常监测、经营诊断加上数狐和数仓这么一套体系。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000126\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000126\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.2904"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000126\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.2904"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.2904
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 303
+  }
+}

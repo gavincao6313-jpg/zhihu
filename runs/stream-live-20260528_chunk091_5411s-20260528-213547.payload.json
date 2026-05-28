@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk091_5411s",
+  "full_text": "[00:00:00 - 00:01:00] 策略不能这么干，呃，DFR在也会有高波动吗，有可能有可能我们拿工作流模拟一下这套方式，我们拿工作流模拟一下这套方式啊。后是这样的。开始的时候我们给出4个东西，一个是today啊，今天是哪天防止大模型，不知道今天是什么时候，这个就不让就不为难它。然后有一个shop name，然后加上一个这个我的目标，然后再加上一个mice discard budget，就是我能够为每个用户给出来的最大营销费。给出来了最大的一个费用。对吧这是他的这个today，呃，我相当于是我今天我告诉大魔兄，我今天是哪天我的店名的是什么？我这次要达到什么样的效果，以及于我告诉他，我最多能够给每个人花的营销费用是多少。然后第二个我要去找到数据库里去搜一下数据。这个数据库的表结构是这样。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000090\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000090\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.2264"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000090\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.2264"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000090\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.2267"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000090\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.2267"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.2264
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.2267
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 351
+  }
+}

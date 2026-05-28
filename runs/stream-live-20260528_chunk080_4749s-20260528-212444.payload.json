@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk080_4749s",
+  "full_text": "[00:00:00 - 00:01:01] 话它可能会产生相应的购买，对吧？最后标签的解释，为什么客户会打上这个标签，对吧？然后这个给大家去讲一个有意思的一个case。这是在前面爵约食品和腾讯起点AI的会员智能体措施，它是把把绝位的会员运营，就是鸭脖子，然后和私域增长的Aent联合起来了。。它的核心逻辑是什么？因为连锁的这些卤味的品牌，它的大规模的门店、会员、小程序外卖电商，它的渠道触点很多，它的内容量很大，或是或是它的用户量很大，同时呢思域也很大。但是问题是什么？之前没有人去管这个东西，同时绝味鸭脖其实本质上是一个复购可能性非常大的一个产品。绝对真的是是复购可能性非常大的一些品。所以它的agent的结构是什么？前从前面人群的洞察加圈选，到权益的设计，到智能选品，到个性化内容，到数据自动复盘，整体做了几个agent去做互相协同的效果，最后的效果销售。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000079\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000079\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.2459"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000079\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.2459"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000079\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0988"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000079\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0988"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.2459
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0988
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 380
+  }
+}

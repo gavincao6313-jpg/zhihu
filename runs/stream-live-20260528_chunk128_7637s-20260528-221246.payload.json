@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk128_7637s",
+  "full_text": "[00:00:00 - 00:00:59] 基本上从报表到曝光损失到整体的每一步的阶段，到判断里面的归因。到ABtax或者刀或者多避老虎机的体系，再到留存复购分析，这是一整套的体系工具和方式。我特别建议想挣钱的同学把这套东西好好的看明白。把这套东西好好的看明白，真心的啊。然后AI能结合是什么？第一个你可以去做一些自然语言论述的东东西。类类似于cha BI这样的产品，就是本周线索为什么下降？因为很多业务员他看不明白，对吧？然后自动的异常监测自动发现有些关键指标，比如说RI突然间这周转化掉了。转化掉了。呃，它不只是BA它不只是BA和BI的活，它的核心点是什么？我不觉得你是全是BA的活，是自己得理解这套方式。核心点是自己理解这。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000127\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000127\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0833"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000127\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0833"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000127\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0822"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000127\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0822"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.0833
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.0822
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 315
+  }
+}

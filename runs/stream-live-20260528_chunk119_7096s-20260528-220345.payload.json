@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk119_7096s",
+  "full_text": "[00:00:00 - 00:00:59] 。大模型生成的东西都不是百分之百可以okK的。所以我在最后的结束之前，我要通过一个校验功能，保证即便在前续的jason生成可能有瑕疵。最后我提供一个兜底操作，使得最后生成和后续的动作执行结果更加稳妥。我靠，你做出这个来，同学，你做出这个来，你包括你。😡你在你做出这个来，你绝大多数只学过没干过的人都说不出来这个话的。同学只学过没干过的话的人，一定说不出来这个东西，除非是你跟我学的。正常只学过没干过人，一定不会做这玩意儿，他一定是把正向流程给。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000118\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000118\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000118\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.2047"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.2047
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 244
+  }
+}

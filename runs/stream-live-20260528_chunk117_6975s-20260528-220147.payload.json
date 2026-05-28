@@ -1,0 +1,79 @@
+{
+  "video_name": "live-20260528_chunk117_6975s",
+  "full_text": "[00:00:00 - 00:01:00] 然后。他最后生成了这样一套结果出来，最后给到结束的output。最后出现的就是整个一套，我要通过什么样的渠道给到谁，给到的权益，相应的reason以及于我相应的文案都出来了。第一个是给这个小林，第二是给小杰，阿杰好久没有见到你了。每日坚果补货中已上架。现在想满59减8加第二件半价，快来囤货吧。整个一套工作流出来了整个一套工作流出来了。这套工作流由客观讲讲，你们能够复制在非常非常多的地方，能复制到非常非常多的地方啊。然后这个呢我们的用户分层和标签出来了，同时自动化的触达。哈杰哪来的？我这里面的数据库是有多个用户，刚才那个小林，我只是给你们把第一个用户拿出来了。这一次我取了100个客户出来，这100个。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.211"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.2351"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.2351"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1486"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1486"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.1457"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000116\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.1457"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.211
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.2351
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.1486
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.1457
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 325
+  }
+}

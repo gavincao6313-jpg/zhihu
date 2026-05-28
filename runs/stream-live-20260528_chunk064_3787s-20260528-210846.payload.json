@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk064_3787s",
+  "full_text": "[00:00:00 - 00:01:00] 可能的去做匹配的一套答案。而且营销在后面的这个机会上其实是越来越重的。为什么流量越来越贵，营销的这个精细度要求的就越来越高。然后未来预期生成的一的这种方式可能会有什么。因为未来的一个期待就是消费者会普遍的去用AI的工具。然后AI就会在这个过程中完成对人的一个深度的洞察，你用的越多，AI就越了解你，基于消费者洞察，他就可以自己判断，在适合的时间，在适合的场域，对吧？在适合的这个机会发起对消费者的沟通。AI直接跟你去聊，或者他通过这个这个 humanman直接让人工给去打，对吧？通过互动发现机会来激发需求。比如说再重要的朋友生日之的这个之前来去给你发提醒。设计一个有说哎你的生日就是你的这个朋友，他今年什么样的生日，我把礼物给你设计好了。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000063\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000063\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.0525"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000063\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.0525"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.0525
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 342
+  }
+}

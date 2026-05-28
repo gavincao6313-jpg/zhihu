@@ -1,0 +1,29 @@
+{
+  "video_name": "live-20260528_chunk051_3007s",
+  "full_text": "[00:00:00 - 00:01:00] 这才是真正所说的，叫做万亿级别的精致素材，成为一个新产品的发布。明白了？这套东西的逻辑我特别希望你们能够能够背下来，能能够去讲出来啊，这套理念我觉得非常的好。你就说以后我们在所有的这个mart上核心点其实就是在于精准。核心是产品创意。用户场景渠道几层的互相的这个插成的迪卡尔机是一个非常海量的东西，人力无法达到。所以我们就需要什么。用AI用AI对吧？新品上市，我再不再去单一压住一个大的TVC或者一个大V的创意了。靠着AI驱动万级别的个性的视频，聚沙成塔，聚闻成雷，对吧？是针对不同的圈层场景情绪，对于用户进行毛细血管级别的精准渗透，不是在那去喊口号，而是让你润物心无声的时刻刻都能感受到，对吧？内容课技化的精细化的战略，通过AIGC的。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000050\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000050\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=slide diff=0.394"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.394
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 341
+  }
+}

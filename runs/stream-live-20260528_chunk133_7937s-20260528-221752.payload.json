@@ -1,0 +1,99 @@
+{
+  "video_name": "live-20260528_chunk133_7937s",
+  "full_text": "[00:00:00 - 00:00:58] 该怎么去投漏斗模型该怎么去做，他是做了这么一套的这个体系。我这个屏幕又出问题了，稍等我我切一下，我现在这个是硬盘快满了。最近玩we coding出了一个问题，就是我的这个硬盘消耗量太大了，所以买了一台新的设备，两个T的硬盘，估计是够用了。。。。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=slide diff=0.3942"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.0444"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0444"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=slide diff=0.3826"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.1023"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1023"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0823"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000132\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.2965"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 12,
+      "diff": 0.3942
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.0444
+    },
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.3826
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.1023
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.0823
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.2965
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 4,
+    "frames_total": 11,
+    "text_chars": 144
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "video_name": "live-20260528_chunk030_1743s",
+  "full_text": "[00:00:00 - 00:01:00] 投放的部分，然后创意的优化里面有分析和洞察，基本上是用了大模型的分析的部分。协作管理，这里面是它的基本上算是以saras为主的工作流的体系。好，那好，在这个部分，它前面其实是做了一整套的这个比较基础的来去做这种包括这个这个放大缩小让些方式。它怎么在这个上面进一步的去做升级呢？开这。24年这个事儿我们也做了有一些参与，然后比较顺理成章，在24年的时候开始进行了AIGC的升级。以前是人机协是人机协同配合，然后进化到了AIGC的模式。然后这个是它的产品界面给大家看一下。这里面的话它就是三个部分。第一部分创作。第二部分拿流量，第三部分投放。第一部分的话，它有各种不同的创作的逻辑，多场景AI的文本编写脚本，智能视频的解析，多语言AI配音，短视频混剪视频尺寸拓展电商主图banner千千面图片尺寸。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000029\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000029\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.3889"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000029\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=slide diff=0.3041"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.3889
+    },
+    {
+      "type": "slide",
+      "frame_idx": 37,
+      "diff": 0.3041
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 0,
+    "frames_total": 3,
+    "text_chars": 369
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "video_name": "live-20260528_chunk072_4269s",
+  "full_text": "[00:00:00 - 00:00:58] 这个部分讲完，然后我们后面讲第二部分，讲这个以用户为核心维度的营销系统的思路。这就是我们第二数据的采集和用户的识别。核心目标是。营销一个很重要点就是用户是谁从哪里来做过什么，是否和已有的客户是同一个人。看到是这些看到是这些对吧？然后这是什么？这是mar最重要的数据收集的工作。以用户为核心。记住所有的这些东西一定是以用户为核心的。我要如果不知道用户是谁，所有后续的我的数据精准其实一点意义都没有常用的工具什么？就是数据买点的工具，包括采集用户行为呢浏览点击提交购买的，然后还有CDP然后就是这个custom data platform统一客户数据，我要把所有的数据归总的，还有DPMDMP就是data measurement platform偏于广告人群的数据管理行。也就是说你的投放数据管理，再有CRM或者SM就是管。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000071\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=annotation diff=0.0244"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000071\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0244"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000071\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000071\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.1803"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000071\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.2964"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000071\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.2964"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.0244
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.1803
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.2964
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 6,
+    "text_chars": 382
+  }
+}

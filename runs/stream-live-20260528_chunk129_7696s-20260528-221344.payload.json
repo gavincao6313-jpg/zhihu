@@ -1,0 +1,64 @@
+{
+  "video_name": "live-20260528_chunk129_7696s",
+  "full_text": "[00:00:00 - 00:00:58] 套房子。不理解这套方式的话还是不行，就是就是说说简单一点，想想挣钱是要研是要是要研究这套东西的，尤其是漏斗归因AB和这个co，还有RI把这5个东西都研究透了，基本上就能挣钱了，对吧？然后包括经营诊断，因为你可以输入内容之后的话，他把自动归因做好，然后优化建议它就能出来。我们本年这课讲的下一课讲了国外我们看了有一个项目，就是专门对于一些初创的企业去做整个就是它的类似于是在线的CMO的这种感觉，通过A阵的方式来去做，包括自动的复盘报告，包括增长的实验建议，包括预算的优化建议，包括预测分析。它其实是通过大模型，类似于它是一个非常成熟的一个市场营销或者叫做CMO的一个人员，它通过对于你的数据的把控来去精准的来去看到你的行业的这些。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000128\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000128\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.083"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000128\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.083"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000128\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0831"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000128\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0831"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000128\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.083"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000128\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.083"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.083
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.0831
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.083
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 337
+  }
+}

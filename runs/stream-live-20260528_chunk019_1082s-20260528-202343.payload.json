@@ -1,0 +1,39 @@
+{
+  "video_name": "live-20260528_chunk019_1082s",
+  "full_text": "[00:00:00 - 00:01:00] 对吧把这些词拉出来，因为这个件事在扩词问题上也是AI非常擅长的。然后落地业的优化。这待会我们会讲一个国外的项目，专门生成不同版本，不同人群，它的落地页的文案是落地业的结构，对吧？然后投放的诊断分析你的CTRCVRCPARI哪上有问题，通过数据分析有点像BI这样的项目，对吧？竞品分析总结一下盯着竞品，他投放了什么，它的卖点内容风格反馈，所有这些东西都是可以AI去做的好，给大家看一个案例，看一个案例。这案例是什么？这个案例叫筷，为什么讲他们家呢？我也是他们家的顾问啊，他们家我们不深处讲他的这个里面的这些东西，我们会会给大家去讲什么筷子这家公司它核心做的是什么？就是两层的东西。第一层叫做降本增效做简单重复性工作的人工替代。这个件事实际上是他做的最多的。第二个是价值提升，通过数据反馈闭环来去提升它的核心效果。进来。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000018\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000018\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.3915"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000018\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=slide diff=0.4216"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 32,
+      "diff": 0.3915
+    },
+    {
+      "type": "slide",
+      "frame_idx": 43,
+      "diff": 0.4216
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 0,
+    "frames_total": 3,
+    "text_chars": 380
+  }
+}

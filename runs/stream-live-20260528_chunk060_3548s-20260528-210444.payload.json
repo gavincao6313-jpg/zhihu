@@ -1,0 +1,44 @@
+{
+  "video_name": "live-20260528_chunk060_3548s",
+  "full_text": "[00:00:00 - 00:00:59] 作为商业企业其实没有办法来去说它的对与错了。你只能说是什么？就是不得不去说任何一个以技术驱动的一个新的赛道，先乱后治是必然。如果现在就要去管，那其实最后这个东西就发展不起来。如果彻底不管，它就会弱，所以得是先污染在治理的一套方式，跟这个其实是很像。哦，看看这个，通过规模化量变引发质变一款产品，N个创意，N个圈层，N个渠道，还有营销效果，N的3次方，传统就是个N。这套理念我觉得是大家可以去记一记的啊。然后最后是往生成市营销去走。生成营销是什么？就是因为大模型加AIJC对营销的改变，会从根本上由智能营销向生成市营销去做变化。所谓的智能营销是什么？智能营销其实是现在mart的这个效果，它本质上还是标签，就是给人去打标签。我们待会儿在第二部分也归会的给大家去讲打标签的方式。而。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000059\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000059\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000059\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.2989"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000059\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=slide diff=0.3484"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.2989
+    },
+    {
+      "type": "slide",
+      "frame_idx": 45,
+      "diff": 0.3484
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 361
+  }
+}

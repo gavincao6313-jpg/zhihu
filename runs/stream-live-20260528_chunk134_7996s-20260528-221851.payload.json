@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk134_7996s",
+  "full_text": "[00:00:00 - 00:00:59] 不这么是刺激。好，回复。啊，对我新买的笔记本配置，我新买的不是笔记本，我新买的台mac mini，我新买了台mac mini。那些那个那个项目没看过那个项目没没看过我我我不太看供应链类的项目，因为。我不投那个领域，我没买我没买笔记本，我买了台新的mac mini，我的配置是M4，然后24G内存呃，不是36G内存，然后2T的2T的2T的SISD，然后核心点是我加内存和加硬盘了。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000133\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000133\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000133\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.2746"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.2746
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 211
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk112_6674s",
+  "full_text": "[00:00:00 - 00:00:58] 啊，到这个时候的文案都没出来，这是策略，有了策略才有文案，有了策略才有文案，对吧？同学们，从这节课起给你们的pro铺的上难度了，你们知道吗？为什么要要要要严格按照JS啊哎。是这样子的，几个维度几个维度。第一个，因为在这里面我们传递的参数越来越多，大家发现了我这里面传递的参数越来越多，对吧？这一个里面我要传递20多个参数，是不是？是不是为什么我用杰森啊？因为我懒，因为我懒。为什么这么说呀？我传这个jason的话，我在输出的时候，我只写一个就可以了，不是省token，纯是因为我懒，不然的话，我在这门我就得写一大堆，我这一。😡",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000111\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000111\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.2359"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000111\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.2359"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000111\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.2557"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000111\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.2557"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.2359
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.2557
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 285
+  }
+}

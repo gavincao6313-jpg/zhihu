@@ -1,0 +1,29 @@
+{
+  "video_name": "live-20260528_chunk073_4328s",
+  "full_text": "[00:00:00 - 00:01:00] 进来的客户线索商机销售如何去跟进的方式，对吧？然后数仓。来去存储各个不同系统的业务的这些数据内容。再到IDm就是我们需要把这个手机号unicode的 IDD。设备I例cookie会员这些身份，最后做一个统一串联，使得你在哪个平台上不会出现数据孤岛。然后API还有EL还有ETL就是我要把广告系统CRM订单客服通过外部系统或者RP的方式打通。最后和他去聊的就是客服和企微把聊天记录绘换内容，客户互动的内容，这种也就是这种非标的内容也要去存下来。这是最常用的这样一些结构。在这个过程中，一般会遇到的典型问题是什么？客户可能在多个地方出现，对吧？可能有点在抖音点，他点过一个广告，是有一个平台的ID到了官网浏览。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000072\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000072\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=slide diff=0.3101"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 45,
+      "diff": 0.3101
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 325
+  }
+}

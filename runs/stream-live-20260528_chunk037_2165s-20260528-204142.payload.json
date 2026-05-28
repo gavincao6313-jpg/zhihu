@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk037_2165s",
+  "full_text": "[00:00:00 - 00:00:59] 所以你们想去做这么一个方向。所以你们想去做这么一一个方向。然后而且这家公这家公司，你的对标公司融资的历程还是不错的。18年就在融资，然后到22年，整个已经融了只有这个这个7000万 dollar了。对吧哎是这样的。第一个海螺和小云雀是专门做视频的。对吧海螺和小云雀是专门做视频的，它这里面海螺和小云雀它在网页生成的的能的能力上实际上是并不行的呀。你拿海螺去替代的话。它能够帮你把整个的页面点击交互，后面的二维码生成，后面的链路它都有嘛？它是个纯内容生成啊，对吧？这可以成为你的一个gap半年的理由吗？",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000036\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000036\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.2266"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000036\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2266"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.2266
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 272
+  }
+}

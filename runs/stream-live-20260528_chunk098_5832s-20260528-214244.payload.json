@@ -1,0 +1,18 @@
+{
+  "video_name": "live-20260528_chunk098_5832s",
+  "full_text": "[00:00:00 - 00:01:00] 层运营模型是基于RFM，但是我们基于自己的运营的经验，对RFM去做了一些更加深入的加工和升级的版本。然后面试官就问，你在哪做了什么样的升级呢？我们是对于浏览犹豫用户、价格敏感用户以及新用户做了特殊的一些处理。我刚才说了，jeF这个东西实际上就是拿算法去做。但是上一节课我拿算法做完之后的话，有同学觉得写代码还是不会写。所以我这东西就拿大模型去做的。我刚才说了。这是一个非常典型的，应该用coded做的这应该是用coded做。但是不是有同学一就是一看coded就头疼嘛。然后输出的字段完整的这套东西。那对方的公司得是to C的呀，就是你to B，你图给他他to C就好了呀。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000097\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 308
+  }
+}

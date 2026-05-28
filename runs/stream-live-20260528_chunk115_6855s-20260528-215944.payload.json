@@ -1,0 +1,29 @@
+{
+  "video_name": "live-20260528_chunk115_6855s",
+  "full_text": "[00:00:00 - 00:01:00] 数据为每个可出来用户生成个性化召回文的文案，shop name目标，用户数据文案要求，每个record message共制在80个字之内。然后文案要向真实零食店发给用户的微信，短信或者企味信息，必须结合偏好品牌和推荐商品，必须结合推荐的优惠和会员权益，不要机械的重复用户的分层名名称，这不准说对吧？然后高价值用户要体现专属感，不要显得廉价，加个敏感要突出限时划算优惠。由于浏览的要体现你看过加购的东西还在啊，现在便宜。新用户的文案要强要感谢首单和二单权益，不可触达的，要输出一个空字符串，然后输出这堆字传出来。我们看一下他输出什么。刚才这位小玲姑娘，我给他给的策略是要给他这个这个偏号零食，给到他的 coupon碰是免99的包邮，会员日优先，然后给到他的message就是小林银行嘴甜零食黄金会员专。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000114\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000114\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=slide diff=0.3241"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 41,
+      "diff": 0.3241
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 372
+  }
+}

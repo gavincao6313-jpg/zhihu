@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk092_5472s",
+  "full_text": "[00:00:00 - 00:00:59] 这个就基本上是一个电商的CRM的表结构。user IDuser name啊，它的性别、年龄、城市，它的会员等级。最近一次到访日期啊，这个最近的呃最近一次购买日期，最近180天内它的购买的频次，它的总共180天内的付费金额，它的平均的订单的这个up值，然后他最喜欢关注的这些分类，最近一次买的商品，然后他的这个他的最近的这个优惠券的使用，它在30天内他到访的次数，它的这个购物车加购的的这个量，然后他所到达的这个他的渠他的渠道，然后包括它的生日和它的备注，这是一套比较完整的基于CRM的一套方式。CRM那套方式。然后呢我在这里。我要给他的输入，就是我要就是我在里面的输入就是我。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000091\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000091\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000091\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.2709"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.2709
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 310
+  }
+}

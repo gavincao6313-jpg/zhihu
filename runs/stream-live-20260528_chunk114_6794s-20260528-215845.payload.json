@@ -1,0 +1,74 @@
+{
+  "video_name": "live-20260528_chunk114_6794s",
+  "full_text": "[00:00:00 - 00:01:00] 另外同学们同学们再多说一遍，说一个更加务实一点的话，你拿着这么一个，最后输出拿jason互相调用的东西。你给到面试看你是拿jason互相调用的，别人都能高看你一眼，别人能高看你一眼啊，明白了吗？别人能高看你，拿一个jason就可以搞定了，对吧？因为jason是格式化的，杰son是格式化的，他可以他可以在下一个环节中直接调那个调那个jason自己就去做解析了。就是干这个的。好，然后我们说说生成文案的事，在这个环节只是生成了策略，文案还没出呢，这生成文案了，我们拿出来用户的召回策略商店铺名称，我的目标啊，给出来一个这个reco plan，我的召回的这个计划啊，你是一名资深的文案专家。根据你。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000113\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000113\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2884"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000113\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.2884"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000113\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.2875"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000113\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.2875"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000113\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.2362"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000113\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2362"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000113\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=slide diff=0.338"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.2884
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.2875
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2362
+    },
+    {
+      "type": "slide",
+      "frame_idx": 52,
+      "diff": 0.338
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 319
+  }
+}

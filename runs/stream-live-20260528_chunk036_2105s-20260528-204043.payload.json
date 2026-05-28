@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk036_2105s",
+  "full_text": "[00:00:00 - 00:01:00] 渠道我的每个网页你所看到的是长得不一样，使得它的最终的转化率会变高。好，它是在2021年9月份就接入了GBD3GP记得比较早的版本，开始尝试用生成式AI来去生成图片生成视频。但是你发现这个项目一个最大的问题是什么？它不能实时。所以你们想去做成更加实时的效果更好的，更符合中国的这些landning配置和小程序生态的。这是你想做的。😡于是你也做了，然后你也跟人可以去非常明确的去聊，说为什么看到这个项目呢？为这个事情我还还专门去做了一些考察。你看这个项目20202他是2018年在旧金山成立的，整个团队。以前啊这个的这个 founder，一个是这个这个需是这个这个这个ware，他的产品的营销总监。然后同时也是google的顾问。另外一个是一个是一个le gate，也就是一是一个音乐协作公司的联创两个人去做的。融乐四轮很快就到了6亿。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000035\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000035\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.2226"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000035\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.2226"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.2226
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 389
+  }
+}

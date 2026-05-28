@@ -1,0 +1,114 @@
+{
+  "video_name": "live-20260528_chunk132_7875s",
+  "full_text": "[00:00:00 - 00:01:01] 这是现在新的这样一套方式，对吧？然后对，这个你们其实在课件上不都有吗？然后应该就是这个产品，这个产不是你那个是这个。啊，founder plan这个东西AI marketing platforms for to gross your business.啊，为初创企业就是介绍你的产品，然后啊这个你的产品的description是什么？然后你的产品的特质是什么？然后介绍一下。然后的话那个再给出来你的目标用户群，然后的话通过这个方式帮你去分析用户的画像和需求重点。然后你可以去调整一些你的风格，然后基本能够把整个的品牌屋给你做出来。然后基于品牌屋，然后你有什么样的问题啊，你哪不会啊，我不知道怎么去投，然后帮助你来去给出来一套完整的策略，然后给出来完整的工具包，包括你的定位，这个branding，然后market copy，然后全都出来，然后后面。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0722"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0722"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.359"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.2231"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.2231"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.169"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.2599"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.2303"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000131\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=slide diff=0.3956"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0722
+    },
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.359
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 21,
+      "diff": 0.2231
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.169
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.2599
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.2303
+    },
+    {
+      "type": "slide",
+      "frame_idx": 60,
+      "diff": 0.3956
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 5,
+    "frames_total": 13,
+    "text_chars": 396
+  }
+}

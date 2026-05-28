@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk120_7155s",
+  "full_text": "[00:00:00 - 00:01:00] 做完就完事儿了啊。😊这个兜底校验这个兜底校验我只是给你兜底了。jason没有兜底别的，你可以写别的兜底策略。我这是告我这是告诉你这有这种这种策略方式。我下一节课给你们讲医疗那个时候有两种兜底方式。教验当然是必须的。但是但是你这是干过的，没干过的同学，他知道吗？对吧？没干的同学他知道吗？对吧？没有要求jason出出，那你这不检验jason，那你就去思考你这个项目有别的什么东西要去做检验，哪里可能出问题。比如说。文案是不是全的？所你的你的所有的变你所有的关键性变量槽位是不是全的嘛？这件事核心点不是检查jason格式，是检查变量槽位的问题啊。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000119\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000119\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.26"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000119\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.26"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.26
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 293
+  }
+}

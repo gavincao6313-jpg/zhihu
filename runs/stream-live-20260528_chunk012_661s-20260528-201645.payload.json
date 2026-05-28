@@ -1,0 +1,44 @@
+{
+  "video_name": "live-20260528_chunk012_661s",
+  "full_text": "[00:00:00 - 00:01:00] 一整套的成交转化啊，是这么一套整体的环节。这么一套整体的环节，对吧？那这套环节最典型的问题是什么？常规的问题只看线索量，不看线线，不看线，不看线，不看线索的质量，投了很多花了很多钱，来了很多的线索。然后片合纸上怎么样？因为这里面由于是从不同的渠道来的，有从抖音来的，有的从快手来的，有从小说来的。渠道RI有的时候在传统状态下，有的时候实际上是算不清的。渠道流量和RI需要有一套完整的链路去做跟踪，内容和人群有时候又并不匹配。因为在不同的渠道应该是匹配不同的文案，不同的物料，不同的卖点，对吧？那AI在这个环节中能去做什么，能够去做什么。对吧他能做的实际上是什么？就是你看了两两节公公两节公开课就下单了，没亏吧，对不对？没有亏吧，对吧啊？对吧。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000011\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000011\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.284"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000011\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.284"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000011\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=slide diff=0.3085"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.284
+    },
+    {
+      "type": "slide",
+      "frame_idx": 40,
+      "diff": 0.3085
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 343
+  }
+}

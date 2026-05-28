@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk126_7515s",
+  "full_text": "[00:00:00 - 00:00:59] 那个东西什么样的人，什么样的场景，什么样的东西，在什么样的的渠道上把触达方式做好新线索建立认知，高意向，促进成交，沉默用户来去促召回啊，来去做析出老用户来去做复购，提升LTV流失的，我要去降低流失，再次激活，基本上是这样一套方式，对吧？好，最后是效果分析和增长优化。啊，对，标准作业程序标准作业程序是。然后第五层效果分析和增长效果优化，这是什么？核心的目标是营销到底有没有效果，问题出在哪儿？下一步怎么优化，下一步怎么优化。，谈薪资报的比较高尚笑说我讲完这个，一会儿跟你讲啊。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000125\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000125\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1449"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000125\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.1449"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000125\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.1666"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000125\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.1666"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1449
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.1666
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 260
+  }
+}

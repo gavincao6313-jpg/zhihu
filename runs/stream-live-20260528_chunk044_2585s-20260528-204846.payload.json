@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk044_2585s",
+  "full_text": "[00:00:00 - 00:01:00] 一样的话，你干嘛不把这个项目卖了呢？对吧？😊李青青当然可以啊当然可以啊。why not?你大学时候，而且你不是说毕业之后才创业啊，你哪儿这样，你不是从研一就开始创业吗？你不就是从就是你不是研一就在创业吗？忘了吗？对不对？研一你就看着GPT出来，你就在创业，所以耽误了去去找实习。为啥你没有实习，你在创业呢，你没空，对不对？忘了吧。😡不说你都忘了，对吧？这个领域这个领域AIGC的核心发展趋势是什么？哎你查社保流水做。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000043\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000043\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.1408"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000043\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.1408"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.1408
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 230
+  }
+}

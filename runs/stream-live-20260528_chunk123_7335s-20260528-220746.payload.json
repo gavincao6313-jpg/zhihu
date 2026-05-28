@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk123_7335s",
+  "full_text": "[00:00:00 - 00:00:59] 而这套方式简单来讲，你们这都是可以去拿着他举一反三，在在面试过程中去说事儿的，怎么说呀怎么说呀？你可以去说这套系统，当然你们做的时候遇到了什么样的一些问题，包括大模型在里面输出的东西出现了接口的一些不良。然后你们去加了这里面的校验模块，后面的优化方针是什么？前面都是拿大模型做了快速MAP，后面为了省token，以及家庭稳定性，把算法组件变成code的化了一堆的事情。对吧对吧对吧好，这是它的整体的结构。然后。然后后面的自动化触达，自动化的触达已经都讲完了，对吧？自动化触达的本质就是对什么用户在什么时间用什么。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000122\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000122\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000122\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.2587"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000122\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.1725"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000122\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.1725"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.2587
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.1725
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 278
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260528_chunk053_3126s",
+  "full_text": "[00:00:00 - 00:01:00] 品牌而他这套系统是要你看到它的核心的这个产品图就是这个就是这个这个这个。喜烘一体机，然后呢，他会把这个up自己家里的场景和这个通过AI柔合起来，变成每个人的个性化物料，个性化物料，这是它核心的东西。这是它最核心的洗碗机也是一样，冰箱也一样，就是揉到它自己的场景中，使得用户的可信度会变得更高。然后再比如说他做的这个奶奶粉的一个case。对中老年的养生场景，对单身女性下午茶的场景，产品溯颜的场景，家庭佐餐的场景去做差去做差异化的材料。然后还有一个功能是给KOS。QOS输出精准性脚本，这是它生成了几条视频的内容。给大家简单的看一看啊，大家可以判断一下这里面哪哪个是AI的，哪个是人的啊哎。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000052\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000052\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.2123"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000052\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.2123"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000052\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.2155"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000052\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2155"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.2123
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2155
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 316
+  }
+}

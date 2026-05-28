@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk035_2044s",
+  "full_text": "[00:00:00 - 00:01:00] AI营销平台，它的主要的功能是什么呢？它的主要的功能是用AI去建议他编辑网页来提高转化率。他可以就是我跟他去说我是要给谁用的，我的目标用户是谁我的相应的产品是什么？然后它自动的通过AIJ的方法，帮我自动生成我的兰ing配置生成我的转化页面，包括这个but该是什么样的颜色，包括but应该放在什么样的位置，然后并且他还会有对于这个页面的转化率的预测。于是乎这几个月，因为你对这个行业是比较了解的。所以你和一个朋友两个人开始去做了一个O的尝试，做出来了这样一个产品的demo，而且小范围测试测试效果还是不错的。然后啊这就是的这个的这个状态，它是专门是帮助公司提高转化率的数字营销化的一个工具。然后它这里面所有动态置顶的网站的文字视觉交互，是可以匹配访问者的个人资料的。也就是说我能拿到用户的这个这个它的数据和它的。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000034\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000034\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.2569"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000034\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2569"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2569
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 377
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260528_chunk068_4028s",
+  "full_text": "[00:00:00 - 00:01:00] 可能有很理工男的思维是吧？好吧，我我就觉得这东西有一种特别美的一种就是无限手套的气质，黄金比较实在哎呦。对一一个金条，金条没有独特性啊，问题是就是金条没有独特性啊。对吧但是哎算了，不说了不说了，但金条完全没有独特性啊。而且这个比金条贵呀，这比金条贵多了，这个这就是就是这个玩意儿。哎，好吧，主要我太太对金条毫无兴趣毫无兴趣。好吧好吧，然后这里面就会出现一些新的机会，这里面就会出现一些新的机会。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000067\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000067\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.2854"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000067\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.2854"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.2854
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 219
+  }
+}

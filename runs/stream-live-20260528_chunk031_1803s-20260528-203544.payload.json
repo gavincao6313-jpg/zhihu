@@ -1,0 +1,44 @@
+{
+  "video_name": "live-20260528_chunk031_1803s",
+  "full_text": "[00:00:00 - 00:01:01] 拓展都还是比较能够明确的AI这些所去干的事儿。第一部分素材制制作后面是整体的投放管理。我们重点看一下它的整整个一个这个在内容制作生成这部分，多场景的AI文本。通过短视频、美妆、餐饮、玩乐类的知乎问答产品介绍的文本翻译、电商评论、微博推广、短视频社交。咱们认真的说一下，大家觉得这里面它有什么复杂度吗？认真的说一下，大家觉得这里面有什么样的真正义上的复杂度吗？是不是是不是基本上拿一段pro就可以搞定。基本拿一段promp就能搞定，但是这个项目卖的非常好，卖的非常好。我这里面要跟大家去讲一个道理啊。为什么要去说这个项目？这个项目一是确实是我们我们来去做出来。第二他也确他也确实挺成功的。然后最近又。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000030\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000030\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.2462"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000030\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.2462"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1779969885_000030\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=slide diff=0.3509"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.2462
+    },
+    {
+      "type": "slide",
+      "frame_idx": 23,
+      "diff": 0.3509
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 321
+  }
+}
