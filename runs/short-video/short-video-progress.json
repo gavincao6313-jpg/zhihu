@@ -218,15 +218,20 @@
     },
     "toutiao-7632119731289408040-5c634fa728f5": {
       "video_id": "toutiao-7632119731289408040-5c634fa728f5",
-      "preprocess_status": "pending",
-      "synthesis_status": "moderation_blocked",
-      "classification": "",
-      "pack_id": "pack-20260527-221133-002",
-      "provider": "",
+      "preprocess_status": "done",
+      "synthesis_status": "done",
+      "classification": "short_video",
+      "pack_id": "pack-20260529-payload-only-fallback-toutiao-7632119731289408040-5c634fa728f5",
+      "provider": "deterministic-fallback",
       "api_calls": 0,
-      "usage": {},
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "note": "Generated locally from existing payload/transcript after Qwen DataInspectionFailed empty response."
+      },
       "estimated_cost_cny": 0.0,
-      "last_error": "DataInspectionFailed: empty response"
+      "last_error": "",
+      "markdown_path": "Markdowns/TTS_short_toutiao-7632119731289408040-5c634fa728f5.md"
     },
     "toutiao-7633805606830326313-74af774a1001": {
       "video_id": "toutiao-7633805606830326313-74af774a1001",
@@ -1322,7 +1327,19 @@
       "pack_id": "pack-20260527-230223-long-2069",
       "provider": "qwen",
       "api_calls": 1
+    },
+    "toutiao-7642741463595385385-1529a481413c": {
+      "video_id": "toutiao-7642741463595385385-1529a481413c",
+      "preprocess_status": "failed",
+      "synthesis_status": "pending",
+      "classification": "",
+      "pack_id": "",
+      "provider": "",
+      "api_calls": 0,
+      "usage": {},
+      "estimated_cost_cny": 0.0,
+      "last_error": "No module named 'faster_whisper'"
     }
   },
-  "updated_at": "2026-05-27T23:14:08"
+  "updated_at": "2026-05-29T11:47:16"
 }
