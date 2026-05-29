@@ -4,12 +4,19 @@
 
 继续处理当前今日头条收藏夹里的 `18 missing_payload` 视频。不考虑从手机 App 导出，继续走 Web 端自动化。
 
+> **2026-05-29 更新：MAC 已完成批量下载验证，WIN 直接执行 preprocess + synthesize。**
+
 ## MAC 端已完成
 
 1. 已确认历史短视频 pipeline 不需要重做：
    - 当前历史 payload/Markdown 已对齐到 `67/67`。
    - 原唯一 `payload_only` 已用 deterministic fallback 生成 Markdown 并通过 `split-pack` QC。
 2. 已新增收藏夹分类、source-card、reconcile、missing 队列脚本：
+3. **已完成 18 条 missing_payload 批量下载（2026-05-29）：**
+   - 17/18 成功（mobile-playwright-capture）：`group/` 和 `item/` URL 格式均可。
+   - 1 条失败：`toutiao-7618104338006737418`（#睡觉#好物推荐），页面重定向为 article 页无视频 URL，Ixigua 端 404 已删除，确认放弃。
+   - MAC 侧未做 preprocess（已停止 whisper，whisper 生成的临时 payload 已清除）。
+   - **WIN 负责重新下载 17 条 MP4 并用 SenseVoice 做 preprocess。**
    - `scripts/toutiao_classify_favorites.py`
    - `scripts/toutiao_build_source_cards.py`
    - `scripts/toutiao_reconcile_favorites.py`
@@ -182,22 +189,46 @@ python scripts\toutiao_probe_media_candidates.py ^
 
 ## 进入短视频 pipeline
 
-下载成功后：
+### Step 1：preprocess（SenseVoice，默认 backend）
+
+下载成功后直接用默认 backend（不要设 TRANSCRIBE_BACKEND，WIN 的 SenseVoice 优先）：
 
 ```bat
-python scripts\short_video_pipeline.py preprocess --videos-dir Videos\short\toutiao
+python scripts\short_video_pipeline.py preprocess ^
+  --videos-dir Videos\short\toutiao ^
+  --skip-done
+```
+
+预期输出格式：
+
+```
+[1/17] preprocess Videos/short/toutiao/toutiao-7555789076176044582.mp4
+  提取帧: ...
+  检测: N 次幻灯片切换, M 次标注事件
+  保留 K/N 帧 ...
+  [SenseVoice] 检测到语言: zh ...
+  wrote runs/short-video/preprocess/toutiao-7555789076176044582-xxxxxxxx.payload.json
+```
+
+### Step 2：synthesize dry-run（生成打包方案，不调用 Qwen）
+
+preprocess 完成后立即跑：
+
+```bat
 python scripts\short_video_pipeline.py synthesize --dry-run --write-plan
 ```
 
-如果 preprocess 报 ASR 缺依赖：
+计划文件写入：`runs/short-video/packs/pack-YYYYMMDD-HHMMSS.plan.json`
+
+### Step 3：synthesize（调用 Qwen，MAC 审查后执行）
+
+**不要自行运行本步骤，先推送 payload + plan，由 MAC 审查后决策。**
+
+如 MAC 指示可执行：
 
 ```bat
-python -m pip install -r requirements.txt
-set TRANSCRIBE_BACKEND=auto
-python scripts\short_video_pipeline.py preprocess --videos-dir Videos\short\toutiao
+python scripts\short_video_pipeline.py synthesize --write-plan
 ```
-
-如果 WIN 有 SenseVoice 环境，不要强制改 backend，默认即可。
 
 ## 停止条件
 
@@ -210,13 +241,26 @@ python scripts\short_video_pipeline.py preprocess --videos-dir Videos\short\tout
 
 ## 回传材料
 
-WIN 完成后提交并推送：
+WIN 完成 preprocess 后提交并推送：
 
-- `cache/toutiao/probes/*.md` 中关键报告可复制到 docs，cache 本身不进 Git。
-- `runs/short-video/preprocess/*.payload.json`
-- `runs/short-video/short-video-progress.json`
-- `Markdowns/TTS_short_*.md`
-- `runs/short-video/qc/*.qc.json`
+```bat
+git add runs/short-video/preprocess/toutiao-*.payload.json
+git add runs/short-video/preprocess/toutiao-*.frames.json
+git add runs/short-video/preprocess/toutiao-*.transcript.txt
+git add runs/short-video/short-video-progress.json
+git add "runs/short-video/packs/pack-*.plan.json"
+git commit -m "feat(toutiao): WIN preprocess 17 missing videos with SenseVoice"
+git push
+```
+
+synthesize 完成后额外提交：
+
+```bat
+git add Markdowns/TTS_short_*.md
+git add runs/short-video/qc/*.qc.json
+git commit -m "feat(toutiao): synthesize 17 missing toutiao short videos"
+git push
+```
 
 不要提交：
 

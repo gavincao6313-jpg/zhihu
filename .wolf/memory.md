@@ -3,6 +3,16 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## Session: 2026-05-29 (下午)
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 12:05 | 批量下载 toutiao missing 18 条：limit 3 验证 3/3 ok，再批量 14 条 13/14 ok，共 17/18 成功 | Videos/short/toutiao/*.mp4, cache/toutiao/manifest.json | 17 MP4 下载完成；1 条 (7618104338006737418) app-gate/article 页无法获取 | ~3000 |
+| 12:20 | 探针失败项 7618104338006737418：original 变体重定向 article 页，ixigua 端 404 删除，确认放弃 | cache/toutiao/probes/media-candidate-probe-mac-probe-7618104338006737418.* | 确认无法下载，生成探针报告 | ~800 |
+| 12:25 | 安装 faster-whisper 1.2.1 (python3 -m pip)；验证 import OK | 系统 site-packages | faster-whisper + ctranslate2 安装成功 | ~200 |
+| 12:30 | 单文件 preprocess 测试（24s 样本）：13s 完成，whisper small CPU，zh 1.00，13 segs，payload 479 chars | runs/short-video/preprocess/toutiao-7642741463595385385-*.payload.json | preprocess 链路 MAC 端验证通过 | ~400 |
+| 12:35 | 后台批量 preprocess 17 条 toutiao 视频，TRANSCRIBE_BACKEND=auto | /tmp/toutiao-preprocess.log | 运行中 | ~100 |
+
 | 2026-05-27 23:35 | routing optimization: classify by transcript_chars vs 80k (PACK_MAX_TRANSCRIPT_CHARS) only; removed SHORT_MAX_*/MEDIUM_MAX_* constants, dropped medium_video tier, build_pack_plan simplified; --short-only/--include-medium kept as no-ops | scripts/short_video_pipeline.py | compile+mock smoke OK, pushed | ~400 |
 
 | 23:30 | expand critical facts regex to v3 — historical years, amounts, durations, counts; 19 facts vs 8 on live content | scripts/build_stream_markdown.py | smoke test passed | ~800 |
@@ -872,3 +882,11 @@
 |------|--------|---------|---------|--------|
 | 11:36 | 处理 18 个 missing_payload 的独立队列与下载取证 | scripts/toutiao_export_missing_payload_queue.py, scripts/toutiao_download_favorites.py, cache/toutiao/probes/missing-payload-queue-20260529Tmissing18.* | 导出 18 条缺口队列并按 classify 时长排序；下载器新增 --queue-json 定向选择；dry-run 精确选中 18/57；带 cookie 的 yt-dlp 样本仍失败于 SSR_HYDRATED_DATA | ~9000 |
 | 11:49 | 整理 WIN 交接并停止 MAC 继续探索 | docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md, scripts/toutiao_download_favorites.py, scripts/toutiao_probe_media_candidates.py | 移动 Playwright 证明可捕获 toutiaovod video_mp4；23 秒样本下载成功但 MAC ASR 缺依赖；写入 WIN 重建队列、下载、preprocess、停止条件 | ~12000 |
+
+## Session: 2026-05-29 11:59
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:41 | Edited docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md | 5→7 lines | ~42 |
+| 13:42 | Edited docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md | 6→11 lines | ~147 |
+| 13:43 | Edited docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md | modified feat() | ~475 |
