@@ -230,6 +230,52 @@ python scripts\short_video_pipeline.py synthesize --dry-run --write-plan
 python scripts\short_video_pipeline.py synthesize --write-plan
 ```
 
+## 收尾：1 条 preprocess 失败需补跑
+
+`toutiao-7642741463595385385`（24秒 AI助手演示）preprocess 失败（`No module named 'faster_whisper'`），synthesis pending。
+
+### 检查 MP4 和 SenseVoice
+
+```bat
+python -c "import funasr; print('funasr OK')"
+ffprobe -v error -show_entries format=duration Videos\short\toutiao\toutiao-7642741463595385385.mp4
+```
+
+如果 MP4 不存在需重新下载：
+
+```bat
+python scripts\toutiao_download_favorites.py ^
+  --queue-json cache\toutiao\probes\missing-payload-queue-20260529Tmissing18.json ^
+  --item-id toutiao-7642741463595385385 ^
+  --prefer-playwright --playwright-mobile --headed --timeout-ms 30000
+```
+
+### 补跑 preprocess（单文件）
+
+```bat
+echo Videos\short\toutiao\toutiao-7642741463595385385.mp4 > tmp_single.txt
+python scripts\short_video_pipeline.py preprocess --input-file tmp_single.txt
+del tmp_single.txt
+```
+
+### 补跑 synthesize
+
+```bat
+python scripts\short_video_pipeline.py synthesize --dry-run --write-plan
+python scripts\short_video_pipeline.py synthesize
+```
+
+### 推送
+
+```bat
+git add runs\short-video\preprocess\toutiao-7642741463595385385-*.json
+git add runs\short-video\preprocess\toutiao-7642741463595385385-*.txt
+git add runs\short-video\short-video-progress.json
+git add Markdowns\TTS_short_toutiao-7642741463595385385-*.md
+git commit -m "feat(toutiao): WIN补跑7642741463595385385 preprocess+synthesize"
+git push
+```
+
 ## 停止条件
 
 立刻停止并回传日志，不要硬刷：

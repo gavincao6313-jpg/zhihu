@@ -8,7 +8,7 @@
 
 <!-- How the user likes things done. Code style, tools, patterns, communication. -->
 - **文档语言：** CLAUDE.md 及 `.claude/rules/` 下的规则文档统一使用中文，不要擅自翻译为英文。
-- **Windows Run Owner role:** User explicitly limits this side to running scripts, analyzing logs, committing `.progress.json`, Markdown outputs, and run reports; do not modify `.py`, `requirements.txt`, `githooks`, or architecture code.
+- **Windows Run Owner role:** WIN 是唯一执行端。所有 preprocess、synthesize、download 均在 WIN 运行。MAC 只负责代码编写、分析、文档和交接指令。MAC 不做任何执行侧兜底，即使是单条视频补跑也不例外。
 - **Shared context files:** Commit and push repo-level coordination files that Mac and Windows both need to read, including `AGENTS.md`, `CLAUDE.md`, `.claude/settings.json`, and `.claude/rules/openwolf.md`.
 - **Local-only config:** Keep `.claude/settings.local.json` out of Git; it is machine-specific permission state and should stay local.
 - **Stream validation workflow:** User wants to validate video-stream handling step by step by first running one complete replay stream end-to-end before attempting real live stream input.
@@ -111,6 +111,7 @@
 
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
 <!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
+- **[2026-05-29] MAC 绝不做执行端兜底。** WIN 是唯一执行端（preprocess/synthesize/download）。遇到 WIN 执行失败，写交接指令让 WIN 重跑，不在 MAC 本机补跑 ASR、合成或下载。MAC 仅负责代码、分析、文档。
 - [2026-05-22] Do not review or expose a new Gemini multi-request workflow before checking the explicit RPM/TPM/RPD budget against `CLAUDE.md`; prefer the one-call live final path unless the user approves a bounded alternative.
 - [2026-05-23] **Do not let wrapper defaults override Python naming fallbacks.** `run_zhihu_live.bat` generated `NAME=live-YYYYMMDD-HHMMSS` and always passed `--name`, so `zhihuTTS_stream.py` never used the intended `live_YYYYMMDD_<page title>` fallback. If a wrapper needs a temporary log label, keep it separate from the output base and read back the real base through a marker/manifest.
 - [2026-05-23] **Never set stream-stage `--gemini` automatically from GEMINI_API_KEY in BAT.** Presence of an API key is not consent to run multiple Gemini synthesis paths. BAT defaults must keep transcription Gemini disabled and call only the final one-shot synthesis unless the user explicitly runs an experimental/manual path.
