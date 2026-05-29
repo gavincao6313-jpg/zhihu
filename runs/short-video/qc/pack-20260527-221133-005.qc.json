@@ -1,0 +1,99 @@
+{
+  "schema_version": "short-video-pack-qc-v1",
+  "pack_id": "pack-20260527-221133-005",
+  "output_md": "D:\\zhihu\\zhihu_file\\runs\\short-video\\packs\\pack-20260527-221133-005.output.md",
+  "expected_video_count": 8,
+  "parsed_video_count": 8,
+  "written_video_count": 8,
+  "warnings": [],
+  "videos": [
+    {
+      "video_id": "toutiao-7568386758954451465-0eac34f03202",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 243,
+      "body_chars": 1749,
+      "body_transcript_ratio": 7.1975,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7568386758954451465-0eac34f03202.md"
+    },
+    {
+      "video_id": "toutiao-7632625963457348134-cb6037af36a8",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 228,
+      "body_chars": 2113,
+      "body_transcript_ratio": 9.2675,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7632625963457348134-cb6037af36a8.md"
+    },
+    {
+      "video_id": "toutiao-7637783547935572018-fff0234c6391",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 515,
+      "body_chars": 2401,
+      "body_transcript_ratio": 4.6621,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7637783547935572018-fff0234c6391.md"
+    },
+    {
+      "video_id": "toutiao-7550619819444355584-9b5e13b9d708",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 354,
+      "body_chars": 1911,
+      "body_transcript_ratio": 5.3983,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7550619819444355584-9b5e13b9d708.md"
+    },
+    {
+      "video_id": "toutiao-7638406671756656692-2d65019be331",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 355,
+      "body_chars": 2332,
+      "body_transcript_ratio": 6.569,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7638406671756656692-2d65019be331.md"
+    },
+    {
+      "video_id": "toutiao-7614559269886935604-d5a439722b0c",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 338,
+      "body_chars": 2313,
+      "body_transcript_ratio": 6.8432,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7614559269886935604-d5a439722b0c.md"
+    },
+    {
+      "video_id": "toutiao-7639859995193934399-c13fe82e58cc",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 183,
+      "body_chars": 1924,
+      "body_transcript_ratio": 10.5137,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7639859995193934399-c13fe82e58cc.md"
+    },
+    {
+      "video_id": "toutiao-7598123390419747362-a2bb6714bc89",
+      "source_status": "full",
+      "body_status": "ok",
+      "transcript_chars": 241,
+      "body_chars": 1831,
+      "body_transcript_ratio": 7.5975,
+      "timeline_status": "ok",
+      "warnings": [],
+      "markdown_path": "D:\\zhihu\\zhihu_file\\Markdowns\\TTS_short_toutiao-7598123390419747362-a2bb6714bc89.md"
+    }
+  ]
+}
