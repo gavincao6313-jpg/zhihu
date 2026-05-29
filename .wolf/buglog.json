@@ -1679,6 +1679,158 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-27T15:15:52.750Z"
+    },
+    {
+      "id": "bug-099",
+      "timestamp": "2026-05-27T15:21:11.022Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "Had \"qwen-critical-facts-v2\"",
+      "fix": "Changed to \"qwen-critical-facts-v3\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T15:21:11.022Z"
+    },
+    {
+      "id": "bug-100",
+      "timestamp": "2026-05-27T15:23:34.204Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 7→14 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T15:23:34.204Z"
+    },
+    {
+      "id": "bug-101",
+      "timestamp": "2026-05-27T15:30:23.986Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/short_video_pipeline.py",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 7→3 lines (6 removed) | Also: synthesize.add_argument(\"--short-only\", action=\"st; synthesize.add_argument(\"--include-medium\", action",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-27T15:31:48.842Z"
+    },
+    {
+      "id": "bug-102",
+      "timestamp": "2026-05-29T10:49:00+08:00",
+      "error_message": "playwright._impl._errors.TargetClosedError: BrowserType.launch: Target page, context or browser has been closed; headless Chromium exited with signal=SIGTRAP. Initial classification also returned 0 items because the favorites URL rendered a JSON API body rather than HTML cards.",
+      "file": "scripts/toutiao_classify_favorites.py",
+      "root_cause": "The Mac Playwright headless shell failed at browser launch, and the probe initially assumed DOM anchors while Toutiao returned JSON with data[] rows and max_repin_time pagination.",
+      "fix": "Reran the probe with --headed, added JSON API parsing, deduplication, and max_repin_time pagination; final probe fetched 4 pages and classified 57 favorites.",
+      "tags": [
+        "toutiao",
+        "favorites",
+        "playwright",
+        "headless",
+        "json-api",
+        "pagination"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-29T10:49:00+08:00"
+    },
+    {
+      "id": "bug-103",
+      "timestamp": "2026-05-29T11:23:00+08:00",
+      "error_message": "Toutiao video download smoke test failed 5/5. yt-dlp redirects to Ixigua then errors with Failed to get SSR_HYDRATED_DATA; Playwright fallback reports Playwright 未截获 .m3u8/.mpd/.flv/.mp4 等媒体请求.",
+      "file": "scripts/toutiao_download_favorites.py",
+      "root_cause": "Current Toutiao links redirect to m.ixigua.com pages that show 打开App看完整内容 / 以下内容需下载西瓜视频查看 and do not expose SSR_HYDRATED_DATA, playAddr, video_list, main_url, mp4, or m3u8 in page HTML during the probe.",
+      "fix": "Stopped bulk downloading, generated metadata-only source-cards, and added reconciliation reports to reuse existing historical Markdown/payload outputs while isolating 18 current missing-payload videos for a future media-acquisition fix.",
+      "tags": [
+        "toutiao",
+        "ixigua",
+        "yt-dlp",
+        "download",
+        "media-extraction",
+        "source-card"
+      ],
+      "related_bugs": [
+        "bug-088",
+        "bug-089",
+        "bug-102"
+      ],
+      "occurrences": 5,
+      "last_seen": "2026-05-29T11:23:00+08:00"
+    },
+    {
+      "id": "bug-104",
+      "timestamp": "2026-05-29T11:29:00+08:00",
+      "error_message": "scripts/toutiao_update_source_cards_from_reconcile.py failed with FileNotFoundError for cache/toutiao/probes/reconcile-20260529Tpayload-only-fixed.json when run in parallel with reconcile generation.",
+      "file": "scripts/toutiao_update_source_cards_from_reconcile.py",
+      "root_cause": "The source-card update command started before scripts/toutiao_reconcile_favorites.py had finished writing the reconcile JSON.",
+      "fix": "Reran the source-card update after reconcile completed; all 57 cards updated and the payload-only card now reports done_markdown.",
+      "tags": [
+        "toutiao",
+        "source-card",
+        "reconcile",
+        "race",
+        "command-order"
+      ],
+      "related_bugs": [
+        "bug-103"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-29T11:29:00+08:00"
+    },
+    {
+      "id": "bug-105",
+      "timestamp": "2026-05-29T11:36:00+08:00",
+      "error_message": "Initial missing-payload queue ranked all 18 videos with duration 00:00 because reconcile rows have no payload-derived duration for missing_payload items.",
+      "file": "scripts/toutiao_export_missing_payload_queue.py",
+      "root_cause": "The queue exporter read duration_s only from reconcile output, but scripts/toutiao_reconcile_favorites.py can only populate duration_s from existing payload metadata; missing_payload rows therefore have no duration unless classify metadata is joined back in.",
+      "fix": "Added --classify-json support, parsed raw_json_fields.video_duration_str, and regenerated cache/toutiao/probes/missing-payload-queue-20260529Tmissing18.* with correct 32:25..00:23 ordering.",
+      "tags": [
+        "toutiao",
+        "missing-payload",
+        "queue",
+        "duration",
+        "reconcile"
+      ],
+      "related_bugs": [
+        "bug-103"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-29T11:36:00+08:00"
+    },
+    {
+      "id": "bug-106",
+      "timestamp": "2026-05-29T11:49:00+08:00",
+      "error_message": "MAC short_video_pipeline preprocess failed after successfully downloading toutiao-7642741463595385385: default SenseVoice missing; TRANSCRIBE_BACKEND=auto then failed with No module named 'faster_whisper'.",
+      "file": "docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md",
+      "root_cause": "The Mac environment has ffmpeg/Playwright available and can download the mobile Toutiao MP4, but local ASR dependencies are not installed; the attempted faster-whisper installation was interrupted due session budget.",
+      "fix": "Stopped MAC-side dependency installation and documented WIN handoff commands: install requirements, use existing SenseVoice if available or TRANSCRIBE_BACKEND=auto, then rerun preprocess after mobile Web download.",
+      "tags": [
+        "toutiao",
+        "missing-payload",
+        "asr",
+        "sensevoice",
+        "faster-whisper",
+        "handoff"
+      ],
+      "related_bugs": [
+        "bug-103",
+        "bug-105"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-05-29T11:49:00+08:00"
     }
   ]
 }

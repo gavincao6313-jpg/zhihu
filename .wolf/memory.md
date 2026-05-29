@@ -3,6 +3,8 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 2026-05-27 23:35 | routing optimization: classify by transcript_chars vs 80k (PACK_MAX_TRANSCRIPT_CHARS) only; removed SHORT_MAX_*/MEDIUM_MAX_* constants, dropped medium_video tier, build_pack_plan simplified; --short-only/--include-medium kept as no-ops | scripts/short_video_pipeline.py | compile+mock smoke OK, pushed | ~400 |
+
 | 23:30 | expand critical facts regex to v3 — historical years, amounts, durations, counts; 19 facts vs 8 on live content | scripts/build_stream_markdown.py | smoke test passed | ~800 |
 
 | 21:43 | P2 implementation complete in short_video_pipeline.py: removed P0 guard from synthesize, added --skip-done+progress to preprocess, output-reuse+--force+progress to call-pack, command_retry_failed, retry-failed subparser | scripts/short_video_pipeline.py | smoke-test passed (5/5 split, progress=done, retry-failed plan generated) | ~2400 |
@@ -31,6 +33,7 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 08:36 | 分析头条收藏夹从短视频扩展到 HTML/文本/图片/语音的知识素材方案 | docs/TOUTIAO_FAVORITES_RUNBOOK.md, docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md, scripts/toutiao_common.py, scripts/toutiao_probe_favorites.py | 确认现有链路只覆盖视频样式收藏，建议新增通用 ingest/source-card 层而非塞进短视频分支 | ~9000 |
 | 今日 | fix P0/P1/P3 in experiment/inline-and-uri-upload | zhihuTTS.py | collect_videos+auto_split+MAX_RETRIES 12+caffeinate fix 推送 | ~800 |
 
 ## Session: 2026-05-18 (continued)
@@ -833,3 +836,39 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 23:30 | Edited scripts/short_video_pipeline.py | modified classify_payload() | ~263 |
+| 23:30 | Edited scripts/short_video_pipeline.py | modified build_pack_plan() | ~71 |
+| 23:30 | Edited scripts/short_video_pipeline.py | 4→2 lines | ~30 |
+| 23:31 | Edited scripts/short_video_pipeline.py | inline fix | ~15 |
+| 23:31 | Edited scripts/short_video_pipeline.py | 7→6 lines | ~143 |
+| 23:31 | Edited scripts/short_video_pipeline.py | 3→4 lines | ~97 |
+
+## Session: 2026-05-27 23:39
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-27 23:46
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-27 23:47
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-29 08:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:49 | 探测并分类今日头条收藏夹 | scripts/toutiao_classify_favorites.py, cache/toutiao/probes/classify-20260529T104826.*, cache/toutiao/manifest.json | 使用 max_repin_time 分页抓取 4 页共 57 条，分类为 55 video / 2 article；未发现 image/audio/text-only；headless 失败后改用 --headed | ~18000 |
+| 11:18 | 复核今日头条短视频 pipeline 历史提交和现有产物 | git log, scripts/short_video_pipeline.py, runs/short-video/, Markdowns/TTS_short_*.md | 确认 14 个提交均在 main；另有后续 0807a59/756250e；当前已有 67 payload、66 Markdown、1 moderation_blocked，不应重写 P1/P2/P3 | ~9000 |
+| 11:23 | 生成当前收藏与历史短视频产物对齐报告并回写 source-card 状态 | scripts/toutiao_reconcile_favorites.py, scripts/toutiao_update_source_cards_from_reconcile.py, cache/toutiao/probes/reconcile-20260529Tcurrent.*, Markdowns/source_cards/toutiao/ | 当前 55 视频中 36 done_markdown、1 payload_only、18 missing_payload；57 张 source-card 均写入 Reconcile Status | ~8000 |
+| 11:29 | 处理唯一 payload_only 视频 | runs/short-video/packs/pack-20260529-payload-only-fallback-*, Markdowns/TTS_short_toutiao-7632119731289408040-5c634fa728f5.md, runs/short-video/short-video-progress.json | 用已有 payload/transcript 生成 deterministic fallback Markdown，split-pack QC 通过；report 变为 67/67 done，当前收藏对齐变为 37 done_markdown / 18 missing_payload / 2 article | ~9000 |
+
+## Session: 2026-05-29 11:03
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:36 | 处理 18 个 missing_payload 的独立队列与下载取证 | scripts/toutiao_export_missing_payload_queue.py, scripts/toutiao_download_favorites.py, cache/toutiao/probes/missing-payload-queue-20260529Tmissing18.* | 导出 18 条缺口队列并按 classify 时长排序；下载器新增 --queue-json 定向选择；dry-run 精确选中 18/57；带 cookie 的 yt-dlp 样本仍失败于 SSR_HYDRATED_DATA | ~9000 |
+| 11:49 | 整理 WIN 交接并停止 MAC 继续探索 | docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md, scripts/toutiao_download_favorites.py, scripts/toutiao_probe_media_candidates.py | 移动 Playwright 证明可捕获 toutiaovod video_mp4；23 秒样本下载成功但 MAC ASR 缺依赖；写入 WIN 重建队列、下载、preprocess、停止条件 | ~12000 |

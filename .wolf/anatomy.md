@@ -1,7 +1,11 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-27T14:08:29.330Z
-> Files: 40 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-27T15:31:48.427Z
+> Files: 41 tracked | Anatomy hits: 0 | Misses: 0
+
+## ../../../../tmp/
+
+- `test_narrative_inject.py` (~819 tok)
 
 ## ./
 
@@ -50,6 +54,7 @@
 - `docs/QWEN_LONG_VIDEO_OPTIMIZATION_PLAN_20260526.md` — Qwen 长视频 NotebookLM 文档优化计划；记录保真抽取优先、动态滑动窗口、frame 覆盖、QC 门禁和混合 Glossary/body 策略。 (~2600 tok)
 - `docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md` — Qwen 短视频批量抽取工作流设计；定义 preprocess-only、synthesize-only、packing、VIDEO_ID 拆分、短视频 QC、CLI 和 P0-P3 实施阶段。 (~7600 tok)
 - `docs/TOUTIAO_FAVORITES_RUNBOOK.md` — 今日头条收藏夹同步运行手册；说明登录态保存、收藏页探测、manifest 更新、下载到 Videos/short/toutiao 以及接短视频 pipeline 的命令。 (~2500 tok)
+- `docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md` — WIN 执行交接：重建收藏队列、用移动 Playwright 捕获 Toutiao/Toutiaovod mp4、批量处理 18 missing_payload、preprocess 与停止条件。 (~4300 tok)
 - `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~3188 tok)
 
 ## githooks/
@@ -62,7 +67,7 @@
 
 ## scripts/
 
-- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~8314 tok)
+- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~25718 tok)
 - `live_sectioned_synthesis.py` — P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents. (~30063 tok)
 - `merge_stream_chunks.py` — parse_chunk_start, parse_timestamp, load_chunk_lines, load_chunk_slides (~2020 tok)
 - `scripts/build_stream_markdown.py` — P0 live final synthesis入口；支持 Gemini/Qwen one-shot、Qwen `--synthesis-pass sliding-window` 窗口 notes+最终组装、final-qc/body/Qwen NotebookLM QC、预算 dry-run，并确定性追加完整逐字稿/视觉证据索引。 (~12000 tok)
@@ -72,9 +77,15 @@
 - `scripts/short_video_pipeline.py` — P0 Qwen 短视频批量入口；支持 preprocess 生成 payload、synthesize --dry-run 装包计划、status 和 mock-payloads 离线验证，不调用 Qwen API。 (~7200 tok)
 - `scripts/terminology.json` — 项目术语表，9 条规则（Claude Code/RAG/MCP 等），供 normalize_transcript 使用。 (~60 tok)
 - `scripts/toutiao_common.py` — 今日头条收藏同步公共工具；定义 cache/auth/manifest/video 路径、URL/ID 规范化、manifest merge、Playwright context 和 storage_state 到 yt-dlp cookie 转换。 (~3300 tok)
+- `scripts/toutiao_classify_favorites.py` — 今日头条收藏夹通用分类探测器；使用登录态打开收藏页、滚动抓取收藏卡片、按 video/article/image/audio/text/mixed/unknown 初判，并输出 JSON/Markdown 报告，可选更新 manifest。 (~7600 tok)
+- `scripts/toutiao_build_source_cards.py` — 从今日头条分类报告生成 metadata-only source-card Markdown；按 item 写入 `Markdowns/source_cards/toutiao/`，记录来源、分类、封面、摘要、下载状态和下一步摄取策略。 (~3300 tok)
 - `scripts/toutiao_download_favorites.py` — 从 cache/toutiao/manifest.json 下载今日头条收藏视频；优先 yt-dlp，失败后 Playwright 捕获媒体 URL + ffmpeg，落盘 Videos/short/toutiao。 (~3000 tok)
+- `scripts/toutiao_export_missing_payload_queue.py` — 从 reconcile JSON 导出当前 missing_payload 独立处理队列，结合 classify JSON 回填视频时长，输出 JSON/Markdown/URL list 供定向下载实验。 (~2600 tok)
 - `scripts/toutiao_login.py` — 打开 Playwright 有头浏览器登录今日头条，并保存登录态到 cache/toutiao/auth_state.json。 (~700 tok)
+- `scripts/toutiao_probe_media_candidates.py` — 针对 missing_payload 队列逐 URL 变体抓取移动/桌面页面、网络响应、GetPlayInfo/video_mp4 线索和 app-gate 文案，输出 JSON/Markdown 取证报告。 (~6500 tok)
 - `scripts/toutiao_probe_favorites.py` — 使用 Playwright 登录态打开今日头条收藏页、滚动探测视频链接/网络候选项，可写 probe JSON、screenshot 并更新 manifest。 (~2700 tok)
-- `short_video_pipeline.py` — class: load_sv_progress, save_sv_progress, update_sv_video, estimate_cost_cny + 14 more (~15416 tok)
+- `scripts/toutiao_reconcile_favorites.py` — 对齐当前 `cache/toutiao/manifest.json` 收藏项与历史 `runs/short-video/preprocess` payload、`Markdowns/TTS_short_*.md` 成品，输出缺口/已完成/历史-only 报告。 (~4100 tok)
+- `scripts/toutiao_update_source_cards_from_reconcile.py` — 根据 reconcile JSON 给 `Markdowns/source_cards/toutiao/*.md` 追加/替换对齐状态区块，标明已有 Markdown、payload、缺口和下一步动作。 (~2100 tok)
+- `short_video_pipeline.py` — class: load_sv_progress, save_sv_progress, update_sv_video, estimate_cost_cny + 14 more (~16086 tok)
 - `toutiao_common.py` — from: now_iso, ensure_dirs, slugify, sha1_short + 11 more (~2113 tok)
 - `toutiao_download_favorites.py` — stream_extractors lives in the repo root, not in scripts/; ensure it's importable (~1888 tok)
