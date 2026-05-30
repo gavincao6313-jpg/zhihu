@@ -1831,6 +1831,77 @@
       ],
       "occurrences": 1,
       "last_seen": "2026-05-29T11:49:00+08:00"
+    },
+    {
+      "id": "bug-107",
+      "timestamp": "2026-05-29T05:43:44.849Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md",
+      "root_cause": "13 lines replaced/restructured",
+      "fix": "Rewrote 43→80 lines (13 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-29T05:43:44.849Z"
+    },
+    {
+      "id": "bug-108",
+      "timestamp": "2026-05-30T00:00:00.000Z",
+      "error_message": "greenlet.error: cannot switch to a different thread (which happens to have exited)",
+      "file": "zhihuTTS_stream.py",
+      "root_cause": "Playwright sync API teardown on Windows 10 Python 3.12 raises greenlet.error during keepalive.close() in finally block; propagates as non-zero exit code, BAT aborts steps 2-4 even when transcription succeeded",
+      "fix": "Wrapped all 3 keepalive.close() in try/except to swallow teardown errors. BAT errorlevel 1 now checks marker file before aborting — continues steps 2-4 if marker exists.",
+      "tags": [
+        "playwright",
+        "greenlet",
+        "windows",
+        "teardown",
+        "live-stream",
+        "bat"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-30T00:00:00.000Z"
+    },
+    {
+      "id": "bug-109",
+      "timestamp": "2026-05-30T00:00:00.000Z",
+      "error_message": "qwen_overcompressed_body: body/transcript ratio 0.19 — Qwen one-shot non-determinism",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "Qwen one-shot on 2.5h streams produces wildly different outputs across runs (ratio 0.19 crash vs 0.44 full). No retry existed on overcompressed_body.",
+      "fix": "Added inline ratio check after call_qwen() for one-shot path; retries up to 2x when ratio < QWEN_BODY_MIN_TRANSCRIPT_RATIO. Retry count in manifest.provider_usage.qwen_quality_retries.",
+      "tags": [
+        "qwen",
+        "overcompressed",
+        "non-determinism",
+        "retry",
+        "synthesis"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-30T00:00:00.000Z"
+    },
+    {
+      "id": "bug-110",
+      "timestamp": "2026-05-30T00:00:00.000Z",
+      "error_message": "URL 中 = 被 cmd.exe 参数解析截断，PAGE_URL 丢失查询参数",
+      "file": "run_zhihu_live.bat",
+      "root_cause": "cmd.exe treats = as delimiter even within quoted args. URL ?is_hybrid=1 truncated to ?is_hybrid.",
+      "fix": "Added URL validation: if URL has ? but no = prints warning to use %3D. Workaround: pass ?is_hybrid%3D1.",
+      "tags": [
+        "bat",
+        "cmd",
+        "url",
+        "encoding",
+        "windows"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-30T00:00:00.000Z"
     }
   ]
 }

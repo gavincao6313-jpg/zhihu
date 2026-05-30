@@ -2050,16 +2050,32 @@ def main() -> None:
                 )
                 manifest["frame_policy"] = frame_policy
                 manifest["provider_parts_count"] = len(parts)
-                qwen_result = call_qwen(
-                    client, parts, args.base,
-                    model=provider_model,
-                    enable_thinking=args.qwen_thinking,
-                    thinking_budget=args.thinking_budget,
-                    max_retries=args.max_retries,
-                    max_continuations=args.max_continuations,
-                )
-                gemini_text = qwen_result.get("text")
+                _qw_quality_retries = 0
+                _QW_QUALITY_MAX_RETRIES = 2
+                while True:
+                    qwen_result = call_qwen(
+                        client, parts, args.base,
+                        model=provider_model,
+                        enable_thinking=args.qwen_thinking,
+                        thinking_budget=args.thinking_budget,
+                        max_retries=args.max_retries,
+                        max_continuations=args.max_continuations,
+                    )
+                    gemini_text = qwen_result.get("text")
+                    if (gemini_text and transcript and
+                            len(gemini_text) / len(transcript) < QWEN_BODY_MIN_TRANSCRIPT_RATIO and
+                            _qw_quality_retries < _QW_QUALITY_MAX_RETRIES):
+                        _qw_quality_retries += 1
+                        print(
+                            f"[!] Qwen overcompressed (ratio={len(gemini_text)/len(transcript):.2f}),"
+                            f" retry {_qw_quality_retries}/{_QW_QUALITY_MAX_RETRIES}",
+                            flush=True,
+                        )
+                        continue
+                    break
                 manifest["provider_usage"] = {k: v for k, v in qwen_result.items() if k != "text"}
+                if _qw_quality_retries:
+                    manifest["provider_usage"]["qwen_quality_retries"] = _qw_quality_retries
             else:
                 note_texts: list[str] = []
                 note_paths: list[str] = []

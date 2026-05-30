@@ -43,6 +43,18 @@ set "VENV_PYTHON=d:\zhihu\zhihu_file\.venv-sensevoice\Scripts\python.exe"
 set "AUTH_STATE=%SCRIPT_DIR%zhihu_auth_state.json"
 set "STREAM_WORK_DIR=%SCRIPT_DIR%Videos\.stream"
 set "PAGE_URL=%~1"
+:: URL 合法性预检：若含 ? 但无 =，cmd.exe 可能已截断查询参数 (BUG#4)
+if not "!PAGE_URL!"=="" (
+    echo !PAGE_URL! | findstr /c:"?" >nul 2>&1
+    if not errorlevel 1 (
+        echo !PAGE_URL! | findstr /c:"=" >nul 2>&1
+        if errorlevel 1 (
+            echo [警告] URL 含 ^? 但无 =，cmd.exe 可能已截断查询参数。
+            echo        请将 URL 中的 = 替换为 %%3D 后重试，例如: ?is_hybrid%%3D1
+            echo.
+        )
+    )
+)
 set "REQUESTED_NAME="
 set "NAME=%REQUESTED_NAME%"
 set "RESUME_FLAG="
@@ -458,15 +470,22 @@ if "!REQUESTED_NAME!"=="" (
 
 if errorlevel 1 (
     echo. >> "!LOG_FILE!" 2>&1
-    echo [%date% %TIME: =0%] [错误] zhihuTTS_stream.py 异常退出，退出码: !errorlevel! >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] [警告] zhihuTTS_stream.py 以非零退出码退出，检查 marker 文件... >> "!LOG_FILE!" 2>&1
+    if not exist "!BASE_MARKER!" (
+        echo [%date% %TIME: =0%] [错误] 未找到 marker 文件，确认转写失败 >> "!LOG_FILE!" 2>&1
+        echo.
+        echo ==============================
+        echo  转写失败！详细原因见日志:
+        echo  !LOG_FILE!
+        echo ==============================
+        echo.
+        pause
+        exit /b 1
+    )
+    echo [%date% %TIME: =0%] [提示] Marker 文件存在，疑为 Playwright teardown 异常（转写数据完整），继续后续步骤 >> "!LOG_FILE!" 2>&1
     echo.
-    echo ==============================
-    echo  转写失败！详细原因见日志:
-    echo  !LOG_FILE!
-    echo ==============================
+    echo [提示] Python 以非零退出，但 marker 文件存在，转写数据完整，继续步骤 2-4...
     echo.
-    pause
-    exit /b 1
 )
 
 set "BASE_STEM="

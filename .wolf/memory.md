@@ -890,3 +890,16 @@
 | 13:41 | Edited docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md | 5→7 lines | ~42 |
 | 13:42 | Edited docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md | 6→11 lines | ~147 |
 | 13:43 | Edited docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md | modified feat() | ~475 |
+| 16:18 | Edited docs/WIN_TOUTIAO_MISSING_PAYLOAD_HANDOFF_20260529.md | modified feat() | ~354 |
+
+## Session: 2026-05-30 09:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:20 | Edited zhihuTTS_stream.py | 5→8 lines | ~70 |
+| 09:21 | Edited zhihuTTS_stream.py | modified print() | ~74 |
+| 09:22 | Edited zhihuTTS_stream.py | modified run_hls_consumer_only() | ~106 |
+| 09:23 | Edited run_zhihu_live.bat | expanded (+7 lines) | ~176 |
+| 09:24 | Edited run_zhihu_live.bat | expanded (+12 lines) | ~114 |
+| 09:24 | Edited scripts/build_stream_markdown.py | added 1 condition(s) | ~443 |
+| 10:00 | 拉取 WIN bug-report-20260529-live-stream.md，分析4个BUG，修复#1/#2/#4 | zhihuTTS_stream.py, run_zhihu_live.bat, scripts/build_stream_markdown.py | bug-108/109/110已记录，语法通过 | ~800 |

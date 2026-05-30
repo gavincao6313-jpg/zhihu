@@ -469,7 +469,10 @@ def start_keepalive_stream(args: argparse.Namespace) -> tuple[PlaywrightKeepaliv
     try:
         stream = keepalive.start()
     except Exception:
-        keepalive.close()
+        try:
+            keepalive.close()
+        except Exception as _close_err:
+            print(f"[!] Playwright teardown warning: {_close_err}", flush=True)
         raise
     stream.headers.update(overlay_headers(args))
     return keepalive, stream
@@ -1220,7 +1223,10 @@ def run_validation(args: argparse.Namespace) -> dict:
         return manifest
     finally:
         if keepalive:
-            keepalive.close()
+            try:
+                keepalive.close()
+            except Exception as e:
+                print(f"[!] Playwright teardown warning (non-fatal): {e}", flush=True)
 
 
 # ── HLS continuous mode ───────────────────────────────────────────────────────
@@ -1623,7 +1629,10 @@ def run_continuous_hls(args: argparse.Namespace) -> dict:
         return _finalize_hls_run(results, args, host, "recorder stopped", chunk_duration_s)
     finally:
         if keepalive:
-            keepalive.close()
+            try:
+                keepalive.close()
+            except Exception as e:
+                print(f"[!] Playwright teardown warning (non-fatal): {e}", flush=True)
 
 
 def run_hls_consumer_only(args: argparse.Namespace) -> dict:

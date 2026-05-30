@@ -127,6 +127,9 @@
 - **[2026-05-22] cherry-pick 到 feature 分支时必须同时带上依赖 commit。** build_stream_markdown.py 的 `from utils import ...` 依赖 utils.py (commit 39dd0c9)，cherry-pick 7615267 时未带依赖，导致 WIN 端 ModuleNotFoundError。规则：cherry-pick 前先确认依赖文件是否在目标分支上。
 
 - **[2026-05-22] 不得在 BAT/SH 入口默认开启多次 Gemini 调用。** 把 `--sectioned` 加进 `run_zhihu_live.bat` 导致 180 分钟直播消耗 ~20 次 API 调用，打满单日 Free-tier 配额。根因：修改 BAT（高风险区域）前未对照 CLAUDE.md Gemini 配额约束检查。规则：**修改任何 BAT/SH 入口前，必须先逐条核查 CLAUDE.md 中的 Gemini API 工程约束**，尤其是"Prefer one Gemini synthesis call per video/stream"和"Do not add default-on Gemini calls in wrapper scripts"。`--sectioned` 只能作为 CLI 手动 opt-in，永远不进 BAT 默认调用链。
+- **[2026-05-30] Playwright sync API teardown on Windows raises greenlet.error.** `keepalive.close()` in finally/except blocks must be wrapped in try/except to prevent the greenlet exception from propagating as non-zero exit and aborting BAT steps 2-4. BAT errorlevel 1 gate must check marker file existence before hard-aborting — marker is written before teardown so transcription data is intact even when exit code is 1.
+- **[2026-05-30] Qwen one-shot overcompressed_body is non-deterministic (ratio can drop to 0.19).** Added retry loop (max 2) in `build_stream_markdown.py` one-shot path; triggers when ratio < QWEN_BODY_MIN_TRANSCRIPT_RATIO (0.20). Counts toward Qwen quota. Track via manifest.provider_usage.qwen_quality_retries.
+- **[2026-05-30] cmd.exe silently truncates URL query params at `=` even within quoted args.** Workaround: replace `=` with `%3D` when passing URLs with query params to BAT. BAT now validates and warns when URL has `?` but no `=`.
 - **[2026-05-29] Mac Playwright headless Chromium can fail with TargetClosedError/SIGTRAP.** For Toutiao login/classification probes on this machine, prefer `--headed` after saving `cache/toutiao/auth_state.json`; headless failure is an environment/browser launch issue, not proof that the Toutiao URL or auth state is bad.
 
 ## Decision Log
