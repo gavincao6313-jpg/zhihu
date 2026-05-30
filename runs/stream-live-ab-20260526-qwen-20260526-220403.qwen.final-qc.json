@@ -17,34 +17,156 @@
   "failed_chunk_count": 0,
   "synthesis_provider": "qwen",
   "synthesis_model": "qwen3.6-flash",
-  "synthesis_pass": "one-shot",
-  "warnings": [],
+  "synthesis_pass": "sliding-window",
+  "warnings": [
+    "qwen_overcompressed_body: body/transcript ratio 0.33, expected >= 0.35"
+  ],
   "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 3,
+    "total_frames": 439,
+    "covered_new_frames": 439,
+    "selected_frames_across_windows": 519,
+    "overlap_frames": 80,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 44,
+      "annotation": 261,
+      "context": 214
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 1,
+        "end_s": 3429,
+        "selected_frame_count": 220,
+        "new_frame_count": 200,
+        "overlap_frame_count": 20,
+        "transcript_chars": 18873,
+        "frame_type_counts": {
+          "slide": 30,
+          "annotation": 108,
+          "context": 82
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 2646,
+        "end_s": 7637,
+        "selected_frame_count": 240,
+        "new_frame_count": 200,
+        "overlap_frame_count": 40,
+        "transcript_chars": 28012,
+        "frame_type_counts": {
+          "slide": 8,
+          "annotation": 129,
+          "context": 103
+        }
+      },
+      {
+        "index": 3,
+        "start_s": 6172,
+        "end_s": 7798,
+        "selected_frame_count": 59,
+        "new_frame_count": 39,
+        "overlap_frame_count": 20,
+        "transcript_chars": 8975,
+        "frame_type_counts": {
+          "slide": 6,
+          "annotation": 24,
+          "context": 29
+        }
+      }
+    ]
+  },
   "frame_policy": {
     "provider": "qwen",
-    "total_frames": 439,
-    "selected_frames": 250,
-    "dropped_frames": 189,
-    "cap": 250,
-    "slide_frames": 43,
-    "annotation_frames": 207
+    "mode": "sliding-window",
+    "window_count": 3,
+    "windows": [
+      {
+        "provider": "qwen",
+        "total_frames": 220,
+        "selected_frames": 220,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 30,
+        "annotation_frames": 108
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 240,
+        "selected_frames": 240,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 8,
+        "annotation_frames": 129
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 59,
+        "selected_frames": 59,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 6,
+        "annotation_frames": 24
+      }
+    ]
   },
-  "provider_parts_count": 502,
+  "provider_parts_count": 1046,
+  "qwen_window_notes": [
+    "runs\\stream-live-ab-20260526-qwen-20260526-220403.qwen-window-001.notes.md",
+    "runs\\stream-live-ab-20260526-qwen-20260526-220403.qwen-window-002.notes.md",
+    "runs\\stream-live-ab-20260526-qwen-20260526-220403.qwen-window-003.notes.md"
+  ],
+  "qwen_window_notes_reused": 0,
+  "qwen_final_assembly_version": "qwen-final-assembly-v1",
   "provider_usage": {
     "provider": "qwen",
     "model": "qwen3.6-flash",
-    "api_calls": 1,
+    "api_calls": 4,
     "finish_reason": "stop",
+    "window_finish_reasons": [
+      "stop",
+      "stop",
+      "stop",
+      "stop"
+    ],
     "usage": {
-      "input_tokens": 50472,
-      "output_tokens": 3226,
-      "total_tokens": 53698
+      "input_tokens": 93602,
+      "output_tokens": 15734,
+      "total_tokens": 109336
     },
     "estimated_cost_cny": null
   },
-  "body_last_chapter_end_s": 7800,
-  "body_tail_gap_s": 17,
+  "body_last_chapter_end_s": 7798,
+  "body_tail_gap_s": 19,
   "body_coverage_status": "ok",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 13774,
+    "body_transcript_ratio": 0.3299,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 11,
+    "chapter_fields_missing": [],
+    "code_fence_count": 12,
+    "prompt_keywords_missing": [],
+    "body_min_transcript_ratio": 0.35,
+    "source_frame_count": 439
+  },
+  "qwen_window_coverage_qc": {
+    "expected_windows": [
+      1,
+      2,
+      3
+    ],
+    "covered_windows": [
+      1,
+      2,
+      3
+    ],
+    "missing_windows": []
+  },
   "transcript_appendix_chars": 41749,
   "visual_evidence_count": 439,
   "deterministic_appendices": [

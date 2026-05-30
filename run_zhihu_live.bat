@@ -1,7 +1,7 @@
-@echo off
+﻿@echo off
 setlocal enabledelayedexpansion
 :: ============================================================
-:: run_zhihu_live.bat  知乎直播流一键转写
+:: run_zhihu_live.bat  直播流一键转写（支持知乎 CC + 小鹅通）
 ::
 :: 用法:
 ::   run_zhihu_live.bat <直播间URL> [输出名] [--provider gemini^|qwen] [--best-ab] [--fair-ab] [--qwen-max-frames N] [--max-frames N] [--qwen-sliding-window] [--resume-window-notes] [--no-gemini] [--dry-run]
@@ -21,7 +21,8 @@ setlocal enabledelayedexpansion
 ::   logs\run-<NAME>.log                            完整运行日志（本机保留，不入 Git）
 ::
 :: 依赖（首次使用前确认）:
-::   1. python login_save_auth.py   扫码登录，生成 zhihu_auth_state.json
+::   1. 知乎: python login_save_auth.py → zhihu_auth_state.json
+::      小鹅通: python probe_xiaoe.py → zhihu_auth_state_xiaoe.json
 ::   2. 设置环境变量 GEMINI_API_KEY 或 DASHSCOPE_API_KEY（可选，不设则跳过笔记生成）
 :: ============================================================
 
@@ -40,21 +41,8 @@ if /i "%~1"=="--worker" (
 
 set "SCRIPT_DIR=%~dp0"
 set "VENV_PYTHON=d:\zhihu\zhihu_file\.venv-sensevoice\Scripts\python.exe"
-set "AUTH_STATE=%SCRIPT_DIR%zhihu_auth_state.json"
 set "STREAM_WORK_DIR=%SCRIPT_DIR%Videos\.stream"
 set "PAGE_URL=%~1"
-:: URL 合法性预检：若含 ? 但无 =，cmd.exe 可能已截断查询参数 (BUG#4)
-if not "!PAGE_URL!"=="" (
-    echo !PAGE_URL! | findstr /c:"?" >nul 2>&1
-    if not errorlevel 1 (
-        echo !PAGE_URL! | findstr /c:"=" >nul 2>&1
-        if errorlevel 1 (
-            echo [警告] URL 含 ^? 但无 =，cmd.exe 可能已截断查询参数。
-            echo        请将 URL 中的 = 替换为 %%3D 后重试，例如: ?is_hybrid%%3D1
-            echo.
-        )
-    )
-)
 set "REQUESTED_NAME="
 set "NAME=%REQUESTED_NAME%"
 set "RESUME_FLAG="
@@ -187,8 +175,9 @@ if /i "!FINAL_PROVIDER!"=="gemini" (
 :: ---- URL 检查（双击时弹出输入提示）----
 if "!PAGE_URL!"=="" (
     echo.
-    echo 请粘贴知乎直播间 URL，然后按回车：
-    echo （示例: https://www.zhihu.com/xen/training/live/room/...）
+    echo 请粘贴直播间 URL，然后按回车：
+    echo   知乎 CC : https://www.zhihu.com/xen/training/live/room/...
+echo   小鹅通  : https://appXXXX.h5.xet.pomoho.com/v4/course/alive/...
     echo.
     set /p "PAGE_URL=URL: "
     set "PAGE_URL=!PAGE_URL: =!"
@@ -199,6 +188,29 @@ if "!PAGE_URL!"=="" (
     echo.
     pause
     exit /b 1
+)
+
+:: ---- 平台识别（URL → platform + auth file）----
+echo !PAGE_URL! | findstr /i "xet.pomoho.com" >nul
+if not errorlevel 1 (
+    set "PLATFORM=xiaoe"
+) else (
+    echo !PAGE_URL! | findstr /i "zhihu.com" >nul
+    if not errorlevel 1 (
+        set "PLATFORM=zhihu"
+    ) else (
+        set "PLATFORM=unknown"
+    )
+)
+if "!PLATFORM!"=="xiaoe" (
+    set "AUTH_STATE=%SCRIPT_DIR%zhihu_auth_state_xiaoe.json"
+    echo [信息] 平台: 小鹅通 ^(xiaoe^)
+) else if "!PLATFORM!"=="zhihu" (
+    set "AUTH_STATE=%SCRIPT_DIR%zhihu_auth_state.json"
+    echo [信息] 平台: 知乎 CC
+) else (
+    set "AUTH_STATE=%SCRIPT_DIR%zhihu_auth_state.json"
+    echo [提示] 未识别的 URL 域名，默认使用知乎 auth ^(可手动替换^)
 )
 
 :: ---- Python 检查（venv 优先，降级到系统 python）----
@@ -212,7 +224,8 @@ if exist "!VENV_PYTHON!" (
 if "!DRY_RUN!"=="1" (
     echo.
     echo ====================================================
-    echo  DRY RUN: 知乎直播转写计划
+    echo  DRY RUN: 直播转写计划
+echo  平台                 : !PLATFORM!
     echo  URL                  : !PAGE_URL!
     if "!REQUESTED_NAME!"=="" (
         echo  输出名              : Python 自动生成 live_YYYYMMDD_页面标题
@@ -223,11 +236,7 @@ if "!DRY_RUN!"=="1" (
     echo  采集模式            : continuous HLS recorder + async consumer
     echo  直播转写模型 API      : disabled
     echo  最终 Provider        : !FINAL_PROVIDER!
-    if /i "!FINAL_PROVIDER!"=="qwen" (
-        echo  synthesis pass       : !FINAL_SYNTHESIS_PASS! ^(Qwen: auto-upgrade to sliding-window if transcript ^>30000 chars^)
-    ) else (
-        echo  synthesis pass       : !FINAL_SYNTHESIS_PASS!
-    )
+    echo  synthesis pass       : !FINAL_SYNTHESIS_PASS!
     if "!BEST_AB!"=="1" (
         echo  最佳能力 A/B 模式   : enabled ^(Gemini all frames / Qwen max frames !QWEN_MAX_FRAMES!^)
     )
@@ -273,24 +282,30 @@ if not exist "!AUTH_STATE!" (
     echo [错误] 未找到登录状态文件:
     echo   !AUTH_STATE!
     echo.
-    echo 请先运行一次登录:
-    echo   python login_save_auth.py
+    if "!PLATFORM!"=="xiaoe" (
+        echo 请先完成小鹅通登录（需用 probe_xiaoe.py 保存 auth state）：
+        echo   python probe_xiaoe.py
+    ) else (
+        echo 请先运行一次登录:
+        echo   python login_save_auth.py
+    )
     echo.
     exit /b 1
 )
 
 :: ---- Cookie 有效性检查（快速预检，失败立刻提示，不进入后台）----
-"!PYTHON!" "!SCRIPT_DIR!scripts\check_auth.py" "!AUTH_STATE!"
-set AUTH_CHECK_CODE=!errorlevel!
-if "!AUTH_CHECK_CODE!"=="1" (
+"!PYTHON!" "!SCRIPT_DIR!scripts\check_auth.py" "!AUTH_STATE!" --platform "!PLATFORM!"
+if errorlevel 1 (
     echo.
-    echo [错误] 登录 Cookie 已失效，请重新登录后再运行:
-    echo   python login_save_auth.py
+    if "!PLATFORM!"=="xiaoe" (
+        echo [错误] 小鹅通登录 Cookie 已失效，请重新登录:
+        echo   python probe_xiaoe.py
+    ) else (
+        echo [错误] 登录 Cookie 已失效，请重新登录后再运行:
+        echo   python login_save_auth.py
+    )
     echo.
     exit /b 1
-)
-if "!AUTH_CHECK_CODE!"=="2" (
-    echo [警告] 登录态文件不可读，继续尝试（stream 可能因 auth 失败）
 )
 
 :: ---- ffmpeg / ffprobe 检查 ----
@@ -366,7 +381,8 @@ echo. >> "!LOG_FILE!"
 :: ---- 启动信息 ----
 echo.
 echo ====================================================
-echo  知乎直播转写启动
+echo  直播转写启动
+echo  平台 : !PLATFORM!
 if "!REQUESTED_NAME!"=="" (
     echo  名称  : 自动（live_日期_页面标题）
 ) else (
@@ -423,7 +439,8 @@ exit /b 0
 
 (
 echo ====================================================
-echo  知乎直播转写 - 后台任务
+echo  直播转写 - 后台任务
+echo  平台 : !PLATFORM!
 if "!REQUESTED_NAME!"=="" (
     echo  名称  : 自动（live_日期_页面标题）
 ) else (
@@ -437,11 +454,7 @@ if "!BEST_AB!"=="1" (
 if "!FAIR_AB!"=="1" (
     echo  Fair A/B: enabled ^(max frames !FINAL_MAX_FRAMES!^)
 )
-if /i "!FINAL_PROVIDER!"=="qwen" (
-    echo  Synthesis pass: !FINAL_SYNTHESIS_PASS! ^(Qwen: auto-upgrade to sliding-window if transcript ^>30K chars^)
-) else (
-    echo  Synthesis pass: !FINAL_SYNTHESIS_PASS!
-)
+echo  Synthesis pass: !FINAL_SYNTHESIS_PASS!
 if "!RESUME_WINDOW_NOTES!"=="1" (
     echo  Resume window notes: enabled
 )
@@ -482,22 +495,15 @@ if "!REQUESTED_NAME!"=="" (
 
 if errorlevel 1 (
     echo. >> "!LOG_FILE!" 2>&1
-    echo [%date% %TIME: =0%] [警告] zhihuTTS_stream.py 以非零退出码退出，检查 marker 文件... >> "!LOG_FILE!" 2>&1
-    if not exist "!BASE_MARKER!" (
-        echo [%date% %TIME: =0%] [错误] 未找到 marker 文件，确认转写失败 >> "!LOG_FILE!" 2>&1
-        echo.
-        echo ==============================
-        echo  转写失败！详细原因见日志:
-        echo  !LOG_FILE!
-        echo ==============================
-        echo.
-        pause
-        exit /b 1
-    )
-    echo [%date% %TIME: =0%] [提示] Marker 文件存在，疑为 Playwright teardown 异常（转写数据完整），继续后续步骤 >> "!LOG_FILE!" 2>&1
+    echo [%date% %TIME: =0%] [错误] 直播转写异常退出，退出码: !errorlevel! >> "!LOG_FILE!" 2>&1
     echo.
-    echo [提示] Python 以非零退出，但 marker 文件存在，转写数据完整，继续步骤 2-4...
+    echo ==============================
+    echo  转写失败！详细原因见日志:
+    echo  !LOG_FILE!
+    echo ==============================
     echo.
+    pause
+    exit /b 1
 )
 
 set "BASE_STEM="
@@ -519,15 +525,6 @@ if "!BASE_STEM!"=="" (
 )
 set "NAME=!BASE_STEM!"
 echo [%date% %TIME: =0%] 实际输出名称: !NAME! >> "!LOG_FILE!" 2>&1
-
-:: ---- [G3] HLS .ts 清理（节省磁盘空间，consumer 已处理完毕）----
-echo [%date% %TIME: =0%] [清理] 删除 HLS 临时分片 (.ts)... >> "!LOG_FILE!" 2>&1
-for /d %%d in ("!STREAM_WORK_DIR!\!NAME!-*") do (
-    if exist "%%d" (
-        del /q "%%d\*.ts" >nul 2>&1
-        echo [%date% %TIME: =0%] 已清理: %%d >> "!LOG_FILE!" 2>&1
-    )
-)
 
 :: ---- [2/4] 分片合并 ----
 echo. >> "!LOG_FILE!" 2>&1
@@ -571,17 +568,9 @@ if "!FINAL_GEMINI_ENABLED!"=="0" (
       !RESUME_WINDOW_NOTES_ARG! >> "!LOG_FILE!" 2>&1
     if errorlevel 1 (
         echo [%date% %TIME: =0%] [提示] NotebookLM 文档生成失败，手动运行: >> "!LOG_FILE!" 2>&1
-        if /i "!FINAL_PROVIDER!"=="qwen" (
-            echo   [G2] Qwen 续跑命令（复用已完成窗口笔记，节省配额）: >> "!LOG_FILE!" 2>&1
-            echo   set DASHSCOPE_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider qwen --synthesis-pass sliding-window --resume-window-notes --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
-        ) else (
-            echo   python scripts\build_stream_markdown.py --base !NAME! --provider !FINAL_PROVIDER! --synthesis-pass !FINAL_SYNTHESIS_PASS! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
-        )
+        echo   python scripts\build_stream_markdown.py --base !NAME! --provider !FINAL_PROVIDER! --synthesis-pass !FINAL_SYNTHESIS_PASS! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! !RESUME_WINDOW_NOTES_ARG! >> "!LOG_FILE!" 2>&1
     ) else (
         echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!-!OUTPUT_LABEL!.md >> "!LOG_FILE!" 2>&1
-        :: G6: 从 final-qc.json 读取实际使用的 synthesis_pass（Python auto-route 可能已升级）
-        for /f "usebackq delims=" %%p in (`"!PYTHON!" -c "import json,glob; f=sorted(glob.glob(r'!SCRIPT_DIR!runs/stream-!NAME!-*.final-qc.json')); print(json.load(open(f[-1])).get('synthesis_pass','-')) if f else print('-')"`) do set "ACTUAL_SYNTHESIS_PASS=%%p"
-        echo [%date% %TIME: =0%] 实际 synthesis_pass: !ACTUAL_SYNTHESIS_PASS! >> "!LOG_FILE!" 2>&1
     )
 )
 

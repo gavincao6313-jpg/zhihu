@@ -59,7 +59,7 @@ QWEN_WINDOW_TARGET_FRAMES = 200
 QWEN_WINDOW_OVERLAP_FRAMES = 20
 QWEN_WINDOW_NOTE_VERSION = "qwen-window-note-v3"
 QWEN_FINAL_ASSEMBLY_VERSION = "qwen-final-assembly-v2"
-QWEN_CRITICAL_FACT_VERSION = "qwen-critical-facts-v3"
+QWEN_CRITICAL_FACT_VERSION = "qwen-critical-facts-v2"
 QWEN_NARRATIVE_BLOCK_VERSION = "qwen-narrative-blocks-v1"
 MAX_RETRIES             = 2      # Gemini quota guard: keep automatic retries small
 MAX_CONTINUATIONS       = 2      # Gemini quota guard: 1 initial + 2 continuation calls max
@@ -859,17 +859,10 @@ def extract_qwen_critical_facts(note_texts: list[str]) -> list[dict]:
 
         for pattern, kind in [
             (r'\d+(?:\.\d+)?\s*%', "percentage"),
-            (r'\d+(?:\.\d+)?\s*分(?!钟|之)', "score"),
+            (r'\d+(?:\.\d+)?\s*分(?!钟)', "score"),
             (r'\d+(?:\.\d+)?\s*万?\s*积分', "cost"),
-            (r'(?:1[5-9]\d{2}|20\d{2})年', "date_or_age"),   # 历史+现代年份
+            (r'20\d{2}年', "date_or_age"),
             (r'\d+\s*岁', "date_or_age"),
-            (r'\d+(?:\.\d+)?\s*亿元?', "amount"),             # 亿级金额
-            (r'\d+(?:\.\d+)?\s*万元', "amount"),              # 万元金额
-            (r'\d+(?:\.\d+)?\s*万(?!积分|元|年|人)', "amount"), # 独立万（15.6万）
-            (r'\d+(?:\.\d+)?\s*秒(?!钟)', "duration"),        # 秒（不含"秒钟"）
-            (r'\d+(?:\.\d+)?\s*分钟', "duration"),            # 分钟
-            (r'\d+(?:\.\d+)?\s*小时', "duration"),            # 小时
-            (r'\d+\s*人(?:遇难|受伤|死亡|牺牲|获奖)', "count"), # 伤亡/获奖人数
         ]:
             for m in re.finditer(pattern, text):
                 add_fact(kind, re.sub(r'\s+', '', m.group(0)), idx, text)
@@ -1256,174 +1249,49 @@ def check_qwen_narrative_retention(markdown_body: str, blocks: list[dict], trans
     }
 
 
-def _hms_to_s(hms: str) -> int | None:
-    """Parse HH:MM:SS or MM:SS string to total seconds."""
-    try:
-        parts = hms.strip().split(":")
-        if len(parts) == 3:
-            return int(parts[0]) * 3600 + int(parts[1]) * 60 + int(parts[2])
-        if len(parts) == 2:
-            return int(parts[0]) * 60 + int(parts[1])
-    except (ValueError, AttributeError):
-        pass
-    return None
-
-
-_CHAPTER_TS_RE = re.compile(
-    r'^###\s+\[(\d{1,2}:\d{2}:\d{2})\s*[-–]\s*(\d{1,2}:\d{2}:\d{2})\]',
-    re.MULTILINE,
-)
-_BLOCK_TS_RE = re.compile(r'(\d{1,2}:\d{2}:\d{2})\s*[-–]\s*(\d{1,2}:\d{2}:\d{2})')
-
-
-def _inject_narrative_into_chapters(
-    markdown_body: str, missing_blocks: list[dict]
-) -> tuple[str, list[dict]]:
-    """Inject missing narrative blocks under their chapter by timestamp match.
-
-    Matches blocks to ### [HH:MM:SS - HH:MM:SS] headings in the assembled body.
-    Returns (updated_markdown, still_unmatched_blocks).
-    """
-    if not missing_blocks:
-        return markdown_body, []
-
-    chapters = []
-    for m in _CHAPTER_TS_RE.finditer(markdown_body):
-        start_s = _hms_to_s(m.group(1))
-        end_s = _hms_to_s(m.group(2))
-        if start_s is not None and end_s is not None:
-            chapters.append({"match_start": m.start(), "start_s": start_s, "end_s": end_s})
-
-    if not chapters:
-        return markdown_body, missing_blocks
-
-    marker_pos = markdown_body.find("<!-- qwen_window_coverage:")
-    body_end = marker_pos if marker_pos != -1 else len(markdown_body)
-    for i, ch in enumerate(chapters):
-        ch["content_end"] = chapters[i + 1]["match_start"] if i + 1 < len(chapters) else body_end
-
-    injections: dict[int, list[str]] = {}
-    still_unmatched: list[dict] = []
-    for block in missing_blocks:
-        tr = block.get("time_range", "")
-        bm = _BLOCK_TS_RE.search(tr) if tr else None
-        block_start_s = _hms_to_s(bm.group(1)) if bm else None
-
-        best = None
-        if block_start_s is not None:
-            for ch in chapters:
-                if ch["start_s"] <= block_start_s <= ch["end_s"]:
-                    best = ch
-                    break
-            if best is None:
-                best = min(chapters, key=lambda c: abs(c["start_s"] - block_start_s))
-
-        if best is None:
-            still_unmatched.append(block)
-            continue
-
-        time_label = f" [{block['time_range']}]" if block.get("time_range") else ""
-        text = (
-            f"\n#### 叙事证据{time_label} — {block['title']} (window {block['window_index']})\n\n"
-            + block["text"].strip()
-            + "\n"
-        )
-        injections.setdefault(best["match_start"], []).append(text)
-
-    if not injections:
-        return markdown_body, still_unmatched
-
-    parts: list[str] = []
-    prev_end = 0
-    for ch in sorted(chapters, key=lambda c: c["match_start"]):
-        if ch["match_start"] not in injections:
-            continue
-        content_end = ch["content_end"]
-        parts.append(markdown_body[prev_end:content_end])
-        for block_text in injections[ch["match_start"]]:
-            parts.append(block_text)
-        prev_end = content_end
-    parts.append(markdown_body[prev_end:])
-    return "".join(parts), still_unmatched
-
-
 def ensure_qwen_narrative_appendix(markdown_body: str, blocks: list[dict], transcript: str) -> tuple[str, dict]:
-    """Inject missing narrative blocks into chapter body; append stragglers to flat appendix."""
+    """Deterministically append narrative evidence if final assembly compresses it."""
     if not blocks:
-        return markdown_body, {
-            "appended": False, "reason": "no_blocks", "appended_blocks": 0,
-            "injected_into_chapters": 0, "appended_to_appendix": 0,
-        }
+        return markdown_body, {"appended": False, "reason": "no_blocks", "appended_blocks": 0}
 
-    missing = [
-        b for b in blocks
-        if not any(
-            probe and probe in markdown_body
-            for probe in [
-                b.get("anchor", "")[:50], b.get("anchor", "")[:35],
-                b.get("text", "")[:80], b.get("text", "")[:50],
-            ]
-        )
-    ]
     retention = check_qwen_narrative_retention(markdown_body, blocks, transcript)
-    if not missing:
-        return markdown_body, {
-            "appended": False,
-            "reason": "already_retained",
-            "appended_blocks": 0,
-            "injected_into_chapters": 0,
-            "appended_to_appendix": 0,
-            "pre_append_metrics": retention["metrics"],
-        }
+    metrics = retention["metrics"]
+    has_section = "## 6. 叙事证据附录" in markdown_body or "## 叙事证据附录" in markdown_body
+    should_append = (
+        not has_section
+        or metrics["body_transcript_ratio"] < QWEN_NARRATIVE_RETENTION_MIN_RATIO
+        or metrics["retention_ratio"] < 0.80
+    )
+    if not should_append:
+        return markdown_body, {"appended": False, "reason": "already_retained", "appended_blocks": 0}
 
-    # Step 1: inject missing blocks under their chapter by timestamp
-    updated, still_unmatched = _inject_narrative_into_chapters(markdown_body, missing)
-    injected_count = len(missing) - len(still_unmatched)
-
-    # Step 2: append unmatched blocks (no parseable time range) to flat appendix
     marker = "<!-- qwen_window_coverage:"
     coverage_tail = ""
-    body = updated.rstrip()
+    body = markdown_body.rstrip()
     if marker in body:
         idx = body.rfind(marker)
         coverage_tail = body[idx:].strip()
         body = body[:idx].rstrip()
 
-    appendix_lines: list[str] = []
-    if still_unmatched:
-        has_section = "## 6. 叙事证据附录" in body or "## 叙事证据附录" in body
-        if not has_section:
-            appendix_lines += [
-                "",
-                "## 6. 叙事证据附录",
-                "",
-                "> 以下内容由程序从 Qwen window notes 确定性追加，用于避免长文叙事在最终组装时被压缩丢失。",
-                "",
-            ]
-        for i, block in enumerate(still_unmatched, start=1):
-            time_part = f" [{block['time_range']}]" if block.get("time_range") else ""
-            appendix_lines.append(
-                f"### Narrative Evidence {i}{time_part} - {block['title']} (window {block['window_index']})"
-            )
-            appendix_lines.append(block["text"])
-            appendix_lines.append("")
-
+    lines = [
+        "",
+        "## 6. 叙事证据附录",
+        "",
+        "> 以下内容由程序从 Qwen window notes 确定性追加，用于避免长文叙事在最终组装时被压缩丢失。",
+        "",
+    ]
+    for i, block in enumerate(blocks, start=1):
+        time_part = f" [{block['time_range']}]" if block.get("time_range") else ""
+        lines.append(f"### Narrative Evidence {i}{time_part} - {block['title']} (window {block['window_index']})")
+        lines.append(block["text"])
+        lines.append("")
     if coverage_tail:
-        appendix_lines.append(coverage_tail)
-
-    result_body = body
-    if appendix_lines:
-        result_body = body + "\n" + "\n".join(appendix_lines).rstrip() + "\n"
-    elif coverage_tail:
-        result_body = body + "\n" + coverage_tail + "\n"
-
-    return result_body, {
+        lines.append(coverage_tail)
+    return body + "\n" + "\n".join(lines).rstrip() + "\n", {
         "appended": True,
-        "reason": "missing_blocks_injected",
-        "appended_blocks": len(missing),
-        "injected_into_chapters": injected_count,
-        "appended_to_appendix": len(still_unmatched),
-        "pre_append_metrics": retention["metrics"],
+        "reason": "missing_or_low_retention",
+        "appended_blocks": len(blocks),
+        "pre_append_metrics": metrics,
     }
 
 

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import os
 import re
@@ -30,12 +29,6 @@ VIDEO_URL_PATTERNS = (
     "ixigua.com",
     "toutiao.com/video",
     "toutiao.com/group",
-)
-
-# Live-stream subdomains that match VIDEO_URL_PATTERNS but are not downloadable VOD.
-LIVE_URL_BLOCKLIST = (
-    "live.ixigua.com",
-    "live.toutiao.com",
 )
 
 ANTI_DETECTION_ARGS = [
@@ -85,10 +78,6 @@ def slugify(value: str, default: str = "toutiao") -> str:
     return slug[:80] or default
 
 
-def sha1_short(value: str) -> str:
-    return hashlib.sha1(value.encode("utf-8")).hexdigest()[:12]
-
-
 def canonical_url(url: str, base_url: str = DEFAULT_TOUTIAO_HOME_URL) -> str:
     if not url:
         return ""
@@ -118,8 +107,6 @@ def extract_item_id(url: str) -> str:
 def looks_like_video_url(url: str) -> bool:
     lowered = url.lower()
     if not lowered.startswith(("http://", "https://")):
-        return False
-    if any(block in lowered for block in LIVE_URL_BLOCKLIST):
         return False
     return any(pattern in lowered for pattern in VIDEO_URL_PATTERNS)
 
