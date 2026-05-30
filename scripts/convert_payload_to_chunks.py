@@ -22,6 +22,37 @@ Windows: _transcript_for_window() returns "" for non-chunk001 windows → falls 
 import json, sys, math
 from pathlib import Path
 
+
+def _fmt_ts(s: int) -> str:
+    return f"{s // 3600:02d}:{(s % 3600) // 60:02d}:{s % 60:02d}"
+
+
+def _enrich_frame_markers(frames: list, events: list) -> list:
+    """Ensure frame markers carry correct type=slide/annotation from events.
+
+    Idempotent: skips frames already correctly typed. Fixes frames whose
+    marker is missing or carries type=context despite a matching event.
+    Needed when payload was generated without marker field, or when
+    frame_marker() event-matching failed at extraction time.
+    """
+    if not events:
+        return frames
+    by_idx = {e["frame_idx"]: e for e in events}
+    for f in frames:
+        current = f.get("marker", "")
+        if "type=slide" in current or "type=annotation" in current:
+            continue  # already correctly typed — skip
+        ts = f.get("timestamp_s", 0)
+        # Try 1-based filename → 0-based event index (ts-1), then ts as fallback
+        ev = by_idx.get(ts - 1) or by_idx.get(ts)
+        etype = ev.get("type") if ev else None
+        if etype in ("slide", "annotation"):
+            diff = ev.get("diff", 0)
+            f["marker"] = f"Frame [{_fmt_ts(ts)}] type={etype} diff={diff}"
+        elif not current:
+            f["marker"] = f"Frame [{_fmt_ts(ts)}] type=context diff=0"
+    return frames
+
 if len(sys.argv) < 3:
     print("Usage: convert_payload_to_chunks.py <payload.json> <base_name> [runs_dir]")
     sys.exit(1)
@@ -35,6 +66,10 @@ full_text  = payload["full_text"]
 frames     = payload["frames"]
 video_name = payload["video_name"]
 stats      = payload.get("stats", {})
+events     = payload.get("events", [])
+
+# Fix markers that are missing or all-context despite events existing in payload
+frames = _enrich_frame_markers(frames, events)
 
 max_ts        = max(f["timestamp_s"] for f in frames) if frames else 0
 chunk_dur     = 60
