@@ -74,6 +74,10 @@ BODY_COVERAGE_GAP_S = 120   # warn if last Markdown chapter ends >2 min before s
 QWEN_BODY_MIN_TRANSCRIPT_RATIO = 0.20
 QWEN_FACT_RETENTION_MIN_RATIO = 0.90
 QWEN_NARRATIVE_RETENTION_MIN_RATIO = 0.32
+# Qwen one-shot → sliding-window auto-route threshold.
+# Validated: 54K chars one-shot → overcompressed (BUG#109); 41K sliding-window → QC pass.
+# Qwen output cap ~32K Chinese chars; transcripts above 30K chars exhaust output budget.
+QWEN_AUTO_SLIDING_WINDOW_CHARS = 30_000
 QWEN_NARRATIVE_MIN_BLOCKS_PER_WINDOW = 2
 QWEN_CRITICAL_FACT_TERMS = [
     "75分",
@@ -1895,6 +1899,18 @@ def main() -> None:
     manifest = live_final_qc(chunk_files, transcript, all_frames, args.base, selected_ts)
     manifest["synthesis_provider"] = provider
     manifest["synthesis_model"] = provider_model
+
+    # Auto-route: Qwen + long transcript → sliding-window regardless of caller.
+    # Covers live stream, replay, and local MP4 paths uniformly.
+    if (provider == "qwen" and synthesis_pass == "one-shot"
+            and len(transcript) > QWEN_AUTO_SLIDING_WINDOW_CHARS):
+        synthesis_pass = "sliding-window"
+        print(
+            f"[auto-route] transcript {len(transcript):,} chars"
+            f" > {QWEN_AUTO_SLIDING_WINDOW_CHARS:,}: Qwen one-shot → sliding-window",
+            flush=True,
+        )
+
     manifest["synthesis_pass"] = synthesis_pass
     frame_timestamp = check_frame_timestamp_alignment(all_frames, manifest)
     manifest["frame_timestamp_qc"] = frame_timestamp["metrics"]

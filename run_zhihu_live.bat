@@ -223,7 +223,11 @@ if "!DRY_RUN!"=="1" (
     echo  采集模式            : continuous HLS recorder + async consumer
     echo  直播转写模型 API      : disabled
     echo  最终 Provider        : !FINAL_PROVIDER!
-    echo  synthesis pass       : !FINAL_SYNTHESIS_PASS!
+    if /i "!FINAL_PROVIDER!"=="qwen" (
+        echo  synthesis pass       : !FINAL_SYNTHESIS_PASS! ^(Qwen: auto-upgrade to sliding-window if transcript ^>30000 chars^)
+    ) else (
+        echo  synthesis pass       : !FINAL_SYNTHESIS_PASS!
+    )
     if "!BEST_AB!"=="1" (
         echo  最佳能力 A/B 模式   : enabled ^(Gemini all frames / Qwen max frames !QWEN_MAX_FRAMES!^)
     )
