@@ -496,13 +496,7 @@ if "!REQUESTED_NAME!"=="" (
 if errorlevel 1 (
     echo. >> "!LOG_FILE!" 2>&1
     echo [%date% %TIME: =0%] [错误] 直播转写异常退出，退出码: !errorlevel! >> "!LOG_FILE!" 2>&1
-    echo.
-    echo ==============================
-    echo  转写失败！详细原因见日志:
-    echo  !LOG_FILE!
-    echo ==============================
-    echo.
-    pause
+    echo [提示] 详细原因见日志: !LOG_FILE! >> "!LOG_FILE!" 2>&1
     exit /b 1
 )
 
@@ -514,13 +508,6 @@ if exist "!BASE_MARKER!" (
 )
 if "!BASE_STEM!"=="" (
     echo [%date% %TIME: =0%] [错误] 未读取到 Python 回写的输出名称 marker: !BASE_MARKER! >> "!LOG_FILE!" 2>&1
-    echo.
-    echo ==============================
-    echo  转写失败！未读取到输出名称:
-    echo  !BASE_MARKER!
-    echo ==============================
-    echo.
-    pause
     exit /b 1
 )
 set "NAME=!BASE_STEM!"
@@ -597,5 +584,4 @@ echo    Slides\     幻灯片 PDF + PPTX
 echo    !LOG_FILE!
 echo ==============================
 echo.
-pause
 exit /b 0
