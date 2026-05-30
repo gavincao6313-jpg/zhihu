@@ -281,12 +281,16 @@ if not exist "!AUTH_STATE!" (
 
 :: ---- Cookie 有效性检查（快速预检，失败立刻提示，不进入后台）----
 "!PYTHON!" "!SCRIPT_DIR!scripts\check_auth.py" "!AUTH_STATE!"
-if errorlevel 1 (
+set AUTH_CHECK_CODE=!errorlevel!
+if "!AUTH_CHECK_CODE!"=="1" (
     echo.
     echo [错误] 登录 Cookie 已失效，请重新登录后再运行:
     echo   python login_save_auth.py
     echo.
     exit /b 1
+)
+if "!AUTH_CHECK_CODE!"=="2" (
+    echo [警告] 登录态文件不可读，继续尝试（stream 可能因 auth 失败）
 )
 
 :: ---- ffmpeg / ffprobe 检查 ----
@@ -433,7 +437,11 @@ if "!BEST_AB!"=="1" (
 if "!FAIR_AB!"=="1" (
     echo  Fair A/B: enabled ^(max frames !FINAL_MAX_FRAMES!^)
 )
-echo  Synthesis pass: !FINAL_SYNTHESIS_PASS!
+if /i "!FINAL_PROVIDER!"=="qwen" (
+    echo  Synthesis pass: !FINAL_SYNTHESIS_PASS! ^(Qwen: auto-upgrade to sliding-window if transcript ^>30K chars^)
+) else (
+    echo  Synthesis pass: !FINAL_SYNTHESIS_PASS!
+)
 if "!RESUME_WINDOW_NOTES!"=="1" (
     echo  Resume window notes: enabled
 )
@@ -512,6 +520,15 @@ if "!BASE_STEM!"=="" (
 set "NAME=!BASE_STEM!"
 echo [%date% %TIME: =0%] 实际输出名称: !NAME! >> "!LOG_FILE!" 2>&1
 
+:: ---- [G3] HLS .ts 清理（节省磁盘空间，consumer 已处理完毕）----
+echo [%date% %TIME: =0%] [清理] 删除 HLS 临时分片 (.ts)... >> "!LOG_FILE!" 2>&1
+for /d %%d in ("!STREAM_WORK_DIR!\!NAME!-*") do (
+    if exist "%%d" (
+        del /q "%%d\*.ts" >nul 2>&1
+        echo [%date% %TIME: =0%] 已清理: %%d >> "!LOG_FILE!" 2>&1
+    )
+)
+
 :: ---- [2/4] 分片合并 ----
 echo. >> "!LOG_FILE!" 2>&1
 echo [%date% %TIME: =0%] [2/4] 合并分片为结构化 Markdown... >> "!LOG_FILE!" 2>&1
@@ -554,9 +571,17 @@ if "!FINAL_GEMINI_ENABLED!"=="0" (
       !RESUME_WINDOW_NOTES_ARG! >> "!LOG_FILE!" 2>&1
     if errorlevel 1 (
         echo [%date% %TIME: =0%] [提示] NotebookLM 文档生成失败，手动运行: >> "!LOG_FILE!" 2>&1
-        echo   python scripts\build_stream_markdown.py --base !NAME! --provider !FINAL_PROVIDER! --synthesis-pass !FINAL_SYNTHESIS_PASS! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! !RESUME_WINDOW_NOTES_ARG! >> "!LOG_FILE!" 2>&1
+        if /i "!FINAL_PROVIDER!"=="qwen" (
+            echo   [G2] Qwen 续跑命令（复用已完成窗口笔记，节省配额）: >> "!LOG_FILE!" 2>&1
+            echo   set DASHSCOPE_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --provider qwen --synthesis-pass sliding-window --resume-window-notes --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --qwen-max-frames !QWEN_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
+        ) else (
+            echo   python scripts\build_stream_markdown.py --base !NAME! --provider !FINAL_PROVIDER! --synthesis-pass !FINAL_SYNTHESIS_PASS! --output-label !OUTPUT_LABEL! --max-frames !FINAL_MAX_FRAMES! --max-retries !BUILD_MAX_RETRIES! --max-continuations !BUILD_MAX_CONTINUATIONS! >> "!LOG_FILE!" 2>&1
+        )
     ) else (
         echo [%date% %TIME: =0%] NotebookLM 文档: Markdowns\TTS_stream-!NAME!-!OUTPUT_LABEL!.md >> "!LOG_FILE!" 2>&1
+        :: G6: 从 final-qc.json 读取实际使用的 synthesis_pass（Python auto-route 可能已升级）
+        for /f "usebackq delims=" %%p in (`"!PYTHON!" -c "import json,glob; f=sorted(glob.glob(r'!SCRIPT_DIR!runs/stream-!NAME!-*.final-qc.json')); print(json.load(open(f[-1])).get('synthesis_pass','-')) if f else print('-')"`) do set "ACTUAL_SYNTHESIS_PASS=%%p"
+        echo [%date% %TIME: =0%] 实际 synthesis_pass: !ACTUAL_SYNTHESIS_PASS! >> "!LOG_FILE!" 2>&1
     )
 )
 
