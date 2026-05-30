@@ -595,6 +595,12 @@ def build_qwen_windows(
     max_frames = min(max_frames, QWEN_IMAGE_HARD_LIMIT)
     target_new_frames = max(1, min(target_new_frames, max_frames))
     overlap_frames = max(0, min(overlap_frames, max(0, (max_frames - target_new_frames) // 2)))
+    # When target was clamped to max_frames (e.g. max_frames=128 < QWEN_WINDOW_TARGET_FRAMES=200),
+    # overlap collapses to 0 and windows become coarse (6 windows instead of 8 for 696 frames).
+    # Restore overlap by shrinking target: target = max_frames - 2*overlap, giving finer windows.
+    if overlap_frames == 0 and target_new_frames == max_frames and max_frames > 2 * QWEN_WINDOW_OVERLAP_FRAMES:
+        overlap_frames = QWEN_WINDOW_OVERLAP_FRAMES
+        target_new_frames = max(1, max_frames - 2 * overlap_frames)
 
     segments = load_chunk_segments(chunk_files)
     if not frames:
