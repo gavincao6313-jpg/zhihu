@@ -18,6 +18,7 @@ __all__ = [
     "QWEN_NARRATIVE_RETENTION_MIN_RATIO", "QWEN_NARRATIVE_MIN_BLOCKS_PER_WINDOW",
     "QWEN_CRITICAL_FACT_TERMS",
     "extract_qwen_critical_facts", "extract_qwen_narrative_blocks",
+    "format_qwen_critical_facts_for_prompt", "format_qwen_narrative_blocks_for_prompt",
     "format_qwen_critical_fact_appendix", "check_qwen_fact_retention",
     "ensure_qwen_critical_fact_appendix", "check_qwen_narrative_retention",
     "ensure_qwen_narrative_appendix", "check_qwen_notebooklm_quality",
@@ -521,6 +522,52 @@ def extract_qwen_narrative_blocks(note_texts: list[str]) -> list[dict]:
                 added += 1
 
     return blocks
+
+
+def format_qwen_critical_facts_for_prompt(facts: list[dict]) -> str:
+    """Format extracted critical facts as a checklist for injection into the assembly prompt."""
+    if not facts:
+        return "## Critical Facts Checklist\n\n未从窗口笔记中检测到必须保留的关键事实。\n"
+    lines = [
+        "## Critical Facts Checklist",
+        "",
+        "以下事实由程序从 Qwen window notes 中确定性抽取。最终 Markdown 必须逐项保留；"
+        "可在正文或 `## 5. 技术资产附录：Prompts / Code / Config` 中落地。",
+        "",
+    ]
+    for i, fact in enumerate(facts, start=1):
+        aliases = ", ".join(fact.get("aliases") or [fact["value"]])
+        context = fact.get("context", "")
+        lines.append(
+            f"{i}. [{fact['kind']}] `{fact['value']}`"
+            f" | aliases: {aliases}"
+            f" | source window: {fact['window_index']}"
+        )
+        if context:
+            lines.append(f"   - context: {context}")
+    return "\n".join(lines) + "\n"
+
+
+def format_qwen_narrative_blocks_for_prompt(blocks: list[dict]) -> str:
+    """Format extracted narrative blocks for injection into the assembly prompt."""
+    if not blocks:
+        return "## Narrative Evidence Blocks\n\n未从窗口笔记中检测到长叙事证据块。\n"
+    lines = [
+        "## Narrative Evidence Blocks",
+        "",
+        "以下长叙事证据由程序从 Qwen window notes 中抽取。最终 Markdown 必须吸收其细节，"
+        "并在正文或 `## 6. 叙事证据附录` 中保留。不要压缩成思维导图短句。",
+        "",
+    ]
+    for i, block in enumerate(blocks, start=1):
+        time_part = f" [{block['time_range']}]" if block.get("time_range") else ""
+        lines.append(
+            f"### Narrative Evidence {i}{time_part}"
+            f" - {block['title']} (window {block['window_index']})"
+        )
+        lines.append(block["text"])
+        lines.append("")
+    return "\n".join(lines).strip() + "\n"
 
 
 def format_qwen_critical_fact_appendix(facts: list[dict]) -> str:
