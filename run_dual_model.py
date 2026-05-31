@@ -373,11 +373,11 @@ def main():
     # ── Pass 1: Window-level synthesis ──
     # Single-window: use one-shot NotebookLM prompt (output is final format directly).
     # Multi-window: use structured window-note prompt → assembly pass converts to final format.
-    w_prompt = _QWEN_NOTEBOOKLM_PROMPT if window_count == 1 else _QWEN_WINDOW_NOTE_PROMPT
     window_notes = []
     window_success = []
     qwen_total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     window_count = len(windows)
+    w_prompt = _QWEN_NOTEBOOKLM_PROMPT if window_count == 1 else _QWEN_WINDOW_NOTE_PROMPT
     for wi, wf in enumerate(windows):
         wlabel = f"Qwen-W{wi+1}/{window_count} {VIDEO_STEM[:15]}"
         print(f"\n  [{wlabel}] 发送 {len(wf)} 帧...")
