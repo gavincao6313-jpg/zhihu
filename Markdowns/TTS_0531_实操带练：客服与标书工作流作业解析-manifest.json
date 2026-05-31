@@ -1,0 +1,33 @@
+{
+  "video_stem": "实操带练：客服与标书工作流作业解析",
+  "date": "2026-05-31",
+  "models": {
+    "gemini": {
+      "model": "gemini-3.5-flash",
+      "output": "TTS_0531_实操带练：客服与标书工作流作业解析-gemini.md",
+      "chars": 10655,
+      "success": true
+    },
+    "qwen": {
+      "model": "qwen3.6-plus",
+      "output": "TTS_0531_实操带练：客服与标书工作流作业解析-qwen.md",
+      "chars": 4382,
+      "success": true,
+      "windows": 2,
+      "window_success": 2,
+      "usage": {
+        "input_tokens": 101525,
+        "output_tokens": 13063,
+        "total_tokens": 114588
+      }
+    }
+  },
+  "preprocessing": {
+    "frames": 408,
+    "segments": 188,
+    "transcript_chars": 50582,
+    "slide_count": 10,
+    "annotation_count": 200,
+    "backend_used": "sensevoice"
+  }
+}
