@@ -3,6 +3,11 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 2026-05-31 | 拉取 WIN 双模型验证输出（客服与标书，Qwen 4382/Gemini 10655 chars） | Markdowns/ | 分析：Qwen 严重过压缩 ratio=0.087 | ~2000 |
+| 2026-05-31 | SenseVoice 单例修复 | zhihuTTS_video.py | _sensevoice_model_cache 缓存 AutoModel，消除 188×8s 重复加载 | ~500 |
+| 2026-05-31 | QC 函数提取到 utils.py | utils.py | 新增 extract_qwen_critical_facts 等 8 个 QC 函数 + 3 常量 | ~800 |
+| 2026-05-31 | run_dual_model Phase 4b QC 接入 | run_dual_model.py | 压缩比检测+确定性附录追加+manifest qc_warnings/qc_metrics | ~600 |
+
 | 2026-05-26 | code review (9 findings) + fix: call_qwen inner retry / base64 pre-encode / lazy genai import / fail-fast non-rate / frame_count QC / retry_delay 65s / BAT dry-run echo | utils.py, scripts/build_stream_markdown.py, run_zhihu_live.bat | syntax OK | ~8k |
 
 | 23:10 | fix merge_stream_chunks.py default chunk selection (bug-061): use all chunks when --run-ts absent | scripts/merge_stream_chunks.py | done | ~300 |
@@ -726,3 +731,28 @@
 | 16:34 | 实现 Qwen 短视频 P0 dry-run pipeline | scripts/short_video_pipeline.py, docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md, .wolf/anatomy.md | 新增 preprocess/synthesize --dry-run/status/mock-payloads；20 个 mock payload 离线装成 3 包，预估 3 次 Qwen 调用；py_compile 通过，未调用 API | ~9000 |
 | 16:51 | 实现今日头条收藏夹探测与下载基础功能 | scripts/toutiao_common.py, scripts/toutiao_login.py, scripts/toutiao_probe_favorites.py, scripts/toutiao_download_favorites.py, docs/TOUTIAO_FAVORITES_RUNBOOK.md, .wolf/anatomy.md | 新增登录态保存、收藏页 Playwright 探测/manifest 更新、yt-dlp 优先+Playwright/ffmpeg 兜底下载、运行手册；py_compile/help/空 manifest 和假 manifest dry-run 通过，未联网实测登录页 | ~11000 |
 | 17:06 | 继续实现短视频 P1 pack 输出和拆分 QC | scripts/short_video_pipeline.py, docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md, docs/TOUTIAO_FAVORITES_RUNBOOK.md, .wolf/anatomy.md | 新增 call-pack/split-pack：可 mock 输出或显式 Qwen 调用，写 pack input/output/manifest，按 VIDEO_ID 拆 Markdown 并生成 QC；5 mock 视频离线拆分 5/5，QC 0 warning | ~9000 |
+| 12:13 | Edited scripts/build_stream_markdown.py | expanded (+6 lines) | ~211 |
+| 12:18 | Created docs/WIN_LIVE_QWEN_WINDOW_FIX_VALIDATION_20260530.md | — | ~469 |
+| 14:40 | Created scripts/convert_payload_to_chunks.py | — | ~1134 |
+| 14:41 | Created run_replay_qwen.bat | — | ~617 |
+| 14:58 | Edited scripts/convert_payload_to_chunks.py | modified _fmt_ts() | ~380 |
+| 14:58 | Edited scripts/convert_payload_to_chunks.py | 5→9 lines | ~106 |
+| 16:34 | Edited scripts/build_stream_markdown.py | inline fix | ~20 |
+| 16:35 | Edited scripts/build_stream_markdown.py | 2→3 lines | ~40 |
+| 16:38 | Edited scripts/build_stream_markdown.py | inline fix | ~55 |
+| 16:48 | Edited scripts/build_stream_markdown.py | 7→10 lines | ~123 |
+| 16:49 | Edited run_replay_qwen.bat | 3→4 lines | ~28 |
+| 16:52 | Edited run_zhihu_live.bat | reduced (-6 lines) | ~54 |
+| 16:52 | Edited run_zhihu_live.bat | reduced (-7 lines) | ~36 |
+| 16:52 | Edited run_zhihu_live.bat | 3→2 lines | ~4 |
+
+## Session: 2026-05-31 13:44
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:52 | Edited utils.py | expanded (+10 lines) | ~168 |
+| 13:54 | Edited utils.py | modified _context_snippet() | ~4868 |
+| 13:55 | Edited run_dual_model.py | 1→6 lines | ~63 |
+| 13:55 | Edited run_dual_model.py | modified get() | ~420 |
+| 13:55 | Edited run_dual_model.py | 9→11 lines | ~136 |
+| 13:56 | Edited zhihuTTS_video.py | modified _transcribe_sensevoice() | ~476 |

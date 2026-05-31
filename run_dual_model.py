@@ -37,7 +37,12 @@ from zhihuTTS import (
     VIDEOS_DIR,
     TRANSCRIPT_APPENDIX_HEADING,
 )
-from utils import call_gemini, call_qwen
+from utils import (
+    call_gemini, call_qwen,
+    extract_qwen_critical_facts, extract_qwen_narrative_blocks,
+    ensure_qwen_critical_fact_appendix, ensure_qwen_narrative_appendix,
+    check_qwen_notebooklm_quality,
+)
 from google import genai
 from google.genai import types
 from openai import OpenAI
@@ -321,6 +326,26 @@ def main():
             print("  [Qwen-Assembly] ✗ 最终拼合失败，回退到串联输出")
             qwen_text = "\n\n---\n\n".join(window_notes)
 
+    # ── Phase 4b: Qwen QC + 确定性附录 ──────────────────────
+    qwen_qc: dict = {}
+    if qwen_text and window_notes:
+        print("\n  [QC] 检测压缩比 + 追加确定性附录...")
+        facts = extract_qwen_critical_facts(window_notes)
+        blocks = extract_qwen_narrative_blocks(window_notes)
+        qwen_text, _fact_qc = ensure_qwen_critical_fact_appendix(qwen_text, facts)
+        qwen_text, _narr_qc = ensure_qwen_narrative_appendix(qwen_text, blocks, transcript_text)
+        qwen_qc = check_qwen_notebooklm_quality(qwen_text, transcript_text, {})
+        ratio = qwen_qc["metrics"]["body_transcript_ratio"]
+        if qwen_qc["warnings"]:
+            for w in qwen_qc["warnings"]:
+                print(f"  [QC⚠] {w}")
+        else:
+            print(f"  [QC✓] body/transcript={ratio:.3f}, chars={qwen_qc['metrics']['body_chars']:,}")
+        if _fact_qc.get("appended"):
+            print(f"  [QC+] 追加关键事实索引: {_fact_qc['appended_facts']} 条")
+        if _narr_qc.get("appended"):
+            print(f"  [QC+] 追加叙事证据附录: {_narr_qc['appended_blocks']} 块")
+
     if qwen_text:
         with open(QWEN_OUTPUT, "w", encoding="utf-8") as f:
             f.write(f"# {VIDEO_STEM}\n\n")
@@ -354,6 +379,8 @@ def main():
                 "windows": window_count,
                 "window_success": sum(window_success),
                 "usage": qwen_total_usage,
+                "qc_warnings": qwen_qc.get("warnings"),
+                "qc_metrics": qwen_qc.get("metrics"),
             },
         },
         "preprocessing": {

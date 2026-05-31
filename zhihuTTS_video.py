@@ -332,6 +332,11 @@ def _sensevoice_segments(result: list[dict], duration_s: float) -> list[dict]:
     return sorted(segments, key=lambda seg: (seg["start"], seg["end"]))
 
 
+# Cache AutoModel instances keyed by (model, vad_model, device) — loading takes ~8s per chunk
+# on CPU; with 100+ chunks this is the dominant cost of transcribe_audio_chunked.
+_sensevoice_model_cache: dict = {}
+
+
 def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
     """用 FunASR SenseVoice 转写音频，并适配为现有 transcript shape。"""
     try:
@@ -347,16 +352,22 @@ def _transcribe_sensevoice(wav_path: Path, language: str = "zh") -> dict:
     # Set SENSEVOICE_MERGE_VAD=true only for short clips where text coherence matters more than precision.
     merge_vad = os.environ.get("SENSEVOICE_MERGE_VAD", "false").lower() in ("1", "true", "yes")
     merge_length_s = int(os.environ.get("SENSEVOICE_MERGE_LENGTH_S", "15"))
-    print(
-        f"  [SenseVoice] 加载 {SENSEVOICE_MODEL} "
-        f"(vad={SENSEVOICE_VAD_MODEL}, device={device}, merge_vad={merge_vad})..."
-    )
-    model = AutoModel(
-        model=SENSEVOICE_MODEL,
-        vad_model=SENSEVOICE_VAD_MODEL,
-        device=device,
-        disable_update=True,
-    )
+
+    cache_key = (SENSEVOICE_MODEL, SENSEVOICE_VAD_MODEL, device)
+    if cache_key not in _sensevoice_model_cache:
+        print(
+            f"  [SenseVoice] 加载 {SENSEVOICE_MODEL} "
+            f"(vad={SENSEVOICE_VAD_MODEL}, device={device}, merge_vad={merge_vad})..."
+        )
+        _sensevoice_model_cache[cache_key] = AutoModel(
+            model=SENSEVOICE_MODEL,
+            vad_model=SENSEVOICE_VAD_MODEL,
+            device=device,
+            disable_update=True,
+        )
+    else:
+        print(f"  [SenseVoice] 复用已加载模型 (device={device})...", flush=True)
+    model = _sensevoice_model_cache[cache_key]
     _gen_kwargs: dict = dict(
         input=str(wav_path),
         cache={},
