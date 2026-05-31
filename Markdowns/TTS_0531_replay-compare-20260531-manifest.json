@@ -1,0 +1,46 @@
+{
+  "video_stem": "replay-compare-20260531",
+  "date": "2026-05-31",
+  "models": {
+    "gemini": {
+      "model": "gemini-3.5-flash",
+      "output": "TTS_0531_replay-compare-20260531-gemini.md",
+      "chars": 8314,
+      "success": true
+    },
+    "qwen": {
+      "model": "qwen3.6-plus",
+      "output": "TTS_0531_replay-compare-20260531-qwen.md",
+      "chars": 12294,
+      "success": true,
+      "windows": 2,
+      "window_success": 2,
+      "usage": {
+        "input_tokens": 108863,
+        "output_tokens": 23683,
+        "total_tokens": 132546
+      },
+      "qc_warnings": [],
+      "qc_metrics": {
+        "h1_exists": true,
+        "body_chars": 12293,
+        "body_transcript_ratio": 0.243,
+        "required_sections_missing": [],
+        "timestamped_chapter_count": 2,
+        "chapter_fields_missing": [],
+        "code_fence_count": 8,
+        "prompt_keywords_missing": [],
+        "body_min_transcript_ratio": 0.2,
+        "source_frame_count": 0
+      }
+    }
+  },
+  "preprocessing": {
+    "frames": 408,
+    "segments": 188,
+    "transcript_chars": 50585,
+    "slide_count": 10,
+    "annotation_count": 200,
+    "backend_used": "sensevoice"
+  }
+}
