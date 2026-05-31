@@ -5,44 +5,30 @@
     "gemini": {
       "model": "gemini-3.5-flash",
       "output": "TTS_0531_实操带练：客服与标书工作流作业解析-gemini.md",
-      "chars": 12004,
+      "chars": 7219,
       "success": true
     },
     "qwen": {
       "model": "qwen3.6-plus",
       "output": "TTS_0531_实操带练：客服与标书工作流作业解析-qwen.md",
-      "chars": 9439,
+      "chars": 16856,
       "success": true,
       "windows": 2,
       "window_success": 2,
       "usage": {
-        "input_tokens": 101738,
-        "output_tokens": 13869,
-        "total_tokens": 115607
+        "input_tokens": 113754,
+        "output_tokens": 28460,
+        "total_tokens": 142214
       },
-      "qc_warnings": [
-        "qwen_missing_required_sections: ## 1. 视频元数据, ## 2. 核心知识字典, ## 3. 详尽内容解析",
-        "qwen_missing_chapter_fields: **核心论点：**, **详细展开：**, **视觉/屏幕内容：**, **重要金句/原话：**",
-        "qwen_overcompressed_body: body/transcript ratio 0.19, expected >= 0.20",
-        "qwen_missing_code_blocks: source contains prompt/config/code-like details but model body has no fenced code block"
-      ],
+      "qc_warnings": [],
       "qc_metrics": {
         "h1_exists": true,
-        "body_chars": 9438,
-        "body_transcript_ratio": 0.1866,
-        "required_sections_missing": [
-          "## 1. 视频元数据",
-          "## 2. 核心知识字典",
-          "## 3. 详尽内容解析"
-        ],
-        "timestamped_chapter_count": 9,
-        "chapter_fields_missing": [
-          "**核心论点：**",
-          "**详细展开：**",
-          "**视觉/屏幕内容：**",
-          "**重要金句/原话：**"
-        ],
-        "code_fence_count": 0,
+        "body_chars": 16856,
+        "body_transcript_ratio": 0.3332,
+        "required_sections_missing": [],
+        "timestamped_chapter_count": 2,
+        "chapter_fields_missing": [],
+        "code_fence_count": 10,
         "prompt_keywords_missing": [],
         "body_min_transcript_ratio": 0.2,
         "source_frame_count": 0
