@@ -833,6 +833,13 @@ def process_slice_with_recovery(
                         raise StreamEndedError(
                             f"yt-dlp reports stream offline: {refresh_error}"
                         ) from refresh_error
+                    # greenlet.error surfaced through refresh_and_get() — browser died,
+                    # stream has ended; convert to clean StreamEndedError so the run
+                    # loop writes the final manifest and exits with code 0.
+                    if "greenlet-stream-ended" in str(refresh_error):
+                        raise StreamEndedError(
+                            f"Playwright browser died during refresh — stream ended: {refresh_error}"
+                        ) from refresh_error
                     if keepalive and keepalive.is_stream_ended():
                         raise StreamEndedError("DOM confirms stream has ended") from refresh_error
                     redaction_stream = refreshed_stream or current_stream

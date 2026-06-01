@@ -1776,11 +1776,13 @@ def main() -> None:
     for w in manifest["warnings"]:
         print(f"  [warn] {w}")
 
-    provider_image_limit = GEMINI_IMAGE_HARD_LIMIT if provider == "gemini" else qwen_max_frames
-    if args.max_frames > 0:
-        image_limit = max(1, min(args.max_frames, provider_image_limit))
+    # --max-frames caps Gemini's total frame input for fair A/B tests.  For Qwen
+    # sliding-window, applying this cap reduces per-window frames and creates extra
+    # windows and API calls — the opposite of fair.  Qwen always uses --qwen-max-frames.
+    if provider == "gemini":
+        image_limit = max(1, min(args.max_frames, GEMINI_IMAGE_HARD_LIMIT)) if args.max_frames > 0 else GEMINI_IMAGE_HARD_LIMIT
     else:
-        image_limit = provider_image_limit
+        image_limit = qwen_max_frames
     qwen_windows: list[dict] = []
     qwen_window_summary: dict | None = None
     if synthesis_pass == "sliding-window":

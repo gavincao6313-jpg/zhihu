@@ -65,6 +65,9 @@ STREAM_ENDED_TEXTS = (
     "直播结束",
     "直播已暂停",
     "主播暂时离开",
+    "老师已退出",
+    "观看回放",
+    "直播间已关闭",
     "live has ended",
     "stream has ended",
     "this live event has ended",
@@ -76,6 +79,7 @@ STREAM_ENDED_TEXTS = (
 # Only treated as stream-ended after at least one chunk has been processed.
 STREAM_ENDED_TEXTS_POSTSTREAM = (
     "等待老师进入教室",
+    "直播未开始",
 )
 
 YTDLP_ENDED_PATTERNS = (
@@ -349,7 +353,22 @@ class PlaywrightKeepaliveStream:
         self._page.on("request", self._on_request)
         self._page.on("response", self._on_response)
         self._navigate()
-        return self.latest_stream(wait_seconds=self.wait_seconds)
+        # Retry up to 3 times: CC FLV auth_key generation is async and can miss the
+        # initial 8s window if Zhihu CDN is slow.  Re-navigate triggers the API again.
+        _MAX_URL_ATTEMPTS = 3
+        for attempt in range(_MAX_URL_ATTEMPTS):
+            try:
+                return self.latest_stream(wait_seconds=self.wait_seconds)
+            except RuntimeError:
+                if attempt >= _MAX_URL_ATTEMPTS - 1:
+                    raise
+                print(
+                    f"  [Playwright keepalive] startup attempt {attempt + 1}/{_MAX_URL_ATTEMPTS}: "
+                    f"no media URL captured, retrying in 5s…"
+                )
+                self._page.wait_for_timeout(5000)
+                self._navigate()
+        raise RuntimeError("unreachable")
 
     _MAX_CANDIDATES = 200
 
@@ -415,7 +434,19 @@ class PlaywrightKeepaliveStream:
             raise RuntimeError("Playwright keepalive page is not started")
         # Clear stale URLs so we never return an expired auth_key after reload
         self._candidates.clear()
-        self._page.reload(wait_until="domcontentloaded", timeout=self.timeout_ms)
+        try:
+            self._page.reload(wait_until="domcontentloaded", timeout=self.timeout_ms)
+        except Exception as exc:
+            # greenlet.error fires when Playwright's sync bridge tries to switch threads
+            # after the browser's event loop has already stopped — a reliable indicator
+            # that the stream has ended and the browser is dying.
+            exc_name = type(exc).__name__.lower()
+            if "greenlet" in exc_name or "greenlet" in str(exc).lower():
+                raise RuntimeError(
+                    f"greenlet-stream-ended: Playwright browser died during page reload "
+                    f"(stream likely ended): {exc}"
+                ) from exc
+            raise
         self._page.wait_for_timeout(1500)
         _activate_page_media_sync(self._page)
         if wait_seconds > 0:
