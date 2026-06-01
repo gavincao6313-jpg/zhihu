@@ -756,3 +756,8 @@
 | 13:55 | Edited run_dual_model.py | modified get() | ~420 |
 | 13:55 | Edited run_dual_model.py | 9→11 lines | ~136 |
 | 13:56 | Edited zhihuTTS_video.py | modified _transcribe_sensevoice() | ~476 |
+| 23:57 | Edited stream_extractors.py | 18→22 lines | ~142 |
+| 23:57 | Edited stream_extractors.py | modified range() | ~278 |
+| 23:57 | Edited stream_extractors.py | modified refresh_and_get() | ~300 |
+| 23:58 | Edited zhihuTTS_stream.py | modified is_ytdlp_stream_ended_error() | ~296 |
+| 23:58 | Edited scripts/build_stream_markdown.py | 5→7 lines | ~131 |

@@ -1498,7 +1498,12 @@
       "file": "zhihuTTS_video.py",
       "root_cause": "_transcribe_sensevoice() 每次调用都执行 AutoModel(...) 初始化；加载约 8s；长视频 188 分片 × 8s = 24 min 额外开销",
       "fix": "添加 _sensevoice_model_cache: dict = {}，以 (SENSEVOICE_MODEL, SENSEVOICE_VAD_MODEL, device) 为 key 缓存实例；只在首次加载时打印加载日志，复用时打印复用日志",
-      "tags": ["sensevoice", "performance", "singleton", "transcribe"],
+      "tags": [
+        "sensevoice",
+        "performance",
+        "singleton",
+        "transcribe"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-31T06:30:00.000Z"
@@ -1510,10 +1515,86 @@
       "file": "run_dual_model.py",
       "root_cause": "缺少 QC 体系（压缩比检测、关键事实附录、叙事证据附录），QC 函数只在 scripts/build_stream_markdown.py 中定义未被共享",
       "fix": "将 QC 函数提取到 utils.py 共享（extract_qwen_critical_facts、extract_qwen_narrative_blocks、ensure_*_appendix、check_qwen_notebooklm_quality 等）；run_dual_model.py Phase 4b 调用 QC 流水线并写入 manifest",
-      "tags": ["qwen", "qc", "overcompressed", "run_dual_model", "utils"],
-      "related_bugs": ["bug-089"],
+      "tags": [
+        "qwen",
+        "qc",
+        "overcompressed",
+        "run_dual_model",
+        "utils"
+      ],
+      "related_bugs": [
+        "bug-089"
+      ],
       "occurrences": 1,
       "last_seen": "2026-05-31T06:30:00.000Z"
+    },
+    {
+      "id": "bug-091",
+      "timestamp": "2026-06-01T15:57:32.720Z",
+      "error_message": "Function not marked async",
+      "file": "stream_extractors.py",
+      "root_cause": "Function uses await but wasn't declared async",
+      "fix": "Added async modifier",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-01T15:57:32.720Z"
+    },
+    {
+      "id": "bug-092",
+      "timestamp": "2026-06-01T15:58:58.595Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 5→7 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-01T15:58:58.595Z"
+    },
+    {
+      "id": "bug-093",
+      "timestamp": "2026-06-02",
+      "error_message": "greenlet.error: cannot switch to a different thread — Python 进程崩溃，BAT [2/4][3/4][4/4] 全部跳过",
+      "file": "stream_extractors.py, zhihuTTS_stream.py",
+      "root_cause": "直播结束后 is_stream_ended() 未检测到结束信号（DOM 尚未更新），进入 refresh_and_get() → page.reload() → Playwright greenlet 在错误线程上触发，进程崩溃，exit code 非零，BAT 跳过 merge/synthesis",
+      "fix": "refresh_and_get() 捕获 greenlet.error 转为 RuntimeError('greenlet-stream-ended:...')；process_slice_with_recovery() 检测该标记转为 StreamEndedError；主循环正常写 manifest 后 exit(0)",
+      "tags": ["greenlet", "stream-ended", "playwright", "bat-errorlevel", "zhihuTTS_stream", "stream_extractors"],
+      "related_bugs": ["bug-094"],
+      "occurrences": 2,
+      "last_seen": "2026-06-02"
+    },
+    {
+      "id": "bug-094",
+      "timestamp": "2026-06-02",
+      "error_message": "启动灾难：4次尝试才成功，3个孤立 base-marker 文件",
+      "file": "stream_extractors.py",
+      "root_cause": "PlaywrightKeepaliveStream.start() 只等待 8s 捕获 CC FLV URL，无重试，Zhihu CC auth_key 生成存在随机延迟，8s 窗口常常错过，一次失败即崩溃，WIN 必须手动重启",
+      "fix": "start() 增加最多3次重试循环（5s 间隔），每次失败重新 _navigate() 触发 CC API，3次全失败才真正报错",
+      "tags": ["startup", "playwright", "cc-flv", "url-capture", "retry", "stream_extractors"],
+      "related_bugs": ["bug-093"],
+      "occurrences": 3,
+      "last_seen": "2026-06-02"
+    },
+    {
+      "id": "bug-095",
+      "timestamp": "2026-06-02",
+      "error_message": "--fair-ab/--max-frames 128 导致 Qwen sliding-window 产生5窗口6次API调用",
+      "file": "scripts/build_stream_markdown.py",
+      "root_cause": "--max-frames 对 Gemini 是 total frame cap，对 Qwen 错误地变成了 per-window cap，128帧/窗 → 5窗口×6调用，反而增加 API 成本",
+      "fix": "image_limit 逻辑分支：Gemini 受 --max-frames 约束；Qwen 始终使用 --qwen-max-frames 作为 per-window 上限，--max-frames 对 Qwen 无效",
+      "tags": ["qwen", "sliding-window", "max-frames", "api-calls", "build_stream_markdown"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02"
     }
   ]
 }

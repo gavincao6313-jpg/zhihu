@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-31T05:56:44.406Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-01T15:58:58.501Z
 > Files: 42 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -11,9 +11,9 @@
 - `run_replay_qwen.bat` (~631 tok)
 - `run_single_file.py` — Run zhihuTTS file pipeline on a single video for A/B testing. (~280 tok)
 - `run_zhihu_live.bat` (~5720 tok)
-- `stream_extractors.py` — URL/page extractor layer for stream/replay inputs; routes known hosts to yt-dlp or Playwright, captures media URLs/headers, and manages Playwright keepalive for Zhihu live. (~9000 tok)
+- `stream_extractors.py` — class: is_ytdlp_stream_ended_error, infer_media_type, analyze_url_route, extract_with_ytdlp + 1 more (~6476 tok)
 - `utils.py` — Shared utilities + Qwen QC: call_gemini/call_qwen、extract_qwen_critical_facts、extract_qwen_narrative_blocks、ensure_qwen_critical/narrative_appendix、check_qwen_notebooklm_quality、check_qwen_fact/narrative_retention。 (~8796 tok)
-- `zhihuTTS_stream.py` — Stream/replay/live chunk capture and transcription pipeline; resolves stream `base_stem`, writes chunk artifacts/manifests, supports continuous HLS per-run work dirs, optional Gemini notes, and `--base-marker` for wrappers. (~18000 tok)
+- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time, safe_name + 1 more (~14162 tok)
 - `zhihuTTS_video.py` — 关键帧提取 + SenseVoice/Whisper 转写（_sensevoice_model_cache 单例，避免每 chunk 重复加载 AutoModel）。 (~8432 tok)
 
 ## .claude/
@@ -66,7 +66,7 @@
 
 ## scripts/
 
-- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~25026 tok)
+- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~24379 tok)
 - `convert_payload_to_chunks.py` — Convert single payload.json to per-chunk stream format for build_stream_markdown.py. (~1548 tok)
 - `live_sectioned_synthesis.py` — P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents. (~30063 tok)
 - `merge_stream_chunks.py` — parse_chunk_start, parse_timestamp, load_chunk_lines, load_chunk_slides (~2020 tok)
