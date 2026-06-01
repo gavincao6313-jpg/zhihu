@@ -1,8 +1,15 @@
 # 知乎直播转写标准操作流程 (SOP)
 
-> **状态**: 生产就绪 | **最后验证**: 2026-06-01 | **版本**: v1.0
+> **状态**: 生产就绪 | **最后验证**: 2026-06-02 | **版本**: v1.1
 >
 > 本文档是启动知乎 CC / 小鹅通直播转写的**唯一权威流程**。禁止凭记忆或聊天上下文操作。
+>
+> **v1.1 变更 (2026-06-02)**:
+> - 启动方式改为双击 `START_LIVE.bat`，废弃 PowerShell 启动命令
+> - 分支更正为 `main`（feature/stream-transcript-validation 已合并）
+> - 默认模式移除 `--no-gemini`（greenlet crash 已修复，自动合成稳定）
+> - Qwen 合成命令修正（`--max-frames 128` → `--qwen-max-frames 250`）
+> - 修正启动成功标志（URL-slice 模式输出格式）
 
 ---
 
@@ -49,49 +56,50 @@ Set-Location d:\zhihu\zhihu_url
 ```powershell
 Set-Location d:\zhihu\zhihu_url
 git branch --show-current
-# 直播转写必须使用: feature/stream-transcript-validation
+# 直播转写必须使用: main
 # 如果不在该分支:
 git stash
-git switch feature/stream-transcript-validation
+git switch main
 git pull --ff-only
 ```
+
+> **注意**: `feature/stream-transcript-validation` 已于 2026-06-02 合并到 `main`，请切换到 `main` 分支。
 
 ---
 
 ## 二、启动流水线
 
-### 2.1 核心命令（唯一正确方式）
+### 2.1 核心操作（唯一正确方式）
 
-```powershell
-# ⚠️ 必须使用此精确命令格式！其他变体已被验证会失败！
+**双击 `START_LIVE.bat`**，在弹出的 CMD 窗口中粘贴直播间 URL，回车即可。
 
-$url = '<直播间URL>'  # 替换为实际 URL
-$workDir = 'd:\zhihu\zhihu_url'
+无需 PowerShell，无需手动处理 URL 中的特殊字符（`&` `?` `=` 均可直接粘贴）。
 
-# 使用 Start-Process + cmd /c 创建完全独立进程
-$cmdArgs = '/c ""d:\zhihu\zhihu_url\run_zhihu_live.bat" "' + $url + '" --no-gemini"'
-Start-Process -FilePath "cmd.exe" -ArgumentList $cmdArgs -WindowStyle Hidden -WorkingDirectory $workDir
+```
+d:\zhihu\zhihu_url\
+└── START_LIVE.bat   ← 双击这个文件
 ```
 
-### 2.2 为什么必须这样启动
+> **为什么不用 PowerShell 启动？**
+>
+> | 方式 | 问题 |
+> |------|------|
+> | PowerShell 直接调 `.bat "URL"` | 引号处理导致 URL 拆分，参数错误 |
+> | `Start-Process -ArgumentList` 数组 | PS 5.1 引号转义不可靠，进程秒退 |
+> | `cmd /c "bat URL"` 在背景任务 | 背景任务停止时杀掉整个进程树 |
+> | **双击 `START_LIVE.bat`** | CMD 原生启动，无引号问题，可见窗口 ✅ |
 
-| 错误方式 | 问题 |
-|----------|------|
-| `.\run_zhihu_live.bat "URL"` 直接在 PowerShell | URL 中的 `?is_hybrid=1` 被 cmd 解析为多个参数 |
-| `cmd /c "run_zhihu_live.bat URL"` (无外层引号) | `&` 或特殊字符导致参数截断 |
-| `Start-Process` 用 `-ArgumentList` 数组 | PowerShell 5.1 的引号转义不可靠 |
-| 包在 PowerShell 背景任务中 | 任务停止会杀掉整个进程树 |
+### 2.2 Provider 选择
 
-**正确方式**: `Start-Process -WindowStyle Hidden` + `cmd /c` + 外层双引号包裹整个命令，创建**完全独立**的进程树，不受 PowerShell 会话影响。
+`START_LIVE.bat` 默认使用 `run_zhihu_live.bat` 的默认配置（转录完成后自动合成 Gemini 笔记）。
 
-### 2.3 Provider 选择
+如需调整，在 `START_LIVE.bat` 的 `call run_zhihu_live.bat` 行后追加参数：
 
-| 模式 | 参数 | 说明 |
+| 模式 | 修改 `START_LIVE.bat` 中的 call 行 | 说明 |
 |------|------|------|
-| 仅转录（推荐） | `--no-gemini` | 先转录，后手动跑双模型合成 |
-| Gemini 合成 | `--provider gemini` | 转录后自动用 Gemini 生成笔记 |
-| Qwen 合成 | `--provider qwen` | 转录后自动用 Qwen 生成笔记 |
-| 干运行 | `--dry-run` | 仅打印计划，不执行 |
+| 默认（Gemini 自动合成） | `call run_zhihu_live.bat` | 转录+合成全自动，**推荐** |
+| 仅转录 | `call run_zhihu_live.bat --no-gemini` | 合成后手动跑 |
+| 干运行 | `call run_zhihu_live.bat --dry-run` | 仅打印计划，不执行 |
 
 ---
 
@@ -110,13 +118,15 @@ Get-ChildItem "d:\zhihu\zhihu_url\logs" -File | Sort-Object LastWriteTime -Desce
 }
 ```
 
-**成功标志**（日志中必须出现）:
+**成功标志**（窗口中必须出现）:
 ```
-=== HLS Continuous mode ===
-Name    : live_YYYYMMDD_<页面标题>
-Work dir: ...\.stream\live_YYYYMMDD_...\...
-Chunk   : 60.0s
-[Recorder] Session XXXXXXXXXX → ...\seg_XXXXXXXXXX_%06d.ts
+Input extractor: playwright-keepalive (flv)
+Page URL host: view.csslcloud.net
+Probing remote media...
+Source: HH:MM:SS NNNNN bytes ...
+Live mode: running until stream ends (no duration limit).
+
+=== Chunk 1/∞: 00:00:00 + 01:00 ===
 ```
 
 ### 3.2 持续验证（5 分钟后）
@@ -164,10 +174,12 @@ Set-Location d:\zhihu\zhihu_url\scripts
   --base $base --provider gemini --output-label gemini35 `
   --runs-dir "..\runs" --markdowns-dir "..\Markdowns"
 
-# Qwen 合成（公平对比: 128 帧）
+# Qwen 合成（sliding-window，250 帧/窗）
 & "d:\zhihu\zhihu_file\.venv-sensevoice\Scripts\python.exe" "build_stream_markdown.py" `
-  --base $base --provider qwen --output-label qwen --max-frames 128 `
+  --base $base --provider qwen --output-label qwen `
+  --synthesis-pass sliding-window --qwen-max-frames 250 `
   --runs-dir "..\runs" --markdowns-dir "..\Markdowns"
+# 注意: --max-frames 对 Qwen 无效，请使用 --qwen-max-frames
 ```
 
 ---
@@ -263,17 +275,17 @@ logs/
 
 ## 八、快速参考卡片
 
-```powershell
-# === 启动直播转写（复制粘贴，替换 URL）===
-$url = '<PASTE_URL_HERE>'
-$workDir = 'd:\zhihu\zhihu_url'
-$cmdArgs = '/c ""d:\zhihu\zhihu_url\run_zhihu_live.bat" "' + $url + '" --no-gemini"'
-Start-Process -FilePath "cmd.exe" -ArgumentList $cmdArgs -WindowStyle Hidden -WorkingDirectory $workDir
-# 等待 30 秒后执行验证步骤
+```
+=== 启动 ===
+双击: d:\zhihu\zhihu_url\START_LIVE.bat
+粘贴 URL，回车
+（无需 PowerShell，无需处理特殊字符）
+```
 
-# === 验证运行 ===
+```powershell
+# === 验证运行（30 秒后）===
 Get-Process -Name "python","ffmpeg" -ErrorAction SilentlyContinue
-Get-ChildItem "d:\zhihu\zhihu_url\logs" -File | Sort-Object LastWriteTime -Descending | Select-Object -First 1 | ForEach-Object { Get-Content $_.FullName -Tail 5 -Encoding UTF8 }
+# 期望: python x2, ffmpeg x1
 
 # === 查看进度 ===
 Get-ChildItem "d:\zhihu\zhihu_url\runs\stream-live_*chunk*.md" | Sort-Object Name | Select-Object -Last 5

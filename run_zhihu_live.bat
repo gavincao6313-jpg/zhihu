@@ -27,6 +27,8 @@ set "AUTH_STATE=%SCRIPT_DIR%zhihu_auth_state.json"
 set "STREAM_WORK_DIR=%SCRIPT_DIR%Videos\.stream"
 set "PAGE_URL=%~1"
 set "NAME=%~2"
+:: START_LIVE.bat 通过此环境变量安全传递含 & 的 URL（规避 cmd 参数解析）
+if "!PAGE_URL!"=="" if not "!ZHIHU_PAGE_URL!"=="" set "PAGE_URL=!ZHIHU_PAGE_URL!"
 
 :: ---- 未显式设置 GEMINI_API_KEY 时自动回退到 OPENCLAW_GOOGLE_API_KEY ----
 if "!GEMINI_API_KEY!"=="" if not "!OPENCLAW_GOOGLE_API_KEY!"=="" (
