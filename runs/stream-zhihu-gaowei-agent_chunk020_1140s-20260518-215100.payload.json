@@ -1,0 +1,39 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk020_1140s",
+  "full_text": "[00:00:00 - 00:01:00] 不尔就是他是否输入成功了。然后我这里面呢长期记忆往里面去写啊，基本上你看这个我也在跟他去说啊，做我女朋友好不好啊，然后。这个这个。对话流的这个体系依然把我拒绝啊依然把我拒绝。然后但它存储的内容就是这样的，它这个这个ro是user，然后countent是做我女朋友好不好？然后另外第二轮的这个对话就是ro，是啊我的这个助理，这是他的countent。😀哎呀，反正反正就是。就是这个样子了就是这个样子了，对吧？然后它的记忆组件可以自动的做概要的存储，做概要的存储。这接入我就特别像G特别像chtGBT所去干的事情，特别强。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk020_1140s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk020_1140s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk020_1140s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.3926
+    },
+    {
+      "type": "slide",
+      "frame_idx": 46,
+      "diff": 0.3285
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 0,
+    "frames_total": 3,
+    "text_chars": 282
+  }
+}

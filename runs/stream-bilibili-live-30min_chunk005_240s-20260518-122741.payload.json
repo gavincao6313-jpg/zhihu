@@ -1,0 +1,184 @@
+{
+  "video_name": "bilibili-live-30min_chunk005_240s",
+  "full_text": "[00:00:00 - 00:00:58] 🎼梦想更近，让希望继续智能融合，算网一体。舒安专家AI智选联通云。传承创新，匠新筑梦CCTV民族匠新品牌。来看天气，今天下午到明天中午，从山东经过安徽、湖北到广西以及广东等地的部分地区，将会出现大到暴雨。其中，在湖北、湖南、贵州、广西、广东局地还将下起大暴雨，上述部分地区伴有短时强降水甚至雷暴大风等强对流天气。来看城市天气预报。🎼8度，晋城16到23度，邯郸18到25度，鹤壁17到24度，安庆24到29度。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2407"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=slide diff=0.317"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.1993"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=slide diff=0.6369"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=slide diff=0.7091"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=slide diff=0.3102"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.1951"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.2135"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk005_240s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.3422
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.2407
+    },
+    {
+      "type": "slide",
+      "frame_idx": 5,
+      "diff": 0.317
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.1993
+    },
+    {
+      "type": "slide",
+      "frame_idx": 7,
+      "diff": 0.6369
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.0283
+    },
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.7091
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.2366
+    },
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.3102
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.2105
+    },
+    {
+      "type": "slide",
+      "frame_idx": 25,
+      "diff": 0.4407
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.0787
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.2135
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.1951
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2135
+    }
+  ],
+  "stats": {
+    "slide_changes": 6,
+    "annotations": 9,
+    "frames_total": 19,
+    "text_chars": 227
+  }
+}

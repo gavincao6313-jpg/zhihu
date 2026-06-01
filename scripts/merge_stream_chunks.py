@@ -6,7 +6,7 @@ into semantic sections at slide-change keyframe boundaries, and writes a single
 structured Markdown file — matching the format of replay-20260518-final.md.
 
 Usage (Windows):
-    python scripts/merge_stream_chunks.py --base zhihu-gaowei-agent-20260518
+    python scripts\merge_stream_chunks.py --base zhihu-gaowei-agent-20260518
 
 Usage (Mac/Linux):
     python scripts/merge_stream_chunks.py --base zhihu-gaowei-agent-20260518
@@ -17,17 +17,26 @@ Options:
     --out        Output .md path (default: runs/stream-{base}-merged.md)
 """
 import argparse, json, re, sys
-from collections import defaultdict
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import extract_run_ts, fmt_ts
+
+def fmt_ts(seconds: float) -> str:
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = int(seconds % 60)
+    return f"{h:02d}:{m:02d}:{s:02d}"
 
 
 def parse_chunk_start(path: Path) -> int:
     """Extract start_s from filename like stream-base_chunkXXX_1234s-timestamp.ext"""
     m = re.search(r'_chunk\d+_(\d+)s[-.]', path.name)
     return int(m.group(1)) if m else 0
+
+
+def extract_run_ts(path: Path) -> str:
+    """Extract YYYYMMDD-HHMMSS run timestamp from filename. Used to group chunks by run."""
+    m = re.search(r'-(\d{8}-\d{6})\.global-transcript', path.name)
+    return m.group(1) if m else "00000000-000000"
 
 
 def parse_timestamp(ts_str: str) -> float:
@@ -72,7 +81,7 @@ def main() -> None:
     ap.add_argument("--base",     required=True,  help="Stream base name")
     ap.add_argument("--runs-dir", default="runs", help="Directory with chunk files")
     ap.add_argument("--out",      default=None,   help="Output markdown path")
-    ap.add_argument("--run-ts",   default=None,   help="Use specific run timestamp YYYYMMDD-HHMMSS (default: latest)")
+    ap.add_argument("--run-ts",   default=None,   help="Filter to chunks whose completion timestamp matches YYYYMMDD-HHMMSS (default: all matching chunks)")
     args = ap.parse_args()
 
     runs_dir = Path(args.runs_dir)
@@ -83,33 +92,19 @@ def main() -> None:
         print(f"ERROR: no files matching {runs_dir / pattern}", file=sys.stderr)
         sys.exit(1)
 
-    # Group by per-chunk completion timestamp — used only for --run-ts disambiguation.
-    # Each chunk file's trailing timestamp is its own completion time, not a run id.
-    groups: dict[str, list[Path]] = defaultdict(list)
-    for f in all_found:
-        groups[extract_run_ts(f)].append(f)
-
     if args.run_ts:
-        if args.run_ts not in groups:
-            print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {sorted(groups)}", file=sys.stderr)
+        # Manual override: filter to chunks with a specific completion timestamp
+        chunk_files = [f for f in all_found if extract_run_ts(f) == args.run_ts]
+        if not chunk_files:
+            available = sorted({extract_run_ts(f) for f in all_found})
+            print(f"ERROR: run-ts '{args.run_ts}' not found. Available: {available}", file=sys.stderr)
             sys.exit(1)
-        chunk_files = sorted(groups[args.run_ts], key=parse_chunk_start)
-        selected_ts = args.run_ts
+        print(f"Found {len(chunk_files)} chunks in {runs_dir} (run-ts filter: {args.run_ts})")
     else:
-        if len(groups) > 1:
-            # Each chunk has its own completion ts, so len(groups)==len(chunks) for
-            # a normal live run. Don't dump the full list — it's noise.
-            print(
-                f"[warn] base '{args.base}' has {len(all_found)} chunks across"
-                f" {len(groups)} timestamp groups — merging ALL chunks as stop-gap."
-                f" If multiple live sessions share this base, results may mix sessions."
-                f" (--run-ts targets per-chunk timestamps, not session ids;"
-                f" do not rely on it until run-manifest is implemented)"
-            )
-        chunk_files = sorted(all_found, key=parse_chunk_start)
-        selected_ts = extract_run_ts(chunk_files[-1])
+        chunk_files = all_found
+        print(f"Found {len(chunk_files)} chunks in {runs_dir}")
 
-    print(f"Found {len(chunk_files)} chunks in {runs_dir} (run: {selected_ts})")
+    chunk_files = sorted(chunk_files, key=parse_chunk_start)
 
     # Collect all sentences and all slide times across chunks
     all_sentences: list[tuple[float, str]] = []

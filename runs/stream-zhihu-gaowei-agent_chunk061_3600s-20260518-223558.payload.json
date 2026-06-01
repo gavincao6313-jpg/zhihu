@@ -1,0 +1,129 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk061_3600s",
+  "full_text": "[00:00:00 - 00:01:00] 服务需要好的背景和资质。如果做养老是重资产，如同泰康，对吧？慎重介入娱乐是非常好的机会，选择有消费能力的引发人群，这是一个非常好的生意。这个是讲这块它的逻辑和未来给大家去画一条能走的路径吧，好吗？然后今天。。大家时间比较的多，然后总结一下。然后呢，因为这个这个互联网只能做锤类，大模型可以跳出这个模式可以宽口径的方法去走。广义痛点定位人群梳理需求和构建产品，可以用这种更加广义的产品构建方法去走定位人群的话，还是要去找好人群画像和它的需求，以及它后续的付费可能性。记忆的分层。这个大家要多多去看一看核心画像，概要记忆和碎片记忆三层，核心点是在该要和碎片之中，我们应该如何去做相应的这个权衡以及相应的设计，对吧？然后最后是这个整体的结构图，希望大家多来去做理解。然后另外关于这个。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0219"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.048"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1882"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.1247"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk061_3600s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0211
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.0219
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.2228
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.048
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.1882
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.1247
+    },
+    {
+      "type": "slide",
+      "frame_idx": 53,
+      "diff": 0.4496
+    },
+    {
+      "type": "slide",
+      "frame_idx": 57,
+      "diff": 0.4352
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 6,
+    "frames_total": 15,
+    "text_chars": 361
+  }
+}

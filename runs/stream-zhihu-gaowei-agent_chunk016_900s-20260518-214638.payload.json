@@ -1,0 +1,34 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk016_900s",
+  "full_text": "[00:00:00 - 00:01:00] 这个喂。如果你做成对话流的话，意味着最后它展示的时候是它能够是这个样子的啊，对吧？销售环节可以当然可以用记忆了，对吧？那它是可以有背景，可以有头像，可以有一个这个白毛萝莉跟你聊天的啊。来，今天有了要跟你聊什么样的故事？昨天。去坐飞机了这个样式你们就觉得okK了是吧啊？嗯，我们加点声音试试吗嗯。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk016_900s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk016_900s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk016_900s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.0743
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 170
+  }
+}

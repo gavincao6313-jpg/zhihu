@@ -1,0 +1,149 @@
+{
+  "created_at": "2026-05-18T21:15:34",
+  "url_host": "stream-ali1.csslcloud.net",
+  "extractor": "direct",
+  "media_type": "flv",
+  "source": {
+    "duration_s": 0.0,
+    "size_bytes": 0,
+    "bit_rate": 0,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "fps": "15/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "44100",
+      "channels": 2
+    },
+    "extractor": "direct",
+    "media_type": "flv"
+  },
+  "auth_header_names": [],
+  "start_s": 0.0,
+  "duration_s": 120.0,
+  "live_mode": false,
+  "stream_ended_reason": "",
+  "chunk_duration_s": 30.0,
+  "chunks": [
+    {
+      "created_at": "2026-05-18T21:15:34",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 0.0,
+        "duration_s": 30.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-live-test_chunk001_0s.mp4",
+        "size_bytes": 2858790,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 12.5,
+        "segments": 1,
+        "transcript_chars": 120,
+        "elapsed_s": 41.08,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test_chunk001_0s-20260518-211534.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test_chunk001_0s-20260518-211534.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test_chunk001_0s-20260518-211534.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test_chunk001_0s-20260518-211534.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 1,
+        "total": 2
+      },
+      "transcript_preview": "[00:00:00 - 00:00:30] 然后包括我这里面这个这个所有的近期的对话，包括时间点都是非常确认的。然后这里面又出现难过是需要安慰的这样一个状态啊。好，我们说这个为什么被骂要请假和你去看电影。我们看这这样他会用什么方法答啊。啊。",
+      "global_transcript_preview": "[00:00:00 - 00:00:30] 然后包括我这里面这个这个所有的近期的对话，包括时间点都是非常确认的。然后这里面又出现难过是需要安慰的这样一个状态啊。好，我们说这个为什么被骂要请假和你去看电影。我们看这这样他会用什么方法答啊。啊。",
+      "global_transcript_text": "[00:00:00 - 00:00:30] 然后包括我这里面这个这个所有的近期的对话，包括时间点都是非常确认的。然后这里面又出现难过是需要安慰的这样一个状态啊。好，我们说这个为什么被骂要请假和你去看电影。我们看这这样他会用什么方法答啊。啊。"
+    },
+    {
+      "created_at": "2026-05-18T21:16:15",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 30.0,
+        "duration_s": 30.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-live-test_chunk002_30s.mp4",
+        "size_bytes": 2361985,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 6.22,
+        "segments": 1,
+        "transcript_chars": 217,
+        "elapsed_s": 33.77,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test_chunk002_30s-20260518-211615.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test_chunk002_30s-20260518-211615.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test_chunk002_30s-20260518-211615.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test_chunk002_30s-20260518-211615.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 2,
+        "total": 2
+      },
+      "transcript_preview": "[00:00:00 - 00:00:30] 到你身边用笔说轻轻戳了你手心，你跟老板请假说和我出来，他还骂你，这也太不讲道理吧。本来该你休的假，凭什么不让你走啊，把冰柠檬茶再往你手盆地的，也别委屈了。等一下看完电影，我请你吃你最爱的甜品，再算我给你赔罪，好不好？歪头眨着眼，再说了，我们拉过钩要一起出来放松的。老板骂两句说算什么？我给你骂回去行不行？轻轻的捏捏捏你鼓起了脸乖了，气我鼓的就不好看了。啊啊，你们觉得你们觉得是不是算是我把。",
+      "global_transcript_preview": "[00:00:30 - 00:01:00] 到你身边用笔说轻轻戳了你手心，你跟老板请假说和我出来，他还骂你，这也太不讲道理吧。本来该你休的假，凭什么不让你走啊，把冰柠檬茶再往你手盆地的，也别委屈了。等一下看完电影，我请你吃你最爱的甜品，再算我给你赔罪，好不好？歪头眨着眼，再说了，我们拉过钩要一起出来放松的。老板骂两句说算什么？我给你骂回去行不行？轻轻的捏捏捏你鼓起了脸乖了，气我鼓的就不好看了。啊啊，你们觉得你们觉得是不是算是我把。",
+      "global_transcript_text": "[00:00:30 - 00:01:00] 到你身边用笔说轻轻戳了你手心，你跟老板请假说和我出来，他还骂你，这也太不讲道理吧。本来该你休的假，凭什么不让你走啊，把冰柠檬茶再往你手盆地的，也别委屈了。等一下看完电影，我请你吃你最爱的甜品，再算我给你赔罪，好不好？歪头眨着眼，再说了，我们拉过钩要一起出来放松的。老板骂两句说算什么？我给你骂回去行不行？轻轻的捏捏捏你鼓起了脸乖了，气我鼓的就不好看了。啊啊，你们觉得你们觉得是不是算是我把。"
+    }
+  ],
+  "combined_transcript_path": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test-20260518-211649.combined-transcript.txt",
+  "manifest_json_path": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test-20260518-211649.manifest.json",
+  "manifest_md_path": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-live-test-20260518-211649.manifest.md",
+  "combined_transcript_text": "[00:00:00 - 00:00:30] 然后包括我这里面这个这个所有的近期的对话，包括时间点都是非常确认的。然后这里面又出现难过是需要安慰的这样一个状态啊。好，我们说这个为什么被骂要请假和你去看电影。我们看这这样他会用什么方法答啊。啊。\n\n[00:00:30 - 00:01:00] 到你身边用笔说轻轻戳了你手心，你跟老板请假说和我出来，他还骂你，这也太不讲道理吧。本来该你休的假，凭什么不让你走啊，把冰柠檬茶再往你手盆地的，也别委屈了。等一下看完电影，我请你吃你最爱的甜品，再算我给你赔罪，好不好？歪头眨着眼，再说了，我们拉过钩要一起出来放松的。老板骂两句说算什么？我给你骂回去行不行？轻轻的捏捏捏你鼓起了脸乖了，气我鼓的就不好看了。啊啊，你们觉得你们觉得是不是算是我把。",
+  "preview": "[00:00:00 - 00:00:30] 然后包括我这里面这个这个所有的近期的对话，包括时间点都是非常确认的。然后这里面又出现难过是需要安慰的这样一个状态啊。好，我们说这个为什么被骂要请假和你去看电影。我们看这这样他会用什么方法答啊。啊。\n\n[00:00:30 - 00:01:00] 到你身边用笔说轻轻戳了你手心，你跟老板请假说和我出来，他还骂你，这也太不讲道理吧。本来该你休的假，凭什么不让你走啊，把冰柠檬茶再往你手盆地的，也别委屈了。等一下看完电影，我请你吃你最爱的甜品，再算我给你赔罪，好不好？歪头眨着眼，再说了，我们拉过钩要一起出来放松的。老板骂两句说算什么？我给你骂回去行不行？轻轻的捏捏捏你鼓起了脸乖了，气我鼓的就不好看了。啊啊，你们觉得你们觉得是不是算是我把。"
+}

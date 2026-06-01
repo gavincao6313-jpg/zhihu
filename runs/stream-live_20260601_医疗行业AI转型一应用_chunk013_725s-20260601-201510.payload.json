@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk013_725s",
+  "full_text": "[00:00:00 - 00:00:59] 人类之间的这些有经验的医生，这是真正有经验的医生，懂了吧？啊，这都是主这都是主任级别干的事儿。然后望闻问切，你没有忘了去做，对吧？所以准确度就是在有限的信息里去求得更好效果去求得更好效果，这就是AI医疗的关念，这就是AI医疗的关念，对吧？然后我们拿一个工作流模拟一下这个事情啊，我们拿一个工作流模拟一下。😊这个呃然后这个呢是我们看一下我们模拟出来这个工作流的输入和输出的状态。我们拿一份体检报告，我们不做OCR了，我们就直接把这份体检报告的数据直接扔给他。男，45岁，这不是我的啊，我先说一遍，这不是我的。😡我也不到45岁啊，体检报告显示空腹血糖7.2，糖化血红蛋白6.8，总胆固醇6.1，低密度脂蛋白胆固醇4，然后。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000012\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000012\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.2901"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000012\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.2901"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.2901
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 331
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk032_1873s",
+  "full_text": "[00:00:00 - 00:01:00] 诊断报告里面的。然后这一部分呢就是精准度的关键啊，也是如果说大家如果说是要把它变成一个企业级别的时候的话，需要在这边去补充的非常多的东西。包括数据量，因为我们的在这面是一个demo，所以数据量肯定是远远不够的。第二是你的清洗质量。也就是说你要通过这个把它的呃因为我们第二部分也就是也会讲这里面的数呃有一些在尤其是医疗或者是专业领域数据清洗的一些标准，以及你的病的相应的覆盖度。好，那我们把这块过了之后的话，然后进入到了这个风险评估的部分，风险评估的部分。然后这里面的话，我们就把这个诊断的结果，以及于它的原始数据两个都扔进去。然后我要让他去给我去做一个这个ris的result。然后这里面的提示词呢？因为我们的核心其实是一套规则啊，这是一套规则。为什么它是一套规则。你会发现在这边的话，我已经按照一定的规则做判断了。我。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000031\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=slide diff=0.4389"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000031\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=slide diff=0.4389"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000031\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.4091"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000031\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.2241"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000031\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.2241"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 1,
+      "diff": 0.4389
+    },
+    {
+      "type": "slide",
+      "frame_idx": 32,
+      "diff": 0.4091
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.2241
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 1,
+    "frames_total": 5,
+    "text_chars": 382
+  }
+}

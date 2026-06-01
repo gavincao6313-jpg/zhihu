@@ -1,0 +1,54 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk157_9420s",
+  "full_text": "[00:00:00 - 00:01:01] 不就是个很随手的去搞的一个一个小小东西嘛？刚那是啥，那是那是我这个小家伙给我记录的，我这一天都干了什么活儿。你看看这我干了一天，我哪些软件。我正在用我就发现我的这个PPT已经用了2小时555分钟了。Crome用了1小时18分钟，微信用了一小时15分钟呃，cloud用了44分钟啊，预览用了10分钟CCI我用了4分钟，访达用了3分钟，然后呃还有腾讯会议用了2分钟不对呀，领腾腾哦，它主要是不是在我的窗口最前端，它就会这样子。对吧中医数据咱就不说，那是啥了，这个不敢说to B。to B,你不觉得啊这个东西不要做出它的形态来。to B,你们知道这玩意儿，我要是我要是没良心。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000156\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000156\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.6893"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000156\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000156\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0324"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000156\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=slide diff=0.6969"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.6893
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0324
+    },
+    {
+      "type": "slide",
+      "frame_idx": 56,
+      "diff": 0.6969
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 1,
+    "frames_total": 5,
+    "text_chars": 307
+  }
+}

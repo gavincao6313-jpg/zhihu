@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk003_120s",
+  "full_text": "[00:00:00 - 00:01:00] 产品其实是比较肆虐的一个状态啊。其实我们的父母有这么一款产品，告诉他什么东西是不能用的。我觉得其实是一个蛮好的一件事情。我不知道大家能不能听明白我在说什么啊，然后所以这是阿福最重要的。他其实是能够去拍体检报告，他能够去拍一款药，哪怕是全英文。他拍完之后的话，也能够去解释这款药，他的使用方法，他的对症的一些逻辑，我觉得还是比较ok的一款产品，然后他的有一些核心的功能，就包括这里面的话，这个每天的提醒。然后里面也会去做了一些A，包括比如说心灵疗医师，然后他也和一些这个传统的医疗器械厂商，比如说于悦做了一些安奈堂，然后约的血压管家，也就是说他会把设备和这个智能体，在数据层面去做打通，然后也签了一些医院，然后包括呃这个上海还有江浙沪的有些医院，他签的比较多。然后在这些。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000002\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000002\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.2608"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000002\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.2608"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.2608
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 357
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk073_4347s",
+  "full_text": "[00:00:00 - 00:01:00] 你们能听懂对吧？好，词源你们能听懂吗？token就是词源，对吧？疾病名称得链接到这个标准编码中，这就要是在这个实体链接任务啊。对吧你比如说大模型和LLM这两个是一个事儿，对吧？对吧？APP applicationplication应用。😊手机软件是一个事儿。明白吗？你们知道就是我给你们去做的那个那个那个你们一一边听课，一一边给翻译的，为什么还没出来？这里面我让技术做了很多的细的活，这里边其中有一个细活就是实体链接任务。就是实体链接任务，他在干什么？他在这里面其实就已经在去做。我要把课上所说的token，万一哪个老师说了个词语，这两个东西它能合起来。我在这说大模型。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000072\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 308
+  }
+}

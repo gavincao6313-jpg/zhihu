@@ -1,0 +1,59 @@
+{
+  "video_name": "1_chunk095_5640s",
+  "full_text": "[00:00:00 - 00:01:00] 啊，这就是我们今天要给大家带来的这两个这个呃有这个免费公益的产品，也有这个我们第一个商业化的产品，回到我们的这个体系图。不要忘了我们免费公益的产品呢，这个工作坊啊，北京、深圳的大厂导师代练计划。以及啊现在第一个商业化的产品，少年企业家孵化营，这是今天给大家介绍的介绍的三个项目。但是不管是哪一个项目，未来我还会给大家继续介绍更多项目，你的小孩会有一个非常明确的学习路线和晋升空间和出口，但最终的出口，要不然是一个技术的推动者，要不然是一个AI的商业领袖，基本上就这两个核心的培养目标。OK这就是今天直播的全部内容。接下来我们进入到一些答疑时间，大家看有什么问题没有？😊这个暑假有几期，这个已经报过价了，这个价格可能可能得先面试。因为你。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk095_5640s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk095_5640s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk095_5640s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.1676"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk095_5640s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk095_5640s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.2624"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk095_5640s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=slide diff=0.3549"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.1676
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.2624
+    },
+    {
+      "type": "slide",
+      "frame_idx": 52,
+      "diff": 0.3549
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 340
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk017_960s",
+  "full_text": "[00:00:00 - 00:01:00] 摸到像棉花糖一样的云。对了，你还记得小学我们一起在楼顶假装算算算算了，我有我有点接，我有点受不了了。这这个事我有我有点受不了啊，我有点受不了啊。啊，我有点受不了，这个一会儿给你调一个啊，反正大大概率是这个样子，就是大家随手搓一个，这都能去搓一个啊。OK好，我们要不然我直接拿着这这个讲，是不是你们会觉得更好一点啊，我认真问啊，你们是你们是想我拿这个讲，还是我拿PPT讲，你你你们挑，反正我下面要给你们去讲这东西是怎么搓出来的了。你们希望我拿哪个奖，那PPT是吧？好，那PPT好，拿PPT讲。好，开始节点。😊作为对话流。作为对话。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk017_960s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk017_960s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0781"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk017_960s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk017_960s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk017_960s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.211"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk017_960s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0781
+    },
+    {
+      "type": "slide",
+      "frame_idx": 37,
+      "diff": 0.3014
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.211
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 286
+  }
+}

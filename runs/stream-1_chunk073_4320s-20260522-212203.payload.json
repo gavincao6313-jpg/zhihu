@@ -1,0 +1,44 @@
+{
+  "video_name": "1_chunk073_4320s",
+  "full_text": "[00:00:00 - 00:01:00] 都可以给他，要不然是神经网络和模型训练有关的一些科普和学习，或者是AI控那些相关的东西。但如果你实在是说你没有空，你实在是不知道该怎么教，或者是你特别希望说呃我们的精英跃迁计划没有通过能不能也有其他的方式和通路，把你的孩子交给我们。那今年的暑假呢，可能是有一个这样的机会。今年的暑假里面，我们会有就是刚才讲到这个地方。今年的暑假里面会有一个我们的少年企业家乐福化营，这个也是一个。有一点点筛选，但筛选的严格程度没有那么高，但它是一个商业化的。因为就跟清华附中的那个夏令营是一样的，跟清华附中，它同出于清华附中，但是跟清华附中的那个夏令营不完全一样啊不完全一样。因为清华附中夏令营是在在在呃学校内部招生，虽然也是我们来交付，于是在这个基础上，我们又去做了很多的改造啊，又去做了很多的改造。在这个改造基础上，今年的暑期。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk073_4320s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk073_4320s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=slide diff=0.5261"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk073_4320s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk073_4320s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.079"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 25,
+      "diff": 0.5261
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.079
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 381
+  }
+}

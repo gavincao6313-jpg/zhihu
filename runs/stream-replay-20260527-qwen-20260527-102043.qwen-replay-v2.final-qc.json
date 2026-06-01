@@ -1,0 +1,741 @@
+{
+  "base": "replay-20260527-qwen",
+  "run_ts": "20260527-102043",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 131,
+  "transcript_chars": 41817,
+  "frame_count": 324,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 7833,
+  "timeline_end_s": 7860,
+  "timeline_duration_s": 7860,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.6-flash",
+  "synthesis_pass": "sliding-window",
+  "warnings": [],
+  "frame_timestamp_qc": {
+    "frame_count": 324,
+    "min_frame_timestamp_s": 0,
+    "max_frame_timestamp_s": 7823,
+    "timeline_end_s": 7860,
+    "max_frame_tail_delta_s": -37,
+    "timestamp_scope_counts": {
+      "local": 9,
+      "global": 315
+    }
+  },
+  "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 3,
+    "total_frames": 324,
+    "covered_new_frames": 324,
+    "selected_frames_across_windows": 324,
+    "overlap_frames": 0,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 0,
+      "annotation": 0,
+      "context": 324
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 0,
+        "end_s": 2614,
+        "selected_frame_count": 128,
+        "new_frame_count": 128,
+        "overlap_frame_count": 0,
+        "transcript_chars": 13999,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 128
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 2620,
+        "end_s": 5281,
+        "selected_frame_count": 128,
+        "new_frame_count": 128,
+        "overlap_frame_count": 0,
+        "transcript_chars": 15657,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 128
+        }
+      },
+      {
+        "index": 3,
+        "start_s": 5282,
+        "end_s": 7823,
+        "selected_frame_count": 68,
+        "new_frame_count": 68,
+        "overlap_frame_count": 0,
+        "transcript_chars": 13958,
+        "frame_type_counts": {
+          "slide": 0,
+          "annotation": 0,
+          "context": 68
+        }
+      }
+    ]
+  },
+  "frame_policy": {
+    "provider": "qwen",
+    "mode": "sliding-window",
+    "window_count": 3,
+    "windows": [
+      {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 68,
+        "selected_frames": 68,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      }
+    ]
+  },
+  "provider_parts_count": 656,
+  "qwen_window_notes": [
+    "d:\\zhihu\\zhihu_url\\runs\\stream-replay-20260527-qwen-20260527-102043.qwen-window-001.notes.md",
+    "d:\\zhihu\\zhihu_url\\runs\\stream-replay-20260527-qwen-20260527-102043.qwen-window-002.notes.md",
+    "d:\\zhihu\\zhihu_url\\runs\\stream-replay-20260527-qwen-20260527-102043.qwen-window-003.notes.md"
+  ],
+  "qwen_window_notes_reused": 0,
+  "qwen_window_note_metadata": [
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.6-flash",
+      "source_hash": "4b4d72eddcd8da8ab8b6be43bcbbc9b02ac991fbb19748fe9102e160779e64ed",
+      "window_index": 1,
+      "start_s": 0,
+      "end_s": 2614,
+      "selected_frame_count": 128,
+      "new_frame_count": 128,
+      "overlap_frame_count": 0,
+      "transcript_chars": 13999,
+      "frame_type_counts": {
+        "slide": 0,
+        "annotation": 0,
+        "context": 128
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 21223,
+        "output_tokens": 2865,
+        "total_tokens": 24088
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.6-flash",
+      "source_hash": "4c03e4b5bd60d8d772c1d7402468041da8261868d9a1f051dfd08c359937799d",
+      "window_index": 2,
+      "start_s": 2620,
+      "end_s": 5281,
+      "selected_frame_count": 128,
+      "new_frame_count": 128,
+      "overlap_frame_count": 0,
+      "transcript_chars": 15657,
+      "frame_type_counts": {
+        "slide": 0,
+        "annotation": 0,
+        "context": 128
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 128,
+        "selected_frames": 128,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 22090,
+        "output_tokens": 3140,
+        "total_tokens": 25230
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.6-flash",
+      "source_hash": "631dcb87c36af33b4ebfb0bc553e44bfe4d896d602d53cea629a69c72d50028d",
+      "window_index": 3,
+      "start_s": 5282,
+      "end_s": 7823,
+      "selected_frame_count": 68,
+      "new_frame_count": 68,
+      "overlap_frame_count": 0,
+      "transcript_chars": 13958,
+      "frame_type_counts": {
+        "slide": 0,
+        "annotation": 0,
+        "context": 68
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 68,
+        "selected_frames": 68,
+        "dropped_frames": 0,
+        "cap": 128,
+        "slide_frames": 0,
+        "annotation_frames": 0
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 15369,
+        "output_tokens": 2488,
+        "total_tokens": 17857
+      }
+    }
+  ],
+  "qwen_final_assembly_version": "qwen-final-assembly-v2",
+  "qwen_critical_fact_version": "qwen-critical-facts-v2",
+  "qwen_critical_facts": [
+    {
+      "kind": "score",
+      "value": "75分",
+      "aliases": [
+        "75分",
+        "75 分",
+        "75"
+      ],
+      "window_index": 1,
+      "context": "语音为主时，画面不能单调静止，需适当动起来（头像、背景、声播）。 **案例二（学员2）展示：** 1. **成果：** 使用两只猫咪作为主播，制作流畅，评分75分。 2. **方法：** 半流水线模式，高度模板化（镜头定格、宠物自然动、眼神互动等细节提示词极细）。 3. **评价：** 适合有技术背景的人，对普通用户"
+    },
+    {
+      "kind": "prompt_keyword",
+      "value": "所见即所得",
+      "aliases": [
+        "所见即所得"
+      ],
+      "window_index": 1,
+      "context": "视频后预览的视频和最终下载的视频画面不一样，是什么问题？” - “两个对话声音是一样的版本，但视频中的画面和预览的完全不一样，查清楚这个问题的原因，然后修复实现所见即所得。” - “大家好，我叫花花。大家好，我是小黑。” - “小王最近去干啥了？他说去研究小龙虾底层机制了。” - “我觉得做的还是不错的啊，虽然这个梗我确实没有觉"
+    },
+    {
+      "kind": "prompt_keyword",
+      "value": "不要替换",
+      "aliases": [
+        "不要替换"
+      ],
+      "window_index": 1,
+      "context": "I清晰描述问题的重要性，特别是对于零代码背景的学员，需要通过提示词引导AI修复Bug。他以“预览与下载画面不一致”为例，展示了如何通过反复强调“所见即所得”、“不要替换”等指令来促使AI修正代码逻辑。 ### Narrative Block [00:33:00 - 00:40:00] 流水线式交付与商业化思考 讲师展示了第二"
+    },
+    {
+      "kind": "term",
+      "value": "15秒",
+      "aliases": [
+        "15秒"
+      ],
+      "window_index": 1,
+      "context": "业。” - “跟公司从300人干到了6000人。” - “一般呢口播差不多300字1分钟。” - “然后时长如果最终时长是一分钟，那我建议我们在测试的时候我就拿15秒20秒，顶多30秒来做测试。” - “这个是我觉得这款其实还不正的。open AI官宣GPT5要来了。” - “然后在这儿的时候，我就贴上去不错，然后下载视频，"
+    },
+    {
+      "kind": "term",
+      "value": "30秒",
+      "aliases": [
+        "30秒"
+      ],
+      "window_index": 1,
+      "context": "司从300人干到了6000人。” - “一般呢口播差不多300字1分钟。” - “然后时长如果最终时长是一分钟，那我建议我们在测试的时候我就拿15秒20秒，顶多30秒来做测试。” - “这个是我觉得这款其实还不正的。open AI官宣GPT5要来了。” - “然后在这儿的时候，我就贴上去不错，然后下载视频，然后发现这个视频不"
+    },
+    {
+      "kind": "term",
+      "value": "1分钟",
+      "aliases": [
+        "1分钟"
+      ],
+      "window_index": 1,
+      "context": "哪，恍如隔世。” - “参加工作哇塞，21年了，21年，我是01年入学05年毕业。” - “跟公司从300人干到了6000人。” - “一般呢口播差不多300字1分钟。” - “然后时长如果最终时长是一分钟，那我建议我们在测试的时候我就拿15秒20秒，顶多30秒来做测试。” - “这个是我觉得这款其实还不正的。open AI"
+    },
+    {
+      "kind": "term",
+      "value": "3分钟",
+      "aliases": [
+        "3分钟"
+      ],
+      "window_index": 1,
+      "context": "约1分钟。为了快速验证功能和节省Token，建议在测试阶段使用短时长（15秒、20秒、最多30秒），而不是直接生成最终长度的视频。如果短时长流程跑通，延长至2-3分钟通常只需微调。此外，讲师强调了向AI清晰描述问题的重要性，特别是对于零代码背景的学员，需要通过提示词引导AI修复Bug。他以“预览与下载画面不一致”为例，展示了"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "FDE",
+      "aliases": [
+        "FDE"
+      ],
+      "window_index": 1,
+      "context": "呼，简述自己西班牙语专业背景及从外企转行新媒体的经历，引出课程主题：AI自媒体交付过程中的问题解析。 课程大纲包括三个实战项目案例、问题解析、第二批项目安排及FDE概念介绍。重点讲解第一个项目“AI播客视频生成”。 **案例一（学员1）复盘：** 1. **初版问题：** 选题偏离（非科技类）、人物一致性崩盘（形象、服"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2023年",
+      "aliases": [
+        "2023年"
+      ],
+      "window_index": 1,
+      "context": "。 最后进入第二个项目“流量重组洗稿”的演示，展示了一个关于大厂员工等礼包的视频解析过程。 ## Critical Number Sentences - “2023年国内职场女性平均薪资还是比同职级男性低18本左右。” - “我学西班牙语的，大学四年学的都是小语种西班牙语。后来上了12年外企之后就忘了本了。” - “我是01"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "34岁",
+      "aliases": [
+        "34岁"
+      ],
+      "window_index": 2,
+      "context": "检测。 * **核心痛点与解决：** 初始配置下，AI生成的文案虽然结构像爆款，但缺乏“人味”，显得生硬。讲师通过增加一段极具个人色彩的“自定义要求”（关于34岁跳槽、放弃年终奖、新媒体红利期的真实经历），彻底改变了输出质量。 * **数据表现：** 最终生成的文案在原创度检测中，内容相似度降至68%，结构相似度17"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2017年",
+      "aliases": [
+        "2017年"
+      ],
+      "window_index": 2,
+      "context": "众25到35岁的职场女性。 3. 语言风格叙事故事叙事引人入胜自。600字2分钟啊。 4. 我在这加了，我34岁第一次跳槽，年底12月。 5. 我很清楚，2017年是新媒体上升期的尾声。 6. 最后还做了检测啊，检测完了以后中风险。内容相似度68，结构相似度17啊，标题相似度80%啊。 7. AI能解决的是六七十分的那"
+    },
+    {
+      "kind": "term",
+      "value": "年终奖",
+      "aliases": [
+        "年终奖"
+      ],
+      "window_index": 2,
+      "context": "**核心痛点与解决：** 初始配置下，AI生成的文案虽然结构像爆款，但缺乏“人味”，显得生硬。讲师通过增加一段极具个人色彩的“自定义要求”（关于34岁跳槽、放弃年终奖、新媒体红利期的真实经历），彻底改变了输出质量。 * **数据表现：** 最终生成的文案在原创度检测中，内容相似度降至68%，结构相似度17%（讲师认为结构"
+    },
+    {
+      "kind": "term",
+      "value": "99.9%",
+      "aliases": [
+        "99.9%",
+        "99.9％"
+      ],
+      "window_index": 2,
+      "context": "言，账号被封禁的风险是绝对不可接受的（负数价值）。除非拥有100个以上账号的大号，否则单账号博主无法承受封号代价。 * **正确话术：** 服务商必须承诺“99.9%安全”，杜绝向客户抛出风险选项。 * **评论区价值分析：** * **公开评论：** 优先级是流量互动（约80%），引流仅占少数（5%-20%"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "Remotion",
+      "aliases": [
+        "Remotion"
+      ],
+      "window_index": 2,
+      "context": "值是“解决卡脖子的问题”，如自动化拉取投放数据。 * **产品/技术型：** 适合有编程能力、能做工具链搭建的人。核心价值是将手工操作转化为自动化流程（如用Remotion代码生成视频替代剪辑）。 * **产品协作型：** 技术人员+业务人员组队，或T型人才。适合复杂场景。 * **FDE（前沿部署工程师）概念：** 强调"
+    },
+    {
+      "kind": "percentage",
+      "value": "68%",
+      "aliases": [
+        "68%"
+      ],
+      "window_index": 2,
+      "context": "定义要求”（关于34岁跳槽、放弃年终奖、新媒体红利期的真实经历），彻底改变了输出质量。 * **数据表现：** 最终生成的文案在原创度检测中，内容相似度降至68%，结构相似度17%（讲师认为结构相似度高一点更安全，能保留爆款元素）。 * **方法论总结：** “洗稿”不是简单的替换同义词，而是“复制爆款的核心元素（选"
+    },
+    {
+      "kind": "percentage",
+      "value": "17%",
+      "aliases": [
+        "17%"
+      ],
+      "window_index": 2,
+      "context": "4岁跳槽、放弃年终奖、新媒体红利期的真实经历），彻底改变了输出质量。 * **数据表现：** 最终生成的文案在原创度检测中，内容相似度降至68%，结构相似度17%（讲师认为结构相似度高一点更安全，能保留爆款元素）。 * **方法论总结：** “洗稿”不是简单的替换同义词，而是“复制爆款的核心元素（选题、结构）+ 注入"
+    },
+    {
+      "kind": "percentage",
+      "value": "80%",
+      "aliases": [
+        "80%"
+      ],
+      "window_index": 2,
+      "context": "术：** 服务商必须承诺“99.9%安全”，杜绝向客户抛出风险选项。 * **评论区价值分析：** * **公开评论：** 优先级是流量互动（约80%），引流仅占少数（5%-20%）。因为机器和人工双重审核，尺度极严。 * **私信：** 优先级是商业目的（商单、咨询，约80%），维护粘性占20%"
+    },
+    {
+      "kind": "percentage",
+      "value": "5%",
+      "aliases": [
+        "5%"
+      ],
+      "window_index": 2,
+      "context": "“99.9%安全”，杜绝向客户抛出风险选项。 * **评论区价值分析：** * **公开评论：** 优先级是流量互动（约80%），引流仅占少数（5%-20%）。因为机器和人工双重审核，尺度极严。 * **私信：** 优先级是商业目的（商单、咨询，约80%），维护粘性占20%-30%。私信的操作空"
+    },
+    {
+      "kind": "percentage",
+      "value": "20%",
+      "aliases": [
+        "20%"
+      ],
+      "window_index": 2,
+      "context": ".9%安全”，杜绝向客户抛出风险选项。 * **评论区价值分析：** * **公开评论：** 优先级是流量互动（约80%），引流仅占少数（5%-20%）。因为机器和人工双重审核，尺度极严。 * **私信：** 优先级是商业目的（商单、咨询，约80%），维护粘性占20%-30%。私信的操作空间比公开"
+    },
+    {
+      "kind": "percentage",
+      "value": "30%",
+      "aliases": [
+        "30%"
+      ],
+      "window_index": 2,
+      "context": "，引流仅占少数（5%-20%）。因为机器和人工双重审核，尺度极严。 * **私信：** 优先级是商业目的（商单、咨询，约80%），维护粘性占20%-30%。私信的操作空间比公开评论大。 **3. 后续项目安排与学员匹配建议（01:03:19 - 01:28:01）** 讲师介绍了即将发布的第二波项目（多为视频类"
+    },
+    {
+      "kind": "percentage",
+      "value": "95%",
+      "aliases": [
+        "95%"
+      ],
+      "window_index": 2,
+      "context": "塔尖的价值。 9. 我在群里说完需求的第一时间，然后我说同学可以先整理一下你的问题清单，然后我们再详细的沟通。然后第二天这个同学拉出了十几个问题呀。 10. 95%安全才是OK的。甚至我觉得95%都写的少了。如果我们去谈单，我们都要说99.9%，放心吧，没有问题。 11. 所有的公开回复，大部分是为了流量互动啊，少部分是为"
+    },
+    {
+      "kind": "percentage",
+      "value": "10%",
+      "aliases": [
+        "10%"
+      ],
+      "window_index": 2,
+      "context": "是条条都需要引流的啊，没有这么功利啊，大家不要把自自媒体博主想象的这么功力大部分情况他是想先拿到曝光和流量和吸引到粉丝和用户，然后少少的可能也就20%，甚至只有10%，甚至只有5%是用来引流的那私信的回复呢，80%都是商业目的啊。 12. 至少是3分之1的比例啊1比2的关系。 13. 下一轮可能更多，为什么？因为我已经非常清"
+    },
+    {
+      "kind": "score",
+      "value": "70分",
+      "aliases": [
+        "70分"
+      ],
+      "window_index": 2,
+      "context": "**方法论总结：** “洗稿”不是简单的替换同义词，而是“复制爆款的核心元素（选题、结构）+ 注入个人原创属性（故事、经验、情绪）”。AI负责解决及格线（60-70分），人类负责提供灵魂（80-90分以上的价值）。 **2. 评论区自动回复案例：安全底线（00:53:17 - 01:03:19）** 讲师表扬了一位提问非常"
+    },
+    {
+      "kind": "score",
+      "value": "90分",
+      "aliases": [
+        "90分"
+      ],
+      "window_index": 2,
+      "context": "简单的替换同义词，而是“复制爆款的核心元素（选题、结构）+ 注入个人原创属性（故事、经验、情绪）”。AI负责解决及格线（60-70分），人类负责提供灵魂（80-90分以上的价值）。 **2. 评论区自动回复案例：安全底线（00:53:17 - 01:03:19）** 讲师表扬了一位提问非常专业的学员，该学员列出了十几个问题"
+    },
+    {
+      "kind": "score",
+      "value": "80分",
+      "aliases": [
+        "80分"
+      ],
+      "window_index": 2,
+      "context": "7啊，标题相似度80%啊。 7. AI能解决的是六七十分的那一部分。 8. 但是我们这个时候是不是要多花点心思来解决个性化，来解决人格化。因为上面那部分才是80分90分以上金字塔尖的价值。 9. 我在群里说完需求的第一时间，然后我说同学可以先整理一下你的问题清单，然后我们再详细的沟通。然后第二天这个同学拉出了十几个问题"
+    },
+    {
+      "kind": "score",
+      "value": "3分",
+      "aliases": [
+        "3分"
+      ],
+      "window_index": 2,
+      "context": "是想先拿到曝光和流量和吸引到粉丝和用户，然后少少的可能也就20%，甚至只有10%，甚至只有5%是用来引流的那私信的回复呢，80%都是商业目的啊。 12. 至少是3分之1的比例啊1比2的关系。 13. 下一轮可能更多，为什么？因为我已经非常清楚啊，自媒体这一类的工具有哪些，其实不需要代码能力，或者说低代码能力就okK有哪一些"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "35岁",
+      "aliases": [
+        "35岁"
+      ],
+      "window_index": 2,
+      "context": "er Sentences 1. 整个评估下来，我觉得基本功能是比较好的流程，体验也是丝滑的，页面也比较简洁，呃，整体70分是没问题的。 2. 目标受众25到35岁的职场女性。 3. 语言风格叙事故事叙事引人入胜自。600字2分钟啊。 4. 我在这加了，我34岁第一次跳槽，年底12月。 5. 我很清楚，2017年是新"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "45岁",
+      "aliases": [
+        "45岁"
+      ],
+      "window_index": 2,
+      "context": "阶段，深入了解多智能体协作，学习并掌握autochan或CI框架，理解管理者、执行者、辩论等常见的协作模式。再完成2到3个小项目。 15. 只要你的年龄在20到45岁，且不是3分钟热度，不出3个月就能让你进阶成大模型高手。 ## Narrative Evidence Blocks ### Narrative Block"
+    },
+    {
+      "kind": "score",
+      "value": "30万积分",
+      "aliases": [
+        "30万积分",
+        "30 万积分"
+      ],
+      "window_index": 3,
+      "context": "具更可控；如果是做账号、电商日更，必须建立稳定的工作流以提高效率。讲师分享了自己的成本账：初五做一条15-30秒的三星堆视频，耗时一晚，花费约100元；上月消耗30万积分。她指出，虽然Token费用看似高昂，但对比聘请专业人员的人力成本（至少10倍量级差异），AI依然是极具性价比的。她还提到了具体工具的优缺点，如Trye修Bug"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "Coze",
+      "aliases": [
+        "Coze",
+        "扣子"
+      ],
+      "window_index": 3,
+      "context": "务、医疗、电商数据）来补齐技术短板，强调“资源也是能力”。在答疑环节，讲师分享了关于视频生成工具（即梦 vs 手搓工作流）、API调试痛点（CodeEx vs Coze）、Token成本核算（对比人力成本）以及Coze编程中上下文管理（CC压缩）的技术细节。最后，讲师公布了项目收益范围（500-2000元不等），并鼓励学员通过"
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "即梦",
+      "aliases": [
+        "即梦",
+        "Dreamina"
+      ],
+      "window_index": 3,
+      "context": "政、运营、销售等背景人员可以通过挖掘自身在特定行业的经验（如税务、医疗、电商数据）来补齐技术短板，强调“资源也是能力”。在答疑环节，讲师分享了关于视频生成工具（即梦 vs 手搓工作流）、API调试痛点（CodeEx vs Coze）、Token成本核算（对比人力成本）以及Coze编程中上下文管理（CC压缩）的技术细节。最后"
+    },
+    {
+      "kind": "score",
+      "value": "60分",
+      "aliases": [
+        "60分"
+      ],
+      "window_index": 3,
+      "context": "tences - “我手搓了**100多个**智能体的经验。” - “你要拿出一个是**90分**，然后其他的通过AI补齐到**70分**，**80分**，**60分**及格可能都不太行。” - “自媒体行业的案例...比如**切片**、**二状矩阵号**...” - “选题定生死。**五个字**选题定生词。” - “自动回"
+    }
+  ],
+  "qwen_narrative_block_version": "qwen-narrative-blocks-v1",
+  "qwen_narrative_blocks": [
+    {
+      "window_index": 1,
+      "title": "核心需求确认与AI工具设计原则",
+      "time_range": "00:17:00 - 00:22:00",
+      "chars": 403,
+      "anchor": "讲师深入剖析了第一个项目中出现的“大变活人”问题，指出这并非最核心的痛点，真正的核心在于**需求匹配**。学员最初并未明确“科技类”这一关键属性，导致后续即使解",
+      "text": "讲师深入剖析了第一个项目中出现的“大变活人”问题，指出这并非最核心的痛点，真正的核心在于**需求匹配**。学员最初并未明确“科技类”这一关键属性，导致后续即使解决了人物一致性问题，方向也是错的。讲师强调，承接项目时必须首先判断核心需求，如果核心需求不对，必须马上返工。 在此基础上，讲师提出了AI工具设计的优先级原则：**核心功能尽量没有瑕疵**。如果无法达到最高标准（如真人高保真一致性），应退而求其次，选择能满足核心需求且质量可控的方案。讲师详细拆解了AI播客画面的实现难度阶梯：真人出镜/匹配素材 > 动物/动漫形象 > 动态台词+音波 > 静态图片。他指出，真人需要对口型、表情自然，判断标准极高；而动物和动漫不需要对口型，且观众对其表情的容忍度较高，因此更容易保证交付质量。对于非核心功能（如特定形象），可以砍掉或不出现。这一逻辑适用于所有AI自媒体项目，切忌陷入细节调优而忽略了核心需求的验证。"
+    },
+    {
+      "window_index": 1,
+      "title": "视觉单调性与测试效率策略",
+      "time_range": "00:22:00 - 00:29:00",
+      "chars": 408,
+      "anchor": "针对解决人物一致性后的新问题——画面单调，讲师进行了详细阐述。如果采用非真人出镜（如音波或固定图片），画面若长时间不动，用户很难在播客中停留超过5秒钟。除非话题",
+      "text": "针对解决人物一致性后的新问题——画面单调，讲师进行了详细阐述。如果采用非真人出镜（如音波或固定图片），画面若长时间不动，用户很难在播客中停留超过5秒钟。除非话题极具爆款潜质，否则难以留住用户。因此，讲师建议即使没有真人，头像、背景、声播图等元素也应适当动起来，形成协调的动态效果，结合有吸引力的声音和节奏明快的选题，才能构成完整的爆款元素。 在测试策略上，讲师给出了具体的操作建议：**控制时长**。一般口播300字约1分钟。为了快速验证功能和节省Token，建议在测试阶段使用短时长（15秒、20秒、最多30秒），而不是直接生成最终长度的视频。如果短时长流程跑通，延长至2-3分钟通常只需微调。此外，讲师强调了向AI清晰描述问题的重要性，特别是对于零代码背景的学员，需要通过提示词引导AI修复Bug。他以“预览与下载画面不一致”为例，展示了如何通过反复强调“所见即所得”、“不要替换”等指令来促使AI修正代码逻辑。"
+    },
+    {
+      "window_index": 1,
+      "title": "流水线式交付与商业化思考",
+      "time_range": "00:33:00 - 00:40:00",
+      "chars": 374,
+      "anchor": "讲师展示了第二位学员的成果，该学员采用了“半流水线”模式，将素材、对话、运镜、风格全部模板化。例如，提示词中明确规定“镜头全程定格不动”、“宠物自然动起来”、“",
+      "text": "讲师展示了第二位学员的成果，该学员采用了“半流水线”模式，将素材、对话、运镜、风格全部模板化。例如，提示词中明确规定“镜头全程定格不动”、“宠物自然动起来”、“眼神根据情境转动”等细节。这种高度结构化的方式确保了输出的稳定性，适合有技术背景的用户，但对于普通用户交付可能存在门槛，讲师建议对此类工具进行简化封装。 讲师借此机会强调了**商业目标导向**。做工具不应仅为验证AI能力，而应服务于明确的商业目标：要么直接售卖该交付工具，要么利用工具产出内容以实现自身变现（无论是短期广告还是长期IP价值）。关于流量投放，讲师强烈建议素人或初学者不要过早投流。因为投放的核心是“给好内容上杠杆”，在没有通过自然流验证内容爆款潜质之前，盲目花钱只会降低ROI（投入产出比）。只有当内容能力稳定，能持续产出有一定爆款概率的内容时，才考虑通过付费投放放大杠杆。"
+    },
+    {
+      "window_index": 1,
+      "title": "AI播客的三种实现路径与洗稿案例引入",
+      "time_range": "00:40:00 - 00:43:34",
+      "chars": 368,
+      "anchor": "讲师总结了实现AI播客的三种不同路径，旨在说明达成同一目标可以有多种技术方案： 1. **Agent一键生成：** 输入话题 -> 生成脚本 -> 生成音频 -",
+      "text": "讲师总结了实现AI播客的三种不同路径，旨在说明达成同一目标可以有多种技术方案： 1. **Agent一键生成：** 输入话题 -> 生成脚本 -> 生成音频 -> 生成视频。优点是快，缺点是可控性差。 2. **半自动流水线：** 预先准备大量模板（对话、素材、背景、运镜），通过结构化控制确保输出稳定。优点是稳，缺点是限制了AI的发散性，内容容易重复。 3. **借鉴对标解析：** 寻找爆款链接（不限于同类目，只要是低粉爆款即可），让AI抓取并解析其脚本结构，再改写为播客对话形式。这种方法能借用已被市场验证的选题和结构，提高成功率。 最后，讲师过渡到第二个项目“流量重组洗稿”，通过一个关于“大厂员工等礼包”的视频案例，演示了如何利用工具进行视频链接解析、文案拆解（按秒为单位，共23段）以及原创度检测，展示了流量重组的技术链路。"
+    },
+    {
+      "window_index": 2,
+      "title": "爆款改写的核心逻辑：用个人经历对抗AI同质化",
+      "time_range": "00:46:00 - 00:51:00",
+      "chars": 386,
+      "anchor": "讲师详细复盘了如何通过“自定义要求”提升AI改写内容的质量。起初，在没有添加个性化指令时，AI生成的文案虽然模仿了爆款结构，但感觉“很AI”，不自然。随后，讲师",
+      "text": "讲师详细复盘了如何通过“自定义要求”提升AI改写内容的质量。起初，在没有添加个性化指令时，AI生成的文案虽然模仿了爆款结构，但感觉“很AI”，不自然。随后，讲师在配置中加入了具体的个人经历：“我34岁第一次跳槽，年底12月，大家都说我疯了……如果我想从传统行业外贸外企无经验无背景跳槽进入新媒体这个时间窗口的价值远远大于一个年终奖。”这段基于真实经历的文本被AI融入后，改写出的文案发生了质变。讲师指出，这种改写策略的关键在于平衡相似度：希望结构的相似度更大（保留爆款元素），但内容的相似度更小（规避查重风险）。通过在文案中大量增加个人经历（如“34岁”、“2017年新媒体尾声”、“果断离职”），使得内容与原素材的重合度极低，从而既保留了爆款的流量密码，又具备了极高的原创属性和安全性。讲师强调，这就是“给AI加灵魂”，AI解决及格线，人类提供80-90分的个性化价值。"
+    },
+    {
+      "window_index": 2,
+      "title": "评论区自动回复的安全红线：拒绝向客户展示风险",
+      "time_range": "00:54:00 - 01:00:32",
+      "chars": 368,
+      "anchor": "讲师分享了一个关于“评论区自动回复”项目的教学案例。一位非常认真的学员在对接需求时，向客户提出了一个看似专业实则致命的问题：“需要评估是选择低风险半自动引流还是",
+      "text": "讲师分享了一个关于“评论区自动回复”项目的教学案例。一位非常认真的学员在对接需求时，向客户提出了一个看似专业实则致命的问题：“需要评估是选择低风险半自动引流还是高风险全自动引流？”讲师严厉指出了这个问题背后的认知误区：对于绝大多数只拥有一个账号的博主来说，账号被封禁的风险是绝对不可接受的（Negative Value）。哪怕引流效果再好，一旦封号，工具的价值直接归零甚至为负。讲师强调，作为服务商，绝对不能让客户在“中风险”和“高风险”之间做选择，而必须给出“99.9%安全”的承诺。此外，讲师分析了评论区与私信的不同定位：公开评论区主要用于获取流量和互动（引流占比仅5%-20%），审核极严；而私信则主要用于商业转化（商单、咨询占比80%），操作空间相对较大。这一部分强调了在开发自媒体工具时，必须深刻理解行业的底层逻辑和安全底线。"
+    },
+    {
+      "window_index": 2,
+      "title": "四类学员画像与项目匹配指南",
+      "time_range": "01:10:29 - 01:28:01",
+      "chars": 482,
+      "anchor": "讲师针对后续的视频类工具制作项目，提出了四种不同类型的学员及其适合的项目方向，旨在帮助学员找到自身优势与AI技术的结合点。 1. **数据洞察型：** 适合在某",
+      "text": "讲师针对后续的视频类工具制作项目，提出了四种不同类型的学员及其适合的项目方向，旨在帮助学员找到自身优势与AI技术的结合点。 1. **数据洞察型：** 适合在某一行业浸泡多年、懂数据、有行业视角的人（如金融投资者、电商运营）。他们不需要写代码，只需利用AI来验证和表达“什么信息对别人有价值”。 2. **业务卡点型：** 适合拥有一线业务经验、深知流程痛点的人（如销售、HR、财务）。他们的价值在于识别“卡脖子”的环节（如繁琐的数据报表），并利用AI实现自动化解决。 3. **产品/技术型：** 适合有编程能力、能搭建工具链的人。这类项目技术门槛较高，核心是将手工操作（如视频剪辑）转化为代码或工作流（如使用Remotion），体现技术杠杆效应。 4. **产品协作型：** 鼓励技术人员与业务人员组队，或者成为T型人才。这类项目通常涉及复杂的线下或实体业务场景，需要技术与业务的深度耦合。 讲师最后总结，无论哪种类型，技术只是工具，真正值钱的是脑子里的行业认知和业务手感。非技术背景学员只要有行业经验也能做好项目，而技术背景学员应利用AI撬动整个行业的效率。"
+    },
+    {
+      "window_index": 3,
+      "title": "FDE的定义与能力模型重构",
+      "time_range": "01:28:02 - 01:31:00",
+      "chars": 294,
+      "anchor": "讲师详细阐述了FDE（Forward Deployed Engineer，前沿部署工程师）与传统岗位的区别。她指出，很多人误以为FDE就是驻场开发或解决方案工程",
+      "text": "讲师详细阐述了FDE（Forward Deployed Engineer，前沿部署工程师）与传统岗位的区别。她指出，很多人误以为FDE就是驻场开发或解决方案工程师，但实际上今天的FDE要求更高，必须具备三种核心能力：技术理解力、行业洞察、沟通交付。讲师将这三种能力进一步拆解：技术层面包括工具认知、边界判断、代码阅读调试；行业层面包括词汇掌握、角色认知、需求挖掘、优先级判断；沟通交付层面包括需求对齐、范围控制、进度管理、文档输出。她强调，一个人不可能样样精通，但必须有一个能力达到90分，其他通过AI补齐到70-80分，且至少有两个能力较强。在当前环境下，讲师认为“行业洞察”尤为重要。"
+    },
+    {
+      "window_index": 3,
+      "title": "行业洞察的深度拆解：以自媒体为例",
+      "time_range": "01:31:00 - 01:37:00",
+      "chars": 266,
+      "anchor": "讲师通过自媒体行业的四层能力模型，深度解释了什么是“行业洞察”。第一层是行业术语（如播放率、互动率、切片、矩阵号），这是入门基础；第二层是决策认知，即理解博主、",
+      "text": "讲师通过自媒体行业的四层能力模型，深度解释了什么是“行业洞察”。第一层是行业术语（如播放率、互动率、切片、矩阵号），这是入门基础；第二层是决策认知，即理解博主、MCN、商家、服务商四方关系及博弈；第三层是挖掘需求和优先级判断，例如指出博主真正的痛点不是写脚本而是选题（“选题定生死”），且自动回复比播客生成更刚需；第四层是场景拆解和价值判断，这需要深度的商业体感，能算出功能帮客户省多少时间、赚多少钱。讲师强调，AI虽然能赋能文案和素材，但这种基于深层商业逻辑和行业潜规则的认知是无法被AI彻底点平的，这也是人类FDE的核心护城河。"
+    },
+    {
+      "window_index": 3,
+      "title": "零代码入局策略与自我价值挖掘",
+      "time_range": "01:41:00 - 01:46:00",
+      "chars": 263,
+      "anchor": "针对零代码背景的学员，讲师给出了明确的入局建议。她指出，FDE的Title不重要（分析师、专家、顾问皆可），关键在于不需要写复杂代码，仅靠少量调试或配置即可交付",
+      "text": "针对零代码背景的学员，讲师给出了明确的入局建议。她指出，FDE的Title不重要（分析师、专家、顾问皆可），关键在于不需要写复杂代码，仅靠少量调试或配置即可交付价值。对于非技术背景者（行政、运营、销售等），核心竞争力在于“行业经验”和“资源”。讲师举例说明，如果你不懂代码但懂企业跨国税务，或者能调动团队解决不同领域问题，这本身就是能力。她鼓励学员在报名时不要只说“我不会代码”，而要展示你的强项，如细分领域的从业者身份、踩坑经验、行业数据资源等。对于有技术背景的学员，则需展示具体的AI工具落地成果、卡点解决方案及最终效果。"
+    },
+    {
+      "window_index": 3,
+      "title": "视频生成工具选型与成本效益分析",
+      "time_range": "01:55:00 - 02:01:00",
+      "chars": 274,
+      "anchor": "在答疑环节，讲师对比了直接使用视频生成模型（如即梦）与手搓工作流（Coze+API）的适用场景。如果是一次性制作高质量Demo或发朋友圈，直接用即梦等工具更可控",
+      "text": "在答疑环节，讲师对比了直接使用视频生成模型（如即梦）与手搓工作流（Coze+API）的适用场景。如果是一次性制作高质量Demo或发朋友圈，直接用即梦等工具更可控；如果是做账号、电商日更，必须建立稳定的工作流以提高效率。讲师分享了自己的成本账：初五做一条15-30秒的三星堆视频，耗时一晚，花费约100元；上月消耗30万积分。她指出，虽然Token费用看似高昂，但对比聘请专业人员的人力成本（至少10倍量级差异），AI依然是极具性价比的。她还提到了具体工具的优缺点，如Trye修Bug难，CodeEx更受程序员欢迎，以及Cloud烧Token的问题。"
+    }
+  ],
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.6-flash",
+    "api_calls": 4,
+    "finish_reason": "stop",
+    "window_finish_reasons": [
+      "stop",
+      "stop",
+      "stop",
+      "stop"
+    ],
+    "usage": {
+      "input_tokens": 74778,
+      "output_tokens": 17741,
+      "total_tokens": 92519
+    },
+    "current_run_usage": {
+      "input_tokens": 74778,
+      "output_tokens": 17741,
+      "total_tokens": 92519
+    },
+    "current_run_api_calls": 4,
+    "end_to_end_usage": {
+      "input_tokens": 74778,
+      "output_tokens": 17741,
+      "total_tokens": 92519
+    },
+    "end_to_end_api_calls": 4,
+    "reused_window_note_api_calls": 0,
+    "estimated_cost_cny": null
+  },
+  "qwen_narrative_appendix": {
+    "appended": false,
+    "reason": "already_retained",
+    "appended_blocks": 0
+  },
+  "qwen_fact_body_retention_qc": {
+    "fact_count": 32,
+    "retained_count": 32,
+    "retention_ratio": 1.0,
+    "missing_facts": [],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_fact_body_retention_warnings": [],
+  "qwen_critical_fact_appendix": {
+    "appended": false,
+    "reason": "already_present",
+    "appended_facts": 0,
+    "source_metrics": {
+      "fact_count": 32,
+      "retained_count": 32,
+      "retention_ratio": 1.0,
+      "missing_facts": [],
+      "min_retention_ratio": 0.9
+    }
+  },
+  "body_last_chapter_end_s": 7823,
+  "body_tail_gap_s": 37,
+  "body_coverage_status": "ok",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 16958,
+    "body_transcript_ratio": 0.4055,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 8,
+    "chapter_fields_missing": [],
+    "code_fence_count": 6,
+    "prompt_keywords_missing": [],
+    "body_min_transcript_ratio": 0.2,
+    "source_frame_count": 324
+  },
+  "qwen_window_coverage_qc": {
+    "expected_windows": [
+      1,
+      2,
+      3
+    ],
+    "covered_windows": [
+      1,
+      2,
+      3
+    ],
+    "missing_windows": []
+  },
+  "qwen_fact_retention_qc": {
+    "fact_count": 32,
+    "retained_count": 32,
+    "retention_ratio": 1.0,
+    "missing_facts": [],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_timeline_qc": {
+    "chapter_count": 8,
+    "overlap_count": 0,
+    "overlaps": []
+  },
+  "qwen_technical_asset_qc": {
+    "has_technical_asset_appendix": true,
+    "code_fence_count": 3,
+    "prompt_fact_count": 6
+  },
+  "qwen_narrative_retention_qc": {
+    "narrative_block_count": 11,
+    "retained_block_count": 11,
+    "retention_ratio": 1.0,
+    "body_transcript_ratio": 0.4055,
+    "min_body_transcript_ratio": 0.32,
+    "missing_blocks": []
+  },
+  "transcript_appendix_chars": 41817,
+  "visual_evidence_count": 324,
+  "deterministic_appendices": [
+    "critical_fact_index",
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "video_name": "1_chunk102_6060s",
+  "full_text": "[00:00:00 - 00:01:00] 这个助教老师吧，那我们这个二维码还需要吗？这个一个是线下的工作坊。啊，的二维码是这个大家先截图啊，或赶紧扫码线下的免费的工作坊啊二维码。然后呢呃暑假的暑期赢500块钱面试预约金的二维码。然后呢，前面还有一个对吧，但这个好像是重复的，应该是同样的吧，我看看啊。这个就专家一V1的啊专家一V一专家一V1的这个你扫不扫码其实都行。因为这个扫码呢，专家一V1的报名呢，你扫码可以咨询更多的详细的情况。但实际上这个专家一V1的报名呢，你主要是要靠你去准备材料，准备材料发到这个邮箱。啊，要翻到这个邮箱，我们是打算在能能选中的孩子身上要去砸种注要。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=annotation diff=0.0802"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0802"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0445"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0372"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.0372"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.025"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=slide diff=0.4913"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk102_6060s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.0505"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.0802
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.0445
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.0372
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.025
+    },
+    {
+      "type": "slide",
+      "frame_idx": 28,
+      "diff": 0.4913
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.0505
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 5,
+    "frames_total": 10,
+    "text_chars": 290
+  }
+}

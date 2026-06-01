@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk001_0s",
+  "full_text": "[00:00:00 - 00:01:00] 第一，然后阿里AQ当时所做的主要的功能主要是这几个。它因为背后使用的这个千万的这个医疗大模型，然后它重点是在去做医疗辅助。然后它的一些很重要的一些功能，就包括了这个呃它能去做拍照啊，它能够去诊断出来拍摄的报告，然后检测出来体检的报告，还有皮肤病的一些状态。这是当时他的一些呃比较重要的一些功能。呃，帧率好低，我我卡就是我的头在卡是吧，应该是我自己的这个新摄像头的帧率太高了。哎，我嗯应该对你们影响不是很大吧，我看一下能不能改啊，稍等啊，哎稍等我改一下我的我我自己的帧率。😔我自己的帧率可能弄的太高了，稍等啊，1分钟。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000000\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000000\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000000\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.1647"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000000\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000000\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.1668"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.1647
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.1668
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 280
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk029_1692s",
+  "full_text": "[00:00:00 - 00:00:59] workflow的时候，我们突然脑子里想到了一点，我想到了一点什么重高精度高流程要求的这些agent特别适合什么样的背景的人来去做呢？特别适合公务员和国企的员工，特别适合他们对于这些东西的这个感觉和这个这个这个敏感性其实是要比这个常态要好很多的。然后请根据以下的维度做判断指标名称数值单位是偏高偏低一思异程无法判断和正常。然后可能的含义，然后这个ris，就是你的风险等级，然后以及建议复查的方向，还有一些不确定的说明，这是我最后要去做的分析的这些维度，然后输出的格式还是用这O然后这一道出来之后的话，然后我再去进一层reg。也就是说我把所有的这些你的基础信息啊，再扔到我的这个reg库里。因为大家都知道，就是说如果说这个。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000028\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000028\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=slide diff=0.4083"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 46,
+      "diff": 0.4083
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 333
+  }
+}

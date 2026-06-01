@@ -1,0 +1,18 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk057_3360s",
+  "full_text": "[00:00:00 - 00:01:00] 我这么说吧，我一开始我不认同这款产品，我这么说吧，我一开始我不认同这款产品。我说这款产品有什么意义啊？我说人应该走出来往前走。你拿这个东西看上去是留住了记忆，但实际上是困住了未来啊，我直接就跟他们谁说的，然后他这个方面跟我说了一句话，他说你他说你你说我卖的是什么？我卖的是一个罐子吗？我说你我说你卖的是回忆，他说不是我卖的是念想，我被他说服了，我被他说服了。你们懂我说的什么吗？嗯卖的是念想，对吧？卖的是个念想。嗯放墓碑上，扫不师可以聊天的产品。我打算在我墓碑上放一个，我打算在我墓碑上。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk057_3360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 266
+  }
+}

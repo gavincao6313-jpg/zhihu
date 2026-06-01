@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk122_7307s",
+  "full_text": "[00:00:00 - 00:01:00] 重要的一个环节，创作和决策两个关键性人类脑力劳动。AI可以做替代。在基础的常规的繁度较低的脑力劳动，可以极大的提高生产力水平。比如说客服应答、常规合同、发票、基础设计、基础数据分析等等。而接诊、体格检查、腹诊断和诊断这几个环节其实有很多的环节都是可以做AI的替代或者AI的辅助。因为。嗯，我跟他说一个特别可怕的事儿，你们知道你们刚才说到一点叫做分级诊分级诊疗，对吧？我说说分级诊疗哈，分诊疗，你知道很多的三线以下城市社区医院。😊🤧的医生高考考了多少分了？这边学医的同学可能知道嗯。三级以下的三级以下的城市社区。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000121\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000121\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.1289"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000121\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.1289"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.1289
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 277
+  }
+}

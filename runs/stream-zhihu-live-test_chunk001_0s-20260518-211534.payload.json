@@ -1,0 +1,34 @@
+{
+  "video_name": "zhihu-live-test_chunk001_0s",
+  "full_text": "[00:00:00 - 00:00:30] 然后包括我这里面这个这个所有的近期的对话，包括时间点都是非常确认的。然后这里面又出现难过是需要安慰的这样一个状态啊。好，我们说这个为什么被骂要请假和你去看电影。我们看这这样他会用什么方法答啊。啊。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-test_chunk001_0s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-test_chunk001_0s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-test_chunk001_0s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.0215
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 120
+  }
+}

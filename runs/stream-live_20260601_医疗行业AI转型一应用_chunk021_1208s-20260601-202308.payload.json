@@ -1,0 +1,44 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk021_1208s",
+  "full_text": "[00:00:00 - 00:00:59] 是这样，这个jason格式写到proump put里，这是整个的proump put，这是完整的proump put，完整的proumpput。就是你把jason格式直接打到这里面来，不就很省事了吗，对吧？呃，只要不是给人看大梦星，给大魔星看数据比较多的时候，就用jason是的是的，而且给人看用jason也没所谓。就是jason格式其实是可读性挺高的，就是我认真的讲啊，jason格式是可是可读性已经是非常高的了。jason markdownH都是属于是可读性非常高的了。就是这里面其实我们在每一个环节都是在去做相应的让它的精准度和安全性以及可回溯能力变强的一些设计。为什么我在这边一定要把原始文本留下来。而且为什么我在这边要去要把它的单位保留下来，同学能明白吗？就是我要兼容各种不。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000020\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000020\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=slide diff=0.345"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000020\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.2454"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000020\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.2454"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 2,
+      "diff": 0.345
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.2454
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 366
+  }
+}

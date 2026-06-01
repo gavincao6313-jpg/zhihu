@@ -13,12 +13,9 @@ import argparse
 import json
 import math
 import os
-import queue
 import re
 import shlex
 import subprocess
-import sys
-import threading
 import time
 from datetime import datetime
 from pathlib import Path
@@ -37,7 +34,6 @@ from zhihuTTS_video import (
     transcribe_audio,
     transcript_to_text,
 )
-from utils import parse_retry_delay
 
 
 ROOT_DIR = Path(__file__).parent
@@ -48,7 +44,7 @@ SLICE_RETRIES = 3
 MIN_SLICE_BYTES = 1024
 MAX_BROWSER_RESTARTS = 3
 
-GEMINI_MODEL = "gemini-3.5-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_MAX_RETRIES = 6
 GEMINI_RETRY_DELAY = 65
 GEMINI_MAX_CONTINUATIONS = 20
@@ -111,6 +107,11 @@ class BrowserDeadError(Exception):
     """Playwright browser process is gone — caller should attempt restart."""
 
 
+def _parse_gemini_retry_delay(error: Exception) -> int:
+    match = re.search(r"retry in (\d+(?:\.\d+)?)s", str(error), re.IGNORECASE)
+    return int(float(match.group(1))) + 10 if match else GEMINI_RETRY_DELAY
+
+
 def _call_gemini_stream(client, parts: list, label: str) -> dict:
     """Call Gemini with rate-limit retry and MAX_TOKENS auto-continuation."""
     try:
@@ -139,21 +140,9 @@ def _call_gemini_stream(client, parts: list, label: str) -> dict:
                 if not candidate or candidate.finish_reason != _gtypes.FinishReason.MAX_TOKENS:
                     break
                 print(f"[{label}] Output truncated, continuing ({cont + 1}/{GEMINI_MAX_CONTINUATIONS})...", flush=True)
-                time.sleep(GEMINI_CONTINUATION_COOLDOWN)  # 10 RPM free tier → 1 req/6 s
                 gemini_calls += 1
-                # Inner retry: preserve accumulated full_text on 429 mid-continuation.
-                for _cr in range(GEMINI_MAX_RETRIES):
-                    try:
-                        response = chat.send_message("继续")
-                        break
-                    except Exception as _ce:
-                        _is_rate = "429" in str(_ce) or "RESOURCE_EXHAUSTED" in str(_ce)
-                        if _is_rate and _cr < GEMINI_MAX_RETRIES - 1:
-                            _cd = parse_retry_delay(_ce, GEMINI_RETRY_DELAY)
-                            print(f"[{label}] Continuation rate limited, retrying in {_cd}s...", flush=True)
-                            time.sleep(_cd)
-                        else:
-                            raise
+                time.sleep(GEMINI_CONTINUATION_COOLDOWN)
+                response = chat.send_message("继续")
                 text = response.text
                 if not text:
                     break
@@ -163,14 +152,13 @@ def _call_gemini_stream(client, parts: list, label: str) -> dict:
         except Exception as e:
             is_rate_limited = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
             if is_rate_limited:
-                delay = parse_retry_delay(e, GEMINI_RETRY_DELAY)
+                delay = _parse_gemini_retry_delay(e)
                 print(f"[{label}] Rate limited (429), retrying in {delay}s...", flush=True)
             else:
                 delay = GEMINI_RETRY_DELAY
                 print(f"[{label}] Gemini error: {e}", flush=True)
             if attempt < GEMINI_MAX_RETRIES:
                 time.sleep(delay)
-    print(f"[{label}] All {GEMINI_MAX_RETRIES} retries exhausted — Gemini synthesis failed.", file=sys.stderr, flush=True)
     return {"text": None, "gemini_calls": gemini_calls}
 
 
@@ -290,16 +278,6 @@ def fmt_time(seconds: float) -> str:
 def safe_name(value: str, max_len: int = 80) -> str:
     name = re.sub(r"[^\w\u4e00-\u9fff.-]+", "_", value, flags=re.UNICODE).strip("._")
     return (name or "stream")[:max_len]
-
-
-def write_base_marker(marker_path: str, base_stem: str) -> None:
-    """Write the resolved output base for wrapper scripts that need it."""
-    if not marker_path:
-        return
-    path = Path(marker_path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(base_stem + "\n", encoding="utf-8")
-    print(f"Base marker: {path}", flush=True)
 
 
 def parse_headers_text(text: str) -> dict[str, str]:
@@ -469,10 +447,7 @@ def start_keepalive_stream(args: argparse.Namespace) -> tuple[PlaywrightKeepaliv
     try:
         stream = keepalive.start()
     except Exception:
-        try:
-            keepalive.close()
-        except Exception as _close_err:
-            print(f"[!] Playwright teardown warning: {_close_err}", flush=True)
+        keepalive.close()
         raise
     stream.headers.update(overlay_headers(args))
     return keepalive, stream
@@ -519,7 +494,6 @@ def slice_url(
 ) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     is_live = infer_media_type(url) in ("flv",)
-    is_remote = urlparse(url).scheme in ("http", "https")
     cmd = [
         "ffmpeg",
         "-hide_banner",
@@ -529,14 +503,15 @@ def slice_url(
     ]
     if not is_live:
         cmd += ["-ss", fmt_time(start_s)]
-    if is_remote:
-        cmd += [
-            "-reconnect", "1",
-            "-reconnect_streamed", "1",
-            "-reconnect_on_network_error", "1",
-            "-reconnect_delay_max", "10",
-        ]
     cmd += [
+        "-reconnect",
+        "1",
+        "-reconnect_streamed",
+        "1",
+        "-reconnect_on_network_error",
+        "1",
+        "-reconnect_delay_max",
+        "10",
         "-i",
         url,
         "-t",
@@ -546,9 +521,10 @@ def slice_url(
         str(out_path),
     ]
     cmd = with_headers(cmd, headers or {})
-    # Live FLV slices should finish in roughly chunk_duration seconds.
-    # Use a tighter per-attempt timeout so a dead stream doesn't block for hours.
-    effective_timeout = int(duration_s * 3 + 60) if is_live else FFMPEG_TIMEOUT
+    # Live FLV slices finish in roughly chunk_duration seconds of real time.
+    # Tight timeout: 1× duration + 45s connection/startup buffer.
+    # TimeoutExpired → StreamSliceError so the caller's is_stream_ended() check fires.
+    effective_timeout = int(duration_s + 45) if is_live else FFMPEG_TIMEOUT
     last_error = ""
     for attempt in range(1, SLICE_RETRIES + 1):
         if out_path.exists():
@@ -563,19 +539,16 @@ def slice_url(
                 timeout=effective_timeout,
             )
         except subprocess.TimeoutExpired:
-            print(f"  [网络中断] 流连接超时 (attempt {attempt}/{SLICE_RETRIES})", flush=True)
-            last_error = "subprocess timeout"
             if out_path.exists():
                 out_path.unlink()
-            if attempt < SLICE_RETRIES:
-                time.sleep(min(30, attempt * 5))
-            continue
+            raise StreamSliceError(
+                f"ffmpeg timed out after {effective_timeout}s at {fmt_time(start_s)} "
+                f"(live={is_live}) — stream may have ended"
+            )
         size = out_path.stat().st_size if out_path.exists() else 0
         if completed.returncode == 0 and size >= MIN_SLICE_BYTES:
             return
         last_error = (completed.stderr or completed.stdout or "").replace(url, "<redacted-url>")
-        if any(x in last_error for x in ("403", "401", "Forbidden", "Unauthorized")):
-            print("[媒体 URL 授权失效] 需刷新流 URL", flush=True)
         print(
             f"  Slice attempt {attempt}/{SLICE_RETRIES} failed "
             f"(exit={completed.returncode}, bytes={size}); retrying..."
@@ -678,39 +651,38 @@ def offset_transcript_text(transcript: dict, offset_s: float) -> str:
     return "\n".join(lines)
 
 
-def process_segment_file(
-    segment_path: Path,
+def process_slice(
+    args: argparse.Namespace,
+    url: str,
+    headers: dict[str, str],
+    host: str,
+    source_summary: dict,
+    base_stem: str,
     start_s: float,
     duration_s: float,
     chunk_index: int,
     chunk_total: int,
-    base_stem: str,
-    args: argparse.Namespace,
-    host: str,
-    source_summary: dict,
-    headers: dict[str, str],
     reextracts: int = 0,
     recovery_errors: list[str] | None = None,
 ) -> dict | None:
-    """Transcribe, extract keyframes, and write outputs for an already-downloaded segment file.
-
-    Accepts .mp4 (legacy slice mode) or .ts (continuous HLS mode). transcribe_audio()
-    converts input to 16kHz WAV internally, so both containers work without changes here.
-    """
     started = time.monotonic()
     created_at = datetime.now().isoformat(timespec="seconds")
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     slice_stem = safe_name(f"{base_stem}_chunk{chunk_index:03d}_{int(start_s)}s")
+    stream_work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
+    slice_path = stream_work_dir / f"{slice_stem}.mp4"
+    print(f"Slicing {fmt_time(start_s)} + {fmt_time(duration_s)} -> {slice_path}")
+    slice_url(url, start_s, duration_s, slice_path, headers)
 
-    transcript = transcribe_audio(segment_path)
+    transcript = transcribe_audio(slice_path)
     if not transcript.get("segments"):
-        segment_path.unlink(missing_ok=True)
+        slice_path.unlink(missing_ok=True)
         print(f"  [skip] chunk {chunk_index}: no speech detected, skipping output", flush=True)
         return None
-    events, frames = extract_keyframes(segment_path)
+    events, frames = extract_keyframes(slice_path)
     transcript_text = transcript_to_text(transcript)
     global_transcript_text = offset_transcript_text(transcript, start_s)
-    payload = build_gemini_payload(slice_stem, transcript, events, frames)
+    payload = build_gemini_payload(slice_path.stem, transcript, events, frames)
 
     transcript_path = RUNS_DIR / f"stream-{slice_stem}-{timestamp}.transcript.txt"
     global_transcript_path = RUNS_DIR / f"stream-{slice_stem}-{timestamp}.global-transcript.txt"
@@ -722,10 +694,10 @@ def process_segment_file(
     global_transcript_path.write_text(global_transcript_text, encoding="utf-8")
     payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    slice_size = segment_path.stat().st_size
+    slice_size = slice_path.stat().st_size
     slice_kept = not args.cleanup_slices
     if args.cleanup_slices:
-        segment_path.unlink(missing_ok=True)
+        slice_path.unlink(missing_ok=True)
 
     data = {
         "created_at": created_at,
@@ -737,7 +709,7 @@ def process_segment_file(
         "slice": {
             "start_s": start_s,
             "duration_s": duration_s,
-            "path": str(segment_path),
+            "path": str(slice_path),
             "size_bytes": slice_size,
             "kept": slice_kept,
         },
@@ -770,49 +742,6 @@ def process_segment_file(
     print(f"Report: {report_path}")
     print(f"Elapsed: {data['processing']['elapsed_s']}s")
     return data
-
-
-def process_slice(
-    args: argparse.Namespace,
-    url: str,
-    headers: dict[str, str],
-    host: str,
-    source_summary: dict,
-    base_stem: str,
-    start_s: float,
-    duration_s: float,
-    chunk_index: int,
-    chunk_total: int,
-    reextracts: int = 0,
-    recovery_errors: list[str] | None = None,
-) -> dict | None:
-    slice_stem = safe_name(f"{base_stem}_chunk{chunk_index:03d}_{int(start_s)}s")
-    stream_work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
-    slice_path = stream_work_dir / f"{slice_stem}.mp4"
-    print(f"Slicing {fmt_time(start_s)} + {fmt_time(duration_s)} -> {slice_path}")
-    slice_url(url, start_s, duration_s, slice_path, headers)
-    return process_segment_file(
-        slice_path,
-        start_s,
-        duration_s,
-        chunk_index,
-        chunk_total,
-        base_stem,
-        args,
-        host,
-        source_summary,
-        headers,
-        reextracts,
-        recovery_errors,
-    )
-
-
-def _print_refresh_error_label(exc: Exception) -> None:
-    _msg = str(exc).lower()
-    if any(k in _msg for k in ("signin", "login", "re-login", "session expired")):
-        print("[账号态失效] 跳转登录页，请重新登录", flush=True)
-    elif "no media url" in _msg:
-        print("[直播未开始或已结束] 页面无流 URL", flush=True)
 
 
 def process_slice_with_recovery(
@@ -906,7 +835,6 @@ def process_slice_with_recovery(
                         ) from refresh_error
                     if keepalive and keepalive.is_stream_ended():
                         raise StreamEndedError("DOM confirms stream has ended") from refresh_error
-                    _print_refresh_error_label(refresh_error)
                     redaction_stream = refreshed_stream or current_stream
                     recovery_errors.append(redacted_error(refresh_error, redaction_stream))
                     if reextract_count >= max_reextracts:
@@ -1036,16 +964,11 @@ def run_validation(args: argparse.Namespace) -> dict:
             source_summary["video"],
             source_summary["audio"],
         )
+        if headers:
+            print("Auth headers:", ", ".join(sorted(headers.keys())))
+
         live_mode = requested_duration_s <= 0
-        _title = stream.title or (keepalive.get_page_title() if keepalive else "")
-        _date = datetime.now().strftime("%Y%m%d")
-        if args.name:
-            base_stem = safe_name(args.name)
-        elif live_mode:
-            base_stem = safe_name(f"live_{_date}_{_title}" if _title else f"live_{_date}")
-        else:
-            base_stem = safe_name(f"replay_{_title}" if _title else f"replay_{host}")
-        write_base_marker(getattr(args, "base_marker", ""), base_stem)
+        base_stem = safe_name(args.name or f"{host}_{int(start_s)}_{'live' if live_mode else int(requested_duration_s)}")
         if live_mode:
             chunk_count = args.max_chunks or 0
             print("Live mode: running until stream ends (no duration limit).")
@@ -1055,27 +978,11 @@ def run_validation(args: argparse.Namespace) -> dict:
                 chunk_count = min(chunk_count, args.max_chunks)
 
         chunks: list[dict] = []
-        saved_chunks: list[dict] = []
         stream_ended_reason = ""
         browser_restart_count = 0
         chunk_index = 0
         RUNS_DIR.mkdir(exist_ok=True)
         checkpoint_path = RUNS_DIR / f"stream-{base_stem}.checkpoint.json"
-
-        if getattr(args, "resume", False) and checkpoint_path.exists():
-            try:
-                saved = json.loads(checkpoint_path.read_text(encoding="utf-8"))
-                saved_chunks = saved.get("chunks", [])
-                if saved_chunks:
-                    created_at = saved.get("created_at", created_at)
-                    chunk_index = saved_chunks[-1]["chunk"]["index"]
-                    last_slice = saved_chunks[-1]["slice"]
-                    start_s = last_slice["start_s"] + last_slice["duration_s"]
-                    print(f"[resume] 从 chunk {chunk_index} 之后继续，时间点 {fmt_time(start_s)}", flush=True)
-                else:
-                    print("[resume] checkpoint 存在但为空，从头开始", flush=True)
-            except Exception as e:
-                print(f"[resume] 读取 checkpoint 失败，从头开始: {e}", flush=True)
 
         while True:
             chunk_index += 1
@@ -1155,12 +1062,10 @@ def run_validation(args: argparse.Namespace) -> dict:
                 break
 
         timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-        pre_text = "\n\n".join(c["global_transcript_text"] for c in saved_chunks)
-        new_text = "\n\n".join(
+        combined_text = "\n\n".join(
             Path(c["outputs"]["global_transcript_txt"]).read_text(encoding="utf-8")
             for c in chunks
         )
-        combined_text = "\n\n".join(filter(None, [pre_text, new_text]))
         combined_transcript_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.combined-transcript.txt"
         manifest_json_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.json"
         manifest_md_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.md"
@@ -1195,9 +1100,9 @@ def run_validation(args: argparse.Namespace) -> dict:
             print("\n=== Gemini: Building notes document ===")
             try:
                 from google import genai as _genai
-                api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY", "")
+                api_key = getattr(args, "gemini_api_key", "") or os.environ.get("GEMINI_API_KEY", "") or os.environ.get("OPENCLAW_GOOGLE_API_KEY", "")
                 if not api_key:
-                    print("[!] GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var required — skipping Gemini")
+                    print("[!] --gemini-api-key or GEMINI_API_KEY env var required — skipping Gemini")
                 else:
                     client = _genai.Client(api_key=api_key)
                     parts = build_stream_gemini_parts(manifest)
@@ -1223,453 +1128,7 @@ def run_validation(args: argparse.Namespace) -> dict:
         return manifest
     finally:
         if keepalive:
-            try:
-                keepalive.close()
-            except Exception as e:
-                print(f"[!] Playwright teardown warning (non-fatal): {e}", flush=True)
-
-
-# ── HLS continuous mode ───────────────────────────────────────────────────────
-
-
-class Recorder(threading.Thread):
-    """ffmpeg HLS continuous segmenter; restarts with a refreshed URL on expiry."""
-
-    def __init__(
-        self,
-        stream: ExtractedStream,
-        work_dir: Path,
-        keepalive: PlaywrightKeepaliveStream | None,
-        args: argparse.Namespace,
-        recorder_stopped: threading.Event,
-        gap_queue: queue.SimpleQueue,
-    ) -> None:
-        super().__init__(name="Recorder", daemon=True)
-        self._stream = stream
-        self._work_dir = work_dir
-        self._keepalive = keepalive
-        self._args = args
-        self._recorder_stopped = recorder_stopped
-        self._gap_queue = gap_queue
-        self._stop_requested = threading.Event()
-        self._proc: subprocess.Popen | None = None
-
-    def request_stop(self) -> None:
-        self._stop_requested.set()
-        proc = self._proc
-        if proc is not None:
-            proc.terminate()
-
-    def run(self) -> None:
-        last_exit_wall: float | None = None
-        chunk_secs = int(parse_time(self._args.chunk_duration or "60"))
-        try:
-            while not self._stop_requested.is_set():
-                if last_exit_wall is not None:
-                    gap_s = time.time() - last_exit_wall
-                    self._gap_queue.put(gap_s)
-                    print(f"[Recorder] Session gap: {gap_s:.1f}s", flush=True)
-
-                session_ts = int(time.time())
-                seg_pattern = str(self._work_dir / f"seg_{session_ts}_%06d.ts")
-                m3u8_path = self._work_dir / f"seg_{session_ts}_capture.m3u8"
-
-                cmd = [
-                    "ffmpeg", "-hide_banner", "-v", "warning",
-                    "-reconnect", "1", "-reconnect_streamed", "1",
-                    "-reconnect_delay_max", "3",
-                ]
-                if self._stream.headers:
-                    cmd += ["-headers", build_ffmpeg_headers(self._stream.headers)]
-                cmd += [
-                    "-i", self._stream.url,
-                    "-c", "copy", "-f", "hls",
-                    "-hls_time", str(chunk_secs),
-                    "-hls_list_size", "0",
-                    "-hls_segment_type", "mpegts",
-                    "-hls_flags", "temp_file",
-                    "-hls_segment_filename", seg_pattern,
-                    str(m3u8_path),
-                ]
-
-                print(f"[Recorder] Session {session_ts} → {seg_pattern}", flush=True)
-                try:
-                    proc = subprocess.Popen(
-                        cmd, stderr=subprocess.PIPE,
-                        text=True, encoding="utf-8", errors="replace",
-                    )
-                    self._proc = proc
-                except Exception as e:
-                    print(f"[Recorder] Failed to launch ffmpeg: {e}", flush=True)
-                    break
-
-                for line in proc.stderr or []:
-                    stripped = line.rstrip()
-                    if stripped:
-                        print(f"  [ffmpeg] {stripped}", flush=True)
-                proc.wait()
-                last_exit_wall = time.time()
-                print(f"[Recorder] ffmpeg exited (code={proc.returncode})", flush=True)
-
-                if self._stop_requested.is_set():
-                    break
-                if self._keepalive and self._keepalive.is_stream_ended():
-                    print("[Recorder] DOM confirms stream ended.", flush=True)
-                    break
-                if not self._keepalive:
-                    break  # No URL refresh available — one-shot mode
-
-                try:
-                    print("[Recorder] Refreshing stream URL...", flush=True)
-                    refreshed = self._keepalive.refresh_and_get(self._args.keepalive_refresh_wait_s)
-                    refreshed.headers.update(overlay_headers(self._args))
-                    self._stream = refreshed
-                    print(f"[Recorder] URL refreshed: {urlparse(self._stream.url).hostname}", flush=True)
-                except StreamEndedError:
-                    print("[Recorder] Stream ended during URL refresh.", flush=True)
-                    break
-                except Exception as e:
-                    _print_refresh_error_label(e)
-                    print(f"[Recorder] URL refresh failed: {e}", flush=True)
-                    break
-        finally:
-            self._recorder_stopped.set()
-            print("[Recorder] Stopped.", flush=True)
-
-
-class SegmentConsumer(threading.Thread):
-    """Watch work_dir for completed .ts files; transcribe and checkpoint each one."""
-
-    def __init__(
-        self,
-        work_dir: Path,
-        base_stem: str,
-        args: argparse.Namespace,
-        host: str,
-        headers: dict[str, str],
-        recorder_stopped: threading.Event,
-        gap_queue: queue.SimpleQueue,
-        scan_interval: float = 5.0,
-        max_chunks: int = 0,
-    ) -> None:
-        super().__init__(name="SegmentConsumer", daemon=True)
-        self._work_dir = work_dir
-        self._base_stem = base_stem
-        self._args = args
-        self._host = host
-        self._headers = headers
-        self._recorder_stopped = recorder_stopped
-        self._gap_queue = gap_queue
-        self._scan_interval = scan_interval
-        self._max_chunks = max_chunks
-
-        self._processed: set[str] = set()
-        self._failed: dict[str, dict] = {}
-        self._chunks: list[dict] = []
-        self._chunk_index = 0
-        self._start_s: float = 0.0
-        self._created_at = datetime.now().isoformat(timespec="seconds")
-        self._checkpoint_path = RUNS_DIR / f"stream-{base_stem}.checkpoint.json"
-
-    def _pending(self) -> list[str]:
-        return sorted(
-            p.name for p in self._work_dir.glob("seg_*.ts")
-            if p.name not in self._processed
-        )
-
-    def _pop_gap(self, seg_name: str) -> float:
-        """Pop gap_s from Recorder queue if this is the first segment of a new session."""
-        if seg_name.endswith("_000000.ts"):
-            try:
-                return self._gap_queue.get_nowait()
-            except Exception:
-                pass
-        return 0.0
-
-    def run(self) -> None:
-        RUNS_DIR.mkdir(exist_ok=True)
-        while True:
-            pending = self._pending()
-            if pending:
-                for seg_name in pending:
-                    if self._max_chunks > 0 and self._chunk_index >= self._max_chunks:
-                        print(f"[Consumer] Reached --max-chunks={self._max_chunks}, stopping.", flush=True)
-                        return
-                    self._process_one(self._work_dir / seg_name, seg_name)
-            if not pending and self._recorder_stopped.is_set():
-                # Final scan after recorder stops to catch last-window segments
-                for seg_name in self._pending():
-                    if self._max_chunks > 0 and self._chunk_index >= self._max_chunks:
-                        break
-                    self._process_one(self._work_dir / seg_name, seg_name)
-                break
-            time.sleep(self._scan_interval)
-        print("[Consumer] Done.", flush=True)
-
-    def _process_one(self, seg_path: Path, seg_name: str) -> None:
-        try:
-            probe = probe_url(str(seg_path))
-            duration_s = float(probe.get("format", {}).get("duration") or 0)
-        except Exception as e:
-            entry = self._failed.get(seg_name, {"retries": 0})
-            self._failed[seg_name] = {"retries": entry["retries"] + 1, "last_error": str(e)}
-            print(f"[Consumer] ffprobe failed for {seg_name}: {e}", flush=True)
-            return
-
-        # Skip segments that are too short unless recorder has already stopped
-        if duration_s < 10 and not self._recorder_stopped.is_set():
-            return
-
-        gap_before_s = self._pop_gap(seg_name)
-        self._chunk_index += 1
-        try:
-            _seg_size = seg_path.stat().st_size
-        except OSError:
-            _seg_size = 0
-        source_summary = {
-            "extractor": "hls-continuous",
-            "media_type": "ts",
-            "duration_s": duration_s,
-            "size_bytes": _seg_size,
-            "video": {},
-            "audio": {},
-        }
-        print(
-            f"\n[Consumer] Chunk {self._chunk_index}: {seg_name} "
-            f"@ {fmt_time(self._start_s)} + {fmt_time(duration_s)}"
-            + (f"  [gap {gap_before_s:.0f}s]" if gap_before_s > 0 else ""),
-            flush=True,
-        )
-
-        try:
-            chunk = process_segment_file(
-                segment_path=seg_path,
-                start_s=self._start_s,
-                duration_s=duration_s,
-                chunk_index=self._chunk_index,
-                chunk_total=0,
-                base_stem=self._base_stem,
-                args=self._args,
-                host=self._host,
-                source_summary=source_summary,
-                headers=self._headers,
-            )
-        except Exception as e:
-            entry = self._failed.get(seg_name, {"retries": 0})
-            self._failed[seg_name] = {"retries": entry["retries"] + 1, "last_error": str(e)}
-            print(f"[Consumer] processing failed for {seg_name}: {e}", flush=True)
-            self._chunk_index -= 1
-            return
-
-        self._processed.add(seg_name)
-        if chunk is not None:
-            if gap_before_s > 0:
-                chunk["slice"]["gap_before_s"] = gap_before_s
-            self._chunks.append(chunk)
-        self._start_s += duration_s
-        self._write_checkpoint()
-
-    def _write_checkpoint(self) -> None:
-        cp = {
-            "version": 2,
-            "created_at": self._created_at,
-            "base_stem": self._base_stem,
-            "work_dir": str(self._work_dir),
-            "processed_segments": sorted(self._processed),
-            "failed_segments": self._failed,
-            "chunks": self._chunks,
-            "global_start_s": self._start_s,
-        }
-        RUNS_DIR.mkdir(exist_ok=True)
-        self._checkpoint_path.write_text(json.dumps(cp, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    def get_results(self) -> dict:
-        return {
-            "created_at": self._created_at,
-            "base_stem": self._base_stem,
-            "work_dir": str(self._work_dir),
-            "chunks": self._chunks,
-            "processed_segments": sorted(self._processed),
-            "failed_segments": self._failed,
-            "global_start_s": self._start_s,
-        }
-
-
-def _run_gemini_synthesis(manifest: dict, args: argparse.Namespace, base_stem: str, timestamp: str) -> "Path | None":
-    """Call Gemini to build a notes document from the manifest; return the notes path or None."""
-    if not getattr(args, "gemini", False) or not manifest["chunks"]:
-        return None
-    print("\n=== Gemini: Building notes document ===")
-    try:
-        from google import genai as _genai
-        api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENCLAW_GOOGLE_API_KEY", "")
-        if not api_key:
-            print("[!] GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var required — skipping Gemini")
-            return None
-        client = _genai.Client(api_key=api_key)
-        parts = build_stream_gemini_parts(manifest)
-        result = _call_gemini_stream(client, parts, base_stem)
-        if result["text"]:
-            notes_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.notes.md"
-            notes_path.write_text(result["text"], encoding="utf-8")
-            print(f"Notes: {notes_path} ({len(result['text'])} chars, {result['gemini_calls']} Gemini calls)")
-            return notes_path
-        print("[!] Gemini returned no text")
-    except ImportError as e:
-        print(f"[!] {e}")
-    except Exception as e:
-        print(f"[!] Gemini error: {e}")
-    return None
-
-
-def _finalize_hls_run(
-    results: dict,
-    args: argparse.Namespace,
-    host: str,
-    stream_ended_reason: str,
-    chunk_duration_s: float,
-) -> dict:
-    """Write combined transcript + manifest; optionally call Gemini synthesis."""
-    chunks = results["chunks"]
-    base_stem = results["base_stem"]
-    created_at = results["created_at"]
-    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-
-    combined_text = "\n\n".join(
-        Path(c["outputs"]["global_transcript_txt"]).read_text(encoding="utf-8")
-        for c in chunks
-        if Path(c["outputs"]["global_transcript_txt"]).exists()
-    )
-    combined_transcript_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.combined-transcript.txt"
-    manifest_json_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.json"
-    manifest_md_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.md"
-
-    RUNS_DIR.mkdir(exist_ok=True)
-    combined_transcript_path.write_text(combined_text, encoding="utf-8")
-
-    manifest = {
-        "created_at": created_at,
-        "url_host": host,
-        "extractor": "hls-continuous",
-        "media_type": "ts",
-        "source": {"duration_s": results["global_start_s"], "size_bytes": 0, "video": {}, "audio": {}},
-        "auth_header_names": [],
-        "start_s": 0,
-        "duration_s": results["global_start_s"],
-        "chunk_duration_s": chunk_duration_s,
-        "live_mode": True,
-        "stream_ended_reason": stream_ended_reason,
-        "chunks": chunks,
-        "combined_transcript_path": str(combined_transcript_path),
-        "manifest_json_path": str(manifest_json_path),
-        "manifest_md_path": str(manifest_md_path),
-        "hls_work_dir": results.get("work_dir", ""),
-        "combined_transcript_text": combined_text,
-        "preview": combined_text[:1200],
-    }
-    notes_path = _run_gemini_synthesis(manifest, args, base_stem, timestamp)
-    if notes_path is not None:
-        manifest["notes_md_path"] = str(notes_path)
-
-    manifest_json_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-    write_manifest(manifest_md_path, manifest)
-
-    (RUNS_DIR / f"stream-{base_stem}.checkpoint.json").unlink(missing_ok=True)
-    print(f"\nManifest: {manifest_md_path}")
-    print(f"Combined transcript: {combined_transcript_path}")
-
-    return manifest
-
-
-def run_continuous_hls(args: argparse.Namespace) -> dict:
-    """Start Recorder + SegmentConsumer threads; block until both finish."""
-    keepalive: PlaywrightKeepaliveStream | None = None
-    try:
-        keepalive, stream = start_keepalive_stream(args)
-        host = urlparse(stream.url).hostname or "unknown-host"
-        headers = stream.headers
-        _title = keepalive.get_page_title() if keepalive else ""
-        _date = datetime.now().strftime("%Y%m%d")
-        base_stem = safe_name(args.name or (f"live_{_date}_{_title}" if _title else f"live_{_date}"))
-        write_base_marker(getattr(args, "base_marker", ""), base_stem)
-        chunk_duration_s = parse_time(args.chunk_duration or "60")
-
-        root_work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
-        session_ts = datetime.now().strftime("%Y%m%d-%H%M%S")
-        work_dir = root_work_dir / f"{base_stem}-{session_ts}"
-        work_dir.mkdir(parents=True, exist_ok=True)
-
-        recorder_stopped = threading.Event()
-        gap_queue: queue.SimpleQueue = queue.SimpleQueue()
-
-        recorder = Recorder(stream, work_dir, keepalive, args, recorder_stopped, gap_queue)
-        consumer = SegmentConsumer(work_dir, base_stem, args, host, headers, recorder_stopped, gap_queue,
-                                   max_chunks=args.max_chunks or 0)
-
-        print(f"\n=== HLS Continuous mode ===")
-        print(f"Name    : {base_stem}")
-        print(f"Work dir: {work_dir}")
-        print(f"Chunk   : {chunk_duration_s}s")
-        print("Gemini  : disabled during capture/consumer; final synthesis is a separate step")
-        print()
-
-        recorder.start()
-        consumer.start()
-        try:
-            consumer.join()
-        except KeyboardInterrupt:
-            print("\n[!] Ctrl-C: stopping recorder...", flush=True)
-            recorder.request_stop()
-            consumer.join(timeout=60)
-
-        recorder.request_stop()
-        recorder.join(timeout=15)
-
-        results = consumer.get_results()
-        return _finalize_hls_run(results, args, host, "recorder stopped", chunk_duration_s)
-    finally:
-        if keepalive:
-            try:
-                keepalive.close()
-            except Exception as e:
-                print(f"[!] Playwright teardown warning (non-fatal): {e}", flush=True)
-
-
-def run_hls_consumer_only(args: argparse.Namespace) -> dict:
-    """Process existing .ts files in work_dir without starting a Recorder."""
-    work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
-    host = "local"
-    headers: dict[str, str] = {}
-    base_stem = safe_name(args.name or f"ts_{int(time.time())}")
-    write_base_marker(getattr(args, "base_marker", ""), base_stem)
-    chunk_duration_s = parse_time(args.chunk_duration or "60")
-
-    recorder_stopped = threading.Event()
-    recorder_stopped.set()  # Pre-set: consumer exits after draining the directory
-    gap_queue: queue.SimpleQueue = queue.SimpleQueue()
-
-    consumer = SegmentConsumer(work_dir, base_stem, args, host, headers, recorder_stopped, gap_queue,
-                               max_chunks=args.max_chunks or 0)
-
-    ts_files = sorted(work_dir.glob("seg_*.ts"))
-    if args.max_chunks and len(ts_files) > args.max_chunks:
-        ts_files = ts_files[:args.max_chunks]
-        print(f"[--max-chunks={args.max_chunks}] Capped to {args.max_chunks} .ts file(s)")
-    print(f"\n=== HLS Consumer-only mode ===")
-    print(f"Name    : {base_stem}")
-    print(f"Work dir: {work_dir}")
-    print(f"Segments: {len(ts_files)} .ts file(s) found")
-    print()
-
-    if not ts_files:
-        print(f"[!] No seg_*.ts files in {work_dir} — nothing to process.")
-        return consumer.get_results()
-
-    consumer.start()
-    consumer.join()
-
-    results = consumer.get_results()
-    return _finalize_hls_run(results, args, host, "consumer-only run complete", chunk_duration_s)
+            keepalive.close()
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -1785,43 +1244,18 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--name", default="", help="Optional output stem.")
     parser.add_argument(
-        "--base-marker",
-        default="",
-        help="Optional file path where the resolved output base stem is written.",
-    )
-    parser.add_argument(
         "--gemini",
         action="store_true",
         help=(
             "After all chunks are processed, call Gemini to produce a "
             "NotebookLM-ready notes document (.notes.md). "
-            "Requires GEMINI_API_KEY or OPENCLAW_GOOGLE_API_KEY env var."
+            "Requires GEMINI_API_KEY env var or --gemini-api-key."
         ),
     )
     parser.add_argument(
-        "--resume",
-        action="store_true",
-        help=(
-            "从已有 checkpoint 恢复：读取 stream-{name}.checkpoint.json，"
-            "从最后完成的 chunk 结束时间点继续，combined transcript 包含全部内容。"
-        ),
-    )
-    parser.add_argument(
-        "--continuous-hls",
-        action="store_true",
-        help=(
-            "连续 HLS 录制模式：启动 Recorder + SegmentConsumer 双线程。"
-            "ffmpeg 持续分段写入 .ts 文件，Consumer 实时转写每个完成的分段。"
-            "需要 --page-url 和 --playwright-keepalive（Playwright 管理 FLV URL）。"
-        ),
-    )
-    parser.add_argument(
-        "--hls-consumer-only",
-        action="store_true",
-        help=(
-            "消费侧独立测试：跳过 Recorder，直接处理 --stream-work-dir 里已有的 seg_*.ts 文件。"
-            "用于在没有直播流时验证转写/抽帧/checkpoint/manifest 流程。"
-        ),
+        "--gemini-api-key",
+        default="",
+        help="Gemini API key. Defaults to the GEMINI_API_KEY environment variable.",
     )
     return parser
 
@@ -1829,12 +1263,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
-    if args.hls_consumer_only:
-        run_hls_consumer_only(args)
-    elif args.continuous_hls:
-        run_continuous_hls(args)
-    else:
-        run_validation(args)
+    run_validation(args)
 
 
 if __name__ == "__main__":

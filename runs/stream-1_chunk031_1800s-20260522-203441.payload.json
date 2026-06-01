@@ -1,0 +1,34 @@
+{
+  "video_name": "1_chunk031_1800s",
+  "full_text": "[00:00:00 - 00:01:00] 体系的筛选和分流和适配的作用。所以我们这就是我们今天要给大家去推出的第一个上线的第一个公益活动，就是青少年的AI的线下的工作坊。这工作坊呢是线下的啊，是不定期的线下活动啊，这个完全免费，也没有任何的隐形消费，不会让你在现场的时候买个电脑啊，买个pad，买个对吧？卖个token什么之类的，不会然后呢呃啊然后呢他的他的他的城市呢是在深圳和北京啊，深圳和北京已经确定好的两个时间点呢，它是一个滚动进行的就是北京、深圳、北京、深圳。但如果你其他城市大家的这个呼声比较高呢啊，我们也可以去其他城市办，完全没有任何问题。他是一个大概一整个下午主体时间呢大概是两个小时啊，主体时间是两个小时。但是一般来说会有一些孩子，这个两个小时呢他根本不够，他根本不想离开这个地方，他想继续把它的人生的第一个产品给它调通了。然后呢。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk031_1800s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk031_1800s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.0445"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk031_1800s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0445"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.0445
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 375
+  }
+}

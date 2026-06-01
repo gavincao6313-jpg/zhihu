@@ -1,0 +1,34 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk006_300s",
+  "full_text": "[00:00:00 - 00:01:00] 场景是一次道歉与和好的对话，用户在这里输入。喂也别生气了，我突然从英国带来你最想要的那个pink flo的首版黑胶唱片，昨晚因为去取这个才知道的那系统后台的处理机制是什么？啊，系统后台的处理机制是什么？处理机制，这里面就有碎片记忆，先去抓细节，先去抓细节，先把原始的非结构化基于时间序列的这些对话的片段或者事实点先拿出来，先拿出来。再通过rag来去做存取。系统提炼的碎片点，包括什么？这面有物品。啊，因为这段话里有pinfed德的手版黑胶唱片，然后来源是英国的代购。事件原因昨晚迟到是因为去取唱片了，用户的意图是道歉和求和，这是所提到的碎片碟。存种形式把这套东西基于这些的碎片的这些因素，把它存到向量数据库里面。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk006_300s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk006_300s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.034"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk006_300s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.034
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 328
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk002_60s",
+  "full_text": "[00:00:00 - 00:01:01] 啊，对吧还是挺有趣儿的吧。然后的话他还能干什么呢？他还能给我去开一个我的这个数据看板，然后分析我这一天都干什么了。😊你看我这一天都干嘛了，这是我这不是这个，这是我这一天都干的事儿，然后浏览占比多少，然后社交占比多少，办公占比多多少，我用的应用哪些的这个分类的一个情况。然后看了什么样的网站，然后整体的时段是什么，然后全部的累积的状态。所以这是一个这是一个就是说白了是我错的一个就是用来做我的时间管理。然后再加上然后一个非常精密的，我的时间都干啥的的一个一个小小工具。小工具明白了吧。呃，评测岗不适合，而且你你学得咱们这个课的话，你怎么可能可你你你怎么可能甘于去干评测岗呢？AI功能当然有了，找他聊天就是AI的呀。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780314950_000001\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780314950_000001\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=slide diff=0.6999"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780314950_000001\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0391"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780314950_000001\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0391"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780314950_000001\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.6712"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780314950_000001\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.0844"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 13,
+      "diff": 0.6999
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0391
+    },
+    {
+      "type": "slide",
+      "frame_idx": 32,
+      "diff": 0.6712
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.0844
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 329
+  }
+}

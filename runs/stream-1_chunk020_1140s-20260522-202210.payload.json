@@ -1,0 +1,49 @@
+{
+  "video_name": "1_chunk020_1140s",
+  "full_text": "[00:00:00 - 00:01:00] 信息啊，历史的学生啊发布出来的呃的成功的经验，然后来帮助自己能更好的去选择学校和准备材料。所以我们看到这些孩子做的这些跟自己的学习和生活直接相关的东西时候，我们会觉得啊好像。嗯。好像这个方向上确实走对路了，就是AI coding结合你的你的学习和生活。但是这个过程当中也有挺有意思挺有意思的事情啊。就有一个十年级的学生啊，在下课之后跑去问我们这个老师说个老师我们那个学生在学on，因为也学了有一两年了。然后他的很多同学都在学on都在上计算机课，他说他就问我们那个老师说那个老师我们现在AI如果AI都能帮我们写代码，还能直接做出来东西？那我们学校我在学校里里面为什么还在学计算机课，就很多这样的问题可能你会觉得挺难回答的，就好像嗯大家都知道AI什么都懂，你问他就可以了。为什么还在还在背一些书。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk020_1140s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk020_1140s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk020_1140s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0245"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk020_1140s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk020_1140s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.2089"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.0245
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.2089
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 369
+  }
+}

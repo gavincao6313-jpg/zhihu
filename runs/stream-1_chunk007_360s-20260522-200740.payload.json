@@ -1,0 +1,44 @@
+{
+  "video_name": "1_chunk007_360s",
+  "full_text": "[00:00:00 - 00:01:00] 武大竞赛对吧？信息学奥赛、数学数学竞赛，然后这个物理竞赛、化学竞赛、生物竞赛。然后现在呃又有了第六大学科竞赛，叫做人工智能奥赛。所以你会发现在一个初中生或者小学生到底能学什么这件事情上，可能我们真的挺难回答这个问题的。因为。。呃，过去我们只是不教，我们我们从来没有尝试过，把研究生一年级才会去学的内容拿到高中甚至初中去教，从来没有过。但是你会发现有些学校做了尝试之后，他居然得到的结果，会让我们这样的惊讶，对吧？就是呃这是他们的比赛现场，呃，这是他们的比赛现场，然后这是中国国家队的8个孩子，虽然他他们去年的呃比赛成绩并不是特别好。去年呃在国际的比赛上一块金牌都没有拿。就是呃金牌数挂零，就是因为整体的起步都特别晚，金牌数挂零，但是不妨碍这些孩子呃呃都都有了非常非常好的去向。。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk007_360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk007_360s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.2436"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk007_360s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.2436"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk007_360s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=slide diff=0.3115"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.2436
+    },
+    {
+      "type": "slide",
+      "frame_idx": 38,
+      "diff": 0.3115
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 361
+  }
+}

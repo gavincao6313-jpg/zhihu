@@ -1,0 +1,159 @@
+{
+  "video_name": "bilibili-live-30min_chunk008_420s",
+  "full_text": "[00:00:00 - 00:00:59] 🎼地道甘味。😊五彩梁山夏季清凉，得天地之美，与自然共养，荣非凡匠性成品质酱香。🎼中国茅台香飘世界。😔",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.3021"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=slide diff=0.3609"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=slide diff=0.3049"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=slide diff=0.6031"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.3038"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=slide diff=0.3444"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk008_420s\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.3391
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.2887
+    },
+    {
+      "type": "slide",
+      "frame_idx": 15,
+      "diff": 0.3021
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.1078
+    },
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.3609
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 21,
+      "diff": 0.1697
+    },
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.3049
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.2278
+    },
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.6031
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.2701
+    },
+    {
+      "type": "slide",
+      "frame_idx": 45,
+      "diff": 0.3038
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.2956
+    },
+    {
+      "type": "slide",
+      "frame_idx": 53,
+      "diff": 0.3444
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.2175
+    }
+  ],
+  "stats": {
+    "slide_changes": 7,
+    "annotations": 7,
+    "frames_total": 15,
+    "text_chars": 72
+  }
+}

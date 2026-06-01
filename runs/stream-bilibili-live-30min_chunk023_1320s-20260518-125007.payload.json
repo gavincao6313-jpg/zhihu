@@ -1,0 +1,94 @@
+{
+  "video_name": "bilibili-live-30min_chunk023_1320s",
+  "full_text": "[00:00:00 - 00:00:59] 酒驾的行为，我们公安机关将另案处理。在这里提醒广大驾驶员，开车不喝酒，喝酒不开车，切勿给犯罪分子可乘之机。日常生活中，有的车主为了图方便，常常随意停车，甚至直接将车辆停在禁停区域消防通道内。在湖南湘潭，一位业主把车违停在小区消防通道，结果被脱落的外墙瓷砖砸中车辆受损。车主的保险公司理赔之后，把小区物业告上了法院，想要追回这笔赔偿款。那么，这次天降瓷砖砸坏车的事故到底该由谁来赔呢？。嗯。🎼今年2月，湖南湘潭岳塘区人民法院公布了一起典型案例。事发当天，业主肖先生开车回家，发现楼下的车位都停满了，他把车停在了小区后面。因为在这件事情上面，我们觉得我们物业公司没有过错，当时就没跟他谈的。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.3129"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=slide diff=0.4608"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk023_1320s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.2292
+    },
+    {
+      "type": "slide",
+      "frame_idx": 11,
+      "diff": 0.3129
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.0393
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.2897
+    },
+    {
+      "type": "slide",
+      "frame_idx": 49,
+      "diff": 0.4608
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2875
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 4,
+    "frames_total": 10,
+    "text_chars": 315
+  }
+}

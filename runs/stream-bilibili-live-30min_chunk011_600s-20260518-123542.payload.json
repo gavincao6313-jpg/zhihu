@@ -1,0 +1,139 @@
+{
+  "video_name": "bilibili-live-30min_chunk011_600s",
+  "full_text": "[00:00:00 - 00:00:59] 🎼几十万呃，又说炒黄金的各种好处。群主说呃为了呃回馈我们损失啊带大家一起炒一波黄金。王先生说这个群的群主不同于那些只谈盈利的普通投资博主，而是把自己包装成炒股技术精湛，有情怀热心公益的明星讲师。经常发布一些到处捐赠物资的图片，来历人设，更有所谓的老股民盈利截图。这一系列的烘托造势，让他逐渐深陷其中。他讲解的知识点也充足，讲讲解的草金然各方面理念也还行，他不是说一点技没有就是有一定的储备，其是什么让我比较感动的，或者说觉得他还行，就是说我们赚了钱以后，一起我们去做个慈善啊去救助一下这个需。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=slide diff=0.5943"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.5097"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=slide diff=0.3794"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk011_600s\\frame_00061.jpg",
+      "timestamp_s": 61,
+      "marker": "Frame [00:01:01] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.1493
+    },
+    {
+      "type": "slide",
+      "frame_idx": 12,
+      "diff": 0.5943
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.0775
+    },
+    {
+      "type": "slide",
+      "frame_idx": 15,
+      "diff": 0.5097
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.2918
+    },
+    {
+      "type": "slide",
+      "frame_idx": 35,
+      "diff": 0.3794
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.2451
+    },
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.3724
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.0864
+    },
+    {
+      "type": "slide",
+      "frame_idx": 54,
+      "diff": 0.3379
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 60,
+      "diff": 0.2587
+    }
+  ],
+  "stats": {
+    "slide_changes": 5,
+    "annotations": 6,
+    "frames_total": 14,
+    "text_chars": 268
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk139_8335s",
+  "full_text": "[00:00:00 - 00:01:00] 足够多的企业对吧？to C之外，to B有巨大的机会，它的推广过程中撬动各个环节的整个的产业都会往前去增长。即便to C阿福做的是广域入口，是做的普惠，你还可以通过两个方法再找到新的机会。比如说你做垂泪，你就做一个这个这个这个这个这个产科儿科的专业的，一定有机会，对吧？心理健康的孕产期的癌症的临终的，一定是有巨大机会的对吧？再一个，你比如说做高端对吧？高端医疗本质上是要和特定医特定的专家去做强挂钩绑定的对吧？你就去找一堆301的协和的腐外的最顶的。。医生做他的智能体，把他的诊断和他的个人的诊断数据连接起来，他最后会来去赋能签字的啊，并且做一个组合包之后的话，是能干是能拿到他他的号的，一定有机会。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000138\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000138\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0252"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000138\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0252"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.0252
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 323
+  }
+}

@@ -51,7 +51,7 @@ from utils import call_gemini, call_qwen, extract_run_ts, fmt_ts
 # ── Provider config ───────────────────────────────────────────────────────────
 
 GEMINI_MODEL            = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
-QWEN_MODEL              = os.environ.get("QWEN_MODEL", "qwen3.6-plus")
+QWEN_MODEL              = os.environ.get("QWEN_MODEL", "qwen3.6-flash")
 GEMINI_IMAGE_HARD_LIMIT = 3000   # API ceiling; fallback priority sampling above this
 QWEN_IMAGE_HARD_LIMIT   = 250
 QWEN_DEFAULT_MAX_FRAMES = 128
@@ -74,10 +74,6 @@ BODY_COVERAGE_GAP_S = 120   # warn if last Markdown chapter ends >2 min before s
 QWEN_BODY_MIN_TRANSCRIPT_RATIO = 0.20
 QWEN_FACT_RETENTION_MIN_RATIO = 0.90
 QWEN_NARRATIVE_RETENTION_MIN_RATIO = 0.32
-# Qwen one-shot → sliding-window auto-route threshold.
-# Validated: 54K chars one-shot → overcompressed (BUG#109); 41K sliding-window → QC pass.
-# Qwen output cap ~32K Chinese chars; transcripts above 30K chars exhaust output budget.
-QWEN_AUTO_SLIDING_WINDOW_CHARS = 30_000
 QWEN_NARRATIVE_MIN_BLOCKS_PER_WINDOW = 2
 QWEN_CRITICAL_FACT_TERMS = [
     "75分",
@@ -281,7 +277,6 @@ QWEN_FINAL_ASSEMBLY_PROMPT_TEXT = """
 - Narrative Evidence Blocks 是防止长文叙事被压缩的保底证据。最终正文必须吸收这些长段的细节和语气；不能只把它们改写成一句 bullet。
 - 可以去重 overlap，但不能因为去重丢掉上下文。
 - 章节必须按真实时间线线性展开，禁止出现大章节包住小章节的重叠时间段。
-- 每个输入窗口必须对应至少一个独立章节，禁止将多个窗口内容合并为单一超大章节。最终章节数 ≥ 输入窗口数（见输入头部的约束行）。
 - Glossary 可以更清晰，但正文必须保留窗口笔记中的丰富细节。
 
 # 必须输出
@@ -318,7 +313,7 @@ QWEN_FINAL_ASSEMBLY_PROMPT_TEXT = """
 集中列出 Critical Facts Checklist 中的关键数字、年份、年龄、百分比、时长、金额、积分、评分、工具名和 Prompt 关键词。每条要标明来源窗口，并保留上下文短句。这个索引用于 NotebookLM 精确检索，不要省略任何一条。
 
 # 自检
-输出前确认：H1 存在；所有窗口都有内容进入正文；章节数 ≥ 输入窗口数；Critical Facts Checklist 全部落地到正文/技术资产附录/关键事实索引；Narrative Evidence Blocks 已进入正文或叙事证据附录；Prompt/代码块没有丢；技术资产附录存在；关键事实索引存在；视觉证据没有被泛化成"展示了截图"；章节时间线不重叠；正文不是短摘要。
+输出前确认：H1 存在；所有窗口都有内容进入正文；Critical Facts Checklist 全部落地到正文/技术资产附录/关键事实索引；Narrative Evidence Blocks 已进入正文或叙事证据附录；Prompt/代码块没有丢；技术资产附录存在；关键事实索引存在；视觉证据没有被泛化成"展示了截图"；章节时间线不重叠；正文不是短摘要。
 
 # 隐藏覆盖标记（必须输出）
 在文档最后一行添加 HTML 注释，列出已纳入最终正文的窗口编号，格式必须严格为：
@@ -596,12 +591,6 @@ def build_qwen_windows(
     max_frames = min(max_frames, QWEN_IMAGE_HARD_LIMIT)
     target_new_frames = max(1, min(target_new_frames, max_frames))
     overlap_frames = max(0, min(overlap_frames, max(0, (max_frames - target_new_frames) // 2)))
-    # When target was clamped to max_frames (e.g. max_frames=128 < QWEN_WINDOW_TARGET_FRAMES=200),
-    # overlap collapses to 0 and windows become coarse (6 windows instead of 8 for 696 frames).
-    # Restore overlap by shrinking target: target = max_frames - 2*overlap, giving finer windows.
-    if overlap_frames == 0 and target_new_frames == max_frames and max_frames > 2 * QWEN_WINDOW_OVERLAP_FRAMES:
-        overlap_frames = QWEN_WINDOW_OVERLAP_FRAMES
-        target_new_frames = max(1, max_frames - 2 * overlap_frames)
 
     segments = load_chunk_segments(chunk_files)
     if not frames:
@@ -1774,18 +1763,6 @@ def main() -> None:
     manifest = live_final_qc(chunk_files, transcript, all_frames, args.base, selected_ts)
     manifest["synthesis_provider"] = provider
     manifest["synthesis_model"] = provider_model
-
-    # Auto-route: Qwen + long transcript → sliding-window regardless of caller.
-    # Covers live stream, replay, and local MP4 paths uniformly.
-    if (provider == "qwen" and synthesis_pass == "one-shot"
-            and len(transcript) > QWEN_AUTO_SLIDING_WINDOW_CHARS):
-        synthesis_pass = "sliding-window"
-        print(
-            f"[auto-route] transcript {len(transcript):,} chars"
-            f" > {QWEN_AUTO_SLIDING_WINDOW_CHARS:,}: Qwen one-shot → sliding-window",
-            flush=True,
-        )
-
     manifest["synthesis_pass"] = synthesis_pass
     frame_timestamp = check_frame_timestamp_alignment(all_frames, manifest)
     manifest["frame_timestamp_qc"] = frame_timestamp["metrics"]
@@ -1941,32 +1918,16 @@ def main() -> None:
                 )
                 manifest["frame_policy"] = frame_policy
                 manifest["provider_parts_count"] = len(parts)
-                _qw_quality_retries = 0
-                _QW_QUALITY_MAX_RETRIES = 2
-                while True:
-                    qwen_result = call_qwen(
-                        client, parts, args.base,
-                        model=provider_model,
-                        enable_thinking=args.qwen_thinking,
-                        thinking_budget=args.thinking_budget,
-                        max_retries=args.max_retries,
-                        max_continuations=args.max_continuations,
-                    )
-                    gemini_text = qwen_result.get("text")
-                    if (gemini_text and transcript and
-                            len(gemini_text) / len(transcript) < QWEN_BODY_MIN_TRANSCRIPT_RATIO and
-                            _qw_quality_retries < _QW_QUALITY_MAX_RETRIES):
-                        _qw_quality_retries += 1
-                        print(
-                            f"[!] Qwen overcompressed (ratio={len(gemini_text)/len(transcript):.2f}),"
-                            f" retry {_qw_quality_retries}/{_QW_QUALITY_MAX_RETRIES}",
-                            flush=True,
-                        )
-                        continue
-                    break
+                qwen_result = call_qwen(
+                    client, parts, args.base,
+                    model=provider_model,
+                    enable_thinking=args.qwen_thinking,
+                    thinking_budget=args.thinking_budget,
+                    max_retries=args.max_retries,
+                    max_continuations=args.max_continuations,
+                )
+                gemini_text = qwen_result.get("text")
                 manifest["provider_usage"] = {k: v for k, v in qwen_result.items() if k != "text"}
-                if _qw_quality_retries:
-                    manifest["provider_usage"]["qwen_quality_retries"] = _qw_quality_retries
             else:
                 note_texts: list[str] = []
                 note_paths: list[str] = []
@@ -2057,11 +2018,8 @@ def main() -> None:
                     f"<!-- window {idx + 1} -->\n{text.strip()}"
                     for idx, text in enumerate(note_texts)
                 )
-                window_count = len(qwen_windows)
                 final_input = (
-                    f"[约束] 本次共 {window_count} 个窗口笔记，最终正文章节数必须 ≥ {window_count}，"
-                    f"每个窗口对应至少一个独立章节。\n\n"
-                    + critical_facts_block
+                    critical_facts_block
                     + "\n\n"
                     + narrative_blocks_block
                     + "\n\n## Qwen Window Notes\n\n"

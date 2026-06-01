@@ -1,0 +1,79 @@
+{
+  "video_name": "zhihu-live-verify_chunk003_120s",
+  "full_text": "[00:00:00 - 00:01:00] 而而且你拿s读完之后是特别稳定的，因为就是性名，就是就是性别，它不是关系性的库，它是结构性的库，对吧？然后在星业中就是在这面的核心画像，性名、性别、个人介绍。这三个东西，尤其性人性别，就是核心画像的部分。然后第二个东西是它的概要记忆。概要记忆，什么是概要记忆呀？概有记忆叫做对过去对话的高度浓缩。比如说用户在上周对话中表达了对现在的工作的焦虑主要是因为加班太度，用户正在考虑买新能源汽车啊，然后预算30万，实验方式是ra或者结构发的这个profile。。需要注意是什么？概要记忆的关键是是概要，是过对过去一段时间行为做深度加工和定性判断。所以需要根据业务的特点设计出来不同的记忆的类型，以产品的用户价值为核心驱动点。对于星眼，是什么是值得记住的概要，或者什么是这种情感类的产品，值得被记。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.1728"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.1355"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.1363"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0314"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-live-verify_chunk003_120s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.1728
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.1355
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.1363
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.0314
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 366
+  }
+}

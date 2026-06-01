@@ -1,0 +1,71 @@
+﻿Comparing QWEN outputs...
+  Baseline: runs\baseline-live-ab-20260526-qwen-sw.md
+  Replay:   Markdowns\TTS_stream-replay-20260527-qwen-qwen-replay.md
+  Gemini:   runs\baseline-live-ab-20260526-gemini.md
+
+============================================================
+  BASELINE: QWEN sliding-window (last night live)
+============================================================
+  Title:        AI 自媒体实战项目交付：从 Prompt 工程到 FDE 角色转型的全景解析
+  Total chars:  111,879
+  Body chars:   111,559
+  CJK chars:    39,326
+  H3 sections:  13
+  Code blocks:  7
+  Glossary:     6 terms
+  QC:
+    输入类型: live | provider: qwen | 合成模型: qwen3.6-flash | synthesis_pass: sliding-window
+    采集状态: full
+    覆盖时间: 00:00:00 – 02:10:17
+    chunks: 130 | gaps: 0 | transcript: 41,749 字 | frames: 439
+    确定性附录: 完整逐字稿 (41,749 字) | 视觉证据索引 (439 帧)
+    ⚠️ qwen_overcompressed_body: body/transcript ratio 0.24, expected >= 0.35
+
+============================================================
+  REPLAY: QWEN sliding-window (replay video)
+============================================================
+  Title:        AI 自媒体实战与 FDE 职业路径：从需求错位到前沿部署工程师
+  Total chars:  110,507
+  Body chars:   110,064
+  CJK chars:    46,981
+  H3 sections:  8
+  Code blocks:  4
+  Glossary:     9 terms
+  QC:
+    输入类型: live | provider: qwen | 合成模型: qwen3.6-flash | synthesis_pass: sliding-window
+    采集状态: full
+    覆盖时间: 00:00:00 – 02:11:00
+    chunks: 131 | gaps: 0 | transcript: 41,817 字 | frames: 324
+    确定性附录: 完整逐字稿 (41,817 字) | 视觉证据索引 (324 帧)
+    ⚠️ qwen_critical_facts_missing: 2017年(w1), 15秒(w1), 30秒(w1), 1分钟(w1), 3分钟(w1), 35岁(w1), 99%(w2), 60分(w2)
+    ⚠️ qwen_fact_retention_low: retained 16/24 (0.67), expected >= 0.90
+
+============================================================
+  COMPARISON
+============================================================
+  total_chars         :  111,879 →  110,507  (-1,372  -1.2%)
+  body_chars          :  111,559 →  110,064  (-1,495  -1.3%)
+  cjk_chars           :   39,326 →   46,981  (++7,655  ++19.5%)
+  sections            :       13 →        8  (-5  -38.5%)
+  code_blocks         :        7 →        4  (-3  -42.9%)
+  glossary            :        6 →        9  (++3  ++50.0%)
+
+  [FIXED?] Baseline had overcompression warning
+  Yes - replay output no longer shows overcompression!
+
+============================================================
+  GEMINI baseline (last night live)
+============================================================
+  Title:        AI自媒体实战项目交付问题解析与前沿部署工程师（FDE）能力成长指南
+  Total chars:  108,129
+  Body chars:   107,888
+  CJK chars:    38,095
+  H3 sections:  7
+  Code blocks:  2
+  Glossary:     0 terms
+  QC:
+    输入类型: live | provider: gemini | 合成模型: gemini-3.5-flash | synthesis_pass: one-shot
+    采集状态: full
+    覆盖时间: 00:00:00 – 02:10:17
+    chunks: 130 | gaps: 0 | transcript: 41,749 字 | frames: 439
+    确定性附录: 完整逐字稿 (41,749 字) | 视觉证据索引 (439 帧)

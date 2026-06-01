@@ -7,15 +7,6 @@ Videos/
 # 本地预处理缓存
 cache/
 
-# 本机/工具运行遥测（不作为跨机器协作事实）
-.wolf/hooks/_session.json
-.wolf/token-ledger.json
-.wolf/cron-state.json
-.wolf/designqc-report.json
-.wolf/suggestions.json
-.gitnexus/
-graphify-out/
-
 # 进度 & 配额（.progress.json 用 git 同步）
 .progress.tmp.json
 .progress.json.tmp
@@ -28,5 +19,18 @@ __pycache__/
 *.pyc
 .venv*/
 
-# Local ASR/model artifacts
+# Playwright browser binaries (downloaded locally)
+.playwright-browsers/
+
+# Local probe media
 runs/*.wav
+
+# Checkpoint files — deleted on clean exit; only committed accidentally
+runs/*.checkpoint.json
+Videos/.stream/requests/
+Videos/.stream/storage_state*.json
+
+# Zhihu auth secrets
+zhihu_auth_state.json
+.last_stream_url.txt
+.monitor_state.json

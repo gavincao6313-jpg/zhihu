@@ -1,0 +1,89 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk115_6884s",
+  "full_text": "[00:00:00 - 00:01:00] 给我系一些相应的健康小目标。啊，告诉我这里面的计划，然后每天要去督导我打卡这套小连招，同学们注意你们可以去学一学这套小连招可以去学一学这套小连招，对于你们去做低频转高频，其实是有非常大的帮助的啊，有非常大的帮助。所以这时候阿福的三个核心逻辑，免费。大家都喜欢宣传用了国民级的方式，啥时去应用。然后既有低频转高频的方式，又有在这里面能够明确的别人没有做的，他能做的一些招。好，这就是解决掉了国内AI医疗产品三个核心的难点。然后再说一说国内的这些市场机会和一些生态位的一些竞争的逻辑。为什么马蚁阿夫这么大力的去做推广？其实不用纠结马阿夫它怎么收费，商业模式不重要，它的商业模式真的不重要啊，真的不重要啊，不重要。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0917"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0917"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0963"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0963"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=slide diff=0.4182"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.055"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.0329"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000114\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.0329"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.0917
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0963
+    },
+    {
+      "type": "slide",
+      "frame_idx": 21,
+      "diff": 0.4182
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.055
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.0329
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 4,
+    "frames_total": 10,
+    "text_chars": 326
+  }
+}

@@ -34,8 +34,6 @@ YTDLP_HOST_HINTS = (
     "live.bilibili.com",
     "douyin.com",
     "iesdouyin.com",
-    "toutiao.com",
-    "ixigua.com",
     "douyu.com",
     "huya.com",
     "kuaishou.com",
@@ -102,7 +100,6 @@ class ExtractedStream:
     media_type: str = "unknown"
     page_url: str = ""
     note: str = ""
-    title: str = ""
 
 
 def infer_media_type(url: str) -> str:
@@ -224,7 +221,6 @@ def extract_with_ytdlp(page_url: str, cookies_browser: str = "") -> ExtractedStr
         extractor="ytdlp",
         media_type=infer_media_type(stream_url),
         page_url=page_url,
-        title=str(info.get("title", "") or ""),
     )
 
 
@@ -466,20 +462,6 @@ class PlaywrightKeepaliveStream:
             return self._page is not None and not self._page.is_closed()
         except Exception:
             return False
-
-    def get_page_title(self) -> str:
-        """Return the live stream title from the browser page, platform suffixes stripped."""
-        if not self.is_browser_alive():
-            return ""
-        try:
-            title = self._page.title()
-            for suffix in (" - 知乎直播", " - 直播 - 知乎", " - 知乎"):
-                if title.endswith(suffix):
-                    title = title[: -len(suffix)]
-                    break
-            return title.strip()
-        except Exception:
-            return ""
 
     def mark_stream_active(self) -> None:
         """Call after first successful chunk so post-stream ambiguous texts are recognised."""

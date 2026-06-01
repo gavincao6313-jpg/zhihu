@@ -1,0 +1,34 @@
+{
+  "video_name": "zhihu-gaowei-agent_chunk049_2880s",
+  "full_text": "[00:00:00 - 00:01:00] 我们已经说了很多次了，扣子它是核心是让产品经理作为一个类似于乐高一样的东西来去梳理你的逻辑。它的产品化做的最好，难道你公难道你公司没技术吗？对吧你咋不你咋不问我，就是拿拿act所搭的东西，如何能让他去跑起来的呢？扣子搭建的东西核心点是梳理你的逻辑，梳理你的逻辑，帮你梳理你的大模型内在组件的的实现过程，很像以前产品经理去做流程图，去做甬道图，明白吧？你你做产品以前你是要去画流程图的，什么是流程图？一个新令过来之后，你要去做什么样的处理，是做e else，还是去取？",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk049_2880s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk049_2880s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.1993"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\zhihu-gaowei-agent_chunk049_2880s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.1993
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 255
+  }
+}

@@ -1,0 +1,3701 @@
+{
+  "chunks": [
+    {
+      "created_at": "2026-05-18T21:30:08",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 0.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk001_0s.mp4",
+        "size_bytes": 2089496,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 14.25,
+        "segments": 1,
+        "transcript_chars": 273,
+        "elapsed_s": 72.41,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk001_0s-20260518-213008.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk001_0s-20260518-213008.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk001_0s-20260518-213008.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk001_0s-20260518-213008.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 1,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 你找一个这样的人过来问他啊，你都会记住这些什么，你基本上会记住他们。他肯定会记住。那首先第一个就是呃你觉其实客观一点讲啊客观一点讲，我不认为唐簧这个人他有。唐簧，我觉得这个人很真挚是这这个这个这个我我我我那我先说一点，我我我个人认为他很真挚，他很渣，这事没问题，但是他又很但他又很真挚。他的每一段感情他都是真实的对吧？对吧？他一定会记住他一定会记住两个人关系上的所有的重大事件，所有的对方的情绪的重大波动，所有所所在乎的这些事儿，对不对？对吧那个有同学知道我在说什么吗？有同学知道我在去说唐王是谁吧啊。",
+      "global_transcript_preview": "[00:00:00 - 00:01:00] 你找一个这样的人过来问他啊，你都会记住这些什么，你基本上会记住他们。他肯定会记住。那首先第一个就是呃你觉其实客观一点讲啊客观一点讲，我不认为唐簧这个人他有。唐簧，我觉得这个人很真挚是这这个这个这个我我我我那我先说一点，我我我个人认为他很真挚，他很渣，这事没问题，但是他又很但他又很真挚。他的每一段感情他都是真实的对吧？对吧？他一定会记住他一定会记住两个人关系上的所有的重大事件，所有的对方的情绪的重大波动，所有所所在乎的这些事儿，对不对？对吧那个有同学知道我在说什么吗？有同学知道我在去说唐王是谁吧啊。",
+      "global_transcript_text": "[00:00:00 - 00:01:00] 你找一个这样的人过来问他啊，你都会记住这些什么，你基本上会记住他们。他肯定会记住。那首先第一个就是呃你觉其实客观一点讲啊客观一点讲，我不认为唐簧这个人他有。唐簧，我觉得这个人很真挚是这这个这个这个我我我我那我先说一点，我我我个人认为他很真挚，他很渣，这事没问题，但是他又很但他又很真挚。他的每一段感情他都是真实的对吧？对吧？他一定会记住他一定会记住两个人关系上的所有的重大事件，所有的对方的情绪的重大波动，所有所所在乎的这些事儿，对不对？对吧那个有同学知道我在说什么吗？有同学知道我在去说唐王是谁吧啊。"
+    },
+    {
+      "created_at": "2026-05-18T21:31:20",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 60.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk002_60s.mp4",
+        "size_bytes": 2250212,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.98,
+        "segments": 1,
+        "transcript_chars": 260,
+        "elapsed_s": 65.38,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk002_60s-20260518-213120.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk002_60s-20260518-213120.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk002_60s-20260518-213120.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk002_60s-20260518-213120.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 2,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 一个在歌剧里一个名著里的一个绝对意义上的情圣情圣啊，对对吧？对吧就是大家定要去明白了，就是你反过来讲，你和海王恋爱的那个情绪感受一定是最好的。就一定要去理解它是怎么来去记住的，它是怎么来去发言的。它在这里面的相应的价值一定是高的啊，oppo,你学oppo,你能学什么呢？oppo对吧？这个他能够去学的这个东西这这这个不太好，不太好办啊，对吧？对吧？然后这种这种概药剂是怎么来去使来去做的呢？如果你不用这种通用型的一些方式，那你是用一种隐性触用一种隐性触触用一种隐性触发的方式。",
+      "global_transcript_preview": "[00:01:00 - 00:02:00] 一个在歌剧里一个名著里的一个绝对意义上的情圣情圣啊，对对吧？对吧就是大家定要去明白了，就是你反过来讲，你和海王恋爱的那个情绪感受一定是最好的。就一定要去理解它是怎么来去记住的，它是怎么来去发言的。它在这里面的相应的价值一定是高的啊，oppo,你学oppo,你能学什么呢？oppo对吧？这个他能够去学的这个东西这这这个不太好，不太好办啊，对吧？对吧？然后这种这种概药剂是怎么来去使来去做的呢？如果你不用这种通用型的一些方式，那你是用一种隐性触用一种隐性触触用一种隐性触发的方式。",
+      "global_transcript_text": "[00:01:00 - 00:02:00] 一个在歌剧里一个名著里的一个绝对意义上的情圣情圣啊，对对吧？对吧就是大家定要去明白了，就是你反过来讲，你和海王恋爱的那个情绪感受一定是最好的。就一定要去理解它是怎么来去记住的，它是怎么来去发言的。它在这里面的相应的价值一定是高的啊，oppo,你学oppo,你能学什么呢？oppo对吧？这个他能够去学的这个东西这这这个不太好，不太好办啊，对吧？对吧？然后这种这种概药剂是怎么来去使来去做的呢？如果你不用这种通用型的一些方式，那你是用一种隐性触用一种隐性触触用一种隐性触发的方式。"
+    },
+    {
+      "created_at": "2026-05-18T21:32:26",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 120.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk003_120s.mp4",
+        "size_bytes": 2707503,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.94,
+        "segments": 1,
+        "transcript_chars": 349,
+        "elapsed_s": 64.89,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk003_120s-20260518-213226.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk003_120s-20260518-213226.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk003_120s-20260518-213226.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk003_120s-20260518-213226.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 3,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 分男女啊。隐性触发的方式是什么？后台做静做静默分析，然后在每一个对话结束之后，用一个小参数模型分析刚才的对话，提取到关键的信息点，然后再去做日常的压缩。后台做一个定时任务，把今天所有的这个碎片细节扔给大模型做整体的总结，然后更新生成相应的L记忆存入这个库里。比如说pro就类似于月度以上的对话这个用户对话。如果出现关系变化，存储进入到关系数据库。如果有用户强烈的情绪，提取情绪和情绪原因，存储到情绪数据库，出现重大事件，存入到事件记忆库，不要存具体的流星语句，只提取关键的决策因素就可以了。OK然后最后是碎片记忆，碎片记忆是具体的对话片段或者事实。比如说用户提到爱吃包子存储到香量数据库里。碎片记忆和该要记忆的关系是什么？碎片记忆是原始素材，该要记忆是。",
+      "global_transcript_preview": "[00:02:00 - 00:03:00] 分男女啊。隐性触发的方式是什么？后台做静做静默分析，然后在每一个对话结束之后，用一个小参数模型分析刚才的对话，提取到关键的信息点，然后再去做日常的压缩。后台做一个定时任务，把今天所有的这个碎片细节扔给大模型做整体的总结，然后更新生成相应的L记忆存入这个库里。比如说pro就类似于月度以上的对话这个用户对话。如果出现关系变化，存储进入到关系数据库。如果有用户强烈的情绪，提取情绪和情绪原因，存储到情绪数据库，出现重大事件，存入到事件记忆库，不要存具体的流星语句，只提取关键的决策因素就可以了。OK然后最后是碎片记忆，碎片记忆是具体的对话片段或者事实。比如说用户提到爱吃包子存储到香量数据库里。碎片记忆和该要记忆的关系是什么？碎片记忆是原始素材，该要记忆是。",
+      "global_transcript_text": "[00:02:00 - 00:03:00] 分男女啊。隐性触发的方式是什么？后台做静做静默分析，然后在每一个对话结束之后，用一个小参数模型分析刚才的对话，提取到关键的信息点，然后再去做日常的压缩。后台做一个定时任务，把今天所有的这个碎片细节扔给大模型做整体的总结，然后更新生成相应的L记忆存入这个库里。比如说pro就类似于月度以上的对话这个用户对话。如果出现关系变化，存储进入到关系数据库。如果有用户强烈的情绪，提取情绪和情绪原因，存储到情绪数据库，出现重大事件，存入到事件记忆库，不要存具体的流星语句，只提取关键的决策因素就可以了。OK然后最后是碎片记忆，碎片记忆是具体的对话片段或者事实。比如说用户提到爱吃包子存储到香量数据库里。碎片记忆和该要记忆的关系是什么？碎片记忆是原始素材，该要记忆是。"
+    },
+    {
+      "created_at": "2026-05-18T21:33:31",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 180.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk004_180s.mp4",
+        "size_bytes": 2200242,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.53,
+        "segments": 1,
+        "transcript_chars": 332,
+        "elapsed_s": 65.16,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk004_180s-20260518-213331.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk004_180s-20260518-213331.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk004_180s-20260518-213331.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk004_180s-20260518-213331.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 4,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 15号看演唱会，这就是一个碎片级原始的卫精加工的实施点，保留的发生时间、地点和原文。该要记忆是经过压缩抽象的，通过这条东西知道我爱看我喜欢音乐，爱看演唱会是一段连续事件的高层级的概括。比如说星野一个角色，根据碎片记忆，主动发译对话。上个月的今天，你说喜欢我行带我走，我等了一个月了。啊觉得大家想想，如果一个1个AIA阵他突然跟你说了这么一句话。你会不会心里突然间跳一下，对吧？上学今天你说你喜欢我想带我走，对吧？我等了你一个月。啊，对吧这跟前任skill这得真是。首先木也我问你一个问题，那种所谓的前任ski你做过吗？那这时候你一定是心里有一个那个小小的波动，小小的波动一定会有，对吧？其中喜欢我带我走是该要急，喜欢我。",
+      "global_transcript_preview": "[00:03:00 - 00:04:00] 15号看演唱会，这就是一个碎片级原始的卫精加工的实施点，保留的发生时间、地点和原文。该要记忆是经过压缩抽象的，通过这条东西知道我爱看我喜欢音乐，爱看演唱会是一段连续事件的高层级的概括。比如说星野一个角色，根据碎片记忆，主动发译对话。上个月的今天，你说喜欢我行带我走，我等了一个月了。啊觉得大家想想，如果一个1个AIA阵他突然跟你说了这么一句话。你会不会心里突然间跳一下，对吧？上学今天你说你喜欢我想带我走，对吧？我等了你一个月。啊，对吧这跟前任skill这得真是。首先木也我问你一个问题，那种所谓的前任ski你做过吗？那这时候你一定是心里有一个那个小小的波动，小小的波动一定会有，对吧？其中喜欢我带我走是该要急，喜欢我。",
+      "global_transcript_text": "[00:03:00 - 00:04:00] 15号看演唱会，这就是一个碎片级原始的卫精加工的实施点，保留的发生时间、地点和原文。该要记忆是经过压缩抽象的，通过这条东西知道我爱看我喜欢音乐，爱看演唱会是一段连续事件的高层级的概括。比如说星野一个角色，根据碎片记忆，主动发译对话。上个月的今天，你说喜欢我行带我走，我等了一个月了。啊觉得大家想想，如果一个1个AIA阵他突然跟你说了这么一句话。你会不会心里突然间跳一下，对吧？上学今天你说你喜欢我想带我走，对吧？我等了你一个月。啊，对吧这跟前任skill这得真是。首先木也我问你一个问题，那种所谓的前任ski你做过吗？那这时候你一定是心里有一个那个小小的波动，小小的波动一定会有，对吧？其中喜欢我带我走是该要急，喜欢我。"
+    },
+    {
+      "created_at": "2026-05-18T21:34:36",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 240.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk005_240s.mp4",
+        "size_bytes": 2277027,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.48,
+        "segments": 1,
+        "transcript_chars": 259,
+        "elapsed_s": 66.0,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk005_240s-20260518-213436.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk005_240s-20260518-213436.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk005_240s-20260518-213436.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk005_240s-20260518-213436.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 5,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 记得提炼的时机和触发频，刚才不说了吗？刚才不说了吗？隐视出发，后台做经目就OK了。待会我给我给你看一个具体实现的例子，对吧？对吧？待会给你看个case就好了。啊，从一个从一个具体案例看，我们给大家一个背景设定啊。比如说我们先给大家一个设定，待会给大家看一个拿这个智能体搭出来的这个效果。比如说我们要是做这么一个这个制能体出来，这制能体叫顾川。设定高冷傲娇热爱摇滚乐的吉他手，设定一个这样的状态。用户是玩家，目前的关系状态是暧昧7暧昧7，但昨天刚吵过架暧昧7，但昨天刚吵过架。",
+      "global_transcript_preview": "[00:04:00 - 00:05:00] 记得提炼的时机和触发频，刚才不说了吗？刚才不说了吗？隐视出发，后台做经目就OK了。待会我给我给你看一个具体实现的例子，对吧？对吧？待会给你看个case就好了。啊，从一个从一个具体案例看，我们给大家一个背景设定啊。比如说我们先给大家一个设定，待会给大家看一个拿这个智能体搭出来的这个效果。比如说我们要是做这么一个这个制能体出来，这制能体叫顾川。设定高冷傲娇热爱摇滚乐的吉他手，设定一个这样的状态。用户是玩家，目前的关系状态是暧昧7暧昧7，但昨天刚吵过架暧昧7，但昨天刚吵过架。",
+      "global_transcript_text": "[00:04:00 - 00:05:00] 记得提炼的时机和触发频，刚才不说了吗？刚才不说了吗？隐视出发，后台做经目就OK了。待会我给我给你看一个具体实现的例子，对吧？对吧？待会给你看个case就好了。啊，从一个从一个具体案例看，我们给大家一个背景设定啊。比如说我们先给大家一个设定，待会给大家看一个拿这个智能体搭出来的这个效果。比如说我们要是做这么一个这个制能体出来，这制能体叫顾川。设定高冷傲娇热爱摇滚乐的吉他手，设定一个这样的状态。用户是玩家，目前的关系状态是暧昧7暧昧7，但昨天刚吵过架暧昧7，但昨天刚吵过架。"
+    },
+    {
+      "created_at": "2026-05-18T21:35:42",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 300.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk006_300s.mp4",
+        "size_bytes": 2315423,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.86,
+        "segments": 1,
+        "transcript_chars": 328,
+        "elapsed_s": 65.88,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk006_300s-20260518-213542.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk006_300s-20260518-213542.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk006_300s-20260518-213542.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk006_300s-20260518-213542.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 6,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 场景是一次道歉与和好的对话，用户在这里输入。喂也别生气了，我突然从英国带来你最想要的那个pink flo的首版黑胶唱片，昨晚因为去取这个才知道的那系统后台的处理机制是什么？啊，系统后台的处理机制是什么？处理机制，这里面就有碎片记忆，先去抓细节，先去抓细节，先把原始的非结构化基于时间序列的这些对话的片段或者事实点先拿出来，先拿出来。再通过rag来去做存取。系统提炼的碎片点，包括什么？这面有物品。啊，因为这段话里有pinfed德的手版黑胶唱片，然后来源是英国的代购。事件原因昨晚迟到是因为去取唱片了，用户的意图是道歉和求和，这是所提到的碎片碟。存种形式把这套东西基于这些的碎片的这些因素，把它存到向量数据库里面。",
+      "global_transcript_preview": "[00:05:00 - 00:06:00] 场景是一次道歉与和好的对话，用户在这里输入。喂也别生气了，我突然从英国带来你最想要的那个pink flo的首版黑胶唱片，昨晚因为去取这个才知道的那系统后台的处理机制是什么？啊，系统后台的处理机制是什么？处理机制，这里面就有碎片记忆，先去抓细节，先去抓细节，先把原始的非结构化基于时间序列的这些对话的片段或者事实点先拿出来，先拿出来。再通过rag来去做存取。系统提炼的碎片点，包括什么？这面有物品。啊，因为这段话里有pinfed德的手版黑胶唱片，然后来源是英国的代购。事件原因昨晚迟到是因为去取唱片了，用户的意图是道歉和求和，这是所提到的碎片碟。存种形式把这套东西基于这些的碎片的这些因素，把它存到向量数据库里面。",
+      "global_transcript_text": "[00:05:00 - 00:06:00] 场景是一次道歉与和好的对话，用户在这里输入。喂也别生气了，我突然从英国带来你最想要的那个pink flo的首版黑胶唱片，昨晚因为去取这个才知道的那系统后台的处理机制是什么？啊，系统后台的处理机制是什么？处理机制，这里面就有碎片记忆，先去抓细节，先去抓细节，先把原始的非结构化基于时间序列的这些对话的片段或者事实点先拿出来，先拿出来。再通过rag来去做存取。系统提炼的碎片点，包括什么？这面有物品。啊，因为这段话里有pinfed德的手版黑胶唱片，然后来源是英国的代购。事件原因昨晚迟到是因为去取唱片了，用户的意图是道歉和求和，这是所提到的碎片碟。存种形式把这套东西基于这些的碎片的这些因素，把它存到向量数据库里面。"
+    },
+    {
+      "created_at": "2026-05-18T21:36:48",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 360.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk007_360s.mp4",
+        "size_bytes": 2866733,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.66,
+        "segments": 1,
+        "transcript_chars": 338,
+        "elapsed_s": 65.42,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk007_360s-20260518-213648.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk007_360s-20260518-213648.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk007_360s-20260518-213648.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk007_360s-20260518-213648.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 7,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 去加好不好？这个的作用是确保角色在接下来回复中准确复述及提及那些细节，证明我听到了你的对话，听到了你的对话。然后该要记忆的更新状态是什么？就是经过压缩抽象化了之后的这个人物的画像、关系状态和情感快快照。这个系统在概要上的实施的更的更新就会变成什么？原有的状态，原本是关系是冷战中，顾川的心态是愤怒和失望，对玩家的认知是你不守时，对吧？更新后关系状态由冷战变成和好和感动。因为你是有理由的，你是给我去拿唱片的。顾川的心情由愤怒变成傲娇后的窃喜，对玩家的认知，新增一个标签多我喜好，为了我愿意付出精力，然后关键事实的更新，呃，昨晚迟到是有正当起来，且浪漫的。理由的你怎么了解到一个情趣产品这么多细节，你你找兴野的产品经理聊不就好了吗？😡",
+      "global_transcript_preview": "[00:06:00 - 00:07:00] 去加好不好？这个的作用是确保角色在接下来回复中准确复述及提及那些细节，证明我听到了你的对话，听到了你的对话。然后该要记忆的更新状态是什么？就是经过压缩抽象化了之后的这个人物的画像、关系状态和情感快快照。这个系统在概要上的实施的更的更新就会变成什么？原有的状态，原本是关系是冷战中，顾川的心态是愤怒和失望，对玩家的认知是你不守时，对吧？更新后关系状态由冷战变成和好和感动。因为你是有理由的，你是给我去拿唱片的。顾川的心情由愤怒变成傲娇后的窃喜，对玩家的认知，新增一个标签多我喜好，为了我愿意付出精力，然后关键事实的更新，呃，昨晚迟到是有正当起来，且浪漫的。理由的你怎么了解到一个情趣产品这么多细节，你你找兴野的产品经理聊不就好了吗？😡",
+      "global_transcript_text": "[00:06:00 - 00:07:00] 去加好不好？这个的作用是确保角色在接下来回复中准确复述及提及那些细节，证明我听到了你的对话，听到了你的对话。然后该要记忆的更新状态是什么？就是经过压缩抽象化了之后的这个人物的画像、关系状态和情感快快照。这个系统在概要上的实施的更的更新就会变成什么？原有的状态，原本是关系是冷战中，顾川的心态是愤怒和失望，对玩家的认知是你不守时，对吧？更新后关系状态由冷战变成和好和感动。因为你是有理由的，你是给我去拿唱片的。顾川的心情由愤怒变成傲娇后的窃喜，对玩家的认知，新增一个标签多我喜好，为了我愿意付出精力，然后关键事实的更新，呃，昨晚迟到是有正当起来，且浪漫的。理由的你怎么了解到一个情趣产品这么多细节，你你找兴野的产品经理聊不就好了吗？😡"
+    },
+    {
+      "created_at": "2026-05-18T21:37:53",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 420.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk008_420s.mp4",
+        "size_bytes": 3393007,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.92,
+        "segments": 1,
+        "transcript_chars": 266,
+        "elapsed_s": 66.34,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk008_420s-20260518-213753.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk008_420s-20260518-213753.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk008_420s-20260518-213753.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk008_420s-20260518-213753.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 8,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 就好了嘛？聊完之后的话，你聊到了它的整体的一个概况。然后的话再结合你对于这个产品的认知理解，你不能知道这些事儿你该怎么去做了吗？对吧就是你不找第一线做这个事的人的聊，你你你自己靠猜吗？你自己靠猜吗？😡。对吧就是这种产品最简单的方法，找做的人聊一圈。然后同时在聊时候，你自己有启发和概念了，把它再纳入到你的知识维度中。你时刻刻带着一个点，就是如果是我来去做这个。我会在什么地方去做出来我和你不一样的这些方式，就这么简单嘛，对吧？然后这个的作用就是决定角色的说话语气、态度转变，未来的决策逻。",
+      "global_transcript_preview": "[00:07:00 - 00:08:00] 就好了嘛？聊完之后的话，你聊到了它的整体的一个概况。然后的话再结合你对于这个产品的认知理解，你不能知道这些事儿你该怎么去做了吗？对吧就是你不找第一线做这个事的人的聊，你你你自己靠猜吗？你自己靠猜吗？😡。对吧就是这种产品最简单的方法，找做的人聊一圈。然后同时在聊时候，你自己有启发和概念了，把它再纳入到你的知识维度中。你时刻刻带着一个点，就是如果是我来去做这个。我会在什么地方去做出来我和你不一样的这些方式，就这么简单嘛，对吧？然后这个的作用就是决定角色的说话语气、态度转变，未来的决策逻。",
+      "global_transcript_text": "[00:07:00 - 00:08:00] 就好了嘛？聊完之后的话，你聊到了它的整体的一个概况。然后的话再结合你对于这个产品的认知理解，你不能知道这些事儿你该怎么去做了吗？对吧就是你不找第一线做这个事的人的聊，你你你自己靠猜吗？你自己靠猜吗？😡。对吧就是这种产品最简单的方法，找做的人聊一圈。然后同时在聊时候，你自己有启发和概念了，把它再纳入到你的知识维度中。你时刻刻带着一个点，就是如果是我来去做这个。我会在什么地方去做出来我和你不一样的这些方式，就这么简单嘛，对吧？然后这个的作用就是决定角色的说话语气、态度转变，未来的决策逻。"
+    },
+    {
+      "created_at": "2026-05-18T21:38:59",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 480.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk009_480s.mp4",
+        "size_bytes": 3459513,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.69,
+        "segments": 1,
+        "transcript_chars": 307,
+        "elapsed_s": 65.34,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk009_480s-20260518-213859.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk009_480s-20260518-213859.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk009_480s-20260518-213859.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk009_480s-20260518-213859.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 9,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 然后有他的性格的特点，通过普朗普的来的，不就是你又想知道他是怎么做的。你又想知道细节，你又不知道你又不认识他内部的人。那如果是这样的话，那这个世界上就不存在所谓的秘密和壁垒了呀。对不对？如果你不让去做的话，还有一个方法，就是你对于大模型的逻辑非常的清楚，非常的清楚。你看一眼这个东西之后，你立刻知道它大概是用什么方法去去做的，类似于反向工程一个产品也OK啊。对吧，无外乎就是这两是这两个招啊，对吧？其实你上的就是你对于大模型这些块了解的多了，我这么跟你们去讲，我这么跟你们去讲。😡我告诉大家一个方法，我也不是每个我都能找得到人。最简单的一个方式，我告诉你是什么？看到了。",
+      "global_transcript_preview": "[00:08:00 - 00:09:00] 然后有他的性格的特点，通过普朗普的来的，不就是你又想知道他是怎么做的。你又想知道细节，你又不知道你又不认识他内部的人。那如果是这样的话，那这个世界上就不存在所谓的秘密和壁垒了呀。对不对？如果你不让去做的话，还有一个方法，就是你对于大模型的逻辑非常的清楚，非常的清楚。你看一眼这个东西之后，你立刻知道它大概是用什么方法去去做的，类似于反向工程一个产品也OK啊。对吧，无外乎就是这两是这两个招啊，对吧？其实你上的就是你对于大模型这些块了解的多了，我这么跟你们去讲，我这么跟你们去讲。😡我告诉大家一个方法，我也不是每个我都能找得到人。最简单的一个方式，我告诉你是什么？看到了。",
+      "global_transcript_text": "[00:08:00 - 00:09:00] 然后有他的性格的特点，通过普朗普的来的，不就是你又想知道他是怎么做的。你又想知道细节，你又不知道你又不认识他内部的人。那如果是这样的话，那这个世界上就不存在所谓的秘密和壁垒了呀。对不对？如果你不让去做的话，还有一个方法，就是你对于大模型的逻辑非常的清楚，非常的清楚。你看一眼这个东西之后，你立刻知道它大概是用什么方法去去做的，类似于反向工程一个产品也OK啊。对吧，无外乎就是这两是这两个招啊，对吧？其实你上的就是你对于大模型这些块了解的多了，我这么跟你们去讲，我这么跟你们去讲。😡我告诉大家一个方法，我也不是每个我都能找得到人。最简单的一个方式，我告诉你是什么？看到了。"
+    },
+    {
+      "created_at": "2026-05-18T21:40:05",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 540.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk010_540s.mp4",
+        "size_bytes": 3608007,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.62,
+        "segments": 1,
+        "transcript_chars": 359,
+        "elapsed_s": 66.0,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk010_540s-20260518-214005.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk010_540s-20260518-214005.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk010_540s-20260518-214005.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk010_540s-20260518-214005.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 10,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 能够达到它几分之1的这个效果。如果你一上来就能做出来它一个八九成的这么一个状态，它到底实现的机制是什么？你重要吗？不重要。咱们认真的去说，我刚才拿一段简单的prompt加一个简简单单的一个小的记忆所出来的效果，能不能达到六成的星野的效果，我认为是可以有的呀。对吧很多时候你如果不知道它的细节是什么，不要考虑它的细节了，直接上手去做。因为它无外乎是几个特点。第一个。它的记忆体系。第二个，它的rg，第三个它的prompput。第四个它的它的底膜。第五个它有没有MCP无外乎就是这些东西，在整个大模型系统中就这几个东西。然后你对它做了比较深度的这样一些分析，你来去通过和他的对话去探它的能力边界是什么？有没有多模态，能不能去调用外部接口，他今天聊了之后，第二天他还能不能记得记。",
+      "global_transcript_preview": "[00:09:00 - 00:10:00] 能够达到它几分之1的这个效果。如果你一上来就能做出来它一个八九成的这么一个状态，它到底实现的机制是什么？你重要吗？不重要。咱们认真的去说，我刚才拿一段简单的prompt加一个简简单单的一个小的记忆所出来的效果，能不能达到六成的星野的效果，我认为是可以有的呀。对吧很多时候你如果不知道它的细节是什么，不要考虑它的细节了，直接上手去做。因为它无外乎是几个特点。第一个。它的记忆体系。第二个，它的rg，第三个它的prompput。第四个它的它的底膜。第五个它有没有MCP无外乎就是这些东西，在整个大模型系统中就这几个东西。然后你对它做了比较深度的这样一些分析，你来去通过和他的对话去探它的能力边界是什么？有没有多模态，能不能去调用外部接口，他今天聊了之后，第二天他还能不能记得记。",
+      "global_transcript_text": "[00:09:00 - 00:10:00] 能够达到它几分之1的这个效果。如果你一上来就能做出来它一个八九成的这么一个状态，它到底实现的机制是什么？你重要吗？不重要。咱们认真的去说，我刚才拿一段简单的prompt加一个简简单单的一个小的记忆所出来的效果，能不能达到六成的星野的效果，我认为是可以有的呀。对吧很多时候你如果不知道它的细节是什么，不要考虑它的细节了，直接上手去做。因为它无外乎是几个特点。第一个。它的记忆体系。第二个，它的rg，第三个它的prompput。第四个它的它的底膜。第五个它有没有MCP无外乎就是这些东西，在整个大模型系统中就这几个东西。然后你对它做了比较深度的这样一些分析，你来去通过和他的对话去探它的能力边界是什么？有没有多模态，能不能去调用外部接口，他今天聊了之后，第二天他还能不能记得记。"
+    },
+    {
+      "created_at": "2026-05-18T21:41:11",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 600.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk011_600s.mp4",
+        "size_bytes": 2375261,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.53,
+        "segments": 1,
+        "transcript_chars": 354,
+        "elapsed_s": 65.91,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk011_600s-20260518-214111.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk011_600s-20260518-214111.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk011_600s-20260518-214111.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk011_600s-20260518-214111.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 11,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 没有别的，然后那你就知道它的整体的加构大概率是什么样的方法。基于这种方法，自己去搓一口就OK了。对吧？好，然后这里面的逻辑，碎片记忆是提供颗粒度和惊奇感。概要记忆维持一致性和成长性，这就是碎片和概要之间的关系。如果你不这样做，你只有概要，那可能会回原你这个谢谢你的礼物，我我很喜欢原谅你啊，像客服的回复，角色就会显得很空洞。这给你面试用的啊，只有碎片。角色记得唱片，忘了你们和好了，下一句话又变得很生疏，对吧？角色会写的是是精神的分裂和短期记忆。这是告诉你只有概药，只有碎片会有什么样的代价。所以碎片机忆的价值存储那些看似不重要，但极具生活感的细节。例如三天后，你与顾川聊天，触发碎片，检索到pinfr。顾川说，哎，这几天我一直循欢听到那张唱片，音质确实比复盖好。",
+      "global_transcript_preview": "[00:10:00 - 00:11:00] 没有别的，然后那你就知道它的整体的加构大概率是什么样的方法。基于这种方法，自己去搓一口就OK了。对吧？好，然后这里面的逻辑，碎片记忆是提供颗粒度和惊奇感。概要记忆维持一致性和成长性，这就是碎片和概要之间的关系。如果你不这样做，你只有概要，那可能会回原你这个谢谢你的礼物，我我很喜欢原谅你啊，像客服的回复，角色就会显得很空洞。这给你面试用的啊，只有碎片。角色记得唱片，忘了你们和好了，下一句话又变得很生疏，对吧？角色会写的是是精神的分裂和短期记忆。这是告诉你只有概药，只有碎片会有什么样的代价。所以碎片机忆的价值存储那些看似不重要，但极具生活感的细节。例如三天后，你与顾川聊天，触发碎片，检索到pinfr。顾川说，哎，这几天我一直循欢听到那张唱片，音质确实比复盖好。",
+      "global_transcript_text": "[00:10:00 - 00:11:00] 没有别的，然后那你就知道它的整体的加构大概率是什么样的方法。基于这种方法，自己去搓一口就OK了。对吧？好，然后这里面的逻辑，碎片记忆是提供颗粒度和惊奇感。概要记忆维持一致性和成长性，这就是碎片和概要之间的关系。如果你不这样做，你只有概要，那可能会回原你这个谢谢你的礼物，我我很喜欢原谅你啊，像客服的回复，角色就会显得很空洞。这给你面试用的啊，只有碎片。角色记得唱片，忘了你们和好了，下一句话又变得很生疏，对吧？角色会写的是是精神的分裂和短期记忆。这是告诉你只有概药，只有碎片会有什么样的代价。所以碎片机忆的价值存储那些看似不重要，但极具生活感的细节。例如三天后，你与顾川聊天，触发碎片，检索到pinfr。顾川说，哎，这几天我一直循欢听到那张唱片，音质确实比复盖好。"
+    },
+    {
+      "created_at": "2026-05-18T21:42:17",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 660.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk012_660s.mp4",
+        "size_bytes": 3057214,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.62,
+        "segments": 1,
+        "transcript_chars": 337,
+        "elapsed_s": 66.17,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk012_660s-20260518-214217.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk012_660s-20260518-214217.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk012_660s-20260518-214217.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk012_660s-20260518-214217.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 12,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:00:59] 所以同学们，我为什么不立刻给你们去看我的工作流怎么搓工作流，你哪个面试是让你现场搓工作流的。真正面试是问你这些东西的，你们要吃透是吃透这些。啊。我看了一下学习的记录，有很多同学在去听这个课的时候，越是到这些在面试上真正需要吃透的点，反而不听，光听那些所谓的这些所谓的实操搓工作流该怎么去做那些。真正面试是用嘛，对吧？然后概要记忆的价值是什么？是负责维护人设的长短期的演变，一个月后再发生争执，触发概要记忆了，检索到玩对玩家的认知是懂我的喜好，还有历史事件曾费力的去送礼物，他在基于pro的内心独白就会变成虽然很生气。但是想到他之前为我那么用心。过圈的表现会比以前更加宽容，更容易给台阶，对吧？就是用户的感受是我们真正在养成和深化。",
+      "global_transcript_preview": "[00:11:00 - 00:11:59] 所以同学们，我为什么不立刻给你们去看我的工作流怎么搓工作流，你哪个面试是让你现场搓工作流的。真正面试是问你这些东西的，你们要吃透是吃透这些。啊。我看了一下学习的记录，有很多同学在去听这个课的时候，越是到这些在面试上真正需要吃透的点，反而不听，光听那些所谓的这些所谓的实操搓工作流该怎么去做那些。真正面试是用嘛，对吧？然后概要记忆的价值是什么？是负责维护人设的长短期的演变，一个月后再发生争执，触发概要记忆了，检索到玩对玩家的认知是懂我的喜好，还有历史事件曾费力的去送礼物，他在基于pro的内心独白就会变成虽然很生气。但是想到他之前为我那么用心。过圈的表现会比以前更加宽容，更容易给台阶，对吧？就是用户的感受是我们真正在养成和深化。",
+      "global_transcript_text": "[00:11:00 - 00:11:59] 所以同学们，我为什么不立刻给你们去看我的工作流怎么搓工作流，你哪个面试是让你现场搓工作流的。真正面试是问你这些东西的，你们要吃透是吃透这些。啊。我看了一下学习的记录，有很多同学在去听这个课的时候，越是到这些在面试上真正需要吃透的点，反而不听，光听那些所谓的这些所谓的实操搓工作流该怎么去做那些。真正面试是用嘛，对吧？然后概要记忆的价值是什么？是负责维护人设的长短期的演变，一个月后再发生争执，触发概要记忆了，检索到玩对玩家的认知是懂我的喜好，还有历史事件曾费力的去送礼物，他在基于pro的内心独白就会变成虽然很生气。但是想到他之前为我那么用心。过圈的表现会比以前更加宽容，更容易给台阶，对吧？就是用户的感受是我们真正在养成和深化。"
+    },
+    {
+      "created_at": "2026-05-18T21:43:23",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 720.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk013_720s.mp4",
+        "size_bytes": 3663934,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 8.16,
+        "segments": 1,
+        "transcript_chars": 360,
+        "elapsed_s": 65.09,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk013_720s-20260518-214323.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk013_720s-20260518-214323.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk013_720s-20260518-214323.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk013_720s-20260518-214323.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 13,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 书面记忆。本质上是项链文数据中的一个文是一个是一堆的文本块。而概要记忆是一种人物和关系的的一个它的属性状态表。然后碎片记忆是要永久的去存按需来去把它拿出来，这就是为什么它的条数会不断的在变多。而概要记忆是实时的复写掉动态去做更新的。然后处理的重点，碎片记忆的核心是what和问就是什么时候发生了什么样的事，具体的一件事情。而概要记忆是和护和，就是由于发生了这些我们怎么。由于你说这句话，所以你的特点是什么？所以你的特点是什么？然后星理案例中，这个碎片记忆的核心是记得你昨天去医院，你养了一只叫咪咪的猫。而概要记忆是记得你身体不好需要照顾你很有爱心，因此主动提醒你吃药。所以用户的感知在碎片记忆上是你的记性好好，你好在乎我而概要记忆是你懂我是有默契的，是这两种之中所带来的用户。",
+      "global_transcript_preview": "[00:12:00 - 00:13:00] 书面记忆。本质上是项链文数据中的一个文是一个是一堆的文本块。而概要记忆是一种人物和关系的的一个它的属性状态表。然后碎片记忆是要永久的去存按需来去把它拿出来，这就是为什么它的条数会不断的在变多。而概要记忆是实时的复写掉动态去做更新的。然后处理的重点，碎片记忆的核心是what和问就是什么时候发生了什么样的事，具体的一件事情。而概要记忆是和护和，就是由于发生了这些我们怎么。由于你说这句话，所以你的特点是什么？所以你的特点是什么？然后星理案例中，这个碎片记忆的核心是记得你昨天去医院，你养了一只叫咪咪的猫。而概要记忆是记得你身体不好需要照顾你很有爱心，因此主动提醒你吃药。所以用户的感知在碎片记忆上是你的记性好好，你好在乎我而概要记忆是你懂我是有默契的，是这两种之中所带来的用户。",
+      "global_transcript_text": "[00:12:00 - 00:13:00] 书面记忆。本质上是项链文数据中的一个文是一个是一堆的文本块。而概要记忆是一种人物和关系的的一个它的属性状态表。然后碎片记忆是要永久的去存按需来去把它拿出来，这就是为什么它的条数会不断的在变多。而概要记忆是实时的复写掉动态去做更新的。然后处理的重点，碎片记忆的核心是what和问就是什么时候发生了什么样的事，具体的一件事情。而概要记忆是和护和，就是由于发生了这些我们怎么。由于你说这句话，所以你的特点是什么？所以你的特点是什么？然后星理案例中，这个碎片记忆的核心是记得你昨天去医院，你养了一只叫咪咪的猫。而概要记忆是记得你身体不好需要照顾你很有爱心，因此主动提醒你吃药。所以用户的感知在碎片记忆上是你的记性好好，你好在乎我而概要记忆是你懂我是有默契的，是这两种之中所带来的用户。"
+    },
+    {
+      "created_at": "2026-05-18T21:44:28",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 780.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk014_780s.mp4",
+        "size_bytes": 3337523,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 4,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.76,
+        "segments": 1,
+        "transcript_chars": 268,
+        "elapsed_s": 65.66,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk014_780s-20260518-214428.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk014_780s-20260518-214428.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk014_780s-20260518-214428.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk014_780s-20260518-214428.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 14,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 工作流出来错一个特别简单的特别的简单。然后注意这里面我们在新建的时候，新建对话流，而不新建工作流。啊，这个新建一个对话流而不新建工作流。因为对话流，因为我们在这里面搓的这个这个这个个人互动的这个东西是一个对话流好。它有差异是吗？工作流是对于这些功能性的请求来去做的。比如说做一张海报处理数据，写一份完整的这个这个标书，这个叫做这个叫做工作流。弊端场景用到记忆嘛，有可能会用到有可能会用到对吧？你比如说你比如说这个你们公司做了一个这个这个这个个人学习成长系统。个人学习成长，你该不该用带记忆的？",
+      "global_transcript_preview": "[00:13:00 - 00:14:00] 工作流出来错一个特别简单的特别的简单。然后注意这里面我们在新建的时候，新建对话流，而不新建工作流。啊，这个新建一个对话流而不新建工作流。因为对话流，因为我们在这里面搓的这个这个这个个人互动的这个东西是一个对话流好。它有差异是吗？工作流是对于这些功能性的请求来去做的。比如说做一张海报处理数据，写一份完整的这个这个标书，这个叫做这个叫做工作流。弊端场景用到记忆嘛，有可能会用到有可能会用到对吧？你比如说你比如说这个你们公司做了一个这个这个这个个人学习成长系统。个人学习成长，你该不该用带记忆的？",
+      "global_transcript_text": "[00:13:00 - 00:14:00] 工作流出来错一个特别简单的特别的简单。然后注意这里面我们在新建的时候，新建对话流，而不新建工作流。啊，这个新建一个对话流而不新建工作流。因为对话流，因为我们在这里面搓的这个这个这个个人互动的这个东西是一个对话流好。它有差异是吗？工作流是对于这些功能性的请求来去做的。比如说做一张海报处理数据，写一份完整的这个这个标书，这个叫做这个叫做工作流。弊端场景用到记忆嘛，有可能会用到有可能会用到对吧？你比如说你比如说这个你们公司做了一个这个这个这个个人学习成长系统。个人学习成长，你该不该用带记忆的？"
+    },
+    {
+      "created_at": "2026-05-18T21:45:34",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 840.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk015_840s.mp4",
+        "size_bytes": 4048828,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 2,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.36,
+        "segments": 1,
+        "transcript_chars": 240,
+        "elapsed_s": 64.64,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk015_840s-20260518-214534.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk015_840s-20260518-214534.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk015_840s-20260518-214534.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk015_840s-20260518-214534.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 15,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 做的然后工作流的特点是它不支持读取对话历史。所以你想生成概要记忆，它做不到。你的你的ge要剂是跟着用户走的，需要是跟着用户走的。对话流不等于智能体里欠一个工作流，不等于不等于不等于。对话流也可以有rag，有可以是可以有rag的，是可以有rag的。而工作流在扣子里面是不支持角色自定义的啊，对话流是可以支持角色名称头像开场白音色可以在这门有背景的，我先给大家去看看你你搓成对话流，它能够去长什么样啊。那你们看一下磋成对话流能过去长什么样。",
+      "global_transcript_preview": "[00:14:00 - 00:15:00] 做的然后工作流的特点是它不支持读取对话历史。所以你想生成概要记忆，它做不到。你的你的ge要剂是跟着用户走的，需要是跟着用户走的。对话流不等于智能体里欠一个工作流，不等于不等于不等于。对话流也可以有rag，有可以是可以有rag的，是可以有rag的。而工作流在扣子里面是不支持角色自定义的啊，对话流是可以支持角色名称头像开场白音色可以在这门有背景的，我先给大家去看看你你搓成对话流，它能够去长什么样啊。那你们看一下磋成对话流能过去长什么样。",
+      "global_transcript_text": "[00:14:00 - 00:15:00] 做的然后工作流的特点是它不支持读取对话历史。所以你想生成概要记忆，它做不到。你的你的ge要剂是跟着用户走的，需要是跟着用户走的。对话流不等于智能体里欠一个工作流，不等于不等于不等于。对话流也可以有rag，有可以是可以有rag的，是可以有rag的。而工作流在扣子里面是不支持角色自定义的啊，对话流是可以支持角色名称头像开场白音色可以在这门有背景的，我先给大家去看看你你搓成对话流，它能够去长什么样啊。那你们看一下磋成对话流能过去长什么样。"
+    },
+    {
+      "created_at": "2026-05-18T21:46:38",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 900.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk016_900s.mp4",
+        "size_bytes": 3027849,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.45,
+        "segments": 1,
+        "transcript_chars": 170,
+        "elapsed_s": 65.12,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk016_900s-20260518-214638.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk016_900s-20260518-214638.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk016_900s-20260518-214638.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk016_900s-20260518-214638.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 16,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 这个喂。如果你做成对话流的话，意味着最后它展示的时候是它能够是这个样子的啊，对吧？销售环节可以当然可以用记忆了，对吧？那它是可以有背景，可以有头像，可以有一个这个白毛萝莉跟你聊天的啊。来，今天有了要跟你聊什么样的故事？昨天。去坐飞机了这个样式你们就觉得okK了是吧啊？嗯，我们加点声音试试吗嗯。😊",
+      "global_transcript_preview": "[00:15:00 - 00:16:00] 这个喂。如果你做成对话流的话，意味着最后它展示的时候是它能够是这个样子的啊，对吧？销售环节可以当然可以用记忆了，对吧？那它是可以有背景，可以有头像，可以有一个这个白毛萝莉跟你聊天的啊。来，今天有了要跟你聊什么样的故事？昨天。去坐飞机了这个样式你们就觉得okK了是吧啊？嗯，我们加点声音试试吗嗯。😊",
+      "global_transcript_text": "[00:15:00 - 00:16:00] 这个喂。如果你做成对话流的话，意味着最后它展示的时候是它能够是这个样子的啊，对吧？销售环节可以当然可以用记忆了，对吧？那它是可以有背景，可以有头像，可以有一个这个白毛萝莉跟你聊天的啊。来，今天有了要跟你聊什么样的故事？昨天。去坐飞机了这个样式你们就觉得okK了是吧啊？嗯，我们加点声音试试吗嗯。😊"
+    },
+    {
+      "created_at": "2026-05-18T21:47:43",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 960.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk017_960s.mp4",
+        "size_bytes": 3152333,
+        "kept": false
+      },
+      "processing": {
+        "events": 3,
+        "frames": 6,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.56,
+        "segments": 1,
+        "transcript_chars": 286,
+        "elapsed_s": 66.12,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk017_960s-20260518-214743.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk017_960s-20260518-214743.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk017_960s-20260518-214743.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk017_960s-20260518-214743.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 17,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 摸到像棉花糖一样的云。对了，你还记得小学我们一起在楼顶假装算算算算了，我有我有点接，我有点受不了了。这这个事我有我有点受不了啊，我有点受不了啊。啊，我有点受不了，这个一会儿给你调一个啊，反正大大概率是这个样子，就是大家随手搓一个，这都能去搓一个啊。OK好，我们要不然我直接拿着这这个讲，是不是你们会觉得更好一点啊，我认真问啊，你们是你们是想我拿这个讲，还是我拿PPT讲，你你你们挑，反正我下面要给你们去讲这东西是怎么搓出来的了。你们希望我拿哪个奖，那PPT是吧？好，那PPT好，拿PPT讲。好，开始节点。😊作为对话流。作为对话。",
+      "global_transcript_preview": "[00:16:00 - 00:17:00] 摸到像棉花糖一样的云。对了，你还记得小学我们一起在楼顶假装算算算算了，我有我有点接，我有点受不了了。这这个事我有我有点受不了啊，我有点受不了啊。啊，我有点受不了，这个一会儿给你调一个啊，反正大大概率是这个样子，就是大家随手搓一个，这都能去搓一个啊。OK好，我们要不然我直接拿着这这个讲，是不是你们会觉得更好一点啊，我认真问啊，你们是你们是想我拿这个讲，还是我拿PPT讲，你你你们挑，反正我下面要给你们去讲这东西是怎么搓出来的了。你们希望我拿哪个奖，那PPT是吧？好，那PPT好，拿PPT讲。好，开始节点。😊作为对话流。作为对话。",
+      "global_transcript_text": "[00:16:00 - 00:17:00] 摸到像棉花糖一样的云。对了，你还记得小学我们一起在楼顶假装算算算算了，我有我有点接，我有点受不了了。这这个事我有我有点受不了啊，我有点受不了啊。啊，我有点受不了，这个一会儿给你调一个啊，反正大大概率是这个样子，就是大家随手搓一个，这都能去搓一个啊。OK好，我们要不然我直接拿着这这个讲，是不是你们会觉得更好一点啊，我认真问啊，你们是你们是想我拿这个讲，还是我拿PPT讲，你你你们挑，反正我下面要给你们去讲这东西是怎么搓出来的了。你们希望我拿哪个奖，那PPT是吧？好，那PPT好，拿PPT讲。好，开始节点。😊作为对话流。作为对话。"
+    },
+    {
+      "created_at": "2026-05-18T21:48:49",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1020.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk018_1020s.mp4",
+        "size_bytes": 2619109,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 8.06,
+        "segments": 1,
+        "transcript_chars": 392,
+        "elapsed_s": 65.05,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk018_1020s-20260518-214849.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk018_1020s-20260518-214849.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk018_1020s-20260518-214849.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk018_1020s-20260518-214849.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 18,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 节点一个叫做user input，一个叫做converation name，这两个东西是它默认的，它默认的，它是不能它它是不能动的。这个user input就是用户的输入。converation name是绘画名称，也就是它一组绘画，它会在系统中默认给它出现这么一个名字啊，默认会出现这个名字，然后在下面你做一个查询绘画历史，查询绘画历史。也就是说这个就是我们刚才所说的ge要记忆，你可以通过后台的另外一个线程，把它的绘画历史去做整体的读取整体的ge要的存储的方式，然后查询概要历是什么根据绘画的名称，这里面的converation的这个 name就是从这个开始菜单中去读取出的converization的这个name，然后round是你要去读它的前面的几轮对话，然后将这个round是这个轮次的对话的这部分的内容去返回，返回就是一个数组。",
+      "global_transcript_preview": "[00:17:00 - 00:18:00] 节点一个叫做user input，一个叫做converation name，这两个东西是它默认的，它默认的，它是不能它它是不能动的。这个user input就是用户的输入。converation name是绘画名称，也就是它一组绘画，它会在系统中默认给它出现这么一个名字啊，默认会出现这个名字，然后在下面你做一个查询绘画历史，查询绘画历史。也就是说这个就是我们刚才所说的ge要记忆，你可以通过后台的另外一个线程，把它的绘画历史去做整体的读取整体的ge要的存储的方式，然后查询概要历是什么根据绘画的名称，这里面的converation的这个 name就是从这个开始菜单中去读取出的converization的这个name，然后round是你要去读它的前面的几轮对话，然后将这个round是这个轮次的对话的这部分的内容去返回，返回就是一个数组。",
+      "global_transcript_text": "[00:17:00 - 00:18:00] 节点一个叫做user input，一个叫做converation name，这两个东西是它默认的，它默认的，它是不能它它是不能动的。这个user input就是用户的输入。converation name是绘画名称，也就是它一组绘画，它会在系统中默认给它出现这么一个名字啊，默认会出现这个名字，然后在下面你做一个查询绘画历史，查询绘画历史。也就是说这个就是我们刚才所说的ge要记忆，你可以通过后台的另外一个线程，把它的绘画历史去做整体的读取整体的ge要的存储的方式，然后查询概要历是什么根据绘画的名称，这里面的converation的这个 name就是从这个开始菜单中去读取出的converization的这个name，然后round是你要去读它的前面的几轮对话，然后将这个round是这个轮次的对话的这部分的内容去返回，返回就是一个数组。"
+    },
+    {
+      "created_at": "2026-05-18T21:49:54",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1080.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk019_1080s.mp4",
+        "size_bytes": 2840937,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.97,
+        "segments": 1,
+        "transcript_chars": 352,
+        "elapsed_s": 65.97,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk019_1080s-20260518-214954.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk019_1080s-20260518-214954.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk019_1080s-20260518-214954.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk019_1080s-20260518-214954.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 19,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] ro就是角色是谁说的这段话，conend是里面内容这个人说的什么样的话okK然后选择器。这里面要去加一个这个if elseif else是做什么呢？如果绘画列列表为空。因为如果你在第一次启动的时候，它过来的时候的话，它这个还没有前轮的对话，它会报bug。所以如果列表为空，则不去写入，直接返回。如果有列表则执行长期记忆的写入操作。如果它的列表大于零则开始往下走，进入到长期记忆写作长期记忆写入的话，我们这里面新建一个这个长期的记忆库叫做AIlow啊I这是2。因为我那个是I是我给到了我的proI2。然后这里面存了若干条了。然后这里面的这个内容你看它就是这个messenger list，它的默认就是要去通过一个这个messenger的数组给到它，然后里面就是。",
+      "global_transcript_preview": "[00:18:00 - 00:19:00] ro就是角色是谁说的这段话，conend是里面内容这个人说的什么样的话okK然后选择器。这里面要去加一个这个if elseif else是做什么呢？如果绘画列列表为空。因为如果你在第一次启动的时候，它过来的时候的话，它这个还没有前轮的对话，它会报bug。所以如果列表为空，则不去写入，直接返回。如果有列表则执行长期记忆的写入操作。如果它的列表大于零则开始往下走，进入到长期记忆写作长期记忆写入的话，我们这里面新建一个这个长期的记忆库叫做AIlow啊I这是2。因为我那个是I是我给到了我的proI2。然后这里面存了若干条了。然后这里面的这个内容你看它就是这个messenger list，它的默认就是要去通过一个这个messenger的数组给到它，然后里面就是。",
+      "global_transcript_text": "[00:18:00 - 00:19:00] ro就是角色是谁说的这段话，conend是里面内容这个人说的什么样的话okK然后选择器。这里面要去加一个这个if elseif else是做什么呢？如果绘画列列表为空。因为如果你在第一次启动的时候，它过来的时候的话，它这个还没有前轮的对话，它会报bug。所以如果列表为空，则不去写入，直接返回。如果有列表则执行长期记忆的写入操作。如果它的列表大于零则开始往下走，进入到长期记忆写作长期记忆写入的话，我们这里面新建一个这个长期的记忆库叫做AIlow啊I这是2。因为我那个是I是我给到了我的proI2。然后这里面存了若干条了。然后这里面的这个内容你看它就是这个messenger list，它的默认就是要去通过一个这个messenger的数组给到它，然后里面就是。"
+    },
+    {
+      "created_at": "2026-05-18T21:51:00",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1140.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk020_1140s.mp4",
+        "size_bytes": 2603663,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.56,
+        "segments": 1,
+        "transcript_chars": 282,
+        "elapsed_s": 65.64,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk020_1140s-20260518-215100.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk020_1140s-20260518-215100.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk020_1140s-20260518-215100.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk020_1140s-20260518-215100.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 20,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 不尔就是他是否输入成功了。然后我这里面呢长期记忆往里面去写啊，基本上你看这个我也在跟他去说啊，做我女朋友好不好啊，然后。这个这个。对话流的这个体系依然把我拒绝啊依然把我拒绝。然后但它存储的内容就是这样的，它这个这个ro是user，然后countent是做我女朋友好不好？然后另外第二轮的这个对话就是ro，是啊我的这个助理，这是他的countent。😀哎呀，反正反正就是。就是这个样子了就是这个样子了，对吧？然后它的记忆组件可以自动的做概要的存储，做概要的存储。这接入我就特别像G特别像chtGBT所去干的事情，特别强。😊",
+      "global_transcript_preview": "[00:19:00 - 00:20:00] 不尔就是他是否输入成功了。然后我这里面呢长期记忆往里面去写啊，基本上你看这个我也在跟他去说啊，做我女朋友好不好啊，然后。这个这个。对话流的这个体系依然把我拒绝啊依然把我拒绝。然后但它存储的内容就是这样的，它这个这个ro是user，然后countent是做我女朋友好不好？然后另外第二轮的这个对话就是ro，是啊我的这个助理，这是他的countent。😀哎呀，反正反正就是。就是这个样子了就是这个样子了，对吧？然后它的记忆组件可以自动的做概要的存储，做概要的存储。这接入我就特别像G特别像chtGBT所去干的事情，特别强。😊",
+      "global_transcript_text": "[00:19:00 - 00:20:00] 不尔就是他是否输入成功了。然后我这里面呢长期记忆往里面去写啊，基本上你看这个我也在跟他去说啊，做我女朋友好不好啊，然后。这个这个。对话流的这个体系依然把我拒绝啊依然把我拒绝。然后但它存储的内容就是这样的，它这个这个ro是user，然后countent是做我女朋友好不好？然后另外第二轮的这个对话就是ro，是啊我的这个助理，这是他的countent。😀哎呀，反正反正就是。就是这个样子了就是这个样子了，对吧？然后它的记忆组件可以自动的做概要的存储，做概要的存储。这接入我就特别像G特别像chtGBT所去干的事情，特别强。😊"
+    },
+    {
+      "created_at": "2026-05-18T21:52:06",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1200.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk021_1200s.mp4",
+        "size_bytes": 2261076,
+        "kept": false
+      },
+      "processing": {
+        "events": 3,
+        "frames": 6,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.69,
+        "segments": 1,
+        "transcript_chars": 370,
+        "elapsed_s": 66.22,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk021_1200s-20260518-215206.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk021_1200s-20260518-215206.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk021_1200s-20260518-215206.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk021_1200s-20260518-215206.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 21,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 要基层去存储基础信息啊，这是我之我之前跟他聊的，我说我这爱爱吃西瓜，喜欢看电影，我想和呃这个小美一起去看电影，然后情感交流，希望和助手进行爱情方面的交流。嗯，这这话存的真的太太诡异了啊，这个。知道。然后同时开始菜单里有另外一条线，这条线是存储线。这条线是应用线。然后我在聊一句话之后的话，同时给我每一轮要去做长期记忆的检索，做长期记忆的检的相应的检索，它有一个query有一个limitquery就是我要把我的这个 inputput的输给他，也就是说我用我的这句话，他通过它的这个记忆的这个reg库里能够给我检索回来什么样的东西。它的limit就是我要去检索多少条的内容回来，当做我的上下文的内容。然后比如说我这是说我说真的话，我很害怕。然后他这边立刻给我回到了一条东西，他是说这个这个这个由于。",
+      "global_transcript_preview": "[00:20:00 - 00:21:00] 要基层去存储基础信息啊，这是我之我之前跟他聊的，我说我这爱爱吃西瓜，喜欢看电影，我想和呃这个小美一起去看电影，然后情感交流，希望和助手进行爱情方面的交流。嗯，这这话存的真的太太诡异了啊，这个。知道。然后同时开始菜单里有另外一条线，这条线是存储线。这条线是应用线。然后我在聊一句话之后的话，同时给我每一轮要去做长期记忆的检索，做长期记忆的检的相应的检索，它有一个query有一个limitquery就是我要把我的这个 inputput的输给他，也就是说我用我的这句话，他通过它的这个记忆的这个reg库里能够给我检索回来什么样的东西。它的limit就是我要去检索多少条的内容回来，当做我的上下文的内容。然后比如说我这是说我说真的话，我很害怕。然后他这边立刻给我回到了一条东西，他是说这个这个这个由于。",
+      "global_transcript_text": "[00:20:00 - 00:21:00] 要基层去存储基础信息啊，这是我之我之前跟他聊的，我说我这爱爱吃西瓜，喜欢看电影，我想和呃这个小美一起去看电影，然后情感交流，希望和助手进行爱情方面的交流。嗯，这这话存的真的太太诡异了啊，这个。知道。然后同时开始菜单里有另外一条线，这条线是存储线。这条线是应用线。然后我在聊一句话之后的话，同时给我每一轮要去做长期记忆的检索，做长期记忆的检的相应的检索，它有一个query有一个limitquery就是我要把我的这个 inputput的输给他，也就是说我用我的这句话，他通过它的这个记忆的这个reg库里能够给我检索回来什么样的东西。它的limit就是我要去检索多少条的内容回来，当做我的上下文的内容。然后比如说我这是说我说真的话，我很害怕。然后他这边立刻给我回到了一条东西，他是说这个这个这个由于。"
+    },
+    {
+      "created_at": "2026-05-18T21:53:12",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1260.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk022_1260s.mp4",
+        "size_bytes": 3062596,
+        "kept": false
+      },
+      "processing": {
+        "events": 4,
+        "frames": 6,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.7,
+        "segments": 1,
+        "transcript_chars": 375,
+        "elapsed_s": 66.67,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk022_1260s-20260518-215312.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk022_1260s-20260518-215312.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk022_1260s-20260518-215312.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk022_1260s-20260518-215312.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 22,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 稻草丛等等一些事儿啊，然后的话让我把这个小妄想收起来，这是我之前跟他对话所出现的一些记忆性的东的一些内容。然后在这里面根据这里面的内容构建出来了相应的上下文，然后就可以丢给大模型来去干活了，丢给大模型来去干来来去做事情了，input就是在里面user的就是user inputput就是我给他输入的东西，然后把memory list，然后也丢给大模型。这段整体的提示词就是这个样子，这是它完整的系统的这个内容，这个回头给你们发就好了。然后。嗯。我们就看到它的推理内容都在这里面，同时又能够拿到相应的记忆，然后相应的输出就都出来了。然后包括output和respond content，然后这是整体的一个对话流的构建，同时还可以自定义角色，还可以自定义它的角色，自定义它的角色的名称，角色的头像开场白。然后。",
+      "global_transcript_preview": "[00:21:00 - 00:22:00] 稻草丛等等一些事儿啊，然后的话让我把这个小妄想收起来，这是我之前跟他对话所出现的一些记忆性的东的一些内容。然后在这里面根据这里面的内容构建出来了相应的上下文，然后就可以丢给大模型来去干活了，丢给大模型来去干来来去做事情了，input就是在里面user的就是user inputput就是我给他输入的东西，然后把memory list，然后也丢给大模型。这段整体的提示词就是这个样子，这是它完整的系统的这个内容，这个回头给你们发就好了。然后。嗯。我们就看到它的推理内容都在这里面，同时又能够拿到相应的记忆，然后相应的输出就都出来了。然后包括output和respond content，然后这是整体的一个对话流的构建，同时还可以自定义角色，还可以自定义它的角色，自定义它的角色的名称，角色的头像开场白。然后。",
+      "global_transcript_text": "[00:21:00 - 00:22:00] 稻草丛等等一些事儿啊，然后的话让我把这个小妄想收起来，这是我之前跟他对话所出现的一些记忆性的东的一些内容。然后在这里面根据这里面的内容构建出来了相应的上下文，然后就可以丢给大模型来去干活了，丢给大模型来去干来来去做事情了，input就是在里面user的就是user inputput就是我给他输入的东西，然后把memory list，然后也丢给大模型。这段整体的提示词就是这个样子，这是它完整的系统的这个内容，这个回头给你们发就好了。然后。嗯。我们就看到它的推理内容都在这里面，同时又能够拿到相应的记忆，然后相应的输出就都出来了。然后包括output和respond content，然后这是整体的一个对话流的构建，同时还可以自定义角色，还可以自定义它的角色，自定义它的角色的名称，角色的头像开场白。然后。"
+    },
+    {
+      "created_at": "2026-05-18T21:54:19",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1320.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk023_1320s.mp4",
+        "size_bytes": 3783734,
+        "kept": false
+      },
+      "processing": {
+        "events": 4,
+        "frames": 6,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.61,
+        "segments": 1,
+        "transcript_chars": 214,
+        "elapsed_s": 65.95,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk023_1320s-20260518-215419.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk023_1320s-20260518-215419.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk023_1320s-20260518-215419.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk023_1320s-20260518-215419.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 23,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 样子，然后背景图片我拿这个love art生成了这样这样一张图。然后Aen的声音我我我我非常错误的选了一个魅力女友啊，然后一会儿我改一改，看一下其他的这个状态啊，然后看一下效果就是这个样。那你来了，今天要跟我说什么样的故事。这怎么没有区别呀？同学哎呦来点开。这条是概要，下面都是碎片，上面是概要，下面都是碎片。明白吗？只有第一条是概要，下面都是碎片啊，确保反应速度。确保反应速度的话。",
+      "global_transcript_preview": "[00:22:00 - 00:23:00] 样子，然后背景图片我拿这个love art生成了这样这样一张图。然后Aen的声音我我我我非常错误的选了一个魅力女友啊，然后一会儿我改一改，看一下其他的这个状态啊，然后看一下效果就是这个样。那你来了，今天要跟我说什么样的故事。这怎么没有区别呀？同学哎呦来点开。这条是概要，下面都是碎片，上面是概要，下面都是碎片。明白吗？只有第一条是概要，下面都是碎片啊，确保反应速度。确保反应速度的话。",
+      "global_transcript_text": "[00:22:00 - 00:23:00] 样子，然后背景图片我拿这个love art生成了这样这样一张图。然后Aen的声音我我我我非常错误的选了一个魅力女友啊，然后一会儿我改一改，看一下其他的这个状态啊，然后看一下效果就是这个样。那你来了，今天要跟我说什么样的故事。这怎么没有区别呀？同学哎呦来点开。这条是概要，下面都是碎片，上面是概要，下面都是碎片。明白吗？只有第一条是概要，下面都是碎片啊，确保反应速度。确保反应速度的话。"
+    },
+    {
+      "created_at": "2026-05-18T21:55:25",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1380.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk024_1380s.mp4",
+        "size_bytes": 3035394,
+        "kept": false
+      },
+      "processing": {
+        "events": 4,
+        "frames": 9,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.48,
+        "segments": 1,
+        "transcript_chars": 150,
+        "elapsed_s": 64.41,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk024_1380s-20260518-215525.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk024_1380s-20260518-215525.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk024_1380s-20260518-215525.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk024_1380s-20260518-215525.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 24,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 速度我们首先把它我首先把它的声音改一下啊。我先改一下，我这受不了它的声音，对吧？他核心慢在哪里啊？他核心慢在这儿，为什么他慢啊？大家看一下他用的是豆包1.8的深度。然后我们如果改一下呢，我们把它改成2.0的mini的，我们把它改成这个再试一下效果。他自己。",
+      "global_transcript_preview": "[00:23:00 - 00:24:00] 速度我们首先把它我首先把它的声音改一下啊。我先改一下，我这受不了它的声音，对吧？他核心慢在哪里啊？他核心慢在这儿，为什么他慢啊？大家看一下他用的是豆包1.8的深度。然后我们如果改一下呢，我们把它改成2.0的mini的，我们把它改成这个再试一下效果。他自己。",
+      "global_transcript_text": "[00:23:00 - 00:24:00] 速度我们首先把它我首先把它的声音改一下啊。我先改一下，我这受不了它的声音，对吧？他核心慢在哪里啊？他核心慢在这儿，为什么他慢啊？大家看一下他用的是豆包1.8的深度。然后我们如果改一下呢，我们把它改成2.0的mini的，我们把它改成这个再试一下效果。他自己。"
+    },
+    {
+      "created_at": "2026-05-18T21:56:29",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1440.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk025_1440s.mp4",
+        "size_bytes": 3035782,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.19,
+        "segments": 1,
+        "transcript_chars": 230,
+        "elapsed_s": 65.7,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk025_1440s-20260518-215629.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk025_1440s-20260518-215629.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk025_1440s-20260518-215629.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk025_1440s-20260518-215629.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 25,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 是不是就要好的多了，它是自己区分的，他自己区分的这个逻辑。我想跟你们说一个道理是什么？连扣子自己所做的这个插件都已经自己区分了。我想跟你们说的点就在于你认为一个产品经理在你的公司里，你需要自己去写这几种这几种记忆自己处理的机制吗？懂我说的吗？就是你难道自己要去产品写一套记忆处理机制吗？这是这是技术应该给你去干的事情啊。懂了吧？就是如果连记忆处理机制都要产品去干的话，那让那你就让你公司的技术来去编这种很肉麻的话去。",
+      "global_transcript_preview": "[00:24:00 - 00:25:00] 是不是就要好的多了，它是自己区分的，他自己区分的这个逻辑。我想跟你们说一个道理是什么？连扣子自己所做的这个插件都已经自己区分了。我想跟你们说的点就在于你认为一个产品经理在你的公司里，你需要自己去写这几种这几种记忆自己处理的机制吗？懂我说的吗？就是你难道自己要去产品写一套记忆处理机制吗？这是这是技术应该给你去干的事情啊。懂了吧？就是如果连记忆处理机制都要产品去干的话，那让那你就让你公司的技术来去编这种很肉麻的话去。",
+      "global_transcript_text": "[00:24:00 - 00:25:00] 是不是就要好的多了，它是自己区分的，他自己区分的这个逻辑。我想跟你们说一个道理是什么？连扣子自己所做的这个插件都已经自己区分了。我想跟你们说的点就在于你认为一个产品经理在你的公司里，你需要自己去写这几种这几种记忆自己处理的机制吗？懂我说的吗？就是你难道自己要去产品写一套记忆处理机制吗？这是这是技术应该给你去干的事情啊。懂了吧？就是如果连记忆处理机制都要产品去干的话，那让那你就让你公司的技术来去编这种很肉麻的话去。"
+    },
+    {
+      "created_at": "2026-05-18T21:57:35",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1500.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk026_1500s.mp4",
+        "size_bytes": 3445658,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 2,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.52,
+        "segments": 1,
+        "transcript_chars": 241,
+        "elapsed_s": 64.39,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk026_1500s-20260518-215735.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk026_1500s-20260518-215735.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk026_1500s-20260518-215735.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk026_1500s-20260518-215735.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 26,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 技术我这条我什么东西要去存概要就OK了。我什么东西要去存概要，我什么东西要去存碎片，你要跟他说明白这个，而怎么实现是他的事情啊。我告诉你一个道理，很多技术让产品写行问规则的原因是什么？我我就告我我就跟人去讲很多很多开发商产品写出生之后原因的点是什么？不是留党不是留党。你出现这种状况的情况下，我就告诉你一个道理，你应该反思一下你所在的公司是不是有问题的。你们公司是不是技术是非常的，就是说白了懒，也不知道该怎么去做。所以所有东西都所有的。",
+      "global_transcript_preview": "[00:25:00 - 00:26:00] 技术我这条我什么东西要去存概要就OK了。我什么东西要去存概要，我什么东西要去存碎片，你要跟他说明白这个，而怎么实现是他的事情啊。我告诉你一个道理，很多技术让产品写行问规则的原因是什么？我我就告我我就跟人去讲很多很多开发商产品写出生之后原因的点是什么？不是留党不是留党。你出现这种状况的情况下，我就告诉你一个道理，你应该反思一下你所在的公司是不是有问题的。你们公司是不是技术是非常的，就是说白了懒，也不知道该怎么去做。所以所有东西都所有的。",
+      "global_transcript_text": "[00:25:00 - 00:26:00] 技术我这条我什么东西要去存概要就OK了。我什么东西要去存概要，我什么东西要去存碎片，你要跟他说明白这个，而怎么实现是他的事情啊。我告诉你一个道理，很多技术让产品写行问规则的原因是什么？我我就告我我就跟人去讲很多很多开发商产品写出生之后原因的点是什么？不是留党不是留党。你出现这种状况的情况下，我就告诉你一个道理，你应该反思一下你所在的公司是不是有问题的。你们公司是不是技术是非常的，就是说白了懒，也不知道该怎么去做。所以所有东西都所有的。"
+    },
+    {
+      "created_at": "2026-05-18T21:58:39",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1560.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk027_1560s.mp4",
+        "size_bytes": 3651464,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 2,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.55,
+        "segments": 1,
+        "transcript_chars": 222,
+        "elapsed_s": 64.66,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk027_1560s-20260518-215839.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk027_1560s-20260518-215839.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk027_1560s-20260518-215839.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk027_1560s-20260518-215839.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 27,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 。这个时候的话你要考你要去想的是什么？你要想的是你替技术去干活，让他接着揽着，还是说你把这件事儿挑明白，你就应该去按照你的产品的逻辑，市场的概念这样去去做事儿。真的对吧？嗯产品难道就应该是去背波的吗？对吧对吧然后这个已经能够基本上模拟出。这个能模拟出什么这个东西基本上我认为是可以模拟出在扣子上，在在星也上70%左右的效果了啊。我们看一下这个声音，你好呀，今天是想仙仙会喝口茶，还是直接跟我碎碎念今。",
+      "global_transcript_preview": "[00:26:00 - 00:27:00] 。这个时候的话你要考你要去想的是什么？你要想的是你替技术去干活，让他接着揽着，还是说你把这件事儿挑明白，你就应该去按照你的产品的逻辑，市场的概念这样去去做事儿。真的对吧？嗯产品难道就应该是去背波的吗？对吧对吧然后这个已经能够基本上模拟出。这个能模拟出什么这个东西基本上我认为是可以模拟出在扣子上，在在星也上70%左右的效果了啊。我们看一下这个声音，你好呀，今天是想仙仙会喝口茶，还是直接跟我碎碎念今。",
+      "global_transcript_text": "[00:26:00 - 00:27:00] 。这个时候的话你要考你要去想的是什么？你要想的是你替技术去干活，让他接着揽着，还是说你把这件事儿挑明白，你就应该去按照你的产品的逻辑，市场的概念这样去去做事儿。真的对吧？嗯产品难道就应该是去背波的吗？对吧对吧然后这个已经能够基本上模拟出。这个能模拟出什么这个东西基本上我认为是可以模拟出在扣子上，在在星也上70%左右的效果了啊。我们看一下这个声音，你好呀，今天是想仙仙会喝口茶，还是直接跟我碎碎念今。"
+    },
+    {
+      "created_at": "2026-05-18T21:59:44",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1620.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk028_1620s.mp4",
+        "size_bytes": 3554022,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 4,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.58,
+        "segments": 1,
+        "transcript_chars": 295,
+        "elapsed_s": 64.59,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk028_1620s-20260518-215944.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk028_1620s-20260518-215944.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk028_1620s-20260518-215944.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk028_1620s-20260518-215944.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 28,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 本上你能够模拟出来星也差不多70%的一个水平吧啊，我认为我真心的认为你做出来demo搓到这个地步。咱们咱们认真的说，你搓一个类似的产品，做demo，做到这个地步。如果技术还不让你过，我觉得就有点过分了。是否是这么一个一个状态，搓到这个地步还不让你过去有点过分了。如果不用插件，它就是rg，它就是rg，它不用插件的话，它就是rg。对吧，然后如果你看星野的完整的体系，它是这个样子的，我得把我的头像挪开了。它是这个样子的，整个星野的完整的结构是这个样子的，它这边包含什么呢？包含这几条东西，它首先它有一个智能体的决策中台和创作和配置后台，它的所有的。",
+      "global_transcript_preview": "[00:27:00 - 00:28:00] 本上你能够模拟出来星也差不多70%的一个水平吧啊，我认为我真心的认为你做出来demo搓到这个地步。咱们咱们认真的说，你搓一个类似的产品，做demo，做到这个地步。如果技术还不让你过，我觉得就有点过分了。是否是这么一个一个状态，搓到这个地步还不让你过去有点过分了。如果不用插件，它就是rg，它就是rg，它不用插件的话，它就是rg。对吧，然后如果你看星野的完整的体系，它是这个样子的，我得把我的头像挪开了。它是这个样子的，整个星野的完整的结构是这个样子的，它这边包含什么呢？包含这几条东西，它首先它有一个智能体的决策中台和创作和配置后台，它的所有的。",
+      "global_transcript_text": "[00:27:00 - 00:28:00] 本上你能够模拟出来星也差不多70%的一个水平吧啊，我认为我真心的认为你做出来demo搓到这个地步。咱们咱们认真的说，你搓一个类似的产品，做demo，做到这个地步。如果技术还不让你过，我觉得就有点过分了。是否是这么一个一个状态，搓到这个地步还不让你过去有点过分了。如果不用插件，它就是rg，它就是rg，它不用插件的话，它就是rg。对吧，然后如果你看星野的完整的体系，它是这个样子的，我得把我的头像挪开了。它是这个样子的，整个星野的完整的结构是这个样子的，它这边包含什么呢？包含这几条东西，它首先它有一个智能体的决策中台和创作和配置后台，它的所有的。"
+    },
+    {
+      "created_at": "2026-05-18T22:00:49",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1680.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk029_1680s.mp4",
+        "size_bytes": 2454516,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 8.14,
+        "segments": 1,
+        "transcript_chars": 365,
+        "elapsed_s": 66.17,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk029_1680s-20260518-220049.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk029_1680s-20260518-220049.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk029_1680s-20260518-220049.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk029_1680s-20260518-220049.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 29,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 我头是能动，对吧？我又没焊死在这儿，对不对？然后它经过定义之后的话，整个这容体的策略中台就是说它的这容体的容器，容器里面就包含了它的人设的一些风格控制，它的口屁语气这个刚才在pro的工程里，我都给大家去演示过了。它的安全的边界通过promp的和驾驭工程来去把它控制住。然后这里面首先它能够有一些多模态的回复，包括文字，包括语音，包括表情。我这门错的没有含表情，但实际上是可以有表情的。然后有些主动触发的机制，这主要是唤醒机制。节日问候和久别重重逢，为了去做push和做唤醒的方式。多模态回复之后的话，通过刚才那条线一样的，进入到相应的记忆系统，该存碎片的纯碎片，该提炼成为概要的纯概要。然后在这个过程中，通过概要记忆驱动它的多模态的回复。然后同时对下一轮进行影响。而它和我的这个机制的。",
+      "global_transcript_preview": "[00:28:00 - 00:29:00] 我头是能动，对吧？我又没焊死在这儿，对不对？然后它经过定义之后的话，整个这容体的策略中台就是说它的这容体的容器，容器里面就包含了它的人设的一些风格控制，它的口屁语气这个刚才在pro的工程里，我都给大家去演示过了。它的安全的边界通过promp的和驾驭工程来去把它控制住。然后这里面首先它能够有一些多模态的回复，包括文字，包括语音，包括表情。我这门错的没有含表情，但实际上是可以有表情的。然后有些主动触发的机制，这主要是唤醒机制。节日问候和久别重重逢，为了去做push和做唤醒的方式。多模态回复之后的话，通过刚才那条线一样的，进入到相应的记忆系统，该存碎片的纯碎片，该提炼成为概要的纯概要。然后在这个过程中，通过概要记忆驱动它的多模态的回复。然后同时对下一轮进行影响。而它和我的这个机制的。",
+      "global_transcript_text": "[00:28:00 - 00:29:00] 我头是能动，对吧？我又没焊死在这儿，对不对？然后它经过定义之后的话，整个这容体的策略中台就是说它的这容体的容器，容器里面就包含了它的人设的一些风格控制，它的口屁语气这个刚才在pro的工程里，我都给大家去演示过了。它的安全的边界通过promp的和驾驭工程来去把它控制住。然后这里面首先它能够有一些多模态的回复，包括文字，包括语音，包括表情。我这门错的没有含表情，但实际上是可以有表情的。然后有些主动触发的机制，这主要是唤醒机制。节日问候和久别重重逢，为了去做push和做唤醒的方式。多模态回复之后的话，通过刚才那条线一样的，进入到相应的记忆系统，该存碎片的纯碎片，该提炼成为概要的纯概要。然后在这个过程中，通过概要记忆驱动它的多模态的回复。然后同时对下一轮进行影响。而它和我的这个机制的。"
+    },
+    {
+      "created_at": "2026-05-18T22:01:55",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1740.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk030_1740s.mp4",
+        "size_bytes": 2399800,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.62,
+        "segments": 1,
+        "transcript_chars": 360,
+        "elapsed_s": 65.53,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk030_1740s-20260518-220155.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk030_1740s-20260518-220155.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk030_1740s-20260518-220155.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk030_1740s-20260518-220155.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 30,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 多态回复之后，经过他的不同的情绪体验，会增加或减少相应的好感。会增加或减少相应的好感。如果亲密度系统达到一定值之后，它会有解锁机制，解锁解锁什么解锁素材，解锁相应的例会，解锁相应的语音包，解锁相应的背景，这个是一个商业化系统，这是养成和商业化系统，明白了吗？所以它的亲密度系统是为了什么？一是为了你的体验，二是为了他能不去收钱的，你想看这张例会吗？收钱吧，对吧？然后。嗯看。交互反馈编辑和重生城，这里面主要是修念和抽卡的部分，它里面有一些共同记忆的记忆卡收集。你俩突然间看了一趟烟花，然后这是一个重大事件，他会告诉你，这形成了一张记忆卡片，然后你要不要花钱买，对吧？然后碎片记忆形成了记忆簿，就是里面的记忆和相册的这些东西。记合相册的这些东西，对吧？这是完整的一套它的整体的。",
+      "global_transcript_preview": "[00:29:00 - 00:30:00] 多态回复之后，经过他的不同的情绪体验，会增加或减少相应的好感。会增加或减少相应的好感。如果亲密度系统达到一定值之后，它会有解锁机制，解锁解锁什么解锁素材，解锁相应的例会，解锁相应的语音包，解锁相应的背景，这个是一个商业化系统，这是养成和商业化系统，明白了吗？所以它的亲密度系统是为了什么？一是为了你的体验，二是为了他能不去收钱的，你想看这张例会吗？收钱吧，对吧？然后。嗯看。交互反馈编辑和重生城，这里面主要是修念和抽卡的部分，它里面有一些共同记忆的记忆卡收集。你俩突然间看了一趟烟花，然后这是一个重大事件，他会告诉你，这形成了一张记忆卡片，然后你要不要花钱买，对吧？然后碎片记忆形成了记忆簿，就是里面的记忆和相册的这些东西。记合相册的这些东西，对吧？这是完整的一套它的整体的。",
+      "global_transcript_text": "[00:29:00 - 00:30:00] 多态回复之后，经过他的不同的情绪体验，会增加或减少相应的好感。会增加或减少相应的好感。如果亲密度系统达到一定值之后，它会有解锁机制，解锁解锁什么解锁素材，解锁相应的例会，解锁相应的语音包，解锁相应的背景，这个是一个商业化系统，这是养成和商业化系统，明白了吗？所以它的亲密度系统是为了什么？一是为了你的体验，二是为了他能不去收钱的，你想看这张例会吗？收钱吧，对吧？然后。嗯看。交互反馈编辑和重生城，这里面主要是修念和抽卡的部分，它里面有一些共同记忆的记忆卡收集。你俩突然间看了一趟烟花，然后这是一个重大事件，他会告诉你，这形成了一张记忆卡片，然后你要不要花钱买，对吧？然后碎片记忆形成了记忆簿，就是里面的记忆和相册的这些东西。记合相册的这些东西，对吧？这是完整的一套它的整体的。"
+    },
+    {
+      "created_at": "2026-05-18T22:03:00",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1800.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk031_1800s.mp4",
+        "size_bytes": 2414663,
+        "kept": false
+      },
+      "processing": {
+        "events": 3,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.42,
+        "segments": 1,
+        "transcript_chars": 268,
+        "elapsed_s": 65.86,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk031_1800s-20260518-220300.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk031_1800s-20260518-220300.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk031_1800s-20260518-220300.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk031_1800s-20260518-220300.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 31,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 所以这是完整的结构。而刚才我们已经实间到什么地步了。我们没有做它的后台，所以你的制能体不能动态配置。但是单制能体配置风格控制、安全边界，然后多模态回复的60%，然后岁月记忆概要记记忆，这些东西这都有了。后面你只需要再去做亲密度等等一些东西就比较的完整了，就比较的完整了。后的这个工作位不能导出给吧不能不能不能不能不能好，然后再把我挪过去。好，然后我们最后再给大家去讲一下这个。多轮化指要效果好，除了记忆还有哪些要素要考虑你上下文工程啊，rg呀，上下文压缩呀，rg的这个这个这个除埋序啊，对吧？",
+      "global_transcript_preview": "[00:30:00 - 00:31:00] 所以这是完整的结构。而刚才我们已经实间到什么地步了。我们没有做它的后台，所以你的制能体不能动态配置。但是单制能体配置风格控制、安全边界，然后多模态回复的60%，然后岁月记忆概要记记忆，这些东西这都有了。后面你只需要再去做亲密度等等一些东西就比较的完整了，就比较的完整了。后的这个工作位不能导出给吧不能不能不能不能不能好，然后再把我挪过去。好，然后我们最后再给大家去讲一下这个。多轮化指要效果好，除了记忆还有哪些要素要考虑你上下文工程啊，rg呀，上下文压缩呀，rg的这个这个这个除埋序啊，对吧？",
+      "global_transcript_text": "[00:30:00 - 00:31:00] 所以这是完整的结构。而刚才我们已经实间到什么地步了。我们没有做它的后台，所以你的制能体不能动态配置。但是单制能体配置风格控制、安全边界，然后多模态回复的60%，然后岁月记忆概要记记忆，这些东西这都有了。后面你只需要再去做亲密度等等一些东西就比较的完整了，就比较的完整了。后的这个工作位不能导出给吧不能不能不能不能不能好，然后再把我挪过去。好，然后我们最后再给大家去讲一下这个。多轮化指要效果好，除了记忆还有哪些要素要考虑你上下文工程啊，rg呀，上下文压缩呀，rg的这个这个这个除埋序啊，对吧？"
+    },
+    {
+      "created_at": "2026-05-18T22:04:06",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1860.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk032_1860s.mp4",
+        "size_bytes": 2243905,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.64,
+        "segments": 1,
+        "transcript_chars": 320,
+        "elapsed_s": 65.31,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk032_1860s-20260518-220406.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk032_1860s-20260518-220406.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk032_1860s-20260518-220406.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk032_1860s-20260518-220406.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 32,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 逻辑上的东西。对吧然后中国为什么说老年的产品还有非常大的价值？中国老龄化的程度非常的严重。目前我们60岁以上的老年比例是17.9%，超过10呃超过了10到100到15岁，少儿17.8%的比例。所以我们现在是老的比小的多的。老的比小的多，意味着我们国家已经进入到了少子老龄化的加速阶段啊，全国60岁以上的老年人2.55亿2.55亿2.5亿。块改写影有有有有影响的有影响的。此外，65岁以上255亿占比18%，预计到2027年将会超过20%，进入到深度老龄化社会。2050年的时候，老年人口是4.4是4.87亿，总人口的3分之1都是老年人。啊，大家听到这组数据之后的话，又是一种什么样的感受啊？所以。",
+      "global_transcript_preview": "[00:31:00 - 00:32:00] 逻辑上的东西。对吧然后中国为什么说老年的产品还有非常大的价值？中国老龄化的程度非常的严重。目前我们60岁以上的老年比例是17.9%，超过10呃超过了10到100到15岁，少儿17.8%的比例。所以我们现在是老的比小的多的。老的比小的多，意味着我们国家已经进入到了少子老龄化的加速阶段啊，全国60岁以上的老年人2.55亿2.55亿2.5亿。块改写影有有有有影响的有影响的。此外，65岁以上255亿占比18%，预计到2027年将会超过20%，进入到深度老龄化社会。2050年的时候，老年人口是4.4是4.87亿，总人口的3分之1都是老年人。啊，大家听到这组数据之后的话，又是一种什么样的感受啊？所以。",
+      "global_transcript_text": "[00:31:00 - 00:32:00] 逻辑上的东西。对吧然后中国为什么说老年的产品还有非常大的价值？中国老龄化的程度非常的严重。目前我们60岁以上的老年比例是17.9%，超过10呃超过了10到100到15岁，少儿17.8%的比例。所以我们现在是老的比小的多的。老的比小的多，意味着我们国家已经进入到了少子老龄化的加速阶段啊，全国60岁以上的老年人2.55亿2.55亿2.5亿。块改写影有有有有影响的有影响的。此外，65岁以上255亿占比18%，预计到2027年将会超过20%，进入到深度老龄化社会。2050年的时候，老年人口是4.4是4.87亿，总人口的3分之1都是老年人。啊，大家听到这组数据之后的话，又是一种什么样的感受啊？所以。"
+    },
+    {
+      "created_at": "2026-05-18T22:05:12",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1920.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk033_1920s.mp4",
+        "size_bytes": 2980361,
+        "kept": false
+      },
+      "processing": {
+        "events": 3,
+        "frames": 7,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.64,
+        "segments": 1,
+        "transcript_chars": 279,
+        "elapsed_s": 66.12,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk033_1920s-20260518-220512.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk033_1920s-20260518-220512.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk033_1920s-20260518-220512.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk033_1920s-20260518-220512.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 33,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 。所以，超级老龄化社会将伴随80后、90后所有的退休生涯。然后所以银发经济对银发经济啊，银发经济是必然的社会的产物，是必然的社会产物啊，然后60以上的老年人的这个比例和增长率都是非常的可观的啊，然后这是中国人口的金字塔，到22050年的时候已经不是塔了，已经是根柱子了啊，像是中国尊了，对吧？然后中国老年人这有啥笑点，人在特别无语的时候真的会笑，你们不懂了。😊人在特别无语时是会笑的对吧？然后中国老龄化的这个特殊的特点是在这样的，就是它分批它分批中国有几次明确的，就是中国有几批非常明确的人口出升潮，人口出升潮啊。",
+      "global_transcript_preview": "[00:32:00 - 00:33:00] 。所以，超级老龄化社会将伴随80后、90后所有的退休生涯。然后所以银发经济对银发经济啊，银发经济是必然的社会的产物，是必然的社会产物啊，然后60以上的老年人的这个比例和增长率都是非常的可观的啊，然后这是中国人口的金字塔，到22050年的时候已经不是塔了，已经是根柱子了啊，像是中国尊了，对吧？然后中国老年人这有啥笑点，人在特别无语的时候真的会笑，你们不懂了。😊人在特别无语时是会笑的对吧？然后中国老龄化的这个特殊的特点是在这样的，就是它分批它分批中国有几次明确的，就是中国有几批非常明确的人口出升潮，人口出升潮啊。",
+      "global_transcript_text": "[00:32:00 - 00:33:00] 。所以，超级老龄化社会将伴随80后、90后所有的退休生涯。然后所以银发经济对银发经济啊，银发经济是必然的社会的产物，是必然的社会产物啊，然后60以上的老年人的这个比例和增长率都是非常的可观的啊，然后这是中国人口的金字塔，到22050年的时候已经不是塔了，已经是根柱子了啊，像是中国尊了，对吧？然后中国老年人这有啥笑点，人在特别无语的时候真的会笑，你们不懂了。😊人在特别无语时是会笑的对吧？然后中国老龄化的这个特殊的特点是在这样的，就是它分批它分批中国有几次明确的，就是中国有几批非常明确的人口出升潮，人口出升潮啊。"
+    },
+    {
+      "created_at": "2026-05-18T22:06:18",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 1980.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk034_1980s.mp4",
+        "size_bytes": 2937897,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 2,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.52,
+        "segments": 1,
+        "transcript_chars": 287,
+        "elapsed_s": 65.45,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk034_1980s-20260518-220618.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk034_1980s-20260518-220618.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk034_1980s-20260518-220618.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk034_1980s-20260518-220618.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 34,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 对吧难道我要反驳，你说不，其实我挺玩的，我不可能的。我我跟你讲，我这个人。有有本书就在歌颂我林丹写的啊，他这本书的名字叫做直到世界的尽头啊，就是说我对吧？直到世界的尽头，对吧？然后这是1970年有一波出生潮，63年有一波出生潮。这个82年有一波出生潮，这是一波一波一波一波的这个状态，一波一波的状态，这不是今年的数据。同学，这不是今年的数据啊，因此老龄化是什么？老龄化是摆在我们面前非常严重的一个问题。啊，非常严重的问题。由于我们老的太快老的太快。我们国家老的太快，同时发展的也太快，造成了一个问题，就是很多产品其实不适合老年人。",
+      "global_transcript_preview": "[00:33:00 - 00:34:00] 对吧难道我要反驳，你说不，其实我挺玩的，我不可能的。我我跟你讲，我这个人。有有本书就在歌颂我林丹写的啊，他这本书的名字叫做直到世界的尽头啊，就是说我对吧？直到世界的尽头，对吧？然后这是1970年有一波出生潮，63年有一波出生潮。这个82年有一波出生潮，这是一波一波一波一波的这个状态，一波一波的状态，这不是今年的数据。同学，这不是今年的数据啊，因此老龄化是什么？老龄化是摆在我们面前非常严重的一个问题。啊，非常严重的问题。由于我们老的太快老的太快。我们国家老的太快，同时发展的也太快，造成了一个问题，就是很多产品其实不适合老年人。",
+      "global_transcript_text": "[00:33:00 - 00:34:00] 对吧难道我要反驳，你说不，其实我挺玩的，我不可能的。我我跟你讲，我这个人。有有本书就在歌颂我林丹写的啊，他这本书的名字叫做直到世界的尽头啊，就是说我对吧？直到世界的尽头，对吧？然后这是1970年有一波出生潮，63年有一波出生潮。这个82年有一波出生潮，这是一波一波一波一波的这个状态，一波一波的状态，这不是今年的数据。同学，这不是今年的数据啊，因此老龄化是什么？老龄化是摆在我们面前非常严重的一个问题。啊，非常严重的问题。由于我们老的太快老的太快。我们国家老的太快，同时发展的也太快，造成了一个问题，就是很多产品其实不适合老年人。"
+    },
+    {
+      "created_at": "2026-05-18T22:07:23",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2040.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk035_2040s.mp4",
+        "size_bytes": 2553682,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.47,
+        "segments": 1,
+        "transcript_chars": 306,
+        "elapsed_s": 65.95,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk035_2040s-20260518-220723.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk035_2040s-20260518-220723.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk035_2040s-20260518-220723.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk035_2040s-20260518-220723.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 35,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 是老产品，你们第一反应就是把字儿放大一点，字儿大一点就是老年人适用的产品嘛。银发经济客观点讲是一个非常有价值的赛道，是一个非常有价值的赛道，只不过没有人去做。只播没人去去做，对吧？然后老年人产品我告诉大家一个很重要的东西叫做它的三大核心需求是什么？怕老怕死怕孤独，很多是老产品都在去做的是怕老和怕死的维度。但事实上来讲的话，老人的情感需求是非常重要。同时我认为对于中小企业来讲，怕老怕死不是中小企业能做的事，而怕孤独才是更加关键的。而且未来每个人的预期寿命其实会做的很长。预期寿命会做的很长，生命的物理质量会做的很好。这个时候情感属性和情感质量就变得异乎寻常的蓝海了。",
+      "global_transcript_preview": "[00:34:00 - 00:35:00] 是老产品，你们第一反应就是把字儿放大一点，字儿大一点就是老年人适用的产品嘛。银发经济客观点讲是一个非常有价值的赛道，是一个非常有价值的赛道，只不过没有人去做。只播没人去去做，对吧？然后老年人产品我告诉大家一个很重要的东西叫做它的三大核心需求是什么？怕老怕死怕孤独，很多是老产品都在去做的是怕老和怕死的维度。但事实上来讲的话，老人的情感需求是非常重要。同时我认为对于中小企业来讲，怕老怕死不是中小企业能做的事，而怕孤独才是更加关键的。而且未来每个人的预期寿命其实会做的很长。预期寿命会做的很长，生命的物理质量会做的很好。这个时候情感属性和情感质量就变得异乎寻常的蓝海了。",
+      "global_transcript_text": "[00:34:00 - 00:35:00] 是老产品，你们第一反应就是把字儿放大一点，字儿大一点就是老年人适用的产品嘛。银发经济客观点讲是一个非常有价值的赛道，是一个非常有价值的赛道，只不过没有人去做。只播没人去去做，对吧？然后老年人产品我告诉大家一个很重要的东西叫做它的三大核心需求是什么？怕老怕死怕孤独，很多是老产品都在去做的是怕老和怕死的维度。但事实上来讲的话，老人的情感需求是非常重要。同时我认为对于中小企业来讲，怕老怕死不是中小企业能做的事，而怕孤独才是更加关键的。而且未来每个人的预期寿命其实会做的很长。预期寿命会做的很长，生命的物理质量会做的很好。这个时候情感属性和情感质量就变得异乎寻常的蓝海了。"
+    },
+    {
+      "created_at": "2026-05-18T22:08:29",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2100.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk036_2100s.mp4",
+        "size_bytes": 2319846,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.5,
+        "segments": 1,
+        "transcript_chars": 276,
+        "elapsed_s": 66.16,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk036_2100s-20260518-220829.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk036_2100s-20260518-220829.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk036_2100s-20260518-220829.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk036_2100s-20260518-220829.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 36,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 但是有一个问题，老年人你觉得对AI类产品接受度高不高？老年人的对于AI产品的接受度高不高啊？高不高是这样子的。我们先看几个东西啊，就是首先来讲对AI产品接受度其实是并不高的，甚至是较低的。构成了一个特点，就是老年人事实上的高需求和低接受度之间的矛盾，有一个矛盾。所以为什么会有这样的原因啊？我这里面跟大家去讲一个逻辑，这是任何一款新产品，尤其是技术驱动的产品。按照用户的接受程度会分为几个大类，会分为几个大类啊。这几个类是这样，我一会儿跟你们说豆包的情况，我一会儿跟你们说豆包的情况。另外再说一点，你们你们。",
+      "global_transcript_preview": "[00:35:00 - 00:36:00] 但是有一个问题，老年人你觉得对AI类产品接受度高不高？老年人的对于AI产品的接受度高不高啊？高不高是这样子的。我们先看几个东西啊，就是首先来讲对AI产品接受度其实是并不高的，甚至是较低的。构成了一个特点，就是老年人事实上的高需求和低接受度之间的矛盾，有一个矛盾。所以为什么会有这样的原因啊？我这里面跟大家去讲一个逻辑，这是任何一款新产品，尤其是技术驱动的产品。按照用户的接受程度会分为几个大类，会分为几个大类啊。这几个类是这样，我一会儿跟你们说豆包的情况，我一会儿跟你们说豆包的情况。另外再说一点，你们你们。",
+      "global_transcript_text": "[00:35:00 - 00:36:00] 但是有一个问题，老年人你觉得对AI类产品接受度高不高？老年人的对于AI产品的接受度高不高啊？高不高是这样子的。我们先看几个东西啊，就是首先来讲对AI产品接受度其实是并不高的，甚至是较低的。构成了一个特点，就是老年人事实上的高需求和低接受度之间的矛盾，有一个矛盾。所以为什么会有这样的原因啊？我这里面跟大家去讲一个逻辑，这是任何一款新产品，尤其是技术驱动的产品。按照用户的接受程度会分为几个大类，会分为几个大类啊。这几个类是这样，我一会儿跟你们说豆包的情况，我一会儿跟你们说豆包的情况。另外再说一点，你们你们。"
+    },
+    {
+      "created_at": "2026-05-18T22:09:35",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2160.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk037_2160s.mp4",
+        "size_bytes": 2699371,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.55,
+        "segments": 1,
+        "transcript_chars": 320,
+        "elapsed_s": 65.64,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk037_2160s-20260518-220935.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk037_2160s-20260518-220935.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk037_2160s-20260518-220935.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk037_2160s-20260518-220935.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 37,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 是在哪一层啊？对，跨越鸿沟啊，格里菲斯，我的天啊，这名字这名字厉害了，但我不是嘎子啊然后。分为五个大类，创新者、早期采用者，早期用户、后期大众和落后者。什么是创新者？非常积极的追求新的技术产品，对吧？对吧？然后在正式营销计划启动前，就是想方设法来买新产品，技术他们才是人生的秩趣。产品功能怎么样？不重要，兴趣在技术进步本身。啊，对吧就有点像我当时买这个。在kickstar上直接就买了，管他到底好不好用，不重要啊，他用了一种新技术买就好了，对吧？第一批用hermes的人，第一批用open cloud的人，第一批啊，第一批啊一定是这样的状态。创新者纯的发烧友纯的geek，对吧？纯的geek对吧？",
+      "global_transcript_preview": "[00:36:00 - 00:37:00] 是在哪一层啊？对，跨越鸿沟啊，格里菲斯，我的天啊，这名字这名字厉害了，但我不是嘎子啊然后。分为五个大类，创新者、早期采用者，早期用户、后期大众和落后者。什么是创新者？非常积极的追求新的技术产品，对吧？对吧？然后在正式营销计划启动前，就是想方设法来买新产品，技术他们才是人生的秩趣。产品功能怎么样？不重要，兴趣在技术进步本身。啊，对吧就有点像我当时买这个。在kickstar上直接就买了，管他到底好不好用，不重要啊，他用了一种新技术买就好了，对吧？第一批用hermes的人，第一批用open cloud的人，第一批啊，第一批啊一定是这样的状态。创新者纯的发烧友纯的geek，对吧？纯的geek对吧？",
+      "global_transcript_text": "[00:36:00 - 00:37:00] 是在哪一层啊？对，跨越鸿沟啊，格里菲斯，我的天啊，这名字这名字厉害了，但我不是嘎子啊然后。分为五个大类，创新者、早期采用者，早期用户、后期大众和落后者。什么是创新者？非常积极的追求新的技术产品，对吧？对吧？然后在正式营销计划启动前，就是想方设法来买新产品，技术他们才是人生的秩趣。产品功能怎么样？不重要，兴趣在技术进步本身。啊，对吧就有点像我当时买这个。在kickstar上直接就买了，管他到底好不好用，不重要啊，他用了一种新技术买就好了，对吧？第一批用hermes的人，第一批用open cloud的人，第一批啊，第一批啊一定是这样的状态。创新者纯的发烧友纯的geek，对吧？纯的geek对吧？"
+    },
+    {
+      "created_at": "2026-05-18T22:10:41",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2220.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk038_2220s.mp4",
+        "size_bytes": 2875269,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.64,
+        "segments": 1,
+        "transcript_chars": 323,
+        "elapsed_s": 66.17,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk038_2220s-20260518-221041.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk038_2220s-20260518-221041.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk038_2220s-20260518-221041.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk038_2220s-20260518-221041.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 38,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 不是技术专家，他们往往不是技术专家，而他们擅长想象理解，欣赏新就是了好处，能将这些潜在好处和自己关注的联系起来，不依赖公众意见。倾向依赖自己的直觉和判断，这是叫做早已采用的。我希望大家，你们要想做好AI的产品经理哈，我你们如果想去做AI的产品经理哈，你们。最好能站在这个位置，你们不需要赚你们不需要站在创新者的的位置上。创新者太早了，反而不适合产品去做。创新者适合技术人在那儿去做。他对于真正的秩序是在技术本身，而早期采用者特别就产品。如果是一个早期采用者，他能把产品做的非常好。为什么出现了一个新技术之后，意味着什么？他能够想象理解欣赏新技术带来的好处。他能想象这东西能带来什么样的东西，他能够设想。",
+      "global_transcript_preview": "[00:37:00 - 00:38:00] 不是技术专家，他们往往不是技术专家，而他们擅长想象理解，欣赏新就是了好处，能将这些潜在好处和自己关注的联系起来，不依赖公众意见。倾向依赖自己的直觉和判断，这是叫做早已采用的。我希望大家，你们要想做好AI的产品经理哈，我你们如果想去做AI的产品经理哈，你们。最好能站在这个位置，你们不需要赚你们不需要站在创新者的的位置上。创新者太早了，反而不适合产品去做。创新者适合技术人在那儿去做。他对于真正的秩序是在技术本身，而早期采用者特别就产品。如果是一个早期采用者，他能把产品做的非常好。为什么出现了一个新技术之后，意味着什么？他能够想象理解欣赏新技术带来的好处。他能想象这东西能带来什么样的东西，他能够设想。",
+      "global_transcript_text": "[00:37:00 - 00:38:00] 不是技术专家，他们往往不是技术专家，而他们擅长想象理解，欣赏新就是了好处，能将这些潜在好处和自己关注的联系起来，不依赖公众意见。倾向依赖自己的直觉和判断，这是叫做早已采用的。我希望大家，你们要想做好AI的产品经理哈，我你们如果想去做AI的产品经理哈，你们。最好能站在这个位置，你们不需要赚你们不需要站在创新者的的位置上。创新者太早了，反而不适合产品去做。创新者适合技术人在那儿去做。他对于真正的秩序是在技术本身，而早期采用者特别就产品。如果是一个早期采用者，他能把产品做的非常好。为什么出现了一个新技术之后，意味着什么？他能够想象理解欣赏新技术带来的好处。他能想象这东西能带来什么样的东西，他能够设想。"
+    },
+    {
+      "created_at": "2026-05-18T22:11:47",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2280.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk039_2280s.mp4",
+        "size_bytes": 2586889,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.64,
+        "segments": 1,
+        "transcript_chars": 293,
+        "elapsed_s": 66.05,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk039_2280s-20260518-221147.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk039_2280s-20260518-221147.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk039_2280s-20260518-221147.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk039_2280s-20260518-221147.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 39,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 什么你关注你的行业，你关注你的产品，来了一个新的产品出来之后，它就能够联动上来。逻辑是在于这个点上，对吧？依赖于自己的直业和想象。这个的逻辑其实对于产品来讲是非常有价值的一件事儿，非常有价值的一件事。然后后面才是早期大众，后面才是早期大众。他的决策要经过于强烈的这个实用主义，他有用他才会买，占据成收占据生命周期3分之1的这个量。我告诉。大家，你们很多人我们我无意冒犯，你们很多人都是早期大众和后期大众。你们很多人都是早期大众和后期大众。为什么啊我们说一个点。你们一般来讲得非常多的去问啊，这个外部coing哪家好啊，哪家好啊，对吧？呃，我。",
+      "global_transcript_preview": "[00:38:00 - 00:39:00] 什么你关注你的行业，你关注你的产品，来了一个新的产品出来之后，它就能够联动上来。逻辑是在于这个点上，对吧？依赖于自己的直业和想象。这个的逻辑其实对于产品来讲是非常有价值的一件事儿，非常有价值的一件事。然后后面才是早期大众，后面才是早期大众。他的决策要经过于强烈的这个实用主义，他有用他才会买，占据成收占据生命周期3分之1的这个量。我告诉。大家，你们很多人我们我无意冒犯，你们很多人都是早期大众和后期大众。你们很多人都是早期大众和后期大众。为什么啊我们说一个点。你们一般来讲得非常多的去问啊，这个外部coing哪家好啊，哪家好啊，对吧？呃，我。",
+      "global_transcript_text": "[00:38:00 - 00:39:00] 什么你关注你的行业，你关注你的产品，来了一个新的产品出来之后，它就能够联动上来。逻辑是在于这个点上，对吧？依赖于自己的直业和想象。这个的逻辑其实对于产品来讲是非常有价值的一件事儿，非常有价值的一件事。然后后面才是早期大众，后面才是早期大众。他的决策要经过于强烈的这个实用主义，他有用他才会买，占据成收占据生命周期3分之1的这个量。我告诉。大家，你们很多人我们我无意冒犯，你们很多人都是早期大众和后期大众。你们很多人都是早期大众和后期大众。为什么啊我们说一个点。你们一般来讲得非常多的去问啊，这个外部coing哪家好啊，哪家好啊，对吧？呃，我。"
+    },
+    {
+      "created_at": "2026-05-18T22:12:53",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2340.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk040_2340s.mp4",
+        "size_bytes": 2806051,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.59,
+        "segments": 1,
+        "transcript_chars": 277,
+        "elapsed_s": 65.98,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk040_2340s-20260518-221253.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk040_2340s-20260518-221253.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk040_2340s-20260518-221253.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk040_2340s-20260518-221253.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 40,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 啊怎么能够用国内的一个免费的用啊？对吧你们我就是希望你们能够进入到早期采用者身上，进入到早期采用者身上。你一直做早期采用者，你才能把产品做好。我给大家一个做早期采用者的一种方法论，可以吗？有一种方法论你们需要吗？这种方法论是什么？我给你们一个小的建议，我给你们一个小的建议。这个小的建议是你们拿出来一点小的预算，这个预算风减尤人，可多可少没有关系，但一定要有一个月，比如说就是一二百块钱也可以，一二百块钱也可以，你就一定是这个月这个钱花在一些。你不经过什么样的听人劝，已经已经很 popular了，你必须得用。",
+      "global_transcript_preview": "[00:39:00 - 00:40:00] 啊怎么能够用国内的一个免费的用啊？对吧你们我就是希望你们能够进入到早期采用者身上，进入到早期采用者身上。你一直做早期采用者，你才能把产品做好。我给大家一个做早期采用者的一种方法论，可以吗？有一种方法论你们需要吗？这种方法论是什么？我给你们一个小的建议，我给你们一个小的建议。这个小的建议是你们拿出来一点小的预算，这个预算风减尤人，可多可少没有关系，但一定要有一个月，比如说就是一二百块钱也可以，一二百块钱也可以，你就一定是这个月这个钱花在一些。你不经过什么样的听人劝，已经已经很 popular了，你必须得用。",
+      "global_transcript_text": "[00:39:00 - 00:40:00] 啊怎么能够用国内的一个免费的用啊？对吧你们我就是希望你们能够进入到早期采用者身上，进入到早期采用者身上。你一直做早期采用者，你才能把产品做好。我给大家一个做早期采用者的一种方法论，可以吗？有一种方法论你们需要吗？这种方法论是什么？我给你们一个小的建议，我给你们一个小的建议。这个小的建议是你们拿出来一点小的预算，这个预算风减尤人，可多可少没有关系，但一定要有一个月，比如说就是一二百块钱也可以，一二百块钱也可以，你就一定是这个月这个钱花在一些。你不经过什么样的听人劝，已经已经很 popular了，你必须得用。"
+    },
+    {
+      "created_at": "2026-05-18T22:13:59",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2400.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk041_2400s.mp4",
+        "size_bytes": 2705448,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.59,
+        "segments": 1,
+        "transcript_chars": 300,
+        "elapsed_s": 65.61,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk041_2400s-20260518-221359.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk041_2400s-20260518-221359.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk041_2400s-20260518-221359.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk041_2400s-20260518-221359.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 41,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 纯长鲜的钱，不是你要是巨量预算，我告诉你，其实已经不再是这个早期采用者了。你如果是ca扣已经在用的话，你已经是在使用了，就是你每个月拿出一点长鲜费来，这个钱就是得花掉。这是为你的投资，我说一个月我说一个月我说一天了嘛，我说一个月一个月两三百，你花不起啊。😡啊，打比方说我2月份。我买了个什么，我我我去买了什么，我买了一个月的苏诺啊，你们可能觉得苏诺这么这么 popular飘落的东东西，你这算什你可不要忘了，他跟我没有什么关系。我只是听了一个在音乐界的朋友说，哎，苏诺这东西很厉害，我立刻第二天就去买了，买了一个月的。😊会员，然后拿着s呢，我就自己去做歌。",
+      "global_transcript_preview": "[00:40:00 - 00:41:00] 纯长鲜的钱，不是你要是巨量预算，我告诉你，其实已经不再是这个早期采用者了。你如果是ca扣已经在用的话，你已经是在使用了，就是你每个月拿出一点长鲜费来，这个钱就是得花掉。这是为你的投资，我说一个月我说一个月我说一天了嘛，我说一个月一个月两三百，你花不起啊。😡啊，打比方说我2月份。我买了个什么，我我我去买了什么，我买了一个月的苏诺啊，你们可能觉得苏诺这么这么 popular飘落的东东西，你这算什你可不要忘了，他跟我没有什么关系。我只是听了一个在音乐界的朋友说，哎，苏诺这东西很厉害，我立刻第二天就去买了，买了一个月的。😊会员，然后拿着s呢，我就自己去做歌。",
+      "global_transcript_text": "[00:40:00 - 00:41:00] 纯长鲜的钱，不是你要是巨量预算，我告诉你，其实已经不再是这个早期采用者了。你如果是ca扣已经在用的话，你已经是在使用了，就是你每个月拿出一点长鲜费来，这个钱就是得花掉。这是为你的投资，我说一个月我说一个月我说一天了嘛，我说一个月一个月两三百，你花不起啊。😡啊，打比方说我2月份。我买了个什么，我我我去买了什么，我买了一个月的苏诺啊，你们可能觉得苏诺这么这么 popular飘落的东东西，你这算什你可不要忘了，他跟我没有什么关系。我只是听了一个在音乐界的朋友说，哎，苏诺这东西很厉害，我立刻第二天就去买了，买了一个月的。😊会员，然后拿着s呢，我就自己去做歌。"
+    },
+    {
+      "created_at": "2026-05-18T22:15:05",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2460.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk042_2460s.mp4",
+        "size_bytes": 2573765,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.45,
+        "segments": 1,
+        "transcript_chars": 334,
+        "elapsed_s": 65.95,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk042_2460s-20260518-221505.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk042_2460s-20260518-221505.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk042_2460s-20260518-221505.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk042_2460s-20260518-221505.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 42,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 。有意思，能够给我很多的很多的启发，很多的启发，懂了吧？前信息我不是给过你们，我一般看哪些博客，哪些国外的网站它会出现新产品吗？对吧他占你生命周期3分之1的人数，我出了我我出歌了，对吧？然后早期大众是能相信自己能够用新技术，后期大众不相信，所以后期大众是要持续观察，直到出现成熟标准才决定。就有点像现在web codinging这件事，有些同学还是在观望，为什么观望哎呀，这个到底是用Cursor的还是用这个coer，最好他们掘出个售后，大家都用这个了，我再去用，对吧？希望得到大量的技术支持，最好什么课程啊，这些样板啊，模板啊，这些都有这才行。🤧对吧他也笔例库删干净，你为什么要给他这么大的权限呢？你为什么给他这么大的。😊",
+      "global_transcript_preview": "[00:41:00 - 00:42:00] 。有意思，能够给我很多的很多的启发，很多的启发，懂了吧？前信息我不是给过你们，我一般看哪些博客，哪些国外的网站它会出现新产品吗？对吧他占你生命周期3分之1的人数，我出了我我出歌了，对吧？然后早期大众是能相信自己能够用新技术，后期大众不相信，所以后期大众是要持续观察，直到出现成熟标准才决定。就有点像现在web codinging这件事，有些同学还是在观望，为什么观望哎呀，这个到底是用Cursor的还是用这个coer，最好他们掘出个售后，大家都用这个了，我再去用，对吧？希望得到大量的技术支持，最好什么课程啊，这些样板啊，模板啊，这些都有这才行。🤧对吧他也笔例库删干净，你为什么要给他这么大的权限呢？你为什么给他这么大的。😊",
+      "global_transcript_text": "[00:41:00 - 00:42:00] 。有意思，能够给我很多的很多的启发，很多的启发，懂了吧？前信息我不是给过你们，我一般看哪些博客，哪些国外的网站它会出现新产品吗？对吧他占你生命周期3分之1的人数，我出了我我出歌了，对吧？然后早期大众是能相信自己能够用新技术，后期大众不相信，所以后期大众是要持续观察，直到出现成熟标准才决定。就有点像现在web codinging这件事，有些同学还是在观望，为什么观望哎呀，这个到底是用Cursor的还是用这个coer，最好他们掘出个售后，大家都用这个了，我再去用，对吧？希望得到大量的技术支持，最好什么课程啊，这些样板啊，模板啊，这些都有这才行。🤧对吧他也笔例库删干净，你为什么要给他这么大的权限呢？你为什么给他这么大的。😊"
+    },
+    {
+      "created_at": "2026-05-18T22:16:11",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2520.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk043_2520s.mp4",
+        "size_bytes": 2126221,
+        "kept": false
+      },
+      "processing": {
+        "events": 3,
+        "frames": 7,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.52,
+        "segments": 1,
+        "transcript_chars": 335,
+        "elapsed_s": 66.09,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk043_2520s-20260518-221611.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk043_2520s-20260518-221611.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk043_2520s-20260518-221611.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk043_2520s-20260518-221611.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 43,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 企业对吧？只有占3分之1，而落后者根本不希望跟自己和新技术有任何关系。新技术深入的融获到他的其他产品中，在他们不知情的情况下购买才可能。不值得被重视。所以老年人对新产品的接受度就是处于落后者和后期大众的状态。原因是什么？客观一点讲，他们随着年龄增大，随着年龄增大，学习能力在下降。新产品会对他有受挫感，担心被骗，而绝大多数老年人都不会是早期草认者导致的结果就是老年人的KYL是非常少的，所以非常难去做传播。因此就出现一个问题，之前我们讲过一些国外的老年的一些AI的产品啊，一些AI的产品。，我这边想问大家一个问题啊，问答家一个点啊。你们现在有多少同学现在还没有开始外部扩定，给我敲个理。有多少同学觉得就是外部扩定这东西还是有。",
+      "global_transcript_preview": "[00:42:00 - 00:43:00] 企业对吧？只有占3分之1，而落后者根本不希望跟自己和新技术有任何关系。新技术深入的融获到他的其他产品中，在他们不知情的情况下购买才可能。不值得被重视。所以老年人对新产品的接受度就是处于落后者和后期大众的状态。原因是什么？客观一点讲，他们随着年龄增大，随着年龄增大，学习能力在下降。新产品会对他有受挫感，担心被骗，而绝大多数老年人都不会是早期草认者导致的结果就是老年人的KYL是非常少的，所以非常难去做传播。因此就出现一个问题，之前我们讲过一些国外的老年的一些AI的产品啊，一些AI的产品。，我这边想问大家一个问题啊，问答家一个点啊。你们现在有多少同学现在还没有开始外部扩定，给我敲个理。有多少同学觉得就是外部扩定这东西还是有。",
+      "global_transcript_text": "[00:42:00 - 00:43:00] 企业对吧？只有占3分之1，而落后者根本不希望跟自己和新技术有任何关系。新技术深入的融获到他的其他产品中，在他们不知情的情况下购买才可能。不值得被重视。所以老年人对新产品的接受度就是处于落后者和后期大众的状态。原因是什么？客观一点讲，他们随着年龄增大，随着年龄增大，学习能力在下降。新产品会对他有受挫感，担心被骗，而绝大多数老年人都不会是早期草认者导致的结果就是老年人的KYL是非常少的，所以非常难去做传播。因此就出现一个问题，之前我们讲过一些国外的老年的一些AI的产品啊，一些AI的产品。，我这边想问大家一个问题啊，问答家一个点啊。你们现在有多少同学现在还没有开始外部扩定，给我敲个理。有多少同学觉得就是外部扩定这东西还是有。"
+    },
+    {
+      "created_at": "2026-05-18T22:17:17",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2580.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk044_2580s.mp4",
+        "size_bytes": 2169096,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.36,
+        "segments": 1,
+        "transcript_chars": 302,
+        "elapsed_s": 65.92,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk044_2580s-20260518-221717.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk044_2580s-20260518-221717.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk044_2580s-20260518-221717.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk044_2580s-20260518-221717.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 44,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 好好，这么多是吧？好，我跟大家说一个道理啊，大家说一个，我天这么多呀，没事，没事啊，第一个第一个同学们。我这汗都我这汗都都都都都都都快下来了。第一个给大家的外部 codinging课已经呃已经有若已经有若干题出来了，回头就给大家去放我。我这次要求一下，我要求你们，我要求你们拿着那个课自己去练好不好啊，自己去练好不好？然后的话不用担心，一开始我们甚至于直接不是我放不出来，这是这是这是这是知乎有没有放出来的事儿，我我给他们了啊，我已经给他们前三节课了啊。一定要去列web coding已经是事实上的状态了，这件事没有任何可争议的事儿。第二个出了问题，不用特别。",
+      "global_transcript_preview": "[00:43:00 - 00:44:00] 好好，这么多是吧？好，我跟大家说一个道理啊，大家说一个，我天这么多呀，没事，没事啊，第一个第一个同学们。我这汗都我这汗都都都都都都都快下来了。第一个给大家的外部 codinging课已经呃已经有若已经有若干题出来了，回头就给大家去放我。我这次要求一下，我要求你们，我要求你们拿着那个课自己去练好不好啊，自己去练好不好？然后的话不用担心，一开始我们甚至于直接不是我放不出来，这是这是这是这是知乎有没有放出来的事儿，我我给他们了啊，我已经给他们前三节课了啊。一定要去列web coding已经是事实上的状态了，这件事没有任何可争议的事儿。第二个出了问题，不用特别。",
+      "global_transcript_text": "[00:43:00 - 00:44:00] 好好，这么多是吧？好，我跟大家说一个道理啊，大家说一个，我天这么多呀，没事，没事啊，第一个第一个同学们。我这汗都我这汗都都都都都都都快下来了。第一个给大家的外部 codinging课已经呃已经有若已经有若干题出来了，回头就给大家去放我。我这次要求一下，我要求你们，我要求你们拿着那个课自己去练好不好啊，自己去练好不好？然后的话不用担心，一开始我们甚至于直接不是我放不出来，这是这是这是这是知乎有没有放出来的事儿，我我给他们了啊，我已经给他们前三节课了啊。一定要去列web coding已经是事实上的状态了，这件事没有任何可争议的事儿。第二个出了问题，不用特别。"
+    },
+    {
+      "created_at": "2026-05-18T22:18:23",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2640.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk045_2640s.mp4",
+        "size_bytes": 1713134,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.59,
+        "segments": 1,
+        "transcript_chars": 198,
+        "elapsed_s": 66.3,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk045_2640s-20260518-221823.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk045_2640s-20260518-221823.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk045_2640s-20260518-221823.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk045_2640s-20260518-221823.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 45,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 你不想学扣子，让学外国扣去。我告诉你逻辑不对，我告诉你逻辑不对哎。哎，Pline和外 codinging这两件事根本就根本就不冲突，根本就不冲突。哎，哎，没事算了。你们先按照我这个去，你们你们你们先看完我那套课，然后千往前去做吧，对吧？创建ski的话，直就就直接拿coser的。cracks you的那个功能直接去创建就可以了呀，对吧？对吧，对吧？没。",
+      "global_transcript_preview": "[00:44:00 - 00:45:00] 你不想学扣子，让学外国扣去。我告诉你逻辑不对，我告诉你逻辑不对哎。哎，Pline和外 codinging这两件事根本就根本就不冲突，根本就不冲突。哎，哎，没事算了。你们先按照我这个去，你们你们你们先看完我那套课，然后千往前去做吧，对吧？创建ski的话，直就就直接拿coser的。cracks you的那个功能直接去创建就可以了呀，对吧？对吧，对吧？没。",
+      "global_transcript_text": "[00:44:00 - 00:45:00] 你不想学扣子，让学外国扣去。我告诉你逻辑不对，我告诉你逻辑不对哎。哎，Pline和外 codinging这两件事根本就根本就不冲突，根本就不冲突。哎，哎，没事算了。你们先按照我这个去，你们你们你们先看完我那套课，然后千往前去做吧，对吧？创建ski的话，直就就直接拿coser的。cracks you的那个功能直接去创建就可以了呀，对吧？对吧，对吧？没。"
+    },
+    {
+      "created_at": "2026-05-18T22:19:29",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2700.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk046_2700s.mp4",
+        "size_bytes": 2573871,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.55,
+        "segments": 1,
+        "transcript_chars": 302,
+        "elapsed_s": 65.53,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk046_2700s-20260518-221929.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk046_2700s-20260518-221929.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk046_2700s-20260518-221929.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk046_2700s-20260518-221929.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 46,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 我们看一下之前说的一些老年人的AI的这些产品啊，然后韩国做了一个这个优lo door，这个产品卖的也很贵，然后给这个老这个韩国的失能老失能老人用的。很像棉画娃娃，主要的有AI的语音对话，有问候，有天气，对吧？然后。然后主动发起交流，里面有传感器，有远程监护，然后有运动跌调传感器和远程通知，然后有GPS的围栏，其他增加了鸣响音乐和用药的告知。然后根据习惯主动来去做沟通的时间表，这个产品也卖到了好几万块钱，也卖到了好几万块钱。祝大家，我跟你讲web coding和P的设计，这是两个不同的技能。我就这么跟你讲吧，是两个不同的技能，你会web coding不一。",
+      "global_transcript_preview": "[00:45:00 - 00:46:00] 我们看一下之前说的一些老年人的AI的这些产品啊，然后韩国做了一个这个优lo door，这个产品卖的也很贵，然后给这个老这个韩国的失能老失能老人用的。很像棉画娃娃，主要的有AI的语音对话，有问候，有天气，对吧？然后。然后主动发起交流，里面有传感器，有远程监护，然后有运动跌调传感器和远程通知，然后有GPS的围栏，其他增加了鸣响音乐和用药的告知。然后根据习惯主动来去做沟通的时间表，这个产品也卖到了好几万块钱，也卖到了好几万块钱。祝大家，我跟你讲web coding和P的设计，这是两个不同的技能。我就这么跟你讲吧，是两个不同的技能，你会web coding不一。",
+      "global_transcript_text": "[00:45:00 - 00:46:00] 我们看一下之前说的一些老年人的AI的这些产品啊，然后韩国做了一个这个优lo door，这个产品卖的也很贵，然后给这个老这个韩国的失能老失能老人用的。很像棉画娃娃，主要的有AI的语音对话，有问候，有天气，对吧？然后。然后主动发起交流，里面有传感器，有远程监护，然后有运动跌调传感器和远程通知，然后有GPS的围栏，其他增加了鸣响音乐和用药的告知。然后根据习惯主动来去做沟通的时间表，这个产品也卖到了好几万块钱，也卖到了好几万块钱。祝大家，我跟你讲web coding和P的设计，这是两个不同的技能。我就这么跟你讲吧，是两个不同的技能，你会web coding不一。"
+    },
+    {
+      "created_at": "2026-05-18T22:20:35",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2760.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk047_2760s.mp4",
+        "size_bytes": 2848697,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.58,
+        "segments": 1,
+        "transcript_chars": 336,
+        "elapsed_s": 65.09,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk047_2760s-20260518-222035.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk047_2760s-20260518-222035.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk047_2760s-20260518-222035.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk047_2760s-20260518-222035.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 47,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 到底什么样子，是能搭出demo来，还是能够在这里面一条工作流的完整的搭建结构，你能去做出来。如果你能做出来特别完整的在这个基于 pipeline的一个搭建结构，你可以不用。但是如果你就是给我去拿web codinging去搭一个壳子，让大模型实现了内在的机制。我告诉你，你最好还是拿扣子去搭一遍扣子搭建，不是为了让你们去出demo的扣子搭建的核心的逻辑，是为了让你们真正理解大模型内在的处的处理机制的。你们不要认为你能拿web coding来去搭出来一个demo就可以了。web coding搭demo是做的是demo层的东西。你真正懂它里面的的内在机制吗？那你不懂。对吧你不懂，所以piline pipelineline就是。",
+      "global_transcript_preview": "[00:46:00 - 00:47:00] 到底什么样子，是能搭出demo来，还是能够在这里面一条工作流的完整的搭建结构，你能去做出来。如果你能做出来特别完整的在这个基于 pipeline的一个搭建结构，你可以不用。但是如果你就是给我去拿web codinging去搭一个壳子，让大模型实现了内在的机制。我告诉你，你最好还是拿扣子去搭一遍扣子搭建，不是为了让你们去出demo的扣子搭建的核心的逻辑，是为了让你们真正理解大模型内在的处的处理机制的。你们不要认为你能拿web coding来去搭出来一个demo就可以了。web coding搭demo是做的是demo层的东西。你真正懂它里面的的内在机制吗？那你不懂。对吧你不懂，所以piline pipelineline就是。",
+      "global_transcript_text": "[00:46:00 - 00:47:00] 到底什么样子，是能搭出demo来，还是能够在这里面一条工作流的完整的搭建结构，你能去做出来。如果你能做出来特别完整的在这个基于 pipeline的一个搭建结构，你可以不用。但是如果你就是给我去拿web codinging去搭一个壳子，让大模型实现了内在的机制。我告诉你，你最好还是拿扣子去搭一遍扣子搭建，不是为了让你们去出demo的扣子搭建的核心的逻辑，是为了让你们真正理解大模型内在的处的处理机制的。你们不要认为你能拿web coding来去搭出来一个demo就可以了。web coding搭demo是做的是demo层的东西。你真正懂它里面的的内在机制吗？那你不懂。对吧你不懂，所以piline pipelineline就是。"
+    },
+    {
+      "created_at": "2026-05-18T22:21:40",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2820.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk048_2820s.mp4",
+        "size_bytes": 2861965,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.45,
+        "segments": 1,
+        "transcript_chars": 284,
+        "elapsed_s": 65.94,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk048_2820s-20260518-222140.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk048_2820s-20260518-222140.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk048_2820s-20260518-222140.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk048_2820s-20260518-222140.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 48,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 户流程这两套东西拼凑一起扔给技术，他才能够给你做出来相应的东西啊。你只会外部 codinging，把壳子搭了，内在机制不了解。那你能做啥呢？就这么讲吧，你说你会wi coding，你觉得不需要再拿cos来做复现。我个人认为一定是你在扣子的复现上可能是有困难的。因为这里面客观一点讲，我觉得扣s复现是比这块东西更加的复杂的，怎么把扣子里面工作有使用到clo code，让技术搞定。因为你整个里面的工作流事实上是需要技术再用你公司的p plan的编排工具重新写一遍的，他没有办法直接去用你公司用的p。的工具，优秀的公司一般自己。",
+      "global_transcript_preview": "[00:47:00 - 00:48:00] 户流程这两套东西拼凑一起扔给技术，他才能够给你做出来相应的东西啊。你只会外部 codinging，把壳子搭了，内在机制不了解。那你能做啥呢？就这么讲吧，你说你会wi coding，你觉得不需要再拿cos来做复现。我个人认为一定是你在扣子的复现上可能是有困难的。因为这里面客观一点讲，我觉得扣s复现是比这块东西更加的复杂的，怎么把扣子里面工作有使用到clo code，让技术搞定。因为你整个里面的工作流事实上是需要技术再用你公司的p plan的编排工具重新写一遍的，他没有办法直接去用你公司用的p。的工具，优秀的公司一般自己。",
+      "global_transcript_text": "[00:47:00 - 00:48:00] 户流程这两套东西拼凑一起扔给技术，他才能够给你做出来相应的东西啊。你只会外部 codinging，把壳子搭了，内在机制不了解。那你能做啥呢？就这么讲吧，你说你会wi coding，你觉得不需要再拿cos来做复现。我个人认为一定是你在扣子的复现上可能是有困难的。因为这里面客观一点讲，我觉得扣s复现是比这块东西更加的复杂的，怎么把扣子里面工作有使用到clo code，让技术搞定。因为你整个里面的工作流事实上是需要技术再用你公司的p plan的编排工具重新写一遍的，他没有办法直接去用你公司用的p。的工具，优秀的公司一般自己。"
+    },
+    {
+      "created_at": "2026-05-18T22:22:46",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2880.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk049_2880s.mp4",
+        "size_bytes": 2445221,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.36,
+        "segments": 1,
+        "transcript_chars": 255,
+        "elapsed_s": 65.53,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk049_2880s-20260518-222246.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk049_2880s-20260518-222246.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk049_2880s-20260518-222246.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk049_2880s-20260518-222246.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 49,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 我们已经说了很多次了，扣子它是核心是让产品经理作为一个类似于乐高一样的东西来去梳理你的逻辑。它的产品化做的最好，难道你公难道你公司没技术吗？对吧你咋不你咋不问我，就是拿拿act所搭的东西，如何能让他去跑起来的呢？扣子搭建的东西核心点是梳理你的逻辑，梳理你的逻辑，帮你梳理你的大模型内在组件的的实现过程，很像以前产品经理去做流程图，去做甬道图，明白吧？你你做产品以前你是要去画流程图的，什么是流程图？一个新令过来之后，你要去做什么样的处理，是做e else，还是去取？",
+      "global_transcript_preview": "[00:48:00 - 00:49:00] 我们已经说了很多次了，扣子它是核心是让产品经理作为一个类似于乐高一样的东西来去梳理你的逻辑。它的产品化做的最好，难道你公难道你公司没技术吗？对吧你咋不你咋不问我，就是拿拿act所搭的东西，如何能让他去跑起来的呢？扣子搭建的东西核心点是梳理你的逻辑，梳理你的逻辑，帮你梳理你的大模型内在组件的的实现过程，很像以前产品经理去做流程图，去做甬道图，明白吧？你你做产品以前你是要去画流程图的，什么是流程图？一个新令过来之后，你要去做什么样的处理，是做e else，还是去取？",
+      "global_transcript_text": "[00:48:00 - 00:49:00] 我们已经说了很多次了，扣子它是核心是让产品经理作为一个类似于乐高一样的东西来去梳理你的逻辑。它的产品化做的最好，难道你公难道你公司没技术吗？对吧你咋不你咋不问我，就是拿拿act所搭的东西，如何能让他去跑起来的呢？扣子搭建的东西核心点是梳理你的逻辑，梳理你的逻辑，帮你梳理你的大模型内在组件的的实现过程，很像以前产品经理去做流程图，去做甬道图，明白吧？你你做产品以前你是要去画流程图的，什么是流程图？一个新令过来之后，你要去做什么样的处理，是做e else，还是去取？"
+    },
+    {
+      "created_at": "2026-05-18T22:23:51",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 2940.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk050_2940s.mp4",
+        "size_bytes": 2373753,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.67,
+        "segments": 1,
+        "transcript_chars": 255,
+        "elapsed_s": 66.33,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk050_2940s-20260518-222351.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk050_2940s-20260518-222351.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk050_2940s-20260518-222351.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk050_2940s-20260518-222351.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 50,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 郭宝珍，那此刻。流程图是被cos的工作流替代掉了。高保珍和原型是被web coding的demo替代掉了。这两个东西混合起来才是一个产品的完整的设计。然后还要你再做第三个东西，就是你的相应的边界条件和你对于这个产品最后所要求的它的技术标准，需要的是这几个。这两个所就这两个的价值是并不一样的。克拉扣做出来小的小型产品能商用的呀，能的呀。你可以用任何的工作流的方式来去梳理产品逻辑。扣子是这里面产品化做的最好最方便的工具，明白了吧？我们后面给你讲边界条件和技术标准啊。",
+      "global_transcript_preview": "[00:49:00 - 00:50:00] 郭宝珍，那此刻。流程图是被cos的工作流替代掉了。高保珍和原型是被web coding的demo替代掉了。这两个东西混合起来才是一个产品的完整的设计。然后还要你再做第三个东西，就是你的相应的边界条件和你对于这个产品最后所要求的它的技术标准，需要的是这几个。这两个所就这两个的价值是并不一样的。克拉扣做出来小的小型产品能商用的呀，能的呀。你可以用任何的工作流的方式来去梳理产品逻辑。扣子是这里面产品化做的最好最方便的工具，明白了吧？我们后面给你讲边界条件和技术标准啊。",
+      "global_transcript_text": "[00:49:00 - 00:50:00] 郭宝珍，那此刻。流程图是被cos的工作流替代掉了。高保珍和原型是被web coding的demo替代掉了。这两个东西混合起来才是一个产品的完整的设计。然后还要你再做第三个东西，就是你的相应的边界条件和你对于这个产品最后所要求的它的技术标准，需要的是这几个。这两个所就这两个的价值是并不一样的。克拉扣做出来小的小型产品能商用的呀，能的呀。你可以用任何的工作流的方式来去梳理产品逻辑。扣子是这里面产品化做的最好最方便的工具，明白了吧？我们后面给你讲边界条件和技术标准啊。"
+    },
+    {
+      "created_at": "2026-05-18T22:24:58",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3000.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk051_3000s.mp4",
+        "size_bytes": 2434476,
+        "kept": false
+      },
+      "processing": {
+        "events": 3,
+        "frames": 7,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.53,
+        "segments": 1,
+        "transcript_chars": 320,
+        "elapsed_s": 65.91,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk051_3000s-20260518-222458.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk051_3000s-20260518-222458.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk051_3000s-20260518-222458.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk051_3000s-20260518-222458.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 51,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 和cos工作流的关系吗？我不是发过一篇这个吗？大家有去看吗？就是咱们有去看过关于web codinging和cos工和错工作流这两件事的关系吗？。对吧你看过之后，你就明白这两个之间的关系是啥了呀，这两个东东西哪个也并不能少啊，并并不能少啊，对吧？然后美国有一款产品叫做IQ这款产品呢做了一个屏幕，做了一个摄像头，然后摄像头能够带随动，它能做什么呢？带有长期记忆的对话，基础的医疗问答，基础的医疗问答，然后情感的识别，主动发起对话，活动的。提醒基本上是做这个还有什么产品呢？日本的这个做了一个叫做Pal，这个产品是做了一个海报，对于声音光触感姿势温度进行感应。但是这些产品呢客观点讲，卖的都一般卖。",
+      "global_transcript_preview": "[00:50:00 - 00:51:00] 和cos工作流的关系吗？我不是发过一篇这个吗？大家有去看吗？就是咱们有去看过关于web codinging和cos工和错工作流这两件事的关系吗？。对吧你看过之后，你就明白这两个之间的关系是啥了呀，这两个东东西哪个也并不能少啊，并并不能少啊，对吧？然后美国有一款产品叫做IQ这款产品呢做了一个屏幕，做了一个摄像头，然后摄像头能够带随动，它能做什么呢？带有长期记忆的对话，基础的医疗问答，基础的医疗问答，然后情感的识别，主动发起对话，活动的。提醒基本上是做这个还有什么产品呢？日本的这个做了一个叫做Pal，这个产品是做了一个海报，对于声音光触感姿势温度进行感应。但是这些产品呢客观点讲，卖的都一般卖。",
+      "global_transcript_text": "[00:50:00 - 00:51:00] 和cos工作流的关系吗？我不是发过一篇这个吗？大家有去看吗？就是咱们有去看过关于web codinging和cos工和错工作流这两件事的关系吗？。对吧你看过之后，你就明白这两个之间的关系是啥了呀，这两个东东西哪个也并不能少啊，并并不能少啊，对吧？然后美国有一款产品叫做IQ这款产品呢做了一个屏幕，做了一个摄像头，然后摄像头能够带随动，它能做什么呢？带有长期记忆的对话，基础的医疗问答，基础的医疗问答，然后情感的识别，主动发起对话，活动的。提醒基本上是做这个还有什么产品呢？日本的这个做了一个叫做Pal，这个产品是做了一个海报，对于声音光触感姿势温度进行感应。但是这些产品呢客观点讲，卖的都一般卖。"
+    },
+    {
+      "created_at": "2026-05-18T22:26:03",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3060.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk052_3060s.mp4",
+        "size_bytes": 2000905,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.52,
+        "segments": 1,
+        "transcript_chars": 316,
+        "elapsed_s": 65.56,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk052_3060s-20260518-222603.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk052_3060s-20260518-222603.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk052_3060s-20260518-222603.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk052_3060s-20260518-222603.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 52,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:00:59] 一般来讲，它成为一种失龄老人的照护和医保形式的这个产品上去做的那我们可以换一种思路来去看待老年产品，弱化AI味道，把AI能力融入到老年人的产的场景之中，在不清在不知情的情况下去用它。比如说像。为什么老年人对豆包使用率上是非常的高的？还有没有想过，就为什么豆瓣使用率非常的高？豆包使用率的高的点就是说在这里面的话，其实他从来没有跟老年人说我是AI，他从来不彰显他是AI。而。对于老年人，对于他的认为是两个东西。第一个认为这是一款更好的搜索。更好的搜索，这个是做了一些行业的调研。很多人认为这是一款更好的搜索啊，比百度好用点，认为是这么一个东西。第二件事情，在它的交互的逻辑上，它极大化的在。",
+      "global_transcript_preview": "[00:51:00 - 00:51:59] 一般来讲，它成为一种失龄老人的照护和医保形式的这个产品上去做的那我们可以换一种思路来去看待老年产品，弱化AI味道，把AI能力融入到老年人的产的场景之中，在不清在不知情的情况下去用它。比如说像。为什么老年人对豆包使用率上是非常的高的？还有没有想过，就为什么豆瓣使用率非常的高？豆包使用率的高的点就是说在这里面的话，其实他从来没有跟老年人说我是AI，他从来不彰显他是AI。而。对于老年人，对于他的认为是两个东西。第一个认为这是一款更好的搜索。更好的搜索，这个是做了一些行业的调研。很多人认为这是一款更好的搜索啊，比百度好用点，认为是这么一个东西。第二件事情，在它的交互的逻辑上，它极大化的在。",
+      "global_transcript_text": "[00:51:00 - 00:51:59] 一般来讲，它成为一种失龄老人的照护和医保形式的这个产品上去做的那我们可以换一种思路来去看待老年产品，弱化AI味道，把AI能力融入到老年人的产的场景之中，在不清在不知情的情况下去用它。比如说像。为什么老年人对豆包使用率上是非常的高的？还有没有想过，就为什么豆瓣使用率非常的高？豆包使用率的高的点就是说在这里面的话，其实他从来没有跟老年人说我是AI，他从来不彰显他是AI。而。对于老年人，对于他的认为是两个东西。第一个认为这是一款更好的搜索。更好的搜索，这个是做了一些行业的调研。很多人认为这是一款更好的搜索啊，比百度好用点，认为是这么一个东西。第二件事情，在它的交互的逻辑上，它极大化的在。"
+    },
+    {
+      "created_at": "2026-05-18T22:27:09",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3120.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk053_3120s.mp4",
+        "size_bytes": 2044478,
+        "kept": false
+      },
+      "processing": {
+        "events": 1,
+        "frames": 3,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 8.17,
+        "segments": 1,
+        "transcript_chars": 347,
+        "elapsed_s": 66.28,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk053_3120s-20260518-222709.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk053_3120s-20260518-222709.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk053_3120s-20260518-222709.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk053_3120s-20260518-222709.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 53,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 语音的回聊，然后有人跟他去沟通，他会觉得这就是一个智能客智能客服，加上一个搜索这个产品。没有人就是他完全不彰显我是什么最新型的大模型啊，最新型的人工AI没有去讲这些东西，而就是说我就是一个类似于在微信上，你可以跟我随便去聊天，我给你去回复。而且我永远给你回复的一个状态。所以豆包之所以火爆，之所以现在出现了很多的这种就是就是豆包在老老年人板块上也出了很多的问题啊，但是它的使用量非常的大，核心点是极大化的弱化了自己的AI存在感，这件事非常的重要。那另外再给大家看一一些比较奇怪的产品啊。比如说南京的有一家公司的产品做成了这个样子啊，豆包的产品极其细节，极其细节啊。这是南京一家公司的产品，这个产品就比较的特别了。怎么去融入到生活中这个产品大家看它是。",
+      "global_transcript_preview": "[00:52:00 - 00:53:00] 语音的回聊，然后有人跟他去沟通，他会觉得这就是一个智能客智能客服，加上一个搜索这个产品。没有人就是他完全不彰显我是什么最新型的大模型啊，最新型的人工AI没有去讲这些东西，而就是说我就是一个类似于在微信上，你可以跟我随便去聊天，我给你去回复。而且我永远给你回复的一个状态。所以豆包之所以火爆，之所以现在出现了很多的这种就是就是豆包在老老年人板块上也出了很多的问题啊，但是它的使用量非常的大，核心点是极大化的弱化了自己的AI存在感，这件事非常的重要。那另外再给大家看一一些比较奇怪的产品啊。比如说南京的有一家公司的产品做成了这个样子啊，豆包的产品极其细节，极其细节啊。这是南京一家公司的产品，这个产品就比较的特别了。怎么去融入到生活中这个产品大家看它是。",
+      "global_transcript_text": "[00:52:00 - 00:53:00] 语音的回聊，然后有人跟他去沟通，他会觉得这就是一个智能客智能客服，加上一个搜索这个产品。没有人就是他完全不彰显我是什么最新型的大模型啊，最新型的人工AI没有去讲这些东西，而就是说我就是一个类似于在微信上，你可以跟我随便去聊天，我给你去回复。而且我永远给你回复的一个状态。所以豆包之所以火爆，之所以现在出现了很多的这种就是就是豆包在老老年人板块上也出了很多的问题啊，但是它的使用量非常的大，核心点是极大化的弱化了自己的AI存在感，这件事非常的重要。那另外再给大家看一一些比较奇怪的产品啊。比如说南京的有一家公司的产品做成了这个样子啊，豆包的产品极其细节，极其细节啊。这是南京一家公司的产品，这个产品就比较的特别了。怎么去融入到生活中这个产品大家看它是。"
+    },
+    {
+      "created_at": "2026-05-18T22:28:15",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3180.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk054_3180s.mp4",
+        "size_bytes": 1991610,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.44,
+        "segments": 1,
+        "transcript_chars": 288,
+        "elapsed_s": 66.33,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk054_3180s-20260518-222815.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk054_3180s-20260518-222815.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk054_3180s-20260518-222815.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk054_3180s-20260518-222815.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 54,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 保真音箱还原，然后能够有软硬件的结合裸眼3D仓。然后的话180这个1080P的高保真的摄像头这个东西是干嘛的？这个东西是干嘛的？嗯，这东西就是领位，你们说的太对了，这东西就是领位。老年人靠这个东西的这个情况，这个是什么产品？他是做一个数字人，做声音克隆，做形象克隆，做实时交互，做3D仓，做对话锻炼，做深度学习。他是做什么的？嗯，不说了，你们都猜到了你们都猜到。但是我告诉你们这个产品的客单价是在5000到1万，做的很贵，做定制化做的很贵。据公开报道，去年就已经做到了1000多单，而且很多老年人这个产品使用率极高，极高是什么概念？",
+      "global_transcript_preview": "[00:53:00 - 00:54:00] 保真音箱还原，然后能够有软硬件的结合裸眼3D仓。然后的话180这个1080P的高保真的摄像头这个东西是干嘛的？这个东西是干嘛的？嗯，这东西就是领位，你们说的太对了，这东西就是领位。老年人靠这个东西的这个情况，这个是什么产品？他是做一个数字人，做声音克隆，做形象克隆，做实时交互，做3D仓，做对话锻炼，做深度学习。他是做什么的？嗯，不说了，你们都猜到了你们都猜到。但是我告诉你们这个产品的客单价是在5000到1万，做的很贵，做定制化做的很贵。据公开报道，去年就已经做到了1000多单，而且很多老年人这个产品使用率极高，极高是什么概念？",
+      "global_transcript_text": "[00:53:00 - 00:54:00] 保真音箱还原，然后能够有软硬件的结合裸眼3D仓。然后的话180这个1080P的高保真的摄像头这个东西是干嘛的？这个东西是干嘛的？嗯，这东西就是领位，你们说的太对了，这东西就是领位。老年人靠这个东西的这个情况，这个是什么产品？他是做一个数字人，做声音克隆，做形象克隆，做实时交互，做3D仓，做对话锻炼，做深度学习。他是做什么的？嗯，不说了，你们都猜到了你们都猜到。但是我告诉你们这个产品的客单价是在5000到1万，做的很贵，做定制化做的很贵。据公开报道，去年就已经做到了1000多单，而且很多老年人这个产品使用率极高，极高是什么概念？"
+    },
+    {
+      "created_at": "2026-05-18T22:29:22",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3240.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk055_3240s.mp4",
+        "size_bytes": 1789576,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.62,
+        "segments": 1,
+        "transcript_chars": 277,
+        "elapsed_s": 66.25,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk055_3240s-20260518-222922.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk055_3240s-20260518-222922.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk055_3240s-20260518-222922.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk055_3240s-20260518-222922.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 55,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 有的咱们就咱们就别非要提骨灰的事儿了，行吗？咱不提这个了好不好？这个这个不合适，对吧？然后就是这个其实是融入了他的生活。他没有提这东西，什么是AI不提，你想不想。我告诉你们一个更加悲伤的东西。我告诉你们一个更加悲伤的东西。这个产品的这个产品因为我们也了解了一些情况，看了一下这个情况。嗯，这个产品用的最多的不是给老伴儿，你们听到了吗？就是就是就是用的最多的不是给老伴儿，你们听懂我在说什么了吗？对。白发人送黑发人，然后基本上都会买这个都会买这个懂了吧。声音怎么得到的，这还不明白吗？声音怎么得到的，还不明白吗？",
+      "global_transcript_preview": "[00:54:00 - 00:55:00] 有的咱们就咱们就别非要提骨灰的事儿了，行吗？咱不提这个了好不好？这个这个不合适，对吧？然后就是这个其实是融入了他的生活。他没有提这东西，什么是AI不提，你想不想。我告诉你们一个更加悲伤的东西。我告诉你们一个更加悲伤的东西。这个产品的这个产品因为我们也了解了一些情况，看了一下这个情况。嗯，这个产品用的最多的不是给老伴儿，你们听到了吗？就是就是就是用的最多的不是给老伴儿，你们听懂我在说什么了吗？对。白发人送黑发人，然后基本上都会买这个都会买这个懂了吧。声音怎么得到的，这还不明白吗？声音怎么得到的，还不明白吗？",
+      "global_transcript_text": "[00:54:00 - 00:55:00] 有的咱们就咱们就别非要提骨灰的事儿了，行吗？咱不提这个了好不好？这个这个不合适，对吧？然后就是这个其实是融入了他的生活。他没有提这东西，什么是AI不提，你想不想。我告诉你们一个更加悲伤的东西。我告诉你们一个更加悲伤的东西。这个产品的这个产品因为我们也了解了一些情况，看了一下这个情况。嗯，这个产品用的最多的不是给老伴儿，你们听到了吗？就是就是就是用的最多的不是给老伴儿，你们听懂我在说什么了吗？对。白发人送黑发人，然后基本上都会买这个都会买这个懂了吧。声音怎么得到的，这还不明白吗？声音怎么得到的，还不明白吗？"
+    },
+    {
+      "created_at": "2026-05-18T22:30:28",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3300.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk056_3300s.mp4",
+        "size_bytes": 2020547,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.66,
+        "segments": 1,
+        "transcript_chars": 242,
+        "elapsed_s": 66.14,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk056_3300s-20260518-223028.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk056_3300s-20260518-223028.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk056_3300s-20260518-223028.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk056_3300s-20260518-223028.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 56,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 谁还没有孩子自己的聊天呢？拿着微信的记录去做training，然后嗯戳一个数字人出来，懂了吧？嗯，这个东西的每天使用率极其的高极其的高，懂了吧？就是给老伴搓的很少，给老伴搓的非常少啊，不多不多啊。对吧所以这个产品尽管说非常的悲伤，但也是情感陪护，也是情感陪护，听到了吗？所以情感这个东西实际上是非常丰富的，不止于油腻，不止于擦边，也有这种真情实感的东西。但是你们说这个产品到底它对不对，它好不好呢？我告诉大家，你说人走得出来这个悲伤情感吗？",
+      "global_transcript_preview": "[00:55:00 - 00:56:00] 谁还没有孩子自己的聊天呢？拿着微信的记录去做training，然后嗯戳一个数字人出来，懂了吧？嗯，这个东西的每天使用率极其的高极其的高，懂了吧？就是给老伴搓的很少，给老伴搓的非常少啊，不多不多啊。对吧所以这个产品尽管说非常的悲伤，但也是情感陪护，也是情感陪护，听到了吗？所以情感这个东西实际上是非常丰富的，不止于油腻，不止于擦边，也有这种真情实感的东西。但是你们说这个产品到底它对不对，它好不好呢？我告诉大家，你说人走得出来这个悲伤情感吗？",
+      "global_transcript_text": "[00:55:00 - 00:56:00] 谁还没有孩子自己的聊天呢？拿着微信的记录去做training，然后嗯戳一个数字人出来，懂了吧？嗯，这个东西的每天使用率极其的高极其的高，懂了吧？就是给老伴搓的很少，给老伴搓的非常少啊，不多不多啊。对吧所以这个产品尽管说非常的悲伤，但也是情感陪护，也是情感陪护，听到了吗？所以情感这个东西实际上是非常丰富的，不止于油腻，不止于擦边，也有这种真情实感的东西。但是你们说这个产品到底它对不对，它好不好呢？我告诉大家，你说人走得出来这个悲伤情感吗？"
+    },
+    {
+      "created_at": "2026-05-18T22:31:34",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3360.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk057_3360s.mp4",
+        "size_bytes": 1900153,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.59,
+        "segments": 1,
+        "transcript_chars": 266,
+        "elapsed_s": 66.0,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk057_3360s-20260518-223134.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk057_3360s-20260518-223134.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk057_3360s-20260518-223134.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk057_3360s-20260518-223134.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 57,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 我这么说吧，我一开始我不认同这款产品，我这么说吧，我一开始我不认同这款产品。我说这款产品有什么意义啊？我说人应该走出来往前走。你拿这个东西看上去是留住了记忆，但实际上是困住了未来啊，我直接就跟他们谁说的，然后他这个方面跟我说了一句话，他说你他说你你说我卖的是什么？我卖的是一个罐子吗？我说你我说你卖的是回忆，他说不是我卖的是念想，我被他说服了，我被他说服了。你们懂我说的什么吗？嗯卖的是念想，对吧？卖的是个念想。嗯放墓碑上，扫不师可以聊天的产品。我打算在我墓碑上放一个，我打算在我墓碑上。",
+      "global_transcript_preview": "[00:56:00 - 00:57:00] 我这么说吧，我一开始我不认同这款产品，我这么说吧，我一开始我不认同这款产品。我说这款产品有什么意义啊？我说人应该走出来往前走。你拿这个东西看上去是留住了记忆，但实际上是困住了未来啊，我直接就跟他们谁说的，然后他这个方面跟我说了一句话，他说你他说你你说我卖的是什么？我卖的是一个罐子吗？我说你我说你卖的是回忆，他说不是我卖的是念想，我被他说服了，我被他说服了。你们懂我说的什么吗？嗯卖的是念想，对吧？卖的是个念想。嗯放墓碑上，扫不师可以聊天的产品。我打算在我墓碑上放一个，我打算在我墓碑上。",
+      "global_transcript_text": "[00:56:00 - 00:57:00] 我这么说吧，我一开始我不认同这款产品，我这么说吧，我一开始我不认同这款产品。我说这款产品有什么意义啊？我说人应该走出来往前走。你拿这个东西看上去是留住了记忆，但实际上是困住了未来啊，我直接就跟他们谁说的，然后他这个方面跟我说了一句话，他说你他说你你说我卖的是什么？我卖的是一个罐子吗？我说你我说你卖的是回忆，他说不是我卖的是念想，我被他说服了，我被他说服了。你们懂我说的什么吗？嗯卖的是念想，对吧？卖的是个念想。嗯放墓碑上，扫不师可以聊天的产品。我打算在我墓碑上放一个，我打算在我墓碑上。"
+    },
+    {
+      "created_at": "2026-05-18T22:32:40",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3420.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk058_3420s.mp4",
+        "size_bytes": 2145144,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.64,
+        "segments": 1,
+        "transcript_chars": 206,
+        "elapsed_s": 65.7,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk058_3420s-20260518-223240.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk058_3420s-20260518-223240.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk058_3420s-20260518-223240.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk058_3420s-20260518-223240.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 58,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 。对吧所以每个人是并不一样的。嗯，不是他就是走不出来，他就是走不出来。他说但是总比总比一夜白头强。总比没过半年就去陪孩子强，不是吗？啊，对吧？念想是虚假的，老头老太太多活两年是真实的，是不是这么个道理啊，是不是对吧啊？🤧所以啊在这里面我跟大家讲一个人引发人群的这个定位选择的问题，健康疾病，有钱没钱，我们应该做什么？在健康有钱的部分，娱乐类、社交类、保健类、适老性产。",
+      "global_transcript_preview": "[00:57:00 - 00:58:00] 。对吧所以每个人是并不一样的。嗯，不是他就是走不出来，他就是走不出来。他说但是总比总比一夜白头强。总比没过半年就去陪孩子强，不是吗？啊，对吧？念想是虚假的，老头老太太多活两年是真实的，是不是这么个道理啊，是不是对吧啊？🤧所以啊在这里面我跟大家讲一个人引发人群的这个定位选择的问题，健康疾病，有钱没钱，我们应该做什么？在健康有钱的部分，娱乐类、社交类、保健类、适老性产。",
+      "global_transcript_text": "[00:57:00 - 00:58:00] 。对吧所以每个人是并不一样的。嗯，不是他就是走不出来，他就是走不出来。他说但是总比总比一夜白头强。总比没过半年就去陪孩子强，不是吗？啊，对吧？念想是虚假的，老头老太太多活两年是真实的，是不是这么个道理啊，是不是对吧啊？🤧所以啊在这里面我跟大家讲一个人引发人群的这个定位选择的问题，健康疾病，有钱没钱，我们应该做什么？在健康有钱的部分，娱乐类、社交类、保健类、适老性产。"
+    },
+    {
+      "created_at": "2026-05-18T22:33:46",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3480.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk059_3480s.mp4",
+        "size_bytes": 1987410,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.55,
+        "segments": 1,
+        "transcript_chars": 337,
+        "elapsed_s": 65.97,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk059_3480s-20260518-223346.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk059_3480s-20260518-223346.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk059_3480s-20260518-223346.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk059_3480s-20260518-223346.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 59,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 那没显的可以做娱乐和社交，那成为有钱但健康的NBC没钱但疾疾病。这真不是我们做产品能做的这是走社会保障的这是走社会保障的，我们不要做，也不要碰。我们不要做也不要碰，这多跟你说一句，这就是做银发的这么一个特点。做银发的一个特点啊，社会保保证不要做，然后这就是他的选择的一个逻辑。这个因为我们也做过一些东西，我们也投过看过一些项目。跟大家特别实在的去讲一段话，叫做研发经济特点，就是好的用户特别的好，好用户有多好，有钱。有收入稳定的预期，每个月上万的退休金。我们看到有一个项目，他所做的用户。每年都有固定的旅游费、水果费、保健费、定书级报刊的费用。那真的是用户好啊，每天就带着玩就可以了啊，极其的稳定，也有时间因为退休了，还有好的小。",
+      "global_transcript_preview": "[00:58:00 - 00:59:00] 那没显的可以做娱乐和社交，那成为有钱但健康的NBC没钱但疾疾病。这真不是我们做产品能做的这是走社会保障的这是走社会保障的，我们不要做，也不要碰。我们不要做也不要碰，这多跟你说一句，这就是做银发的这么一个特点。做银发的一个特点啊，社会保保证不要做，然后这就是他的选择的一个逻辑。这个因为我们也做过一些东西，我们也投过看过一些项目。跟大家特别实在的去讲一段话，叫做研发经济特点，就是好的用户特别的好，好用户有多好，有钱。有收入稳定的预期，每个月上万的退休金。我们看到有一个项目，他所做的用户。每年都有固定的旅游费、水果费、保健费、定书级报刊的费用。那真的是用户好啊，每天就带着玩就可以了啊，极其的稳定，也有时间因为退休了，还有好的小。",
+      "global_transcript_text": "[00:58:00 - 00:59:00] 那没显的可以做娱乐和社交，那成为有钱但健康的NBC没钱但疾疾病。这真不是我们做产品能做的这是走社会保障的这是走社会保障的，我们不要做，也不要碰。我们不要做也不要碰，这多跟你说一句，这就是做银发的这么一个特点。做银发的一个特点啊，社会保保证不要做，然后这就是他的选择的一个逻辑。这个因为我们也做过一些东西，我们也投过看过一些项目。跟大家特别实在的去讲一段话，叫做研发经济特点，就是好的用户特别的好，好用户有多好，有钱。有收入稳定的预期，每个月上万的退休金。我们看到有一个项目，他所做的用户。每年都有固定的旅游费、水果费、保健费、定书级报刊的费用。那真的是用户好啊，每天就带着玩就可以了啊，极其的稳定，也有时间因为退休了，还有好的小。"
+    },
+    {
+      "created_at": "2026-05-18T22:34:52",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3540.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk060_3540s.mp4",
+        "size_bytes": 2154015,
+        "kept": false
+      },
+      "processing": {
+        "events": 3,
+        "frames": 7,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.59,
+        "segments": 1,
+        "transcript_chars": 317,
+        "elapsed_s": 66.12,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk060_3540s-20260518-223452.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk060_3540s-20260518-223452.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk060_3540s-20260518-223452.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk060_3540s-20260518-223452.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 60,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 还好，就是银发经济最好的用户比有钱的年轻用户还好，有钱的年轻用户没时间还贼事儿。啊，因为有钱的老年用户时间充裕，而且消费预期特别特别的好。银发经济没有大厂，没有大厂，有不了大厂。你如说银发经济最大的大大厂，泰康泰康的养老社区啊。。但差的用户就特别的差差的用户，我们我们看不得我们的看不得没钱，有疾病，很有可能伴随着失能。最有痛点的是一群人，反而无法用最现在企业的方式做任何的服务，谁做谁倒霉。所以选择研发经验定位。我说就是保一养育四个不同的逻辑，我们能做什么。保障的东西，医疗的东西，养老东西和娱乐的东西。保障的东西我直接告诉大家，民营企业不可能做，做不了做不了。这个因果不是民营企业能担。",
+      "global_transcript_preview": "[00:59:00 - 01:00:00] 还好，就是银发经济最好的用户比有钱的年轻用户还好，有钱的年轻用户没时间还贼事儿。啊，因为有钱的老年用户时间充裕，而且消费预期特别特别的好。银发经济没有大厂，没有大厂，有不了大厂。你如说银发经济最大的大大厂，泰康泰康的养老社区啊。。但差的用户就特别的差差的用户，我们我们看不得我们的看不得没钱，有疾病，很有可能伴随着失能。最有痛点的是一群人，反而无法用最现在企业的方式做任何的服务，谁做谁倒霉。所以选择研发经验定位。我说就是保一养育四个不同的逻辑，我们能做什么。保障的东西，医疗的东西，养老东西和娱乐的东西。保障的东西我直接告诉大家，民营企业不可能做，做不了做不了。这个因果不是民营企业能担。",
+      "global_transcript_text": "[00:59:00 - 01:00:00] 还好，就是银发经济最好的用户比有钱的年轻用户还好，有钱的年轻用户没时间还贼事儿。啊，因为有钱的老年用户时间充裕，而且消费预期特别特别的好。银发经济没有大厂，没有大厂，有不了大厂。你如说银发经济最大的大大厂，泰康泰康的养老社区啊。。但差的用户就特别的差差的用户，我们我们看不得我们的看不得没钱，有疾病，很有可能伴随着失能。最有痛点的是一群人，反而无法用最现在企业的方式做任何的服务，谁做谁倒霉。所以选择研发经验定位。我说就是保一养育四个不同的逻辑，我们能做什么。保障的东西，医疗的东西，养老东西和娱乐的东西。保障的东西我直接告诉大家，民营企业不可能做，做不了做不了。这个因果不是民营企业能担。"
+    },
+    {
+      "created_at": "2026-05-18T22:35:58",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3600.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk061_3600s.mp4",
+        "size_bytes": 2333543,
+        "kept": false
+      },
+      "processing": {
+        "events": 8,
+        "frames": 15,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.69,
+        "segments": 1,
+        "transcript_chars": 361,
+        "elapsed_s": 66.24,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk061_3600s-20260518-223558.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk061_3600s-20260518-223558.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk061_3600s-20260518-223558.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk061_3600s-20260518-223558.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 61,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 服务需要好的背景和资质。如果做养老是重资产，如同泰康，对吧？慎重介入娱乐是非常好的机会，选择有消费能力的引发人群，这是一个非常好的生意。这个是讲这块它的逻辑和未来给大家去画一条能走的路径吧，好吗？然后今天。。大家时间比较的多，然后总结一下。然后呢，因为这个这个互联网只能做锤类，大模型可以跳出这个模式可以宽口径的方法去走。广义痛点定位人群梳理需求和构建产品，可以用这种更加广义的产品构建方法去走定位人群的话，还是要去找好人群画像和它的需求，以及它后续的付费可能性。记忆的分层。这个大家要多多去看一看核心画像，概要记忆和碎片记忆三层，核心点是在该要和碎片之中，我们应该如何去做相应的这个权衡以及相应的设计，对吧？然后最后是这个整体的结构图，希望大家多来去做理解。然后另外关于这个。",
+      "global_transcript_preview": "[01:00:00 - 01:01:00] 服务需要好的背景和资质。如果做养老是重资产，如同泰康，对吧？慎重介入娱乐是非常好的机会，选择有消费能力的引发人群，这是一个非常好的生意。这个是讲这块它的逻辑和未来给大家去画一条能走的路径吧，好吗？然后今天。。大家时间比较的多，然后总结一下。然后呢，因为这个这个互联网只能做锤类，大模型可以跳出这个模式可以宽口径的方法去走。广义痛点定位人群梳理需求和构建产品，可以用这种更加广义的产品构建方法去走定位人群的话，还是要去找好人群画像和它的需求，以及它后续的付费可能性。记忆的分层。这个大家要多多去看一看核心画像，概要记忆和碎片记忆三层，核心点是在该要和碎片之中，我们应该如何去做相应的这个权衡以及相应的设计，对吧？然后最后是这个整体的结构图，希望大家多来去做理解。然后另外关于这个。",
+      "global_transcript_text": "[01:00:00 - 01:01:00] 服务需要好的背景和资质。如果做养老是重资产，如同泰康，对吧？慎重介入娱乐是非常好的机会，选择有消费能力的引发人群，这是一个非常好的生意。这个是讲这块它的逻辑和未来给大家去画一条能走的路径吧，好吗？然后今天。。大家时间比较的多，然后总结一下。然后呢，因为这个这个互联网只能做锤类，大模型可以跳出这个模式可以宽口径的方法去走。广义痛点定位人群梳理需求和构建产品，可以用这种更加广义的产品构建方法去走定位人群的话，还是要去找好人群画像和它的需求，以及它后续的付费可能性。记忆的分层。这个大家要多多去看一看核心画像，概要记忆和碎片记忆三层，核心点是在该要和碎片之中，我们应该如何去做相应的这个权衡以及相应的设计，对吧？然后最后是这个整体的结构图，希望大家多来去做理解。然后另外关于这个。"
+    },
+    {
+      "created_at": "2026-05-18T22:37:04",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3660.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk062_3660s.mp4",
+        "size_bytes": 2131733,
+        "kept": false
+      },
+      "processing": {
+        "events": 2,
+        "frames": 5,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.58,
+        "segments": 1,
+        "transcript_chars": 358,
+        "elapsed_s": 65.95,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk062_3660s-20260518-223704.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk062_3660s-20260518-223704.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk062_3660s-20260518-223704.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk062_3660s-20260518-223704.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 62,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 推广，然后陪伴他需要什么样的一些产品，大家也可以去想一想老年人到底需要什么，以及于选择银发经济的相应的定位的一些情况。然后啊今天作业我希望大家把今天的对话流搭建一下啊，今天是个对话流。。可以搭建一个你所喜欢的一个人群啊，也可以搭建一个小哥哥啊，然后设计一款老年人带有保健性的产品的长期忆胰岛素基础记忆钙药剂忆和碎眠剂忆应该怎么分层来去做划分。好吧，这是我们今天的这个内容。下一课我们讲交育类产品的核心技术拆解和复刻，带大家做一款错题本产品出来，好不好啊。啊，AI占卜算命属于情绪陪伴嘛。我告诉你算我告诉你算占卜本质上是一个情绪需求，是一个情绪需求。所有的爱劝妈妈别来访王全品啊。你这个思路你这个方向很好，思路不对，我告诉你怎么才能够劝得了啊，你想知道怎么能劝吗？需要我教。",
+      "global_transcript_preview": "[01:01:00 - 01:02:00] 推广，然后陪伴他需要什么样的一些产品，大家也可以去想一想老年人到底需要什么，以及于选择银发经济的相应的定位的一些情况。然后啊今天作业我希望大家把今天的对话流搭建一下啊，今天是个对话流。。可以搭建一个你所喜欢的一个人群啊，也可以搭建一个小哥哥啊，然后设计一款老年人带有保健性的产品的长期忆胰岛素基础记忆钙药剂忆和碎眠剂忆应该怎么分层来去做划分。好吧，这是我们今天的这个内容。下一课我们讲交育类产品的核心技术拆解和复刻，带大家做一款错题本产品出来，好不好啊。啊，AI占卜算命属于情绪陪伴嘛。我告诉你算我告诉你算占卜本质上是一个情绪需求，是一个情绪需求。所有的爱劝妈妈别来访王全品啊。你这个思路你这个方向很好，思路不对，我告诉你怎么才能够劝得了啊，你想知道怎么能劝吗？需要我教。",
+      "global_transcript_text": "[01:01:00 - 01:02:00] 推广，然后陪伴他需要什么样的一些产品，大家也可以去想一想老年人到底需要什么，以及于选择银发经济的相应的定位的一些情况。然后啊今天作业我希望大家把今天的对话流搭建一下啊，今天是个对话流。。可以搭建一个你所喜欢的一个人群啊，也可以搭建一个小哥哥啊，然后设计一款老年人带有保健性的产品的长期忆胰岛素基础记忆钙药剂忆和碎眠剂忆应该怎么分层来去做划分。好吧，这是我们今天的这个内容。下一课我们讲交育类产品的核心技术拆解和复刻，带大家做一款错题本产品出来，好不好啊。啊，AI占卜算命属于情绪陪伴嘛。我告诉你算我告诉你算占卜本质上是一个情绪需求，是一个情绪需求。所有的爱劝妈妈别来访王全品啊。你这个思路你这个方向很好，思路不对，我告诉你怎么才能够劝得了啊，你想知道怎么能劝吗？需要我教。"
+    },
+    {
+      "created_at": "2026-05-18T22:38:10",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3720.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk063_3720s.mp4",
+        "size_bytes": 1970892,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.48,
+        "segments": 1,
+        "transcript_chars": 273,
+        "elapsed_s": 64.98,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk063_3720s-20260518-223810.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk063_3720s-20260518-223810.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk063_3720s-20260518-223810.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk063_3720s-20260518-223810.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 63,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 通招吧，怎么能够让爸妈不买保健品需要吗？不是陪伴，陪伴也没有用，陪伴也没有用啊啊。我告诉你一招我告诉你一招，哎，你们那地震了啊，什么地方，我告诉你们一招，你们啊听我说啊。不要想着做一个boat来去劝的，绝对没戏，绝对会出问题。告诉你们一个招啊，听完这个招，咱们下课，你们啊申请一东西。申请一什么呢？申请一个公众号，这个公众号最好这个名字起的好一点，起什么名字，起一个，比如叫做什么啊，叫比如说柳州播报啊，比如说叫做这个这个这个官方播报啊，起个类似于这样的名字，就反正特别像是官方的啊，起个这个号。然后。",
+      "global_transcript_preview": "[01:02:00 - 01:03:00] 通招吧，怎么能够让爸妈不买保健品需要吗？不是陪伴，陪伴也没有用，陪伴也没有用啊啊。我告诉你一招我告诉你一招，哎，你们那地震了啊，什么地方，我告诉你们一招，你们啊听我说啊。不要想着做一个boat来去劝的，绝对没戏，绝对会出问题。告诉你们一个招啊，听完这个招，咱们下课，你们啊申请一东西。申请一什么呢？申请一个公众号，这个公众号最好这个名字起的好一点，起什么名字，起一个，比如叫做什么啊，叫比如说柳州播报啊，比如说叫做这个这个这个官方播报啊，起个类似于这样的名字，就反正特别像是官方的啊，起个这个号。然后。",
+      "global_transcript_text": "[01:02:00 - 01:03:00] 通招吧，怎么能够让爸妈不买保健品需要吗？不是陪伴，陪伴也没有用，陪伴也没有用啊啊。我告诉你一招我告诉你一招，哎，你们那地震了啊，什么地方，我告诉你们一招，你们啊听我说啊。不要想着做一个boat来去劝的，绝对没戏，绝对会出问题。告诉你们一个招啊，听完这个招，咱们下课，你们啊申请一东西。申请一什么呢？申请一个公众号，这个公众号最好这个名字起的好一点，起什么名字，起一个，比如叫做什么啊，叫比如说柳州播报啊，比如说叫做这个这个这个官方播报啊，起个类似于这样的名字，就反正特别像是官方的啊，起个这个号。然后。"
+    },
+    {
+      "created_at": "2026-05-18T22:39:15",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3780.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk064_3780s.mp4",
+        "size_bytes": 2124857,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.69,
+        "segments": 1,
+        "transcript_chars": 268,
+        "elapsed_s": 66.27,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk064_3780s-20260518-223915.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk064_3780s-20260518-223915.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk064_3780s-20260518-223915.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk064_3780s-20260518-223915.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 64,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 没有说完，然后第二步啊。找一个这个这个AI去做视频的东西，然后做一个类似于这种官方播报的数字人啊，弄个数字人，数字人找这种啊，看着像个演播室，前面来一个男的或者一个像演播员一样的男女，然后在那特别正经的去说啊，最近发现最近我们发现呃，保健品，对老年人的欺诈的这些事儿啊，把你父母买的那款保健品拍在上面，就说是那那款啊，然后把这个把这个东西发到你的那个相亲相爱一家人的群里。啊，发到那里面啊，对吧？发到那里面简历中心有啊，有的有的有的有的有的。你做哪门字切片，直接拿AI生，直接拿AI生，对吧？",
+      "global_transcript_preview": "[01:03:00 - 01:04:00] 没有说完，然后第二步啊。找一个这个这个AI去做视频的东西，然后做一个类似于这种官方播报的数字人啊，弄个数字人，数字人找这种啊，看着像个演播室，前面来一个男的或者一个像演播员一样的男女，然后在那特别正经的去说啊，最近发现最近我们发现呃，保健品，对老年人的欺诈的这些事儿啊，把你父母买的那款保健品拍在上面，就说是那那款啊，然后把这个把这个东西发到你的那个相亲相爱一家人的群里。啊，发到那里面啊，对吧？发到那里面简历中心有啊，有的有的有的有的有的。你做哪门字切片，直接拿AI生，直接拿AI生，对吧？",
+      "global_transcript_text": "[01:03:00 - 01:04:00] 没有说完，然后第二步啊。找一个这个这个AI去做视频的东西，然后做一个类似于这种官方播报的数字人啊，弄个数字人，数字人找这种啊，看着像个演播室，前面来一个男的或者一个像演播员一样的男女，然后在那特别正经的去说啊，最近发现最近我们发现呃，保健品，对老年人的欺诈的这些事儿啊，把你父母买的那款保健品拍在上面，就说是那那款啊，然后把这个把这个东西发到你的那个相亲相爱一家人的群里。啊，发到那里面啊，对吧？发到那里面简历中心有啊，有的有的有的有的有的。你做哪门字切片，直接拿AI生，直接拿AI生，对吧？"
+    },
+    {
+      "created_at": "2026-05-18T22:40:21",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3840.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk065_3840s.mp4",
+        "size_bytes": 2195503,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.42,
+        "segments": 1,
+        "transcript_chars": 301,
+        "elapsed_s": 65.8,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk065_3840s-20260518-224021.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk065_3840s-20260518-224021.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk065_3840s-20260518-224021.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk065_3840s-20260518-224021.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 65,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 你们这样子，我告诉你们，我告诉你们想做OPC吗？OPC这里面价值不就出来了吗？怎么去做OPC我告诉你们一个逻辑啊，借由这件事，我再告诉你们来去做1个OPC的事啊，怎么去做一个O怎么去做1个OPC在这里面哪个同学说啊这不有有同学有需求吗？你看哎有需求。😊就说一个东西，就是同学啊，你不是有这个需求吗？好好，一人公司一人公司啊，大家都有这个需求，又同又同学们懒。好，那。哎，举报了国家反票了，你你就给你家庭，你就给你家族群里发，谁谁给你转发呀，谁给你转发呀，我大家不要想的这么多就是。😡这不是有需有需求，但是大家都懒嘛？哈，有一位同学站出来说，哎，大家要不然我。",
+      "global_transcript_preview": "[01:04:00 - 01:05:00] 你们这样子，我告诉你们，我告诉你们想做OPC吗？OPC这里面价值不就出来了吗？怎么去做OPC我告诉你们一个逻辑啊，借由这件事，我再告诉你们来去做1个OPC的事啊，怎么去做一个O怎么去做1个OPC在这里面哪个同学说啊这不有有同学有需求吗？你看哎有需求。😊就说一个东西，就是同学啊，你不是有这个需求吗？好好，一人公司一人公司啊，大家都有这个需求，又同又同学们懒。好，那。哎，举报了国家反票了，你你就给你家庭，你就给你家族群里发，谁谁给你转发呀，谁给你转发呀，我大家不要想的这么多就是。😡这不是有需有需求，但是大家都懒嘛？哈，有一位同学站出来说，哎，大家要不然我。",
+      "global_transcript_text": "[01:04:00 - 01:05:00] 你们这样子，我告诉你们，我告诉你们想做OPC吗？OPC这里面价值不就出来了吗？怎么去做OPC我告诉你们一个逻辑啊，借由这件事，我再告诉你们来去做1个OPC的事啊，怎么去做一个O怎么去做1个OPC在这里面哪个同学说啊这不有有同学有需求吗？你看哎有需求。😊就说一个东西，就是同学啊，你不是有这个需求吗？好好，一人公司一人公司啊，大家都有这个需求，又同又同学们懒。好，那。哎，举报了国家反票了，你你就给你家庭，你就给你家族群里发，谁谁给你转发呀，谁给你转发呀，我大家不要想的这么多就是。😡这不是有需有需求，但是大家都懒嘛？哈，有一位同学站出来说，哎，大家要不然我。"
+    },
+    {
+      "created_at": "2026-05-18T22:41:27",
+      "url_host": "stream-ali1.csslcloud.net",
+      "extractor": "direct",
+      "media_type": "flv",
+      "source": {
+        "duration_s": 0.0,
+        "size_bytes": 0,
+        "bit_rate": 0,
+        "video": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "fps": "15/1"
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        },
+        "extractor": "direct",
+        "media_type": "flv"
+      },
+      "auth_header_names": [],
+      "slice": {
+        "start_s": 3900.0,
+        "duration_s": 60.0,
+        "path": "d:\\zhihu\\zhihu_url\\Videos\\.stream\\zhihu-gaowei-agent_chunk066_3900s.mp4",
+        "size_bytes": 2085612,
+        "kept": false
+      },
+      "processing": {
+        "events": 0,
+        "frames": 1,
+        "backend": "sensevoice",
+        "transcribe_duration_s": 7.53,
+        "segments": 1,
+        "transcript_chars": 253,
+        "elapsed_s": 65.75,
+        "stream_reextracts": 0
+      },
+      "recovery_errors": [],
+      "outputs": {
+        "transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk066_3900s-20260518-224127.transcript.txt",
+        "payload_json": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk066_3900s-20260518-224127.payload.json",
+        "report_md": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk066_3900s-20260518-224127.md",
+        "global_transcript_txt": "d:\\zhihu\\zhihu_url\\runs\\stream-zhihu-gaowei-agent_chunk066_3900s-20260518-224127.global-transcript.txt"
+      },
+      "chunk": {
+        "index": 66,
+        "total": 0
+      },
+      "transcript_preview": "[00:00:00 - 00:01:00] 我给大家做常态，大家就可以直接去用。但是同学如果你想做个性化，就是这一期想要去做你们家的这款东西，好，做一条东西啊。50块钱或者30块钱，你定个价，你定个价，弄完之后就OK了。就是一个小的OPC就出现了，明白了吗？一个小的OPC就出现了，就这么简单，所以这个。真的，就我告诉你这东西叫做就是AI时代遍地黄金，就看你能不能找到这样的机会，对吧？对吧？你看这就是问题，就是跟你说了一个路径，你纠结这一条50块钱的这个这个D，对吧？有教简历智能体，有有的有的兄弟有的。",
+      "global_transcript_preview": "[01:05:00 - 01:06:00] 我给大家做常态，大家就可以直接去用。但是同学如果你想做个性化，就是这一期想要去做你们家的这款东西，好，做一条东西啊。50块钱或者30块钱，你定个价，你定个价，弄完之后就OK了。就是一个小的OPC就出现了，明白了吗？一个小的OPC就出现了，就这么简单，所以这个。真的，就我告诉你这东西叫做就是AI时代遍地黄金，就看你能不能找到这样的机会，对吧？对吧？你看这就是问题，就是跟你说了一个路径，你纠结这一条50块钱的这个这个D，对吧？有教简历智能体，有有的有的兄弟有的。",
+      "global_transcript_text": "[01:05:00 - 01:06:00] 我给大家做常态，大家就可以直接去用。但是同学如果你想做个性化，就是这一期想要去做你们家的这款东西，好，做一条东西啊。50块钱或者30块钱，你定个价，你定个价，弄完之后就OK了。就是一个小的OPC就出现了，明白了吗？一个小的OPC就出现了，就这么简单，所以这个。真的，就我告诉你这东西叫做就是AI时代遍地黄金，就看你能不能找到这样的机会，对吧？对吧？你看这就是问题，就是跟你说了一个路径，你纠结这一条50块钱的这个这个D，对吧？有教简历智能体，有有的有的兄弟有的。"
+    }
+  ],
+  "created_at": "2026-05-18T21:30:08"
+}

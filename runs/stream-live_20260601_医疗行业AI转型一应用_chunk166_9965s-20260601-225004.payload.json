@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk166_9965s",
+  "full_text": "[00:00:00 - 00:00:23] 这东西花了我半花了我半天，好吧。那今天咱们先这样好不好？然后的话下一节课给大家去讲一讲艺人公司在AI时代的可行性。好吧，好吧，那我们今天咱们这堂课就到这里，谢谢大家，拜拜，晚安。😊你做只刀动狗不好吗？就是。😡",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000165\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000165\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.0271"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000165\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0271"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.0271
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 126
+  }
+}

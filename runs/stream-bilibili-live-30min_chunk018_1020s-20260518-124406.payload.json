@@ -1,0 +1,34 @@
+{
+  "video_name": "bilibili-live-30min_chunk018_1020s",
+  "full_text": "[00:00:00 - 00:00:59] 刚才这些案例也被最高法列为惩治电诈犯罪的典型案例。在这批发布的案例中，还有的与电诈犯罪链条中洗白赃款行为有关。江苏省兴化市人民法院审理的这起案件中，犯罪团伙用代购二手奢侈品的手段洗白电诈赃款。法院审理查明。被告人钟某2024年11月至12月，根据所谓的上线安排，短时间内多次往返广东、四川、湖南、重庆等地，以买家身份先后三次线下约件，在闲置品交易平台上出售奢侈品手表的卖家。见面验货后，周某要求卖家提供银行卡号，脱离平台进行私下交易。之后，钟某编造等候女朋友转账或者要去银行处理等理由，让卖家等待转账收款。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk018_1020s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk018_1020s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\bilibili-live-30min_chunk018_1020s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=context diff=0"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2978
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 275
+  }
+}

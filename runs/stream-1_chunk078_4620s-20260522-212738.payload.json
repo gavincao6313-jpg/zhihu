@@ -1,0 +1,124 @@
+{
+  "video_name": "1_chunk078_4620s",
+  "full_text": "[00:00:00 - 00:01:00] 创业。那么经过第3到第四天的AI全站开发落地完成之后啊，学生已经搞定自己第二第三版的作品之后，接下来他需要让这个作品啊去经历一次又一次的专家评审，去优化自己的作品去debug作品当中的问题。那么在这48小时里面，学生要经历4次敏捷迭代，把白纸上面的想法变成一个真正可点击可交互的we或者APP的应用。那最后到第5到第6天的时间，就是准备项目的路演啊，学生需要把这几天累积的数据报告原型文档整合成一份标准的商业计划书，并且拿着自己做出来的产品，像一线的大厂专家进行现场的答辩。所以大家发现了吗？我们讲的其实不是课本上面的知识。而是来自于真实行业级的方法论。比如说商业思维框架。我们讲的是精历创业的思想，硅谷YC创业的方法论。还有从AI与产品开发的角度上来讲，我们会把敏捷开发思想NVP理论以及AI顶的工作流带给孩子们。第三，我们还希望。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0888"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0859"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.0886"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.0748"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0697"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0697"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0752"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_url\\Videos\\keyframes\\1_chunk078_4620s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.2361"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.0888
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.0859
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.0886
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.0748
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0697
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.0752
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.2361
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 7,
+    "frames_total": 15,
+    "text_chars": 389
+  }
+}
