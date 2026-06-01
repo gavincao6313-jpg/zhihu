@@ -1,0 +1,44 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk126_7548s",
+  "full_text": "[00:00:00 - 00:01:01] 还是高一点的这个人，而且你只有一个月三四千块钱，没有任何的资源。社区门诊看小病。这个你面对的人，他高考考了33考了300分，这个人初中时是你们的。同学他有多调皮，你非常的清楚，你怎么办？你要解你要解决的是这些问题，你要解决的是这些问题，明白吗？对吧？😡所以基本可以说80%以上的病症，80%的覆盖实际上是可以拿AI做基本诊断，他一定比这些人强，特别是影像学的效果，部分优于人类医生的效果，因为他看的更细，这个方向无一味分级诊疗，特别是医疗资源不发达的地区。同学们，为医疗资源不发达的地区。😊以及普通病症带来了真正好的机会，带来真正好的机会，对吧？然后这里面就会出现大量的症。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000125\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000125\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.1187"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000125\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.1187"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000125\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=slide diff=0.4292"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.1187
+    },
+    {
+      "type": "slide",
+      "frame_idx": 57,
+      "diff": 0.4292
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 309
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk026_1510s",
+  "full_text": "[00:00:00 - 00:01:00] 如果质量不够的话。你后面可以在我这个work flow的基础之上再做一个分支流程，就告诉他提示他这个东西不行，然后缺什么样的信息。这块信息的数据单位有问题，你的让我去看你的血压，你只有高压没有低压也不行，不要再继续做分析了。你任何的分析其实都已经是给自己去挖雷了，然后要求补全信息，这对于要精准的ent非常的必要啊，然后这里面的节点输出，我刚才给的质量是ok的，所以他给我的这个d quality是一个，然后能不能就是能不能cont，我这有一个字段叫can continue啊， truee，我可以继续好，我这里面没有去做其他的分支流程，你们后面可以把分支流程做，在这个环节之上的话，再去做一个选择系，如果can continue是f的话，那直接扔出去告诉他这里面你的信息不够，需要再给我去做补充。同时应该是把这个或者是或者low去保存一下。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000025\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000025\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.1349"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000025\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.1349"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000025\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=slide diff=0.381"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.1349
+    },
+    {
+      "type": "slide",
+      "frame_idx": 41,
+      "diff": 0.381
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 393
+  }
+}

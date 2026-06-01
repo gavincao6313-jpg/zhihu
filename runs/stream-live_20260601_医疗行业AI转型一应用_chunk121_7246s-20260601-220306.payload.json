@@ -1,0 +1,79 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk121_7246s",
+  "full_text": "[00:00:00 - 00:01:00] 但是你山河四省，你山河四省人再多和西藏、青海、宁夏的比例差别有这么大吗？🤧比例差别没有这么大，而且不要忘了。你不要光看人口啊，你得看面积啊，西藏它人口再少，它的面积在那了，它这么多的医院，它能做完整覆盖吗？很难的。😡对不对？不是阿福想在医疗体系中做什么，而是AI医疗能在医疗体系中做什么，这件事才重要。因为这个这个盘子容得下N个阿福级别的体量。我们说说第四次工业革命。第四次工业革命之前给大家讲过，人工智能在里面起到的巨大的价值。而判断本身就是在这次工业革命中非常。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.2023"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.2023"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1753"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.1753"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.1372"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.1372"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.1325"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000120\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.1325"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.2023
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.1753
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.1372
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.1325
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 255
+  }
+}

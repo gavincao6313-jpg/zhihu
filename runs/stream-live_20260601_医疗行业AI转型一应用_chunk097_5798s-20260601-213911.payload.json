@@ -1,0 +1,64 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk097_5798s",
+  "full_text": "[00:00:00 - 00:00:59] 对吧他你你用微信，你你至少得会打字吧，不会打字的话，你得会摁着摁着那个东西，你才能发语音啊，抖音需要吗？抖音什么也不需要。😡对吧。😔你推广字节，你推广头条，他还得识字呢，抖推抖推抖推抖音他连识字都不需要，还有什么比他更加简单的吗？没有了没有了。对吧而医疗产品无论如何也做不到这么简单。无论如何也做不到这么简单，我就直接这么去说吧，不可能的。😊所以就需要做什么？阿福的三盘斧免费宣传合作的一个杀手机的一个小的功能。免费这就是一个特别互联网的打法。这也是国内互联网巨头惯用的一个方式。然后通过价格在原有产品中形成一定的比较优势。然后小。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000096\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000096\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000096\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0677"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000096\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0668"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000096\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.0668"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000096\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.0516"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000096\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0516"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.0677
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.0668
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.0516
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 288
+  }
+}

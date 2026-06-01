@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk019_1088s",
+  "full_text": "[00:00:00 - 00:00:59] 没有什么大不了的，你把它啃明白了以后就都省事儿了，对不对？如果没有，如果输出没有按照jason这个格式输出怎么处理，那你就得去填一大堆的输出的接口参数啊，你就把所有的这些全都去填一遍嘛，123456，然后这还填一个数组，然后这78910，可能你要填上二三十个项目，我觉得很亏的呀。😊不。对吧我觉得会会亏的很啊，对吧？我我我我觉得太累了，对吧？所以我我是建议是用这种方法去做的，能省特别多的事儿。然后我们看一下他的整个的这个输出的状态啊，对吧？你你你用以前的输出状态肯定会漏了，你超过10个的话，大概率就会漏。然后我们看一下他这个能够给我输出什么，我把我这个前面这个这个男45岁的这套东西给到他，然后他就能够给我输出出来，这个age45，然后难，然后妊娠状态，那啊，对吧？这不是有和无。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000018\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000018\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.2456"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000018\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.2456"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.2456
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 365
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk105_6281s",
+  "full_text": "[00:00:00 - 00:01:00] 名子会给人带来预期。会给人带来预期。你一个品牌叫四库，你觉得这玩意儿像是popular的吗？叫四库，它像是popular的吗？叫多抓鱼，它像是popular的吗？它一看就是小众的文艺的，你每个名字，我告诉你有叫错的名字没有叫错的外号。😊你的本名是那是爹妈起的，可能不符合你的身份，但别人起的你的外号一定是准的。而品牌是一个企业形成别人的印象的第一张脸，它是第一张脸。😡。豆包这名字很明白啊，就是第一个它很pop，谁都知道豆包这个东西很亲和很nice。同时他有一个隐喻叫做别拿豆包不当干粮，别拿豆包说的话，不当个话，就是这几个意思，够亲和，就是这么一个点。啊，就是这么就是这样一些点，对吧？😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000104\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000104\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.1215"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000104\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.1215"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.1215
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 317
+  }
+}

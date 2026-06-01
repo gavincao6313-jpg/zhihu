@@ -1,0 +1,57 @@
+{
+  "base": "live_20260601_医疗行业AI转型一应用",
+  "run_ts": "20260601-225004",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 170,
+  "transcript_chars": 51551,
+  "frame_count": 436,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 9989,
+  "timeline_end_s": 10025,
+  "timeline_duration_s": 10025,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "gemini",
+  "synthesis_model": "gemini-3.5-flash",
+  "synthesis_pass": "one-shot",
+  "warnings": [],
+  "frame_timestamp_qc": {
+    "frame_count": 436,
+    "min_frame_timestamp_s": 1,
+    "max_frame_timestamp_s": 9981,
+    "timeline_end_s": 10025,
+    "max_frame_tail_delta_s": -44,
+    "timestamp_scope_counts": {
+      "local": 436
+    }
+  },
+  "frame_policy": {
+    "provider": "gemini",
+    "total_frames": 436,
+    "selected_frames": 436,
+    "dropped_frames": 0,
+    "cap": 3000,
+    "slide_frames": 43,
+    "annotation_frames": 209
+  },
+  "provider_parts_count": 874,
+  "provider_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash",
+    "api_calls": null,
+    "usage": {}
+  },
+  "body_last_chapter_end_s": 9989,
+  "body_tail_gap_s": 36,
+  "body_coverage_status": "ok",
+  "transcript_appendix_chars": 51551,
+  "visual_evidence_count": 436,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}

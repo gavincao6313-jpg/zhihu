@@ -1,0 +1,69 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk044_2598s",
+  "full_text": "[00:00:00 - 00:00:58] 已经是驾驭工程的逻辑了，就是在最后输出前的话，其实再去看一下，已经是这种。逻辑，但不是这个完全一样的这个框架。然后我发现ok没问题。这里面的是这个这个final saveve level是save啊，pass true，然后整体的风险级别是okK的，可以通过可以放行。然后这边给一个选择器安全审核。如果是。有问题的话，告诉他这里面需要做一些重要题醒。如果没问题的话，这个后面可以增加转人工更多题型，长期记忆。这个人有重大的风险，最后完整的输出这份报告okK。明白吗？所以。😊这是我们做一个比较高要求的这个整体的工作流相应的结构相应的结构。就是你前面要去在每个环节上做限制。每个环节节点完成之后的话再。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000043\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000043\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.2995"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000043\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.2995"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000043\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000043\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.2448"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000043\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=slide diff=0.4484"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000043\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=slide diff=0.3703"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.2995
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.2448
+    },
+    {
+      "type": "slide",
+      "frame_idx": 28,
+      "diff": 0.4484
+    },
+    {
+      "type": "slide",
+      "frame_idx": 37,
+      "diff": 0.3703
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 7,
+    "text_chars": 322
+  }
+}

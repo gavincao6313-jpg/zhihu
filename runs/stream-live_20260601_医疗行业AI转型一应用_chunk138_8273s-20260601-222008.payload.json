@@ -1,0 +1,64 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk138_8273s",
+  "full_text": "[00:00:00 - 00:01:01] AI的影像为的是智能化和趋人化，未来一定是要把很多的低层次的这个这个这个医生要往外去剔除的，要往外去要往外往往外去剔的啊。当然这个T呢其实是大家也不用特别的担心，这个T的话，大概率是他们是影像学给他们相应的数据，AI给他们相应的数据，让他们最后去签字啊。这对阿里来讲，就是每一次技术革命出现的时候，抓住万道超车的机会。AI时代通过AI能力布局推广，强占生产位，这是无数厂商正在做的一件事。而医疗呢。长期持续的重点，明确的现金流一定是所有资本一定会去拿的一个核一个最合最内核的赛道。所以这里面的一些差异化的竞争，我们实际上是可以去找到。这家公司不能做，你去找在这个整个领域中，其他能够去做的一些企业去做，对吧？这个因为它的产业链很长，产业特别巨大，产业链的广度和深度都能够容纳。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000137\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000137\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.123"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000137\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.123"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000137\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=slide diff=0.4049"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000137\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=slide diff=0.4107"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000137\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=slide diff=0.4109"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.123
+    },
+    {
+      "type": "slide",
+      "frame_idx": 39,
+      "diff": 0.4049
+    },
+    {
+      "type": "slide",
+      "frame_idx": 48,
+      "diff": 0.4107
+    },
+    {
+      "type": "slide",
+      "frame_idx": 53,
+      "diff": 0.4109
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 1,
+    "frames_total": 6,
+    "text_chars": 360
+  }
+}

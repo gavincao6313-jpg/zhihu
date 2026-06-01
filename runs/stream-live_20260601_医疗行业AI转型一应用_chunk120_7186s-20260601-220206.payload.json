@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk120_7186s",
+  "full_text": "[00:00:00 - 00:00:59] 这样一些差别差别太大太大，对吧？优质资源都集中在城市地区的等级医院，而很多地方其实是并不行的。🤧呃，发达地区当然人多，但是这是按照省比较啊，这省啊这省啊。😡所以这个红吸效应带来了头重脚轻的结构性矛盾。这个结构性矛盾还几乎是没有办法去缓解的啊啊，所以医疗的几个核心的流程，医疗几个核心的流程。接着与病史的诊采集、体格检查、辅助诊断。辅助检查、诊断还有评估和治疗，这是5个核心的环节。而我们不得不去说第四次的工业革命，第四次的工业革命。我是说山河四省人很多呀，我没有说人不多呀，山河四省就是人很多呀。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000119\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000119\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.2023"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000119\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.2023"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000119\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.1752"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000119\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.1752"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.2023
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.1752
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 270
+  }
+}

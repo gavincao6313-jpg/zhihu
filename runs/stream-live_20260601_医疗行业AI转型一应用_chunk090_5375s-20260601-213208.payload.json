@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk090_5375s",
+  "full_text": "[00:00:00 - 00:00:59] 夫那节课听的人是非常少的。马雅夫那堂课听的人总共只有102个人，那我怎么办我怎么办？都希望把这个责任往外去转移，所以责任转嫁是一个非常重要的点。自动驾驶出了问题之后的话，说白了谁负责不重要，谁承担了，谁承担了，这不还是你来去担吗，对吧？对吧所以这个其实又是一个非常典型的跨越鸿沟上的问题。这是又是一个非常典型的跨越鸿沟的问题。一个新产品在市场推广的时候，一个市一个新产品在市场推广的时候，按照用户的接受程度会分为几个类型，会分为几个类型就是创新者早期采用者早期大众货大众和落后者。但是医疗类产品在这里边的推广难度是什么？推广难度是在于医疗入口。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000089\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000089\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.151"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000089\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.151"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000089\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.1478"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000089\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.1478"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.151
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.1478
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 294
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk084_5013s",
+  "full_text": "[00:00:00 - 00:01:00] 你你这个是把血管的。这个血你把这是个血管影，你判断成结节了，这样是不对的，所以要给他raason，然后把这些反馈未回给模型做微调，对吧？然后在这个过程中是一个明确的人机协同的过程，对吧？千万不要觉得AI能百分之百替代医生，这是不可能的，AI只去做高敏感度的筛查，他做到的是不漏诊，而医生必须要兜底高特质性的一些复合，要去做不误诊，这两个组合之下才有价值。然对于阿福来讲，它的本体是完全AI的，但是需要真人医生的时候，直接告诉你，你这个事儿我搞不了，直接连接支付宝的在线问诊去。。然后再往验证层验证层验证什么外部的验证，外部验证什么呢？外部的话必须要用没有见过的数据集做测试。这个呢其实要说一点啊，就是有一部分我们不我们就不说是谁了啊。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000083\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000083\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.0403"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000083\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0403"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000083\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000083\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.162"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.0403
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.162
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 339
+  }
+}

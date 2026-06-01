@@ -1,0 +1,684 @@
+{
+  "base": "live_20260601_医疗行业AI转型一应用",
+  "run_ts": "20260601-225004",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 170,
+  "transcript_chars": 51551,
+  "frame_count": 436,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 9989,
+  "timeline_end_s": 10025,
+  "timeline_duration_s": 10025,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.6-plus",
+  "synthesis_pass": "sliding-window",
+  "warnings": [
+    "qwen_missing_prompt_keywords: 提示词",
+    "qwen_narrative_blocks_missing_from_final: w3:为什么 AI 落地必须是“一号位工程”及管理层心理剖析"
+  ],
+  "frame_timestamp_qc": {
+    "frame_count": 436,
+    "min_frame_timestamp_s": 1,
+    "max_frame_timestamp_s": 9981,
+    "timeline_end_s": 10025,
+    "max_frame_tail_delta_s": -44,
+    "timestamp_scope_counts": {
+      "local": 436
+    }
+  },
+  "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 3,
+    "total_frames": 436,
+    "covered_new_frames": 436,
+    "selected_frames_across_windows": 516,
+    "overlap_frames": 80,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 51,
+      "annotation": 245,
+      "context": 220
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 1,
+        "end_s": 5059,
+        "selected_frame_count": 220,
+        "new_frame_count": 200,
+        "overlap_frame_count": 20,
+        "transcript_chars": 28431,
+        "frame_type_counts": {
+          "slide": 28,
+          "annotation": 97,
+          "context": 95
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 4348,
+        "end_s": 9399,
+        "selected_frame_count": 240,
+        "new_frame_count": 200,
+        "overlap_frame_count": 40,
+        "transcript_chars": 24966,
+        "frame_type_counts": {
+          "slide": 13,
+          "annotation": 136,
+          "context": 91
+        }
+      },
+      {
+        "index": 3,
+        "start_s": 8093,
+        "end_s": 9981,
+        "selected_frame_count": 56,
+        "new_frame_count": 36,
+        "overlap_frame_count": 20,
+        "transcript_chars": 9077,
+        "frame_type_counts": {
+          "slide": 10,
+          "annotation": 12,
+          "context": 34
+        }
+      }
+    ]
+  },
+  "frame_policy": {
+    "provider": "qwen",
+    "mode": "sliding-window",
+    "window_count": 3,
+    "windows": [
+      {
+        "provider": "qwen",
+        "total_frames": 220,
+        "selected_frames": 220,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 28,
+        "annotation_frames": 97
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 240,
+        "selected_frames": 240,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 13,
+        "annotation_frames": 136
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 56,
+        "selected_frames": 56,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 10,
+        "annotation_frames": 12
+      }
+    ]
+  },
+  "provider_parts_count": 1040,
+  "qwen_window_notes": [
+    "runs\\stream-live_20260601_医疗行业AI转型一应用-20260601-225004.qwen-window-001.notes.md",
+    "runs\\stream-live_20260601_医疗行业AI转型一应用-20260601-225004.qwen-window-002.notes.md",
+    "runs\\stream-live_20260601_医疗行业AI转型一应用-20260601-225004.qwen-window-003.notes.md"
+  ],
+  "qwen_window_notes_reused": 0,
+  "qwen_window_note_metadata": [
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.6-plus",
+      "source_hash": "ebe18fb17869c17184b4f97757a416e82a594fbff1dcd38679f0a76ed76a2864",
+      "window_index": 1,
+      "start_s": 1,
+      "end_s": 5059,
+      "selected_frame_count": 220,
+      "new_frame_count": 200,
+      "overlap_frame_count": 20,
+      "transcript_chars": 28431,
+      "frame_type_counts": {
+        "slide": 28,
+        "annotation": 97,
+        "context": 95
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 220,
+        "selected_frames": 220,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 28,
+        "annotation_frames": 97
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 36531,
+        "output_tokens": 5147,
+        "total_tokens": 41678
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.6-plus",
+      "source_hash": "f66af5752324d898a20e3116955efc39baf50a4df5a79246fbcf0539cfc3f79a",
+      "window_index": 2,
+      "start_s": 4348,
+      "end_s": 9399,
+      "selected_frame_count": 240,
+      "new_frame_count": 200,
+      "overlap_frame_count": 40,
+      "transcript_chars": 24966,
+      "frame_type_counts": {
+        "slide": 13,
+        "annotation": 136,
+        "context": 91
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 240,
+        "selected_frames": 240,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 13,
+        "annotation_frames": 136
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 36931,
+        "output_tokens": 5950,
+        "total_tokens": 42881
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.6-plus",
+      "source_hash": "0b7a755ae402bd2f9d26435ceadb671b7290bb3c157d742cd7f9caaf72165381",
+      "window_index": 3,
+      "start_s": 8093,
+      "end_s": 9981,
+      "selected_frame_count": 56,
+      "new_frame_count": 36,
+      "overlap_frame_count": 20,
+      "transcript_chars": 9077,
+      "frame_type_counts": {
+        "slide": 10,
+        "annotation": 12,
+        "context": 34
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 56,
+        "selected_frames": 56,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 10,
+        "annotation_frames": 12
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 11201,
+        "output_tokens": 3145,
+        "total_tokens": 14346
+      }
+    }
+  ],
+  "qwen_final_assembly_version": "qwen-final-assembly-v2",
+  "qwen_critical_fact_version": "qwen-critical-facts-v2",
+  "qwen_critical_facts": [
+    {
+      "kind": "tool_or_concept",
+      "value": "Coze",
+      "aliases": [
+        "Coze",
+        "扣子"
+      ],
+      "window_index": 1,
+      "context": "00 | 面试建议与技术落地** 讲师建议学员在面试时展示此工作流，体现专业度。针对“工作流无法对外展示”的问题，建议使用Web Coding生成前端界面，调用Coze/Dify API，将工作流嵌入其中，形成完整的Demo。 **00:48:00 - 01:00:00 | 医疗AI精度提升方法论：数据层** 讲师提出提升精"
+    },
+    {
+      "kind": "percentage",
+      "value": "5%",
+      "aliases": [
+        "5%"
+      ],
+      "window_index": 1,
+      "context": "入病理结果最终验证。成本极高，但关乎人命。 * **多模态融合：** 影像（CT/MRI）+ 验血报告 + 主诉病史。结合临床文本信息的影像AI准确率可提升5%-10%。 * **联邦学习 (Federated Learning)：** 解决A医院模型在B医院不准的问题（仪器参数、人群差异）。IBM Watson失"
+    },
+    {
+      "kind": "percentage",
+      "value": "10%",
+      "aliases": [
+        "10%"
+      ],
+      "window_index": 1,
+      "context": "结果最终验证。成本极高，但关乎人命。 * **多模态融合：** 影像（CT/MRI）+ 验血报告 + 主诉病史。结合临床文本信息的影像AI准确率可提升5%-10%。 * **联邦学习 (Federated Learning)：** 解决A医院模型在B医院不准的问题（仪器参数、人群差异）。IBM Watson失败的部分"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "45岁",
+      "aliases": [
+        "45岁"
+      ],
+      "window_index": 1,
+      "context": "0 | 高精度医疗工作流实战拆解（Node-by-Node）** 讲师展示了一个处理体检报告的完整工作流（Workflow），输入为自然语言描述的体检数据（男，45岁，空腹血糖7.2等）。 1. **节点1：结构化抽取 (JSON Output)** * **Prompt策略：** 强制输出JSON格式。讲师解"
+    },
+    {
+      "kind": "percentage",
+      "value": "30%",
+      "aliases": [
+        "30%"
+      ],
+      "window_index": 2,
+      "context": "展示三个圆圈：**准确度、低频、用户习惯**。 * **用户习惯与责任外包：** 询问观众是否愿意用AI诊断病情，多数人拒绝。即使告知人类医生平均误诊率高达30%，人们仍倾向于相信人类。 * *深层逻辑：* **责任外包 (Responsibility Outsourcing)**。医闹多发的原因不仅是钱，更"
+    },
+    {
+      "kind": "percentage",
+      "value": "3.7%",
+      "aliases": [
+        "3.7%"
+      ],
+      "window_index": 2,
+      "context": "夺 (01:57:40 - 02:20:50)** * **宏观背景：** 中国老龄化加剧，慢病患病率飙升。 * *数据：* 15-24岁慢病率3.7%；45-54岁31.3%；**65岁以上62.3%**。 * *供给端矛盾：* 医护人员总体缓慢增长，但检验、影像、病理医生甚至在减少。资源分布极度"
+    },
+    {
+      "kind": "percentage",
+      "value": "31.3%",
+      "aliases": [
+        "31.3%"
+      ],
+      "window_index": 2,
+      "context": "- 02:20:50)** * **宏观背景：** 中国老龄化加剧，慢病患病率飙升。 * *数据：* 15-24岁慢病率3.7%；45-54岁31.3%；**65岁以上62.3%**。 * *供给端矛盾：* 医护人员总体缓慢增长，但检验、影像、病理医生甚至在减少。资源分布极度不均（虹吸效应），优质资"
+    },
+    {
+      "kind": "percentage",
+      "value": "62.3%",
+      "aliases": [
+        "62.3%"
+      ],
+      "window_index": 2,
+      "context": "* * **宏观背景：** 中国老龄化加剧，慢病患病率飙升。 * *数据：* 15-24岁慢病率3.7%；45-54岁31.3%；**65岁以上62.3%**。 * *供给端矛盾：* 医护人员总体缓慢增长，但检验、影像、病理医生甚至在减少。资源分布极度不均（虹吸效应），优质资源集中在发达地区城市医院。"
+    },
+    {
+      "kind": "percentage",
+      "value": "76.8%",
+      "aliases": [
+        "76.8%"
+      ],
+      "window_index": 2,
+      "context": "康：* 2024年销售收入**600亿**，2022年已盈利。核心业务：药品+医疗服务。 * *处方外流红利：* 疫情推动政策落地，门诊药销售额**76.8%**可在院外流通，其中**32.5%**可线上分销。2024年院外零售药市场**5700亿**，总药品市场超万亿，线上渗透率仍有巨大提升空间。 *"
+    },
+    {
+      "kind": "percentage",
+      "value": "32.5%",
+      "aliases": [
+        "32.5%"
+      ],
+      "window_index": 2,
+      "context": "亿**，2022年已盈利。核心业务：药品+医疗服务。 * *处方外流红利：* 疫情推动政策落地，门诊药销售额**76.8%**可在院外流通，其中**32.5%**可线上分销。2024年院外零售药市场**5700亿**，总药品市场超万亿，线上渗透率仍有巨大提升空间。 * *京东的服务体系：* 线上24小时接"
+    },
+    {
+      "kind": "percentage",
+      "value": "80%",
+      "aliases": [
+        "80%"
+      ],
+      "window_index": 2,
+      "context": "节。 **8. 企业AI落地的乱象与“一人公司”可行性 (02:20:50 - 02:36:39)** * **数据清洗方法论：** 归类 -> AI清洗80% -> 对剩余20%再归类 -> 再清洗。不断迭代工作流，而非纯人工清洗。 * **企业AI落地陷阱：** 许多大公司搞“全员黑客松”、“无KPI探索”，实"
+    },
+    {
+      "kind": "percentage",
+      "value": "20%",
+      "aliases": [
+        "20%"
+      ],
+      "window_index": 2,
+      "context": "业AI落地的乱象与“一人公司”可行性 (02:20:50 - 02:36:39)** * **数据清洗方法论：** 归类 -> AI清洗80% -> 对剩余20%再归类 -> 再清洗。不断迭代工作流，而非纯人工清洗。 * **企业AI落地陷阱：** 许多大公司搞“全员黑客松”、“无KPI探索”，实则是高层（一号位）不"
+    },
+    {
+      "kind": "percentage",
+      "value": "15%",
+      "aliases": [
+        "15%"
+      ],
+      "window_index": 2,
+      "context": "57:45 - 01:58:45) 4. \"百度当时在PC上的王者地位... 医疗的广告，在百度总营收的巅峰时是要占比20%到30%的... 目前降了一些，有15%到20%... 也就是75到100亿每年。\" (02:10:52) 5. \"京东健康2024年销售收入600个亿... 2025年的财报... 应该是在700"
+    },
+    {
+      "kind": "score",
+      "value": "6分",
+      "aliases": [
+        "6分"
+      ],
+      "window_index": 2,
+      "context": "护士到家这个服务。\" (02:14:52) 9. \"AI会占到15%左右 [人工智能行业的比重]。\" (02:07:16) 10. \"我办公时间又拉到了3小时6分了... PPT已经用了2小时55分钟... Chrome用了1小时18分钟... 微信用了一小时15分钟。\" (02:36:17) ## Narrative"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2024年",
+      "aliases": [
+        "2024年"
+      ],
+      "window_index": 2,
+      "context": "模与竞争：** * *百度教训：* PC时代百度靠医疗广告支撑巅峰营收（占比20-30%，约75-100亿/年）。 * *京东健康：* 2024年销售收入**600亿**，2022年已盈利。核心业务：药品+医疗服务。 * *处方外流红利：* 疫情推动政策落地，门诊药销售额**76.8%**可在"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2022年",
+      "aliases": [
+        "2022年"
+      ],
+      "window_index": 2,
+      "context": "度教训：* PC时代百度靠医疗广告支撑巅峰营收（占比20-30%，约75-100亿/年）。 * *京东健康：* 2024年销售收入**600亿**，2022年已盈利。核心业务：药品+医疗服务。 * *处方外流红利：* 疫情推动政策落地，门诊药销售额**76.8%**可在院外流通，其中**32.5%**可线"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2025年",
+      "aliases": [
+        "2025年"
+      ],
+      "window_index": 2,
+      "context": "30%的... 目前降了一些，有15%到20%... 也就是75到100亿每年。\" (02:10:52) 5. \"京东健康2024年销售收入600个亿... 2025年的财报... 应该是在700亿。\" (02:11:17) 6. \"中国的门诊药的销售额是76.8%是可以在院外流通的，32.5%是可以上分销的。\" (02:1"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "68岁",
+      "aliases": [
+        "68岁"
+      ],
+      "window_index": 2,
+      "context": "uction Tuning)。** 模拟临床诊断场景。输入患者主诉和检查结果（如CT影像描述），要求模型输出鉴别诊断。 * *案例演示：* 患者男性68岁，吸烟史40年，咳嗽伴痰中带血，CT显示右肺门占位。 * *期望输出：* 1. 中央性肺癌（可能性最大）；2. 肺结核（需排除）；3. 支气管腺瘤（"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "24岁",
+      "aliases": [
+        "24岁"
+      ],
+      "window_index": 2,
+      "context": "会与生态位争夺 (01:57:40 - 02:20:50)** * **宏观背景：** 中国老龄化加剧，慢病患病率飙升。 * *数据：* 15-24岁慢病率3.7%；45-54岁31.3%；**65岁以上62.3%**。 * *供给端矛盾：* 医护人员总体缓慢增长，但检验、影像、病理医生甚至在减少"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "54岁",
+      "aliases": [
+        "54岁"
+      ],
+      "window_index": 2,
+      "context": ":40 - 02:20:50)** * **宏观背景：** 中国老龄化加剧，慢病患病率飙升。 * *数据：* 15-24岁慢病率3.7%；45-54岁31.3%；**65岁以上62.3%**。 * *供给端矛盾：* 医护人员总体缓慢增长，但检验、影像、病理医生甚至在减少。资源分布极度不均（虹吸效应"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "65岁",
+      "aliases": [
+        "65岁"
+      ],
+      "window_index": 2,
+      "context": ":50)** * **宏观背景：** 中国老龄化加剧，慢病患病率飙升。 * *数据：* 15-24岁慢病率3.7%；45-54岁31.3%；**65岁以上62.3%**。 * *供给端矛盾：* 医护人员总体缓慢增长，但检验、影像、病理医生甚至在减少。资源分布极度不均（虹吸效应），优质资源集中在发达"
+    },
+    {
+      "kind": "term",
+      "value": "3分钟",
+      "aliases": [
+        "3分钟"
+      ],
+      "window_index": 3,
+      "context": "1小时18分钟**，微信用了 **一小时15分钟**，cloud用了 **44分钟**，预览用了 **10分钟**，CCI我用了 **4分钟**，访达用了 **3分钟**，然后腾讯会议用了 **2分钟**。\" * \"你 **6块钱** 买一这样一只，我觉得是okK的。\" * \"这东西花了我 **半天**。\" ##"
+    },
+    {
+      "kind": "score",
+      "value": "55分",
+      "aliases": [
+        "55分"
+      ],
+      "window_index": 3,
+      "context": "产品思维。 * **产品功能：** 监控屏幕前端应用时长，生成日报。 * **数据展示：** 今日办公时长 **3小时6分**。PPT 使用 **2小时55分**，Chrome **1小时18分**，微信 **1小时15分**，Cloud Code **44分钟**。 * **伦理讨论：** 区分“自我监控”（提"
+    },
+    {
+      "kind": "score",
+      "value": "18分",
+      "aliases": [
+        "18分"
+      ],
+      "window_index": 3,
+      "context": "* 监控屏幕前端应用时长，生成日报。 * **数据展示：** 今日办公时长 **3小时6分**。PPT 使用 **2小时55分**，Chrome **1小时18分**，微信 **1小时15分**，Cloud Code **44分钟**。 * **伦理讨论：** 区分“自我监控”（提效，愿付费）与“监控员工”（丧良心，"
+    },
+    {
+      "kind": "score",
+      "value": "15分",
+      "aliases": [
+        "15分"
+      ],
+      "window_index": 3,
+      "context": "成日报。 * **数据展示：** 今日办公时长 **3小时6分**。PPT 使用 **2小时55分**，Chrome **1小时18分**，微信 **1小时15分**，Cloud Code **44分钟**。 * **伦理讨论：** 区分“自我监控”（提效，愿付费）与“监控员工”（丧良心，道德风险）。本质是番茄钟+A"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2023年",
+      "aliases": [
+        "2023年"
+      ],
+      "window_index": 3,
+      "context": "业护士全程陪同、取药、反馈病情。核心价值在于获取“准确信息”，避免家属被患者隐瞒或误导。服务范围包括上门采血、伤口护理、输液、康复等。 * **线下：** 2023年在宿迁（老家）和亦庄（公司旁）开设体检中心；2024年开设国医馆。 * **行业演变逻辑：** 数字化（电子病历/IT化） -> 互联网化（在线问诊/购药，"
+    }
+  ],
+  "qwen_narrative_block_version": "qwen-narrative-blocks-v1",
+  "qwen_narrative_blocks": [
+    {
+      "window_index": 1,
+      "title": "人类医生的“社会性诊断”与AI的局限",
+      "time_range": "00:09:04 - 00:12:05",
+      "chars": 438,
+      "anchor": "原文或近原文长段内容： \"我给你们去讲这里面一个特别像的一个点... 我老妈很不幸，今年初年三十把腿摔了... 髌骨骨裂... 我们忍到了出四啊，然后找到主任来",
+      "text": "原文或近原文长段内容： \"我给你们去讲这里面一个特别像的一个点... 我老妈很不幸，今年初年三十把腿摔了... 髌骨骨裂... 我们忍到了出四啊，然后找到主任来去看... 当场又拍了个片子，然后非常的和风细雨... '老太太，您回去吧，没事啊... 不用担心你们就回去养就好了'... 后来去聊，我说哎... 他说'咱们都是熟人，而且一看你们这个家庭的情况就这样。如果不是这样子的话，一定会给老太太开点药的'... 他说很正常，你这个初四一顶门就来了。然后如果我看到你是风尘仆仆，从外地啊，熬了一晚上过来... 那即便是跟你情况完全一样，我也得给你开点药，不然的话，那就很麻烦了... 那你给他开上也别多了，200-300块钱的药... 这些药都没有任何的问题，都是VD钙，然后氨糖... 懂吗？所以就是这就是AI医生和人类医生，尤其是人类之间的这些有经验的医生... 望闻问切，你没有忘了去做... 所以准确度就是在有限的信息里去求得更好效果... 这就是AI医疗的关键。\""
+    },
+    {
+      "window_index": 1,
+      "title": "医疗数据的“金标准”与高昂成本",
+      "time_range": "00:52:20 - 00:54:20",
+      "chars": 291,
+      "anchor": "原文或近原文长段内容： \"医疗领域的层面的好数据是什么？好数据的标准就是多专家交叉标注的数据。所谓的金标准... 3+1模式的金标准，这个是阿福他背后所用的一套",
+      "text": "原文或近原文长段内容： \"医疗领域的层面的好数据是什么？好数据的标准就是多专家交叉标注的数据。所谓的金标准... 3+1模式的金标准，这个是阿福他背后所用的一套方式... 出现一个数据之后，三位主治医生独立做标注... 三个人如果一致，则这条数据可以入库... 如果三个医师得到的结论不一致，怎么办？好，再由一个主任医师做仲裁... 同时，如果再有不一致引入病理结果做最终验证，这个玩意儿才能叫做医疗领域上的好数据。你们就理解这个东西，医疗的数据有多贵了吧... 但是它高吗？它成本高，但它真的成本高吗？它的背后是它的应用场景是人命... 所以这个确确实实应该用这种标准来去要求。\""
+    },
+    {
+      "window_index": 1,
+      "title": "垂类模型的特质化价值：MI是小米还是心肌梗死？",
+      "time_range": "01:05:25 - 01:07:25",
+      "chars": 265,
+      "anchor": "原文或近原文长段内容： \"垂类模型本质上其实是不要求大的，它的核心点就是要求的是数据特质化... 比如说CHF是什么东西？充血性心力衰竭。比如说MI是什么？同学",
+      "text": "原文或近原文长段内容： \"垂类模型本质上其实是不要求大的，它的核心点就是要求的是数据特质化... 比如说CHF是什么东西？充血性心力衰竭。比如说MI是什么？同学们，有同学知道在医学逻辑上的MI是什么吗？... 你看到MI的话，第一反应是小米... 答出来小米的你就是个通用大模型。答出来心肌梗死的，你自己就是自带训练级的垂类模型了... 你再去扔一份检验报告... 他这面如果出现1个MI，你希望让他去解读出来是什么？你当时的希望是让这个大模型根本不知道小米是什么，只知道什么是心肌梗死就OK了。其实这就是垂类模型在身上的价值。\""
+    },
+    {
+      "window_index": 2,
+      "title": "医疗模型微调的“规培”隐喻与专家养成逻辑",
+      "time_range": "01:14:30 - 01:16:30",
+      "chars": 279,
+      "anchor": "讲师用医学生的成长路径类比大模型的微调过程，极具画面感。他指出，第一层通用知识注入就像本科生啃浩如烟海的医书，是死去的回忆攻击。而第二层专科精调则是“规培”阶段",
+      "text": "讲师用医学生的成长路径类比大模型的微调过程，极具画面感。他指出，第一层通用知识注入就像本科生啃浩如烟海的医书，是死去的回忆攻击。而第二层专科精调则是“规培”阶段，跟着主任听黑话，轮转不同科室。他特别强调了“单一病种专家”的形成逻辑：“如果你一个人，20年就只看糖尿病。这20年每天给你40个号，全是糖尿病。可能前面会死点人，但是后面你肯定是大师了。就算你前面那十年你都是瞎看，在尸山血海中也能淬炼出来你的悬壶济世的后十年了。”这段话深刻揭示了垂直领域AI模型通过海量特定数据微调后，能在特定窄域超越通用人类专家的原理，同时也带出了医疗行业残酷的试错成本背景。"
+    },
+    {
+      "window_index": 2,
+      "title": "责任外包心理与医疗AI的推广鸿沟",
+      "time_range": "01:28:35 - 01:31:36",
+      "chars": 297,
+      "anchor": "讲师深入剖析了用户拒绝AI诊断的深层心理——“责任外包”。他指出，医闹频发并非全为了钱，而是人们潜意识里渴望宣泄破坏力，且不愿承担失败风险。“每个人都不想承担失",
+      "text": "讲师深入剖析了用户拒绝AI诊断的深层心理——“责任外包”。他指出，医闹频发并非全为了钱，而是人们潜意识里渴望宣泄破坏力，且不愿承担失败风险。“每个人都不想承担失败的责任和风险... 都希望把这个责任往外去转移。”这一心理导致医疗AI面临巨大的“跨越鸿沟”难题。医疗是超级入口，必须覆盖后期大众和落后者（老年人/下沉市场），但这部分人群恰恰是最不信任AI、学习成本最高的。讲师指出一个尴尬的现实：最需要AI医疗的落后者（年龄大、病患多）最难被教育，而容易接受AI的创新者（年轻人）却很少生病。这种错位使得医疗AI的推广不能仅靠技术优势，必须依赖社会关系链（如春节子女教父母）或极强的品牌信任背书。"
+    },
+    {
+      "window_index": 2,
+      "title": "字节系产品哲学 vs. 传统产品美学",
+      "time_range": "01:47:43 - 01:51:44",
+      "chars": 287,
+      "anchor": "讲师对比了豆包（字节跳动）与其他AI产品的策略差异，揭示了字节系独特的“流氓式”高效产品哲学。他指出，豆包根本不关心用户是否理解它是大模型，它只在乎用户把它当什",
+      "text": "讲师对比了豆包（字节跳动）与其他AI产品的策略差异，揭示了字节系独特的“流氓式”高效产品哲学。他指出，豆包根本不关心用户是否理解它是大模型，它只在乎用户把它当什么用（搜索、陪聊、甚至聊骚），目的是拉满用户时长。对于豆包出现的“乱承诺订票”等法律风险，讲师认为这符合字节的逻辑：“这样回答留存就是最高的... 出现的法律争议和它的整体留存率比起来无所谓... 我有专门的部门去处理这件事。”讲师坦言，作为产品操盘手他不喜欢这种缺乏美感的方式，但作为投资人他会非常欣赏这种能抢占市场份额的效率。这与拼多多不在乎员工猝死、只在乎市场结果的逻辑一脉相承，是一种极致的功利主义产品观。"
+    },
+    {
+      "window_index": 2,
+      "title": "企业AI落地的“一号位工程”与高层甩锅术",
+      "time_range": "02:25:57 - 02:32:59",
+      "chars": 298,
+      "anchor": "讲师犀利地批判了当前大企业AI落地的乱象。许多公司搞“全员黑客松”、“无KPI探索”，表面是鼓励创新，实则是高层（一号位）的“无风险套利”。讲师直言：“这帮孙子",
+      "text": "讲师犀利地批判了当前大企业AI落地的乱象。许多公司搞“全员黑客松”、“无KPI探索”，表面是鼓励创新，实则是高层（一号位）的“无风险套利”。讲师直言：“这帮孙子在那个位置呆久了，其实特别怂... 他们没有一线业务手感，也没能力学明白AI... 但他们极其贪恋那个狗屁位置。”因此，他们选择发动群众运动，若成功则归功领导有方，若失败则归咎于组织能力或换掉执行层。讲师强调，真正的AI落地必须是“一号位工程”，至少由VP或事业群总裁亲自挂帅，否则注定一地鸡毛。然而，这也给个人带来了机会：在大厂混乱的黑客松结束后，老板因焦虑而开启招聘时，具备真实落地能力的个人或小团队可以趁机切入，将其作为职业跳板。"
+    },
+    {
+      "window_index": 3,
+      "title": "京东护士上门与陪诊服务的真实价值",
+      "time_range": "02:14:52 - 02:16:52",
+      "chars": 469,
+      "anchor": "原文或近原文长段内容： “大家想想护士上门能干什么？这个业务我觉得做的真的好。有一些是专职的护士，有些是兼职的，但都是专业护士打针、护理理疗看病人甚至可以干什么",
+      "text": "原文或近原文长段内容： “大家想想护士上门能干什么？这个业务我觉得做的真的好。有一些是专职的护士，有些是兼职的，但都是专业护士打针、护理理疗看病人甚至可以干什么。我告诉你，我买了一个他们家的服务，真的是让我觉得是特别的好的，干什么？他能够去陪诊。陪诊这个服务我觉得真的好，我买了几次。就是我跟你说的，我老妈腿摔了吗？回家了回家之后，我就叫一个护士，直接从我家门送到医院陪完全的诊户，然后帮他去疗所有的东西，拿所有的药，然后再把所有的信息反馈给我。这个陪诊我觉得真的好。为什么要找专业的护士？是这样子的，亲，我找一个专业的护士的原因在于我可以通过和这个护士的沟通，第一时间了解到我父母病情的真相。我要的是这个。你们觉得这事有没有价值？就是不然的话，我父母可能会忽悠我，或者他们给了我的信他给我的信息可能并不准确。但是我派一个陪诊护，派一个陪诊的人去，且他是一个专，他是个护士，他一定会给到我是最准确的信息。他会给我一个非常准确的信息，这件事儿对我有价值，对不对？所以他能够干上门采血，能伤口护理，能陪诊，能输液，能居家护理，能做康复护理。”"
+    },
+    {
+      "window_index": 3,
+      "title": "为什么 AI 落地必须是“一号位工程”及管理层心理剖析",
+      "time_range": "02:29:58 - 02:32:59",
+      "chars": 518,
+      "anchor": "原文或近原文长段内容： “我说一个特别精准的点啊，AI能不能在企业转型中起到关键性作用？我告诉你能真能，但是 AI 如果真想在企业中真正意义上的落地，必须是一个",
+      "text": "原文或近原文长段内容： “我说一个特别精准的点啊，AI能不能在企业转型中起到关键性作用？我告诉你能真能，但是 AI 如果真想在企业中真正意义上的落地，必须是一个一号位工程。我不知道你们能不能明白我这句话，必须是个一号位工程。什么叫做一号位工程？不一定是老板带头干，但至少是 BU 的一号位干，至少是 CO 级别的人看，至少是副总裁级别的人干，最小最少也是一个事业群总来去干，否则这事儿就别干了。但是这些一号位绝对不会干这件事儿，或者说会干这件事儿的一号位特别少，你知道为什么吗？这帮孙子在那个位置呆待久了，其实是特别他妈怂的一帮人。他们其实对于业务的一线的手感其实已经不行了，一是没有一线的业务手感了，二是对于 AI 是什么，也没有能力学了。这个能力既包括时间，包括精力，包括注意力，包括脑力都不足以去学明白这件事儿。但是他们极其贪恋那个狗屁位置，所以他们一定会习惯性的找一条叫做无风险套利的招。什么玩意儿叫做无风险套利啊？就是来来来来来，大家全民吧，我这是个平台，大家都来去做吧，逮着哪个成的归我，大家都不成，那是组织的问题。对吧再不行，我去斩2元将，我就 okK 了，我换俩人嘛，我找顾问啊，找外脑啊，外脑不行，我再换不就好了吗？”"
+    },
+    {
+      "window_index": 3,
+      "title": "自我监控 vs 员工监控：产品的道德边界",
+      "time_range": "02:37:00 - 02:39:02",
+      "chars": 515,
+      "anchor": "原文或近原文长段内容： “你看我这门办公的时间被你们拉大到很多，对吧？我办公时间又拉到了3小时6分了，为什么？因为我PPT用的多了，看到了吗？就是他会记录我所有",
+      "text": "原文或近原文长段内容： “你看我这门办公的时间被你们拉大到很多，对吧？我办公时间又拉到了3小时6分了，为什么？因为我PPT用的多了，看到了吗？就是他会记录我所有的工作啊... 我干了一天，我哪些软件我正在用我就发现我的这个PPT已经用了2小时555分钟了... to B, 你们知道这玩意儿，我要是我要是没良心，我做成to b的，我就我有多好推嘛？我to b的我这玩意儿我做成一个丧良心的玩意儿，我不做界面，我坐在后台隐形启动，默认监控你在每天都干了什么样的事儿，每天自动做AI的的总结报告给老板形成这个员工的这个能力属性，包括他的绩效分析，然后做出来用人评定。我我要是丧良心，我就干个这个。对吧就是人类的道德呀。这个东西它的监控，我跟你讲一个这么个道理，我自己想监控我自己，这就是个好产品。你不知道我就监控你，这就叫丧良心。你认为这件事儿是不是这么个道理，对不对？我要监控我自己，我要自己的效率提高，我拿它这东西说句实在话，要是有我都愿意去花钱，对吧？这是很实很实的话，就是我为了提高我的效率，我愿意为此去花钱，但是我不在不知情的情况下，你监控我，我的天哪。这不是扯淡嘛，对吧？所以做产品是要有点良知的这东西本质上是个番茄钟。”"
+    }
+  ],
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.6-plus",
+    "api_calls": 4,
+    "finish_reason": "stop",
+    "window_finish_reasons": [
+      "stop",
+      "stop",
+      "stop",
+      "stop"
+    ],
+    "usage": {
+      "input_tokens": 105858,
+      "output_tokens": 24130,
+      "total_tokens": 129988
+    },
+    "current_run_usage": {
+      "input_tokens": 105858,
+      "output_tokens": 24130,
+      "total_tokens": 129988
+    },
+    "current_run_api_calls": 4,
+    "end_to_end_usage": {
+      "input_tokens": 105858,
+      "output_tokens": 24130,
+      "total_tokens": 129988
+    },
+    "end_to_end_api_calls": 4,
+    "reused_window_note_api_calls": 0,
+    "estimated_cost_cny": null
+  },
+  "qwen_narrative_appendix": {
+    "appended": false,
+    "reason": "already_retained",
+    "appended_blocks": 0
+  },
+  "qwen_fact_body_retention_qc": {
+    "fact_count": 26,
+    "retained_count": 26,
+    "retention_ratio": 1.0,
+    "missing_facts": [],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_fact_body_retention_warnings": [],
+  "qwen_critical_fact_appendix": {
+    "appended": false,
+    "reason": "already_present",
+    "appended_facts": 0,
+    "source_metrics": {
+      "fact_count": 26,
+      "retained_count": 26,
+      "retention_ratio": 1.0,
+      "missing_facts": [],
+      "min_retention_ratio": 0.9
+    }
+  },
+  "body_last_chapter_end_s": 9981,
+  "body_tail_gap_s": 44,
+  "body_coverage_status": "ok",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 18334,
+    "body_transcript_ratio": 0.3556,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 4,
+    "chapter_fields_missing": [],
+    "code_fence_count": 12,
+    "prompt_keywords_missing": [
+      "提示词"
+    ],
+    "body_min_transcript_ratio": 0.2,
+    "source_frame_count": 436
+  },
+  "qwen_window_coverage_qc": {
+    "expected_windows": [
+      1,
+      2,
+      3
+    ],
+    "covered_windows": [
+      1,
+      2,
+      3
+    ],
+    "missing_windows": []
+  },
+  "qwen_fact_retention_qc": {
+    "fact_count": 26,
+    "retained_count": 26,
+    "retention_ratio": 1.0,
+    "missing_facts": [],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_timeline_qc": {
+    "chapter_count": 4,
+    "overlap_count": 0,
+    "overlaps": []
+  },
+  "qwen_technical_asset_qc": {
+    "has_technical_asset_appendix": true,
+    "code_fence_count": 6,
+    "prompt_fact_count": 1
+  },
+  "qwen_narrative_retention_qc": {
+    "narrative_block_count": 10,
+    "retained_block_count": 9,
+    "retention_ratio": 0.9,
+    "body_transcript_ratio": 0.3556,
+    "min_body_transcript_ratio": 0.32,
+    "missing_blocks": [
+      {
+        "window_index": 3,
+        "title": "为什么 AI 落地必须是“一号位工程”及管理层心理剖析",
+        "anchor": "原文或近原文长段内容： “我说一个特别精准的点啊，AI能不能在企业转型中起到关键性作用？我告诉你能真能，但是 AI 如果真想在企业中真正意义上的落地，必须是一个"
+      }
+    ]
+  },
+  "transcript_appendix_chars": 51551,
+  "visual_evidence_count": 436,
+  "deterministic_appendices": [
+    "critical_fact_index",
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}

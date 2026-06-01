@@ -1,0 +1,79 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk119_7126s",
+  "full_text": "[00:00:00 - 00:00:59] 我跟你讲啊，就是所以除了要之外，完全不懂钱从哪儿来啊。哎呦，天哪，有会给你看看钱从哪来。而且在这个状态下，需求端在快速扩张，对不对？需求在在快速扩张，但是供给端呢医护人员在总体也在缓慢增长。对吧而同时检验科影像科病理的意识其实是在减少的，很搞笑啊，是在减少的。更重要的是。中国在医学上的一个特别大的问题，就是不但是医生少，更可怕的是资源分布异常不均匀，资源全都集中在发达地区。各省市之间的医疗资源差距非常的巨大，我们都不说是北京、上海这些超级城市，我们就看山河四省和西北的这几。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.2974"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.2974"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.2972"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.2972"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.0728"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0728"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.0716"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000118\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0716"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.2974
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.2972
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.0728
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.0716
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 261
+  }
+}

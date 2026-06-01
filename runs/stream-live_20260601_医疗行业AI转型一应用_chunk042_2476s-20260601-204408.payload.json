@@ -1,0 +1,29 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk042_2476s",
+  "full_text": "[00:00:00 - 00:01:00] 哪怕是强如阿福，也大量是靠人工，大量靠人工。所以医疗数据是极其值钱的东西，对吧？极其值钱极其贵的一件事。对，有多少人工才能有多少智慧？其实就是在这个领域上说的实际上是特别的准的。别指望AI能够给你太多去帮，最多是能够当帮手。然后包括检验结果总体结论、异常指标、重点风险，建议就诊科目，建议复查项目生活方式建议无法判断内容安全提示，这边出来了。OK这面出来了。好，然后我们看一下预览，就是它的整体的这个效果，哎，已经有点样子了，对不对？已经有点样子了啊，总体结论是什么？那这个人。问题还挺多的，但是呢也不准说他快不行了啊，必须得说需要进进一步医学评估来确定具体的原因，目前暂时没有办法确认相关疾病。然后异常指标是什么？重点风险建议就是。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000041\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000041\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=slide diff=0.4099"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 36,
+      "diff": 0.4099
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 339
+  }
+}

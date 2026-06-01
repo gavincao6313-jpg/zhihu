@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk129_7731s",
+  "full_text": "[00:00:00 - 00:01:00] 我就是我对于援藏援疆，包括去去去去去在这些这个地线城市做呃，老师，我是大心眼里尊重和佩服的。这个这个是实话实说讲，就是我尽管说捐过不少钱，但是说句实在话，我舍不得捐我自己的。是捐我我我舍得捐钱，但我不舍得捐我的时间，所以你才是真正的英雄，真的。所以这里面的核心市场是在人工智能和医疗服务的这个板块。而且在这面还有一些。核心增长的板块，一个是医疗的医学影像学，一个是医学的检验学。因为这2块是AI，它能够覆盖的特别好，并且准确度会明显要去做提高的。然后还有两个甲要假以时日的一个板块，一个是AI的病理诊断，一个是AI的制药。这2块的话。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000128\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000128\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.2449"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000128\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.2449"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000128\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0676"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000128\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0676"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.2449
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.0676
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 289
+  }
+}

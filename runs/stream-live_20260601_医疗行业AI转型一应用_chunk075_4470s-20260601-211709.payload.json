@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk075_4470s",
+  "full_text": "[00:00:00 - 00:01:00] 主任要来去听他说的这些黑话了。这是听黑化的过程，然后开始去轮不同的科室了，这是第二段。第二段要轮科室了，专病专科的精条，什么叫做专病专科的精条，就开始每个科室要再去垂类一层，每个科室再垂了一层，你心血管科再垂一层肿瘤科再垂了一层。好，单一病种再垂一层，对吧？糖尿病的多少种类型，慢阻肺的多少种类型，肩周炎的多少种类类似情，再去专调一遍，然后使用该领域的高质量病例和专家标注术据，再做有监督的微调。单病种的微调和单科室的微调，再去做一轮，这里面再做两轮，对吧？使得每个大模型在这训练出来之后，都成为了全科室主任级别。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000074\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000074\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.025"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000074\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.025"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.025
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 280
+  }
+}

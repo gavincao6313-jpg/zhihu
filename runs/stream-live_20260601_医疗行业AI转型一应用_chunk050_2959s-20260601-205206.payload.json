@@ -1,0 +1,79 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk050_2959s",
+  "full_text": "[00:00:00 - 00:01:00] 际上是概率模型，它是根据已有的预训练的数据去做生成的。因此，数据质量它一定是决定大模型准确度的观念，它一定是准确度的观念，对吧啊。，微调不需要产品经理做，微调你都做的话，那工程是干啥的呀，对吧？那微调上。数据的通用标准是5个数它的它的标准是这几个。第一个是相关性，第二是多样性，然后典型性、明确性和无偏见性。这么说一下在这个微调上的一些数据的标准。这个这几个标准呢。我们说这是叫的通用标准，但是这几个标准的一个问题是什么？是不适用于医疗领域医疗领域层面的好数据，它对于所谓的多样性，所谓的无偏见，所谓的这个这个这个相关性没有什么要求。我们就说一个无偏见问问题。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.0707"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0707"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0446"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0446"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0607"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.0442"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000049\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.0442"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.0707
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0446
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0607
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.0442
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 302
+  }
+}

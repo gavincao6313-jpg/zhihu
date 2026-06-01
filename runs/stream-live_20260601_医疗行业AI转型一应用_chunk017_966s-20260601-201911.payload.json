@@ -1,0 +1,54 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk017_966s",
+  "full_text": "[00:00:00 - 00:01:01] 老示啊嗯是是是什么情况啊，为啥非得输出jason？李想老师不是跟你说了吗？因为我懒。因为我懒就是这里面我输出一个还真的有帮助啊，讲的太慢了。那回头纲讲快点哎呀。是这样子，关于输出jason这件事，上上上节课我讲了我讲了，哎，就是输出jason的核心就是因为。简单来讲叫做我懒复杂一点讲，叫做用这种方式去传输的话，是不容易出错的。如果不然的话，我就需要把这里面所有的。这个这一组的信息这一组的信息全都要变成里面的输出参数，全都要变成里面输入参数。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000016\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000016\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.246"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000016\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.246"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000016\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=slide diff=0.3468"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000016\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=slide diff=0.3471"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.246
+    },
+    {
+      "type": "slide",
+      "frame_idx": 27,
+      "diff": 0.3468
+    },
+    {
+      "type": "slide",
+      "frame_idx": 49,
+      "diff": 0.3471
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 1,
+    "frames_total": 5,
+    "text_chars": 244
+  }
+}

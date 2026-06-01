@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk088_5254s",
+  "full_text": "[00:00:00 - 00:01:00] 这就是个人类一生的平均的平，就是哎呀这个哎呀这个事实是比这个高，但我敢写吗？事实比这高，但我敢写吗？人类的一生是有局限性的，人类的一生是有局限性的。对吧。即便如此，你也很难接受男I，还是更想用人类。为什么我给大家去今天讲一个用户心里的深层次的逻辑，好不好？我给大家看一个，没有这么高啊没有这么高没有那么高没有这么高。用户心里的深层次逻辑，这里面有一个逻辑叫做责任外，叫做责任外包问题。这个时候我们再去做AI的时候，再去做用户心理设计的时候要去做的一个事情啊，很重要。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000087\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000087\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0221"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000087\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.0221"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.0221
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 255
+  }
+}

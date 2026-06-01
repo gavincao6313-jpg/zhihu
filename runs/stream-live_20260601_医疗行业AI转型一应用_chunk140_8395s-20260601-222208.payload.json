@@ -1,0 +1,94 @@
+{
+  "video_name": "live_20260601_医疗行业AI转型一应用_chunk140_8395s",
+  "full_text": "[00:00:00 - 00:00:59] 对吧所以这个就变成了一种类似于IP的的的这种。打法出来了。好吧，整体总结一下，今天给大家说到这个AI的智能体三个核心的难点，准确度是核心中的核心。所以我们是通过这样的一个完整工作流，尤其是在这边各个环节都要去做限制，都要去做兜底的方法来去使得你最后的输出是可控的，有边界的。嗯。医疗的几个核心的过程，接诊与病史的采集、体格检查、辅助诊断、诊疗、治疗与评估。我们要去思考哪些环节是可以对AI去做替代的。然后一在疾病问题中，我们要去思考的就是用户他在心智中他的投产比的概念。什么样的病症是可以通过一些比较轻量级的一些事情，做AI的逐步替代，影响到更多的人。同时呢因为这个领域他有特别的大。所以呢其实我们能够在这边上找到很多的机会。今天的作业啊，复刻今天的工作流。同时思考这种高精度策略。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0687"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=slide diff=0.3354"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.2046"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.2046"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1853"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.1853"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=slide diff=0.4148"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_url\\Videos\\keyframes\\seg_1780315322_000139\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=slide diff=0.4082"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.0687
+    },
+    {
+      "type": "slide",
+      "frame_idx": 13,
+      "diff": 0.3354
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.2046
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.1853
+    },
+    {
+      "type": "slide",
+      "frame_idx": 48,
+      "diff": 0.4148
+    },
+    {
+      "type": "slide",
+      "frame_idx": 53,
+      "diff": 0.4082
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 3,
+    "frames_total": 10,
+    "text_chars": 363
+  }
+}
