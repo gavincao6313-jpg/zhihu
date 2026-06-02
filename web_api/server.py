@@ -1030,7 +1030,7 @@ def _cleanup_orphaned_records(new_url: str) -> None:
 # Keywords detected in subprocess stdout that trigger status transitions.
 # Each entry: (status_to_set, list_of_trigger_substrings)
 _LIVE_KEYWORDS: list[tuple[str, list[str]]] = [
-    ("recording",     ["Input extractor", "HLS Continuous", "Chunk", "Recorder", "Session", "[Recorder]"]),
+    ("recording",     ["[Recorder]", "[Consumer]", "[HLS]", "Input extractor", "Chunk", "Session"]),
     ("transcribing",  ["merge_stream_chunks", "合并", "Sections:", "Merging"]),
     ("synthesizing",  ["build_stream_markdown", "NotebookLM", "Sending to", "Gemini", "Qwen"]),
 ]
@@ -1200,20 +1200,23 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
         update_registry_record(run_id, "failed", auth_check["message"], "error")
         return
 
-    # Step 1: live capture — --duration 0 means run until stream ends
+    # Step 1: live capture — continuous HLS mode (Recorder + Consumer threads)
+    # Recording and transcription run in parallel; no gaps between segments.
+    # Falls back gracefully: if stream ends, Consumer drains remaining .ts files.
     captured_name = base or f"live_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     capture_cmd = [
         python, "-u", str(ROOT / "zhihuTTS_stream.py"),
+        "--continuous-hls",
         "--playwright-keepalive",
         "--page-url", source,
         "--playwright-storage-state", str(auth),
         "--playwright-save-storage-state", str(auth),
-        "--duration", "0",
         "--chunk-duration", "60",
         "--name", captured_name,
+        "--stream-work-dir", str(ROOT / "Videos" / ".stream"),
     ]
 
-    update_registry_record(run_id, "probing", f"Starting live capture: {source[:80]}")
+    update_registry_record(run_id, "probing", f"Starting continuous-HLS live capture: {source[:80]}")
     ok = _run_pipeline_engine(run_id, capture_cmd, None, _LIVE_KEYWORDS)
     if not ok:
         return

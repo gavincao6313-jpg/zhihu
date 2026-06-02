@@ -16,6 +16,7 @@ import os
 import re
 import shlex
 import subprocess
+import threading
 import time
 from datetime import datetime
 from pathlib import Path
@@ -951,6 +952,389 @@ def write_manifest(manifest_path: Path, data: dict) -> None:
     manifest_path.write_text("\n".join(lines), encoding="utf-8")
 
 
+# ── Continuous HLS mode ──────────────────────────────────────────────────────
+# Recorder runs ffmpeg in HLS segment mode continuously in a background thread.
+# Consumer processes each completed .ts segment (ASR + keyframes) as it arrives.
+# Recording never pauses for transcription — no gaps between segments.
+
+
+class Recorder(threading.Thread):
+    """ffmpeg HLS segmenter. Restarts with refreshed URL on expiry (up to max_restarts)."""
+
+    def __init__(
+        self,
+        work_dir: Path,
+        base_stem: str,
+        seg_duration_s: int,
+        keepalive: "PlaywrightKeepaliveStream | None",
+        initial_stream: "ExtractedStream",
+        max_restarts: int = MAX_BROWSER_RESTARTS,
+    ) -> None:
+        super().__init__(daemon=True, name="HLS-Recorder")
+        self.work_dir = work_dir
+        self._base = base_stem
+        self._seg_s = seg_duration_s
+        self._keepalive = keepalive
+        self._stream = initial_stream
+        self._max_restarts = max_restarts
+        self._stop = threading.Event()
+        self._ended = threading.Event()
+        self._restart_count = 0
+        self._end_error = ""
+
+    def stop(self) -> None:
+        self._stop.set()
+
+    @property
+    def is_stream_ended(self) -> bool:
+        return self._ended.is_set()
+
+    @property
+    def end_error(self) -> str:
+        return self._end_error
+
+    def run(self) -> None:
+        self.work_dir.mkdir(parents=True, exist_ok=True)
+        playlist = self.work_dir / f"{self._base}.m3u8"
+        session_epoch = int(time.time())
+        seg_pattern = str(self.work_dir / f"seg_{session_epoch}_%06d.ts")
+
+        while not self._stop.is_set():
+            if self._restart_count > self._max_restarts:
+                self._end_error = f"exceeded {self._max_restarts} URL restarts"
+                break
+
+            cmd = [
+                "ffmpeg", "-hide_banner", "-v", "warning",
+                "-reconnect", "1", "-reconnect_streamed", "1",
+                "-reconnect_on_network_error", "1", "-reconnect_delay_max", "10",
+                "-i", self._stream.url,
+                "-c", "copy",
+                "-f", "hls",
+                "-hls_time", str(self._seg_s),
+                "-hls_flags", "temp_file+append_list+program_date_time",
+                "-hls_segment_filename", seg_pattern,
+                "-hls_list_size", "0",
+                str(playlist),
+                "-y",
+            ]
+            cmd = with_headers(cmd, self._stream.headers or {})
+
+            print(f"[Recorder] Starting ffmpeg HLS (restart #{self._restart_count}, seg={self._seg_s}s)…")
+            try:
+                proc = subprocess.Popen(
+                    cmd, cwd=str(ROOT_DIR),
+                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                    text=True, encoding="utf-8", errors="replace",
+                )
+                for raw in proc.stdout:
+                    line = raw.rstrip()
+                    if self._stop.is_set():
+                        proc.kill()
+                        break
+                    if line:
+                        print(f"[Recorder] {line}")
+                    # Detect natural stream end from ffmpeg output
+                    if any(t in line for t in ("End of file", "moov atom not found", "Invalid data")):
+                        print(f"[Recorder] Stream ended: {line}")
+                        self._ended.set()
+                        proc.kill()
+                        break
+                proc.wait(timeout=15)
+            except subprocess.TimeoutExpired:
+                try:
+                    proc.kill()
+                except Exception:
+                    pass
+            except Exception as exc:
+                self._end_error = f"Recorder subprocess error: {exc}"
+                break
+
+            if self._stop.is_set() or self._ended.is_set():
+                break
+
+            # ffmpeg exited unexpectedly — try URL refresh via keepalive
+            if self._keepalive and self._restart_count < self._max_restarts:
+                print("[Recorder] ffmpeg exited; refreshing URL via keepalive…")
+                try:
+                    self._stream = self._keepalive.latest_stream()
+                    self._restart_count += 1
+                    time.sleep(3.0)
+                    continue
+                except Exception as exc:
+                    self._end_error = f"URL refresh failed: {exc}"
+            self._ended.set()
+            break
+
+        self._ended.set()
+        print(f"[Recorder] Stopped. restarts={self._restart_count} error={self._end_error!r}")
+
+
+class Consumer(threading.Thread):
+    """Processes completed HLS .ts segments produced by Recorder."""
+
+    def __init__(
+        self,
+        work_dir: Path,
+        base_stem: str,
+        seg_duration_s: int,
+        recorder: "Recorder",
+        args: argparse.Namespace,
+    ) -> None:
+        super().__init__(daemon=True, name="HLS-Consumer")
+        self.work_dir = work_dir
+        self._base = base_stem
+        self._seg_s = seg_duration_s
+        self._recorder = recorder
+        self._args = args
+        self._chunks: list[dict] = []
+        self._processed: set[str] = set()
+        self._chunk_index = 0
+
+    def get_chunks(self) -> list[dict]:
+        return list(self._chunks)
+
+    def run(self) -> None:
+        poll_s = 3.0
+        while True:
+            ts_files = sorted(self.work_dir.glob("seg_*.ts"))
+            # Don't process the last segment while recorder may still be writing it
+            if not self._recorder.is_stream_ended and ts_files:
+                ts_files = ts_files[:-1]
+
+            new_files = [f for f in ts_files if f.name not in self._processed]
+            for ts_path in new_files:
+                self._chunk_index += 1
+                start_s = float((self._chunk_index - 1) * self._seg_s)
+                print(f"\n=== [Consumer] Chunk {self._chunk_index}: {fmt_time(start_s)} ===")
+                chunk = self._process_ts(ts_path, start_s, self._chunk_index)
+                self._processed.add(ts_path.name)
+                if chunk is not None:
+                    self._chunks.append(chunk)
+
+            if self._recorder.is_stream_ended:
+                # Drain any remaining unprocessed files
+                for ts_path in sorted(self.work_dir.glob("seg_*.ts")):
+                    if ts_path.name in self._processed:
+                        continue
+                    self._chunk_index += 1
+                    start_s = float((self._chunk_index - 1) * self._seg_s)
+                    chunk = self._process_ts(ts_path, start_s, self._chunk_index)
+                    self._processed.add(ts_path.name)
+                    if chunk is not None:
+                        self._chunks.append(chunk)
+                break
+
+            time.sleep(poll_s)
+
+        print(f"[Consumer] Done. {len(self._chunks)} chunks processed.")
+
+    def _process_ts(self, ts_path: Path, start_s: float, chunk_index: int) -> dict | None:
+        args = self._args
+        started = time.monotonic()
+        created_at = datetime.now().isoformat(timespec="seconds")
+        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        slice_stem = safe_name(f"{self._base}_chunk{chunk_index:03d}_{int(start_s)}s")
+
+        transcript = transcribe_audio(ts_path)
+        if not transcript.get("segments"):
+            print(f"  [skip] chunk {chunk_index}: silent, skipping", flush=True)
+            if args.cleanup_slices:
+                ts_path.unlink(missing_ok=True)
+            return None
+
+        events, frames = extract_keyframes(ts_path)
+        transcript_text = transcript_to_text(transcript)
+        global_transcript_text = offset_transcript_text(transcript, start_s)
+        payload = build_gemini_payload(ts_path.stem, transcript, events, frames)
+
+        transcript_path = RUNS_DIR / f"stream-{slice_stem}-{timestamp}.transcript.txt"
+        global_transcript_path = RUNS_DIR / f"stream-{slice_stem}-{timestamp}.global-transcript.txt"
+        payload_path = RUNS_DIR / f"stream-{slice_stem}-{timestamp}.payload.json"
+        report_path = RUNS_DIR / f"stream-{slice_stem}-{timestamp}.md"
+
+        RUNS_DIR.mkdir(exist_ok=True)
+        transcript_path.write_text(transcript_text, encoding="utf-8")
+        global_transcript_path.write_text(global_transcript_text, encoding="utf-8")
+        payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        slice_size = ts_path.stat().st_size
+        if args.cleanup_slices:
+            ts_path.unlink(missing_ok=True)
+
+        data = {
+            "created_at": created_at,
+            "url_host": "hls-recorder",
+            "extractor": "continuous-hls",
+            "media_type": "hls-ts",
+            "source": {"duration_s": self._seg_s, "size_bytes": slice_size,
+                       "bit_rate": 0, "video": {}, "audio": {}},
+            "auth_header_names": [],
+            "slice": {"start_s": start_s, "duration_s": self._seg_s,
+                      "path": str(ts_path), "size_bytes": slice_size,
+                      "kept": not args.cleanup_slices},
+            "processing": {
+                "events": len(events), "frames": len(frames),
+                "backend": transcript.get("backend_used"),
+                "transcribe_duration_s": transcript.get("duration_s"),
+                "segments": len(transcript.get("segments", [])),
+                "transcript_chars": len(transcript_text),
+                "elapsed_s": round(time.monotonic() - started, 2),
+                "stream_reextracts": 0,
+            },
+            "recovery_errors": [],
+            "outputs": {
+                "transcript_txt": str(transcript_path),
+                "payload_json": str(payload_path),
+                "report_md": str(report_path),
+                "global_transcript_txt": str(global_transcript_path),
+            },
+            "chunk": {"index": chunk_index, "total": 0},
+            "transcript_preview": transcript_text[:1000],
+            "global_transcript_preview": global_transcript_text[:1000],
+            "global_transcript_text": global_transcript_text,
+        }
+        write_report(report_path, data)
+        print(f"[Consumer] chunk {chunk_index} → {report_path.name} ({data['processing']['elapsed_s']}s)")
+        return data
+
+
+def _finalize_hls_run(
+    chunks: list[dict],
+    base_stem: str,
+    created_at: str,
+    stream: "ExtractedStream",
+    ended_reason: str,
+    args: argparse.Namespace,
+) -> dict:
+    """Write combined transcript + manifest for a finished HLS run."""
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    combined_text = "\n\n".join(
+        Path(c["outputs"]["global_transcript_txt"]).read_text(encoding="utf-8")
+        for c in chunks
+        if Path(c["outputs"]["global_transcript_txt"]).exists()
+    )
+    combined_transcript_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.combined-transcript.txt"
+    manifest_json_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.json"
+    manifest_md_path = RUNS_DIR / f"stream-{base_stem}-{timestamp}.manifest.md"
+
+    RUNS_DIR.mkdir(exist_ok=True)
+    combined_transcript_path.write_text(combined_text, encoding="utf-8")
+
+    seg_s = int(parse_time(getattr(args, "chunk_duration", None) or "60"))
+    manifest = {
+        "created_at": created_at,
+        "url_host": urlparse(stream.url).hostname or "hls-recorder",
+        "extractor": stream.extractor,
+        "media_type": stream.media_type,
+        "source": {"duration_s": len(chunks) * seg_s, "size_bytes": 0},
+        "auth_header_names": sorted((stream.headers or {}).keys()),
+        "start_s": 0,
+        "duration_s": len(chunks) * seg_s,
+        "live_mode": True,
+        "capture_mode": "continuous-hls",
+        "stream_ended_reason": ended_reason or "stream ended",
+        "chunk_duration_s": seg_s,
+        "chunks": chunks,
+        "combined_transcript_path": str(combined_transcript_path),
+    }
+    manifest_json_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_manifest(manifest_md_path, manifest)
+    print(f"\n[HLS] Manifest : {manifest_md_path}")
+    print(f"[HLS] Transcript: {combined_transcript_path}")
+    print(f"[HLS] Chunks   : {len(chunks)}")
+    return manifest
+
+
+def run_continuous_hls(args: argparse.Namespace) -> dict:
+    """Live capture: Recorder (ffmpeg HLS) + Consumer (ASR+keyframes) run in parallel.
+
+    Recording is never blocked by transcription — segments accumulate on disk while
+    the previous segment is being processed. No gaps between segment boundaries.
+    On URL expiry, Recorder refreshes via Playwright keepalive and restarts ffmpeg.
+    Use --hls-consumer-only to drain a work_dir from a crashed previous run.
+    """
+    keepalive: PlaywrightKeepaliveStream | None = None
+    try:
+        if args.playwright_keepalive:
+            keepalive, stream = start_keepalive_stream(args)
+        else:
+            stream = resolve_input(args)
+
+        created_at = datetime.now().isoformat(timespec="seconds")
+        seg_s = int(parse_time(args.chunk_duration or "60"))
+        base_stem = safe_name(args.name or f"live_{int(time.time())}")
+        work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR) / base_stem
+        work_dir.mkdir(parents=True, exist_ok=True)
+
+        max_restarts = getattr(args, "max_browser_restarts", MAX_BROWSER_RESTARTS)
+        recorder = Recorder(work_dir, base_stem, seg_s, keepalive, stream, max_restarts)
+        consumer = Consumer(work_dir, base_stem, seg_s, recorder, args)
+
+        print(f"[HLS] Work dir : {work_dir}")
+        print(f"[HLS] Segment  : {seg_s}s per chunk")
+        print(f"[HLS] Mode     : Recorder + Consumer (parallel)")
+        print(f"[HLS] Max URL restarts: {max_restarts}")
+
+        recorder.start()
+        consumer.start()
+
+        try:
+            consumer.join()
+        except KeyboardInterrupt:
+            print("\n[HLS] Interrupted. Stopping recorder…")
+            recorder.stop()
+            recorder.join(timeout=20)
+            consumer.join(timeout=60)
+
+        recorder.stop()
+        recorder.join(timeout=20)
+
+        chunks = consumer.get_chunks()
+        return _finalize_hls_run(chunks, base_stem, created_at, stream,
+                                  recorder.end_error, args)
+    finally:
+        if keepalive:
+            keepalive.close()
+
+
+def run_hls_consumer_only(args: argparse.Namespace) -> dict:
+    """Process existing .ts segments from a previous --continuous-hls run (crash recovery).
+
+    Use --stream-work-dir to point at the directory containing seg_*.ts files.
+    """
+    work_dir = Path(args.stream_work_dir or STREAM_TMP_DIR)
+    if not work_dir.exists():
+        raise FileNotFoundError(f"HLS work dir not found: {work_dir}")
+
+    ts_files = sorted(work_dir.glob("seg_*.ts"))
+    if not ts_files:
+        raise FileNotFoundError(f"No seg_*.ts files found in {work_dir}")
+
+    print(f"[HLS consumer-only] Found {len(ts_files)} segments in {work_dir}")
+
+    created_at = datetime.now().isoformat(timespec="seconds")
+    seg_s = int(parse_time(args.chunk_duration or "60"))
+    base_stem = safe_name(args.name or work_dir.name)
+
+    # Minimal stub that reports stream as already ended
+    class _EndedRecorder:
+        is_stream_ended = True
+        end_error = "consumer-only mode (no recorder)"
+        def stop(self) -> None: pass  # noqa: E301
+
+    consumer = Consumer(work_dir, base_stem, seg_s, _EndedRecorder(), args)  # type: ignore[arg-type]
+    consumer.start()
+    consumer.join()
+
+    dummy_stream = ExtractedStream(
+        url="", headers={}, extractor="hls-consumer-only",
+        media_type="hls-ts", page_url="",
+    )
+    return _finalize_hls_run(consumer.get_chunks(), base_stem, created_at,
+                              dummy_stream, "consumer-only replay", args)
+
+
 def run_validation(args: argparse.Namespace) -> dict:
     keepalive: PlaywrightKeepaliveStream | None = None
     try:
@@ -1279,13 +1663,37 @@ def build_parser() -> argparse.ArgumentParser:
         default="",
         help="Gemini API key. Defaults to the GEMINI_API_KEY environment variable.",
     )
+    # ── Continuous HLS flags ──────────────────────────────────────────────────
+    parser.add_argument(
+        "--continuous-hls",
+        action="store_true",
+        help=(
+            "Continuous HLS recording mode: ffmpeg records .ts segments in a background "
+            "thread while ASR + keyframe extraction runs in parallel. No gaps between "
+            "segments. Recommended for unattended live streams."
+        ),
+    )
+    parser.add_argument(
+        "--hls-consumer-only",
+        action="store_true",
+        help=(
+            "Process existing .ts segments from a previous --continuous-hls run "
+            "without starting a new recording. "
+            "Point --stream-work-dir at the directory containing seg_*.ts files."
+        ),
+    )
     return parser
 
 
 def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
-    run_validation(args)
+    if args.hls_consumer_only:
+        run_hls_consumer_only(args)
+    elif args.continuous_hls:
+        run_continuous_hls(args)
+    else:
+        run_validation(args)
 
 
 if __name__ == "__main__":
