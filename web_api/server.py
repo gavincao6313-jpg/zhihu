@@ -397,6 +397,65 @@ def run_from_qc(path: Path, include_detail: bool = True) -> dict:
     }
 
 
+def run_from_mp4_md(md_path: Path, include_detail: bool = True) -> dict:
+    """Build a RunRecord from a local MP4 Markdown output (no QC file)."""
+    stem = md_path.stem                      # e.g. "TTS_0602_MyVideo"
+    base = stem.removeprefix("TTS_")         # e.g. "0602_MyVideo"
+    mtime = int(md_path.stat().st_mtime)
+    markdown_preview = read_text(md_path, limit=6000) if include_detail else ""
+    return {
+        "id": stem,
+        "base": stem,
+        "source_type": "mp4",
+        "status": "completed",
+        "created_at": str(mtime),
+        "updated_at": str(mtime),
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "synthesis_pass": "one-shot",
+        "label": "gemini",
+        "paths": {
+            "markdown": _rel(md_path),
+            "manifest_json": "",
+            "combined_transcript": "",
+            "final_qc": "",
+        },
+        "metrics": {"chunks": 0, "transcript_chars": 0, "frames": 0, "warnings": 0},
+        "steps": [
+            {"key": "source",    "label": "Source",    "status": "done",    "summary": "Local MP4 file"},
+            {"key": "synthesis", "label": "Synthesis", "status": "done",    "summary": "Gemini one-shot"},
+            {"key": "markdown",  "label": "Markdown",  "status": "done",    "summary": _rel(md_path)},
+        ],
+        "chunks": [],
+        "frames": [],
+        "qc": {
+            "source_status": "full",
+            "body_coverage_status": "ok",
+            "body_tail_gap_s": 0,
+            "frame_count": 0,
+            "warnings": [],
+            "provider": "gemini",
+            "model": "gemini-2.5-flash",
+            "synthesis_pass": "one-shot",
+        },
+        "plan": None,
+        "logs": [],
+        "transcript_preview": "",
+        "markdown_preview": markdown_preview,
+    }
+
+
+def list_mp4_runs() -> list[dict]:
+    """Discover local MP4 pipeline outputs from Markdowns/TTS_MMDD_*.md files."""
+    # Match TTS_MMDD_name.md (4-digit date prefix) but exclude stream replays
+    mp4_mds = [
+        p for p in MARKDOWNS_DIR.glob("TTS_[0-9][0-9][0-9][0-9]_*.md")
+        if "stream" not in p.stem
+    ]
+    mp4_mds = sorted(mp4_mds, key=lambda p: p.stat().st_mtime, reverse=True)
+    return [run_from_mp4_md(p, include_detail=False) for p in mp4_mds[:20]]
+
+
 def list_runs() -> list[dict]:
     qc_files = [
         path
@@ -405,15 +464,20 @@ def list_runs() -> list[dict]:
     ]
     qc_files = sorted(qc_files, key=lambda path: path.stat().st_mtime, reverse=True)
     created = [record_to_run(record, include_detail=False) for record in list_registry_records()]
-    # Registry runs take precedence: skip QC-backed runs that share the same base,
-    # so a completed run doesn't appear twice once it produces a final-qc artifact.
+    # Registry runs take precedence: skip QC-backed runs that share the same base.
     registered_bases = {r["base"] for r in created}
     completed = [
         run_from_qc(path, include_detail=False)
         for path in qc_files[:30]
         if parse_qc_path(path)[0] not in registered_bases
     ]
-    return (created + completed)[:40]
+    # MP4 local pipeline runs (no QC file, discovered from Markdowns/*.md)
+    qc_bases = {parse_qc_path(p)[0] for p in qc_files}
+    mp4 = [
+        r for r in list_mp4_runs()
+        if r["base"] not in registered_bases and r["id"] not in qc_bases
+    ]
+    return (created + completed + mp4)[:50]
 
 
 def find_qc_by_id(run_id: str) -> Path | None:
@@ -736,10 +800,15 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(record_to_run(registry_record, include_detail=True))
                 return
             qc_path = find_qc_by_id(run_id)
-            if not qc_path:
-                self.send_json({"error": "run not found"}, status=404)
+            if qc_path:
+                self.send_json(run_from_qc(qc_path, include_detail=True))
                 return
-            self.send_json(run_from_qc(qc_path, include_detail=True))
+            # Try MP4 run (id == Markdown stem, e.g. "TTS_0602_MyVideo")
+            mp4_md = MARKDOWNS_DIR / f"{run_id}.md"
+            if mp4_md.exists():
+                self.send_json(run_from_mp4_md(mp4_md, include_detail=True))
+                return
+            self.send_json({"error": "run not found"}, status=404)
             return
         self.send_json({"error": "not found"}, status=404)
 
