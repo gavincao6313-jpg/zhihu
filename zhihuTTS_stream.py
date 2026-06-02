@@ -366,8 +366,23 @@ def parse_curl_file(path: str) -> tuple[str, dict[str, str]]:
     return url, headers
 
 
+_FFMPEG_SKIP_HEADERS = {
+    "range",
+    "host",
+    "connection",
+    "accept-encoding",
+    "transfer-encoding",
+    "content-length",
+    "content-type",
+}
+
+
 def build_ffmpeg_headers(headers: dict[str, str]) -> str:
-    return "".join(f"{key}: {value}\r\n" for key, value in headers.items())
+    return "".join(
+        f"{key}: {value}\r\n"
+        for key, value in headers.items()
+        if key.lower() not in _FFMPEG_SKIP_HEADERS
+    )
 
 
 def with_headers(cmd: list[str], headers: dict[str, str]) -> list[str]:
