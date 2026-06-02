@@ -65,6 +65,13 @@ const dict = {
   thSegments:        { zh: "段落",                                 en: "Segments" },
   thFrames:          { zh: "帧",                                   en: "Frames" },
   thBackend:         { zh: "后端",                                 en: "Backend" },
+  qcSourceStatus:    { zh: "来源状态",                             en: "Source Status" },
+  qcBodyCoverage:    { zh: "正文覆盖率",                           en: "Body Coverage" },
+  qcFrames:          { zh: "帧数",                                 en: "Frames" },
+  qcWindows:         { zh: "窗口",                                 en: "Windows" },
+  qcCoveredFrames:   { zh: "已覆盖帧",                             en: "Covered Frames" },
+  qcOverlap:         { zh: "重叠率",                               en: "Overlap" },
+  notPlanned:        { zh: "未计划",                               en: "not planned" },
 } as const;
 
 export type I18nKey = keyof typeof dict;

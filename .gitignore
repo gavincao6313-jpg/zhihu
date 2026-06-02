@@ -19,11 +19,16 @@ __pycache__/
 *.pyc
 .venv*/
 
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+
 # Playwright browser binaries (downloaded locally)
 .playwright-browsers/
 
 # Local probe media
 runs/*.wav
+runs/web-run-registry.json
 
 # Checkpoint files — deleted on clean exit; only committed accidentally
 runs/*.checkpoint.json

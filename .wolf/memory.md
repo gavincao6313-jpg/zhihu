@@ -831,3 +831,84 @@
 | 16:47 | Created web_api/start_mac_live.sh | — | ~265 |
 | 16:54 | Edited frontend/src/api.ts | 2→3 lines | ~81 |
 | 16:54 | Edited frontend/src/styles.css | expanded (+21 lines) | ~132 |
+| 17:06 | designqc: captured 6 screenshots (205KB, ~15000 tok) | / | ready for eval | ~0 |
+| 17:14 | Edited web_api/server.py | modified manifest_for_base() | ~164 |
+| 17:14 | Edited web_api/server.py | 5→5 lines | ~66 |
+| 17:15 | Edited web_api/server.py | 3→7 lines | ~69 |
+| 17:15 | Edited web_api/server.py | modified startswith() | ~65 |
+| 17:15 | Edited frontend/src/api.ts | added error handling | ~168 |
+| 17:16 | Edited frontend/src/App.tsx | added 1 import(s) | ~54 |
+| 17:16 | Edited frontend/src/App.tsx | CSS: launch_mode, readonly, running_statuses | ~90 |
+| 17:17 | Edited frontend/src/App.tsx | 9→10 lines | ~71 |
+| 17:17 | Edited frontend/src/App.tsx | expanded (+7 lines) | ~230 |
+| 17:17 | Edited frontend/src/App.tsx | added 2 condition(s) | ~90 |
+| 17:17 | Edited frontend/src/styles.css | expanded (+19 lines) | ~125 |
+| 17:18 | Edited web_api/start_mac_live.sh | 10→15 lines | ~124 |
+| 22:07 | Edited web_api/server.py | added 2 import(s) | ~78 |
+| 22:08 | Edited web_api/server.py | modified _run_pipeline_engine() | ~757 |
+| 22:08 | Edited web_api/server.py | modified launch_replay_pipeline() | ~205 |
+| 22:09 | Edited web_api/server.py | modified launch_mp4_pipeline() | ~140 |
+| 22:09 | Edited web_api/server.py | modified _find_running_record_for_url() | ~154 |
+| 22:11 | Edited web_api/server.py | modified do_POST() | ~233 |
+| 22:12 | Edited frontend/src/App.tsx | added 1 condition(s) | ~164 |
+| 22:13 | Edited frontend/src/api.ts | added error handling | ~138 |
+| 22:19 | Edited web_api/server.py | modified _resolve_run_base() | ~716 |
+| 22:19 | Edited web_api/server.py | 14→18 lines | ~215 |
+| 22:20 | Created web_api/api_watchdog.bat | — | ~235 |
+| 22:21 | Edited web_api/start_win.bat | modified Watchdog() | ~414 |
+| 22:24 | Created docs/P3_AUTOMATION_BACKLOG.md | — | ~507 |
+| 22:35 | Edited web_api/server.py | modified _check_auth_state() | ~618 |
+| 22:35 | Edited web_api/server.py | 7→10 lines | ~99 |
+| 22:36 | Edited web_api/server.py | exists() → _check_auth_state() | ~68 |
+| 22:36 | Edited frontend/src/api.ts | added error handling | ~156 |
+| 22:36 | Edited frontend/src/App.tsx | 11→12 lines | ~63 |
+| 22:36 | Edited frontend/src/App.tsx | 2→4 lines | ~86 |
+| 22:37 | Edited frontend/src/App.tsx | added 1 condition(s) | ~142 |
+| 22:37 | Edited frontend/src/App.tsx | expanded (+21 lines) | ~380 |
+| 22:37 | Edited frontend/src/styles.css | expanded (+52 lines) | ~270 |
+| 22:46 | Edited zhihuTTS_stream.py | added 1 import(s) | ~60 |
+| 22:48 | Edited zhihuTTS_stream.py | modified __init__() | ~4526 |
+| 22:48 | Edited zhihuTTS_stream.py | modified main() | ~343 |
+| 22:48 | Edited web_api/server.py | 14→17 lines | ~236 |
+| 22:49 | Edited web_api/server.py | 5→5 lines | ~93 |
+| 22:50 | Edited docs/P3_AUTOMATION_BACKLOG.md | expanded (+7 lines) | ~62 |
+| 22:50 | Edited docs/P3_AUTOMATION_BACKLOG.md | 8→7 lines | ~90 |
+| 22:53 | Created frontend/src/polling.worker.ts | — | ~173 |
+| 22:55 | Created frontend/src/useWorkerInterval.ts | — | ~269 |
+| 22:55 | Edited frontend/src/App.tsx | added 1 import(s) | ~32 |
+| 22:55 | Edited frontend/src/App.tsx | inline fix | ~22 |
+| 22:55 | Edited frontend/src/App.tsx | 17→13 lines | ~183 |
+| 22:56 | Edited frontend/src/App.tsx | modified Chunks() | ~200 |
+
+## Session: 2026-06-02 23:04
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-02 23:18
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:19 | Edited web_api/server.py | 10→14 lines | ~118 |
+| 23:20 | Edited frontend/src/i18n.ts | expanded (+7 lines) | ~195 |
+| 23:21 | Edited frontend/src/App.tsx | added 10 condition(s) | ~496 |
+| 23:22 | Edited frontend/src/App.tsx | inline fix | ~25 |
+| 23:24 | Edited frontend/src/App.tsx | CSS: lang | ~292 |
+| 23:24 | Edited zhihuTTS_stream.py | 3→3 lines | ~36 |
+| 23:24 | Edited zhihuTTS_stream.py | modified stop() | ~17 |
+| 23:25 | Edited frontend/src/App.tsx | inline fix | ~18 |
+| 23:25 | Edited frontend/src/App.tsx | added optional chaining | ~218 |
+| 23:25 | Edited zhihuTTS_stream.py | inline fix | ~13 |
+| 23:26 | Evaluated Qwen3.7-Max fit for zhihu validation model | .wolf/cerebrum.md, utils.py, docs/handoff-20260601-live.md, Qwen official docs | recommend gated smoke test as text/agent validation candidate first; do not replace multimodal Qwen3.6-Plus until image support and QC pass | ~8000 |
+| 23:27 | Edited frontend/src/App.tsx | expanded (+16 lines) | ~227 |
+| 23:27 | Edited zhihuTTS_stream.py | modified is_set() | ~33 |
+| 23:31 | Edited frontend/src/App.tsx | 2→2 lines | ~79 |
+| 23:31 | Edited zhihuTTS_stream.py | modified is_set() | ~25 |
+| 23:32 | Edited web_api/server.py | modified _cleanup_orphaned_records() | ~303 |
+| 23:32 | Edited web_api/server.py | 2→2 lines | ~38 |
+| 23:32 | Edited web_api/server.py | 3→3 lines | ~50 |
+| 23:32 | Edited web_api/server.py | 3→3 lines | ~50 |
+| 23:33 | Edited web_api/server.py | 3→4 lines | ~58 |
+| 23:36 | Edited web_api/server.py | 5→5 lines | ~74 |
+| 00:00 | 修复汉化不完整+WIN日志乱码 | frontend/src/App.tsx, frontend/src/i18n.ts, web_api/server.py | 完成，tsc通过，py_compile通过 | ~2000 |
+| 00:30 | 修复bug-132/133/134: Recorder._stop→_stop_event(5处), _cleanup_orphaned_records加exclude_id(3处调用), live qwen_max_frames读plan | zhihuTTS_stream.py, web_api/server.py | py_compile PASS | ~800 |

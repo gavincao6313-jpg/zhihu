@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T08:54:49.940Z
-> Files: 70 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T15:36:42.655Z
+> Files: 74 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -15,7 +15,7 @@
 - `START_LIVE.bat` (~472 tok)
 - `stream_extractors.py` — class: is_ytdlp_stream_ended_error, infer_media_type, analyze_url_route, extract_with_ytdlp + 1 more (~6476 tok)
 - `utils.py` — Shared utilities + Qwen QC: call_gemini/call_qwen、extract_qwen_critical_facts、extract_qwen_narrative_blocks、ensure_qwen_critical/narrative_appendix、check_qwen_notebooklm_quality、check_qwen_fact/narrative_retention。 (~8796 tok)
-- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time, safe_name + 1 more (~14162 tok)
+- `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time, safe_name + 1 more (~19014 tok)
 - `zhihuTTS_video.py` — 关键帧提取 + SenseVoice/Whisper 转写（_sensevoice_model_cache 单例，避免每 chunk 重复加载 AutoModel）。 (~8432 tok)
 
 ## .claude/
@@ -60,6 +60,7 @@
 - `FRONTEND_DASHBOARD_DESIGN.md` — 直播转写控制台 — 前端设计需求 (~1076 tok)
 - `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~3188 tok)
 - `LIVE_STREAM_SOP.md` — 知乎直播转写标准操作流程 (SOP) (~1727 tok)
+- `P3_AUTOMATION_BACKLOG.md` — P3 自动化积压 — 待完成（非阻塞） (~547 tok)
 - `WIN_LIVE_QWEN_WINDOW_FIX_VALIDATION_20260530.md` — WIN 验证交接：Qwen 滑动窗口 overlap 修复验证 (~439 tok)
 
 ## frontend/
@@ -73,16 +74,18 @@
 
 ## frontend/src/
 
-- `api.ts` — Exports fetchRuns, fetchRun, createRunPlan, createRun + 4 more (~1657 tok)
-- `App.tsx` — SOURCE_ICONS (~9732 tok)
+- `api.ts` — Exports ServerConfig, AuthStatus, fetchAuthStatus, fetchConfig + 8 more (~1946 tok)
+- `App.tsx` — SOURCE_ICONS (~11134 tok)
 - `frontend/src/api.ts` — 前端 API 客户端；调用 `/api/runs`、`/api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs`，runs API 不可用时回退到 2026-06-01 live sample。 (~1600 tok)
 - `frontend/src/App.tsx` — Pipeline Workbench 主 UI；默认中文+中英切换、MP4 拖入区、URL 拖入支持、一键启动（directLaunch），以及 Runs 列表、Run Detail tabs。 (~9700 tok)
 - `frontend/src/i18n.ts` — 中英双语翻译词典；导出 Lang 类型和 t(lang, key) 函数，覆盖所有 UI 字符串。 (~300 tok)
 - `frontend/src/main.tsx` — React root 挂载入口。 (~80 tok)
 - `frontend/src/styles.css` — Workbench 全局样式，定义双栏布局、source 表单、dry-run plan、运行卡片、日志列表、指标条、流程线、表格、QC、关键帧和文本预览。 (~5400 tok)
 - `frontend/src/types.ts` — Run、Artifact、PipelineStep、Chunk、Frame、QC、RunPlan/RunPlanRequest、RunLogEntry 等前端数据类型。 (~1300 tok)
-- `i18n.ts` — Exports Lang, I18nKey, t (~1667 tok)
-- `styles.css` — Styles: 134 rules (~3854 tok)
+- `i18n.ts` — Exports Lang, I18nKey, t (~1835 tok)
+- `polling.worker.ts` — Background polling timer. (~173 tok)
+- `styles.css` — Styles: 132 rules (~4239 tok)
+- `useWorkerInterval.ts` — Calls `callback` every `intervalMs` milliseconds while `active` is true. (~269 tok)
 
 ## githooks/
 
@@ -111,9 +114,10 @@
 
 ## web_api/
 
-- `server.py` — read_json, read_text, write_json, source_type_from_base (~12918 tok)
-- `start_mac_live.sh` — start_mac_live.sh — Mac 端本地真实任务模式 (~265 tok)
+- `api_watchdog.bat` (~235 tok)
+- `server.py` — read_json, read_text, write_json, source_type_from_base (~16037 tok)
+- `start_mac_live.sh` — start_mac_live.sh — Mac 端本地真实任务模式 (~320 tok)
 - `start_mac_viewer.sh` — start_mac_viewer.sh — MAC 端只读查看器 (~210 tok)
-- `start_win.bat` (~391 tok)
+- `start_win.bat` (~438 tok)
 - `web_api/README.md` — 本地 Web API 说明；记录 `GET /api/runs`、`GET /api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs` 和启动命令。 (~180 tok)
 - `web_api/server.py` — 纯标准库本地 API；扫描 `runs/*.final-qc.json`，关联 manifest、transcript、Markdown、chunks、payload frames，输出前端 Run 数据；新增 dry-run plan 生成和本地 created run registry，不启动长任务。 (~6800 tok)

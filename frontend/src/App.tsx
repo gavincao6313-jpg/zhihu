@@ -103,6 +103,60 @@ function stepLabel(key: string, serverLabel: string, lang: Lang): string {
   return STEP_LABELS[key]?.[lang] ?? serverLabel;
 }
 
+const _STEP_SUMMARY_ZH: Record<string, string> = {
+  "Not started": "未开始",
+  "Waiting for capture output": "等待采集输出",
+  "Waiting for payload frames": "等待载荷帧",
+  "No final QC yet": "暂无质检结果",
+  "Combined transcript available": "逐字稿已就绪",
+  "No combined transcript": "暂无逐字稿",
+  "Final Markdown available": "Markdown 已就绪",
+  "No final Markdown": "暂无 Markdown",
+  "Live capture active": "直播采集中",
+};
+
+const _SOURCE_TYPE_ZH: Record<string, string> = { replay: "回放", live: "直播", mp4: "MP4" };
+
+const _STAGE_LABELS_ZH: Record<string, { zh: string; en: string }> = {
+  PREPARE:    { zh: "准备",   en: "PREPARE" },
+  SYNTHESIZE: { zh: "合成",   en: "SYNTHESIZE" },
+  CAPTURE:    { zh: "采集",   en: "CAPTURE" },
+  TRANSCRIBE: { zh: "转写",   en: "TRANSCRIBE" },
+  RUN:        { zh: "运行",   en: "RUN" },
+};
+
+const _PATH_KEY_ZH: Record<string, { zh: string; en: string }> = {
+  MANIFEST_JSON:       { zh: "manifest 清单",  en: "manifest json" },
+  COMBINED_TRANSCRIPT: { zh: "合并逐字稿",      en: "combined transcript" },
+  FINAL_QC:            { zh: "质检报告",        en: "final qc" },
+  MARKDOWN:            { zh: "最终 Markdown",   en: "markdown" },
+  MP4_PATH:            { zh: "MP4 路径",        en: "mp4 path" },
+};
+
+function stepSummary(summary: string, lang: Lang): string {
+  if (lang === "en" || !summary) return summary;
+  if (_STEP_SUMMARY_ZH[summary]) return _STEP_SUMMARY_ZH[summary];
+  let m: RegExpMatchArray | null;
+  if ((m = summary.match(/^(\d+) planned commands?$/))) return `${m[1]} 个计划命令`;
+  if ((m = summary.match(/^(\d+) chunks? indexed$/))) return `${m[1]} 个分片已索引`;
+  if ((m = summary.match(/^(\d+) frames? in QC$/))) return `${m[1]} 帧已质检`;
+  if ((m = summary.match(/^(\d+) warnings?, coverage=(.+)$/))) return `${m[1]} 个警告，覆盖率=${m[2]}`;
+  if ((m = summary.match(/^source_status=(.+)$/))) return `来源状态=${m[1]}`;
+  if ((m = summary.match(/^(\w+) input planned$/))) return `${_SOURCE_TYPE_ZH[m[1]] ?? m[1]} 输入已计划`;
+  return summary;
+}
+
+function qcStatusValue(value: string | number | null | undefined, lang: Lang): string {
+  if (value == null) return "-";
+  if (lang === "en") return String(value);
+  const zh: Record<string, string> = {
+    planned: "计划中", pending: "待处理", unknown: "未知",
+    ok: "正常", failed: "失败", partial: "部分",
+    warning: "警告", completed: "完成",
+  };
+  return zh[String(value)] ?? String(value);
+}
+
 // ── DragDropZone ──────────────────────────────────────────────────────────────
 
 function DragDropZone({
@@ -220,7 +274,7 @@ function RunPlanPanel({
           <div className="command-item" key={`${cmd.stage}-${cmd.command}`}>
             <div className="command-head">
               <strong>{cmd.label}</strong>
-              <span>{cmd.stage}</span>
+              <span>{_STAGE_LABELS_ZH[cmd.stage]?.[lang] ?? cmd.stage}</span>
             </div>
             <code>{cmd.command}</code>
             <p>{cmd.summary}</p>
@@ -230,8 +284,8 @@ function RunPlanPanel({
       <div className="path-grid">
         {Object.entries(plan.paths).map(([key, value]) => (
           <div key={key}>
-            <span>{key}</span>
-            <code>{value || "not planned"}</code>
+            <span>{_PATH_KEY_ZH[key]?.[lang] ?? key.replace(/_/g, " ").toLowerCase()}</span>
+            <code>{value || t(lang, "notPlanned")}</code>
           </div>
         ))}
       </div>
@@ -348,7 +402,7 @@ function Overview({
               <div className="step-dot" />
               <div>
                 <div className="step-title">{stepLabel(step.key, step.label, lang)}</div>
-                <div className="step-summary">{step.summary}</div>
+                <div className="step-summary">{stepSummary(step.summary, lang)}</div>
               </div>
             </div>
           ))}
@@ -361,8 +415,8 @@ function Overview({
           <h2>{t(lang, "runHealthTitle")}</h2>
         </div>
         <div className="health-grid">
-          <div><span>{t(lang, "healthSource")}</span><strong>{run.qc?.source_status ?? "unknown"}</strong></div>
-          <div><span>{t(lang, "healthCoverage")}</span><strong>{run.qc?.body_coverage_status ?? "pending"}</strong></div>
+          <div><span>{t(lang, "healthSource")}</span><strong>{qcStatusValue(run.qc?.source_status ?? "unknown", lang)}</strong></div>
+          <div><span>{t(lang, "healthCoverage")}</span><strong>{qcStatusValue(run.qc?.body_coverage_status ?? "pending", lang)}</strong></div>
           <div><span>{t(lang, "healthTailGap")}</span><strong>{
             (() => {
               const v = run.qc?.body_tail_gap_s;
@@ -463,7 +517,7 @@ function Chunks({ run, lang }: { run: RunRecord; lang: Lang }) {
 
 // ── QcPanel ───────────────────────────────────────────────────────────────────
 
-function QcPanel({ run }: { run: RunRecord }) {
+function QcPanel({ run, lang }: { run: RunRecord; lang: Lang }) {
   const qc = run.qc;
   return (
     <section className="panel full">
@@ -472,12 +526,12 @@ function QcPanel({ run }: { run: RunRecord }) {
         <h2>QC</h2>
       </div>
       <div className="qc-grid">
-        <div><span>source_status</span><strong>{qc?.source_status ?? "unknown"}</strong></div>
-        <div><span>body_coverage</span><strong>{qc?.body_coverage_status ?? "pending"}</strong></div>
-        <div><span>frames</span><strong>{qc?.frame_count ?? run.metrics.frames}</strong></div>
-        <div><span>windows</span><strong>{qc?.qwen_window_policy?.window_count ?? "-"}</strong></div>
-        <div><span>covered frames</span><strong>{qc?.qwen_window_policy?.covered_new_frames ?? "-"}</strong></div>
-        <div><span>overlap</span><strong>{qc?.qwen_window_policy?.overlap_frames ?? "-"}</strong></div>
+        <div><span>{t(lang, "qcSourceStatus")}</span><strong>{qcStatusValue(qc?.source_status ?? "unknown", lang)}</strong></div>
+        <div><span>{t(lang, "qcBodyCoverage")}</span><strong>{qcStatusValue(qc?.body_coverage_status ?? "pending", lang)}</strong></div>
+        <div><span>{t(lang, "qcFrames")}</span><strong>{qc?.frame_count ?? run.metrics.frames}</strong></div>
+        <div><span>{t(lang, "qcWindows")}</span><strong>{qc?.qwen_window_policy?.window_count ?? "-"}</strong></div>
+        <div><span>{t(lang, "qcCoveredFrames")}</span><strong>{qc?.qwen_window_policy?.covered_new_frames ?? "-"}</strong></div>
+        <div><span>{t(lang, "qcOverlap")}</span><strong>{qc?.qwen_window_policy?.overlap_frames ?? "-"}</strong></div>
       </div>
       <div className="warnings">
         {(qc?.warnings ?? []).map((w) => (
@@ -619,7 +673,7 @@ function DetailTab({
   }
   if (tab === "Logs") return <LogsPanel run={run} lang={lang} />;
   if (tab === "Chunks") return <Chunks run={run} lang={lang} />;
-  if (tab === "QC") return <QcPanel run={run} />;
+  if (tab === "QC") return <QcPanel run={run} lang={lang} />;
   if (tab === "Keyframes") return <Keyframes run={run} lang={lang} />;
   if (tab === "Transcript") {
     return (

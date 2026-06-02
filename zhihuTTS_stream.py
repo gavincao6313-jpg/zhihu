@@ -977,13 +977,13 @@ class Recorder(threading.Thread):
         self._keepalive = keepalive
         self._stream = initial_stream
         self._max_restarts = max_restarts
-        self._stop = threading.Event()
+        self._stop_event = threading.Event()
         self._ended = threading.Event()
         self._restart_count = 0
         self._end_error = ""
 
     def stop(self) -> None:
-        self._stop.set()
+        self._stop_event.set()
 
     @property
     def is_stream_ended(self) -> bool:
@@ -999,7 +999,7 @@ class Recorder(threading.Thread):
         session_epoch = int(time.time())
         seg_pattern = str(self.work_dir / f"seg_{session_epoch}_%06d.ts")
 
-        while not self._stop.is_set():
+        while not self._stop_event.is_set():
             if self._restart_count > self._max_restarts:
                 self._end_error = f"exceeded {self._max_restarts} URL restarts"
                 break
@@ -1029,7 +1029,7 @@ class Recorder(threading.Thread):
                 )
                 for raw in proc.stdout:
                     line = raw.rstrip()
-                    if self._stop.is_set():
+                    if self._stop_event.is_set():
                         proc.kill()
                         break
                     if line:
@@ -1050,7 +1050,7 @@ class Recorder(threading.Thread):
                 self._end_error = f"Recorder subprocess error: {exc}"
                 break
 
-            if self._stop.is_set() or self._ended.is_set():
+            if self._stop_event.is_set() or self._ended.is_set():
                 break
 
             # ffmpeg exited unexpectedly — try URL refresh via keepalive

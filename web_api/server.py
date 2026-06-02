@@ -1004,11 +1004,12 @@ def _find_running_record_for_url(url: str) -> dict | None:
     return None
 
 
-def _cleanup_orphaned_records(new_url: str) -> None:
+def _cleanup_orphaned_records(new_url: str, exclude_id: str = "") -> None:
     """Remove old failed/created records with the same source URL.
 
     Prevents stale 'failed' records from piling up when the user retries
-    the same URL after a launch error.
+    the same URL after a launch error. exclude_id protects the current run
+    from being deleted while its status is still 'created'.
     """
     normalized_url = new_url.strip().rstrip("/")
     if not normalized_url:
@@ -1018,6 +1019,9 @@ def _cleanup_orphaned_records(new_url: str) -> None:
         keep = []
         removed = 0
         for r in records:
+            if exclude_id and r.get("id") == exclude_id:
+                keep.append(r)
+                continue
             old_url = str((r.get("plan") or {}).get("source") or "").strip().rstrip("/")
             if old_url and old_url == normalized_url and r.get("status") in ("failed", "created"):
                 removed += 1
@@ -1071,10 +1075,14 @@ def _run_pipeline_engine(
         last_flush_t = time.monotonic()
 
     try:
+        _env = env or os.environ.copy()
+        _env["NO_COLOR"] = "1"
+        _env["PYTHONIOENCODING"] = "utf-8"
+        _env["PYTHONUTF8"] = "1"
         proc = subprocess.Popen(
             cmd,
             cwd=str(ROOT),
-            env=env or os.environ.copy(),
+            env=_env,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -1186,12 +1194,13 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
     base = str(plan.get("base") or "").strip()
     provider = str(plan.get("provider") or "gemini")
     synthesis_pass = str(plan.get("synthesis_pass") or "one-shot")
+    qwen_max_frames = int(plan.get("qwen_max_frames") or 250)
     if not source:
         update_registry_record(run_id, "failed", "No source URL in plan.", "error")
         return
 
     # Remove stale failed records for the same URL (from previous retries)
-    _cleanup_orphaned_records(source)
+    _cleanup_orphaned_records(source, exclude_id=run_id)
 
     python = _find_python()
     auth = ROOT / "zhihu_auth_state.json"
@@ -1249,7 +1258,7 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
         "--output-label", provider,
     ]
     if provider == "qwen":
-        synth_cmd += ["--qwen-max-frames", "250"]
+        synth_cmd += ["--qwen-max-frames", str(qwen_max_frames)]
     ok = _run_pipeline_engine(run_id, synth_cmd, None, [])
     if ok:
         update_registry_record(run_id, "completed", "Live pipeline finished. Refreshing index…")
@@ -1268,7 +1277,7 @@ def launch_replay_pipeline(run_id: str, record: dict) -> None:
         update_registry_record(run_id, "failed", "No source URL in plan.", "error")
         return
 
-    _cleanup_orphaned_records(source)
+    _cleanup_orphaned_records(source, exclude_id=run_id)
     python = _find_python()
     update_registry_record(run_id, "probing", f"Starting replay capture: {source[:80]}")
 
@@ -1325,7 +1334,7 @@ def launch_mp4_pipeline(run_id: str, record: dict) -> None:
     if not source:
         update_registry_record(run_id, "failed", "No file path in plan.", "error")
         return
-    _cleanup_orphaned_records(source)
+    _cleanup_orphaned_records(source, exclude_id=run_id)
     python = _find_python()
     update_registry_record(run_id, "probing", f"Launching MP4 pipeline: {source[:80]}")
     cmd = [python, str(ROOT / "run_single_file.py"), source]
