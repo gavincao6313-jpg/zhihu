@@ -192,7 +192,7 @@ def all_sections_done(manifest: dict) -> bool:
 # ── P1-4 Pass A ───────────────────────────────────────────────────────────────
 
 PASS_A_MODEL              = "gemini-3.5-flash"
-PASS_A_PRO_MODEL          = "gemini-2.5-pro"
+PASS_A_PRO_MODEL          = "gemini-3.5-flash"
 MAX_PASS_A_FLASH_ATTEMPTS = 2    # escalate to pro after this many flash failures
 PASS_A_CALL_DELAY_S       = 6.0  # 10 RPM free-tier → 6 s between calls
 PASS_A_MAX_RETRIES        = 2    # 429-level retries per call attempt
@@ -420,7 +420,7 @@ def pass_c_needs_rerun(manifest: dict) -> bool:
 # ── P1-5 Pass B ───────────────────────────────────────────────────────────────
 
 PASS_B_MODEL         = "gemini-3.5-flash"
-PASS_B_PRO_MODEL     = "gemini-2.5-pro"
+PASS_B_PRO_MODEL     = "gemini-3.5-flash"
 OUTLINE_MIN_CHAPTERS = 2
 OUTLINE_MAX_CHAPTERS = 20
 
@@ -539,7 +539,7 @@ def run_pass_b(
     """Execute Pass B: merge all section notes into a global chapter outline.
 
     Tries gemini-3.5-flash first; if outline QC fails, re-runs with
-    gemini-2.5-pro.  Writes outline.json and updates manifest.
+    gemini-3.5-flash.  Writes outline.json and updates manifest.
 
     Raises RuntimeError if not all sections are done.
     Returns the outline dict on success, None on failure.
@@ -624,7 +624,7 @@ def run_pass_b(
 
 # ── P1-6 Pass C ───────────────────────────────────────────────────────────────
 
-PASS_C_MODEL             = "gemini-2.5-pro"
+PASS_C_MODEL             = "gemini-3.5-flash"
 PASS_C_MAX_RETRIES       = 3
 PASS_C_MAX_CONTINUATIONS = 20   # final doc can be long; matches utils.call_gemini default
 
@@ -724,7 +724,7 @@ def run_pass_c(
 
     State: pending/stale/failed/running → running → done | failed
 
-    Uses gemini-2.5-pro by default; honours call_gemini continuation for long
+    Uses gemini-3.5-flash by default; honours call_gemini continuation for long
     outputs.  Writes final.md and updates manifest.
 
     Raises RuntimeError if pass_b is not done.

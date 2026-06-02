@@ -430,7 +430,7 @@ def run_from_mp4_md(md_path: Path, include_detail: bool = True) -> dict:
         "created_at": str(mtime),
         "updated_at": str(mtime),
         "provider": "gemini",
-        "model": "gemini-2.5-flash",
+        "model": "gemini-3.5-flash",
         "synthesis_pass": "one-shot",
         "label": "gemini",
         "paths": {
@@ -454,7 +454,7 @@ def run_from_mp4_md(md_path: Path, include_detail: bool = True) -> dict:
             "frame_count": 0,
             "warnings": [],
             "provider": "gemini",
-            "model": "gemini-2.5-flash",
+            "model": "gemini-3.5-flash",
             "synthesis_pass": "one-shot",
         },
         "plan": None,

@@ -149,7 +149,7 @@ def build_gemini_parts(payload: dict, transcript_text: str, frame_limit: int = G
     return parts
 
 
-def call_gemini_with_retry(client, parts: list, label: str, model: str = "gemini-2.5-flash") -> str | None:
+def call_gemini_with_retry(client, parts: list, label: str, model: str = "gemini-3.5-flash") -> str | None:
     gemini_config = types.GenerateContentConfig(
         temperature=0.1,
         max_output_tokens=65536,

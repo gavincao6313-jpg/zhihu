@@ -10,7 +10,7 @@ from google import genai
 from google.genai import types
 
 # ── Config ────────────────────────────────────────────────────────────────────
-GEMINI_MODEL            = "gemini-2.5-flash"
+GEMINI_MODEL            = "gemini-3.5-flash"
 GEMINI_IMAGE_HARD_LIMIT = 3000
 MAX_RETRIES             = 6
 MAX_CONTINUATIONS       = 20
