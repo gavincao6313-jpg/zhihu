@@ -1044,26 +1044,66 @@ def _run_pipeline_engine(
         return False
 
 
-def _resolve_run_base(hint: str) -> str:
-    """Find the actual base name used by the capture pipeline.
+def _resolve_run_base(hint: str, max_wait_s: float = 6.0) -> str:
+    """Find the actual base name used by the capture pipeline, waiting for files to appear.
 
-    The pipeline applies safe_name() sanitisation, so look for checkpoint
-    or chunk files matching the hint prefix.
+    chunk/checkpoint files may not be on disk immediately after capture finishes.
+    Retries every 2s up to max_wait_s before falling back to hint.
     """
-    for pattern in (f"stream-{hint}_chunk*.md", f"stream-{hint}.checkpoint.json"):
-        candidates = sorted(RUNS_DIR.glob(pattern))
-        if candidates:
-            # Extract base from chunk filename: stream-<base>_chunk001_0s-...
-            name = candidates[0].name
-            # Remove leading "stream-" and trailing "_chunk..." or ".checkpoint..."
-            name = name[len("stream-"):]
-            idx = name.find("_chunk")
-            if idx < 0:
-                idx = name.find(".checkpoint")
-            if idx > 0:
-                return name[:idx]
-            return name
-    return hint
+    deadline = time.monotonic() + max_wait_s
+    while True:
+        for pattern in (f"stream-{hint}_chunk*.md", f"stream-{hint}.checkpoint.json"):
+            candidates = sorted(RUNS_DIR.glob(pattern))
+            if candidates:
+                name = candidates[0].name[len("stream-"):]
+                for sep in ("_chunk", ".checkpoint"):
+                    idx = name.find(sep)
+                    if idx > 0:
+                        return name[:idx]
+                return name
+        if time.monotonic() >= deadline:
+            return hint
+        time.sleep(2.0)
+
+
+_STALE_RUNNING_THRESHOLD_MINUTES = 30  # records stuck in running for >30m are likely orphaned
+
+
+def _recover_stale_records() -> int:
+    """On startup: mark running records last updated >30min ago as failed.
+
+    If server.py crashed mid-pipeline, those records stay in running state forever.
+    This makes the failure visible so the user can investigate the runs/ artifacts.
+    Returns the number of records recovered.
+    """
+    records = list_registry_records()
+    now = datetime.now()
+    changed = 0
+    for record in records:
+        if record.get("status") not in RUNNING_STATUSES:
+            continue
+        ts_str = record.get("updated_at") or record.get("created_at") or ""
+        try:
+            age_min = (now - datetime.fromisoformat(ts_str)).total_seconds() / 60
+        except (ValueError, TypeError):
+            age_min = _STALE_RUNNING_THRESHOLD_MINUTES + 1
+        if age_min >= _STALE_RUNNING_THRESHOLD_MINUTES:
+            record["status"] = "failed"
+            record["updated_at"] = now.strftime("%Y-%m-%dT%H:%M:%S")
+            record.setdefault("logs", []).append({
+                "time": now.strftime("%Y-%m-%dT%H:%M:%S"),
+                "level": "error",
+                "message": (
+                    f"Server restarted; pipeline status unknown "
+                    f"(last update {age_min:.0f}min ago). "
+                    f"Check runs/ for partial artifacts."
+                ),
+            })
+            changed += 1
+    if changed:
+        with _REGISTRY_LOCK:
+            write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
+    return changed
 
 
 def launch_live_pipeline(run_id: str, record: dict) -> None:
@@ -1244,6 +1284,10 @@ def main() -> None:
             print(f"  MAC can connect via: http://{lan_ip}:{args.port}")
         except Exception:
             pass
+
+    recovered = _recover_stale_records()
+    if recovered:
+        print(f"  stale records   : {recovered} stuck-running record(s) marked failed (crash recovery)")
 
     server = ThreadingHTTPServer((args.host, args.port), Handler)
     server.serve_forever()
