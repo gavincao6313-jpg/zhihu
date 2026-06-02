@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk118_7036s",
+  "full_text": "[00:00:00 - 00:00:59] 没有决策性大模型，只有生成式AI叫大模型，那叫生成式AI不叫决不不叫生成式大模型。这是拿生成式大模型模拟出来了决策性的功能了。这是完整的代码，不同的分数在多少分数之内是不建议上架的。然后最后在不同的条件判断下给出来相应的决策逻辑。正常用决策性哎怎么做？做机器学习算法做机器学习算法。这么讲吧，绝大多数公司是没有这个条件的。你们家有算法工程师吗？没有，这就是核心的问题。如果你按照真正非常标准的方法去做，你需要有算法工程师。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000117\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000117\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0454"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000117\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.0454"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.0454
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 233
+  }
+}

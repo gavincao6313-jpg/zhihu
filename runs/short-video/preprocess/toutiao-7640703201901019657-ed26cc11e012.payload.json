@@ -1,0 +1,55 @@
+{
+  "schema_version": "short-video-payload-v1",
+  "video_id": "toutiao-7640703201901019657-ed26cc11e012",
+  "source": {
+    "kind": "file",
+    "original": "D:\\zhihu\\zhihu_file\\Videos\\short\\toutiao\\toutiao-7640703201901019657.mp4",
+    "canonical": "D:\\zhihu\\zhihu_file\\Videos\\short\\toutiao\\toutiao-7640703201901019657.mp4",
+    "resolved_media_url": "",
+    "local_media_path": "D:\\zhihu\\zhihu_file\\Videos\\short\\toutiao\\toutiao-7640703201901019657.mp4",
+    "extractor": "local",
+    "media_type": "mp4",
+    "title": "toutiao-7640703201901019657"
+  },
+  "media": {
+    "duration_s": 31.114,
+    "width": 1440,
+    "height": 1080,
+    "size_bytes": 1713622
+  },
+  "transcript": {
+    "backend": "sensevoice",
+    "chars": 230,
+    "path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7640703201901019657-ed26cc11e012.transcript.txt"
+  },
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640703201901019657\\frame_00001.jpg",
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640703201901019657\\frame_00012.jpg",
+      "marker": "Frame [00:00:12] type=annotation diff=0.2726"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640703201901019657\\frame_00018.jpg",
+      "marker": "Frame [00:00:18] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640703201901019657\\frame_00022.jpg",
+      "marker": "Frame [00:00:22] type=annotation diff=0.1541"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640703201901019657\\frame_00027.jpg",
+      "marker": "Frame [00:00:27] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640703201901019657\\frame_00031.jpg",
+      "marker": "Frame [00:00:31] type=annotation diff=0.1428"
+    }
+  ],
+  "classification": {
+    "kind": "short_video",
+    "reason": "transcript<=80000chars — packable or solo one-shot"
+  }
+}

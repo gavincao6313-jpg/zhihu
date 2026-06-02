@@ -1,0 +1,78 @@
+{
+  "video_id": "toutiao-7598123390419747362-a2bb6714bc89",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00001.jpg",
+      "marker": "Frame [00:00:01] type=annotation diff=0.078"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00002.jpg",
+      "marker": "Frame [00:00:02] type=annotation diff=0.078"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00004.jpg",
+      "marker": "Frame [00:00:04] type=slide diff=0.4427"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00009.jpg",
+      "marker": "Frame [00:00:09] type=slide diff=0.6407"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00012.jpg",
+      "marker": "Frame [00:00:12] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00020.jpg",
+      "marker": "Frame [00:00:20] type=annotation diff=0.2623"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00021.jpg",
+      "marker": "Frame [00:00:21] type=slide diff=0.3417"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00033.jpg",
+      "marker": "Frame [00:00:33] type=annotation diff=0.2998"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7598123390419747362\\frame_00034.jpg",
+      "marker": "Frame [00:00:34] type=slide diff=0.4182"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.078
+    },
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.4427
+    },
+    {
+      "type": "slide",
+      "frame_idx": 8,
+      "diff": 0.6407
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.2623
+    },
+    {
+      "type": "slide",
+      "frame_idx": 20,
+      "diff": 0.3417
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.2998
+    },
+    {
+      "type": "slide",
+      "frame_idx": 33,
+      "diff": 0.4182
+    }
+  ]
+}

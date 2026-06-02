@@ -1,0 +1,41 @@
+# Stream URL Validation
+
+- Created: `2026-05-21T23:35:00`
+- URL host: `local`
+- Extractor: `hls-continuous`
+- Media type: `ts`
+- Source duration: `00:01:00`
+- Source size: `1712116` bytes
+- Auth headers: `none`
+- Slice start: `00:12:01`
+- Slice duration: `00:01:00`
+- Slice file: `Videos\.stream\seg_1748000000_000012.ts`
+- Slice size: `1712116` bytes
+- Slice kept: `True`
+- Stream re-extractions: `0`
+
+## Processing
+
+- Keyframe events: `1`
+- Kept frames: `3`
+- Backend: `sensevoice`
+- Transcribe duration: `8.53` seconds
+- Transcript segments: `1`
+- Transcript chars: `317`
+
+## Output Files
+
+- Transcript text: `D:\zhihu\zhihu_file\runs\stream-step2-verify_chunk013_721s-20260521-233500.transcript.txt`
+- Payload JSON: `D:\zhihu\zhihu_file\runs\stream-step2-verify_chunk013_721s-20260521-233500.payload.json`
+
+## Transcript Preview
+
+```text
+[00:00:00 - 00:01:00] 写这些函数的话，嗯，其实整个这个过程还比较的。比较的慢。对。你看全靠自己的这个手码，整个四个函数可能也就。十几行的长度，但是这个长度呢呃这十几行在马下呢。十几行代码下的最后去生成的这个结果。啊，我们我们自己手写还是比较慢的对啊。那这些其实是呢我们我会发现啊，日常这个编程工作中其实有很多这种重复性的这个这个工作啊，get use IDD然后又呃又get password。他们其实它的逻辑啊是非常的这个相似的。逻辑非常的相似，但是呢呃。但是呢就我们的正常变中其实充斥了很多很多这样子的一些这个这个这这样子这个重复性的这个问题，这是第一种情况啊。呃，那第二种呢，其实我们会发现啊这个呃。对笑。
+```
+
+## Full Global Transcript
+
+```text
+[00:12:01 - 00:13:01] 写这些函数的话，嗯，其实整个这个过程还比较的。比较的慢。对。你看全靠自己的这个手码，整个四个函数可能也就。十几行的长度，但是这个长度呢呃这十几行在马下呢。十几行代码下的最后去生成的这个结果。啊，我们我们自己手写还是比较慢的对啊。那这些其实是呢我们我会发现啊，日常这个编程工作中其实有很多这种重复性的这个这个工作啊，get use IDD然后又呃又get password。他们其实它的逻辑啊是非常的这个相似的。逻辑非常的相似，但是呢呃。但是呢就我们的正常变中其实充斥了很多很多这样子的一些这个这个这这样子这个重复性的这个问题，这是第一种情况啊。呃，那第二种呢，其实我们会发现啊这个呃。对笑。
+```

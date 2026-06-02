@@ -1,0 +1,34 @@
+{
+  "video_name": "step2-fix1_chunk068_4027s",
+  "full_text": "[00:00:00 - 00:01:00] 这个文件中在activs这个字典中要添加一个miss，这个几乎函数以及其导数。第二步呢，要在对应的这个呃这个文件中啊，在它的这个MLPclass classifier这个类中去初始呃，它的初始化程中将missash设置为这个默认的机构函数。其实就是。嗯，对，可以对这个对需求的把握还是OK的。但其实我我发现啊就是我试这个例子的时候，我发现。嗯，他还差了一步差了一步啥呢？就是他这里只是定义了这个密试这个函数，他并没有去实现这个句函。所以呢我自己修改了一下这个计划。啊，为什么我们这里这个计划是要让呃弄成可弄弄成可修改的，就是为了让人人也去可以就我们开发者也可以去进入到整个流程过程中，就这个流程啊，虽然叫AI程序员，但是呢我们想我们想传达的这个思想不是说AI完全。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000067\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000067\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.2795"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000067\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.2795"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.2795
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 354
+  }
+}

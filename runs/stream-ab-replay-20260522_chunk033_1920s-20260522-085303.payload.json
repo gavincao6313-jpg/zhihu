@@ -1,0 +1,39 @@
+{
+  "video_name": "ab-replay-20260522_chunk033_1920s",
+  "full_text": "[00:00:00 - 00:00:04] 因为你如果是在这边去对于几何题目图示这些东西的话\n[00:00:04 - 00:00:07] 在目前的直接大目相是非常难做的 对吧\n[00:00:07 - 00:00:13] 专业的OCR 专业的OCR也解析不了几何啊\n[00:00:13 - 00:00:16] 专业OCR也无法把几何能够去出来\n[00:00:16 - 00:00:18] 而且你要是拿专业的OCR\n[00:00:18 - 00:00:21] 就刚才这个带手写 带不同的行标的这个事情的话\n[00:00:21 - 00:00:25] 专业OCR其实从效果上并不好 并不好\n[00:00:25 - 00:00:30] 所以这一部分确实是一个难点\n[00:00:30 - 00:00:33] 这个图片歪了怎么来去纠正\n[00:00:33 - 00:00:35] 这个东西的话往往就得靠两个方式\n[00:00:35 - 00:00:39] 第一个 你就是得靠大目星机座能力去纠\n[00:00:39 - 00:00:43] 第二个 如果你公司要在这上面去做的很多\n[00:00:43 - 00:00:50] 去做的很多 我的建议是这边是要针对于你的行业特点去做 去做微调的\n[00:00:50 - 00:00:54] 这块是这里面非常大的一个难点\n[00:00:54 - 00:00:56] 如果是你公司一定要去做这个东西的话\n[00:00:56 - 00:01:00] 一定是建议是在这门是要去做微调的",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk033_1920s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk033_1920s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=slide diff=0.3592"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk033_1920s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=slide diff=0.3492"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 17,
+      "diff": 0.3592
+    },
+    {
+      "type": "slide",
+      "frame_idx": 24,
+      "diff": 0.3492
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 0,
+    "frames_total": 3,
+    "text_chars": 654
+  }
+}

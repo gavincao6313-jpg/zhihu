@@ -1,0 +1,39 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk127_7576s",
+  "full_text": "[00:00:00 - 00:01:00] 我是想说这么一句话，你们觉得是不是这么个道理，对吧？AI战略咨询顾问，大概率是个售前大概率是个售前。上市公司才有财报啊。对啊，是，如果没有的话，内项就给我打空啊。是不是这么个道理，是不是拿我们今天这套决策系统，你就可以模拟一下这套东西了。要不要看创始人背景和风格呀，我认为应该看。我认为应该看你们想知道老板有几种不同的分类吗？想不想今天我给客后加3，告诉你有几种创始人的风格分类，想不想听？今天要是你们想听的话，给你客户加个这个这个餐非常有意思啊，能够大开你们的眼界的啊。没人听见你是听过，这边很多同学没听过啊，对吧？😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000126\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000126\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=slide diff=0.6326"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000126\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0218"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 58,
+      "diff": 0.6326
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.0218
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 282
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk113_6735s",
+  "full_text": "[00:00:00 - 00:00:59] 理智不给他足够的角色信息的话，就给你打零分。好，然后再一层的角色判断，做竞争和差异化分析。我们把商品的详情。销售价格竞品的信息扔进来，基于价格，基于竞争信息、产品详情进行竞争分析。然后你是一个电商竞争分析专家啊，判断商品在目标平台上的竞争强度和差异化空间，从以下维度分析，竞争强度、价格竞争压力、卖点差异化、供应链门槛、品牌壁垒，内容表达空间，用户决策成本。注意这里面做了一大堆的这个限制性的调之件啊，这个其实是我们有一点点啊带有一点点的这个harness的这种性质啊。这个注意不准编造。如果竞争信息不足，请明确指出。然后这个某几个分数代表的是竞争压力、差异化空间，竞入门槛和表达空间。输出的内容还是用jason来去做，给了他4个信息。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000112\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000112\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=slide diff=0.3917"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 19,
+      "diff": 0.3917
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 340
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "video_name": "ab-replay-20260522_chunk108_6420s",
+  "full_text": "[00:00:00 - 00:00:04] 因为各种话我们不得不说它是AI的一大能力\n[00:00:04 - 00:00:06] 营销加AI可以精准投放\n[00:00:07 - 00:00:09] 电商加AI下届和讲的\n[00:00:09 - 00:00:11] 决策AI去做精准推荐\n[00:00:11 - 00:00:16] 生成是AI可以做商品的设计\n[00:00:16 - 00:00:19] 教育加AI通过决策AI做到英才师教\n[00:00:19 - 00:00:23] 通过生成是AI做题目和内容的一些生成\n[00:00:23 - 00:00:26] 所以大家可以思考一下自己的行业和AI\n[00:00:26 - 00:00:28] 在决策的时候生成是两个环节\n[00:00:28 - 00:00:31] 都能做出来什么样的新的一些东西\n[00:00:31 - 00:00:33] 然后给大家再多看一点\n[00:00:34 - 00:00:38] 这种一些产品AI化的一些案例\n[00:00:38 - 00:00:41] 给大家一些更加直观的状态\n[00:00:41 - 00:00:42] 更加直观的状态\n[00:00:42 - 00:00:46] 比如说AI市场整体的市场的规模\n[00:00:46 - 00:00:47] 因为已经非常大了\n[00:00:47 - 00:00:48] 大家可以看到\n[00:00:48 - 00:00:51] 如果是到这个2025年今年的预测值的话\n[00:00:51 - 00:00:52] 是多少呢\n[00:00:52 - 00:00:54] 是7个billion\n[00:00:54 - 00:00:55] 是7个billion\n[00:00:55 - 00:00:56] 70亿dollar\n[00:00:56 - 00:00:58] 然后如果是能到2034年\n[00:00:58 - 00:00:59] 就是10年之后的话\n[00:00:59 - 00:01:00] 差不多",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk108_6420s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk108_6420s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0386"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk108_6420s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.0386"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk108_6420s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=slide diff=0.367"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.0386
+    },
+    {
+      "type": "slide",
+      "frame_idx": 42,
+      "diff": 0.367
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 867
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "video_name": "ab-replay-20260522_chunk132_7860s",
+  "full_text": "[00:00:00 - 00:00:03] 英国Max定价是30刀每个月 一年是168刀\n[00:00:03 - 00:00:06] 然后Super多零购的话 它是比较便宜的嘛\n[00:00:06 - 00:00:10] 30美元的话比Super多零购提升了115 翻倍了\n[00:00:10 - 00:00:14] 168美元也翻倍了 所以它是整体的价格是提高了\n[00:00:14 - 00:00:19] 这件事客观点就是带来了整体多零购业务的明确的提升\n[00:00:19 - 00:00:21] 这就是在一个原伙的业务上增加AI功能\n[00:00:21 - 00:00:23] 直接去增加客战价的用法\n[00:00:23 - 00:00:26] 然后再讲两个东西 一个是自身学习\n[00:00:26 - 00:00:28] 一个是AI的数字人的老师\n[00:00:28 - 00:00:30] 这里边给大家看的东西就是新东方\n[00:00:30 - 00:00:33] 也做了类似东西 新东方也做了一堆一堆外教\n[00:00:33 - 00:00:36] 这个东西叫LISA\n[00:00:36 - 00:00:41] 叫LISA 用这种漫画形象节约算力 节约算力 对吧\n[00:00:41 - 00:00:43] 主要特点就是动画形象\n[00:00:43 - 00:00:46] 它就会比这种真人建模会更加适合低领\n[00:00:46 - 00:00:49] 而且成本低 做主动发问\n[00:00:49 - 00:00:54] 它可以基于学生的水平动态调整策略去做CAT\n[00:00:54 - 00:01:00] 然后去做分层提问 具体来讲你们可以",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk132_7860s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk132_7860s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=slide diff=0.3322"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk132_7860s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.244"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk132_7860s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.244"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk132_7860s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.2017"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk132_7860s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2017"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.3322
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.244
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2017
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 730
+  }
+}

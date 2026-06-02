@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk131_7800s",
+  "full_text": "[00:00:00 - 00:01:00] 抖音化越像抖音，越能成生产者的极致，就是水性化，越像水印，越越能成。这是极致的逻辑。然后。刚才讲了一眼，瑞幸瑞幸这种公司爆款对它极其重要。爆款对它极其重要。为什么瑞幸这种企业这种项目爆款极其重要？原因是在于，如果说如果说做咖啡，做奶茶，你只有拿铁，只有美式，只有摩卡，只有fr瑞白，只有卡布奇诺。意味着什么？意味着你只能是卷选纸卷价格，卷营销，你没有任何自己独立增长的能力。大家都一样，不要说你们家豆子好。中国人喝不出来豆腐好不好？你说你阿拉比卡呢，你上ge莎有人也喝不出来，对吧？你上ge啥，人家你上你上翡，你你都用翡翠庄园的ge莎做，人家也喝不出来，没有任何意义，对不对？",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk131_7800s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk131_7800s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0893"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk131_7800s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0893"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.0893
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 310
+  }
+}

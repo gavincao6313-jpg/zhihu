@@ -1,0 +1,44 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk010_541s",
+  "full_text": "[00:00:00 - 00:01:00] 我告诉你，我30K也很麻烦，我也我也拿不到，我只能找我只能找一个月8是最底线的数以上。没办法，就是这么一个基础的点。就是一个这么基础的一个basical的人，你大可以找老板岁数大一点的，有有很多这样的企业来，我们开始啊。好，各位新各位同学，欢迎大家。我们今天来给大家去讲今天的产品经理课程，今天给大家讲从AI。呃，电商的这个是这个电商的这个行业的AI转型应用，看选品营销决策来去看这种决策性AI怎么去用，看决策性AI怎么怎么去用。呃，我们在前面一直给大家去讲的还是比较偏于生成性的AI的这个事情。今天给大家讲讲角策性验。上一节呢我们给大家去讲到一个错题工作流怎么去搭建。然后这里面有一个启发，大模型的一个重要能力在于对于多模态的理解，对吧？图片的理解，云语的理解，视频拆分的理解，这是和传统程序非常大的一个差异。传统程序呢处理文字的能力。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000009\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000009\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.1385"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000009\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.1385"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000009\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=slide diff=0.4469"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.1385
+    },
+    {
+      "type": "slide",
+      "frame_idx": 48,
+      "diff": 0.4469
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 391
+  }
+}

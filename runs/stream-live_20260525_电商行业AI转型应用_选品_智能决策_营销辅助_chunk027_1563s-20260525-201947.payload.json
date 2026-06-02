@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk027_1563s",
+  "full_text": "[00:00:00 - 00:01:00] 你大不了咱别压咱别压榨咱自己人，你压榨越南人群，对不对？对吧？光靠压榨这件事真的搞不定啊。如果压榨供应链就能行的话，那应该最牛的是应该是美国的在那应该有一小块地儿，我跟你讲，如果压榨供压榨供应链能够产生世世界最顶的企业，那应该批一块特区恢复恢复奴隶制。我跟你讲，这话说的政治极不正确。再从商业的逻辑上你们讲是不是这样，我们压榨到极致，应该能诞生出世界最伟大的企业了，对不对？是不可能的嘛，对不对？对吧？好，来，核心点就这三步。😊你做一件卖一件能挣钱，挣多挣少不重要，能做规模，做1亿件还都能卖出去，做16亿件还都能卖出去。利润还都能有，那你就能做到最大，对不对？是不是这么个道理？好啊，说的都是明白，但是怎么做到了，怎么可能呢，对不对？😡",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000026\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000026\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.1816"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000026\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.1816"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.1816
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 341
+  }
+}

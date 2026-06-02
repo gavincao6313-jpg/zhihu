@@ -1,0 +1,44 @@
+{
+  "video_name": "ab-replay-20260522_chunk137_8160s",
+  "full_text": "[00:00:00 - 00:00:02] 那也真的非常的糟糕 真的是非常的糟糕\n[00:00:02 - 00:00:05] 然后另外还做了类似于这样的产品\n[00:00:05 - 00:00:10] 个性化游戏闯关 做不同的任务 做游戏化设计\n[00:00:10 - 00:00:12] 同时也有豆腥老师的数字人\n[00:00:12 - 00:00:15] 但是豆腥老师这本数字人不会根据你的实际内容\n[00:00:15 - 00:00:17] 去做相应的变化\n[00:00:17 - 00:00:22] 而只是他通过数字人基于你的不同的选择\n[00:00:22 - 00:00:24] 数字人去拿TDS技术\n[00:00:24 - 00:00:27] 自动的帮你读一段东西出来\n[00:00:27 - 00:00:28] 读一段东西出来\n[00:00:29 - 00:00:33] 效果挺不好的\n[00:00:33 - 00:00:35] 这个做的并不好\n[00:00:35 - 00:00:41] 但是我只是想告诉你们有这样的产品\n[00:00:41 - 00:00:45] 就是是这样子用户知道是数字人\n[00:00:50 - 00:00:51] 你别说贵司啊\n[00:00:51 - 00:00:52] 这不是我们家的\n[00:00:52 - 00:00:53] 这不是我们家的\n[00:00:53 - 00:00:55] 我们家不会做这种东西\n[00:00:55 - 00:00:59] 首先豆神是非常擅长营销的",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk137_8160s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=annotation diff=0.0734"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk137_8160s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0734"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk137_8160s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk137_8160s\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.0749"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.0734
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.0749
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 4,
+    "text_chars": 662
+  }
+}

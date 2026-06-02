@@ -1,0 +1,119 @@
+{
+  "video_name": "live-20260602-195306_chunk047_2760s",
+  "full_text": "[00:00:00 - 00:01:00] LMvicki一个比一个唬人，但其实都在解决同一个问题。第一个Gbra给赛跑。对，这个就叫PPT对吧？就像播播放PPT1样，在波动化的这么一个东西，然后呢呃再再换一个。今天我们聊一下codeex这一个月更新的8个新玩法。我以前一直觉得codeex是个备胎。去年4月codeex CI刚出来那会儿我用了两天就回去用cloud code了。理由很简单。codeex当时就是个会写代码的终端agent跟cloud code比没什么区别，模型还稍微弱一点，直到4月16日，那天open对，这些都是 hyperper frame做的东西，然后挺简单的。😡单agent agentent wordflow专属这个问题够了。3咱可能直接哎所有的这些视频都涨的都是一个德行的。然后那个就因为它就是做了一个网页，对吧？然后把一个网页动向给它拨了一遍。然后呢，我也给大家贴了几个简单的教程，然后呢用ham frame做视频呢，它的工作这个这种单子的工作也很简单，这个单子非常简单，这个只有100块钱一条。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0343"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.7546"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0327"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=slide diff=0.7306"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.1205"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=slide diff=0.7267"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.0548"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0548"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk047_2760s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0556"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.0343
+    },
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.7546
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0327
+    },
+    {
+      "type": "slide",
+      "frame_idx": 36,
+      "diff": 0.7306
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.1205
+    },
+    {
+      "type": "slide",
+      "frame_idx": 45,
+      "diff": 0.7267
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.0548
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.0556
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 5,
+    "frames_total": 13,
+    "text_chars": 464
+  }
+}

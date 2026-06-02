@@ -1,0 +1,79 @@
+{
+  "video_name": "ab-replay-20260522_chunk146_8700s",
+  "full_text": "[00:00:00 - 00:00:03] 是在做相应的产品有机座的时候的话\n[00:00:03 - 00:00:04] 可以这样去做\n[00:00:04 - 00:00:06] 然后他还增加了一些AI的能力\n[00:00:06 - 00:00:09] 比如说在支付这个体制上没有\n[00:00:09 - 00:00:11] 但是在小资通上就有\n[00:00:11 - 00:00:13] 就是他可以对于一个课程做完之后\n[00:00:13 - 00:00:15] 可以加AI的速览\n[00:00:15 - 00:00:18] 有AI的总结 有AI的逐字稿\n[00:00:18 - 00:00:19] 这样一来的话\n[00:00:19 - 00:00:22] 他就可以使得老师的课程\n[00:00:22 - 00:00:25] 和他的可能产品的体验感更好\n[00:00:25 - 00:00:26] 价值度会更高\n[00:00:26 - 00:00:28] 而他怎么去挣钱呢\n[00:00:29 - 00:00:30] 很简单\n[00:00:30 - 00:00:32] 他的AI速览这个功能是单独收费的\n[00:00:32 - 00:00:34] 他是卖token费用\n[00:00:34 - 00:00:35] 而token费用卖的还不低\n[00:00:35 - 00:00:37] 卖的还不低 挺贵的\n[00:00:37 - 00:00:40] 所以他是通过这里面去赚他的差价\n[00:00:40 - 00:00:42] 这就要在大市场上去做服务\n[00:00:42 - 00:00:44] 第二种在小市场上做差异\n[00:00:44 - 00:00:46] 给大家看几个我认为非常好玩的产品\n[00:00:46 - 00:00:49] 我认为一个非常小而美的产品\n[00:00:49 - 00:00:51] 这个产品叫做videotour\n[00:00:51 - 00:00:53] 这个产品我特别喜欢\n[00:00:53 - 00:00:54] 特别喜欢\n[00:00:54 - 00:00:57] 万物皆可问 知识一目了然\n[00:00:57 - 00:00:58] 他做什么呢\n[00:00:58 - 00:00:59] 拿看看",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.2466"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2466"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.2641"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.2641"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.2512"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.2512"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.1273"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk146_8700s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.1273"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.2466
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.2641
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.2512
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.1273
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 971
+  }
+}

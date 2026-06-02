@@ -1,0 +1,34 @@
+{
+  "video_name": "step2-fix1_chunk054_3185s",
+  "full_text": "[00:00:00 - 00:01:00] 当前这个内容已经完整了，我们模型不应该预测任何的结果了啊，对，这样模型不预测预测结果就是呃预测一个空，那是更最好的情况。但是呢我们发现有些模型啊，哎他可能并不并不能理解当前用户的情况，他会把呃第第一条语句写完，然后呢，在另起一行再把下面一个的语句的前面补完啊，那这样子你看起来啊好像还还ok看起来还是okK对吧？但是对用户在使用的时候呢，就呃结果就不好了。那我们其实评测也能检测出来这种问题。okK呃，那最后呢其实我们这个呃评测集现在已经就是嗯发布出发布出来了，我们已经把这个评测题挂在了archive上。嗯，和啊不挂在了这个啊，对，挂在了呃有啊A那我们又写了一篇论文，然后呃挂在archive上，然后也放在了ge up和face上，把我们这个评测集直接给呃相当于是开源了。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000053\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000053\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0601"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000053\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0601"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0601
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 359
+  }
+}

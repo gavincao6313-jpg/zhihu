@@ -1,0 +1,29 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk136_8100s",
+  "full_text": "[00:00:00 - 00:01:00] 就对了。好，充分尊重消费者意愿，同时保证创新力。市场和消费者驱动占新品规划的总量70%到80%。重点关注通过流行数据的爬取竞品的调研，流行元素调研内部的消费偏好，创意和原材料驱动只占20%到30%。OK好，爱奇艺的内容数据决策系统也是类似的逻辑。由于爱奇艺每年要花200多个亿在内容上，所以这里面呢觉得得得的决策要素和决策压力非常的大非常的大。而这个背后而这个背后我们需要什么？我们需要的点就在于我们需要解决的问题是在于我们做过7人评审组，做过13人评审组，做过17人评审组，做过27人评审组，最后都不行。做靠什么？靠智能预测系统，我们从19年就在搭这玩意儿，对吧？呃呃，不是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk136_8100s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk136_8100s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=slide diff=0.534"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.534
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 311
+  }
+}

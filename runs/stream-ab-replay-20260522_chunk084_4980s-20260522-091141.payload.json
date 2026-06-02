@@ -1,0 +1,44 @@
+{
+  "video_name": "ab-replay-20260522_chunk084_4980s",
+  "full_text": "[00:00:00 - 00:00:02] 全是在做大玩客的 什麼是雙減\n[00:00:02 - 00:00:05] 就是不准再去做K12的再現業務\n[00:00:05 - 00:00:08] 所以在那時候死了一大堆的企業\n[00:00:08 - 00:00:12] 然後教培行業是多麼好的一個行業\n[00:00:12 - 00:00:14] 萬文大學不是個騙子嗎\n[00:00:14 - 00:00:19] 然後2020年上半年總的融資金額超過了144億\n[00:00:19 - 00:00:22] 原福島和作業幫融到了77%的金額\n[00:00:22 - 00:00:25] 非常非常有錢的一個事情\n[00:00:25 - 00:00:27] 這裡面要說一個點\n[00:00:28 - 00:00:34] 就是有三種不同的班型\n[00:00:34 - 00:00:37] 再現一對一\n[00:00:37 - 00:00:40] 再現小班客和再現大班客\n[00:00:40 - 00:00:45] 再現一對一就是隨時可以約老師上課\n[00:00:45 - 00:00:48] 然後它的成本結構是比較高的一種結構\n[00:00:48 - 00:00:51] 口碑輻射度相對比較的低\n[00:00:51 - 00:00:54] 主打的是個性化的體驗教學\n[00:00:54 - 00:00:57] 再現小班客主班是最難的\n[00:00:57 - 00:00:58] 主班非常的難\n[00:00:58 - 00:00:59] 為什麼",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk084_4980s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk084_4980s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0218"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk084_4980s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0218"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk084_4980s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=slide diff=0.5217"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.0218
+    },
+    {
+      "type": "slide",
+      "frame_idx": 24,
+      "diff": 0.5217
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 664
+  }
+}

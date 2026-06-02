@@ -1,0 +1,164 @@
+{
+  "video_name": "live-20260602-195306_chunk009_480s",
+  "full_text": "[00:00:00 - 00:01:00] 这个是第二个频道叫学校库里面有很多的学校啊，展示很多的信息。然后呢，这个是啊辅导啊，其实就是展示的一些课程啊，跟留学相关的。然后呢，这个就是从首页可以进入啊一个呃排行榜。那从首页从首页这个地方啊，这个地方排行榜啊，从首页这个地方进进去，就是排行榜，排行榜其实也就一些数据展示了，点某一个就直接进某一个学校的详情页面，然后呢，这个就是搜索搜索的话能搜一些学校课程活动啊，一些这个资料啊这样的东西。然后呢，这个是呃呃城市，就是你可能当前城市哪里，然后呢切换城市啊之类的。那这是几个比较基础的功能。另外从它的这个啊一对一择校规划啊，这个地方点进去啊，还可以有一个这个叫国际学校的这个活动页，也就其实就是一个长途啊，就是一个长途，一个长页面里面啥功能没有，其实就是在小程序里。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=slide diff=0.5542"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=slide diff=0.5542"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=slide diff=0.5564"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.0305"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.0305"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=slide diff=0.5665"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=slide diff=0.5658"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=slide diff=0.5526"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=slide diff=0.5525"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0491"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=slide diff=0.5532"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=slide diff=0.5535"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=slide diff=0.5531"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=slide diff=0.5519"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0566"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk009_480s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=slide diff=0.5474"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 1,
+      "diff": 0.5542
+    },
+    {
+      "type": "slide",
+      "frame_idx": 7,
+      "diff": 0.5564
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.0305
+    },
+    {
+      "type": "slide",
+      "frame_idx": 17,
+      "diff": 0.5665
+    },
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.5658
+    },
+    {
+      "type": "slide",
+      "frame_idx": 27,
+      "diff": 0.5526
+    },
+    {
+      "type": "slide",
+      "frame_idx": 34,
+      "diff": 0.5525
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0491
+    },
+    {
+      "type": "slide",
+      "frame_idx": 37,
+      "diff": 0.5532
+    },
+    {
+      "type": "slide",
+      "frame_idx": 43,
+      "diff": 0.5535
+    },
+    {
+      "type": "slide",
+      "frame_idx": 47,
+      "diff": 0.5531
+    },
+    {
+      "type": "slide",
+      "frame_idx": 51,
+      "diff": 0.5519
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.0566
+    },
+    {
+      "type": "slide",
+      "frame_idx": 53,
+      "diff": 0.5474
+    }
+  ],
+  "stats": {
+    "slide_changes": 11,
+    "annotations": 3,
+    "frames_total": 16,
+    "text_chars": 356
+  }
+}

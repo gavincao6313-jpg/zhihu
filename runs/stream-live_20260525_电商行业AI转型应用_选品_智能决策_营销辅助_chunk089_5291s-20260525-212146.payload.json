@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk089_5291s",
+  "full_text": "[00:00:00 - 00:01:00] 杜绝服装吊牌羞耻的这一层的，我不知道大家是否理解我说这个话就是。吊牌羞耻这件事情，美国人还没有进化出来呢，对吧？中国客观一点讲，其实某种意义上说是被拼多多打出来了一个坏头。这套模式国内怎么做呀？亲，这套模式在国内怎么做呀？同学，在国内这套方式，中国女装退货率已经超过70%了，你知道吗？女装退货率国内是70%以上，快时尚更快，快时尚更高。这套东西在国内会被会被这个东西把数据打碎，然后把整个库存反馈全打碎，这事儿就会出问题了。这事儿真这这。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000088\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000088\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0353"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000088\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0353"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0353
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 242
+  }
+}

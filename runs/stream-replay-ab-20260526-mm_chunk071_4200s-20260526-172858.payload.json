@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk071_4200s",
+  "full_text": "[00:00:00 - 00:01:00] 为了快。谁都知道去东南亚去批复一定便宜，但是来不及明白吗？然后类似的逻辑我们怎么来去举一反三，怎么去举一反三。类似的逻辑，不要说服装行业基本上所有需要做爆款的生产企业都应该用这种方法去做。所有要做爆款都应该这样去做。瑞幸大这个这个品牌大家都知道一定都使用过瑞幸的爆款是怎么做出来的，和zaara和sin的逻辑几乎是一样的，一边是消费者和市场驱动。他没有什么大牌，因为奶茶店咖啡店没有所谓的发布会，于是乎他就去爬。涉媒的偏好？最近什么样的银片火了？最近杨梅火了，但是杨梅是负面的，咱们不能做，对吧？这最近呃青华火了，可以考虑一下，对吧？那你最近竞品什么东西火了，抄一下它这款他们家。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk071_4200s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk071_4200s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.1207"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk071_4200s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.1207"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.1207
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 312
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk024_1383s",
+  "full_text": "[00:00:00 - 00:00:59] 姐在弄他，是自己人也在弄，拼就拼多多对他的伤害其实是挺大的。就是说实话，拼多多对他的伤害是蛮大的。为什么要讲水印？为什么要讲水印？2021年的时候，它的销售额就达到1100亿。然后服装的平台的平均的客单价只有十刀了，这是他很厉害的，同学们。1刀位意味着什么样的情况？平均的单价是10刀，然后的话折合年销是。的服装16亿件，全国14亿人，每人一件，还饶两亿件出来，可以给加拿大人，对吧？好，那这个产品非常有意思，这是一个什么样的产品啊啊，非常有意思。这个呢这是一个B to C的跨境电商独立站，跨境电商独立站，类似于京东啊，它是以这个做自营为主，做平台比较的少，在这上面做平台比较少，创始人的背景。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000023\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000023\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=slide diff=0.3778"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000023\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.2575"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000023\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.2575"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 38,
+      "diff": 0.3778
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.2575
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 320
+  }
+}

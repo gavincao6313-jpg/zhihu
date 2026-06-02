@@ -1,0 +1,104 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk049_2887s",
+  "full_text": "[00:00:00 - 00:00:59] 再往下去看这个这个这就又形成了我们一直所说的基于数据链。库存周转率库存周转率就是你的这个整个的仓库里的所有的东西每年会完整完整的去卖完多少次。每年玩整玩整回玩转多少次，然后体验的提的提的提升闭环。在这边又一次出现。我们之前讲抖音是就是这样的，这次还是这样，用户越使用越产生数据，越产生数据，AI帮你演算，推荐你喜欢的东西，你的体验提升了，你就越来越会用到它。用户越使用越精准，越精准，体验越好，B垒就出来了。B垒就出来。新开版成本很低，它现在新开版成成本已经非常低了，对吧？好，这边核心点实时反馈，实时反馈带来的最终的价值。第三是少。它的性价比极高，足以秒杀同行。这里面呢。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.2138"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.2138"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.2109"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.2109"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.2126"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.2126"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0436"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.0436"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.1094"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000048\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=slide diff=0.5452"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.2138
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.2109
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.2126
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.0436
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.1094
+    },
+    {
+      "type": "slide",
+      "frame_idx": 54,
+      "diff": 0.5452
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 5,
+    "frames_total": 12,
+    "text_chars": 309
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "video_name": "ab-replay-20260522_chunk109_6480s",
+  "full_text": "[00:00:00 - 00:00:01] 都是能到100亿的\n[00:00:01 - 00:00:04] 是到100个billion\n[00:00:04 - 00:00:06] 1000亿美元的这个量级\n[00:00:06 - 00:00:08] 这个完全是不同的一个效果\n[00:00:08 - 00:00:08] 然后呢\n[00:00:08 - 00:00:09] 我们在这里面的话\n[00:00:09 - 00:00:11] 可以框立一个这样的图\n[00:00:11 - 00:00:13] 就是业务环节\n[00:00:13 - 00:00:14] 业务环节图\n[00:00:14 - 00:00:15] 也就是说\n[00:00:15 - 00:00:16] 任何一个产业\n[00:00:16 - 00:00:18] 你如果从上下游的角度上去分析\n[00:00:18 - 00:00:19] 它都包含了\n[00:00:19 - 00:00:21] 就是你有什么产品\n[00:00:21 - 00:00:22] 你希望卖给谁\n[00:00:22 - 00:00:24] 你怎么找到它\n[00:00:24 - 00:00:25] 你怎么说服它购买\n[00:00:25 - 00:00:27] 产品的利润怎么样\n[00:00:27 - 00:00:29] 就是这几个核心的环节\n[00:00:29 - 00:00:31] 这几个核心的环节\n[00:00:31 - 00:00:32] 你有什么产品\n[00:00:32 - 00:00:33] 是你的产品的设计部分\n[00:00:33 - 00:00:35] 卖给谁是你的定位问题\n[00:00:35 - 00:00:37] 怎么找到它是市场问题\n[00:00:37 - 00:00:40] 怎么说服它购买是营销和销售流程\n[00:00:40 - 00:00:42] 产品利润是有定价和成不得两个环节\n[00:00:42 - 00:00:44] 基本上是这么一个体系\n[00:00:44 - 00:00:45] 对吧\n[00:00:45 - 00:00:47] 然后教育行业分为两个层面\n[00:00:47 - 00:00:49] 业务层面和产品层面\n[00:00:49 - 00:00:50] 对吧\n[00:00:50 - 00:00:52] 然后我们先说产品层面\n[00:00:52 - 00:00:54] 先说一下AI的产品升级\n[00:00:54 - 00:00:55] 在这上面的话\n[00:00:55 - 00:00:56] 给大家签去框定一点\n[00:00:56 - 00:00:57] 如果想做这行的话\n[00:00:57 - 00:00:59] 基本上AI不能教育",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk109_6480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk109_6480s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=slide diff=0.3446"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk109_6480s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.0277"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk109_6480s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.0277"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk109_6480s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk109_6480s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.2915"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 7,
+      "diff": 0.3446
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.0277
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.2915
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 1166
+  }
+}

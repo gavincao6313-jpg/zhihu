@@ -1,0 +1,74 @@
+{
+  "video_name": "step2-verify_chunk044_2584s",
+  "full_text": "[00:00:00 - 00:01:00] 这个大模型来把我们的报错信息给到模型，然后呢，然后模型让模型去告诉我，接下来应该安装什么什么环境。通过这种迭代的方式啊，最后如果单侧能够正常运行，不报错的话，那就说明比如说这里的这个嗯test bubble salt这个函数一开始报错了。嗯，报错了，有个什么包没装，然后我们再把这个包装自动的把它不包装上，装上之后呢嗯这个再去运行这个bu salt这个函数。如果这个函数成功的运行了，那说明呢这个单侧的这个函数呃是呃这个单侧的函数是这个嗯ok的。嗯，那我们。啊，对，这这个单侧的函数是是OK的啊。那如果我们这个单侧的函数啊，单侧的函数正常运行了，也就环境已经完全安装对了，正常运行了。那我们接下来呢我们就去通过去解析这个呃通过traice工具来去解析这个。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000043\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000043\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=slide diff=0.3588"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000043\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=slide diff=0.3317"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000043\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.2388"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000043\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=slide diff=0.3073"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000043\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000043\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.0414"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 15,
+      "diff": 0.3588
+    },
+    {
+      "type": "slide",
+      "frame_idx": 38,
+      "diff": 0.3317
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.2388
+    },
+    {
+      "type": "slide",
+      "frame_idx": 41,
+      "diff": 0.3073
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.0414
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 2,
+    "frames_total": 7,
+    "text_chars": 350
+  }
+}

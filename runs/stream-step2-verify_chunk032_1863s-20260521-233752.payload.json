@@ -1,0 +1,44 @@
+{
+  "video_name": "step2-verify_chunk032_1863s",
+  "full_text": "[00:00:00 - 00:01:00] 一个嗯安装的一些环境，嗯，这个这些东西做好感知之后呢，那生成出来这个结果是会这个更加的一个精准。对，那其实我们这里的呃希望做到6点的可感知啊，我们已经做到了4点那。接下来数据数据结构可感知和执行环境可感知。这个我们其实接下来想去嗯发力的一个地方。对。啊，这里有一个例子是呃。啊，宝歉刚才没有看这个例子啊，这里有例子是这个呃来解释一下跨文件的。呃，情况。对，比如说你你看这里啊那个DWC report这个类其实是在另一个文件中。你看在右边啊是另一个文件。DWC reportport点java这个文件中，它做了一些定义。嗯，那他做的这个做了一些字段和一些函数的一些定义。那我们在当前这个呃DWCre。Iport survey。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000031\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000031\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=slide diff=0.304"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000031\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0585"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000031\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0585"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.304
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.0585
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 334
+  }
+}

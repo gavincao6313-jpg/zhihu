@@ -1,0 +1,39 @@
+{
+  "video_name": "step2-fix1_chunk019_1082s",
+  "full_text": "[00:00:00 - 00:01:00] 呃一个产品。对啊，它是主要是进行这个产品的功，可以进行两两方面的内容。一个是对一个现有的一个仓库来进行一个产品呃产品的功能功能开发以及缺陷的修复。它只需要去用户提出一些简单的这个需求分析。然后他可以去开始自主自主的规划，然后生成一些修改建议，以及进行代表的变更。那这块我后面也会详细的介绍。okK那就嗯接接下来就进入到咱们的这个今天的这个正题啊，就是首先第一块内容是这个编码助手中啊代码生成补全的一个探索。对，刚才其实我们已经看到了，就是代码身成补全。其实就根据呃上下我们，我这里再给一个例子啊。就跟在你的正常的哎写这个代码的过程中，ID呃这个咱们的这个编码数的插件啊通过识别你当前嗯写的这个代码的逻辑上下文的这个呃内容来生。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000018\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000018\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=slide diff=0.3591"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000018\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=slide diff=0.4936"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 26,
+      "diff": 0.3591
+    },
+    {
+      "type": "slide",
+      "frame_idx": 36,
+      "diff": 0.4936
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 0,
+    "frames_total": 3,
+    "text_chars": 335
+  }
+}

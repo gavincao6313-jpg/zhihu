@@ -1,0 +1,104 @@
+{
+  "video_name": "live-20260602-195306_chunk035_2040s",
+  "full_text": "[00:00:00 - 00:01:00] 🎼也是AI产品岗的入门钥匙。第二阶段进阶学习。对，包括包括包括这个这这这这这这这小人这这动作都是生成的rug，这是目前需求量最大的板块，重点攻克知识库搭建与检索策略，学会用rug缓解模型幻觉问题。同时跟着教程复刻一个开源项目。呃，包括包括这这一整张图也也是生成的。对资产家提示词是的这个小人应该是这个这个包括其中的一些素材啊，应该是提前上传好的。然后参照着一个已有的小人，让他做各种各样的动作啊，让他去对吧？形成他各种各样的姿势和场景。🎼这是最快上手的方式。第三阶段，深入掌握rebo2到3，并单足够你。如果你还没清晰的学习路线OK.这这几个样例应该都一样的。想转行AI产品经理，这一消耗的算发给AI的是你和fuck kit全能自工作流程，最后交付结动来约束和规矩综融合规、化工具对化等阿规全程一步步自主完成你交代的所。😡",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0304"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0304"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0435"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1104"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.6419"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.1204"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=slide diff=0.4049"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk035_2040s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.0487"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.0304
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0435
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.1104
+    },
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.6419
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.1204
+    },
+    {
+      "type": "slide",
+      "frame_idx": 46,
+      "diff": 0.4049
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.0487
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 5,
+    "frames_total": 11,
+    "text_chars": 383
+  }
+}

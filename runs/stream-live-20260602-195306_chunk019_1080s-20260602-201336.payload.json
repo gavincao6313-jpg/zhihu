@@ -1,0 +1,109 @@
+{
+  "video_name": "live-20260602-195306_chunk019_1080s",
+  "full_text": "[00:00:00 - 00:01:00] 那也就是说你啊比目前的年级，目前的年级和各科的成绩对吧？因为你已经知道他年级了，所以你就得对他的未来的有有可能是两年，有可能是三年，有可能是5年做出一些规划，就是你可能在哪些部分里面要重点去提分哪些部分呢你的提分空间其实不大。但是你的经历怎么分配，你可能还需要些什么样的补课或等等等等之类的。于是这是一种规划。那除了规划之外呢这个地方要做一些课程推荐。因为它上面有课程库啊，因为除了学校库就这个上面有课程库，其实就是各种各样第三方的呃提分课啊，各种各样第三方的提分课。所以这就是课程最最后也是要出几个小卡片啊，边聊天边出了一些课程库。那这也是一个这两个模块有点像各自是一个800的模块吧，两个都是800的模块，这就是第一个啊国际学校的择校小程序，就是做后台数据库小程序界面，然后最后扣编程的东西，然后发布出来就可以了。然后。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0603"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0368"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.035"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.0642"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.0642"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0539"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk019_1080s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.033"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.0603
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.0368
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.035
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.0642
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.0539
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.033
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 6,
+    "frames_total": 13,
+    "text_chars": 384
+  }
+}

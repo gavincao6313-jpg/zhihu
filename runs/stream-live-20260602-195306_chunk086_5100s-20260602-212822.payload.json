@@ -1,0 +1,39 @@
+{
+  "video_name": "live-20260602-195306_chunk086_5100s",
+  "full_text": "[00:00:00 - 00:01:00] 政务大屏PPT讲解可以用per frame，那可太简单了。我跟你说，你的政务大屏的这个讲解，这个用hyper frame，你你简直就是四两拨千金，你做出来的东西效果又好，然后呢，对吧？成本又低，可能一两个小时就做完了，对吧？在在你政务大屏上播起来这个对吧？那真的是你再接一个豆包实时模型对吧？一个实时兑换模型还能停下来，还视频还能停下来暂停给他讲解，跟他兑话。对吧。😊哎，一个是你这个转行搞AI，还有一个你这个叫夜不语。啊，我对你们这两个同学的名字啊实在是太熟了，感觉哪个课里面都有你。你们是报了多少门课，真的你们是到报。报了多少门课？好吧。来，那我们今天的直播就到这里，然后大家就可以开始报名了。记得啊本周末呃截止到本周日晚上，好吧，然后我们下周一就导出了。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk086_5100s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk086_5100s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=slide diff=0.4881"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk086_5100s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.1549"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 5,
+      "diff": 0.4881
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.1549
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 352
+  }
+}

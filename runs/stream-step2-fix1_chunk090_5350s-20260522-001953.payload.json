@@ -1,0 +1,18 @@
+{
+  "video_name": "step2-fix1_chunk090_5350s",
+  "full_text": "[00:00:00 - 00:01:00] 其实也已经呃用到了当前的这个股权模型中，它已经呃这个我现在的股权模型啊，它其实在这方面已经有有所缓解了。对。啊，这重一提到AI程序员怎么嵌入到VS。呃，这样的呃Sco这样工具中呃呃就现在我们也还在探索I程序员整个的这么一个产品的呃一个形态，也还在探索中。对。呃，可能呃后面呃就是。呃，我们在这个VS code中其实已经呃在就插件中啊，我们也推出。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000089\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 195
+  }
+}

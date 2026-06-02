@@ -1,0 +1,64 @@
+{
+  "video_name": "step2-fix1_chunk037_2163s",
+  "full_text": "[00:00:00 - 00:01:00] 工作呢其实他主要在做的是根据注释呃，根据这个函数签名来生成函数体的这个情况。那这个呢其实和代码补全的一个场景啊还是相距比较远的。因为呢我们根据这个嗯函数签名甚成函数体只是哎嗯代码补全场景中的一种小场景。那我们会发现啊，其实代码补全的这个场景呢有非常多的。比如说呢你可能会根据上下文去补全一个哎这个if这个块，对吧？就是红框里的内容啊，就是要补全的结果要补全一个衣服块。那还可能呢根据这个有可能你写了一个函数的这个函数名，然后打了一个括号。然后呢，ID帮你把这个反括号也补出来了。那接下来要补全内容，其实是要补全这个函数的括号里的这个参数，这里呢也是一种比较高频的一个补全的一个场景。那这种情以及呢啊对这些场景啊其实。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000036\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000036\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000036\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0658"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000036\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0256"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000036\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.0256"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000036\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000036\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.211"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 18,
+      "diff": 0.0658
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.0256
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.211
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 330
+  }
+}

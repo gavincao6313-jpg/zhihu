@@ -1,0 +1,54 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk123_7335s",
+  "full_text": "[00:00:00 - 00:00:59] 一个并不准确的。然后的话每次把东西出来，通过反馈，让算法自我修正。技术要是够够强，就这么去行，对吧？然后去做分工。大模型在这个过程中做的是类似于人和专家的事儿，对每个维度进行分析和评做评分和分析。最终汇总进入一个强规则引擎里面，通过硬性的规则，通过硬性的规则进行最终的决策建议，再通过分数判定，给到大模型做方案的撰写，在这里面做一个选择器。如果综合选品分数超过了一定超过了建议上架。。走一条路径。如果谨慎测试，走第二条路径，如果不建议上下，走第三条路径，走后面不同的动作。但在这里面我们为了简化一点，把它全都汇集到一个节点里面去做一个综合性的东西。我们后续可以增加不同分数，走不同的路由。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000122\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000122\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0291"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000122\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0291"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000122\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=slide diff=0.3608"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000122\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=slide diff=0.3556"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.0291
+    },
+    {
+      "type": "slide",
+      "frame_idx": 35,
+      "diff": 0.3608
+    },
+    {
+      "type": "slide",
+      "frame_idx": 54,
+      "diff": 0.3556
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 1,
+    "frames_total": 5,
+    "text_chars": 316
+  }
+}

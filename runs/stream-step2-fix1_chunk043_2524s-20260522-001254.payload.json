@@ -1,0 +1,44 @@
+{
+  "video_name": "step2-fix1_chunk043_2524s",
+  "full_text": "[00:00:00 - 00:01:00] 呃呃单测的函数，一个是test这个buible salt，就是这个这个冒泡排序的一个测试的函数。然后quick salt嗯，快速排序的一个测试函数。那这两个测试函数呢呃要测的对象呢，分别就是saling那个文件中的一个冒泡排序和一个快速排序。如果这个单侧运行。有了有有了有了这个我们识别出来了这个嗯爬雪的项目中的这个这个。单测之后呃，这个单测的函数之后啊，那我们呢就要去去执行这个单测。如果这个单单测能。要要能够能让他去正确的执行。那正确的执行呢可能依赖于一些一些这个环境的安装。比如说呢我们可能呃安装这个安装的过程中啊，会发现哎可能有些这个呃比如说他呃这个n派这个环境没装，啊，那就会会报错了。那我们呢去就是通过呃循环呃不断的去请求。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000042\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000042\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000042\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.278"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000042\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=slide diff=0.3561"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.278
+    },
+    {
+      "type": "slide",
+      "frame_idx": 40,
+      "diff": 0.3561
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 340
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "video_name": "ab-replay-20260522_chunk059_3480s",
+  "full_text": "[00:00:00 - 00:00:02] 大模型直到现在其实对于多摩泰和他的文字比起来\n[00:00:02 - 00:00:04] 其实依然是差了很多\n[00:00:04 - 00:00:09] 但是至少至少能够相对比较廉价的能有这类功能\n[00:00:09 - 00:00:09] 对吧\n[00:00:09 - 00:00:11] 这个带来了有一些新的机会\n[00:00:11 - 00:00:12] 给大家看几种新的机会\n[00:00:12 - 00:00:13] 第一个\n[00:00:14 - 00:00:16] 这也是一个教育类的产品\n[00:00:16 - 00:00:18] 2025年iPo的设的\n[00:00:18 - 00:00:22] 这个在iPo Store的设计大奖的产品叫Kabroars\n[00:00:22 - 00:00:24] 他是用一个非常小的单点\n[00:00:24 - 00:00:25] 用AI的能力做出来一个\n[00:00:25 - 00:00:28] 我认为就是新奇特的这个体验\n[00:00:28 - 00:00:31] 通过这种优质体验拿到了一个非常好的奖\n[00:00:31 - 00:00:32] 他的功能是什么呢\n[00:00:32 - 00:00:36] 这个我建议咱们去下一下去玩一玩\n[00:00:36 - 00:00:38] 我觉得他的体验非常有意思\n[00:00:38 - 00:00:40] 他的功能流程是这样子的\n[00:00:40 - 00:00:42] 他的主见面也是一个拍照\n[00:00:42 - 00:00:44] 也是一个拍照\n[00:00:44 - 00:00:45] 然后今天还没结束\n[00:00:45 - 00:00:48] 来记录下第一个单词吧\n[00:00:48 - 00:00:50] 我随手拍了一个东西\n[00:00:50 - 00:00:51] 拍了一个这个东西\n[00:00:51 - 00:00:56] 这是我的一个这个泡马特家的一个小的忙盒\n[00:00:56 - 00:00:57] 拍完它之后\n[00:00:57 - 00:00:59] 拍报告这个东西叫做Rabidor",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.2239"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.2239"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.2025"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.0294"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0294"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.1021"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk059_3480s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.1021"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.2239
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.2025
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.0294
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.1021
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 941
+  }
+}

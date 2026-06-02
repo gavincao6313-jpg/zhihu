@@ -1,0 +1,59 @@
+{
+  "video_name": "test-training-video_chunk001_0s",
+  "full_text": "[00:00:00 - 00:01:00] 大家好，这节课我们要做的是一个智能生成护肤方案的产品。这节课的重点会放在做完第一版之后，怎么把它改好。随着我们做的产品越来越多，你会发现在检查过程中会出现很多问题。但是这些问题其实不是一类问题。有些是AI不会判断，有些是AI不会表达，所以这节课我会带大家重点看一件事情，怎么把这些问题去分成两类，用不同的方法去解决。这节课呢我们来看护肤场景的实战案例。这次呢我们做的是 AI一个智能生成个性化护肤方案的产品。用户输入皮肤情况之后呢，系统就会自动去生成一套完整的护肤的流程。这节课呢我们依然会从零开始把这个产品一步步搭出来。当然在这个过程中呢，我会重点带大家关注如何改问题这件事情。不同的问题呢其实是需要用不同的优化方式去解决的。这节课大概会分成这么几个部分。第一部分呢我们先看一下护肤这个场景里，用户真实会遇到的问题是什么？第二部分呢，我们介绍一下。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\test-training-video_chunk001_0s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\test-training-video_chunk001_0s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.02"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\test-training-video_chunk001_0s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.02"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\test-training-video_chunk001_0s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=slide diff=0.3202"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\test-training-video_chunk001_0s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.2518"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\test-training-video_chunk001_0s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.2518"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.02
+    },
+    {
+      "type": "slide",
+      "frame_idx": 23,
+      "diff": 0.3202
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.2518
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 398
+  }
+}

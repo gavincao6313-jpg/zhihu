@@ -1,0 +1,39 @@
+{
+  "video_name": "step2-fix1_chunk012_661s",
+  "full_text": "[00:00:00 - 00:01:00] 这个期望顶峰的一个位置。嗯，那接下来呢我就呃想进入到具体的这个呃通义灵码的一些这个通过通一零马来挖掘一下这个呃编马助手的一些能力。啊，那我想想以这个一些以这个影子来开始啊，就是我们的这日常编程中，其实会遇到哪些不爽的时刻。啊，我们看一下接下来的这个视频。啊，我们这个呃。像这里啊我们这写一个java的一个代码。对啊，写一个java代码上定义一个呃设置这个和读设置和读取用户的ID和密码。啊，那其实后面会要写4个函数啊，分别是这个呃get user IDD，然后set user ID嗯，get password和set password这4个函数。这四个函数呢呃虽然比较短，你看我们在如果没有编码助手的情况下啊嗯。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000011\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000011\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=slide diff=0.4093"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000011\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=slide diff=0.4797"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 2,
+      "diff": 0.4093
+    },
+    {
+      "type": "slide",
+      "frame_idx": 21,
+      "diff": 0.4797
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 0,
+    "frames_total": 3,
+    "text_chars": 329
+  }
+}

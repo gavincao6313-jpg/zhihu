@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk105_6253s",
+  "full_text": "[00:00:00 - 00:01:00] 啊，我说一嘴吧，告诉chdGVT我要做一个扣子工作流，你看看结果是什么。他会每一步要的入口是什么，出口是什么，里面的proer写示什么，都给你都给你做出来。但是你如果不自己搭几遍，他告诉你的是对的是错的，你没法判断啊。亲们，你得能判断这是这是你需要锻炼的东西，这是你要锻炼的东西。千万别跳过这个。所以说回来用大模型做决策系统，核心是工作理由，核心不是去错一个we做做你你做决策系统，搓个web coding一点用没有，听懂了吗？大家看明白这个事儿了吗？你你你。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000104\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000104\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.027"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000104\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.027"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.027
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 252
+  }
+}

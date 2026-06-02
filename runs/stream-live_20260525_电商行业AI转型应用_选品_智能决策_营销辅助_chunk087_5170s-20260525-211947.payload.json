@@ -1,0 +1,64 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk087_5170s",
+  "full_text": "[00:00:00 - 00:01:00] 只能是通过销售数据拿它去做这种素色反馈，而水印是可以通过用户的浏览、退出等使用行为数据得到反馈。这就是互联网优于传统门店的优势。对吧如果门店反馈有优势，则数据量越大，触点越多，效能就越大。在二的退货率我没有研，我没有研，我没有研究过，我只能说我没有研究过。。然后在这种前后端双重筛选中，爆款率就更高，杂而爆款率20%，它50%。然后它的背后的这个生产数字化MES，然后就是通过前端的商品列表，知道它的整体的商品的走势，然后知道它的订单的情况，知道库存的结余动态智能化的去调整，它所需要去加的这些东西。基于这套体系打破了服装行业的不可能三点库存灵活，这是企业盈利的。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000086\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000086\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.0656"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000086\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0656"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000086\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=slide diff=0.4181"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000086\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=slide diff=0.3891"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000086\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=slide diff=0.402"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 18,
+      "diff": 0.0656
+    },
+    {
+      "type": "slide",
+      "frame_idx": 33,
+      "diff": 0.4181
+    },
+    {
+      "type": "slide",
+      "frame_idx": 39,
+      "diff": 0.3891
+    },
+    {
+      "type": "slide",
+      "frame_idx": 53,
+      "diff": 0.402
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 1,
+    "frames_total": 6,
+    "text_chars": 304
+  }
+}

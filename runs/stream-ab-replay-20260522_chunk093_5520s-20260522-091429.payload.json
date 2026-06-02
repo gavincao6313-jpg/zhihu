@@ -1,0 +1,44 @@
+{
+  "video_name": "ab-replay-20260522_chunk093_5520s",
+  "full_text": "[00:00:00 - 00:00:02] 对吧?就是这样子\n[00:00:02 - 00:00:04] 第一价格加个性化行不行?\n[00:00:04 - 00:00:09] 行啊 助教啊 陪伴体系啊 小老师啊 可以啊\n[00:00:09 - 00:00:15] 对不对?这是三个环节 这是三个环节 明白吧?\n[00:00:15 - 00:00:18] 对吧?这是三个环节\n[00:00:18 - 00:00:22] 雨翔你说特别对 拿好十字争留掉就可以了\n[00:00:22 - 00:00:24] 把好十字争留掉就可以了\n[00:00:24 - 00:00:28] 所以这是一个巨大学 为什么我说教育是大机会\n[00:00:28 - 00:00:33] 这是大机会 如果一次技术革命能够打破不可能三角\n[00:00:33 - 00:00:37] 几乎必然会出现新的机会 这个就是想给大家去讲\n[00:00:37 - 00:00:41] 一次技术革命打破不可能三角 几乎必然会出新的机会\n[00:00:41 - 00:00:45] 所以这是给你们一个框架 讲教育又不讲教育\n[00:00:45 - 00:00:50] 是在于如果你能够去找到任何你所熟悉的行业的不可能三角\n[00:00:50 - 00:00:55] 这个行业又 它的不可能三角又可以通过AI打破\n[00:00:55 - 00:00:58] 你的机会不就来了吗?对吧?\n[00:00:58 - 00:01:00] AI负能教育和传统教育之间的产生",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk093_5520s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk093_5520s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.0671"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk093_5520s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.0671"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk093_5520s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=slide diff=0.3842"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.0671
+    },
+    {
+      "type": "slide",
+      "frame_idx": 56,
+      "diff": 0.3842
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 656
+  }
+}

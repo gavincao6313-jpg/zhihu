@@ -1,0 +1,34 @@
+{
+  "video_name": "ab-replay-20260522_chunk061_3600s",
+  "full_text": "[00:00:00 - 00:00:03] 扣子去做副客 当然卖会员了 当然卖会员了\n[00:00:04 - 00:00:07] 但是他可以给你一定的免费天数 你可以签完\n[00:00:07 - 00:00:08] 你可以签完\n[00:00:09 - 00:00:12] 然后还有一定的周边功能 还有一定的周边功能\n[00:00:12 - 00:00:16] 告诉我 今天有三个单词需要复习啊\n[00:00:16 - 00:00:18] 他做了一定的I-BIN HOUSE\n[00:00:18 - 00:00:22] 然后开始复习 然后的话我学了一个I-STREM\n[00:00:22 - 00:00:24] 学了一个茶罐 学了一个\n[00:00:24 - 00:00:29] 学了一个那个兔子碗鸿 然后再去加了一些这种奖励机制式的一些东西\n[00:00:30 - 00:00:34] 一天连续打卡 学了三个单词 证实为100% 然后掌握了三个 需要复习零个\n[00:00:34 - 00:00:36] 要不要再次去\n[00:00:36 - 00:00:40] 学习 做了一些动画效果 然后可以有切换学习的语言\n[00:00:40 - 00:00:46] 中文英语这个英式英语 然后法语西班牙语德语韩语等等一些其他\n[00:00:47 - 00:00:49] 难度并不大\n[00:00:50 - 00:00:55] 咱们认识一下 他没有想颠覆多灵光啊 他就是做了一个小的单点功能\n[00:00:55 - 00:00:59] 这种单点功能 我跟大家稍微多讲一点点 这种单点功能",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk061_3600s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk061_3600s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.2586"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk061_3600s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.2586"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.2586
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 687
+  }
+}

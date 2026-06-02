@@ -1,0 +1,49 @@
+{
+  "video_name": "ab-replay-20260522_chunk136_8100s",
+  "full_text": "[00:00:00 - 00:00:04] 但它不符合我的產品的邏輯的一件事情\n[00:00:04 - 00:00:06] 但是確實它有邏輯\n[00:00:06 - 00:00:09] 就是因為誰都想上豆腥老師的課\n[00:00:09 - 00:00:11] 但是豆腥老師沒有這麼多的時間\n[00:00:11 - 00:00:15] 所以做了超訪真的豆腥 然後做小班課\n[00:00:15 - 00:00:18] 就把所有能振的錢都振了 就是\n[00:00:18 - 00:00:22] 但是這是一家中國的上市公司\n[00:00:22 - 00:00:27] 這是一家公司 這是小班課的錢 AI的體驗\n[00:00:28 - 00:00:35] 然後 這個就真的沒法說這家企業\n[00:00:35 - 00:00:39] 但是這家企業就上市了 這家企業上市了\n[00:00:39 - 00:00:45] 然後教學內容是統一化的\n[00:00:45 - 00:00:47] 教學內容是基本統一化的\n[00:00:47 - 00:00:50] 然後舉手發言 然後答一些東西\n[00:00:50 - 00:00:56] 會根據那個相應的舉手發言做一定的個性化回答\n[00:00:56 - 00:00:58] 打破了我那個不可能三角\n[00:00:58 - 00:01:00] 但是我覺得現在做的東西",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk136_8100s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk136_8100s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0744"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk136_8100s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0744"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk136_8100s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0736"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk136_8100s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.0736"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0744
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.0736
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 596
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "video_name": "live-20260602-195306_chunk013_720s",
+  "full_text": "[00:00:00 - 00:01:00] 更新一些信息了。因为他们有很多的合作院校啊，就每个合作院校可能啊有也有一个管理员账号。他但是他登录进去之后呢啊就只能看到自己学校的信息。这个就参见我们参照我们那个对，都是增山改查的项目。对，没有什么，就是前端为什么这个复杂一些呢？这个就是因为前端还是有很多那种小细节要调的。因为前端的这种展示样式特别多，虽然功能没多少。比如说你看这个点呢肯定还是去那个学校页面，对吧？这个点呢其实就是去了一个那个呃这个学校库呃，等同于去了一个学校库呢呃呃按照一个什么区域筛选啊，对吧？所以它其实前端的这种小的展示的细节和什么比要抠的比较多啊，其实每个功能都不难，这里头没有难的功能，但是就是要抠的细节比较多。然后他这个后台呢还不止一个管理员，还得有这个总的管理员，还得有些那个呃就是同样的那个登录进来之后，还得有有些这个有些学校的管理员可以上来更新自己的学校信息。😊啊，但其实。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0443"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=slide diff=0.5654"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=slide diff=0.5644"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=slide diff=0.566"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=slide diff=0.5657"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk013_720s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0526"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.0443
+    },
+    {
+      "type": "slide",
+      "frame_idx": 17,
+      "diff": 0.5654
+    },
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.5644
+    },
+    {
+      "type": "slide",
+      "frame_idx": 35,
+      "diff": 0.566
+    },
+    {
+      "type": "slide",
+      "frame_idx": 41,
+      "diff": 0.5657
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0526
+    }
+  ],
+  "stats": {
+    "slide_changes": 4,
+    "annotations": 2,
+    "frames_total": 9,
+    "text_chars": 403
+  }
+}

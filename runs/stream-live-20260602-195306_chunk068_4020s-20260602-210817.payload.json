@@ -1,0 +1,69 @@
+{
+  "video_name": "live-20260602-195306_chunk068_4020s",
+  "full_text": "[00:00:00 - 00:01:00] 做完的不行，你给人家做完是人家要上传到自己的号里的。😡对吧你要给自己做的话，你自己你别给人家搞重复了，到时候你交付给人的视频，人家一上传的时候，一说判重被重复了，这个就不好了，对吧？这个作业这么简单，你自己找点那个小红书帖子或者什么的那个那个一大堆文字填进去，你自己做呗，做做一个这么快，对吧？😊是不是？啊，本地拉嘛现在还有人还有还有同学在用拉ma吗？下载1个千万3.5G，然后接上Ccode能用来做这个项目。我觉得不行，千万3.59B这个模型还是太小了，对吧？交付给用户的时候，个人电脑做服务器，24小时不稳定关机要足够服务器了。这个交付给用户的就是就是一条视频。这个你最后hyper frame是能给你导出视频的，你直接跟他说导出1个MP4视频，他最后就比如说你看这个这个就是他最后导出了一个视频，直接下载这个视频文件就可以了啊你看。直接下载一个视频文件，全球最。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk068_4020s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk068_4020s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0346"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk068_4020s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0346"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk068_4020s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.6325"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk068_4020s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.1542"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk068_4020s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk068_4020s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.2759"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.0346
+    },
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.6325
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.1542
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2759
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 406
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk147_8778s",
+  "full_text": "[00:00:00 - 00:01:01] 爱你像心跳难触摸，我的天，我们当时我们当时做这个系统的时候，都受到了精神上非常大的伤害。然后爽点的问题是什么就是极其不稳定，极其不稳定。然后两句做的爽点一样，演员情节拍摄手法可能完全不同。所以怎么解决呢？啊，就是我们就搭建了一套短剧大模型，短剧大模型，对吧？怎么做呢？非常像谁？前面抓热点，抓热门小说抓爆款网红抓热点事件，抓梗，然后去做了一些训练，包括剧情的要素，语言风格画面风格拍摄手法，爽点要素做了单独的一些东西，然后开始生成剧本分镜人物配音，生成出特别低成本的特别低成本的测试视频。特别低成本的测试视频，就是就是你可以认为是这种PPT化的一些东西，就是拿大模型去做了一些简单生成。然后把这些东西极其低的成本放。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000146\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000146\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.3034"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000146\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.2582"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000146\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.2582"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.3034
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.2582
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 330
+  }
+}

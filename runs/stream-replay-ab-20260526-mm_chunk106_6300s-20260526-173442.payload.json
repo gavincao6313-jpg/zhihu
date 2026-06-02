@@ -1,0 +1,49 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk106_6300s",
+  "full_text": "[00:00:00 - 00:01:00] 正的基本功。工作流才是基本功。为什么工作流是倒逼你想清楚的，你为什么错那东西痛苦啊？那想这个过程他能不痛苦吗？😡对不对？所以在产品经理的维度，web coding做带功能的demo。啊，做功能demo功能不需要多完善，工作流，做流程的设计和思考。做大模型啊。你不需要摸工作流的各个功能，你不需要摸各个功能，你了解一些基础的东西就够了，你也不需要把工作流做的多完善。啊。同学们。你们工作流样做的有费劲的情况下，你们需要我告诉你们一个开挂的方式吗？工作流也可以开挂，你你你们需要吗？你们如果想做工作流的话，你们我也可以告诉你一个开挂的方置。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk106_6300s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk106_6300s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.0244"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk106_6300s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0244"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk106_6300s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk106_6300s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.028"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.0244
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.028
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 290
+  }
+}

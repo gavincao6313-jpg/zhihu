@@ -1,0 +1,49 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk069_4080s",
+  "full_text": "[00:00:00 - 00:01:00] 物流直接全球就开始往发去走了，对吧？好，为什么说它是标准治套方式？大家看一下他当年干的这个事儿。思林做的衣服是这个样子的，zaara同季出的衣服是这个样子的，那确实还是不太一样，加了一点红颜色，对吧？如果有梦想，如果zaara有梦想，那一定是中国红，对吧？valentino做的是这么一件衣服啊，大表小姐也穿过，到了zaara这长得是这个样子，这真的是zaara的款，这两件衣服数我一个这个这个这个直男，我真的看不出来这两件衣服的差别是什么？我确实看不出太出来这两个的差别，那是啥，对吧？这个反正这就是zaara的干法，这就是这就是zaara的干法。然后他这个东西出来之后，他这个东西出来之后，对吧？然后怎么玩，怎么玩，他到了门店端，为什么他还要做去小太阳，你好棒你好棒，。你好吧。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk069_4080s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk069_4080s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.188"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk069_4080s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.188"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk069_4080s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.2629"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk069_4080s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.2629"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.188
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.2629
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 364
+  }
+}

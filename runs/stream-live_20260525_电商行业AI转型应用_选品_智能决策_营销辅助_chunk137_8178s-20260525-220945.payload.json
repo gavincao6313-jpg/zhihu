@@ -1,0 +1,84 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk137_8178s",
+  "full_text": "[00:00:00 - 00:01:00] 这个20万投不投，你是没有能力去做这个的，20万全亏了，都比你招人要便宜。明白了吗？包括宣发要素，包括商业预估，来去角色判断用什么明星投什么剧，用哪个导演做什么样的题材。一部爆款剧的选题就是类似于这样的，为什么投赘婿啊，对吧？赘婿他相应的这些数据的情况，年龄的分布和庆余年非常相似，而且为什么选择麒麟来去做这部剧啊，原因在于郭麒麟的人群属性，男性。。占比很高，但女性不讨厌她。同时郭麒麟对于年轻用户的拉动作用又比较的明显。所以上线之后的整体数据非常的有优势啊，1.8亿台设备播放追剧会员超过6400万人，订阅会员收入同比增长23%，非常优秀的一个状态，非常优秀的这么一个状态。芒果没有类似的。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=slide diff=0.5776"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.0359"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0538"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.0637"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0637"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000136\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0956"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.5776
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.0359
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.0538
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.0637
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.0956
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 318
+  }
+}

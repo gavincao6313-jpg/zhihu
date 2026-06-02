@@ -1,0 +1,89 @@
+{
+  "video_name": "live-20260602-195306_chunk010_540s",
+  "full_text": "[00:00:00 - 00:01:00] 聊群啊，这个其实呢就是跳出一个弹出框。弹出框呢也没什么特别的，其实就是让你长按扫码进群啊，然后呢呃也比较简单。另外首页里面可能这个地方还有比如说智能择校智能择校，所谓智能择校点了之后呢，其实就是有各种各样的筛选条件。比如说区域呀，期望就足的学段呀，然后学费的预算呀呃出国留学的话，你的那个目的地啊，然后等等之类，就会呃针对你背后的那个学校库去做一些筛选。然后呢呃这个就是呃一些展示一些活动啊，这个就是这个最后这一页呢，这个就是某一个学校的详情页，做很多的信息展示，然后有一些呃PDF啊，有一些这个点了之后出个弹出框进群啊啊这一些基础功能。就是基础功能其实比较多的啊，然后呢你要做这个数据库啊，要要做数据库，要做小程序，然后要做管理后台。那管理后台里面可以去管理用户可以去更新学校的一些。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk010_540s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk010_540s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=slide diff=0.6238"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk010_540s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=slide diff=0.6187"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk010_540s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.5447"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk010_540s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=slide diff=0.5732"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk010_540s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=slide diff=0.5676"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk010_540s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=slide diff=0.569"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk010_540s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0512"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.6238
+    },
+    {
+      "type": "slide",
+      "frame_idx": 8,
+      "diff": 0.6187
+    },
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.5447
+    },
+    {
+      "type": "slide",
+      "frame_idx": 29,
+      "diff": 0.5732
+    },
+    {
+      "type": "slide",
+      "frame_idx": 35,
+      "diff": 0.5676
+    },
+    {
+      "type": "slide",
+      "frame_idx": 45,
+      "diff": 0.569
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0512
+    }
+  ],
+  "stats": {
+    "slide_changes": 6,
+    "annotations": 1,
+    "frames_total": 8,
+    "text_chars": 365
+  }
+}

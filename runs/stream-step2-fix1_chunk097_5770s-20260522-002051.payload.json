@@ -1,0 +1,18 @@
+{
+  "video_name": "step2-fix1_chunk097_5770s",
+  "full_text": "[00:00:00 - 00:01:00] 哦，对呃，我们肯定是嗯针对于各个应用的。场景中啊都做了对应的优化。我们还是基于这个呃呃千问co来去做的一些一些优化。对。没有。哦，也感谢大家啊，我看同意太远同意其实是太远的呀，同意啊。coder是开源的，就是我们的这些模型嗯，只有0马思维GBT是开源的。是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000096\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 151
+  }
+}

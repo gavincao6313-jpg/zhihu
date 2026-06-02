@@ -1,0 +1,64 @@
+{
+  "video_name": "ab-replay-20260522_chunk052_3060s",
+  "full_text": "[00:00:00 - 00:00:02] 有一个完整输出 有content\n[00:00:02 - 00:00:06] 有两个word文件的生成最后出的UIL\n[00:00:06 - 00:00:08] 我这里面用了两个生成word的插件\n[00:00:08 - 00:00:10] 完成相应的输出\n[00:00:10 - 00:00:12] 然后就达到了\n[00:00:12 - 00:00:14] 我们在一开始给大家去看到\n[00:00:14 - 00:00:15] 这个韩梅梅\n[00:00:15 - 00:00:17] 然后她的这个名字之下\n[00:00:17 - 00:00:20] 然后两份不同的这个结果\n[00:00:20 - 00:00:21] 一份是只有题目的\n[00:00:21 - 00:00:23] 一份是给老师或者家长的\n[00:00:23 - 00:00:25] 带所有解析的东西\n[00:00:25 - 00:00:29] 确实就是只能上传一张图\n[00:00:30 - 00:00:32] 你可以做成多图上传\n[00:00:32 - 00:00:34] 你可以往方去扩展就可以了\n[00:00:34 - 00:00:38] 你做多图扩展的话\n[00:00:38 - 00:00:41] 无外乎就是在这个环节中\n[00:00:41 - 00:00:42] 然后以migrate\n[00:00:42 - 00:00:47] 你可以去做成一个数组\n[00:00:47 - 00:00:48] 然后的话\n[00:00:48 - 00:00:51] 在这里面去乱一个整体\n[00:00:51 - 00:00:53] 去乱一个什么\n[00:00:53 - 00:00:55] 整体去乱一个循环\n[00:00:55 - 00:00:58] 然后把数组去做完整的循环就可以了\n[00:00:58 - 00:01:00] 用说述云云党当然",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk052_3060s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk052_3060s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=slide diff=0.3002"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk052_3060s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=slide diff=0.3311"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk052_3060s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=slide diff=0.3504"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk052_3060s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.0721"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk052_3060s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0721"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 8,
+      "diff": 0.3002
+    },
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.3311
+    },
+    {
+      "type": "slide",
+      "frame_idx": 39,
+      "diff": 0.3504
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.0721
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 1,
+    "frames_total": 6,
+    "text_chars": 827
+  }
+}

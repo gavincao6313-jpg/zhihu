@@ -1,0 +1,49 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk127_7560s",
+  "full_text": "[00:00:00 - 00:01:00] 能够按照这种方法来去做。你们那得用原生AI让AI自己做决策呀。是自己写的原生AI还是用大模型的原生AI啊？这个角色是角色性和AI还是让他自己角色，让他生成东西。这就是这就是这句话的歧义太多了，歧义太多了。用大模型做一个真正意义上的决策系统嘛。还是plan模式，他就认为是决策了。去。不要把plan当决策啊，大家可以搭到这个东西试试。同时呢你也未必去搭电商。你也未必去打点声。在这里面我跟大家说一个东西，同学们有一位同学。找到班主任，也在知乎上找到我问我一个问题，特别想听一个东西，听了一下你们的态度。这位同学特别想。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk127_7560s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk127_7560s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=slide diff=0.6325"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk127_7560s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0229"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk127_7560s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=slide diff=0.6098"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 33,
+      "diff": 0.6325
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.0229
+    },
+    {
+      "type": "slide",
+      "frame_idx": 39,
+      "diff": 0.6098
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 280
+  }
+}

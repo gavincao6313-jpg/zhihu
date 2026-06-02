@@ -1,0 +1,74 @@
+{
+  "video_name": "live-20260602-195306_chunk075_4440s",
+  "full_text": "[00:00:00 - 00:01:00] 啊，应该也会有啊同事开始去处理大家在后台提交的那些应用了。所以下周因为再后面的单子都就要通过这个来。所以大家这个我的应用。从我的应用里面去提交应用，应该之前大家的应用都还没有审核，都还没有审核啊。然后从下周开始应该就陆续开始有同事开始开始给大家去做审核了，会去仔细使用你提交的东西。然后大家在接单子的过程当中，你做的所有的东西也可以作为这个啊这个地方后台提交的东西，然后因为他他跟那个后后面的这个牛服接单这个平台，它的自动分配单子有关嘛。所以你做过的东西还是要提交上来的啊，然后呢，从下周开始我们陆续审核，再到后面的单子就不会通过现在这种报名的方式再去分配了。就通过这个牛服接单的平台去分配了啊，大家就会自动收到邮件说哎有个需求来了，什么什么这种啊，就要开始啊运行。但下周是一个呃审核大家提交的应用的阶段啊是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk075_4440s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk075_4440s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.1316"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk075_4440s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.1316"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk075_4440s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=slide diff=0.4883"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk075_4440s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk075_4440s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.2483"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk075_4440s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk075_4440s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.2477"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.1316
+    },
+    {
+      "type": "slide",
+      "frame_idx": 8,
+      "diff": 0.4883
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.2483
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.2477
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 377
+  }
+}

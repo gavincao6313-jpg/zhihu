@@ -1,0 +1,104 @@
+{
+  "video_name": "live-20260602-195306_chunk048_2820s",
+  "full_text": "[00:00:00 - 00:01:00] 啊，这些帖子我应该在电脑上打不开啊，有反正就是有有一些帖子了。这些帖子呢其实它不是这种hyper frame的风格的。嗯，就是原有想给你的AI装一有些帖子呢，它就是一些比如说真人的口播呀或者一些这种图片轮播啊或者等等之类一些帖子。然后呢它不是这种形式的。然后呢，我们会有一些那个工具呢，直接把这个帖子里头的内容呢，不管它是图片的还是视频的，把它的文字都给解析出来。所以呢你的输入也是一大段文字，那你输入一大段文字呢，就是基于这一大段的文字，其实就是相当于你的竹字稿就已经有了，或者是你的整个的或者叫你的所有的整个的这个脚本，或者是你的整个视频结构内容结构都已经有了啊大部分文字都有。然后呢你就需要啊给他把这个视频给它做出来。那做的方式呢也比较简单。就是如果你用过的话呢，我就不细讲了。然后但是有些同学因为没用过，我简单讲讲，就是那因为你如果用code的话，他会要求你这个这个花钱还挺贵的，。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=annotation diff=0.1352"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.1352"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=slide diff=0.7372"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0699"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=slide diff=0.6306"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.1211"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=slide diff=0.7129"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.0664"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk048_2820s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.0569"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.1352
+    },
+    {
+      "type": "slide",
+      "frame_idx": 2,
+      "diff": 0.7372
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.0699
+    },
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.6306
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.1211
+    },
+    {
+      "type": "slide",
+      "frame_idx": 21,
+      "diff": 0.7129
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.0664
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.0569
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 5,
+    "frames_total": 10,
+    "text_chars": 417
+  }
+}

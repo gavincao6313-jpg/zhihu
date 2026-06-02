@@ -1,0 +1,41 @@
+# Stream URL Validation
+
+- Created: `2026-05-21T23:34:07`
+- URL host: `local`
+- Extractor: `hls-continuous`
+- Media type: `ts`
+- Source duration: `00:01:00`
+- Source size: `1973248` bytes
+- Auth headers: `none`
+- Slice start: `00:06:00`
+- Slice duration: `00:01:00`
+- Slice file: `Videos\.stream\seg_1748000000_000006.ts`
+- Slice size: `1973248` bytes
+- Slice kept: `True`
+- Stream re-extractions: `0`
+
+## Processing
+
+- Keyframe events: `1`
+- Kept frames: `3`
+- Backend: `sensevoice`
+- Transcribe duration: `8.14` seconds
+- Transcript segments: `1`
+- Transcript chars: `299`
+
+## Output Files
+
+- Transcript text: `D:\zhihu\zhihu_file\runs\stream-step2-verify_chunk007_360s-20260521-233407.transcript.txt`
+- Payload JSON: `D:\zhihu\zhihu_file\runs\stream-step2-verify_chunk007_360s-20260521-233407.payload.json`
+
+## Transcript Preview
+
+```text
+[00:00:00 - 00:01:00] 还有一些效果评估这些方面的这个内容。然后现在呢经过这个产品不断的这个迭代的升级啊，呃通义灵码现在已经成为国内嗯比较受欢迎的一个智能编码助手了。啊，对。呃呃，对呃，那我本人呢是那个2呃自2019年以来啊，就是主要围绕这个呃呃一呃文档的预训练，然后文档智能代码智能这些方向嗯发表了一些文文章。对嗯，这些是我的这个gogle的链接。好，那主要进呃啊那接下来就进行这个呃后后面的这个具体的内容的介绍啊啊，我将从以下呃四个方面介绍一下。首先是这个呃呃大模型和这个代码大模型的一些发展的一个简介。呃，编。这个呃第二方面呢会介绍一下这个呃编码助手中这个代码生成补全这。
+```
+
+## Full Global Transcript
+
+```text
+[00:06:00 - 00:07:00] 还有一些效果评估这些方面的这个内容。然后现在呢经过这个产品不断的这个迭代的升级啊，呃通义灵码现在已经成为国内嗯比较受欢迎的一个智能编码助手了。啊，对。呃呃，对呃，那我本人呢是那个2呃自2019年以来啊，就是主要围绕这个呃呃一呃文档的预训练，然后文档智能代码智能这些方向嗯发表了一些文文章。对嗯，这些是我的这个gogle的链接。好，那主要进呃啊那接下来就进行这个呃后后面的这个具体的内容的介绍啊啊，我将从以下呃四个方面介绍一下。首先是这个呃呃大模型和这个代码大模型的一些发展的一个简介。呃，编。这个呃第二方面呢会介绍一下这个呃编码助手中这个代码生成补全这。
+```

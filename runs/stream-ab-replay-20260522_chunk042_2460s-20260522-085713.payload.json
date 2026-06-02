@@ -1,0 +1,89 @@
+{
+  "video_name": "ab-replay-20260522_chunk042_2460s",
+  "full_text": "[00:00:00 - 00:00:06] 给到这里面的相应的一个新的大模型的板块\n[00:00:06 - 00:00:09] name, student name, data\n[00:00:09 - 00:00:11] 然后这是查询学生的这个部分\n[00:00:11 - 00:00:13] 然后option content\n[00:00:13 - 00:00:16] 这个是我在回答中最后出题的这个数量\n[00:00:16 - 00:00:19] 然后系统的提示词\n[00:00:19 - 00:00:22] 为啥要放在多维表格中\n[00:00:22 - 00:00:25] 放在多维表格中是这样子的\n[00:00:25 - 00:00:28] 我放在多维表格中\n[00:00:28 - 00:00:30] 其实是在这边一个小的支持点\n[00:00:30 - 00:00:35] 如果你不放多维表格中能不能行啊\n[00:00:35 - 00:00:37] 不放在多维表格中能不能行啊\n[00:00:37 - 00:00:40] 不放在多维表格中理论上也可以\n[00:00:40 - 00:00:42] 你只要去写一个文件就ok\n[00:00:42 - 00:00:46] 我在这里面其实放在多维表格中的方式\n[00:00:46 - 00:00:49] 是为了去写在一个临时文件中\n[00:00:49 - 00:00:57] 把它做一个简单的数据持久化操作\n[00:00:57 - 00:00:59] 然后为了后面传参中不会丢",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0637"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0637"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=slide diff=0.3487"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=slide diff=0.3394"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.0483"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0405"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0405"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk042_2460s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=slide diff=0.3475"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0637
+    },
+    {
+      "type": "slide",
+      "frame_idx": 20,
+      "diff": 0.3487
+    },
+    {
+      "type": "slide",
+      "frame_idx": 42,
+      "diff": 0.3394
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.0483
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.0405
+    },
+    {
+      "type": "slide",
+      "frame_idx": 55,
+      "diff": 0.3475
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 3,
+    "frames_total": 9,
+    "text_chars": 664
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk136_8096s",
+  "full_text": "[00:00:00 - 00:00:59] 福建东山是明确的身份排序，与中国是祖籍相连，而非祖国情感。有的人他急了。有的人他急了。同学们。文科生最差做到这个份儿上。总可以吧，不需要你成为惊世鸿儒。好歹讴歌，我们伟大的时代，讴歌，我们自己的祖宗总没错吧，中国人不拜不拜神府。只拜祖先，你讴歌自己的祖宗，他不丢人好吗？这是我们今天的内容。来自监狱的妈妈还未上映，就引发巨大声，一个杀人犯，无论如何不能如此洗白，背后的信息触目惊心，嘴上都是生意，心里全是主意，寻找特定案例，用弱势群体作为buuff冲塔，成为NGO的一个标准。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000135\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000135\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2117"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000135\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.2117"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.2117
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 260
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk083_4930s",
+  "full_text": "[00:00:00 - 00:01:00] 朱莎，我问你一个问题，你这是哪年？我说的那是哪一年我说的那是美团和饿了么势均力敌的时候，他这么打。现在美团一家独大，他当然没有必要再这么打下去了，懂了吧？现在是另外一个时刻，大家的策略已经变化了，对吧？所以到这个时候实际上是在在在在拼的是什么？到这个时候拼的已经不再是说谁比谁聪明了。这个时候拼的其实是一个企业的能力了，对吧？对吧。然后在后端，它就靠的是小单快返。小单快返是什么呀？就是sin网站和app在消费者端经过浏览、点击销售数据，中心算法迅速同步到系统中，包括他发现。大家想想他这个东西如何做快速反应，如何做快如它如何做快反，如何做快反应，对吧？首先它的这个测试款100件像。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000082\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000082\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.2297"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000082\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.2297"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.2297
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 314
+  }
+}

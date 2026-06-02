@@ -1,0 +1,64 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk065_3848s",
+  "full_text": "[00:00:00 - 00:01:00] 别的感兴趣，那是你的问题。然后对于水印来讲，数字化的关键是什么？最落地的点，小单快反的柔性供应链。支撑部分是智能化的设计，前端是大数据的智能化的选品，是这么一套体系，是这么一套体系啊。然后呢，讲是之前我们再去讲一下上一个时代的快商王者zaara是怎么做的。zaara为什么它很厉害啊？1975年成立于西班牙，全球第三西班牙第一的服装制造商，最鼎盛的时候，全球86个国家和地区开设了6249家服装店。老板5次成了实业收富，他真的是多次首富的呀。这二是上一个上一个时代的王者呀，他的整体的行业打法是这样子的，他是怎么来去做衣服的？同学们，他是怎么去做衣服的？他是怎么做衣服的？他首先来讲它是两条线，第一条线搜寻快时尚的潮流资讯。简单来讲。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000064\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000064\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.1924"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000064\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.1924"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000064\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.1566"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000064\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.1566"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000064\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.2929"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000064\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2929"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.1924
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 21,
+      "diff": 0.1566
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2929
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 339
+  }
+}

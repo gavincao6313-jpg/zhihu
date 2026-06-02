@@ -1,0 +1,64 @@
+{
+  "video_name": "live-20260602-195306_chunk015_840s",
+  "full_text": "[00:00:00 - 00:01:00] 继先做一些收集。但这个收集过程呢其实就是问卷了，其实就是问卷。但是这个问卷的样式可能会是有一个专门的设计。比如说因为它的问题是会比较特殊的，就是比如说你看到你看到这个项目或者啊这样一个实践，你是否感兴趣。比如说跟着跟着一个什么化学的啊教授，然后啊用一些什么瓶瓶罐罐，然后把哪些什么东西啊，你会为此感到。啊。呃，兴致勃勃嘛啊就一些很多这样的问题。所以呢有关有关你的性格的，其实就是你的思维方式之类的一些测评测评题。然后有关于你的一些呃兴趣偏好的，然后有关一些那个学科成绩的，反正先收集收集完了之后呢，其实就是做一些大学的和专业的一些推荐了啊。这个其实网上都有现成的东西。呃，或者其实你不用网上的数据，直接让AI去做呃也可以，反正就是呃大学就根据这个学生的呃，你收集来的情况去做一些大学的推荐，专业的推。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk015_840s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk015_840s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk015_840s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.033"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk015_840s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.0301"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk015_840s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0301"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk015_840s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk015_840s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.0409"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.033
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.0301
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.0409
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 372
+  }
+}

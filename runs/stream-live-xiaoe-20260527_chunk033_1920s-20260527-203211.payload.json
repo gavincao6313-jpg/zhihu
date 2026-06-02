@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk033_1920s",
+  "full_text": "[00:00:00 - 00:00:59] 缺氧女性力量，我觉得OK她最有名的一件事是穿着带经血的裤子，在大街上给人发卫生巾。也OK他还有一个比较抓玛的事儿，他给自己亲妈送一些难以名状之物。啊。这是客观的，我没有造任何的谣。这件事我觉得没有什么特别oversize的东西。但是这是他真正干的事儿，这是他真正干的事儿，他给自己亲妈送了一些东西。😊这东西拿术语讲叫做成人玩具，电动的。电动的作为一个网红博冠注没有关系，但是穿着带惊雪的裤子，在大街上给人发卫生巾。我问大家一个问题。这是什么东西？这是什么东西？这什么东西？谁家裙子上别这么一大个红红的。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000032\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000032\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.0929"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000032\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.0929"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.0929
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 273
+  }
+}

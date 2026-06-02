@@ -1,0 +1,34 @@
+{
+  "video_name": "step2-verify_chunk078_4628s",
+  "full_text": "[00:00:00 - 00:01:00] 来达到呃来达到模型能够去根据需求来生成对应的呃代码修改的这么个能力。我们学习了这么一个之呃呃这么一个零零马思维GBT之后呢，哎我们在这个思维的light和的这个两个呃子的评测情况都去评测了。相比我们可以看一下啊。呃，我们这里的模型啊宣传的模型叫里马思维GBT。然后呢，我们这个模型在预测时候的这个agent啊叫林马agent。然后呢，我们分别去对比了一些这个呃当前的一些开源模型训练出来的。如果拿我们直接拿一个开源模型套里马agent呃，预测的结果还不太不太行，就可能只有7%呃10%左右。然后呢，我们呃用了这个我们训练后的这个模型，就0码思GPT这个模型。我们这个模型啊是基于呃这个嗯千问嗯千问去训练的对啊，训练出来就是微调出来这个模型啊，这个模型在这个s benchlight这个榜单上可以获得接接近20%的这种准确率。在这个的榜单上。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000077\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000077\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0612"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000077\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0612"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.0612
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 392
+  }
+}

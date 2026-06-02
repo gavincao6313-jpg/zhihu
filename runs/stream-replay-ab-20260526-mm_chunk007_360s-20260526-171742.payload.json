@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk007_360s",
+  "full_text": "[00:00:00 - 00:01:00] 法律媒体舆论的文化战场，我正在做这期的内容。所以我说你要想了解这个从接下来的妈妈，我很熟这个这个最近确实没有时间去看电影。所以你问我给阿摩的情书是我确实不行。你问到了我我这个大模型，没有没有没有预训练的东西，没有预训练的东西，然后我也不可能给你说幻觉的事情，对不对？😊对。哎。然会。clolo为什么不增加deep sick模型？我的天deep sick是在编程上很强的一个模型吗？我问你一个，我我我就问你一个事儿，deep sick.deept是编程能力很强的模型吗？你即便呃妈妈妈然哦哦哦啊妈ok好好好，学习了，谢谢。然后是这样。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk007_360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk007_360s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.1585"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk007_360s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.1585"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.1585
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 288
+  }
+}

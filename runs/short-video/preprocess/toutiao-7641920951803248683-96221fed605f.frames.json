@@ -1,0 +1,20 @@
+{
+  "video_id": "toutiao-7641920951803248683-96221fed605f",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7641920951803248683\\frame_00001.jpg",
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7641920951803248683\\frame_00050.jpg",
+      "marker": "Frame [00:00:50] type=annotation diff=0.071"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.071
+    }
+  ]
+}

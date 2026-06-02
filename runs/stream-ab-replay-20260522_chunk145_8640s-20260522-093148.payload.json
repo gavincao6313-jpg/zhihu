@@ -1,0 +1,74 @@
+{
+  "video_name": "ab-replay-20260522_chunk145_8640s",
+  "full_text": "[00:00:00 - 00:00:02] 对吧 有销售管理\n[00:00:02 - 00:00:05] 他在这边就做了一些AI的周边辅助\n[00:00:05 - 00:00:06] 就把价格拉上来了\n[00:00:06 - 00:00:08] 他做了什么样的辅助呢\n[00:00:08 - 00:00:10] 他做了什么样的辅助呢\n[00:00:10 - 00:00:11] 他这边的话\n[00:00:11 - 00:00:16] 很多老师能做内容 但不会做营销\n[00:00:16 - 00:00:19] 不知道一个比较吸引人的标题该怎么去起\n[00:00:19 - 00:00:22] 他在这边一看 起一个课程的名称\n[00:00:22 - 00:00:26] 就可以 按杠 按杠 对吧\n[00:00:27 - 00:00:29] 按杠 就能够得到AI的帮助\n[00:00:29 - 00:00:32] 按杠之后 你想做什么样的事呢\n[00:00:32 - 00:00:33] 智能生成\n[00:00:33 - 00:00:36] 我想一个比较吸引人的心理学的标题\n[00:00:36 - 00:00:39] 解锁人心的9个秘密\n[00:00:39 - 00:00:41] 心理学让你更懂自治体的谈容\n[00:00:41 - 00:00:45] 我希望针对男性永不偏职场\n[00:00:45 - 00:00:48] 主动人心的9个心理学的秘密职场更进一步\n[00:00:48 - 00:00:50] 他这可以去做铁锐\n[00:00:50 - 00:00:53] 就是他做了很多AI辅助性的事\n[00:00:53 - 00:00:55] 来去增强他的市场的竞争力\n[00:00:55 - 00:00:57] 这种的逻辑可以在咱们\n[00:00:57 - 00:01:00] 如果你加入道理 这样你加就是本身已经",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk145_8640s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=slide diff=0.44"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk145_8640s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=slide diff=0.44"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk145_8640s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.1358"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk145_8640s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.1358"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk145_8640s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk145_8640s\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.2275"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk145_8640s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1739"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk145_8640s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.1739"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 1,
+      "diff": 0.44
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.1358
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.2275
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.1739
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 807
+  }
+}

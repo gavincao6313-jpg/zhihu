@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk096_5700s",
+  "full_text": "[00:00:00 - 00:01:00] 角度上来讲的话啊，从我认知的角度上讲，不应该这样做。大模型不是干这事儿。你如果做全自动决做全自动的话，我不认为现在的大模型能够担负起这样的的的重任。如果你非要强行的去上的话，就要考虑到可能会担后面的一些风险的。量化基金当然是全自动交易了。所以量化基金不是拿大模型做出来的。所以。😊说实话呀，现在有一些外面的人告诉你，拿着deep sick，拿着千问去做去做量化交易。说实话我觉得就很就很扯就很扯。自动驾驶自动驾驶当然是全自动决策系统啊。NOA当然是全自动决策呀。所以NOA没有人是拿常规的语言类大模型去去做的呀。谁会这样去做呀？对吧但是你NOA能不能拿大模。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk096_5700s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk096_5700s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk096_5700s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2911"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2911
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 301
+  }
+}

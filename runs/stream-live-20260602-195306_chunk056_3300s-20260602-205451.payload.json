@@ -1,0 +1,59 @@
+{
+  "video_name": "live-20260602-195306_chunk056_3300s",
+  "full_text": "[00:00:00 - 00:01:00] 讲明白的东西叫harness engineer。先说结论。对呃，刚刚这个界面对这个界面。首先这一整个软件呢，我用的这个是tree，对不对啊？这一整个就是用的是tree，就re的那个solo模式。所以这个就是我们跟他对换的一个对话框。那右边这个地方呢，就是你安装了这个啊hyper frame插件之后啊，且你调用这个hyper frame插件去去去干活啊，做视频啊，它就会自动打开这样一个界面。其实它就是这个啊啊叫什么？其实就是它在你的这个工作目录里面创建了一个新的工程。比如说现在这个这个工程是干嘛？这是在5个概念，其实一栋楼，对吧？这个视频叫5个概念，其实一栋楼，5个AI概念，其实是一栋楼，这就是一个这就是一个工程项目，这一个工程项目背后就对应着一大堆的代码。啊，其实就对应一大堆的代码。然后如果你说那我现在要创建一个。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk056_3300s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk056_3300s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk056_3300s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.2166"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk056_3300s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=slide diff=0.3248"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk056_3300s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.022"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk056_3300s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.022"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.2166
+    },
+    {
+      "type": "slide",
+      "frame_idx": 8,
+      "diff": 0.3248
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.022
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 384
+  }
+}

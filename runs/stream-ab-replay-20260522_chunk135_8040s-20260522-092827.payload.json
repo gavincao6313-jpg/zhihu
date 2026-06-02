@@ -1,0 +1,49 @@
+{
+  "video_name": "ab-replay-20260522_chunk135_8040s",
+  "full_text": "[00:00:00 - 00:00:03] 做难度的相对的平滑分布\n[00:00:03 - 00:00:05] 他们家UI特别的臭\n[00:00:05 - 00:00:09] 他就是你可以认为是把采云小梦的那个功能\n[00:00:09 - 00:00:10] 变成了孩子作文\n[00:00:10 - 00:00:13] 同时变成启发式\n[00:00:13 - 00:00:15] 而且还可以回想以前的内容\n[00:00:15 - 00:00:18] 然后他也做了这种超访真数字化老师\n[00:00:18 - 00:00:21] 这是他们家做的一个\n[00:00:21 - 00:00:27] 我觉得我不太能凭价的一个产品\n[00:00:27 - 00:00:28] 但是我要给大家讲\n[00:00:28 - 00:00:33] 这是目前市面上有的这种比较有意思的产品方向\n[00:00:33 - 00:00:35] 右上角这是豆腥老师\n[00:00:35 - 00:00:37] 这是他们家的主IEI\n[00:00:37 - 00:00:39] 他们家的老板\n[00:00:39 - 00:00:44] 他们家用超访真AI数字人老师做小班客\n[00:00:47 - 00:00:52] 然后做小班客\n[00:00:52 - 00:00:56] 你们能理解这件事是个什么样的事吗\n[00:00:56 - 00:00:59] 就是这个功能是很多家在做",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk135_8040s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk135_8040s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0489"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk135_8040s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0489"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk135_8040s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk135_8040s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.0742"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.0489
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.0742
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 623
+  }
+}

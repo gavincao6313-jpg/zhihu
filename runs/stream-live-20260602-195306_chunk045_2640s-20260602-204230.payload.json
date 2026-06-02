@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260602-195306_chunk045_2640s",
+  "full_text": "[00:00:00 - 00:01:00] 有一张有一件衣服，有个小孩把那衣服穿上去，因为难得不难，就调一次模型的事就结束了，所以就只需要让他上传照片，上传照片，然后背后掉个模型就哎就换衣服成功。但是他可能可能在这个基础上对也可以对GPT也可以。然后呢可能就是在这个基础上要做一些比如说商品的管理啊，能上上传一些素材呀，有些模特的管理啊然后等等等等之类的。然后有些提示词的优化呀啊，可能有些这样的功能。然后我们大家感兴趣也可以先先报名也行，但是因为现在还不是特别明确具体的功能需求，所以也还没标价格，所以呢大家可以这个呃看自己情况，先报前面那些也可以这这两个呢现在报也行，但是等我们确定好了再做。然后呢这是呃跟视频有关的一些工具，这些呢都是跟视频有关的一些工具的单子。那接下来呢是一批就不是跟工具相关。接下来这一批呢是。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk045_2640s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk045_2640s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk045_2640s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0458"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.0458
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 361
+  }
+}

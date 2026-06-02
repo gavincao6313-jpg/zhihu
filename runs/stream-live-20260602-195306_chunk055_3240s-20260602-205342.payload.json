@@ -1,0 +1,104 @@
+{
+  "video_name": "live-20260602-195306_chunk055_3240s",
+  "full_text": "[00:00:00 - 00:01:00] 其实也就是去改这些东西了。OK那呃MCP提供了能OK所以你唯一要做的事情就是把我们要做的视频的那一大段文字贴给他。然后呢，在它生成的基础上呢，给它去挑毛病。比如说字体啊、字号啊，看不清啊，竖屏的还是横屏的呀，尺寸问题啊，或者是你的这个字幕没有配好啊啊然后等等之类的。所以它其实是一个扣令的过程。如果你去点这里面的某一个这个空件的话，你你会发现这里面的很多的空件还是能点的。比如说这个呃呃。比如说这个什么skill啊或者什么之类的啊，这个这个其实你如果想编辑的话，其实你也可以手动编辑。但一般我们也都不会手动编辑了啊，不会做手动编辑，就是就是在这个地方继续继续写提示词啊，我说不要竖版的，要横屏的或者什么等等之类的啊，基本上就给他提要求可以了。所以你在最开始的时候呢，我们来演示一下吧，我们演示一下它的过程。比如说这刚。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0203"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0203"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.0327"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.0327"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.033"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.0307"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.0307"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.0317"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk055_3240s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=slide diff=0.452"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.0203
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.0327
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 37,
+      "diff": 0.033
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.0307
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.0317
+    },
+    {
+      "type": "slide",
+      "frame_idx": 58,
+      "diff": 0.452
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 5,
+    "frames_total": 12,
+    "text_chars": 381
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "video_name": "step2-verify_chunk046_2704s",
+  "full_text": "[00:00:00 - 00:01:00] 被测的函数中啊去做1个ASC解析。比如说呢我们这里啊这个嗯把这个bubblebu salt这个函数嗯解析一下，解析会发现什么呢？它首先第一块是有一个复循环，对吧？货循环是呃第一块块是一个呃外层的一个复循环，它是第三行到第六行这块代码。然后第二个呢，它呃第二个。第二个block呢，它是第四行到第六行的这么一个第二个复循环，就是它的这个forG这个循环。嗯，有这是这是两个forfor循环的这个呃代码块。嗯后呢，再往下有一个if这个代码块，它是呃第五行到第六行，这是一个if的个代码块。嗯，那接下来呢第六行又是一个这个呃一个一一条单条的语句。然后第七行它有一条单条语句。比如说这个函数啊，它是总呃这个函数呢，它是总共嗯是被分成了这么5个呃代码块。这。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000045\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 346
+  }
+}

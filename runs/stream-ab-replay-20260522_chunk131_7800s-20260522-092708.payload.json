@@ -1,0 +1,94 @@
+{
+  "video_name": "ab-replay-20260522_chunk131_7800s",
+  "full_text": "[00:00:00 - 00:00:04] 这张臭脸模拟上压力的这个状态\n[00:00:05 - 00:00:06] 然后第二个\n[00:00:06 - 00:00:09] 这种不是特别的这种甜美\n[00:00:10 - 00:00:14] 然后服务性的表情更容易有记忆点\n[00:00:14 - 00:00:15] 更容易有记忆点\n[00:00:15 - 00:00:17] 这是莉莉的人设\n[00:00:17 - 00:00:21] 但为什么选择莉莉去做这个视频通话的人物啊\n[00:00:21 - 00:00:22] 对吧\n[00:00:22 - 00:00:23] 为什么选他\n[00:00:23 - 00:00:25] 这个才是最重要的\n[00:00:25 - 00:00:27] 就是为什么不选这个门啊\n[00:00:28 - 00:00:31] 这个阳光帅气大男孩去做的话\n[00:00:32 - 00:00:34] 那为什么没有去选他呢\n[00:00:34 - 00:00:37] 莉莉确实是臭脸人设这事没问题\n[00:00:37 - 00:00:38] 对吧\n[00:00:38 - 00:00:42] 然后之后他又在多灵光麦兽增加了一个这个沉浸式场景\n[00:00:42 - 00:00:43] 这只有美区有\n[00:00:44 - 00:00:45] 美区有\n[00:00:47 - 00:00:48] 叫做Adventure\n[00:00:48 - 00:00:50] 然后就是相当于是一个整体的环境\n[00:00:51 - 00:00:53] 你和不同的人在这边去做对话\n[00:00:53 - 00:00:55] 这个也是通过AI来去做的\n[00:00:55 - 00:00:56] 给部分的东西\n[00:00:56 - 00:00:59] 然后他通过AI去做了相应的科诞家的提升",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.1022"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.1022"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.142"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.1416"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.156"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.156"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.216"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk131_7800s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.216"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.1022
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.142
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 37,
+      "diff": 0.1416
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.156
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.216
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 5,
+    "frames_total": 11,
+    "text_chars": 804
+  }
+}

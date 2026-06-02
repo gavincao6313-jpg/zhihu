@@ -1,0 +1,31 @@
+{
+  "schema_version": "short-video-pack-call-v1",
+  "pack_id": "pack-20260527-221133-001",
+  "input_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\packs\\pack-20260527-221133-001.input.json",
+  "output_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\packs\\pack-20260527-221133-001.output.md",
+  "created_at": "2026-05-27T22:17:28",
+  "provider": "qwen",
+  "model": "qwen3.6-flash",
+  "usage": {
+    "provider": "qwen",
+    "model": "qwen3.6-flash",
+    "api_calls": 1,
+    "finish_reason": "stop",
+    "usage": {
+      "input_tokens": 43052,
+      "output_tokens": 40238,
+      "total_tokens": 83290
+    },
+    "estimated_cost_cny": null
+  },
+  "video_ids": [
+    "toutiao-7577717247108563507-0b1276ca58d1",
+    "toutiao-7566562193174348334-b7a85aeaff32",
+    "toutiao-7639279517927834155-c3f1e562fe3b",
+    "toutiao-7559116945887380019-aeae6732bea5",
+    "toutiao-7636149070758773283-230804ca5d83",
+    "toutiao-7632137606477644288-2ea93becff82",
+    "toutiao-7567944506591412265-166b95f9ab0c",
+    "toutiao-7563625252660772902-3d3dccbf1414"
+  ]
+}

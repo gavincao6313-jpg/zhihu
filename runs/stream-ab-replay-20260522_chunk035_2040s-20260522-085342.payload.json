@@ -1,0 +1,89 @@
+{
+  "video_name": "ab-replay-20260522_chunk035_2040s",
+  "full_text": "[00:00:00 - 00:00:02] 让你去算里面的某一个面积\n[00:00:02 - 00:00:05] 让你去算里面的某一个体积\n[00:00:05 - 00:00:08] 或者说要有增加辅助线\n[00:00:08 - 00:00:13] 这些东西在你常规的大模型能力上的挑战比较大\n[00:00:13 - 00:00:14] 这是根本性的问题\n[00:00:14 - 00:00:17] 而不是在于它能不能认出来你那张图\n[00:00:17 - 00:00:20] 那张图本身其实是并不难的\n[00:00:22 - 00:00:23] 所以在这个点上\n[00:00:25 - 00:00:27] 为什么大家一开始都去做什么呢\n[00:00:27 - 00:00:30] 大家一开始都去做基本的代数\n[00:00:31 - 00:00:33] 然后去做微积分\n[00:00:33 - 00:00:34] 去做导数\n[00:00:34 - 00:00:36] 去做这些\n[00:00:36 - 00:00:38] 而不是去做几何\n[00:00:38 - 00:00:40] 几何在这边的困难是最大的\n[00:00:40 - 00:00:42] 几何是最大的\n[00:00:42 - 00:00:44] 其他的其实都还能有些办法\n[00:00:46 - 00:00:47] 然后这里面的话\n[00:00:47 - 00:00:51] 我们把相应的input和student name都拿过来\n[00:00:51 - 00:00:53] 然后在这里面的话\n[00:00:53 - 00:00:54] 我们拿过来之后的话\n[00:00:54 - 00:00:57] 这一部分的这个pump\n[00:00:57 - 00:00:58] 我们去这么去写\n[00:00:58 - 00:00:59] 我们这么去写",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0592"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0592"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=slide diff=0.3572"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.071"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.071"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.0576"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.0576"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk035_2040s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.2481"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.0592
+    },
+    {
+      "type": "slide",
+      "frame_idx": 26,
+      "diff": 0.3572
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.071
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.0576
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.2481
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 4,
+    "frames_total": 10,
+    "text_chars": 804
+  }
+}

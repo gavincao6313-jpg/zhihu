@@ -1,0 +1,74 @@
+{
+  "video_name": "ab-replay-20260522_chunk155_9240s",
+  "full_text": "[00:00:00 - 00:00:03] 这个产品是我真的特别喜欢的一个这么一个品啊\n[00:00:03 - 00:00:05] 它叫做历史人物对话\n[00:00:05 - 00:00:08] 通过和历史人物对话来去学历史\n[00:00:08 - 00:00:10] 我觉得这个产品真的是做得好\n[00:00:10 - 00:00:12] 然后它比如说我就做了一个实验\n[00:00:12 - 00:00:14] 我说跟干地去学印度历史\n[00:00:14 - 00:00:16] 我选择这个干地\n[00:00:16 - 00:00:18] 我选择干地\n[00:00:18 - 00:00:20] 对吧 我加一个新的版本\n[00:00:20 - 00:00:22] 这个就是我的目标是什么\n[00:00:22 - 00:00:26] 我的目标是就是我这个grade很低\n[00:00:26 - 00:00:27] 第一集\n[00:00:27 - 00:00:29] 然后呢我希望这个Learned History of India\n[00:00:29 - 00:00:31] 我想跟你学学印度的历史\n[00:00:33 - 00:00:33] 对吧\n[00:00:34 - 00:00:35] 那好\n[00:00:35 - 00:00:36] Hello\n[00:00:36 - 00:00:38] 然后就是你想跟我学学什么\n[00:00:38 - 00:00:40] 我可以跟你去学什么\n[00:00:40 - 00:00:42] 你想同学们\n[00:00:42 - 00:00:47] 你们你们你们你们你们你们想一想\n[00:00:47 - 00:00:51] 我如果能够跟跟着教员学习一下\n[00:00:51 - 00:00:53] 思度赤水是怎么打的\n[00:00:53 - 00:00:56] 学习一下两万五千里长征是怎么过来的\n[00:00:56 - 00:00:59] 学习一下大跃进时期",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk155_9240s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk155_9240s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.4025"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk155_9240s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.1526"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk155_9240s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.1526"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk155_9240s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.152"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk155_9240s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.152"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk155_9240s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.2245"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk155_9240s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.2245"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.4025
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.1526
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 21,
+      "diff": 0.152
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.2245
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 852
+  }
+}

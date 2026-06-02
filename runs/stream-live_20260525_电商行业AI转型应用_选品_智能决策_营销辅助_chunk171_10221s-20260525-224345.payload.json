@@ -1,0 +1,64 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk171_10221s",
+  "full_text": "[00:00:00 - 00:00:59] 不相信市场感觉，所以往往角策后置，但非常的稳非常的稳，对吧？然后还有一个分支叫保守科学家，这类成功我失败，我现在还活着。所以他们呢往往岁数大。遭遇过重大失败，所以现在特别的稳，有1亿左右的资产，但特别稳，什么也不想干，什么也不想干，极端保守，对吧？然后呢，刚才说这个我跟你说第三种类型叫做帝王性老板。啊，你先你说帝王型老板对吧？好，帝王型老板我也经历过我也经历过帝王型老板。这个查尔斯可不是科学家，那查尔斯是浪子。查尔斯真的是浪子，他特点什么？业务能力非常强大，关系能力非常强大，政治分化、权谋制衡本事大了去了。核心认为人和资源才是企业根本。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000170\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000170\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0965"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000170\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0965"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000170\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000170\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0874"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000170\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000170\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0931"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.0965
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.0874
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.0931
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 293
+  }
+}

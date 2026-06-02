@@ -1,0 +1,79 @@
+{
+  "video_name": "ab-replay-20260522_chunk162_9660s",
+  "full_text": "[00:00:00 - 00:00:02] 这都是和传统程序非常大的差异\n[00:00:02 - 00:00:04] 传统程序的主要特点是什么\n[00:00:04 - 00:00:08] 是文字处理能力OK\n[00:00:08 - 00:00:10] 但是多么太处理能力是很差的\n[00:00:10 - 00:00:12] 这就带来了很多的机会对吧\n[00:00:12 - 00:00:14] AF能教育了四个核心的特质\n[00:00:14 - 00:00:16] 这里面有无数多的机会大家可以去参与\n[00:00:16 - 00:00:18] 或是复能尿素\n[00:00:18 - 00:00:21] 大家可以在这个过程中找到自己能够去做这些事\n[00:00:21 - 00:00:23] 然后业务的各个环节\n[00:00:23 - 00:00:25] 以及与在这里面不同的细分市场\n[00:00:25 - 00:00:29] 我觉得蒋定卫蒋细分是我们这里面的核心的东西\n[00:00:29 - 00:00:31] 然后这次的作业\n[00:00:31 - 00:00:33] 我们可以做一个简单的东西\n[00:00:33 - 00:00:34] 设计一款拍摄食材\n[00:00:34 - 00:00:36] 自动生成菜糊的小的工作流出来\n[00:00:36 - 00:00:38] 这个东西的话\n[00:00:38 - 00:00:40] 我觉得可以让大家验证一下\n[00:00:40 - 00:00:42] 现在大家去做多么太解析\n[00:00:42 - 00:00:44] 能够做到一个什么效果\n[00:00:44 - 00:00:45] 好 下一节课\n[00:00:45 - 00:00:47] 给大家去讲一讲智能决策\n[00:00:47 - 00:00:48] 讲了这么多的生成事物的AI\n[00:00:48 - 00:00:51] 讲一讲智能决策型的决策型的AI\n[00:00:51 - 00:00:52] 在大模型时代\n[00:00:52 - 00:00:53] 如何通过大模型的文化\n[00:00:53 - 00:00:56] 构建决策AI的一些搭建方式\n[00:00:56 - 00:00:58] 好吧 我们这节课差不多就到这里\n[00:00:58 - 00:00:59] 然后",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk162_9660s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk162_9660s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk162_9660s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.1336"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk162_9660s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=slide diff=0.3805"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk162_9660s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=slide diff=0.4278"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk162_9660s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=slide diff=0.5338"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk162_9660s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.0523"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk162_9660s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.0523"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.1336
+    },
+    {
+      "type": "slide",
+      "frame_idx": 16,
+      "diff": 0.3805
+    },
+    {
+      "type": "slide",
+      "frame_idx": 23,
+      "diff": 0.4278
+    },
+    {
+      "type": "slide",
+      "frame_idx": 28,
+      "diff": 0.5338
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.0523
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 2,
+    "frames_total": 8,
+    "text_chars": 998
+  }
+}

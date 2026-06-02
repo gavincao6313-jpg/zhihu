@@ -1,0 +1,34 @@
+{
+  "video_name": "ab-replay-20260522_chunk142_8460s",
+  "full_text": "[00:00:00 - 00:00:01] 大点被人打出去\n[00:00:03 - 00:00:08] 真的 你们能在这个赛道上看到最伟大的灵魂和最拙劣的表演\n[00:00:08 - 00:00:11] 真的很可怕的\n[00:00:11 - 00:00:14] 我真心是被人哄出去了\n[00:00:14 - 00:00:16] 我真心被人哄出去了\n[00:00:19 - 00:00:22] 这就是教育作为商业的\n[00:00:22 - 00:00:24] 就是我干了什么被打出去\n[00:00:24 - 00:00:26] 他们在那喊号的时候\n[00:00:26 - 00:00:27] 我就在那一直在那\n[00:00:27 - 00:00:29] 在那拍照\n[00:00:29 - 00:00:32] 在那摄影\n[00:00:32 - 00:00:35] 然后我的气质跟那个的场景不是很搭\n[00:00:35 - 00:00:40] 然后就有他的工作人员问我到底是来干嘛的\n[00:00:40 - 00:00:42] 我说我看项目来加盟\n[00:00:45 - 00:00:47] 他就开始看我手机里面的东西\n[00:00:48 - 00:00:52] 然后发现我跟我拍的东西\n[00:00:52 - 00:00:54] 一看就是来私访\n[00:00:54 - 00:00:58] 他说你是报社的还是自媒体的\n[00:00:59 - 00:01:00] 我说",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk142_8460s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk142_8460s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0744"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk142_8460s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0744"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.0744
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 631
+  }
+}

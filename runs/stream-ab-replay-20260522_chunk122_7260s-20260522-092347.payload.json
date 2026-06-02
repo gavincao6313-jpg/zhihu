@@ -1,0 +1,44 @@
+{
+  "video_name": "ab-replay-20260522_chunk122_7260s",
+  "full_text": "[00:00:00 - 00:00:02] 每年就瘋狂去走\n[00:00:02 - 00:00:06] 这是他这几年的豆丁波的彩报\n[00:00:06 - 00:00:10] 然后他的核心闯关加游戏化\n[00:00:10 - 00:00:13] 就是人是不喜欢去学习和作题的\n[00:00:13 - 00:00:18] 但是闯关PK这个游戏化\n[00:00:18 - 00:00:22] 打卡任务 买皮肤\n[00:00:22 - 00:00:25] 这件事是绕不开的\n[00:00:25 - 00:00:28] 这个更新是非常非常强的\n[00:00:28 - 00:00:31] 就是他是做了这个东西\n[00:00:31 - 00:00:33] 如果你把它打开\n[00:00:33 - 00:00:34] 你不去刷完题\n[00:00:34 - 00:00:36] 你其他所有的功能不让你利用\n[00:00:36 - 00:00:38] 非常非常厉害\n[00:00:38 - 00:00:40] 这个你也不喜欢\n[00:00:40 - 00:00:42] 没关系 李诺\n[00:00:42 - 00:00:44] 我问你一个问题\n[00:00:44 - 00:00:46] 就是你喜欢什么\n[00:00:46 - 00:00:48] 你喜欢什么\n[00:00:50 - 00:00:52] 斑马就是抄他们家的\n[00:00:52 - 00:00:54] 斑马是在抄他们家的\n[00:00:54 - 00:00:55] 非常的厉害\n[00:00:55 - 00:00:57] 他的核心的学习模式\n[00:00:57 - 00:00:59] 然后等于完成课程",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk122_7260s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk122_7260s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.092"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk122_7260s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.092"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk122_7260s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=slide diff=0.4328"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.092
+    },
+    {
+      "type": "slide",
+      "frame_idx": 54,
+      "diff": 0.4328
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 726
+  }
+}

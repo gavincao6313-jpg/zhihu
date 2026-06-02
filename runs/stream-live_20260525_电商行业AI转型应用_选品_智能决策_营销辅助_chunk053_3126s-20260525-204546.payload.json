@@ -1,0 +1,64 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk053_3126s",
+  "full_text": "[00:00:00 - 00:01:00] 对吧这是这是这是最想要的这个效果，对吧？然后提炼出来是什么是个性化潮流趋势快速迭代和性价比高，对吧？和性价比高。对吧然后对应的就是得多智能化出品，快速生产高性价比。对吧然后但是谁都知道这个逻辑，但是在快时尚领域有一个非常经典的不可能三角。这个不同三角是什么？库存灵活，极快上升和高性价比，这三件事是不可能三角，又提到了不可能三角。又提高了库客能在这，你库存灵活急速上新，高性价比这三件事加一块就很难。库存灵活极快上新，性价比一定不好，库存灵活高性价比，那上新就很慢，高性价比极快上新。那你库存就去往里面去压东西就好了，对吧？所以满足了每一个角一定会在另外两个角上去做一定意义上的趋势。这就是在整个的快速上领域非常难去解决的这些问题。好，在这个问题上有4。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000052\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000052\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0513"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000052\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.0513"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000052\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.121"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000052\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.121"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000052\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.12"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000052\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.12"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.0513
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.121
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.12
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 349
+  }
+}

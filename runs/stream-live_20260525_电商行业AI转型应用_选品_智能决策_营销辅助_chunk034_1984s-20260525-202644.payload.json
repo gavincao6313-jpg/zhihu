@@ -1,0 +1,44 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk034_1984s",
+  "full_text": "[00:00:00 - 00:01:00] 秋季，然后1685件zaara每周上线两次，一年能上线25000件。对吧一周上新5万件啊，这个天下武功有这么大的量，有这么大的量会有什么样的结果啊？同学们，你们想一想，他他选品他选品他选品一周上线5万件会有什么样的结果，就是他这个东西的话，他你如果是在他网站上，你看到他有一个这个专门的栏目，就是每天的上新，每天的上新。每天的上新对吧？这么搞会有很多肠胃产品是这样的，你每件做少点不行吗？你每一件做少点不行吗？每件做1每件每件做100件不好吗？😡对吧每件做每件做少一点不就好了，对不对？是吧？好吧，然后每天会有上新，那这么多的上新，这么大的量意味着什么？亲们。😊每天就这样子会出会出现什么样的结果？你看看姑娘们都。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000033\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000033\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.2779"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000033\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.2779"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000033\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=slide diff=0.4418"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.2779
+    },
+    {
+      "type": "slide",
+      "frame_idx": 52,
+      "diff": 0.4418
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 329
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "step2-verify_chunk008_421s",
+  "full_text": "[00:00:00 - 00:01:00] 这的一个探索。然后呢会介绍一下呃编码助手中这个AI程序AI程序开发的一个探索。对啊，然后最后呢可能会有一些简单的一个展望。呃，首先呢我们知道就是呃AI大模型呃发展到现在啊，其实已经发展了大概呃两年半的时呃呃呃两年了应该是两年的这个时间了。对，啊，现在呈现了一个就是百百花齐放百家争鸣的一个局面。啊，像一开始啊就是2022年底的时候，应该是这个呃open openenI刚推出chGBT是把这个AI大模型带火了。然后呢呃随着那也有其他的一些厂商啊啊也一起进来去不断的建设，包括像国外的呢有一些这个像google和mata这些公司唉都推出了自己的这个大模型。那国内其实也没有逊色。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000007\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000007\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.1547"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000007\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.1547"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.1547
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 310
+  }
+}

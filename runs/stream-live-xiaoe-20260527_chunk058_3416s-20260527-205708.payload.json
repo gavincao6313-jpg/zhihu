@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk058_3416s",
+  "full_text": "[00:00:00 - 00:01:00] 是。不就是定制出来对中国的刻板印象答案吗？不就是刻板印象的答案吗？对吧不就这个样子吗？😡好，第五层怎么拍的，怎么拍的这么个剧。这个的导演直接非常明确说，哎呀，我们2018年筹备，2019年以纪录片的名义向监狱管理局申请获批进入东北、陕西、四川等监狱拍摄。进监后，我们拍了两套素材，一套是真实的女范改造日常用于纪录片备案。另一套是按照剧本拍的剧情片，也就是现在这部电影。拍完之后，以纪录片立项备案，2021年偷偷改成剧情片，在电影局补备案之后去西班牙电影军拿奖，再回国申请公应许可。全被你们这帮王八蛋玩明白了，用记录。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000057\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000057\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0995"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000057\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0995"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0995
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 280
+  }
+}

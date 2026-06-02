@@ -1,0 +1,41 @@
+# Stream URL Validation
+
+- Created: `2026-05-21T23:33:42`
+- URL host: `local`
+- Extractor: `hls-continuous`
+- Media type: `ts`
+- Source duration: `00:01:00`
+- Source size: `2589136` bytes
+- Auth headers: `none`
+- Slice start: `00:03:00`
+- Slice duration: `00:01:00`
+- Slice file: `Videos\.stream\seg_1748000000_000003.ts`
+- Slice size: `2589136` bytes
+- Slice kept: `True`
+- Stream re-extractions: `0`
+
+## Processing
+
+- Keyframe events: `0`
+- Kept frames: `1`
+- Backend: `sensevoice`
+- Transcribe duration: `7.98` seconds
+- Transcript segments: `1`
+- Transcript chars: `286`
+
+## Output Files
+
+- Transcript text: `D:\zhihu\zhihu_file\runs\stream-step2-verify_chunk004_180s-20260521-233342.transcript.txt`
+- Payload JSON: `D:\zhihu\zhihu_file\runs\stream-step2-verify_chunk004_180s-20260521-233342.payload.json`
+
+## Transcript Preview
+
+```text
+[00:00:00 - 00:01:00] 我们一个思考的表现，咱们就行动起来。嗯，在最后我希望大家能够从今天晚上的课程中获得一些丰富的知识或者是成长。嗯，等一下，我们就欢迎曹老师。今天晚上的他的一个精彩分享。同时嗯大家也可以在评论区交流起来，让我们这一次的讲座。我们的分享会嗯更加的有趣以及有意义。这样的话我们去一起去共同努力，一同成长。嗯，对了，斑班这块儿再说一下，今天晚上的话嗯我们的讲座课老师他是blow头像的，就是不会呃就是展现出自己的这个呃因为他身体不太舒服，咱们有什么事情就直接在评论区呃。说就行。然后到时候给予老师一个嗯真诚的一个反馈。好了，那接下来的话。
+```
+
+## Full Global Transcript
+
+```text
+[00:03:00 - 00:04:00] 我们一个思考的表现，咱们就行动起来。嗯，在最后我希望大家能够从今天晚上的课程中获得一些丰富的知识或者是成长。嗯，等一下，我们就欢迎曹老师。今天晚上的他的一个精彩分享。同时嗯大家也可以在评论区交流起来，让我们这一次的讲座。我们的分享会嗯更加的有趣以及有意义。这样的话我们去一起去共同努力，一同成长。嗯，对了，斑班这块儿再说一下，今天晚上的话嗯我们的讲座课老师他是blow头像的，就是不会呃就是展现出自己的这个呃因为他身体不太舒服，咱们有什么事情就直接在评论区呃。说就行。然后到时候给予老师一个嗯真诚的一个反馈。好了，那接下来的话。
+```

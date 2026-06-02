@@ -1,0 +1,79 @@
+{
+  "video_name": "live-20260602-195306_chunk034_1980s",
+  "full_text": "[00:00:00 - 00:01:00] 假如你从5月份开始转行AI产品经理，那需要多久才能入门呢？今天告诉你一条降维打击路线，只要不摆烂3个月，足够让你从新手变成企业抢着要的人，先打破一个误区，做AI产品经理，不一定要会写模型底层代码。我调研了200个大厂JD发现企业要的不是算法工程师。刚才这个地方这个素应该是要上发现企业要大厂JD代码。我调研了人家的素材，这照这图片素材，用图片素材，这应该不是生成的，这应该是要上传的。🎼200个大厂GD发现企业要的不是算法工程师，而是懂大模型能力边界，能设计AI原生交互。这些小图都是生成的呀，这些都是飞来飞去的这些小人都是生成的呀，就生成的小人，然后飞来飞去啊，就是你的工具生成的，用数据驱动产品迭代的复合型人才。具体规划如下，每天雷打不动，空出两小时学习。第一阶段先把大模型原理。哎，这个图就也是生成的。😊这个图也是生成的，是工具生成的。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0892"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.041"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0395"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk034_1980s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0332"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0892
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.041
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.0395
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.0332
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 393
+  }
+}

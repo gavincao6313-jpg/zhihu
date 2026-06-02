@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260602-195306_chunk076_4500s",
+  "full_text": "[00:00:00 - 00:01:00] 所以我们接下来还会给大家安排少量的这个直播课，会把大家做单的过程当中，就像之前的几节课一样，会把大家做单的过程当中的一些问题和一些难点呢再去做一些解读啊，就通过直播的方式啊，比如说一些工具哪里好做，哪里不好做，有些同学做出来的东西还不错呀啊，然后比如说换脸看剧的啊，或者是这个视频生成的一些小工具，怎么做的。然后一些难点呀，也会再做一些解读啊，然后这是这应该是呃所以这这一批还是属于教学项目，这一批还是属于教学项目。但这一批教学项目之后，再往后的时候，你通过这个牛服接单的这个这个后台去收到消息去接单的时候呢，再往后的这些项目就不属于教学项目了，就不不再会通过直播的方式再给大家去做讲解了。而是会有老师啊，在你的这个做单的过程当中，会再给你一些指导，会给你一些帮助。啊，就是你接的什么单子，然后呢，在这个牛伏接待平台上会给你一些指导和帮助啊，大概是这么个逻辑O.😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk076_4500s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk076_4500s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.069"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk076_4500s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.069"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk076_4500s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk076_4500s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.2112"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.069
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.2112
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 404
+  }
+}

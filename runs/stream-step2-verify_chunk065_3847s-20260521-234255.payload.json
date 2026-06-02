@@ -1,0 +1,119 @@
+{
+  "video_name": "step2-verify_chunk065_3847s",
+  "full_text": "[00:00:00 - 00:01:00] 哎，对。啊，大概是这么一个。这么一个流程。那我们可以看看这里的一个简单的一个例子啊。嗯，在这个咱们这个产品中啊，你就把你的那个一9链接贴过来就就OK了。嗯，贴过来之后。然后他就可以开始去分析嗯，分析整个呃去这个嗯拉取对应的项目去进行一个分析。然后呢，生成对应的这个。这个计划，然后生成的这个计划之后呢，这个计划我们因为我比较强调这个人机交互这个内容。所以呢这个计话用户可以是可以修改的。然后如果觉得OK了之后呢，那这个计划呢就可以去生成对应的修改的嗯，去查询哪个代码要去修改，修改成什么样子。OK修改O之后呢，我还生成这样的dep形式来便于用户直接的观观观看。最后呢，用户觉得OK了，那就把这个。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0683"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.062"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.062"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.0215"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0215"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.0337"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.0325"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0492"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000064\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0306"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.0683
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.062
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.0215
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.0337
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 46,
+      "diff": 0.0325
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.0492
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.0306
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 7,
+    "frames_total": 14,
+    "text_chars": 320
+  }
+}

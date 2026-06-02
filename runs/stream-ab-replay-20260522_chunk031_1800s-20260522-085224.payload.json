@@ -1,0 +1,44 @@
+{
+  "video_name": "ab-replay-20260522_chunk031_1800s",
+  "full_text": "[00:00:00 - 00:00:01] 台字所出的这个题目\n[00:00:01 - 00:00:05] 一份是给老师和家长的答案以及相应的解析\n[00:00:05 - 00:00:07] 我们可以在同一时刻通过一张这个图片\n[00:00:07 - 00:00:09] 能够出现这两个东西\n[00:00:09 - 00:00:11] 好 我们看一下整体的思路\n[00:00:11 - 00:00:13] 在开始的这部分的话\n[00:00:13 - 00:00:16] 会给大家去做一个出示输入\n[00:00:16 - 00:00:18] 一个是一个Imager\n[00:00:18 - 00:00:19] 一个是一个SumName\n[00:00:19 - 00:00:21] SumName的话是这个其实是 Student Name\n[00:00:21 - 00:00:23] 然后的话是学员的名称\n[00:00:23 - 00:00:25] 这个的话我们是预留接口\n[00:00:25 - 00:00:28] 可以是从其他的系统中能够传进来\n[00:00:28 - 00:00:30] 能够能往里传进来\n[00:00:30 - 00:00:31] 然后错题的图片\n[00:00:31 - 00:00:33] 就是我们要给系统\n[00:00:33 - 00:00:35] 就是我做错的这个题\n[00:00:35 - 00:00:38] 模拟一下通过摄像头来去拍摄出来的效果\n[00:00:38 - 00:00:39] 出现这个效果\n[00:00:41 - 00:00:41] 对\n[00:00:41 - 00:00:45] 然后这个第二层\n[00:00:45 - 00:00:49] 然后我们先用一个这个兜包的视觉推理\n[00:00:49 - 00:00:50] 这个需要用视觉推理\n[00:00:50 - 00:00:53] 当然现在到兜包2.0的时候的话\n[00:00:53 - 00:00:55] 它已经集成了这个功能了\n[00:00:55 - 00:01:00] 它已经是这样子的搜题",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk031_1800s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk031_1800s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=slide diff=0.3508"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk031_1800s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.0723"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk031_1800s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0723"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.3508
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.0723
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 897
+  }
+}

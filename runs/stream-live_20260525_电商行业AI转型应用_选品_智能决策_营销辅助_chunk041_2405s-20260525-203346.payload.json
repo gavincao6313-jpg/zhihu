@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk041_2405s",
+  "full_text": "[00:00:00 - 00:01:00] 一它还是非常好的，快时上一般是2到3周，而水印只要3到7天。这个的快就是从企划到设计到打版到上架，总共只需要7到14天。上架之后，生产配送至消费者只需要7天，国内中心仓加空运直接到海外仓，他不走海运，他走空运要到销。这事它是国外仓储，它有海外仓的，它有海它有海外仓的。然后这里面呢给大家一些这里面的从指标上的东西，这个主要是让大家去了解这个行业的一些特点。Z样的设计速度是10到15天能够去出快，而实验是7天，测试速度，什么是测试速度，对于所有的快时尚，对于所有的快时尚。同学们注意，对于所有的快时尚，这所有的快时尚啊，同学们我们要说一点啊，我们要说一点，为什么是空。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000040\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000040\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.2121"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000040\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.2121"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.2121
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 306
+  }
+}

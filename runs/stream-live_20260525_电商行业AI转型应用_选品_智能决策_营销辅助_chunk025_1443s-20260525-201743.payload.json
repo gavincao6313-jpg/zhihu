@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk025_1443s",
+  "full_text": "[00:00:00 - 00:01:00] 这是这个人啊。做这么一个全球时尚大佬，全球快时尚大佬，徐要们天徐徐总毕业于青岛理工大学，专业是国际贸易，看上去也并不是很精神。这两年刚刚放出来了，有有一些对外形象定妆照了。但是事实上来讲，这哥们其实在之前的话非常非常低调，采访他都非常非常的少见，所以这是他的一个背景，一个低调的理工男怎么成为了快时尚的大脑了，靠什么靠什么？这个人一看就不太懂不太懂服装设计的样子啊，所以他成功的关键是什么？他成功的关键。其实我告诉大家，做电商特别的简单，做一个全球最大的电商只需要三个步骤。只需要三个步骤。第一个步骤，你做出来的东西做一件能卖掉，而且做出来东西有利润，你做一件衣服能卖掉，而且有利润。第二个，扩大规模做生产，而且还都能卖掉，而且利润还能持续的增长。第三个，持续这个。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000024\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000024\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000024\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.2249"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000024\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.1706"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000024\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.1706"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.2249
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.1706
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 355
+  }
+}

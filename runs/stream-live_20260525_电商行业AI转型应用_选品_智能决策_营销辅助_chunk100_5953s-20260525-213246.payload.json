@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk100_5953s",
+  "full_text": "[00:00:00 - 00:01:00] 给出了问题，你骂他呀你骂他呀。😡对吧不要担心它错，一定要用，对吧？web coding适合出demo。我跟大家讲一讲web coding和工作流差别。很多同同学web在web codinging出来之后，就跟我去说，老师啊，是不是工作流不用学了。可以。web codinging更适合出demo，它能出样式，出交互流程，出基础功能，工作流适合梳理业务逻辑，入口的参数是什么？过程的判断逻辑是什么？业务的流程是什么？我这里面跟大家一次性讲透web codinging和工作流的差别啊。这两个东西大家都看明白它的这个关系是什么了，对不对？这两个关系明白了之后好。传统的产品经理的流程里面，传统的工作流程里面有个东西叫原叫做流程图，就是所谓的UE流程图长这样子，里面没有功能，它的核心价值是在于描述每个页面都有什么功能，都有什么。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000099\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000099\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.2763"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000099\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.2763"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.2763
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 384
+  }
+}

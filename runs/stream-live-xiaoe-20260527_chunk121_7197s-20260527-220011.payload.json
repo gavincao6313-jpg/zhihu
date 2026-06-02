@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk121_7197s",
+  "full_text": "[00:00:00 - 00:00:59] 1个AI在我们看到deeptick高歌猛进的时候，无数人是要下岗的，要去承担这样的代价的呀，这就是事实啊。😊这是个事实啊。对吧我只是能够让你们尽可能的不成为代价者，而能成为在这本的获能成为在这本的获利者。😡我的心态里面是有很多拧巴的东西的，你们每个人心中也都有很多拧巴的东西在的我们在自己成长的过程中，我们有的时候必须得闭目侧听，我们不敢去听，不敢去多想那些我们的同胞在面临着什么样的处境和遭遇，这就是个事实。这个时候的话，我们在人文主义的时候，其实是解构的来自西方的身份政治和极端的个人主义，对吧？所以我们看到了很多非常多极端拧巴的状态，毁天灭地的产能。我们在克苏鲁化，同时我们以人文精神一片荒芜。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000120\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000120\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0243"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000120\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0243"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0243
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 323
+  }
+}

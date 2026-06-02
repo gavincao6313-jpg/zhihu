@@ -1,0 +1,64 @@
+{
+  "video_name": "ab-replay-20260522_chunk015_840s",
+  "full_text": "[00:00:00 - 00:00:02] 以及更多的能量\n[00:00:02 - 00:00:04] 我們看一下AI化的一些策略\n[00:00:04 - 00:00:06] 然後首先先給大家去講一下\n[00:00:06 - 00:00:08] 從錯地本的這種設計看這種\n[00:00:08 - 00:00:10] 圖片解析類的應用產品怎麼做\n[00:00:10 - 00:00:14] 這裡面有一些簡單多摩泰的一些東西\n[00:00:14 - 00:00:16] 這裡面的話給大家看有一個項目\n[00:00:16 - 00:00:18] 高斯 這個項目是誰做的呢\n[00:00:18 - 00:00:19] 字節做的\n[00:00:19 - 00:00:22] 字節在海外做的一款拍題的產品\n[00:00:22 - 00:00:24] 然後它的核心的能力\n[00:00:24 - 00:00:26] 就是實現樹裡化多顆題目\n[00:00:26 - 00:00:28] 拍題然後輔導\n[00:00:28 - 00:00:30] 它做的能力比較的強\n[00:00:30 - 00:00:31] 它裡面包含了樹學\n[00:00:31 - 00:00:33] 包含了統計學危機分物理化\n[00:00:33 - 00:00:36] 學生物經濟文學商業寫作社科\n[00:00:36 - 00:00:39] 然後的話有相應的把你的問題輸入\n[00:00:39 - 00:00:41] 然後或者蒐集拍照\n[00:00:41 - 00:00:44] 然後給出來答案或者結果的這樣的產品\n[00:00:44 - 00:00:46] 然後這個產品的主要特點是這樣子\n[00:00:46 - 00:00:48] 第一個 高斯的這個產品\n[00:00:48 - 00:00:49] 相比起來其他家的話\n[00:00:49 - 00:00:52] 它的這個學科特別特別的豐富\n[00:00:52 - 00:00:54] 覆蓋面也會比較的廣泛一點\n[00:00:54 - 00:00:56] 它這個的話是跟誰比呢\n[00:00:56 - 00:00:58] 它所覆蓋的包含了樹學\n[00:00:58 - 00:01:00] 包含了金融 包含了生物",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk015_840s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk015_840s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk015_840s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0318"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk015_840s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.2628"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk015_840s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.2628"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk015_840s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.2563"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk015_840s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.2563"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.0318
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.2628
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.2563
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 959
+  }
+}

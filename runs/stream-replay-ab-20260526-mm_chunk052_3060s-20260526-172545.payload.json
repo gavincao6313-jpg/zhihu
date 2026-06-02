@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk052_3060s",
+  "full_text": "[00:00:00 - 00:01:00] 足以秒杀同行。这里面呢拿出来这么一张图，这是平均单价和月平均返回量。它在这里面的单价就是最低最低的这个量，最低最低的这个量，对吧？然后呢，它在这个上面的话，大家可以看看这里面的这样一些价格，这面上的价格呃，角色性为必须得有必须得有数据。角色性言没有数据，根本是不可能做的。大家看看这里面的价格。我说十刀的话是均值。一条皮带1.5到了。啊，一条皮带1.5 dollar，一身衣服，一个T一个11个小短裤，9do啊，一个T4do，一身9do。然后的话一个这个小链儿，0.75，75美分。然后一堆的这个这个小耳饰75美分，一个小钥匙坠0.4949美分。啊，一条牛仔裤，11 dollar，一条连衣裙，11 dollar。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk052_3060s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk052_3060s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.2381"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk052_3060s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.2381"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.2381
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 329
+  }
+}

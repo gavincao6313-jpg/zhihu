@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk055_3236s",
+  "full_text": "[00:00:00 - 00:01:00] 到了这层之后，群众的眼睛就真的雪亮了。大家都已经是带着一种有罪推镜再去看了。带着这样的零式下来了，再看一些物料，能看到更多东西了。这是。他的儿子在剧中宣传片中出现的幅化。哎。这是他好儿子在剧中出现的幅化。这个女主这个女主这个女杀人犯在接受外国媒体访谈的时候，一直在说我爱我的儿子。我爱我的儿子。我走向我的儿子，我就相当于是走向了自由。我操他妈。😡不是军国装星潮旗星潮起。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000054\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000054\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0404"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000054\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.0404"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.0404
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 207
+  }
+}

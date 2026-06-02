@@ -1,0 +1,34 @@
+{
+  "video_name": "ab-replay-20260522_chunk002_60s",
+  "full_text": "[00:00:00 - 00:00:02] 龟玉\n[00:00:03 - 00:00:04] 小燕你好\n[00:00:04 - 00:00:05] 9999你好\n[00:00:05 - 00:00:08] 热身師明小李你好\n[00:00:17 - 00:00:19] 然后肉肉球阿古\n[00:00:19 - 00:00:21] 道陵所飞在路上\n[00:00:21 - 00:00:24] 恨水中脑子王999\n[00:00:24 - 00:00:25] 你们好啊\n[00:00:26 - 00:00:29] 那一铝阳光你好\n[00:00:33 - 00:00:35] 咱们讲讲教育类的这个产品\n[00:00:35 - 00:00:37] 教育类的产品的话\n[00:00:37 - 00:00:39] 说实话机会特别多\n[00:00:42 - 00:00:43] 咱们认真的说\n[00:00:43 - 00:00:44] 就是教育类的\n[00:00:44 - 00:00:47] 智能体能够有的市场机会\n[00:00:47 - 00:00:48] 手上是非常多的\n[00:00:48 - 00:00:50] 大家知道是为什么了\n[00:00:50 - 00:00:53] 或者我们可以讲一下就是\n[00:00:53 - 00:00:55] 现在这个市场行情中什么样的",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk002_60s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk002_60s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0225"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk002_60s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0225"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.0225
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 581
+  }
+}

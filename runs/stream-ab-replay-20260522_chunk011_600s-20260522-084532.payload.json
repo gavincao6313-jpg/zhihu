@@ -1,0 +1,74 @@
+{
+  "video_name": "ab-replay-20260522_chunk011_600s",
+  "full_text": "[00:00:00 - 00:00:02] 上一年呢非常去讲到的就是\n[00:00:02 - 00:00:06] 在现在构建C轮的这个Agent的这个状态下\n[00:00:06 - 00:00:08] 因为这个大部分产品处于南海的状态\n[00:00:08 - 00:00:10] 可以用更加宽的口径\n[00:00:10 - 00:00:12] 因为其实这里面市场一片空白\n[00:00:12 - 00:00:15] 一片空白能做出来很多的一些东西\n[00:00:15 - 00:00:17] 广义的痛点\n[00:00:17 - 00:00:18] 然后定位人群 树立需求\n[00:00:18 - 00:00:21] 然后构建产品这个整个的体系\n[00:00:21 - 00:00:23] 我认为是非常好的一个结构\n[00:00:23 - 00:00:26] 然后我们可以先来去做人群的定位\n[00:00:26 - 00:00:28] 老人 女人 孩子 男人我们应该去选什么\n[00:00:28 - 00:00:29] 尽管说现在叫做\n[00:00:29 - 00:00:32] 男性经济在崛起 当然不代表这些事的话\n[00:00:32 - 00:00:34] 它依然有比较大的一个\n[00:00:34 - 00:00:36] 这个群体 特别是存量不足\n[00:00:36 - 00:00:39] 所以说如果大家要想往哪个方向去做的话\n[00:00:39 - 00:00:41] 其实我一直在跟你们去说一个逻辑\n[00:00:41 - 00:00:43] 就是在于我们\n[00:00:43 - 00:00:46] 先去选什么样的人群 谁愿意给你掏钱的人群\n[00:00:46 - 00:00:48] 是上次最好的\n[00:00:48 - 00:00:49] 谁愿意掏钱才是\n[00:00:49 - 00:00:51] 在这个阶段上是\n[00:00:51 - 00:00:54] 最好的 不要想着就是说你拉长线发展\n[00:00:54 - 00:00:57] 用户等等一些事情的话 其实是非常困难的一件事\n[00:00:57 - 00:00:59] 非常难的一件事",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk011_600s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=annotation diff=0.031"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk011_600s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.031"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk011_600s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0494"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk011_600s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.0494"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk011_600s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.188"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk011_600s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.188"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk011_600s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.1232"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk011_600s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.1232"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.031
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.0494
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.188
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.1232
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 8,
+    "text_chars": 930
+  }
+}

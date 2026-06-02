@@ -1,0 +1,18 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk153_9120s",
+  "full_text": "[00:00:00 - 00:01:00] 一个内容型的平台被阿里收了，全得死。不是假月品。你们光看到优酷，你们看到虾米四成什么样了？我不得不去说，我是非常喜欢虾米音乐的。还记得虾米音乐吗？有人知道这个产品吗？虾米。啊。对吧下面院没了。没了。对吧。对吧。虾米音乐的方面我也很我也很熟，卖完之后就撤了。你们知道为什么内容型产品到了阿里去就会死吗？要了解的是这个逻辑。这跟决策流程一点关系都没有。跟角色流程一点都没有。你们知道有一个东西叫做阿里人，阿里的中高管。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk153_9120s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 229
+  }
+}

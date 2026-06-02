@@ -1,0 +1,34 @@
+{
+  "video_name": "ab-replay-20260522_chunk129_7680s",
+  "full_text": "[00:00:00 - 00:00:01] 但正回来太难了\n[00:00:01 - 00:00:04] 2024年9月份在多灵果Minds增加的AI视频通话\n[00:00:04 - 00:00:06] 这个是一个很好玩的一个功能\n[00:00:06 - 00:00:08] 叫做Vidocore Vizlili\n[00:00:08 - 00:00:09] 是这么一个功能\n[00:00:09 - 00:00:11] 但是这个只有美区它才能去用\n[00:00:11 - 00:00:13] AI Core Vizlili\n[00:00:13 - 00:00:15] 然后这是在多灵果Minds上有的\n[00:00:15 - 00:00:17] 而且这里面它还做了一个很有意思的设议\n[00:00:17 - 00:00:18] 如果你们要去聊的话也可以去聊\n[00:00:18 - 00:00:22] 为什么多灵果的这个Vidocore Vizlili\n[00:00:22 - 00:00:24] 这个Lili的这一张臭脸\n[00:00:26 - 00:00:28] 这是一个单独的设计\n[00:00:31 - 00:00:32] 那可以看一看\n[00:00:32 - 00:00:34] 为什么是一张这样的脸\n[00:00:34 - 00:00:37] 为什么不是一张和爱可亲的比较nice比较亲和的脸\n[00:00:37 - 00:00:39] 而用到是一张这样的脸\n[00:00:39 - 00:00:41] 斗包都是小脸\n[00:00:41 - 00:00:43] 斗包永远像老师\n[00:00:43 - 00:00:47] 我对你们就天天臭这个脸\n[00:00:47 - 00:00:51] 在下小王说的特别对\n[00:00:51 - 00:00:53] 在下小王说的特别对\n[00:00:53 - 00:00:55] 是有压力\n[00:00:55 - 00:00:56] 是为了上压力\n[00:00:56 - 00:01:00] 它是为了模拟你再和一个外",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk129_7680s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk129_7680s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0916"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk129_7680s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0916"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.0916
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 881
+  }
+}

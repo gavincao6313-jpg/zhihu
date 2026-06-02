@@ -1,0 +1,44 @@
+{
+  "video_name": "step2-verify_chunk017_961s",
+  "full_text": "[00:00:00 - 00:01:00] 那这个帮助。对。啊，那第二方面呢，我们看这个呃刚才不停的在网上查资料的情况。那这里这个读取这个这层文件，那我们直接在这个编码助手的智能问答的对话框中去跟他进行提问。然后呢，他其实就是可以根据用户数的这个。内容啊呃返回给你一个一些对应的示例，我们直接贴过来进行简单的修改啊。对，就OK了。那这样子的话，它在同一个这个呃窗口中，并且这个生成的这个结果还是非常可靠的那这样子呢可以去帮助我们去节省很多的这个来回的不停的切换的呃不停的窗口之间的切换，打扰工作流的这么一个情况。OK啊，那这两个情况呢，这两个场景啊，我就是作为一个隐私，能看到同一零码的这个呃技能数啊，其实是主要是分为呃这三个部分啊，第一部分是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000016\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000016\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0332"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000016\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0332"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000016\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=slide diff=0.3968"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.0332
+    },
+    {
+      "type": "slide",
+      "frame_idx": 48,
+      "diff": 0.3968
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 323
+  }
+}

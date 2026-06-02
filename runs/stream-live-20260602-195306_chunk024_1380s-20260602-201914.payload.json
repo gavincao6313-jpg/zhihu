@@ -1,0 +1,74 @@
+{
+  "video_name": "live-20260602-195306_chunk024_1380s",
+  "full_text": "[00:00:00 - 00:01:00] 🎼在家从复。出嫁从夫。🎼你。阿里。🎼娘旨求你长乐未央，永享福子。肖铎是个好儿郎，并不会辜负你的新郎驾到。🎼啊，哎呦嗯。啊，好了，不看完了，这是这是另外一个，也是左边是原片儿，右边是换脸后的结果。又不跟你说话了啊。我生了两个年生的骚货，还在这不说话，撞清高呢，你找瞅啊。谁运着用。让你们在我面前那叫。你都跟别人说啊，大概就是这样的效果。对换一下的结果。🎼你。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk024_1380s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk024_1380s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.2079"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk024_1380s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=slide diff=0.3243"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk024_1380s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk024_1380s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.256"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk024_1380s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=slide diff=0.3241"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk024_1380s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.2074"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.2079
+    },
+    {
+      "type": "slide",
+      "frame_idx": 28,
+      "diff": 0.3243
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.256
+    },
+    {
+      "type": "slide",
+      "frame_idx": 52,
+      "diff": 0.3241
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2074
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 200
+  }
+}

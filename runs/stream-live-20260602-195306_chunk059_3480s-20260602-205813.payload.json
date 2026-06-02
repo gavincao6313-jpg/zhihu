@@ -1,0 +1,69 @@
+{
+  "video_name": "live-20260602-195306_chunk059_3480s",
+  "full_text": "[00:00:00 - 00:01:00] 哦，可能就是靠终端里面命令，就是你把当前正在运行这个项目给它啊，靠靠命令给它关掉，然后呢再启动另外一个文件夹里面的另外一个项目啊，大概就这么个逻辑吧。没关系，我们让。这豆包这干嘛呢？你。你没事儿吧，你压什么缩呀，我真的是服了你了。我这个。呃，Kmi2.6吧，希望你不排队。啊这个就是所以这个这个做视频，反正因为说白了就你要干的活，其实也并不特别多啊，其实就是把一堆文字生成这样的东西，然后调细节，调细节，调细节，扣细节啊，教付一条，调细节调细节，调细节啊，教付一条。open clock可以用hyper frame嗯。不知道哎，哎，我还真不知道，你可以试一下你可以试一下。如果是一个项目切换到IE模式，关闭当前项目再A啊呃这个项目这个是对于吹来说。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk059_3480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk059_3480s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=slide diff=0.528"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk059_3480s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=slide diff=0.5283"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk059_3480s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0202"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk059_3480s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0202"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk059_3480s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.078"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk059_3480s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.078"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 2,
+      "diff": 0.528
+    },
+    {
+      "type": "slide",
+      "frame_idx": 11,
+      "diff": 0.5283
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0202
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.078
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 7,
+    "text_chars": 346
+  }
+}

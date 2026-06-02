@@ -1,0 +1,89 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk139_8280s",
+  "full_text": "[00:00:00 - 00:01:00] 就是哎呀，我到底这20万投不投？2、这个20万投不投，你是没有能力去做这个的，20万全亏了都比你招人要便宜。明白了吗？包括宣发要素，包括商业预估，来续角色判断用什么明星投什么剧，用哪个导演做什么样的题材。一务爆款剧的选题就是类似于这样的，为什么投赘婿啊，对吧？赘婿他相应的这些数据的情况，年龄的分布和庆余年非常相似，而且为什么选择麒麟来去做这部剧啊，原因在于郭麒麟的人群属性，男性。占比很高，但女性不讨厌她。同时郭麒麟对于年轻用户的拉动作用又比较的明显。所以上线之后的整体数据非常的有优势啊，1.8亿台设备播放追剧会员超过了6400万人，订阅会员收入同比增长23%，非常优秀的一个状态非。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=slide diff=0.5601"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0354"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0354"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.054"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.0622"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0622"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk139_8280s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.096"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.5601
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.0354
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.054
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.0622
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.096
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 4,
+    "frames_total": 10,
+    "text_chars": 316
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "video_name": "ab-replay-20260522_chunk150_8940s",
+  "full_text": "[00:00:00 - 00:00:03] 多省事啊 多棒啊\n[00:00:03 - 00:00:05] 把他站在课件上\n[00:00:05 - 00:00:07] 别的老师都是PBT静态的图\n[00:00:07 - 00:00:10] 这老师出了动画了 出了视频了\n[00:00:10 - 00:00:13] 卷 卷起来\n[00:00:13 - 00:00:17] 对吧 这视频是AIS生的呀\n[00:00:17 - 00:00:18] AIS生的呀\n[00:00:18 - 00:00:24] 难度不大啊 这个这个这个这个这个\n[00:00:24 - 00:00:26] 这个这个这个做起来真心难度不大\n[00:00:26 - 00:00:27] 哎呦\n[00:00:27 - 00:00:29] AV是很重\n[00:00:29 - 00:00:31] 这我这不就是下载的视频吗\n[00:00:31 - 00:00:35] 我这我这不就是下载的视频吗\n[00:00:35 - 00:00:38] 我这段视频是我下载下来的呀\n[00:00:38 - 00:00:39] 对吧\n[00:00:39 - 00:00:42] 这东西是能让老师们卷起来的\n[00:00:42 - 00:00:44] AI会很重 同学们是的\n[00:00:44 - 00:00:47] 但是你认为在老师那个环节中\n[00:00:47 - 00:00:49] 他重要吗\n[00:00:49 - 00:00:51] 别的老师 你别说AI会了\n[00:00:51 - 00:00:55] 他PBT都写的很很难看\n[00:00:55 - 00:00:56] 你们是没有看过中\n[00:00:56 - 00:00:59] 叔叔小老师做的虚许是长什么样的\n[00:00:59 - 00:01:00] 你",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk150_8940s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk150_8940s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1973"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk150_8940s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.1973"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk150_8940s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1759"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk150_8940s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.1759"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk150_8940s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=slide diff=0.3283"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1973
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.1759
+    },
+    {
+      "type": "slide",
+      "frame_idx": 38,
+      "diff": 0.3283
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 783
+  }
+}

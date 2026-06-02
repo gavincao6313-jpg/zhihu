@@ -1,0 +1,104 @@
+{
+  "video_name": "live-20260602-195306_chunk033_1920s",
+  "full_text": "[00:00:00 - 00:01:00] 呃，现在都是这样，那就是得把声音啊，那个那个推来飞去啊，所以没有人要我，但没人要我，我就永远没有产品经理经验。这个次循环啊困住了大多想转产品经理的人。我当年也是这样，第一份工作跟产品经理没有半毛钱关系。我想转产品经理投了几十份简历，全军覆没。后来我用了一个方法拿到了第一段和产品经理相关的机会。今天我把方法告诉你，核心其实就三步，第一步找到你能投的岗位。😊用工作流我做嘛？这个都行吧，我觉得还是用cos编程好一点吧，就cos编程起码做出来的会有一个界面吧。就如说有些比如说上传一个什么东西啊，或者什么一个东西了，它那个界面就会比较容易就给它这个在界面里面可以有些操作吧。要不然你工作流的，你做工作流的时间可能比做一个co编程可能时间还长呢。那上面这个是科普类的，这个是简笔画小人加科普类动画啊，这个简笔画小人我觉得也是类似吧，简笔画小人应该是提前生成好一个小人的那个。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=slide diff=0.6412"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.1195"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=slide diff=0.3267"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0306"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0244"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0244"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=slide diff=0.4574"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.0373"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk033_1920s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.0373"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.6412
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.1195
+    },
+    {
+      "type": "slide",
+      "frame_idx": 5,
+      "diff": 0.3267
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.0306
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.0244
+    },
+    {
+      "type": "slide",
+      "frame_idx": 27,
+      "diff": 0.4574
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.0373
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 4,
+    "frames_total": 11,
+    "text_chars": 406
+  }
+}

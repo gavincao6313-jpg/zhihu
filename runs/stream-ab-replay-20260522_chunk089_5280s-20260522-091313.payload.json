@@ -1,0 +1,49 @@
+{
+  "video_name": "ab-replay-20260522_chunk089_5280s",
+  "full_text": "[00:00:00 - 00:00:02] 在这事上最好的教育形式是什么\n[00:00:02 - 00:00:04] 什么是最好的教育形式\n[00:00:04 - 00:00:06] 1984年 本节名不鲁\n[00:00:06 - 00:00:09] 在其教育实验中提出来的叫Shon Seigemann\n[00:00:09 - 00:00:14] 用定量的角度证明了正确性是什么\n[00:00:14 - 00:00:16] 一对一的教学组平均表现\n[00:00:16 - 00:00:18] 明显优于传统教学组\n[00:00:18 - 00:00:21] 不是没有最好 是有最好\n[00:00:21 - 00:00:24] 有定量角度证明了一对一\n[00:00:24 - 00:00:27] 明显优于传统教学组的效果\n[00:00:31 - 00:00:32] 对吧\n[00:00:32 - 00:00:36] 好 因财师教就是效果最好的方法\n[00:00:36 - 00:00:38] 这件事我们不用去争论\n[00:00:38 - 00:00:39] 我们不用去争论\n[00:00:39 - 00:00:41] 因财师教就是最好的方法 对吧\n[00:00:41 - 00:00:46] 但是业内一对一的毛利率普渊在40%以下\n[00:00:46 - 00:00:48] 是挣不到钱的\n[00:00:48 - 00:00:50] 小玩可能做到50%\n[00:00:50 - 00:00:52] 大玩可能做到60%到80%\n[00:00:52 - 00:00:55] 这就是利润之间的差别\n[00:00:55 - 00:00:56] 为什么\n[00:00:56 - 00:00:59] 一对一是毫无规模化效",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk089_5280s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk089_5280s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0239"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk089_5280s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0239"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk089_5280s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0464"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk089_5280s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0464"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.0239
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.0464
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 753
+  }
+}

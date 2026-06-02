@@ -1,0 +1,44 @@
+{
+  "video_name": "step2-fix1_chunk005_240s",
+  "full_text": "[00:00:00 - 00:01:00] 啊。嗯。嗯，大家可以就是有什么问题的，就是在评论区就可以多发几遍。因为有的时候在讲课的时候呃，注意力一在讲课上可能就忽略我们评论区的内容。嗯，有的时候没有被看见，那咱们就呃稍微麻烦一下，稍微多发几句。哦，那接下来的话我们就把呃我这边的交给我们曹老师，让他给我们分享我们接下来的课程内容。好的好的，谢谢老师。😊请问能听到声音吗？好的，谢谢老师。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000004\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000004\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0208"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000004\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0208"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000004\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=slide diff=0.5183"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.0208
+    },
+    {
+      "type": "slide",
+      "frame_idx": 33,
+      "diff": 0.5183
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 194
+  }
+}

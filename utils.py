@@ -213,7 +213,7 @@ def call_qwen(
     parts: list,
     label: str,
     *,
-    model: str = "qwen3.6-flash",
+    model: str = "qwen3.7-plus",
     enable_thinking: bool = False,
     thinking_budget: int = 4096,
     max_retries: int = 2,

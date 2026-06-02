@@ -1,0 +1,54 @@
+{
+  "video_name": "live-20260602-195306_chunk063_3720s",
+  "full_text": "[00:00:00 - 00:01:00] 这项目用克的好还是用吹好，但是用克朗扣的好了，我我这个。也是尽量用去，都是为了照顾更多这个没有那个没有翻墙，没有那个clo code或者codedes账号的同学嘛。原则上讲，只要我们用te这种软件都能做。🤧那你用cloud code或者to code，只会比这做的更简单更好，而不会比这更差，对吧？是这么个逻辑吧。哎，你看字母加上了。😊啊，反正这种做视频对吧？就。你就给他个任务，贴给他，让他自己坐这搁这做就完了。一会儿做好一个一会儿做好一个一会儿做好一个。但确实你如果刚贴进来的话，本身它的那个啊做完了。你刚贴一段文字然的做的话，刚开始的是比如说比例问题啊，字号问题啊或等等之类的，可能还是有很多细节要调了。😊然后我们再播一下，看是字幕是不是出来了，抢的通用agent带。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk063_3720s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk063_3720s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk063_3720s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.048"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk063_3720s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=slide diff=0.3365"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk063_3720s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.1275"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.048
+    },
+    {
+      "type": "slide",
+      "frame_idx": 55,
+      "diff": 0.3365
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.1275
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 359
+  }
+}

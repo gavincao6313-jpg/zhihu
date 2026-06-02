@@ -1,0 +1,134 @@
+{
+  "video_name": "live-20260602-195306_chunk061_3600s",
+  "full_text": "[00:00:00 - 00:01:00] 🎼哎，这这这边也这边也起起来了，两边一块儿干活来。哎，跑跑启动了，你看它启动之后，它就会自动给你打开一个这样的页面啊，当然这个页面你也可以就直接在这儿点刷新，应该也可以。点刷新应该它就会变成这个新的一个项目。啊。哎给我启动两遍，哎呀，两个对话锅我启动两遍OK呃，到这样。😊它就已经切换到另外一个视频项目了。我看这个你是不是可以停了？嗯，你就可以停了，你歇了吧，这边已经给我切过来了。对，这个到这儿你就已经啊切换到另外一个视频项目。这另外一个视频项目其实也比较简单，就是反正就是我也是给他贴了一大段文字，就从小红书里面抓过来的，抓过来之后呢啊一大段文字贴给他。这个呢clo code是目前最强的通用agent写代码办公都很好用。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=slide diff=0.4507"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.092"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.092"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.4318"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0521"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=slide diff=0.4274"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0929"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=slide diff=0.4354"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1589"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1532"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1532"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk061_3600s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.2175"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 7,
+      "diff": 0.4507
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.092
+    },
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.4318
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.0521
+    },
+    {
+      "type": "slide",
+      "frame_idx": 23,
+      "diff": 0.4274
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.0929
+    },
+    {
+      "type": "slide",
+      "frame_idx": 25,
+      "diff": 0.4354
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.1589
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.1532
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2175
+    }
+  ],
+  "stats": {
+    "slide_changes": 4,
+    "annotations": 6,
+    "frames_total": 14,
+    "text_chars": 335
+  }
+}

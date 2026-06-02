@@ -1,0 +1,84 @@
+{
+  "video_name": "live-20260602-195306_chunk044_2580s",
+  "full_text": "[00:00:00 - 00:01:00] 都是非常自然，这个我真的分不清楚哪个是哎哪个是实拍，其实稍微会有一点点摆放的差别，角度的差别，但是它整体质感但真识别不出来。对，这能看得出来啊一模一样吗？对我看他这个这网面啊，这些都没有问题。面还有一些这种小孔，它其实都有还原图，是啊，太厉害了。啊，就是摩托波图你可看一下这个原图页面上随便截的，它其实画质并不是很好啊，你的需求把这两个放在一起，对，放在一起，包括说希望他们会有一些互动的感觉。😊哦，比刚才高清了呢，对，高清，而且包括说他们的整个画面的光影效果是非常自然的。是的，这影子都在对雪山草地重景。以前拍摄其实是个成本衡养度很高。他想跑到比如新疆啊，或者是跑到新疆去，就是一张平铺图，就是粉色的毛衣，然后他原来这个小孩穿的是红色的这种毛衣，我就是做了一个简单要求，就是穿上那个粉色这个粉色的衣服，基本来呢他其实是会有一些透。那其实这种呃怎么说呢？可能你只是没做过，做的话也没多复杂。因为。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.1214"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.1913"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.1672"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.1729"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk044_2580s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=slide diff=0.5876"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.1214
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.1913
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.1672
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.1729
+    },
+    {
+      "type": "slide",
+      "frame_idx": 55,
+      "diff": 0.5876
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 420
+  }
+}

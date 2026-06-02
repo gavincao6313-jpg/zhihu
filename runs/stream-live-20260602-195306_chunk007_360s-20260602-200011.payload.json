@@ -1,0 +1,59 @@
+{
+  "video_name": "live-20260602-195306_chunk007_360s",
+  "full_text": "[00:00:00 - 00:01:00] 比较持续股票割的。飘哥。我猜是量化交易，就是鼓哨哥。哎。OK来，我们到时间了，我们今天今天今天时间会可能不会那么长啊，今天时间不会那么长，重点就是解读几个单子。然后呢，有几个知识点要简单讲一下，那我们就开始好吧，我的量化旁听好热闹。量化群里很热闹是吧？好嘞，知道了。来，我们呃呃标注的天天抢填表格啊哦，好嘞，来我们讲讲那个今天要公布单子啊。今天这个有几个这个小程序APP的，也有那个做视频的工具，也有那个直接做视频的，所以做视频是分成了做视频工具和做视频，我挨个讲讲。首先这是一个呃怎么讲，这应该算是哎呦我的那个画笔呢。😊我的画笔在哪里？在这儿。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk007_360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk007_360s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1465"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk007_360s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.1465"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk007_360s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=slide diff=0.4516"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk007_360s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk007_360s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.2114"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.1465
+    },
+    {
+      "type": "slide",
+      "frame_idx": 53,
+      "diff": 0.4516
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.2114
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 295
+  }
+}

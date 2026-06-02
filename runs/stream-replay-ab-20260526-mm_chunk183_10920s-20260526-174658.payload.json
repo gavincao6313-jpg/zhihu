@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk183_10920s",
+  "full_text": "[00:00:00 - 00:01:00] 呃，这里面有一些基术适应方法，然后利用的方法怎么利用他们。对吧怎么利用他们？然后的话还有一个应该是。给他们不同的谁，什么样的东西。另外还有一些逻辑，就是leader有什么样反，这是老板形态的东西，还有leader形态的东西。leader有工头，有妈妈桑啊，有妈妈。对吧有妈妈上行的工头，我跟你讲，这这一不是有妈妈丧行的leader贼缺德。我跟你讲，你就是你的leader，你的leader，要是妈妈上。那可就绝了。😊啊。你们知道什么叫做妈妈桑型的leader吗？😡就是。说起来不好听啊说起来不好听啊，话有点糙。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk183_10920s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk183_10920s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk183_10920s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.0348"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.0348
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 277
+  }
+}

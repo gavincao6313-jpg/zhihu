@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk174_10402s",
+  "full_text": "[00:00:00 - 00:01:00] 传统五传统五百强的老板有一半都是帝王型的。能耐真大能耐真大，对吧？好，伟帝是什么？慕容复cosplay型帝王就麻烦了。我告诉大家，你们很有可能啊，我呀你猜猜我是什么型的？你猜我什么行的，慕容复型的是什么？曾经误闯天家，见过帝王型的用渡排场。虽不能治，心向朗之，这虽无龙身的但沾龙气，你知道吗？对吧？虽无龙身，但但沾龙气，对吧？所以然后自己做老板，复制这套排场和权谋，没有复制他的江山和能力，然后就会出现业务是做不大，腰是做的不小，所以就是。😊啊。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000173\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000173\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.0218"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000173\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0218"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000173\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.1212"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000173\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.1212"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.0218
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.1212
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 245
+  }
+}

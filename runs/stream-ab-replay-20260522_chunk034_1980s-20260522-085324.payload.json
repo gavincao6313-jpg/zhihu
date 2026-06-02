@@ -1,0 +1,49 @@
+{
+  "video_name": "ab-replay-20260522_chunk034_1980s",
+  "full_text": "[00:00:00 - 00:00:02] 否则非常非常难\n[00:00:04 - 00:00:06] 然后在这一部分\n[00:00:06 - 00:00:08] 讲话思路之后\n[00:00:08 - 00:00:12] 然后我们在这边去得到了相应的一些文本\n[00:00:12 - 00:00:13] 然后在这一块\n[00:00:13 - 00:00:16] 我们把这个大模型能力分析错题的原因\n[00:00:16 - 00:00:19] 然后并把这个结果放到多维表格里面\n[00:00:19 - 00:00:23] 我们要把这个结果联动一下\n[00:00:23 - 00:00:26] 这个非输的多维表格\n[00:00:26 - 00:00:30] 然后这里面我们因为是在之前做的\n[00:00:30 - 00:00:32] 我们还是用的dip sync v3去做的\n[00:00:32 - 00:00:37] 然后input是这个刚才所分析出来的这个错题内容\n[00:00:38 - 00:00:42] 不是几何是这样子的怪不怪\n[00:00:42 - 00:00:45] 几何的问题不是在于这张图片\n[00:00:45 - 00:00:48] 识别图片并不难\n[00:00:48 - 00:00:50] 识别图片并不难\n[00:00:50 - 00:00:55] 而真正的难度不是在于识别和让用户做二次确认\n[00:00:55 - 00:01:00] 真正的难度是几何的图片出来之后",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk034_1980s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk034_1980s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0725"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk034_1980s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0725"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk034_1980s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0582"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk034_1980s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0582"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.0725
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 7,
+      "diff": 0.0582
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 645
+  }
+}

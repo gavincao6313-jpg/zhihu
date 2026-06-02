@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk094_5580s",
+  "full_text": "[00:00:00 - 00:01:00] 去完成。机器学习的方法去做到大模型时代，可否用大模型完成决策系统呢？答案。首先首先我们要说一个前提，大模型不是可靠的决策系统。不是可靠的决策系统。但是大模型在风险可控的决策体系中，作为决策引擎是可以存在的。所以这句话我两件事加下来之后的话，我想告诉你一个什么样的事儿呢？如果你所在的公司不是这种超大型企业。你公司的老板告诉你，大模型这么强，你做一个角色系统吧。你可以按照我下面这套方式来去做出来一个能够起到60到70分效果的一个东西啊。这个我们先说为什么它这个不能说是百分之百可靠，有三种不同的决策系统。如果是辅助决策系统大模型能不做很适合做，比如说经营分析，比如说投标方案，比如说销售策略质检客服风险预警，这些东。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk094_5580s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk094_5580s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.2786"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk094_5580s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.2786"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.2786
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 330
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "video_name": "ab-replay-20260522_chunk081_4800s",
+  "full_text": "[00:00:00 - 00:00:01] 非常有用\n[00:00:01 - 00:00:02] 非常有用\n[00:00:02 - 00:00:03] 对吧\n[00:00:03 - 00:00:04] 好\n[00:00:04 - 00:00:05] 然后第二部分\n[00:00:05 - 00:00:07] 给大家详细讲讲教育的这个行业\n[00:00:07 - 00:00:09] 因为我确实觉得就是这个\n[00:00:09 - 00:00:11] 教育这个行业机会太多\n[00:00:11 - 00:00:13] 要给你们往深的去讲一讲\n[00:00:13 - 00:00:16] 我给大家讲一个倒下的公司\n[00:00:16 - 00:00:18] 六年前死掉的一家企业\n[00:00:18 - 00:00:19] 叫学霸军\n[00:00:19 - 00:00:22] 2020年倒下的一家K12\n[00:00:22 - 00:00:24] 它是这个一三年成立\n[00:00:24 - 00:00:26] 20年死掉\n[00:00:26 - 00:00:27] 累计做了七年\n[00:00:27 - 00:00:29] 做了出高中的提供\n[00:00:29 - 00:00:30] 老师大姨做\n[00:00:30 - 00:00:32] 灵女翻译做的错误题本\n[00:00:32 - 00:00:33] 能做的都做\n[00:00:33 - 00:00:37] 最多的时候容了一点5亿的总的融资\n[00:00:37 - 00:00:38] 在它倒闭前\n[00:00:38 - 00:00:41] 三年还拿到了1亿美元的融资\n[00:00:41 - 00:00:42] 量级还是挺多的\n[00:00:42 - 00:00:43] 量级还是挺大的\n[00:00:43 - 00:00:46] 然后这是它的整体的时间线\n[00:00:46 - 00:00:49] 它在一三年开始投上市场\n[00:00:49 - 00:00:51] 然后在四年的3月\n[00:00:51 - 00:00:53] 就拿到了500万美元的A轮\n[00:00:53 - 00:00:55] 然后当年的5月\n[00:00:55 - 00:00:57] 新上线的产品就破百万\n[00:00:57 - 00:01:00] 然后这个童年6",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk081_4800s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk081_4800s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk081_4800s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0419"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk081_4800s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0865"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk081_4800s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0865"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk081_4800s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1904"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk081_4800s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.1904"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.0419
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.0865
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.1904
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 1001
+  }
+}

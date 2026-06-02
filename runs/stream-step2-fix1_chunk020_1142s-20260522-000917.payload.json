@@ -1,0 +1,44 @@
+{
+  "video_name": "step2-fix1_chunk020_1142s",
+  "full_text": "[00:00:00 - 00:01:00] 成生成对应的这个你接下来想要写的代码推荐给你呃一些这个行级的代码。对行级别的代码以及块级别的一些一些代码。对。那其实呢这个呃代码生成补全是现在这个AI编助手比较刚需的一个场景。嗯，虽然我们可以看到啊，现在代码补全的工具还是OK的那但是呢代码生成补全的这个困难和挑战还是有比较多的。，首先呢代码生成补全，它其实我我们看到啊就是代码生成补全，它是要呃多种语言都支持的啊，它不是只写javathon就O了。啊，那还需要去写一些比如说呃后端的购啊，前端的一些语言，以及一些这个开发量比较小的这种语言。那这些就会导致啊这个编程语语言，咱们这么多种编程语言，可能存在一些长尾的问题。那这样子呢这个可能会存存在一定的这个。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000019\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000019\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000019\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.2991"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000019\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=slide diff=0.3538"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.2991
+    },
+    {
+      "type": "slide",
+      "frame_idx": 16,
+      "diff": 0.3538
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 326
+  }
+}

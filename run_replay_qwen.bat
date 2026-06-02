@@ -27,7 +27,7 @@ if exist "!VENV_PYTHON!" (
 set "PAYLOAD_PATH=%~1"
 set "BASE_NAME=%~2"
 set "QWEN_MAX_FRAMES=128"
-if "!QWEN_MODEL!"=="" set "QWEN_MODEL=qwen3.6-plus"
+if "!QWEN_MODEL!"=="" set "QWEN_MODEL=qwen3.7-plus"
 
 if "!PAYLOAD_PATH!"=="" (
     echo [错误] 请提供 payload.json 路径

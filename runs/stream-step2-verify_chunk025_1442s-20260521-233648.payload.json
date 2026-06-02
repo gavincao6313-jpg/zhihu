@@ -1,0 +1,59 @@
+{
+  "video_name": "step2-verify_chunk025_1442s",
+  "full_text": "[00:00:00 - 00:01:00] 幻觉有了这个幻呃产生这个幻觉，可定对用户是非常不好的这个结果。所以呢我们需要去进行整库的这个感知的这个组织方式。OK嗯，除此之外呢，我们可能还有还有一些这个嗯想做一些跟。对项目级别的这个理解啊是非常重要的。所以想做一些在项目级别的理解上做更多更多的内容。首先第一方面啊，我们看一下就是在。当前这个本文件中去这个呃预测的时候呢，呃在本文件预测的时候呢，其实也有一些问题。比如说呃代码补全，它其实是一个有非常丰富的这个上下文场景的的一个问题。什么叫丰富的上下文场景啊？我们可以看嗯看一下哦。嗯，这个例子中呢我们可以看到。用户的需求其实是非常丰富的。像这里呢，它的需求是补充一个for循环，可能后下面要补充一个if的循环。可能这个时候呢要补充要要去补全的。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000024\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000024\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.1146"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000024\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.1146"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000024\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.3039"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000024\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000024\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.0251"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.1146
+    },
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.3039
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.0251
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 347
+  }
+}

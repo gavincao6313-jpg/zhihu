@@ -1,0 +1,512 @@
+{
+  "schema_version": "short-video-pack-input-v1",
+  "pack_id": "pack-20260527-210301-001",
+  "created_at": "2026-05-27T21:36:01",
+  "video_count": 8,
+  "videos": [
+    {
+      "video_id": "toutiao-7625987355616264192-8b4fa7b37dc8",
+      "title": "toutiao-7625987355616264192",
+      "duration_s": 178.306,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7625987355616264192.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7625987355616264192.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:01:00] 🎼还在折腾ra向量检索吗？卡帕的LLM玩法直接把知识库变成了代码库。说句扎心的话，你搭过rag也用过notebook LM最后发现问题还是那个问题。个人rag方案有个绕不过去的毛病。它本质上就是个read only的无状态系统，这次对话产生的新洞察，就跟无状态的HTTP请求一样，答完就没了。你的知识库连1000字节的增量都没有。最近自称换上了AI精神病，每天给agent下16小时指定的卡帕在giub上分享了一套自己在用的工作流，用AIag加ob搞一个能自己滚雪球的本地LLM。的思路特简单，别让LLM每次都从零开始搜，让他去编译知识。这个类比一听就懂ob是你的IDE mark文件，就是源代码clo code这种agent是那个7乘24小时在线的程序员，最后生成的vicki就是编译好的产物，整个流程跑起来就是一条全自动的CI或CD流水线，录入就编译，往若文件夹里扔一篇新闻档agent。😊\n[00:01:00 - 00:02:00] 🎼会自动帮你提炼重点，重构十几个相关的wiki页面，把双向链接全打理好，发现跟以前记的内容打架了，直接给你抛个 warning，给知识库做link，定期跑脚本检查，把此链接清了，没写完的概念补上过时的API打个at的标签，这不就跟CI跑单元测试一个意思吗？提问就沉淀。你跟AI聊出来的高质量mdown对比表，它会自动帮你commit归档回wiki。查询不仅是read，也变成了right，你的知识库越用越厚。那这套玩法为啥现在才行？🎼以前的模型根本扛不住跨文件同步修改这种需要长线记忆的重构任务。但现在clo code这类终端agent已经很成熟了。跨文件重构就是基本操作。可party自己做了个实验。在一个大概100篇来源，40万字的知识库里，连vectorDB和rag pipeline都直接不要了，就让模型自己读目录，顺藤摸瓜找本地文件，结果发现不仅精准，而且整个架构干净的不行。这套方法其实不麻烦，三步就能跑通。一前端。\n[00:02:00 - 00:02:58] 🎼用免费纯本地数据都在你自己硬盘上，心里踏实。2执行agent首推cloud code或用sor wind也行，只要能读写本地文件就O3用cloud立规在跟目录放个规则文件告I文件夹里的东西不准动文件夹里的让你随便折腾命名规范是啥分享的本身就是个ide file设计上就不是让你一行行照个敲代码的，而是让你直接丢给agent让他帮你搭脚手架上各种社区实现也有一堆了基本开箱即用说到底大模型时代最好的开发体验不是让I替你思考，而是让他帮你把知识底座维护好你腾出脑子来做真正值钱的判断别让你好不容易攒下来的记录和架构复盘发霉了。找个周末让agent跑一遍，把自己的知识库也compile起来。大家平时都怎么管技术笔记的，评论区聊聊你的法子。",
+      "transcript_chars": 1197,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00047.jpg",
+          "marker": "Frame [00:00:47] type=annotation diff=0.2961"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00061.jpg",
+          "marker": "Frame [00:01:01] type=annotation diff=0.0413"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00069.jpg",
+          "marker": "Frame [00:01:09] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00081.jpg",
+          "marker": "Frame [00:01:21] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00094.jpg",
+          "marker": "Frame [00:01:34] type=annotation diff=0.0335"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00098.jpg",
+          "marker": "Frame [00:01:38] type=annotation diff=0.0973"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00124.jpg",
+          "marker": "Frame [00:02:04] type=annotation diff=0.0351"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00128.jpg",
+          "marker": "Frame [00:02:08] type=slide diff=0.3192"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00146.jpg",
+          "marker": "Frame [00:02:26] type=annotation diff=0.0389"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00158.jpg",
+          "marker": "Frame [00:02:38] type=annotation diff=0.0419"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7625987355616264192\\frame_00176.jpg",
+          "marker": "Frame [00:02:56] type=slide diff=0.6735"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7625987355616264192-8b4fa7b37dc8.payload.json"
+    },
+    {
+      "video_id": "toutiao-7640528003604152335-6726ebae31aa",
+      "title": "toutiao-7640528003604152335",
+      "duration_s": 158.663,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7640528003604152335.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7640528003604152335.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:01:00] 最近呢又发生一件让全球500万人都在疯传的案例，一个叫伊特沙姆阿里的MIT研究生分享了他是如何只用两天时间就搞定了一门本来完全陌生的课程，甚至呢还通过了资格考试。更离谱的是，他的导师以为他作弊，就找他谈话。结果这哥们打开电脑当场就演示了一遍他的AI学习法。导师看完后直接沉默了3分钟，最后憋出一句话，我教了20年书，从来没想到AI还能这么用。更关键的是，他的这套方法，其实我们每个人都可以做。如果说你正在学习新东西，或者你家孩子正在上学，点盖心，我们一起来看一下传统学霸是怎么学的，从头到尾啃教材做笔记刷题，但是这个MIT学霸呢，他打开notebook LM直接扔进去6本教科书，15篇顶级期刊论文，还有他能找到的所有课程录音。然后他问了AI3个神级问题，但就是这三个问题，让他在20分钟内就完成了别人一学期都没搞定的事。第一个问题，直击要害这个领域，所有的专家都认同的5个核心思维模。\n[00:01:00 - 00:02:00] 是是什么？你发现没有？他没有要知识点，他要的是思维模型，这可是那些牛人磨了几十年才总结出来的底层逻辑。普通学生还在被定义，他已经搞懂了大佬们是怎么想问题的。第二个问题更狠告诉我这个领域的专家们吵的最凶的三个争议是什么？双方最硬核的论据又是什么。这个问题真的绝了，仅仅20分钟，他就得到了整个领域的完整知识地图。争论点在哪里？共识是什么，还有哪些问题没有解决，但真正的绝招呢是第三问，深成10个问题能一眼看出一个人是真正的深入了解，还是只是在死记硬背。接下来6小时，他就对着原始资料死磕这十道题，答错了，就立刻追问我哪里错了，漏掉了什么关键逻辑。他用AI逼着自己把所有问题暴露出来快速迭代。两天以后呢，导师专门来测试他，问了20多个问题，结果一个也没有难住。导师当场傻眼啊，说你确定你两天前对这个领域真的一无所知。所以你看同样是用AI有的人呢只是把他当成了一个高级的搜索引擎。有的人会用他划重点做总结。但。\n[00:02:00 - 00:02:38] 这位MIT学霸直接把他变成了世界上最强大的私人导师。他的这三个问题背后啊，藏着三个核心逻辑。第一个主动性，这是未来最强的竞争力。他不是因为有了AI就选择躺平。相反，他把AI当成了最严厉的导师，向自己提问，逼着自己去搞明白问题。第二，提问能力才是新门槛。在AI时代学习这件事儿已经彻底变了，记忆不再是门槛儿，提出好问题的能力才是。第三，思维能力变得前所未有的重要。与其天天纠结我用什么AI工序，不如多去学习一些思维框架，提升自己的底层认知，工序会过时，但是思维能力是你一辈子的武器。最后点个关注，我会和你持续分享AI时代的顶级思维。",
+      "transcript_chars": 1128,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=slide diff=0.3624"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00009.jpg",
+          "marker": "Frame [00:00:09] type=annotation diff=0.2552"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00013.jpg",
+          "marker": "Frame [00:00:13] type=slide diff=0.3837"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00028.jpg",
+          "marker": "Frame [00:00:28] type=slide diff=0.3617"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00031.jpg",
+          "marker": "Frame [00:00:31] type=slide diff=0.3684"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00048.jpg",
+          "marker": "Frame [00:00:48] type=annotation diff=0.2354"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00057.jpg",
+          "marker": "Frame [00:00:57] type=annotation diff=0.1133"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00062.jpg",
+          "marker": "Frame [00:01:02] type=slide diff=0.3388"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00081.jpg",
+          "marker": "Frame [00:01:21] type=slide diff=0.3477"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00086.jpg",
+          "marker": "Frame [00:01:26] type=slide diff=0.3084"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00094.jpg",
+          "marker": "Frame [00:01:34] type=annotation diff=0.0661"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640528003604152335\\frame_00159.jpg",
+          "marker": "Frame [00:02:39] type=annotation diff=0.2851"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7640528003604152335-6726ebae31aa.payload.json"
+    },
+    {
+      "video_id": "toutiao-7615067502300758574-7dfd0dc26430",
+      "title": "toutiao-7615067502300758574",
+      "duration_s": 144.684,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7615067502300758574.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7615067502300758574.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:01:00] open cloud但发现他什么也干不了，甚至有点笨，那是因为你还没有去clo给它装s上有17000多个scale，我从下载量前三0和我自己高频使用的做了交叉筛选，只推荐这10个装完至少强3倍。安全审查员会在你安装任何之前描安全风险检查红旗标识权限范围和可疑模式，能检测prom注入工具投毒，隐藏 a代码，建议在装任何其他sscale之前先帮它装上。第二个自我进化，它是下载量第一的s，解决大模型示忆症，它会自动把每次的错误日志成功经验和你的编号存到本地记忆库下次遇到类似问题直接调用历史经验实现越用越聪明。这个s价值不在于第一天而在于第30天用的越久ag你的数字分身。第个 searchI专属搜索引擎让ag会上网搜索，搜出来结果I友好的不同于传统索引擎回一堆。\n[00:01:00 - 00:02:00] 链接t直接返回干净结构化内容agent拿到就能用。第四个summarize全格式内容摘要专家网页PDF图片、音频视频什么格式都能一口吞下去，给你摘要我的日常法是搜索加summarize总结先搜到相关页面，再把整篇内容压缩成500字上下文效率翻倍。第五个fin scale寻找 scale用自然语言告诉agent，你需要什么技能，他帮你找到并安装对应的scale不知道装什么的时候，直接问他就行。6using superpower来源于superpower这个强大的插件。核心理念是让agent严格按照先查s再行动的规则做事，杜绝偷懒和无距律探索，你发现agent不用你装好的就自己瞎搞这个scale能帮你管教它。第个react最佳实践技能性能优化圣经方共同团队出品react和nex最佳实践前端开发者必装第8前端设计技能帮你写出更有设计感的前端页面。\n[00:02:00 - 00:02:24] anropropic官方出品强制agent先做设计思考，再写代码，把从能跑就行，提升到设计合格。第9个gitthubgetth全流程操控，让agent直接操作你的github仓库ass PRRCI一条命令搞定。最后一个浏览器操作技能，让你的open cloud像人一样打开网页，点击按钮，填写表单，截图画面，最后帮大家总结一下。",
+      "transcript_chars": 938,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00006.jpg",
+          "marker": "Frame [00:00:06] type=annotation diff=0.1146"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00016.jpg",
+          "marker": "Frame [00:00:16] type=annotation diff=0.1026"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00030.jpg",
+          "marker": "Frame [00:00:30] type=annotation diff=0.111"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00051.jpg",
+          "marker": "Frame [00:00:51] type=annotation diff=0.1128"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00064.jpg",
+          "marker": "Frame [00:01:04] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00081.jpg",
+          "marker": "Frame [00:01:21] type=annotation diff=0.1038"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00090.jpg",
+          "marker": "Frame [00:01:30] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00106.jpg",
+          "marker": "Frame [00:01:46] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00108.jpg",
+          "marker": "Frame [00:01:48] type=annotation diff=0.1072"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00129.jpg",
+          "marker": "Frame [00:02:09] type=annotation diff=0.1168"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7615067502300758574\\frame_00144.jpg",
+          "marker": "Frame [00:02:24] type=annotation diff=0.0794"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7615067502300758574-7dfd0dc26430.payload.json"
+    },
+    {
+      "video_id": "toutiao-7462965292331696143-c9147ba8639b",
+      "title": "toutiao-7462965292331696143",
+      "duration_s": 103.956,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7462965292331696143.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7462965292331696143.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:01:00] 🎼传统大模型trans价格的局限终于被打破了。你敢相信AI现在可以一次处理长达400万头ken的上下文。什么概念呢？就相当于700万个汉字或者十部红楼梦的内容，它也能一次性帮你处理完。就在刚刚国内出创公司重磅开炸级别模型基础大模视觉多模多项基试综合性能它超长文本的处理实现了大幅领先，能够高效处理长达400万ken的上下文，足足是G的32倍。就连国外网友看完都近乎如此长的上下文原本以为要5年以后才能实现。而这一切都得益业界首次大规模实现了线性注意力机制。你们看传统的transer用的是注意力构建一全连接矩阵超序列矩极其庞从带来了巨大的计算和内存开销。通过创新使用light线性注意力极大的降低了计算和内存需求，并复杂传方级。\n[00:01:00 - 00:01:43] 🎼降低到了线性级别。更厉害的是，mini max还通过大量实验找到了1个7比1的混合注意力之质的最佳配方。从这份长达68页公开的技术报告，我们可以看到，在其他模型处理256K的时间窗口内，mini max模型可以处理多达100万的词的信息，而且做到了让推理时间接近线性的缓慢增加，不仅如此，性能的衰减幅度也是最小的，还一度超越了包长文本王九杰米娜在内的多款海外顶尖模型，显然这项技术的突破不仅能在确保性能的同时，进一步降低推理成本，还将极大拓展我们对AI应用场景的想象空间。想象一下，未来你和AI助理之间的交流不会再因为上下文窗口的限制要断片，处理数百亿的复杂合同也能轻松搞定。所以我认为mini max现在用创新打破技术边界为时代的加速到来，带来了更多的可能。",
+      "transcript_chars": 690,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00004.jpg",
+          "marker": "Frame [00:00:04] type=slide diff=0.462"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00007.jpg",
+          "marker": "Frame [00:00:07] type=slide diff=0.6813"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00038.jpg",
+          "marker": "Frame [00:00:38] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00043.jpg",
+          "marker": "Frame [00:00:43] type=slide diff=0.8652"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00059.jpg",
+          "marker": "Frame [00:00:59] type=slide diff=0.8261"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00078.jpg",
+          "marker": "Frame [00:01:18] type=annotation diff=0.144"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00084.jpg",
+          "marker": "Frame [00:01:24] type=annotation diff=0.0678"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00089.jpg",
+          "marker": "Frame [00:01:29] type=annotation diff=0.1083"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00093.jpg",
+          "marker": "Frame [00:01:33] type=slide diff=0.3556"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00097.jpg",
+          "marker": "Frame [00:01:37] type=slide diff=0.4353"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7462965292331696143\\frame_00104.jpg",
+          "marker": "Frame [00:01:44] type=annotation diff=0.1227"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7462965292331696143-c9147ba8639b.payload.json"
+    },
+    {
+      "video_id": "toutiao-7619199478487810100-f93b63bcb152",
+      "title": "toutiao-7619199478487810100",
+      "duration_s": 110.644,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7619199478487810100.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7619199478487810100.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:01:00] 🎼过去周ub上面彻底杀疯了，诞生了7个神级的AI项目，最快的三天就狂飙3500星。点在收藏带你挨个看第一个agency agents从名字就猜测到他的能力了吧。他能一键把变成51位AI专家组建9个完整部门产品开发设计到营销全流程覆盖，这相当于你零成本雇佣了一整家AI公司。接着看第二个AI大神刚开源的autore，这就是个全自动的科研实习生给他个目标，他自动规划实验改代码跑训练看结果，你睡一觉醒来，最优版本已经端到你面前。第三个绝了light panda个专为AI打造的无头浏览器完全不依赖chrome从零构建速度快了，整整11倍内存还少9倍，绝对是搞数据爬取和AI智能体开发的超级利器，还在发愁电脑跑不动大模型。第四个项目M。\n[00:01:00 - 00:01:50] 🎼只需要一条命令，直接告诉你哪些模型能在你电脑上跑，还能给质量速度打分，彻底告别下载了几十个G却跑不动的尴尬。第五个，港大的团队开挂了。 anything一行命令让你的修图软件3D软件甚至OBS录屏，全部变成AI可控的工具。第六个spacetime dB2.0，在国外被抢疯了，号称比传统数据库快1000倍敏感性，他把数据库和服务器合二为一。客户端直连最后压轴的ney他给AI装上了能自我进化的技能库，执行失败了，他会自己查找原因，自己修改代码优化，让AI技能从静态文件变成一个活的不断升级的系统。就这7个项目正在疯狂颠覆AI的玩法，关注我，带你探索更多。",
+      "transcript_chars": 638,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00010.jpg",
+          "marker": "Frame [00:00:10] type=annotation diff=0.1313"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00026.jpg",
+          "marker": "Frame [00:00:26] type=annotation diff=0.1659"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00027.jpg",
+          "marker": "Frame [00:00:27] type=slide diff=0.3917"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00029.jpg",
+          "marker": "Frame [00:00:29] type=annotation diff=0.057"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00033.jpg",
+          "marker": "Frame [00:00:33] type=slide diff=0.3168"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00041.jpg",
+          "marker": "Frame [00:00:41] type=annotation diff=0.0514"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00043.jpg",
+          "marker": "Frame [00:00:43] type=slide diff=0.4406"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00097.jpg",
+          "marker": "Frame [00:01:37] type=annotation diff=0.1302"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00098.jpg",
+          "marker": "Frame [00:01:38] type=slide diff=0.3049"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00107.jpg",
+          "marker": "Frame [00:01:47] type=slide diff=0.4341"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7619199478487810100\\frame_00111.jpg",
+          "marker": "Frame [00:01:51] type=annotation diff=0.1003"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7619199478487810100-f93b63bcb152.payload.json"
+    },
+    {
+      "video_id": "toutiao-7474599100961341991-627be9396c22",
+      "title": "toutiao-7474599100961341991",
+      "duration_s": 77.5,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7474599100961341991.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7474599100961341991.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:01:00] 🎼三个变态到极致的神器，请焊死在你的电脑上。第一个magic它可以帮你删除图片里不需要的部分，只需上传图片，轻轻涂抹一下不需要的元素，它就能立刻帮你消除，就连你不想看的美女，它都能轻松帮你消除。某宝那些做图片P图的商家也都是用的它。第二个太平由国内顶级大神开发，一款涵盖全网资源的神器，软件共有6个版块，每个版块都是非常炸裂的存在。第一个关山第二个听语全网音乐免费听，你喜欢听的都在里面，让你彻底告别VIP以后不要说周董的歌只能听前奏的。第三第四分别是修仙和琴，里面包含全网的小说和漫画资源，全部可以免费观看，直接让你眼睛爽到飞。第五个小站，这是一个逆天的磁力下载工具，你想看的不想看的他都能搜到老司机们懂得都懂。第六个百宝库，里面包含了几十种实用工具，像什么格式转化视频下载PDF转word等等，应有尽有。总之，它可以满足你的所有需求。第三个这是一个可以让你从此告别。😊\n[00:01:00 - 00:01:17] 🎼开走上高清时代的逆天神器，无论是照片还是视频，都能实现从有码到无码的转变。即便是几十年前模糊到不行的老照片，在他的处理下都能轻松变清晰。重点是这个工具同样完全免费。工具我已经整理到工具箱了，找不到或不想找评论区回复工具箱。😡",
+      "transcript_chars": 544,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00004.jpg",
+          "marker": "Frame [00:00:04] type=slide diff=0.5157"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00006.jpg",
+          "marker": "Frame [00:00:06] type=annotation diff=0.1234"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00010.jpg",
+          "marker": "Frame [00:00:10] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00013.jpg",
+          "marker": "Frame [00:00:13] type=slide diff=0.6227"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00018.jpg",
+          "marker": "Frame [00:00:18] type=annotation diff=0.1932"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00019.jpg",
+          "marker": "Frame [00:00:19] type=slide diff=0.8191"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00022.jpg",
+          "marker": "Frame [00:00:22] type=slide diff=0.6137"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00058.jpg",
+          "marker": "Frame [00:00:58] type=slide diff=0.6105"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00064.jpg",
+          "marker": "Frame [00:01:04] type=slide diff=0.479"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00065.jpg",
+          "marker": "Frame [00:01:05] type=annotation diff=0.0287"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7474599100961341991\\frame_00078.jpg",
+          "marker": "Frame [00:01:18] type=annotation diff=0.2797"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7474599100961341991-627be9396c22.payload.json"
+    },
+    {
+      "video_id": "toutiao-7642086135955292710-8f18e5fb6eb4",
+      "title": "toutiao-7642086135955292710",
+      "duration_s": 81.167,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7642086135955292710.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7642086135955292710.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:01:00] 🎼大多数人都在裸用cloud code，难怪体验不行，今天给你看个东西装完完全不一样。悄悄发了一个官方插件cloud code10万多人已经装了你还在裸奔他干嘛的扫描你的项目，告诉你该装什么5个维度Pag一个不三步搞定第一步，扫你的项目结构点son依赖列表全看一遍第二步，分析你的技术站nex点加pririsma加win他全认的第三步，直接推荐方案，附带安装命令，复制粘贴就行，只推荐你真正需要的已经有的不会再推荐举个真实例子，你的项目用了最新版nex点模型训列数据都跟不上，他马上推荐tex7MCP server查实时文档，还发现你有V文件，推荐加ook防蜜要泄露，自己想得到吗？他甚至能发现项目里有文章模板，建议封装成不是一股脑全塞。😊\n[00:01:00 - 00:01:21] 🎼匹配，这不是工具，这是你的AI工程师安装一行命令，斜杠plog给install cloud cold set装完reload说一句，recommend automations搞定，别再裸用了，真正的力量来自它周围的生态，收藏这条，下次一定用得上。你的开发效率会感谢你。关注我，第一时间了解最新AI动态。😊",
+      "transcript_chars": 518,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00007.jpg",
+          "marker": "Frame [00:00:07] type=annotation diff=0.0312"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00012.jpg",
+          "marker": "Frame [00:00:12] type=annotation diff=0.0357"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00022.jpg",
+          "marker": "Frame [00:00:22] type=annotation diff=0.0313"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00033.jpg",
+          "marker": "Frame [00:00:33] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00035.jpg",
+          "marker": "Frame [00:00:35] type=annotation diff=0.0298"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00042.jpg",
+          "marker": "Frame [00:00:42] type=annotation diff=0.0394"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00055.jpg",
+          "marker": "Frame [00:00:55] type=annotation diff=0.0614"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00063.jpg",
+          "marker": "Frame [00:01:03] type=annotation diff=0.0494"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00071.jpg",
+          "marker": "Frame [00:01:11] type=annotation diff=0.0563"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00072.jpg",
+          "marker": "Frame [00:01:12] type=annotation diff=0.0563"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7642086135955292710\\frame_00079.jpg",
+          "marker": "Frame [00:01:19] type=annotation diff=0.0485"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7642086135955292710-8f18e5fb6eb4.payload.json"
+    },
+    {
+      "video_id": "toutiao-7643769224086716938-16e8f6b985ef",
+      "title": "toutiao-7643769224086716938",
+      "duration_s": 52.408,
+      "source": {
+        "kind": "file",
+        "original": "Videos\\short\\toutiao\\toutiao-7643769224086716938.mp4",
+        "local_media_path": "Videos\\short\\toutiao\\toutiao-7643769224086716938.mp4"
+      },
+      "transcript_text": "[00:00:00 - 00:00:52] 🎼怪不得大家都跟着这5个博主学AI这也太香了，我现在每天学习2.5个小时，学大多数时间就是跟着AI博主学习。这几个博主是我反复刷，真心推荐的入门看秋知2046，他帮助你判断这个AI工具到底能干什么，值不值得去学不讲生用算法，只讲新工具解决啥问题，怎么用省事实操看大事的AI小。如果你不想要只听概念，而是想要真的去做出一些东西，可以跟着他的教程去实操一遍，跑通才知道哪里容易翻车进阶看清华江学长。如果你已经学会用一些工具了。但是不知道下一步该学什么，可以看他的视频理清楚自己的学习路线，适合小白往进阶走趣味看灵异他的内容非常有趣，用实验和脑洞展示AI能力边界，帮你保持想象力，知道AI还能怎么组合，不只把AI当按钮和模板，源头看and看这位大神的M深度讲解，补足底层概念，再回来看中文内容，就不用每天忙跟热点。我结合这几位AI博主的视频，整理了一套大模型从入门到进阶的视频教程和电子书籍，留个学习双手奉上。😊",
+      "transcript_chars": 425,
+      "frames": [
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00001.jpg",
+          "marker": "Frame [00:00:01] type=annotation diff=0.1326"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00002.jpg",
+          "marker": "Frame [00:00:02] type=annotation diff=0.1326"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00006.jpg",
+          "marker": "Frame [00:00:06] type=annotation diff=0.1219"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00007.jpg",
+          "marker": "Frame [00:00:07] type=slide diff=0.308"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00016.jpg",
+          "marker": "Frame [00:00:16] type=annotation diff=0.2894"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00017.jpg",
+          "marker": "Frame [00:00:17] type=slide diff=0.3508"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00024.jpg",
+          "marker": "Frame [00:00:24] type=slide diff=0.3105"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00031.jpg",
+          "marker": "Frame [00:00:31] type=annotation diff=0.257"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00032.jpg",
+          "marker": "Frame [00:00:32] type=slide diff=0.3125"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00033.jpg",
+          "marker": "Frame [00:00:33] type=context diff=0"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00047.jpg",
+          "marker": "Frame [00:00:47] type=slide diff=0.3771"
+        },
+        {
+          "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7643769224086716938\\frame_00052.jpg",
+          "marker": "Frame [00:00:52] type=annotation diff=0.1545"
+        }
+      ],
+      "payload_path": "D:\\zhihu\\zhihu_file\\runs\\short-video\\preprocess\\toutiao-7643769224086716938-16e8f6b985ef.payload.json"
+    }
+  ]
+}

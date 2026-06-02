@@ -1,0 +1,89 @@
+{
+  "video_name": "live-20260602-195306_chunk040_2340s",
+  "full_text": "[00:00:00 - 00:01:00] 90%的AI产品。这第一个这个最后这一个呢啊这不是最后一个，这是第一个这个会相对难一点。这个呢我个人觉得比后面那个什么小猫小狗啊加虚拟人物啊，或者简笔画要难一些。这第一个，因为它要混简的东西比较多，然后呢，它那个图片素材呢还得生成。那个图片素材呢生成的应该会比那个简笔画小人要更难一些啊，那这个比较考验技术了，这个第一个这个是比较考验技术的，然后这四个呢就是四个啊这个这个。对，得有一个剧本，是的，剧本竹子稿。这个你可以认为这个文字是一个输入啊，文字是一个输入。然后呢，这是四个呃视频生成的工具。然后这四个视频生成的工具呢呃你也可以呃呃单独报名某一个也可以都在那个牛湖阶段的后台，对吧？就是视频功能生成功能一生成功能2。然后另外呢，这两个是这有两个跟电商相关的。这两个跟电商相关的呢，我同时还没有确认好它的需求具体怎么做，一个是跟一些商品和。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=slide diff=0.5341"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=slide diff=0.5341"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=slide diff=0.6439"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.0312"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=slide diff=0.6232"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0438"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk040_2340s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.0488"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 1,
+      "diff": 0.5341
+    },
+    {
+      "type": "slide",
+      "frame_idx": 42,
+      "diff": 0.6439
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.0312
+    },
+    {
+      "type": "slide",
+      "frame_idx": 45,
+      "diff": 0.6232
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0438
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.0488
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 3,
+    "frames_total": 9,
+    "text_chars": 393
+  }
+}

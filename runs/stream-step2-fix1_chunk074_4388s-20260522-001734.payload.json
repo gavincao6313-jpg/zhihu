@@ -1,0 +1,29 @@
+{
+  "video_name": "step2-fix1_chunk074_4388s",
+  "full_text": "[00:00:00 - 00:01:00] 它的文件比较多，代码也比较长。然后呢第二方面，它依旧也是真实的啊，依旧它这个嗯难度也是有些难度也是比较大的嗯，那第三方面呢，它其实是这个链路要很复杂。因为我们看到了我们刚才的这个呃刚才这个AI城序这个开发的过程，它是非常复杂的。首先要理解用户的需求，然后要在对应的这个仓库中去解析。呃，呃理解当前的仓库，然后对找到对应的片段，并且要进行修改，修改完了之后，还要生成对应的这个呃呃地址的形式。对。这个单呃呃这里面说的这个呃不是这个单侧不是自动生成的，这个单侧是这个真实的项目中本来就有的单侧。对。都是和和我们刚才提呃说到的那个前面说的那个coded，就我们提出的那个coded也是一样的，就都是爬取的，都是真实的github仓库。这个仓库里面就有对应的单测。嗯，那这个单测也是把环境安装正确了之后，也是可运行的对，通过这种可运行的这种形式。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000073\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000073\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=slide diff=0.351"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 15,
+      "diff": 0.351
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 391
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "regression-check_chunk001_0s",
+  "full_text": "[00:00:00 - 00:01:00] 好的，各位同学，欢迎大家来到，我们今天给大家带来的这些这个公开课啊，今天给大家这个讲一讲这个AI时代艺人公司的可能性和有效路径。能到的同学给我扣个一好不好？😊找同学给我扣个一。嗯，他总来了，辉同事来了，飞嘟多飞飞将都是老朋友啊。然后我可丽飞嘟嘟转行搞AI你们好啊。我这已经是啊没有新朋友了吗？O.😊男朋友好。大伟，你好。今天咱们讲讲OPC的事啊啊。OPC现在应该算是一个比较火的概念。然后大家讲一讲，就是说OPC这件事儿的话和这个。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\regression-check_chunk001_0s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\regression-check_chunk001_0s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.1291"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\regression-check_chunk001_0s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.1291"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\regression-check_chunk001_0s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.1285"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\regression-check_chunk001_0s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.1285"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.1291
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.1285
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 238
+  }
+}

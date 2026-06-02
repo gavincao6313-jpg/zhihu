@@ -1,0 +1,49 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk176_10500s",
+  "full_text": "[00:00:00 - 00:01:00] 五百强的牢传统无传统五传统五百强的老板有一半都是帝王型的。能耐真大能耐真大，对吧？好，韦帝是什么？慕容复cosplay型帝王就麻烦了。我告诉大家，你们很有可能啊。我呀你猜猜我是什么型态？你猜我是不行的。慕容复型的是什么？曾经误闯天家，见过帝王型的用度排场，虽不能治，心向朗之。这虽无龙身的但沾龙气，你知道吗？是吧？虽无龙身，但但沾龙气，对吧？所然后自己做老板，复制这套排场和权谋，没有复制他的江山和能力，然后就会出现业务是做不大，腰是做的不小。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk176_10500s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk176_10500s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0224"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk176_10500s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.0224"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk176_10500s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.1203"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk176_10500s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.1203"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.0224
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.1203
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 245
+  }
+}

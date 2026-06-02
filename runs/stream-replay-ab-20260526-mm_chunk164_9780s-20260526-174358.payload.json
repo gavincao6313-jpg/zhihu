@@ -1,0 +1,94 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk164_9780s",
+  "full_text": "[00:00:00 - 00:01:00] 75兆吧，75兆1个PPT，你觉得这事儿它正常了？哎。正常吗。不是不是这个东西不是说别，这是我别的课程上的东西直接就给到你们讲了，就是已经对你们非常好了，好吗？来。嗯，这是我一个顾问项目，我为我为我我怎么拿下，我又怎么我又怎么辞掉的一件事。前面是是是是说这么一个事。我去年做的一个一个项目，做一个公司的顾问，然后呢怎么拿下，又怎么又为又又为什么辞了，当时给吐给给咱们share一下。加入门槛花钱。庸俗吧，特别的特别的庸俗。😊花钱。学费。真的不想说这句话，但是但但他本。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.1407"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1638"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.1055"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.1055"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.1522"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1522"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.1828"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk164_9780s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.1828"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.1407
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.1638
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.1055
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.1522
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.1828
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 5,
+    "frames_total": 11,
+    "text_chars": 257
+  }
+}

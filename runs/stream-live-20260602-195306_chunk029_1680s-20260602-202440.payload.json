@@ -1,0 +1,109 @@
+{
+  "video_name": "live-20260602-195306_chunk029_1680s",
+  "full_text": "[00:00:00 - 00:01:00] 呃，对吧？就服务商登录大家不要忘了，呃，你在这上面报名是先要这个呃实名认证的。然后呢，在这个地方实名认证之后呢，你就能打开这个需求报名。然后这个地方一样的啊，已经把今天这些单子已经放在这大家报名就可以了啊，就跟前面是完全一样的过程啊，完全一样的过程没有实名化的同学记得去实名化啊，没有做实名同学记得去做实名，然后呢，那个而且记得第一次做实名同学，记得实名之后，记得把你的那个身份证正反面信息给给那个班主任也发一下，千万不要忘，上次就有一批同学忘了发了，对吧？然后呢，接下来是做一些视频有关的工具。那这几个呢都是跟视频的这几个都是开发跟视频的功能有关的。也就是说需要开发一些工具，这些工具呢能去处理出来一些特定的视频效果。比如说这个是一些简单混剪的，这个是简笔化小人的，这个是虚拟人物的，这个是猫狗对话的啊，就是啊就。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=slide diff=0.5133"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=slide diff=0.5133"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.1736"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=slide diff=0.4698"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.7486"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.1607"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=slide diff=0.628"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.0377"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.0304"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk029_1680s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.0304"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 1,
+      "diff": 0.5133
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.1736
+    },
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.4698
+    },
+    {
+      "type": "slide",
+      "frame_idx": 32,
+      "diff": 0.7486
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.1607
+    },
+    {
+      "type": "slide",
+      "frame_idx": 34,
+      "diff": 0.628
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.0377
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.0304
+    }
+  ],
+  "stats": {
+    "slide_changes": 4,
+    "annotations": 4,
+    "frames_total": 11,
+    "text_chars": 380
+  }
+}

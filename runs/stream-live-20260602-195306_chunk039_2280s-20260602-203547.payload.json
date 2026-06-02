@@ -1,0 +1,79 @@
+{
+  "video_name": "live-20260602-195306_chunk039_2280s",
+  "full_text": "[00:00:00 - 00:01:00] 🎼加脚本竹子稿是呃直接贴进来的输入。然后呢，你基于这个竹子稿里面要生成一个什么样的图片，这个图片里面的文字并不是啊用户的输入，是你要基于竹子稿，它讲到某一段了需要什么样的图片，要不然提前生成，要不然是呃要不然是那个呃到这的时候给它生成相应图片飞来飞去啊，所以图片里面的文字是基于竹子稿是基于稿子和脚本，然后呢去生成出来的。到大模型底层逻辑与技术边界，掌握提示词工程，同步升级用户研究需求分析，交互设计等传统产品核心能力。第二阶段，专攻RAAG理解文档处理到检索增强生成的完整流程与核心瓶颈，熟练用co deffi等低代码平台，快速构建原型，并评估效果。第三阶段攻克ag掌握感知记忆规划工具调用的完整能力链。第四阶段深耕商业落地，系统学习模型选型效果评。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.1442"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1442"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.2389"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.2251"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk039_2280s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.149"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.1442
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.2389
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 52,
+      "diff": 0.2251
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.149
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 348
+  }
+}

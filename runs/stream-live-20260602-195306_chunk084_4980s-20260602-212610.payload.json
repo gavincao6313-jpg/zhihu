@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260602-195306_chunk084_4980s",
+  "full_text": "[00:00:00 - 00:01:00] 有另外一批同学来给你们抢单子嘛，对吧？咱们作为这个课的第一批的学员，对吧？咱们作为这个课第一批学员，目前单子还都是比较倾向于和偏好偏向于咱们这个这一期的学员。但家我不知道大家有没有感觉啊。😊要不然你对吧人越多，不就是抢单的人越多嘛，对吧？包括。😀俺不要虐第二期的。😊嗯嗯。呃，电商直播这种是否有固定开发的了？研究一下业界怎么做。是的，就是如果你们感兴趣的话，电商那个直播数字人我也是觉得需求有点不是特别明确。因为呃电商的像数字人这个就有些工具已经我们不需要做一些开发，他也可以做一些数字人的工作了。所以呢那需要开发一些什么东西，现在还不是特别明确，可能啊可能可能对方还要做一些调研工作吧。如果大家感兴趣的话，你也可以去。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk084_4980s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk084_4980s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.1535"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk084_4980s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1535"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk084_4980s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk084_4980s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.0621"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.1535
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.0621
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 332
+  }
+}

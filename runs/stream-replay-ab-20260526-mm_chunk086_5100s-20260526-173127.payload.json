@@ -1,0 +1,18 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk086_5100s",
+  "full_text": "[00:00:00 - 00:01:00] 首先他的这个测试款100件向工厂发出指令，100件出来之后，立刻拿到网站和app上去做测试。工厂还没开始做了，他这个东西已经开始卖了，你们知道吗？同学们。是工厂接到订单的时刻，他已经上架卖了。懂吗？上架卖的时候如何决定要不要去追加订购？。先去做预售啊。所有东西都在抢时间，所有的东西都在抢时间。你每能够比别人快一点，你就能够抢占先机。问你一个问题。如何判断？如何判断要去追加订购？大家想一想，如何判断追加订购。是卖完了去订货吗？用什么方法来去决定追加订购？",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk086_5100s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 250
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "ab-replay-20260522_chunk120_7140s",
+  "full_text": "[00:00:00 - 00:00:02] 对于实行和推理要求都高\n[00:00:02 - 00:00:06] 心理健康干预 实实性和推理性都要求很高\n[00:00:06 - 00:00:09] 所以心理干预其实是很难的那个东西\n[00:00:09 - 00:00:16] 然后作业的批改 内容创作 数据的分析\n[00:00:16 - 00:00:21] 这是整体来讲在两个项鞋上能够去做的思考的东西\n[00:00:21 - 00:00:22] 这里面有无数得的机会节\n[00:00:22 - 00:00:24] 我们可以一个一个往里面去做\n[00:00:24 - 00:00:27] 一个一个往里面去做 对吧\n[00:00:27 - 00:00:30] 然后AI加教育最成功的产品是什么\n[00:00:30 - 00:00:36] 朵铃果 提到教育不可能绕开朵铃果\n[00:00:36 - 00:00:39] 朵铃果是在这个世界上单体教育成本最成功的产品\n[00:00:39 - 00:00:42] 为什么 2012年推出\n[00:00:42 - 00:00:47] 2025年Q1 DAO 4460万MAU1.3亿\n[00:00:47 - 00:00:51] 这个产品客观一点讲\n[00:00:51 - 00:00:54] 我认为是极其难达成的\n[00:00:54 - 00:00:56] 大家玩朵铃果",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk120_7140s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk120_7140s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk120_7140s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.0288"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk120_7140s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.0295"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk120_7140s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.0295"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.0288
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.0295
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 603
+  }
+}

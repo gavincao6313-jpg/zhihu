@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk050_2946s",
+  "full_text": "[00:00:00 - 00:00:59] 拍这么一张图，这是平均单价和月平均返还量，它在这里面的单价就是最低最低的这个量，最低最低的这个量，对吧？然后呢，它在这个上面的话，大家可以看看这里面的这样一些价格，这面上的价格呃，决策行为必须得有必须得有数据。角策性言没有数据，根本是不可能做的。大家看看这里面的价格。我说实刀位的话是均值。一条皮带1.5到。啊，一条皮带1.5 dollar，一身衣服，一个T，一个11个小短裤，9do啊，一个T4do，一身9do。然后的话一个这个小链，0.75，75美分。然后一堆的这个这个小耳饰75美分，一个小钥匙坠0.4949美分。啊，一条牛仔裤，11 dollar，一条连衣裙，11 dollar。就说实话。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000049\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000049\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.2353"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000049\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.2353"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.2353
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 321
+  }
+}

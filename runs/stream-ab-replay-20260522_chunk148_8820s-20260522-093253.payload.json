@@ -1,0 +1,44 @@
+{
+  "video_name": "ab-replay-20260522_chunk148_8820s",
+  "full_text": "[00:00:00 - 00:00:05] 当两点之间的距离越来越小时,割线就越来越接近切线\n[00:00:05 - 00:00:07] 这个过程的极限就是倒数\n[00:00:07 - 00:00:13] 积分学研究函数的累积量,最直观的理解就是即算趋限下方的面积\n[00:00:13 - 00:00:16] 我们可以用离万和的方法来低减这个面积\n[00:00:16 - 00:00:18] 将趋于分割成许多小举行\n[00:00:18 - 00:00:21] 好,不过您看,晚上你们也快睡觉\n[00:00:21 - 00:00:25] 然后,出完视频,能够有测试\n[00:00:25 - 00:00:27] 我问你们一个问题\n[00:00:27 - 00:00:35] 这个产品,这个产品特别适合给谁用\n[00:00:39 - 00:00:41] 这产品特别适合给谁用\n[00:00:45 - 00:00:47] 特别适合给老师用\n[00:00:47 - 00:00:49] 极其适合给老师用\n[00:00:49 - 00:00:53] 学生,说句实在话,用这个的可能性没那么大\n[00:00:53 - 00:00:56] 但是老师要看出这个产品,太喜欢了\n[00:00:56 - 00:00:59] 这里面有各种各样的案例",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk148_8820s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk148_8820s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.1811"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk148_8820s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.1811"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk148_8820s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=slide diff=0.3285"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.1811
+    },
+    {
+      "type": "slide",
+      "frame_idx": 56,
+      "diff": 0.3285
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 562
+  }
+}

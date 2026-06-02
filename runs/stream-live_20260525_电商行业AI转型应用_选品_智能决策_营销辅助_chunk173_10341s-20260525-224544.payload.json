@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk173_10341s",
+  "full_text": "[00:00:00 - 00:01:00] 伪帝型和二世祖型就有意思了。什么是伪帝型呢？我告诉大家一个道理，帝王型老板一点都不差，能力强，有资源。帝王型老板都是很厉害的，只不过是拿帝王权术这套来去管公司，真混好了，真有资源，真能成长，真能见识厉害的东西，真有赏赐，只不过雷霆雨露皆为君恩，对吧？只不过是行不可测，则威不可行不可知则威不可测，只不过你不会这套东西，你不会玩，对吧？对吧？怕就怕是伪帝，谁是帝王型啊。哼谁是帝王行啊，我这么跟你讲吧。中国排名五百强的老板有至少一半都是帝王型的了，平安保险肯定是帝王型的。我在的阳光保险也是帝王型的啊，五百强的牢传统无传。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000172\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000172\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.1152"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000172\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.1152"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.1152
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 282
+  }
+}

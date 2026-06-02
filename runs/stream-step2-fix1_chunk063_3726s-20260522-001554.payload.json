@@ -1,0 +1,44 @@
+{
+  "video_name": "step2-fix1_chunk063_3726s",
+  "full_text": "[00:00:00 - 00:01:00] 这个我们最近推出的这个AI程序开发的这块的一个探索。嗯，在这个通义灵码的这个官网里啊，其实是呃有那个呃呃有那个介绍的，叫AI程序员这个呃一个一个可以说用一个产一个这个这个产品吧。A程序员这产品上解决的就是AI程序开发的这么一个能力。啊，这块呢我们来先看一个视频啊。看一个视频，总共了解一下这个嗯项目修开发和缺陷修复啊，它是要干什么的。嗯，我们看一下，这个其实和这个呃刚才说的补权啊以及问答都不太一样。嗯，为啥不一样呢？因为。这里想做的一个做的一个任务是什么呢？就是用户只要提出一个需求，对一个仓库对当前某一个仓库提出一个需求。这个需求用自然语言来描述就OK了。比如说你想说对这个呃整个这个对这个仓库呃呃假如这。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000062\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000062\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=slide diff=0.5332"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000062\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000062\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.0394"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 20,
+      "diff": 0.5332
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.0394
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 327
+  }
+}

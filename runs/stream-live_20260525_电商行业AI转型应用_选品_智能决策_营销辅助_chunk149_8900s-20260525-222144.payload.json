@@ -1,0 +1,39 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk149_8900s",
+  "full_text": "[00:00:00 - 00:00:58] 越做越大就成了首富。这行业的逻辑就是这样，一边去找相应的这些能火的要素，一边能找相应火的材料。首先你诺我这里门其实给你提示了。全国范围内长视频公司还有几家呀？全国范围内长视频平台还有几家呀，爱优腾忙啊爱优腾忙。爱忧藤忙嘛，对不对？这四家做个这个东西还是没有什么压力的。这四家做这个事没什么没什么压力啊，爱忧腾王。😊都是都是都是百亿千亿的盘子，做个这个东西还是没有压力的对吧？是吧？然后。这个所有的这个制作体系尽量的去按照瑞按照石验的这套方式去走。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000148\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=annotation diff=0.1816"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000148\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.1816"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000148\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=slide diff=0.3"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.1816
+    },
+    {
+      "type": "slide",
+      "frame_idx": 54,
+      "diff": 0.3
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 245
+  }
+}

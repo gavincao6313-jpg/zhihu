@@ -1,0 +1,64 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk182_10860s",
+  "full_text": "[00:00:00 - 00:01:00] 找对了人不就好了吗？不就好了吗？对不对？是不是这么这是是就是咱是不是这么个道理，是不是这么个道理？😡对吧。对吧。😊你得你得找对人，你得找对人，对吧？你这么干完后，我也很轻松，他们也很快乐，大家都有美好的未来不就好了吗？对吧？剩下还很多呢，就不讲了吧，有这种梦想家型的，然后呃梦想家型的是不要去粘的人，这种人不好这种人不好。然后还有几种类型，有几种亚型的东西给你们看一看啊，还有几种类型，简单的说一说吧。哎。怎么回事？",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk182_10860s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk182_10860s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.1384"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk182_10860s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.1384"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk182_10860s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.0262"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk182_10860s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0262"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk182_10860s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk182_10860s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0422"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.1384
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.0262
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0422
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 230
+  }
+}

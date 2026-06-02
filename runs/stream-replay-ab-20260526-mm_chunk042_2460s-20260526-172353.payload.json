@@ -1,0 +1,44 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk042_2460s",
+  "full_text": "[00:00:00 - 00:01:00] 精致，但似乎我什么这都懂，对不对？对吧？所以大家一定要去明白一件事情。你做产品经理的核心，就一定是对于目标用户的这个市场的状态，一定要非常的透彻，一定要非常透彻。你越透彻。你要做这件事就会变得做的非常的明确，非常非常的明确，对吧？然后第二是快一定要快，光多不快，没有用，快要极致，要极致的生产速度高的库存周转率，快时尚主打的一个快的东西，主打的一个快的东西，极致的生产速度高库存的周转率，对吧？然后极致生产速度的话，一般来讲快时上。比如说zaara啊，比如说HM他们一般是多快呢，对吧？他们一般是是一个什么样的速度啊，所以呢它这个价格这么低的话，这个物流和关税的问题的话，我这说的是说的它这个价格等等一些东西都是122年的标准，就是中美贸易站之前的一些数据。这两年稍微有点波动，但是它的。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk042_2460s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk042_2460s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0639"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk042_2460s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0639"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk042_2460s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=slide diff=0.3589"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0639
+    },
+    {
+      "type": "slide",
+      "frame_idx": 23,
+      "diff": 0.3589
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 366
+  }
+}

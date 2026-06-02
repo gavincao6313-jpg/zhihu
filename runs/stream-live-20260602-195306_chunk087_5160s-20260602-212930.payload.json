@@ -1,0 +1,69 @@
+{
+  "video_name": "live-20260602-195306_chunk087_5160s",
+  "full_text": "[00:00:00 - 00:01:00] 大家拜拜，大家晚安。嘘。拜拜。😔hiper frame真的挺好用的，大家一定要多玩一玩，这是做视频的神器。真的是视频神器啊，非常好用。O拜拜。嗯。hiper frame前面设计风格比较固定，不是的。只要是网页能呈现的动效，其实都可以，不一定是刚才那种风格。啊，不一定是刚才那种风格，好吧，只不过它默认是那种风格。okK拜拜。hyper frame搞起来搞起来。😊还per frame背景能不能做真人视频？可以的。而且如果你上传一些视频素材给那个啊tree，它其实还可以帮你做一些混剪的。啊，所以这就是为什么啊这几个视频的单子是想想要说能不能用hyper frame去做。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk087_5160s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk087_5160s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.71"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk087_5160s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk087_5160s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.2527"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk087_5160s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=slide diff=0.4938"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk087_5160s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk087_5160s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.1527"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.71
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.2527
+    },
+    {
+      "type": "slide",
+      "frame_idx": 18,
+      "diff": 0.4938
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.1527
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 7,
+    "text_chars": 307
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "ab-replay-20260522_chunk040_2340s",
+  "full_text": "[00:00:00 - 00:00:01] 很不懂\n[00:00:01 - 00:00:04] 然后识别整理错题的知识点\n[00:00:04 - 00:00:08] 根据Input 就是根据这个里面的错题的信息\n[00:00:08 - 00:00:10] 整理出来错题的学科\n[00:00:10 - 00:00:13] 错题的题目类型 知识点和知识点的解析\n[00:00:13 - 00:00:16] 错题的学科存储在变量学科里\n[00:00:16 - 00:00:18] 类型存储在Type\n[00:00:18 - 00:00:20] 知识点存储在Nulled\n[00:00:20 - 00:00:22] 学生名叫做Steal the Name\n[00:00:22 - 00:00:26] 然后知识点解析和学习技巧存在Content\n[00:00:26 - 00:00:29] 知识点解析的字数控制在84左右\n[00:00:29 - 00:00:31] 然后构建一个多维表格的标准形式\n[00:00:31 - 00:00:35] 把输出的内容变成一个Object 就是变成一个对象\n[00:00:35 - 00:00:39] 然后这个格式严格按照所说的这种方式\n[00:00:39 - 00:00:43] 这是基于多维表格的一个Jason的格式\n[00:00:43 - 00:00:44] 大家记一下就可以\n[00:00:44 - 00:00:47] 大家记一下就可以了\n[00:00:47 - 00:00:50] 然后限制就是紧维绕着出动数学来去做\n[00:00:50 - 00:00:52] 不要做任何的无关回答\n[00:00:52 - 00:00:55] 所说的内容调理清晰 符合正常逻辑的表达方式\n[00:00:55 - 00:00:56] OK\n[00:00:56 - 00:00:57] 好\n[00:00:57 - 00:01:00] 然后注意的是什么",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk040_2340s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk040_2340s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.0392"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk040_2340s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.0392"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.0392
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 833
+  }
+}

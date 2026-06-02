@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260602-195306_chunk016_900s",
+  "full_text": "[00:00:00 - 00:01:00] 也可以跟他去聊天。就我的呃因为他的这个学科成绩呢，可能还有提升的空间。然后呢，他是不是呃哪些大学可能呃靠谱一点，哪些大学可能他现在呃要去够的话，可能还有点难。然后另外就是呃不同的专业呢，可能接接着跟他聊聊天，一些专业的一些啊背后都学什么课程。因为有些小孩他那个看到这个专业，他可能也不知道这专业要学啥，然后就是呃背后课程到底他合不合适，会学些什么东西，哪哪些地方是会有难度啊等等之类的，可能也就是一些这样的东西吧啊，简单的聊天。那那最后会有些学校推荐，也就是说前面基本上都是问题收集的时候是会有一些特殊的啊那种交互啊，有些按钮啊什么的。那中间这两个呢，其实就是主要是文字类的对话啊，主要是文字类的对话，还有一些就是表格的展示或等等之类的。然后呢，那最后这个呢其实就是说啊真的给你推荐一些学校，推荐学校不是推荐大学啊，就是说根据你的情况啊，可能你本地的一些私立学。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk016_900s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk016_900s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0346"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk016_900s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0346"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk016_900s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0327"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk016_900s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.0327"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0346
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.0327
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 403
+  }
+}

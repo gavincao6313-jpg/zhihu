@@ -1,0 +1,54 @@
+{
+  "video_name": "ab-replay-20260522_chunk151_9000s",
+  "full_text": "[00:00:00 - 00:00:01] 你这儿别 咱们别提Aver\n[00:00:01 - 00:00:04] 你出来的东西是个视频\n[00:00:04 - 00:00:07] 你已经能凭上职称了\n[00:00:07 - 00:00:10] 然后你在写篇论文叫做\n[00:00:10 - 00:00:14] 论人工智能在教学辅助中的应用\n[00:00:14 - 00:00:16] 上一下核看\n[00:00:16 - 00:00:18] 你不就凭上职称了吗\n[00:00:21 - 00:00:24] 就是对吧\n[00:00:24 - 00:00:25] 这个产品这儿呢\n[00:00:25 - 00:00:27] 名字在这里\n[00:00:27 - 00:00:28] videotour\n[00:00:28 - 00:00:29] 这个名字\n[00:00:29 - 00:00:30] 你们去试试\n[00:00:30 - 00:00:34] 他还支持API\n[00:00:34 - 00:00:34] 对吧\n[00:00:37 - 00:00:39] 声称这个级别的视频\n[00:00:39 - 00:00:40] 很简单\n[00:00:40 - 00:00:46] 你随便用一个视频小模型就能去升这个\n[00:00:46 - 00:00:48] 这个难度真心不大\n[00:00:49 - 00:00:49] 对吧\n[00:00:50 - 00:00:51] 对吧\n[00:00:51 - 00:00:52] 真心不大\n[00:00:52 - 00:00:55] 然后再给大家看几个好玩的产品\n[00:00:55 - 00:00:58] 这个产品我认为特别的巧妙\n[00:00:58 - 00:00:59] 我很喜欢这个",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk151_9000s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk151_9000s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=slide diff=0.3282"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk151_9000s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.1753"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk151_9000s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk151_9000s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.2992"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 24,
+      "diff": 0.3282
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.1753
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.2992
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 764
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "video_name": "step2-fix1_chunk014_781s",
+  "full_text": "[00:00:00 - 00:01:00] 需要这个。嗯。查入查查阅一些网络资料的时候啊，那可能会打断我们的编程流。比如说呢我们刚才写一个这个python的这个读写文件的一个操作。我们发现呢这个。对我们可能会会这样子啊，就是这这个例子虽然比较简单，但是可能你用了别别的工具的时候呢，可能会。呃，就比如比如别的一些API的时候，你可能会不知道会怎么写，那我们肯定是要去是网上去搜索嘛，对吧？嗯，在这个浏览区去搜索，搜索到了这个结果之后呢，然后打开对应的网页，然后在网页中不停的翻阅，翻阅翻阅。哎，找到了我们想要的这个代码啊，找到了这个代码之后呢，哎我们会把这段代码给复制过来。复制过来之后，重新再打开这个ID然后复制过来之后，还需要做一些一些修改。对啊。可能写写了这段之后呢，那我下面又写另一段，又要再开始查，就不断的在这个呃不同的这个。呃，这个窗口。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.224"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.0556"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.0556"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.3807"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.2624"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.2853"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000013\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.2853"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.224
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 13,
+      "diff": 0.0556
+    },
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.3807
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.2624
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.2853
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.2853
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 5,
+    "frames_total": 11,
+    "text_chars": 375
+  }
+}

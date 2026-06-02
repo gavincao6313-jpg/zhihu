@@ -1,0 +1,114 @@
+{
+  "video_name": "live-20260602-195306_chunk049_2880s",
+  "full_text": "[00:00:00 - 00:01:00] 可能现在也不知道国内卡是行不行，国内卡是不是还不行。然后呢，所以我们同事就试了一下用这个。啊，这是tree啊，这就是这就是我们之前前面项目用过的ree了。这个te呢你只需要比较简单的。呃，我一开始我不知道它能不能装啊，我也问了一下，我说你可以调haper frame？但我发现他根本就不知道什么叫 frame还好我这个这个这个呃提前跟这个呃GPT聊了一下frame的安装什么之类的问题。然后呢我们就我就把我跟他GPT的对话只能在在里用这个这个GPT对话他就大概 frame说的是这个东西就咔嚓一顿安装，然后自就把个插件就装了然后我就啊前段时间我不是做了一个小红书的帖子嘛前段时间我做了个小红书的。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.044"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=slide diff=0.3572"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.1425"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=slide diff=0.5617"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.0857"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=slide diff=0.7404"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.09"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk049_2880s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0237"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.044
+    },
+    {
+      "type": "slide",
+      "frame_idx": 5,
+      "diff": 0.3572
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 18,
+      "diff": 0.1425
+    },
+    {
+      "type": "slide",
+      "frame_idx": 28,
+      "diff": 0.5617
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.0857
+    },
+    {
+      "type": "slide",
+      "frame_idx": 30,
+      "diff": 0.7404
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.09
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.0237
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 5,
+    "frames_total": 12,
+    "text_chars": 321
+  }
+}

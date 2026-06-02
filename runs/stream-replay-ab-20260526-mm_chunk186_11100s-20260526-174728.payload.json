@@ -1,0 +1,18 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk186_11100s",
+  "full_text": "[00:00:00 - 00:00:02] 。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk186_11100s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 23
+  }
+}

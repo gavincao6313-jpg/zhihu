@@ -1,0 +1,34 @@
+{
+  "video_name": "ab-replay-20260522_chunk043_2520s",
+  "full_text": "[00:00:00 - 00:00:07] 我待会说为什么我在这边要去用用户提尔斯和系统提尔斯的两个关系\n[00:00:07 - 00:00:14] 然后我把这放在多维表中的核心的逻辑就是为了它的信息不会丢\n[00:00:14 - 00:00:17] 为什么要去考虑信息不会丢失的这个事情\n[00:00:17 - 00:00:20] 原因是在于我要防止一个情况\n[00:00:20 - 00:00:24] 就是如果它给我拍了一张特别大的图\n[00:00:25 - 00:00:27] 如果拍了一张特别大的图\n[00:00:27 - 00:00:33] 经过我的解析和相应的内容假设会出现\n[00:00:33 - 00:00:37] 在实际使用中它的上下文的内容特别长\n[00:00:37 - 00:00:39] 我要把我的阶段性产出结果\n[00:00:39 - 00:00:43] 不如持久化的放到一个物理文件中\n[00:00:43 - 00:00:44] 大家能懂了吧\n[00:00:44 - 00:00:48] 因为我当然是可以通过upread传参的方法去走\n[00:00:48 - 00:00:54] 但是如果说我后续要去增加一些其他的点\n[00:00:55 - 00:00:57] 如果在之前的话\n[00:00:57 - 00:01:00] 上下文窗口可能又不太够",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk043_2520s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk043_2520s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0636"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk043_2520s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0636"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.0636
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 586
+  }
+}

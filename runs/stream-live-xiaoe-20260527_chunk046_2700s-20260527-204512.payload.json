@@ -1,0 +1,49 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk046_2700s",
+  "full_text": "[00:00:00 - 00:00:59] 文化赵萧红可是看着立刻就不一样。然后全球罕见的犯罪分子，一个杀人犯自演自编的故事片，婆婆年幼的儿子一起拉起演出。惨绝人寰。😔惨女人。然后再看看这个人这个人。接受万众的喝彩，真的是恐怖如斯，恐怖如斯。你们觉得这事儿厉害吗？厉害吗？第三层，这背后是什么人？所以在这一刻，所有人都开始团结起来了。就是大家要知道，我们我们要非常明确的一件事儿，有很多的女性博主，甚至是女权博主，本质上还是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000045\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000045\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.0707"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000045\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0707"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000045\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.1606"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000045\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.1606"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.0707
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.1606
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 213
+  }
+}

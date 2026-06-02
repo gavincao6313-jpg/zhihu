@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk125_7436s",
+  "full_text": "[00:00:00 - 00:00:59] 文科生该你们了。该你们了。对吧该你们了。接力棒接到你们这儿了，这个东西该到你们商场了，对吧？这里面的核心的几个方向是这样子。啊，中国的游戏产业已经做的非常好了，就是中国的文化产业，游戏产业那真的是扛顶的，就是跟米哈油比起来，中国整个电影产业就是路边一条，就是路边一条。对吧。对吧。我操明哥，那你你看一下。看一下咱闺女能不能成为这种扛顶档次的人啊。说句实在话，我人其实挺难的，这里面需要的不是大师。我这么讲吧，这里面需要的不是大师。这里面需要宗师。这里面需要宗师，我们客观一点讲，我们需要在文科上的于敏。需要邓稼先需要这种level。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000124\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000124\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.046"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000124\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.046"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.046
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 288
+  }
+}

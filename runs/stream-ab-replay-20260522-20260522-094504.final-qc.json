@@ -1,0 +1,32 @@
+{
+  "base": "ab-replay-20260522",
+  "run_ts": "20260522-094504",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 182,
+  "transcript_chars": 137436,
+  "frame_count": 477,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 10875,
+  "timeline_end_s": 10920,
+  "timeline_duration_s": 10920,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_model": "gemini-2.5-flash",
+  "synthesis_pass": "mock-one-shot",
+  "warnings": [
+    "body_coverage_unverifiable: no timestamped chapter headings found in Gemini output"
+  ],
+  "body_last_chapter_end_s": 0,
+  "body_tail_gap_s": 0,
+  "body_coverage_status": "no_headings",
+  "transcript_appendix_chars": 137436,
+  "visual_evidence_count": 477,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}

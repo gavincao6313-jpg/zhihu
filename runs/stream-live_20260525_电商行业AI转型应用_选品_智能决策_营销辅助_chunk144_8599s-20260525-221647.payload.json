@@ -1,0 +1,29 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk144_8599s",
+  "full_text": "[00:00:00 - 00:01:00] 我是他们家的产品顾问，我我给他们家做了很多钱的顾问了，要不是长沙的，要不是。要不是他们家的酒文化太太太离谱了，他们家一直想挖我过去，他们家一直想挖我过去，真的。你想去srop，抱歉，搞不定，大理，我不认识。达里奥，我不我我真不认识，但你说六你要说六你要说六度关系，我们能不能搭上达利奥，我能搭上？龚宇，我认识龚允能帮我介帮帮帮我介绍Robin， Robbin什我他认识达里奥，但是太离谱了吧，太离谱了吧，对吧？不是我做国企的顾问，我就好牛了吗？我做国企顾问，我牛的点是啥，对吧？这。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000143\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000143\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=slide diff=0.3552"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 21,
+      "diff": 0.3552
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 0,
+    "frames_total": 2,
+    "text_chars": 263
+  }
+}

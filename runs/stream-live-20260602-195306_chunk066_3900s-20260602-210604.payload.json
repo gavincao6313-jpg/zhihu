@@ -1,0 +1,94 @@
+{
+  "video_name": "live-20260602-195306_chunk066_3900s",
+  "full_text": "[00:00:00 - 00:01:00] 这种呢准备的挺多，所以这里这里只是贴了一些原帖子的样例，真正给你的是文字啊，真正给你的是文字啊。然后呢，所以这个这个大这个所有的要做的视频应该有个几十条大几十条的样子。这个有个几十条到大几十条，所以这些就没有按每一个视频让大家去报名了。所以这个呢在那个呃这种用hyper frame做视频。在你游服接单的后台里面呢，你就直接做这个选项就可以了。我看看你是直接需求报名，就选这个这个。将别人的视频通过hyper frame进行改头换面啊，就是你报名这个就可以了。因为这个本身它不是一个单子，它背后有几十个大几十个这样的视频的单子要做的，都会给你一大段文字，然后你把这种视频啊，会给你要求是要做一个竖屏的，还是做一个横屏的啊，然后呢大概做一个多长时间的啊，然后其实就这么简单的要求。另外就是给你一大段文字。所以你大家对对这个用per。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0503"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0503"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.0469"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=slide diff=0.6265"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.2349"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=slide diff=0.5136"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk066_3900s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.1733"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.0503
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.0469
+    },
+    {
+      "type": "slide",
+      "frame_idx": 23,
+      "diff": 0.6265
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.2349
+    },
+    {
+      "type": "slide",
+      "frame_idx": 29,
+      "diff": 0.5136
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.1733
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 4,
+    "frames_total": 10,
+    "text_chars": 387
+  }
+}

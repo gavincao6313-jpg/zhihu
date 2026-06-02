@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk164_9801s",
+  "full_text": "[00:00:00 - 00:01:00] 传统企业老板，如果如果谁自己老板碰上了，给我扣个一啊。传统企业老板出身草莽，有强烈的等级观念，有一些老板有特别强烈的等级观念，刚愎自用，渴望正统，这是他们的特点。决策逻辑和做者方面，你们看看有没有这种类型，决策逻辑，直觉性或者是独断性老子就是对的。。听我的对吧？习惯在信息不全的情况下快速出级做什么角色系统，我就是角色系统，还做决策系统呢，等你做出来了，这市场时机都没了啊，赶快去做，先做出来就对了，对吧？这是他们的一个特别大的特点，对吧？特别大的特点。另吧看重结果，讨厌繁文乳液和理是什么流程啊，最讨厌流程了，对吧？只要有强烈的控制。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000163\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000163\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.1107"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000163\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.1107"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.1107
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 290
+  }
+}

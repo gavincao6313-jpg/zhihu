@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260602-195306_chunk031_1800s",
+  "full_text": "[00:00:00 - 00:01:00] 不是怎么用AI还原型，这些东西当然可以学，但他们不是核心能力。因为工具变化太快了。今天你学这个插件，明天它就换入口。今天你被一套prot，明天模型能力又变了，真正不会过时的是产品经理的三项底层能力。第一，这应该是我们的推件事一下没有，这是不是我们推广部门的需求啊，就是你看这里面这里就是搞一个虚拟人这个在这动嘴就可以了。然后呢，这就是固定的呃文字，然后呢，上面就是一些小插图飞来飞去啊，应该整篇都是这样的吧。😊AI只会帮你快速的产出一堆没有用的垃圾需求文档。先说第一项啊，业务链路能力。很多人一听AI产品经理就开始聊模型，聊插件，聊工作流，聊自动化，聊rag，聊we codinging聊prot。但产品经理真正需要先问的是，这个业务到底怎么赚钱，成本在哪里？效率卡在哪里？谁在为这个问题付出代价？比如公司说我想做1个AI。也是不行啊，一直都是这样的。所以这个率可能比较复杂，就是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk031_1800s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk031_1800s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk031_1800s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.0205"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.0205
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 413
+  }
+}

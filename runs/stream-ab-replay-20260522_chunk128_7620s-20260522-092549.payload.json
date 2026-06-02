@@ -1,0 +1,49 @@
+{
+  "video_name": "ab-replay-20260522_chunk128_7620s",
+  "full_text": "[00:00:00 - 00:00:03] 我们还是比较的经济的 不敢全程opross\n[00:00:03 - 00:00:04] 这个没有这么设施\n[00:00:05 - 00:00:08] 然后呢 它的最后用这两件事带来一个什么样的成果呢\n[00:00:08 - 00:00:10] 它带来一个什么样的成果呢\n[00:00:10 - 00:00:15] 就是它用AI生成了148门新语言课程\n[00:00:15 - 00:00:16] 这个就是它的成果\n[00:00:17 - 00:00:20] 它从2025年的4月非常短的时间内\n[00:00:20 - 00:00:24] 是用AI生成了148门新语言的课程\n[00:00:25 - 00:00:28] 是过去12年人工开发总数的1.5倍\n[00:00:28 - 00:00:30] 这个是它的巨大的一个成果\n[00:00:31 - 00:00:32] 只让你还OK\n[00:00:32 - 00:00:33] 然后之前有些动作\n[00:00:34 - 00:00:38] 23年它基于GP4做了一个叫做DoLingorMinds的订阅\n[00:00:38 - 00:00:40] 然后主要的功能AI的打移\n[00:00:40 - 00:00:42] AI的口语练习\n[00:00:42 - 00:00:43] 然后就像这个\n[00:00:43 - 00:00:47] 就是这个去做AI的口语练习的方式\n[00:00:49 - 00:00:50] 有很多小语种\n[00:00:51 - 00:00:52] 有很多的小语\n[00:00:54 - 00:00:57] opross4.7当主力说实在话\n[00:00:57 - 00:01:00] 得做出多大的业务才能把这个钱",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk128_7620s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk128_7620s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.0311"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk128_7620s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0311"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk128_7620s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.1347"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk128_7620s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1347"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.0311
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.1347
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 764
+  }
+}

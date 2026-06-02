@@ -1,0 +1,79 @@
+{
+  "video_name": "live-20260602-195306_chunk028_1620s",
+  "full_text": "[00:00:00 - 00:01:00] 果大家想练手呢，我也可以要几个几个呃这个这个有版权去给大家去练手。但后台呢就在单子里面大家就不用做了啊，确实太复杂了。所以这个剧呢也会这个小程序呢和APP也会有一些比较明确的这种界面啊，这界面啊，交互啊什么也都比较明确的。然后呢，所以我们也会有这个相应的指导老师，然后去带大家去做整个过程。但是其实呃相对来说没有那么复杂。因为你只需要做2个APP端啊，但是我觉得我个人觉得就如果你是比较缺这个项目经验的。啊。如果你是比较缺项目经验的，尤其是比较缺多模态和一些视频处理的项目经验的。然后呢，比如说你未来可能还要去换工作，或者是找新的工作，AI领域的工作。然后这个项目是啊还是挺不错的。这个项目上面这个项目呢其实也不错啊。但是这个项目呢可能在你的简历里面可能会更加亮眼一点，可能会更加亮眼一点啊，这个就是呃第二个部分。然后呢，这是两个单子，然后呢，上面这个单子呢，我们也已经更新到这。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk028_1620s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk028_1620s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=slide diff=0.5351"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk028_1620s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.2003"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk028_1620s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=slide diff=0.6257"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk028_1620s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk028_1620s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0409"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk028_1620s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk028_1620s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.0574"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 9,
+      "diff": 0.5351
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.2003
+    },
+    {
+      "type": "slide",
+      "frame_idx": 22,
+      "diff": 0.6257
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.0409
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.0574
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 412
+  }
+}

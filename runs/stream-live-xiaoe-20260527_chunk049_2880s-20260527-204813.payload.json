@@ -1,0 +1,49 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk049_2880s",
+  "full_text": "[00:00:00 - 00:01:00] 客人没有。萝莉岛的老客人。然后左边这个人叫郭锦荣。美国阿瑞 bakeker创始人，一个中国台湾的糕点厨师，一个厨子啊，对吧？又是一个来自台湾做吃的，做的挺不错的人啊。我没有说委俊，委俊是好是好同事啊，对吧？对吧？然后右边是谁？右边是谁？左边是个厨子，右边是谁？左边这个人呢应该问题不大，这个人叫做RJ过啊，RJ过。然后呢，这个人是有百度百科的，但是非常有意思的一个蛛丝马迹。这个郭荣锦为什么在自己的百科上同样一张照片？大家注意这是同样的一张照片啊？这张照片，为什么他截了，只有他和克林顿的右侧这个没有，是他只想专属一个和克林顿的合照，还是右边的那个人，如果在的话，百度百科是见不了词条的呢？😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000048\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000048\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0204"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000048\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0204"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000048\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.199"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000048\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.199"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.0204
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.199
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 318
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "step2-verify_chunk035_2043s",
+  "full_text": "[00:00:00 - 00:01:00] 呢然后我们去检索这个当前的这个呃向量库。这个向量库呢里面每个每一个引每一条数据啊，那可能就是某一个函数。对这个项目中某某些函数。然后呢呃通过这个呃检索，呃，基于这个inbedding的检索的方式啊，我们就可以去获得这个呃生成出来的呃不不是就是检索出来的多个这个呃相似的代码，然后去做一些可能做一些金牌啊。对呃，有了这些之后呢。我们去嗯把这些生成出来这呃，不把这些检索出来这个结果啊给到呃我们的这个补权模型。那补权模型呢同时呢补全模型也要去学习一下这个呃如何参考这些呃对应的这个相似代码来生成。生成更好的这个结果的这么一个能力。那有了这两方面的同时的这么一个呃配合呢，其实就可以去实现呃项目级别的这个相似代码的一个生成了。是的。啊。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000034\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000034\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000034\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.1052"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.1052
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 337
+  }
+}

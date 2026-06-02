@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk064_3780s",
+  "full_text": "[00:00:00 - 00:01:00] 你只能这么说，你不能说。😡邦威的邦威的老徐，他当时怎么着啊？你可以装富二代，你可别装你可别装老炮啊，挨不上。😡挨不上。哎，注意问他追问什么，追问你把手机打开，我看看老徐的微信，你加没加，是要是是要这么去是要这么去追问吗？啊。😮你们啊就从来没有用过这种方式去聊个试试，真的。因为看你们公司觉得挺有意思。那个家里人派我过来。看一看底细。对吧，这。啊。说他那。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk064_3780s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk064_3780s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.1862"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk064_3780s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.1862"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.1862
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 199
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk133_7938s",
+  "full_text": "[00:00:00 - 00:00:59] 完了之后没有流量，这公司就死了，持续做爆款的能力才是企业能力。持续做爆款的能力才是企业能力，实现50%的爆款率才是企业能力。持续做爆款的能力才是才是能力。做出来一个爆款，这东西就是抽彩票，是符实或不一定，对吧？好，它的体系就是刚才讲的这套方式，注意。一个特别重要就是研发人员的个人创业战争占比非常的小，不要靠人靠机制，不要靠人靠数据，不要靠人靠智能，这就是这个体系的逻辑。不要靠人的拍板。没有任何一个老板说我爱哲我爱哲尔，你要去做，而是靠用户靠测评，靠ABtest用户才是上帝，才是智能化体系的观念。用户要什么，你就去做什么，全心全意为人的服务就对了。好，充分尊重消费者意愿，同时保证新。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000132\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000132\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.141"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000132\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.141"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000132\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.1316"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000132\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.1316"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.141
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.1316
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 316
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk152_9060s",
+  "full_text": "[00:00:00 - 00:01:00] 照瑞按照时间的这套方式去走，对吧？然后这种平台的短这种大这种举一反三的方式和它的体系也完全一样，对吧？这个就是我们今天通过决策方式来去做的。优酷是这样子的，今天讲完了讲讲。优酷的小事儿啊，然后最后再说这个下一节课我们讲营销和运营行业的AI转型的的这种使用。我们讲讲筷子科技，它的多次转型的方式。好吧，讲讲筷子，为什么优酷肉眼可见的不行，你们知道吗？需要我讲吗？还是你们都知道。现在只剩下这个爱腾盟，然后B站都比优酷强。对吧为什么优酷不行，这个才是需要关注的事。你真不知道。真不知道。你们有没有发现一个问题啊？任何一个内容型的产品，任何一个内容型的产品被阿里收了，全累死。是。任何。😡",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk152_9060s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk152_9060s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.2361"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk152_9060s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2361"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk152_9060s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.2624"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk152_9060s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.2624"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.2361
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.2624
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 313
+  }
+}

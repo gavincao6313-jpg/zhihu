@@ -1,0 +1,54 @@
+{
+  "video_name": "ab-replay-20260522_chunk048_2820s",
+  "full_text": "[00:00:00 - 00:00:04] Code在哪去存MD文件啊 沒有啊\n[00:00:04 - 00:00:05] 沒有啊\n[00:00:05 - 00:00:08] 就是Code不支持存文件這個操作\n[00:00:08 - 00:00:12] 或者叫Code的低代碼平台\n[00:00:12 - 00:00:14] 就是Code工作流不支持我存文件\n[00:00:14 - 00:00:17] Code的Wipe Coding支持我存文件\n[00:00:17 - 00:00:20] 在這我沒地去存卷\n[00:00:21 - 00:00:22] 懂了吧\n[00:00:23 - 00:00:25] 就是我沒判法\n[00:00:25 - 00:00:31] 所以在這個狀況下我客觀一點講我又是一個有結構的東西\n[00:00:31 - 00:00:35] 大家注意啊為什麼我要去存個多維表格\n[00:00:35 - 00:00:37] 我不是直接去存一個飛書輿論的\n[00:00:37 - 00:00:41] 不是為了裝插而是由於在這裡面它本身\n[00:00:41 - 00:00:44] 就是有多個不同的列\n[00:00:44 - 00:00:47] 它有Studio的Name有錯題學科有學科有錯題類型Type\n[00:00:47 - 00:00:49] 有錯題支點有支點解析\n[00:00:49 - 00:00:51] 它本身是有結構的\n[00:00:51 - 00:00:54] 有結構的東西我把它存在一個飛書的\n[00:00:54 - 00:00:56] 雲文檔裡我後面還得再做一次",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk048_2820s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk048_2820s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.0628"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk048_2820s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.0628"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk048_2820s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=slide diff=0.3454"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk048_2820s\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.0445"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.0628
+    },
+    {
+      "type": "slide",
+      "frame_idx": 35,
+      "diff": 0.3454
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.0445
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 699
+  }
+}

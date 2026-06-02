@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk168_10020s",
+  "full_text": "[00:00:00 - 00:01:00] 不太好，有强烈的改变的动力。高端草头王往往是低线城市比较好的家庭，家庭还有一定的关系，童年是孩子王，通过各种非学习手段，有一群小跟班，15喝6的发迹是通过野蛮生长，获得了低一桶金。这帮人往往是走矿，走建筑行业，走餐饮，走零售。在这个过程中绝对会结识贵人。能理解吗？绝对会结识贵人。他是做餐饮的，做矿的，做零售的一定会结识贵人的对吧？然后他们的特点啊，姜门倒了，姜文可不是合草头啊，姜文是个很厉害的人，姜文是个很厉害的，我跟你讲。这帮人蛮勇。狡猾生命力极其的强韧，打不死锤不烂，很有意思。这帮人我告。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk168_10020s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk168_10020s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.0225"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk168_10020s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.0225"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.0225
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 271
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "video_name": "step2-fix2_chunk001_0s",
+  "full_text": "[00:00:00 - 00:01:00] 声音呢哦，这下可以吗？还没有声音。嗯。看是谁。啊，行，有声音就行有声音就行。然后画面是可以看得清楚的对吧？",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000000\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000000\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0501"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000000\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0501"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000000\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0223"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000000\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0223"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.0501
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.0223
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 75
+  }
+}

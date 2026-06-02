@@ -1,0 +1,49 @@
+{
+  "video_name": "ab-replay-20260522_chunk068_4020s",
+  "full_text": "[00:00:00 - 00:00:04] 是这样的 超人赵大宝 我这么跟你讲\n[00:00:04 - 00:00:08] 你在做alpha版本 做demo版本 甚至做beta版本的时候\n[00:00:08 - 00:00:12] 做beta版本的时候 你就用纯的大模型的能力\n[00:00:12 - 00:00:14] 不要做任何的微调 效果差点没有外业\n[00:00:14 - 00:00:18] 你只要有独特能力 如果有一块东西火了\n[00:00:18 - 00:00:22] 你就在那上面再去加码 再去做微调 再去做好的东西\n[00:00:22 - 00:00:27] 不要在没有初阶 没有去做anvp前做任何的重头路\n[00:00:27 - 00:00:31] 明白了吧 继续\n[00:00:31 - 00:00:36] 好 这就是通过多摩泰加一个小功能\n[00:00:36 - 00:00:38] 这个小功能不难 你们谁都可以去做\n[00:00:38 - 00:00:41] 这个如果你来外婆庭做的话 不会超过一周\n[00:00:41 - 00:00:44] 你能做出来基本跟它一样的东西 对吧\n[00:00:44 - 00:00:48] 然后比如说这家公司lucca博士\n[00:00:48 - 00:00:50] lucca博士他们去做了一个什么样的产品呢\n[00:00:50 - 00:00:55] 这是一家广东公司 广东公司 广东人会做生意\n[00:00:55 - 00:00:59] 这个产品做了一个小相机 儿童小相机\n[00:00:59 - 00:01:00] 你们知道儿童小相机",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk068_4020s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk068_4020s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk068_4020s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.2218"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk068_4020s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.2245"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk068_4020s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.2245"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.2218
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 44,
+      "diff": 0.2245
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 702
+  }
+}

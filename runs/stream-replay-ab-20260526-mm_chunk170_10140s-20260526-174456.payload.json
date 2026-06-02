@@ -1,0 +1,49 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk170_10140s",
+  "full_text": "[00:00:00 - 00:01:00] 啊。哎，第二种。第二种这种人啊。我在爱奇艺。我龚老板高度维护理性，认为所有事儿都应该被数字化，包括选剧该数字化纪律性非常强，每个阶段极其专注于不同的事儿。非常有纪律，部门人员配比要按照数字比例去走，所有题案必须给他数据支撑，不给数据支撑，被他骂的狗血淋淋头。对吧往往是这种特点，这种特点我把它称之为科学家，理性思维主导，理性思维主导。对吧恐惧不确定性。客信任客观事实。认为一切都可以转化为数据模型。首先是这样子。姜文的特点的本质是艺术家。姜文的本质是艺术家型的，不是草头王型的这两个它有差。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk170_10140s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk170_10140s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk170_10140s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.2357"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk170_10140s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.1097"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk170_10140s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.1097"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.2357
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.1097
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 267
+  }
+}

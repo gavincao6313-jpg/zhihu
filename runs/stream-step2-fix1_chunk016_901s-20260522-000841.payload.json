@@ -1,0 +1,39 @@
+{
+  "video_name": "step2-fix1_chunk016_901s",
+  "full_text": "[00:00:00 - 00:01:00] 这个呃编码的过程中会遇到两个比较大的问题。让我们看看有了编码助手之后呢，嗯是如何解决这些问题的。首先第一个我们看通过这个呃变。通过的这个代码的自动补全。而，我们其实在。这个编码框中输入代输入这个代码的时候啊，哎它就可以通过上下文来去识别。哎我们的需求是什么？然后生成对应的这个代码。我们看到这四个函数，刚才手写的时候可能需要一分钟的这个时间。那其实呢有了编码助手之后呢，我们发现唉这四个函数生成起来可能只需要十几秒钟的这个时间，啊这些重复性的工作，其实对程序员而言，可能是呃比较繁琐的对，那这种工作并没有什么呃知识量。那，如果编码助手能不帮你看我们这里编码助手帮我们解决这些重复性的工作，那其实是是给程序员这个效率的提升带来了。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000015\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000015\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=slide diff=0.3873"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000015\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=slide diff=0.4871"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.3873
+    },
+    {
+      "type": "slide",
+      "frame_idx": 7,
+      "diff": 0.4871
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 0,
+    "frames_total": 3,
+    "text_chars": 336
+  }
+}

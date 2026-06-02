@@ -1,0 +1,59 @@
+{
+  "video_name": "ab-replay-20260522_chunk161_9600s",
+  "full_text": "[00:00:00 - 00:00:01] 看你的艺术了\n[00:00:05 - 00:00:07] 他特别适合两个人做\n[00:00:07 - 00:00:10] 一个人是混子哥\n[00:00:10 - 00:00:12] 一个人是马博用\n[00:00:13 - 00:00:14] 是马博用\n[00:00:17 - 00:00:18] 真的\n[00:00:21 - 00:00:25] 你发现这个产品真的太有趣了\n[00:00:25 - 00:00:27] 所以你发现在AI时代\n[00:00:27 - 00:00:28] 我给你看到了\n[00:00:28 - 00:00:30] 就是在这边其实是最稳妥的产品\n[00:00:30 - 00:00:32] 如多灵国该怎么去做\n[00:00:32 - 00:00:35] 最卑劣的产品AI自己社会怎么做\n[00:00:35 - 00:00:38] 最有意思的产品中小儿美的也可以去做\n[00:00:38 - 00:00:39] 非常有创新性的产品也可以做\n[00:00:39 - 00:00:41] 这边有太多的机会可以去玩\n[00:00:41 - 00:00:42] 对吧\n[00:00:42 - 00:00:43] 整体总结一下\n[00:00:43 - 00:00:45] 今天给你们拖得比较晚\n[00:00:47 - 00:00:49] 错题的工作本的这个\n[00:00:49 - 00:00:51] 工作流的整体的搭建\n[00:00:51 - 00:00:52] 希望你们去搭爱的\n[00:00:52 - 00:00:54] 看看这一本的情况\n[00:00:54 - 00:00:56] 核心的启发是这个\n[00:00:56 - 00:00:57] 对于多摩泰的理解\n[00:00:57 - 00:00:58] 图片的理解\n[00:00:58 - 00:00:59] 云云的理解\n[00:00:59 - 00:01:00] 视频的拆分",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk161_9600s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk161_9600s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=slide diff=0.5341"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk161_9600s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.0224"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk161_9600s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=slide diff=0.4317"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk161_9600s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=slide diff=0.447"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 41,
+      "diff": 0.5341
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.0224
+    },
+    {
+      "type": "slide",
+      "frame_idx": 44,
+      "diff": 0.4317
+    },
+    {
+      "type": "slide",
+      "frame_idx": 51,
+      "diff": 0.447
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 1,
+    "frames_total": 5,
+    "text_chars": 847
+  }
+}

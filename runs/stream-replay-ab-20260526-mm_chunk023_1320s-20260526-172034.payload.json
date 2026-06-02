@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk023_1320s",
+  "full_text": "[00:00:00 - 00:01:00] 你给到的是一段文字还是一段预测结果。而且你一般来讲说你遇到1个AI，你怎么遇到1个AI我我我想问你就是你遇到1个AI是一种什么样的概念？而且我就这么讲吧，当你说你遇到1个AI这句话，我告诉你，你99%时遇到的是生成性AI。你知道是为什么吗？你说出来这句话的意思就是说你认为它得是一个独立产品，它叫AI。😡豆包没有决策，豆包就是个生成行为。豆瓣是个生成行为，豆瓣没有角策行为。就是你们不要认为他给你一个决，他给你一个决策结果，它就叫做决它就叫做决它就叫做决策性AI了。它是决策结果，是它生成出来的。明白了？对吧。他那个是他那个所谓的决策结果是他生成出来的。是吧。😊",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk023_1320s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk023_1320s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.2259"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk023_1320s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.2259"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.2259
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 303
+  }
+}

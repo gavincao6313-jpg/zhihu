@@ -53,7 +53,7 @@ VIDEO_STEM = sys.argv[1] if len(sys.argv) > 1 else "实操带练：客服与标�
 VIDEO_PATH = VIDEOS_DIR / f"{VIDEO_STEM}.mp4"
 
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")  # pro free-tier quota often exhausted
-QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.6-plus")
+QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 QWEN_MAX_FRAMES = 250  # DashScope limits data-uri per request
 

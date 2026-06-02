@@ -1,0 +1,59 @@
+{
+  "video_name": "live-20260602-195306_chunk065_3840s",
+  "full_text": "[00:00:00 - 00:01:00] 多开几个窗口，是的，啊就可以做做多个视频了，好主意。我感觉kimi降至了，他这样做对吗？18条字母精简为7条就对了吗？怎么可能colud code是目前最强的通用agent啊，我把字幕去了。啊，没关系，等一会儿吧。OK这个就是我们呃需求清单里面这个地方。然后这里呢给了一些样例，这些样例呢都是原帖子。这些样例都是原帖子，可能就是小红书帖子或者什么帖子。但是呢我们真正给到你的那个呃你要去做视频的，给到你的是一大段文字啊，所以一大段文字就直接贴进来，让 hyperperfu开始做，然后给它抠一些细节，把声音调一调，字幕调一调，对吧？有些图标让它生成的好看一些，然后它的一些动效调一调，对吧？比较完。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk065_3840s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk065_3840s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk065_3840s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=annotation diff=0.0465"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk065_3840s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.7387"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk065_3840s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk065_3840s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.0478"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 11,
+      "diff": 0.0465
+    },
+    {
+      "type": "slide",
+      "frame_idx": 32,
+      "diff": 0.7387
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 40,
+      "diff": 0.0478
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 321
+  }
+}

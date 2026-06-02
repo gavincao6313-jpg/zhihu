@@ -1,0 +1,64 @@
+{
+  "video_name": "ab-replay-20260522_chunk149_8880s",
+  "full_text": "[00:00:00 - 00:00:02] 他为什么冰的才好喝 对吧\n[00:00:02 - 00:00:04] 然后各种的这种数据\n[00:00:04 - 00:00:06] 什么是现象耐数 拍摄软件介绍\n[00:00:06 - 00:00:07] 什么是无人机的飞空\n[00:00:08 - 00:00:11] 他输出的是一个视频 是一个视频\n[00:00:11 - 00:00:14] 他直接输出的就是一个视频\n[00:00:14 - 00:00:16] 这是我把他的视频直接解开\n[00:00:16 - 00:00:19] 他严格说的是 输出的是三个东西\n[00:00:19 - 00:00:22] 一个是这个视频 一个是一套测试\n[00:00:22 - 00:00:24] 一个是相应的对话\n[00:00:25 - 00:00:27] 万象就是做这个的\n[00:00:27 - 00:00:28] 万象就是做这个\n[00:00:28 - 00:00:30] 但我觉得这个东西做的\n[00:00:30 - 00:00:31] 我觉得更加的小而美\n[00:00:31 - 00:00:32] 我觉得做的更漂亮\n[00:00:34 - 00:00:35] 对吧\n[00:00:35 - 00:00:36] 这个产品我觉得做的很好玩\n[00:00:37 - 00:00:39] 老师拿来干啥用\n[00:00:39 - 00:00:45] 老师不见他去做危机分敗同学\n[00:00:45 - 00:00:47] 你知道老师拿他干嘛用吗\n[00:00:47 - 00:00:52] 初中的小学的物理老师\n[00:00:52 - 00:00:54] 讲一个杠杆运动\n[00:00:54 - 00:00:57] 讲一个这个这个这个这个\n[00:00:57 - 00:01:00] 理心力讲一个这个数学的三口三口",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk149_8880s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk149_8880s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.328"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk149_8880s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.1755"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk149_8880s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.1189"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk149_8880s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.1189"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk149_8880s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=slide diff=0.3276"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.328
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.1755
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.1189
+    },
+    {
+      "type": "slide",
+      "frame_idx": 34,
+      "diff": 0.3276
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 802
+  }
+}

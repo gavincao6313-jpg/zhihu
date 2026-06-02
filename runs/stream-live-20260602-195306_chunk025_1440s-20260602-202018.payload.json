@@ -1,0 +1,74 @@
+{
+  "video_name": "live-20260602-195306_chunk025_1440s",
+  "full_text": "[00:00:00 - 00:01:00] 因为。🎼我。就这个很有些用户内测的时候玩起来还是挺上瘾的。就是因为刚开始就给只给一些用户开放了，他那个只能换一个女主角，对吧？然后这个。原片也是AI不是原片原片原片就是原片，原片不是AI原片都是真人剧，就是就是他们他们自己去找这些短剧的拍摄公司购买了一些版权啊，购买了一些版权。那购买了版权之后呢，那个那就可以这个这个啊去做一些二创啊，去做一些二创。所以这个就是换脸的效果了。那这个呃因为刚开始这个内测的时候，有些用户呢，他就只开放了啊只能换女主角啊。其实用户是会反复的。是会反复的去换点。🎼面相差不多嘛，应该差还挺多的吧。你看这个这个新郎帅气啊，臣参见皇后娘娘，拜见岳父岳母，有朝。😡",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk025_1440s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk025_1440s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=annotation diff=0.2256"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk025_1440s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.1291"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk025_1440s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1291"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk025_1440s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk025_1440s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.269"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk025_1440s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk025_1440s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0977"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 12,
+      "diff": 0.2256
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.1291
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.269
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.0977
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 8,
+    "text_chars": 315
+  }
+}

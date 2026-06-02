@@ -1,0 +1,34 @@
+{
+  "video_name": "ab-replay-20260522_chunk070_4140s",
+  "full_text": "[00:00:00 - 00:00:03] 我都不用给你们去讲了吧 我不需要给你们去讲这里面的工\n[00:00:03 - 00:00:06] 这里面的工作流该怎么去写了\n[00:00:06 - 00:00:09] 基本上调用原生大模型都可以了\n[00:00:09 - 00:00:13] 基本上连工作流都不太需要去做什么了\n[00:00:13 - 00:00:15] 基本上是做到这个效果 对吧\n[00:00:15 - 00:00:17] 然后但是这个产品有一个很壮的东西\n[00:00:17 - 00:00:20] 它不是功能怎么样 而是它的卖点很好\n[00:00:20 - 00:00:23] 为什么能够卖到这个价格 它的核心卖点是什么\n[00:00:23 - 00:00:25] 第一个 它去买了一个 不是\n[00:00:25 - 00:00:32] 它去得了一个这个 它去得了一个这个德国的红点奖\n[00:00:32 - 00:00:34] Rideral Winner 2025的奖\n[00:00:34 - 00:00:37] 然后呢 它的这个主要的概念叫聪明的孩子\n[00:00:37 - 00:00:41] 快人一步用AI 再不学习AI就晚了\n[00:00:42 - 00:00:47] 对吧 然后这个是现在家长的普遍状态\n[00:00:47 - 00:00:49] 这是普遍的状态\n[00:00:52 - 00:00:55] 红点和IF不都不都不就是价格吗\n[00:00:55 - 00:00:59] 红点和IF不就是价格吗 对吧",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk070_4140s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk070_4140s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.2829"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk070_4140s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.2829"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.2829
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 673
+  }
+}

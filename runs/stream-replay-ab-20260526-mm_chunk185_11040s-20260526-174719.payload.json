@@ -1,0 +1,49 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk185_11040s",
+  "full_text": "[00:00:00 - 00:01:00] 外部了解的头牌，还有篡位者、守财奴、潜力股、大牛双面人等等等等leader型的特点，对吧？呃，老百姓的特点还有其他几种，实在是讲不懂。咱们今天先拆下好吧，实在是讲不太懂啊，对吧？很有意思，就是就是说句实在话，你在一个公司，你不你不分析leader和老板是什么性格，怎么玩。我没开多少门课，我就我就两门课，一门给你们讲的，一门我自己关起门讲的就这么俩课。就这么两门课。要想听那个问问。问问妈妈们去对吧？不提了，然后下节课给你们讲营销行业的事儿啊。讲营销行业的事好不好啊？那咱们今天就到这儿，实在是太累了，拜拜，晚安。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk185_11040s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk185_11040s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk185_11040s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.0716"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk185_11040s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk185_11040s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.035"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 21,
+      "diff": 0.0716
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.035
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 279
+  }
+}

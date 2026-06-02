@@ -1,0 +1,59 @@
+{
+  "video_name": "ab-replay-20260522_chunk049_2880s",
+  "full_text": "[00:00:00 - 00:00:03] 解析这才稳 而存在表团里面的话\n[00:00:03 - 00:00:06] 我就会非常稳定 对不对\n[00:00:06 - 00:00:10] 所以所有的原因都是简单来讲\n[00:00:10 - 00:00:13] 就是这种方式是以后你在技术扩展时\n[00:00:13 - 00:00:15] 它应该这样去做 你这样去做的话\n[00:00:15 - 00:00:19] 你不做也可以 做的话技术会高看你一眼\n[00:00:19 - 00:00:21] 就这么简单 好吧\n[00:00:23 - 00:00:25] 同样 你们就听明白一件事\n[00:00:25 - 00:00:28] 就是你对技术的了解\n[00:00:28 - 00:00:32] 做到我这个层面就已经非常受尊重了\n[00:00:32 - 00:00:34] 懂了吧 OK 好\n[00:00:34 - 00:00:37] 这两个问答做完 就是一个是问要不要出题\n[00:00:37 - 00:00:39] 一个是问我要出几道题啊\n[00:00:39 - 00:00:42] 然后后面这里面的话 系统提示词\n[00:00:42 - 00:00:44] 系统提示词是你是因为初中老师\n[00:00:44 - 00:00:47] 能够根据学生的知识点 出题\n[00:00:47 - 00:00:49] 出的内容中包括学生姓名\n[00:00:49 - 00:00:51] 一所知识点整理练习的题目\n[00:00:51 - 00:00:53] 为什么这里面我要有一个\n[00:00:53 - 00:00:57] 系统提示词和用户提示词的区别\n[00:00:57 - 00:01:00] 我之前给大家讲过什么时候一定要把信用提示词提示词",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk049_2880s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk049_2880s\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0379"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk049_2880s\\frame_00007.jpg",
+      "timestamp_s": 7,
+      "marker": "Frame [00:00:07] type=annotation diff=0.0379"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk049_2880s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=slide diff=0.3477"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk049_2880s\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.0647"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk049_2880s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.0647"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 6,
+      "diff": 0.0379
+    },
+    {
+      "type": "slide",
+      "frame_idx": 10,
+      "diff": 0.3477
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.0647
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 767
+  }
+}

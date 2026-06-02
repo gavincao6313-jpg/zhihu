@@ -1,0 +1,34 @@
+{
+  "video_name": "step2-fix2_chunk002_60s",
+  "full_text": "[00:00:00 - 00:01:00] 好，嗯，亲爱的同学们，大家晚上好，我是今天的主持人彩虹老师。嗯，我并不是嘉宾老师啊，不是今天主讲课的，是咱们的主持人彩虹老师。今天我们非常荣幸的邀请了一名一名在人工智能领域，有着卓越成就的嘉宾曹老师。呃，曹博士，他毕业于中国科学院计算机研究所。目前是阿里巴巴通义实验室的高级算法工程师。它的研究方向包括大模型、代码智能、AIag等前沿领域。在这些领域中，嗯，曹博士不仅发就是发表了十多篇国际顶会论文。如嗯AIAAI还有ICDMCIKM等等。嗯，而且。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000001\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000001\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0224"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000001\\frame_00006.jpg",
+      "timestamp_s": 6,
+      "marker": "Frame [00:00:06] type=annotation diff=0.0224"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 5,
+      "diff": 0.0224
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 247
+  }
+}

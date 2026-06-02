@@ -1,0 +1,49 @@
+{
+  "video_name": "step2-fix1_chunk009_481s",
+  "full_text": "[00:00:00 - 00:01:00] 内的发展现在也是如火如荼，嗯，包括呃像这个百度的文星的大模型，然后这个字节的豆包的大模型，以及嗯一些呃创业公司，包括这个呃百川啊，还有这个呃智智普这些公司。对，都推出了自己的大模型。所以其实呃现在这个呃。这个百家争鸣的这个局面啊还是呃比较呃显得大模型发展还是比较的火热。嗯，我简单介绍一下大模型大概能做一些什么呀？就是比如说呃他可以写一些摘要，对一个比较长的一个文章。我们需要去精简一些这个比较比较短的标题，或者是一个简单的摘要。那大模型呢其实可以很精准的把握到这个文章的重点。然后。生成出来具体的摘要，以及大模型呢可以做一些这个呃呃作呃，比如说写作文方面的内容，大模型可以做一些。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000008\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000008\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.0302"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000008\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.0302"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000008\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.0251"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000008\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.0251"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.0302
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.0251
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 313
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk135_8040s",
+  "full_text": "[00:00:00 - 00:01:00] 迎合这个爆款，你要增加生产线，增加人力。好，爆款爆完了之后没有流量，这公司就死了。持续做爆款的能力才是企业能力。持续做爆款的能力才是企业能力，实现50%的爆款率才是企业能力。持续做爆款的能力才是才是能力。做出来一个爆款，这东西就是抽彩票，是服实或不一定，对吧？好，它的体系就是刚才讲的这套方式。注意。一个特别重要就是研发人员的个人创业战中占比非常的小，不要靠人靠机制，不要靠人靠数据，不要靠人靠智能，这就是这个体系的逻辑，不要靠人的拍板，没有任何一个老板说我爱哲我爱哲尔，你要去做，而是靠用户靠测评，靠ABtest用户才是上帝，才是智能化体系的关念。用户要什么，你就去做什么？全心全意为人的服务。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk135_8040s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk135_8040s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.1406"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk135_8040s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.1406"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.1406
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 320
+  }
+}

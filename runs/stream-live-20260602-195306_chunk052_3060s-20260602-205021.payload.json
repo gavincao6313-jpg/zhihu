@@ -1,0 +1,74 @@
+{
+  "video_name": "live-20260602-195306_chunk052_3060s",
+  "full_text": "[00:00:00 - 00:01:00] 循环就是agent第二层管道MCPMCP是AI大楼的管道系统，就像水电煤气管道，以前连接github数据库slack都需要分别写代码MCP统一的插头标准，就像对O就不播完了，这个就是我把我从小红书上抓下来的帖子，那如果它是图片的，就会变成你看图片内容会变成文字呃，每一张图片内容都会变成文字。那视频内容呢也会变成文字，这样的话，你就可以把这文字直接贴给他。那可能一个视频一个来小时也就做完了，可能你刚开始的时候慢一点。因为你需要去安装这个 hyperper frame，然后如果没没用过的话，你可能还需要去去去去去感受一下怎么用。那其实它的过程，那可能如果你还需要去结合一些这种声音合成的啊，比如说我用的是火山方舟提供的API去给它做这个声音，我就把我的那个火山方舟里面的我的API key给它贴过来了，然后开通了一下模型，它就能。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk052_3060s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk052_3060s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=slide diff=0.3467"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk052_3060s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0216"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk052_3060s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.0216"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk052_3060s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.02"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk052_3060s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.02"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk052_3060s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk052_3060s\\frame_00044.jpg",
+      "timestamp_s": 44,
+      "marker": "Frame [00:00:44] type=annotation diff=0.0257"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 14,
+      "diff": 0.3467
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 26,
+      "diff": 0.0216
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 32,
+      "diff": 0.02
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 43,
+      "diff": 0.0257
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 388
+  }
+}

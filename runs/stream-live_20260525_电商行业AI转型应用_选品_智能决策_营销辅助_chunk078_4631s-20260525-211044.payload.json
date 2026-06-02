@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk078_4631s",
+  "full_text": "[00:00:00 - 00:00:58] 然后再去把这些数据在它的商城后端，包括这里面的推荐算法，包括给到商品的中心，预测未来会有什么样的趋势。比如说在这一段时间，碎花雪纺的浏览量和停留时间都有大幅度的提升。点击进入到购物车的比例在大幅的提高，那就意味着这个东西极有可能会出现一个短波的小趋势，那就应该通知设计中心立刻开始在这上面做更加多的设计。房产不属于是这种类似于小量快款支的东西啊。房产怎么是这种机制啊？当然不是，但是软装加试是加试是对吧？房产怎么可能是这样的对吧？然后这个就形成了一种产品设计的数字化。它的产品设计有多么的数字化的状态。它的数字智能中心从哪儿去爬数据，公司网站来，精品的网站来，公司网站就是包括用户的所。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000077\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000077\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.245"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000077\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.245"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.245
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 315
+  }
+}

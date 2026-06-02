@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk009_480s",
+  "full_text": "[00:00:00 - 00:00:59] 导演这个人是他的导演。那种歪嘴龙王这个导演的所有照片，这个嘴全是歪着的，我就不知道为什么。😡然后这个人你看一下他下面的评论全都是在骂反贼的。第一句话，我觉得说说我觉得第一个评论非常有意思，就是反贼最大的危险在于什么？其实他长着一张普通人的脸，这是。😊这个导演为什么我这件事儿的话，我如此的愤怒呢？就是这个货给我的母校蒙羞了。这个货给我的母校蒙羞了，这个人天大了。这个人天大机械的。所以这个非常诡异的一件事情，我们要说说这个到底是为什么这个片子会这个样子。我们说三个东西，这个片子到底是一个什么片子，为什么他惹了众怒，背后又有什么样的一些可怕的要素出来诉？首先这是一部什么片子？如果没有抵制，其实马上就要上映了。马上就上映，这周六就要上映了。他所谓的叫。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000008\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000008\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.2538"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000008\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.2538"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 38,
+      "diff": 0.2538
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 348
+  }
+}

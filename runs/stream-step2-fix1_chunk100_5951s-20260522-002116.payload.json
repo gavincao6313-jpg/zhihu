@@ -1,0 +1,54 @@
+{
+  "video_name": "step2-fix1_chunk100_5951s",
+  "full_text": "[00:00:00 - 00:00:37] 啊，非常感谢大家的这个踊跃提问，也希望希呃希望我今天的一个分享能够给嗯大家带来一定的这这个嗯就带来带来一定的这个对嗯通讯零码，包括对编码助手更多的这个呃理解吧。对啊，谢谢大家谢谢大家。好的，那要不今天。啊，今天直播对，就就到这里就结束了。好，谢谢大家。好呃，各位晚安。是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000099\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000099\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=slide diff=0.8967"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000099\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000099\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.1337"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000099\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=slide diff=0.802"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 28,
+      "diff": 0.8967
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.1337
+    },
+    {
+      "type": "slide",
+      "frame_idx": 32,
+      "diff": 0.802
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 1,
+    "frames_total": 5,
+    "text_chars": 158
+  }
+}

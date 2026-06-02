@@ -1,0 +1,64 @@
+{
+  "video_name": "ab-replay-20260522_chunk130_7740s",
+  "full_text": "[00:00:00 - 00:00:03] 外国人聊天的时候那种先天压力\n[00:00:03 - 00:00:06] 这个是多灵国团队来去聊的\n[00:00:06 - 00:00:07] 为什么我知道这件事呢\n[00:00:07 - 00:00:11] 因为我有一个同事去了多灵国\n[00:00:11 - 00:00:12] 负责他们的Marty挺身\n[00:00:12 - 00:00:14] 然后去聊到的东西\n[00:00:14 - 00:00:14] 对吧\n[00:00:14 - 00:00:15] 然后还做什么呢\n[00:00:15 - 00:00:18] 还做个这个在多灵国Minds增加了\n[00:00:18 - 00:00:20] 聊好了也不会笑\n[00:00:20 - 00:00:21] 聊好了也不\n[00:00:21 - 00:00:23] 他就不给你好脸子\n[00:00:23 - 00:00:24] 他不给你好脸子\n[00:00:24 - 00:00:26] 同时他还有一个逻辑\n[00:00:26 - 00:00:28] 他还有一个逻辑\n[00:00:28 - 00:00:32] 就是他认为这张臭脸带来的变时度会更高\n[00:00:35 - 00:00:37] 这张臭脸带来的变时度会更高\n[00:00:37 - 00:00:40] 然后同时也模拟了他的这个\n[00:00:40 - 00:00:43] 他的相应的你的人际沟通压力\n[00:00:46 - 00:00:49] 他是个祭典\n[00:00:49 - 00:00:50] 为啥没听明白\n[00:00:50 - 00:00:52] 就是是这样子\n[00:00:52 - 00:00:53] 你在和一个\n[00:00:54 - 00:00:56] 非你语种的人在沟通的时候\n[00:00:56 - 00:00:58] 你是不是有压力的\n[00:00:58 - 00:00:59] 有吧\n[00:00:59 - 00:01:00] 他是通过",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk130_7740s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk130_7740s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=annotation diff=0.1032"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk130_7740s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.1032"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk130_7740s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.1016"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk130_7740s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.1016"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk130_7740s\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.1023"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk130_7740s\\frame_00038.jpg",
+      "timestamp_s": 38,
+      "marker": "Frame [00:00:38] type=annotation diff=0.1023"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.1032
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.1016
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 37,
+      "diff": 0.1023
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 862
+  }
+}

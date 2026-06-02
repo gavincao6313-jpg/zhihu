@@ -1,0 +1,74 @@
+{
+  "video_name": "live-20260602-195306_chunk046_2700s",
+  "full_text": "[00:00:00 - 00:01:00] 量还挺多的，然后呢呃呃是直接你要交付一个视频。那你要交付的视频呢，在这个里面呢，我们这也是今天可能要教的一个知识点，就是这个hyper frame这个 hyperper frame大家有没有人用过，就是说要教大家用hyper frame去做视频。那这个hyper frame呢，其实你可以理解为是个工具，也可以理解为是个插件。如果你去网络上搜或者去抖音小红搜呢，这个hyper frame其实用的最多的是跟coded这个工具结合起来，一起用。就是在coded里面再装一个hyper frame插件。然后呢对做PPT视频是的。然后呢，但是现在其实hyper frame它这个插件呢，不光能装在code里面也能装到这个呃这个比如说ree啊啊这样的呃也也可以，所以呢用 hyperper frame做视频，那做出来视频的效果大概什么样的？我播几给大家看一下。想给你的AI装一套长期记忆。现在主流的四款方案在做。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk046_2700s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk046_2700s\\frame_00012.jpg",
+      "timestamp_s": 12,
+      "marker": "Frame [00:00:12] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk046_2700s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.048"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk046_2700s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk046_2700s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0466"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk046_2700s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=slide diff=0.6428"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk046_2700s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk046_2700s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.1208"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.048
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.0466
+    },
+    {
+      "type": "slide",
+      "frame_idx": 52,
+      "diff": 0.6428
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 57,
+      "diff": 0.1208
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 3,
+    "frames_total": 8,
+    "text_chars": 424
+  }
+}

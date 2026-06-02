@@ -1,0 +1,49 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk163_9741s",
+  "full_text": "[00:00:00 - 00:01:00] 门槛也有，对吧？你要你要拥护社，你要你要你要拥护社会主义制度，对吧？对吧？要拥护中国共产党，对吧？IOS系统是不支持啊IOS系统是不支持啊？你知道我要是让IOSIS系统支持我的付费的话，我需要给IOS付多少钱嘛？我要让他扣我45%，太贵了，太贵了，太贵了，我遭不住，对吧？你们可以你你们要感兴趣找班班去来。我们当时说过有几种人啊，为什么讲这期呢？就是因为当时贾国龙呢有些事儿，贾国龙这类事儿呢，这人呢我跟大家讲，这类人呢，我们把它称之为叫做叫做什么？叫做草头王。草头王的特点是什么呀？公务原型，公务员型是没奖是没奖。草头王的特点是什么？",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000162\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000162\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000162\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1945"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000162\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.1434"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000162\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.1434"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.1945
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.1434
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 290
+  }
+}

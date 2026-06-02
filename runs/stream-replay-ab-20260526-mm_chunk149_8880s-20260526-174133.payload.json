@@ -1,0 +1,44 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk149_8880s",
+  "full_text": "[00:00:00 - 00:01:00] 呃，虐点加情感点对吧？爱你像心跳难处摸，我的天。我们当时我们当时做这个系统的时候，都受到了精神上非常大的伤害。然后爽点的问题什么就是极其不稳定，极其不稳定。然后两句做的爽点一样，演员情节拍摄手法可能完全不同。所以怎么解决呢？啊，就是我们就搭建了一套短剧大模型，短剧大模型，对吧？怎么做呢？非常像谁，前面抓热点，抓热门小说抓爆款网红抓热点事件，抓梗，然后去做了一些训练，包括剧情的要素，语言风格画面风格拍摄手法，爽点要素做了单独的一些东西，然后开始生成剧本分镜人物配音，生成出特别低成本的特别低成本的测试视频。特别低成本的测试视频，就是就是你可以认为是这种PPT化的一些东西，就是拿大模型去做的一些。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk149_8880s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk149_8880s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=slide diff=0.3028"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk149_8880s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.2584"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk149_8880s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.2584"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 12,
+      "diff": 0.3028
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 22,
+      "diff": 0.2584
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 321
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "video_name": "live-20260602-195306_chunk023_1320s",
+  "full_text": "[00:00:00 - 00:01:00] 告诉他说，现在正在正在生成中还在排队对吧？啊，等等之类的。然后呢呃已经换脸好的剧呢，你需要能分享啊，因为呃对吧？这个要不然是小程序，要不然是链接，反正就发到微信一个链接，别人再去看你的这个换脸的结果啊，大概是这么个流程啊，这个这么个流程。所以要做要做安卓和IOSAPP它的换脸的效果呢，我给大家看一眼换脸的效果。呃，这个是换脸的效果。啊，这个是换脸效果。嗯，左边。是一部剧的原片儿。中间是我们的一个同事上传的自己的照片。啊，右边就是呃后台的一套呃换脸的AI换脸的系统，给它换出来的这部剧，然后呢，这个是一个页面，它可以同步播放，给大家播一下。你看一下这个换脸效果，左边是原片儿，右边是这个换脸之后的结果。🎼今日相府大喜。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0376"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0376"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=slide diff=0.66"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00014.jpg",
+      "timestamp_s": 14,
+      "marker": "Frame [00:00:14] type=slide diff=0.6371"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.0687"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.2571"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.0825"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk023_1320s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.0825"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.0376
+    },
+    {
+      "type": "slide",
+      "frame_idx": 3,
+      "diff": 0.66
+    },
+    {
+      "type": "slide",
+      "frame_idx": 13,
+      "diff": 0.6371
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.0687
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.2571
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.0825
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 4,
+    "frames_total": 11,
+    "text_chars": 332
+  }
+}

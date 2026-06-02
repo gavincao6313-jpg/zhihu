@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260602-195306_chunk058_3420s",
+  "full_text": "[00:00:00 - 00:01:00] 哎，我的。dep seek怎么了？你琢磨了我换成别的试一试。我的DC肯定琢磨了，不让我用了，是晚上你用的人太多了吗。对吧。啊，不抽卡2分钟。个人额度用完了，应该不会吧，我充了钱的呀，我用deep seek充了钱的呀。为了。为了支持我们的国货啊，这个de seek我肯定是要充钱的。虽然每次就只充200。那也是充钱呀，对吧？嗯。cloud code也可以啊，clo code也你做的一个项目也可以有这样的页面呀，你就调就是了，跟他对换调就是了。对吧。是。对，这个hper frame我还没有找到在可视化界面里面怎么去。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk058_3420s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk058_3420s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0206"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk058_3420s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0206"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.0206
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 280
+  }
+}

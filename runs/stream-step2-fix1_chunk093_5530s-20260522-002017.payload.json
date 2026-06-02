@@ -1,0 +1,18 @@
+{
+  "video_name": "step2-fix1_chunk093_5530s",
+  "full_text": "[00:00:00 - 00:01:00] 是。。呃，怎么让零码解读和理解我全部项目中的代码啊，代码文件是有关联的，修改会影响整个项目的。我希望能够让林玛知道改动的影响呃，林马是如何处理这种。哦，对整个项目的一个理解啊以。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000092\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 111
+  }
+}

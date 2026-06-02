@@ -1,0 +1,44 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk079_4680s",
+  "full_text": "[00:00:00 - 00:01:00] 衣服短视频一个内容全都可以通过这种方法去做。全都可以通过这种方法去做。大家发现了吗？这是可以大家举一反三，不断反三的一种结构一种结构。大家一定是把这个结构去学透了，只要是只要是要不断的推身出新出爆款的的生产型的结构，都可以用这个方法去做。好。它的前端是靠什么来的？它的前端是靠大数据选品，它的大数据是通过什么来的？通过。销量、定价、颜色、面料款式，再根据已经掌握的流行要素迅速的去出品。它的这个整体的这个角色系统是什么呢？它的IPD研发中心有300多个系统。然后在营销端呢，他是拿到用户的行为数据，他的行为数据甚至包括什么呢？就是用户在一个详情页上他的停留的他的停留时长，它停留在哪里他。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk079_4680s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk079_4680s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.1362"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk079_4680s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.1362"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk079_4680s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=slide diff=0.3405"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.1362
+    },
+    {
+      "type": "slide",
+      "frame_idx": 41,
+      "diff": 0.3405
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 1,
+    "frames_total": 4,
+    "text_chars": 316
+  }
+}

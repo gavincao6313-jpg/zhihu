@@ -1,0 +1,94 @@
+{
+  "video_name": "live-20260602-195306_chunk057_3360s",
+  "full_text": "[00:00:00 - 00:01:00] 你也可以，当然你也可以直接这个这个靠这个命令行呃，靠这个提示词，比如说切换到我还有另外一个什么项目呢，切换到另外。另外一个视频像。我想想啊生份项目叫什么名字吧，我好像也就我本地也就两个项目，我就让他切换吧。比如说其实。它是两坨代码啊，就是他每创作一个新的视频，其实就是一个新的项目。这个新的项目里面都有一堆代码。所以同一时间呢，它一般来说你在这个一个界面里面呢，也就能启动一个项目啊所以它所谓的切换到另外一个项目，它就是把当前的这个网页以及它背后的代码呢，都给它关闭啊，都关闭之后呢，再给它启动另外一个文件夹里面的另外一堆代码啊，其实也就这么个逻辑啊，怎么怎么不让我干活呢。是谢。嗯。不抽卡2分钟需要40分钟。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.0205"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.0205"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0226"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0204"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0204"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.0201"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0201"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.0203"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk057_3360s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.0203"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 2,
+      "diff": 0.0205
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 18,
+      "diff": 0.0226
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.0204
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.0201
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.0203
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 5,
+    "frames_total": 11,
+    "text_chars": 327
+  }
+}

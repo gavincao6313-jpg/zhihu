@@ -1,0 +1,34 @@
+{
+  "video_name": "live-xiaoe-20260527_chunk140_8336s",
+  "full_text": "[00:00:00 - 00:00:59] 是。🤢到这个时刻了好吗？好，下一节课给大家去讲讲这个东西比较有意思啊。德勤最近出了一份数据，企业落地AI的悖论。成功者RY171%啊，成功者RY171%确实非常好。但是同时有80%的项目死在了POC赢家和炮灰之间为何如此悬殊？我们应该怎么去走向一条通向企业AI落地，真正能跑出来的一条康庄大道。好吧，所以这条路我觉得嗯下一期也是很好用，澎湖海战怎么可能是好电影，他妈的屁股本身就是歪的呀，澎湖的屁股就是歪的呀。😊是不是你屁股歪了，再好的电影，有有这这这那就有什么用啊，下周不上上也不上了，不可能上。😡你还没找着工作呢。宇哥，你不还没有找到工作呢，我怎么可能上链接呢？对吧。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000139\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000139\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.0487"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779883148_000139\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.0487"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.0487
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 308
+  }
+}

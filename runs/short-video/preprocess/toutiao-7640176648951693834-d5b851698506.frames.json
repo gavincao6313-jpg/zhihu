@@ -1,0 +1,24 @@
+{
+  "video_id": "toutiao-7640176648951693834-d5b851698506",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640176648951693834\\frame_00001.jpg",
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640176648951693834\\frame_00002.jpg",
+      "marker": "Frame [00:00:02] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\toutiao-7640176648951693834\\frame_00034.jpg",
+      "marker": "Frame [00:00:34] type=annotation diff=0.1686"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.1686
+    }
+  ]
+}

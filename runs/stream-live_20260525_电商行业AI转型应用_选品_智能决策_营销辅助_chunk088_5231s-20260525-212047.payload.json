@@ -1,0 +1,34 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk088_5231s",
+  "full_text": "[00:00:00 - 00:01:00] 关键它的库存相当的灵活，库存周转率比下要高，极快的上新，满足消费者对于多种多款式需求、追热点需求的需求，然后性价比超级高，低价。质优质评价质评价廉，这就是他成功的要素。好，我们知道这里面用了大量的决策性体系。也知道这东西角色定级往往是在这种传统的方法去做的。所以我们要去看角色性AI在大模型时代搭建的逻辑是什么？呃，客观一点讲，实验的退货率一定是比中国的电商要低的，比中国的电商是要低的。比中国的电商是要低的对吧？这要低的一个很重要的点是这样子。同学们，这里面有一个很关键的社会文化的要素，它的这个社会文化的要素是什么？就是。我不是说好与不好，我只是说现状啊，在美国在美国还没有进化到。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000087\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000087\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000087\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.065"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.065
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 315
+  }
+}

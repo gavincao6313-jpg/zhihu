@@ -1,0 +1,119 @@
+{
+  "video_name": "live-20260602-195306_chunk014_780s",
+  "full_text": "[00:00:00 - 00:01:00] 可以给某个活动去去去生成一个呃去生成一个这个叫什么呃签到二维码啊。所以其实算是AI比较怎么讲，算是AI比较擅长的一种工作吧。因为都是增山改查和兼面工作，这是第一个第二个第二个部分呢其实是跟这个国际资要小程序是同一个小程序。但是他有第二个和第三个比较不一样的模块。然后呢，大概率这个东西应该做的时候呢，这个应该上面这个小程序呢应该扣s编程就可以了。应该扣s编程就可以了。大概率呢是第一个同学先做啊，就都先做基础功能。然后呢那个呃这个就是第二个同学，这个就是第三个同学。第二个同学和第三个同学呢可以自己先调试啊，调试完了之后呢，呃等第一个同学做差不多呢，可能要在第一个同学的这个项目的基础上再去把第二个两和第三个的AI功能做。第二个是做学生评测的学生评测就是你可能在这个首页里面有一个什么入口去啊点进去做一个什么评。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0337"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0295"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.0328"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.0318"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0339"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0339"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00057.jpg",
+      "timestamp_s": 57,
+      "marker": "Frame [00:00:57] type=annotation diff=0.0373"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk014_780s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=slide diff=0.5697"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0337
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.0295
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.0328
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.0318
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0339
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 56,
+      "diff": 0.0373
+    },
+    {
+      "type": "slide",
+      "frame_idx": 59,
+      "diff": 0.5697
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 6,
+    "frames_total": 14,
+    "text_chars": 378
+  }
+}

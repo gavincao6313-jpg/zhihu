@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260602-195306_chunk060_3540s",
+  "full_text": "[00:00:00 - 00:01:00] 我看看啊。你看。这个。😊这个文件夹里面的就是一个项目。这个文件夹呢又是另外一个项目啊，这个所说的项目是视频项目。呃，对于去域来说还是同一个项目。啊，只是不同的一些。你看这里面其实就是一个网页啊，就是一个网页。然后你看这是它生成的这个MP4的视频。啊，对，可以上啊，你说在这个地方。啊，应该也行。对，好主意对吧？我看看啊。但我忘了另外一个项目叫叫什么名字了。我看看啊。😊啊哦，这个clo code安装教程，我看看能不能它能不能启动啊。启动好。这个。视频像你看一下它能给我起起来吗？",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk060_3540s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk060_3540s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.1486"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk060_3540s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.1486"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.1486
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 261
+  }
+}

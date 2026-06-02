@@ -37,7 +37,7 @@ PACK_MAX_TRANSCRIPT_CHARS = 80_000
 PACK_MAX_FRAMES = 96
 PER_VIDEO_MAX_FRAMES = 12
 PACK_ESTIMATED_INPUT_TOKENS = 160_000
-QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.6-flash")
+QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
 
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".m4v", ".mov", ".avi", ".mkv", ".mpeg"}
 

@@ -1,0 +1,59 @@
+{
+  "video_name": "live-20260602-195306_chunk064_3780s",
+  "full_text": "[00:00:00 - 00:01:00] 和mac通吃整个安装分四步，安装cloud code模型接入对话字。你看这个字幕不对。字幕和声音没有对上。这Kmi2.6还是不太行。没。你看这就是你你真正做视频的过程，其实就是。跟你coing一个小程序和一个网页应用，是不是挺像的，就不停的给他挑毛病。啊，做一个导航功能，快速切项目。哎，好主意应该给他做一个导航功能，快速切项目。要不然你你同时在做好几个视频，对吧？来来回回的。。呃，字幕拆成了18条，7个段落呃，音频呃精简为。把18条字母精简为7条，这对吗？你精简成7条更不对了吧。这个ki米2.6最近降至了吗？可能我在这演示，哎呀。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk064_3780s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk064_3780s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=slide diff=0.3338"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk064_3780s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0436"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk064_3780s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0436"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk064_3780s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260602-195306_chunk064_3780s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0622"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 4,
+      "diff": 0.3338
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 9,
+      "diff": 0.0436
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.0622
+    }
+  ],
+  "stats": {
+    "slide_changes": 1,
+    "annotations": 2,
+    "frames_total": 6,
+    "text_chars": 290
+  }
+}

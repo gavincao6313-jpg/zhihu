@@ -1,0 +1,69 @@
+{
+  "video_name": "live_20260525_电商行业AI转型应用_选品_智能决策_营销辅助_chunk106_6313s",
+  "full_text": "[00:00:00 - 00:01:00] 做决策系统，戳个戳个web code好看的demo，一点用都没有，一点用都没有。你可以理解是AI工作流驱动决策知识系统，不是让大模型直接去做的啊，这个项目要不要做这件事没法让大模型直接去答，要把一个决策拆分成多个节点，识别决策对象，提取事实，补充外部信息，匹配知识库，计算关键指标，检查硬性规则，大模型做分析，输出结构化的结果，人工审核再做执行后续的动作，所有的决策系统，用大模型做就这10个步骤，就这10个步骤。就这10个步骤给大家看一个案例，还是拿电商去说，还是拿电商去说。我们做一个电商决策辅助系统。一条线性逻辑一条线性逻辑，对吧？这个逻辑是什么？",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000105\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000105\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.1897"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000105\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.1897"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000105\\frame_00039.jpg",
+      "timestamp_s": 39,
+      "marker": "Frame [00:00:39] type=annotation diff=0.1373"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000105\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.1373"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000105\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=slide diff=0.5155"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1779709964_000105\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=slide diff=0.5165"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.1897
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.1373
+    },
+    {
+      "type": "slide",
+      "frame_idx": 42,
+      "diff": 0.5155
+    },
+    {
+      "type": "slide",
+      "frame_idx": 49,
+      "diff": 0.5165
+    }
+  ],
+  "stats": {
+    "slide_changes": 2,
+    "annotations": 2,
+    "frames_total": 7,
+    "text_chars": 299
+  }
+}

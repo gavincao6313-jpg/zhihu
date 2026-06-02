@@ -1,0 +1,49 @@
+{
+  "video_name": "replay-ab-20260526-mm_chunk098_5820s",
+  "full_text": "[00:00:00 - 00:01:00] 这个判断用了哪些数据，哪些规则触发了这个谁审批的，有没有人工干预决策结果后来是否正确，都得能够回溯的，大模型可以解释。可以也是，但大模型的解释有可能是生成出来的合理理由，就是大模型的生成能力，它连理由都有可能跟你去生成。呃我以前的爱奇艺的选品系统当然是拿角色性AI做的那是用那是用非常标准的角色性AI去做的啊。比如说在一个企业采购场景中，大模前有可能会认为这个供应商报价最低可以通过，但是真实的规则有可能是黑名单不能通过。12月重大指量事故的不能通过单笔交易50万必须都总监审批，同类采购不能拆单，对吧？关联公司要做穿透十0别，价格低于均值30%，凡而要倒查，对吧？在这边跟大家说一下， coding和工作流在产品经理中的关系。这个最。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk098_5820s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk098_5820s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0486"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk098_5820s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=annotation diff=0.0486"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk098_5820s\\frame_00053.jpg",
+      "timestamp_s": 53,
+      "marker": "Frame [00:00:53] type=annotation diff=0.0311"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\replay-ab-20260526-mm_chunk098_5820s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.0311"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 31,
+      "diff": 0.0486
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 53,
+      "diff": 0.0311
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 340
+  }
+}

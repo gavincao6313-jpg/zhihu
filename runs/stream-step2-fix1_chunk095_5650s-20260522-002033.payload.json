@@ -1,0 +1,18 @@
+{
+  "video_name": "step2-fix1_chunk095_5650s",
+  "full_text": "[00:00:00 - 00:01:00] 我们会发现啊确实在线上的一个采纳率的情况，相比于python啊、GS啊、java这些确实是呃呃会稍微低一些。因为C加确实比较难。然后嗯整个项目的这个对呃的理解也可能会会相对来比较困难。但是我们现在还是在持续的优化中。对，也也能看到C个C加呀这个采纳率也在不断的提升。对。啊，目前对ras的支持嗯，暂时还。呃，这个这个后后面可能会在。呃，12月份或者或者1月份的时候可能会对ras这个支持会提升上来。所以现在的话呢可能这个效果还不是呃非常的非常的好。对。啊，java现这Java肯定是支持的，java是使用这个最多的。基本上啊，现在我们来看的是java使用最多的这个呃语言了。嗯，采纳率最高的是。",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\seg_1748000000_000094\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    }
+  ],
+  "events": [],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 0,
+    "frames_total": 1,
+    "text_chars": 319
+  }
+}

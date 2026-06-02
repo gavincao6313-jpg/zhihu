@@ -1,0 +1,59 @@
+{
+  "video_name": "ab-replay-20260522_chunk072_4260s",
+  "full_text": "[00:00:00 - 00:00:02] 这个功能你能做什么呢\n[00:00:02 - 00:00:03] 就是有多简单呢\n[00:00:03 - 00:00:08] 四个步骤的一个基础工作流就可以去干这件事了\n[00:00:08 - 00:00:10] 开始的时候放一张图片\n[00:00:10 - 00:00:14] 然后在中间做一个email.anderson的案子\n[00:00:14 - 00:00:17] 你可以去做一个简单的石图的一个小茶件\n[00:00:17 - 00:00:20] 然后的话调用大梦醒说这是什么东西\n[00:00:20 - 00:00:23] 它的卡罗里是多少 然后出结果就ok了\n[00:00:23 - 00:00:26] 对吧 然后这个大致结果给它发张苹果\n[00:00:26 - 00:00:28] 然后的话它就可以根据苹果的外观\n[00:00:28 - 00:00:30] 然后认为苹果大致的克重\n[00:00:30 - 00:00:34] 然后算一个基础的卡罗里的这个量级\n[00:00:34 - 00:00:36] 基本上就是这么一个数\n[00:00:36 - 00:00:42] 然后但这个app的收入在去年就已经超过了800万Nour\n[00:00:42 - 00:00:46] 这个的开发者只有老哥一个人\n[00:00:46 - 00:00:48] 老哥一个人\n[00:00:48 - 00:00:51] 这就是一个人做的一款产品\n[00:00:51 - 00:00:53] 收入超过了800万Nour\n[00:00:53 - 00:00:56] 然后当然它不是做了这一款产品\n[00:00:56 - 00:00:58] 它结果是非常不准确的\n[00:00:58 - 00:01:00] 它的结果非常不准确",
+  "frames": [
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk072_4260s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=annotation diff=0.2319"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk072_4260s\\frame_00002.jpg",
+      "timestamp_s": 2,
+      "marker": "Frame [00:00:02] type=annotation diff=0.2319"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk072_4260s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1531"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk072_4260s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.1531"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk072_4260s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.2447"
+    },
+    {
+      "path": "D:\\zhihu\\zhihu_file\\Videos\\keyframes\\ab-replay-20260522_chunk072_4260s\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=annotation diff=0.2447"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 1,
+      "diff": 0.2319
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1531
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 36,
+      "diff": 0.2447
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 6,
+    "text_chars": 780
+  }
+}
