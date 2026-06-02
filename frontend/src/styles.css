@@ -656,6 +656,9 @@ th {
   margin: 0;
   color: #25313a;
   font-size: 13px;
+  font-family: "Consolas", "Microsoft YaHei Mono", "Courier New", monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .frame-grid {

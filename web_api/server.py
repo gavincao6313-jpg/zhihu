@@ -16,6 +16,8 @@ RUNS_DIR = ROOT / "runs"
 MARKDOWNS_DIR = ROOT / "Markdowns"
 REGISTRY_PATH = RUNS_DIR / "web-run-registry.json"
 
+_ANSI_RE = re.compile(r"\x1b\[[0-9;]*[a-zA-Z]")
+
 # Populated by main() from CLI args; controls write access and launch mode.
 _READONLY: bool = False
 _LAUNCH_MODE: str = "simulate"  # "simulate" | "live"
@@ -949,7 +951,12 @@ def _run_pipeline_engine(
         update_registry_record(run_id, "recording", f"Process started (PID {proc.pid})")
 
         for raw_line in proc.stdout:
+            # Strip ANSI escape codes, \r, and other control chars that break frontend display
             line = raw_line.rstrip()
+            # Remove ANSI CSI sequences (e.g. tqdm progress bars, colored output)
+            line = _ANSI_RE.sub("", line)
+            # Collapse \r rewrites (tqdm uses \r to rewrite the same line)
+            line = line.replace("\r", "")
             if not line:
                 continue
             line_buf.append(line)
