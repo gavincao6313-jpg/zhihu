@@ -17,7 +17,7 @@ import {
   Upload,
   Video
 } from "lucide-react";
-import { RUNNING_STATUSES, createRun, createRunPlan, fetchRun, fetchRuns, launchRun } from "./api";
+import { RUNNING_STATUSES, createRun, createRunPlan, fetchLiveChunks, fetchRun, fetchRuns, launchRun } from "./api";
 import type { RunPlan, RunPlanRequest, RunRecord, SourceType } from "./types";
 
 const sourceMeta: Record<SourceType, { label: string; icon: typeof Film }> = {
@@ -188,40 +188,76 @@ function Overview({ run, onLaunch, launching }: { run: RunRecord; onLaunch?: () 
 }
 
 function Chunks({ run }: { run: RunRecord }) {
+  const isLive = RUNNING_STATUSES.has(run.status) && run.chunks.length === 0;
+  const [liveChunks, setLiveChunks] = useState<import("./types").ChunkRecord[]>([]);
+
+  useEffect(() => {
+    if (!isLive) { setLiveChunks([]); return; }
+    let active = true;
+    const poll = () => {
+      fetchLiveChunks(run.id)
+        .then((r) => { if (active) setLiveChunks(r.chunks); })
+        .catch(() => {/* silently ignore poll errors */});
+    };
+    poll();
+    const timer = setInterval(poll, 5000);
+    return () => { active = false; clearInterval(timer); };
+  }, [run.id, isLive]);
+
+  const displayChunks = isLive ? liveChunks : run.chunks;
+
   return (
     <section className="panel full">
       <div className="panel-heading">
         <Boxes size={18} />
-        <h2>Chunks</h2>
+        <h2>
+          Chunks
+          {isLive && (
+            <span className="live-badge">
+              <span className="live-dot" />
+              Recording · {liveChunks.length} chunks
+            </span>
+          )}
+          {!isLive && displayChunks.length > 0 && (
+            <span className="count-badge">{displayChunks.length}</span>
+          )}
+        </h2>
       </div>
-      <div className="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Start</th>
-              <th>Duration</th>
-              <th>Chars</th>
-              <th>Segments</th>
-              <th>Frames</th>
-              <th>Backend</th>
-            </tr>
-          </thead>
-          <tbody>
-            {run.chunks.map((chunk) => (
-              <tr key={`${chunk.index}-${chunk.start_s}`}>
-                <td>{chunk.index}</td>
-                <td>{formatSeconds(chunk.start_s)}</td>
-                <td>{formatSeconds(chunk.duration_s)}</td>
-                <td>{chunk.transcript_chars}</td>
-                <td>{chunk.segments}</td>
-                <td>{chunk.frames}</td>
-                <td>{chunk.backend}</td>
+      {displayChunks.length === 0 ? (
+        <EmptyPanel
+          title=""
+          text={isLive ? "Waiting for first chunk… (polling every 5s)" : "No chunk data available."}
+        />
+      ) : (
+        <div className="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Start</th>
+                <th>Duration</th>
+                <th>Chars</th>
+                <th>Segments</th>
+                <th>Frames</th>
+                <th>Backend</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {displayChunks.map((chunk) => (
+                <tr key={`${chunk.index}-${chunk.start_s}`}>
+                  <td>{chunk.index}</td>
+                  <td>{formatSeconds(chunk.start_s)}</td>
+                  <td>{formatSeconds(chunk.duration_s)}</td>
+                  <td>{chunk.transcript_chars.toLocaleString()}</td>
+                  <td>{chunk.segments}</td>
+                  <td>{chunk.frames}</td>
+                  <td>{chunk.backend}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </section>
   );
 }

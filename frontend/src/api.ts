@@ -127,5 +127,13 @@ export async function patchRun(id: string, status: string, message: string): Pro
   return (await response.json()) as RunRecord;
 }
 
+export async function fetchLiveChunks(
+  id: string,
+): Promise<{ base: string; chunk_count: number; chunks: import("./types").ChunkRecord[] }> {
+  const response = await fetch(`/api/runs/${encodeURIComponent(id)}/live-chunks`);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return response.json();
+}
+
 // Statuses that require frontend polling (kept in sync with server RUNNING_STATUSES).
 export const RUNNING_STATUSES = new Set(["probing", "recording", "transcribing", "synthesizing"]);

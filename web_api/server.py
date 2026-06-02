@@ -710,6 +710,26 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json({"running_statuses": list(RUNNING_STATUSES)})
             return
         if path.startswith("/api/runs/"):
+            # /api/runs/{id}/live-chunks  — chunks visible during recording before manifest exists
+            if path.endswith("/live-chunks"):
+                run_id = path.removeprefix("/api/runs/").removesuffix("/live-chunks")
+                record = find_registry_record(run_id)
+                base = (record.get("plan") or {}).get("base") if record else None
+                if not base:
+                    # Try to find the base from a QC file (run already completed)
+                    qc_path = find_qc_by_id(run_id)
+                    base = parse_qc_path(qc_path)[0] if qc_path else None
+                if not base:
+                    self.send_json({"error": "run not found or base unknown"}, status=404)
+                    return
+                chunks = chunks_for_base(base, manifest_path=None)
+                self.send_json({
+                    "base": base,
+                    "chunk_count": len(chunks),
+                    "chunks": chunks,
+                })
+                return
+
             run_id = path.removeprefix("/api/runs/")
             registry_record = find_registry_record(run_id)
             if registry_record:
