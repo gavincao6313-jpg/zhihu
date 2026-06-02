@@ -1,0 +1,125 @@
+{
+  "base": "live_20260601_医疗行业AI转型一应用",
+  "run_ts": "20260601-225004",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 170,
+  "transcript_chars": 51551,
+  "frame_count": 436,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 9989,
+  "timeline_end_s": 10025,
+  "timeline_duration_s": 10025,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.6-flash",
+  "synthesis_pass": "sliding-window",
+  "warnings": [],
+  "frame_timestamp_qc": {
+    "frame_count": 436,
+    "min_frame_timestamp_s": 1,
+    "max_frame_timestamp_s": 9981,
+    "timeline_end_s": 10025,
+    "max_frame_tail_delta_s": -44,
+    "timestamp_scope_counts": {
+      "local": 436
+    }
+  },
+  "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 3,
+    "total_frames": 436,
+    "covered_new_frames": 436,
+    "selected_frames_across_windows": 516,
+    "overlap_frames": 80,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 51,
+      "annotation": 245,
+      "context": 220
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 1,
+        "end_s": 5059,
+        "selected_frame_count": 220,
+        "new_frame_count": 200,
+        "overlap_frame_count": 20,
+        "transcript_chars": 28431,
+        "frame_type_counts": {
+          "slide": 28,
+          "annotation": 97,
+          "context": 95
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 4348,
+        "end_s": 9399,
+        "selected_frame_count": 240,
+        "new_frame_count": 200,
+        "overlap_frame_count": 40,
+        "transcript_chars": 24966,
+        "frame_type_counts": {
+          "slide": 13,
+          "annotation": 136,
+          "context": 91
+        }
+      },
+      {
+        "index": 3,
+        "start_s": 8093,
+        "end_s": 9981,
+        "selected_frame_count": 56,
+        "new_frame_count": 36,
+        "overlap_frame_count": 20,
+        "transcript_chars": 9077,
+        "frame_type_counts": {
+          "slide": 10,
+          "annotation": 12,
+          "context": 34
+        }
+      }
+    ]
+  },
+  "frame_policy": {
+    "provider": "qwen",
+    "mode": "sliding-window",
+    "window_count": 3,
+    "windows": [
+      {
+        "provider": "qwen",
+        "total_frames": 220,
+        "selected_frames": 0,
+        "dropped_frames": 220,
+        "cap": 250,
+        "slide_frames": 28,
+        "annotation_frames": 97
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 240,
+        "selected_frames": 0,
+        "dropped_frames": 240,
+        "cap": 250,
+        "slide_frames": 13,
+        "annotation_frames": 136
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 56,
+        "selected_frames": 0,
+        "dropped_frames": 56,
+        "cap": 250,
+        "slide_frames": 10,
+        "annotation_frames": 12
+      }
+    ]
+  },
+  "provider_parts_count": 6
+}

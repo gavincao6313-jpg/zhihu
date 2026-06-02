@@ -2183,7 +2183,13 @@
       "file": "web_api/server.py",
       "root_cause": "subprocess未设置NO_COLOR/PYTHONIOENCODING，Windows上tqdm输出ANSI转义序列，GBK编码环境下\\x1b字节被替换为\\ufffd，_ANSI_RE正则无法匹配",
       "fix": "在_run_pipeline_engine中注入NO_COLOR=1、PYTHONIOENCODING=utf-8、PYTHONUTF8=1到subprocess env",
-      "tags": ["windows", "encoding", "ansi", "tqdm", "subprocess"],
+      "tags": [
+        "windows",
+        "encoding",
+        "ansi",
+        "tqdm",
+        "subprocess"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-03T00:00:00.000Z"
@@ -2195,7 +2201,12 @@
       "file": "frontend/src/App.tsx",
       "root_cause": "step.summary直接渲染服务端英文字符串；QcPanel无lang prop；stage/path key为服务端枚举直接展示；health值未翻译",
       "fix": "添加stepSummary()/qcStatusValue()函数+三个映射表；QcPanel加lang prop；i18n.ts加7个新key",
-      "tags": ["i18n", "frontend", "tsx", "chinese"],
+      "tags": [
+        "i18n",
+        "frontend",
+        "tsx",
+        "chinese"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-03T00:00:00.000Z"
@@ -2207,7 +2218,13 @@
       "file": "zhihuTTS_stream.py",
       "root_cause": "Recorder(Thread) assigned self._stop = threading.Event() in __init__, overriding the Thread._stop() method called internally by _wait_for_tstate_lock() and _bootstrap_inner(). Any call to recorder.join() or natural thread exit triggers TypeError: 'Event' object is not callable.",
       "fix": "Renamed self._stop to self._stop_event throughout Recorder class (5 occurrences: __init__, stop(), run() x3)",
-      "tags": ["threading", "recorder", "continuous-hls", "critical", "join"],
+      "tags": [
+        "threading",
+        "recorder",
+        "continuous-hls",
+        "critical",
+        "join"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-02T00:00:00.000Z"
@@ -2219,7 +2236,13 @@
       "file": "web_api/server.py",
       "root_cause": "All three launch_*_pipeline functions called _cleanup_orphaned_records(source) before updating the new record status away from 'created'. The cleanup removes any record matching the same URL with status in ('failed','created'), so the brand-new record deleted itself.",
       "fix": "Added exclude_id parameter to _cleanup_orphaned_records; all three callers now pass exclude_id=run_id to protect the current run",
-      "tags": ["registry", "server", "critical", "cleanup", "status"],
+      "tags": [
+        "registry",
+        "server",
+        "critical",
+        "cleanup",
+        "status"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-02T00:00:00.000Z"
@@ -2231,10 +2254,68 @@
       "file": "web_api/server.py",
       "root_cause": "launch_live_pipeline hardcoded --qwen-max-frames 250 in synth_cmd, while launch_replay_pipeline correctly reads plan.get('qwen_max_frames'). Cost control from UI was silently ignored for live mode.",
       "fix": "Added qwen_max_frames = int(plan.get('qwen_max_frames') or 250) at top of launch_live_pipeline; synth_cmd now uses str(qwen_max_frames)",
-      "tags": ["qwen", "live", "server", "cost-control", "max-frames"],
+      "tags": [
+        "qwen",
+        "live",
+        "server",
+        "cost-control",
+        "max-frames"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-02T00:00:00.000Z"
+    },
+    {
+      "id": "bug-135",
+      "timestamp": "2026-06-02T15:47:00.000Z",
+      "error_message": "Live dry-run plan preview shows run_zhihu_live.bat, but /api/runs/{id}/launch executes a different direct zhihuTTS_stream.py --continuous-hls command",
+      "file": "web_api/server.py",
+      "root_cause": "build_run_plan() and launch_live_pipeline() are separate command builders and have drifted. The UI preview is no longer the ground truth for what the Launch button will execute.",
+      "fix": "Not fixed in this review; align build_run_plan() with launch_live_pipeline() or make the preview explicitly label the launcher command before the 3-hour live validation.",
+      "tags": [
+        "frontend",
+        "live",
+        "dry-run",
+        "launcher",
+        "preflight"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02T15:47:00.000Z"
+    },
+    {
+      "id": "bug-136",
+      "timestamp": "2026-06-02T15:47:00.000Z",
+      "error_message": "Workbench can attach the wrong provider Markdown to a provider-labeled final-qc run",
+      "file": "web_api/server.py",
+      "root_cause": "markdown_for_base() tries exact provider-label names first, then falls back to newest base glob. When real Markdown names include title text instead of the raw base, exact lookup fails and the fallback can pick another provider's Markdown.",
+      "fix": "Not fixed in this review; use manifest/final-qc output paths or provider/title-aware matching before falling back by base glob.",
+      "tags": [
+        "frontend",
+        "api",
+        "artifacts",
+        "markdown",
+        "provider"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02T15:47:00.000Z"
+    },
+    {
+      "id": "bug-137",
+      "timestamp": "2026-06-02T15:52:20.680Z",
+      "error_message": "Significant refactor of ",
+      "file": "web_api/server.py",
+      "root_cause": "7 lines replaced/restructured",
+      "fix": "Rewrote 16→35 lines (7 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02T15:52:20.680Z"
     }
   ]
 }

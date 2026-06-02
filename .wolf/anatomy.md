@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T15:36:42.655Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T15:52:33.309Z
 > Files: 74 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -115,7 +115,7 @@
 ## web_api/
 
 - `api_watchdog.bat` (~235 tok)
-- `server.py` — read_json, read_text, write_json, source_type_from_base (~16037 tok)
+- `server.py` — read_json, read_text, write_json, source_type_from_base (~16325 tok)
 - `start_mac_live.sh` — start_mac_live.sh — Mac 端本地真实任务模式 (~320 tok)
 - `start_mac_viewer.sh` — start_mac_viewer.sh — MAC 端只读查看器 (~210 tok)
 - `start_win.bat` (~438 tok)

@@ -912,3 +912,6 @@
 | 23:36 | Edited web_api/server.py | 5→5 lines | ~74 |
 | 00:00 | 修复汉化不完整+WIN日志乱码 | frontend/src/App.tsx, frontend/src/i18n.ts, web_api/server.py | 完成，tsc通过，py_compile通过 | ~2000 |
 | 00:30 | 修复bug-132/133/134: Recorder._stop→_stop_event(5处), _cleanup_orphaned_records加exclude_id(3处调用), live qwen_max_frames读plan | zhihuTTS_stream.py, web_api/server.py | py_compile PASS | ~800 |
+| 23:47 | 明日3小时直播前端预检 | frontend/src/App.tsx, web_api/server.py, zhihuTTS_stream.py, docs/* | build/py_compile/API plan checks pass; found live preview-vs-launch mismatch and Markdown provider fallback risk | ~9000 |
+| 23:52 | Edited web_api/server.py | expanded (+19 lines) | ~458 |
+| 23:52 | Edited web_api/server.py | modified markdown_for_base() | ~165 |
