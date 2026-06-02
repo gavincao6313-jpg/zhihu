@@ -1021,8 +1021,7 @@ def launch_replay_pipeline(run_id: str, record: dict) -> None:
         python, str(ROOT / "zhihuTTS_stream.py"),
         "--url", source,
         "--chunk-duration", "60",
-        "--base", base,
-        "--runs-dir", str(ROOT / "runs"),
+        "--name", base,
         "--cleanup-slices",
     ]
     ok = _run_pipeline_engine(run_id, capture_cmd, None, _REPLAY_KEYWORDS)
