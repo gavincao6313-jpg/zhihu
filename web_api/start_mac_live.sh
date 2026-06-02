@@ -1,8 +1,13 @@
 #!/bin/bash
 # start_mac_live.sh — Mac 端本地真实任务模式
 #
+# 支持的任务类型：
+#   ✅ MP4    — 拖入 Videos/ 目录下的文件，直接执行 run_single_file.py
+#   ✅ Replay — 粘贴回放 URL，执行 zhihuTTS_stream.py --url（需要 zhihu_auth_state.json）
+#   ❌ Live   — 直播流在 Mac 不可用；live pipeline 调用 run_zhihu_live.bat（WIN 专用）
+#
 # 与 start_mac_viewer.sh 的区别：
-#   - 以 --launch-mode live 启动 API，点击"启动"会真实执行 Python pipeline
+#   - 以 --launch-mode live 启动 API（而非 simulate）
 #   - 激活 .venv-mac311，使用 faster-whisper 作为转写后端
 #   - 不传 --readonly，允许写入和启动任务
 #

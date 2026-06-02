@@ -862,6 +862,25 @@ th {
   font-size: 11px;
 }
 
+/* ── Mode banner (simulate warning) ─────────────────────────────────────── */
+
+.mode-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-bottom: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.mode-banner.simulate {
+  border: 1px solid #fed7aa;
+  color: #7c4a03;
+  background: #fff7ed;
+}
+
 /* ── Dry-run secondary button ────────────────────────────────────────────── */
 
 .dry-run-button {

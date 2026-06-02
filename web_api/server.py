@@ -91,11 +91,19 @@ def markdown_for_base(base: str, label: str = "") -> Path | None:
     return newest(candidates)
 
 
-def manifest_for_base(base: str) -> Path | None:
+def manifest_for_base(base: str, run_ts: str = "") -> Path | None:
+    if run_ts:
+        exact = RUNS_DIR / f"stream-{base}-{run_ts}.manifest.json"
+        if exact.exists():
+            return exact
     return newest(list(RUNS_DIR.glob(f"stream-{base}-*.manifest.json")))
 
 
-def transcript_for_base(base: str) -> Path | None:
+def transcript_for_base(base: str, run_ts: str = "") -> Path | None:
+    if run_ts:
+        exact = RUNS_DIR / f"stream-{base}-{run_ts}.combined-transcript.txt"
+        if exact.exists():
+            return exact
     return newest(list(RUNS_DIR.glob(f"stream-{base}-*.combined-transcript.txt")))
 
 
@@ -345,8 +353,8 @@ def run_from_qc(path: Path, include_detail: bool = True) -> dict:
     base, run_ts, label = parse_qc_path(path)
     qc = read_json(path)
     markdown_path = markdown_for_base(base, label)
-    manifest_path = manifest_for_base(base)
-    transcript_path = transcript_for_base(base)
+    manifest_path = manifest_for_base(base, run_ts)
+    transcript_path = transcript_for_base(base, run_ts)
     chunks = chunks_for_base(base, manifest_path) if include_detail else []
     frames = frames_for_base(base, manifest_path) if include_detail else []
     warnings = qc.get("warnings") or []
@@ -616,9 +624,9 @@ def build_run_plan(payload: dict) -> dict:
             warnings.append("MP4 path is not found on this machine; dry-run only can continue.")
         base = safe_base(str(payload.get("base") or candidate.stem), f"mp4-{stamp}")
     elif source_type == "replay":
-        if not source.endswith(".json"):
-            warnings.append("Replay URL acquisition is not fully wired in the local web API yet; current safe path expects an existing payload.json.")
-        base = safe_base(str(payload.get("base") or Path(source).stem.replace(".payload", "")), f"replay-{stamp}")
+        if not source.startswith("http"):
+            warnings.append("Replay 来源看起来不是有效 URL；请粘贴知乎回放视频的完整 https 链接。")
+        base = safe_base(str(payload.get("base") or ""), f"replay-{stamp}")
     elif source_type == "live":
         if provider == "qwen":
             warnings.append("Current run_zhihu_live.bat is simplified Gemini-oriented; Qwen live finalization needs the provider wrapper restored or a manual build_stream_markdown.py fallback.")
@@ -771,7 +779,11 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(list_runs())
             return
         if path == "/api/config":
-            self.send_json({"running_statuses": list(RUNNING_STATUSES)})
+            self.send_json({
+                "running_statuses": list(RUNNING_STATUSES),
+                "launch_mode": _LAUNCH_MODE,
+                "readonly": _READONLY,
+            })
             return
         if path.startswith("/api/runs/"):
             # /api/runs/{id}/live-chunks  — chunks visible during recording before manifest exists

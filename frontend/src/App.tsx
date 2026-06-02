@@ -21,11 +21,13 @@ import {
   RUNNING_STATUSES,
   createRun,
   createRunPlan,
+  fetchConfig,
   fetchLiveChunks,
   fetchRun,
   fetchRuns,
   launchRun,
 } from "./api";
+import type { ServerConfig } from "./api";
 import type { Lang } from "./i18n";
 import { t } from "./i18n";
 import type { RunPlan, RunPlanRequest, RunRecord, SourceType } from "./types";
@@ -359,7 +361,14 @@ function Overview({
         <div className="health-grid">
           <div><span>{t(lang, "healthSource")}</span><strong>{run.qc?.source_status ?? "unknown"}</strong></div>
           <div><span>{t(lang, "healthCoverage")}</span><strong>{run.qc?.body_coverage_status ?? "pending"}</strong></div>
-          <div><span>{t(lang, "healthTailGap")}</span><strong>{run.qc?.body_tail_gap_s ?? 0}s</strong></div>
+          <div><span>{t(lang, "healthTailGap")}</span><strong>{
+            (() => {
+              const v = run.qc?.body_tail_gap_s;
+              if (v == null) return "—";
+              if (v < 0) return lang === "zh" ? "异常" : "invalid";
+              return `${v}s`;
+            })()
+          }</strong></div>
           <div><span>{t(lang, "healthProvider")}</span><strong>{run.provider ?? "none"}</strong></div>
         </div>
         <div className="path-box">
@@ -624,6 +633,7 @@ function DetailTab({
 
 export default function App() {
   const [lang, setLang] = useState<Lang>("zh");
+  const [config, setConfig] = useState<ServerConfig>({ launch_mode: "simulate", readonly: false, running_statuses: [] });
   const [runs, setRuns] = useState<RunRecord[]>([]);
   const [selectedId, setSelectedId] = useState<string>();
   const [selectedRun, setSelectedRun] = useState<RunRecord>();
@@ -645,6 +655,7 @@ export default function App() {
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
+    fetchConfig().then(setConfig);
     setLoadingIndex(true);
     fetchRuns()
       .then((items) => {
@@ -920,6 +931,13 @@ export default function App() {
               onChange={(e) => setQwenMaxFrames(Number(e.target.value))}
             />
           </label>
+
+          {config.launch_mode === "simulate" && (
+            <div className="mode-banner simulate">
+              <AlertTriangle size={13} />
+              <span>{lang === "zh" ? "模拟模式 — 不执行真实任务。WIN 用 start_win.bat，Mac 用 start_mac_live.sh 启动真实模式" : "Simulate mode — no real pipeline runs. Use start_win.bat (WIN) or start_mac_live.sh (Mac) for live mode."}</span>
+            </div>
+          )}
 
           {planError && (
             <div className="inline-error">

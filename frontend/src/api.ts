@@ -67,6 +67,22 @@ function isServerDown(error: unknown): boolean {
   return error instanceof TypeError && String(error).includes("Failed to fetch");
 }
 
+export interface ServerConfig {
+  launch_mode: "simulate" | "live";
+  readonly: boolean;
+  running_statuses: string[];
+}
+
+export async function fetchConfig(): Promise<ServerConfig> {
+  try {
+    const response = await fetch("/api/config");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return (await response.json()) as ServerConfig;
+  } catch {
+    return { launch_mode: "simulate", readonly: false, running_statuses: [] };
+  }
+}
+
 export async function fetchRuns(): Promise<RunRecord[]> {
   try {
     const response = await fetch("/api/runs");
