@@ -1,0 +1,551 @@
+{
+  "base": "live-20260602-195306",
+  "run_ts": "20260602-212930",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 87,
+  "transcript_chars": 31502,
+  "frame_count": 573,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 5220,
+  "timeline_end_s": 5220,
+  "timeline_duration_s": 5220,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.7-plus",
+  "synthesis_pass": "sliding-window",
+  "warnings": [],
+  "frame_timestamp_qc": {
+    "frame_count": 573,
+    "min_frame_timestamp_s": 1,
+    "max_frame_timestamp_s": 5217,
+    "timeline_end_s": 5220,
+    "max_frame_tail_delta_s": -3,
+    "timestamp_scope_counts": {
+      "local": 573
+    }
+  },
+  "qwen_thinking_enabled": false,
+  "qwen_window_policy": {
+    "window_count": 3,
+    "total_frames": 573,
+    "covered_new_frames": 573,
+    "selected_frames_across_windows": 653,
+    "overlap_frames": 80,
+    "dropped_frames": 0,
+    "frame_type_counts_across_windows": {
+      "slide": 122,
+      "annotation": 322,
+      "context": 209
+    },
+    "windows": [
+      {
+        "index": 1,
+        "start_s": 1,
+        "end_s": 1982,
+        "selected_frame_count": 220,
+        "new_frame_count": 200,
+        "overlap_frame_count": 20,
+        "transcript_chars": 12598,
+        "frame_type_counts": {
+          "slide": 53,
+          "annotation": 97,
+          "context": 70
+        }
+      },
+      {
+        "index": 2,
+        "start_s": 1715,
+        "end_s": 3429,
+        "selected_frame_count": 240,
+        "new_frame_count": 200,
+        "overlap_frame_count": 40,
+        "transcript_chars": 12264,
+        "frame_type_counts": {
+          "slide": 42,
+          "annotation": 125,
+          "context": 73
+        }
+      },
+      {
+        "index": 3,
+        "start_s": 3092,
+        "end_s": 5217,
+        "selected_frame_count": 193,
+        "new_frame_count": 173,
+        "overlap_frame_count": 20,
+        "transcript_chars": 13051,
+        "frame_type_counts": {
+          "slide": 27,
+          "annotation": 100,
+          "context": 66
+        }
+      }
+    ]
+  },
+  "frame_policy": {
+    "provider": "qwen",
+    "mode": "sliding-window",
+    "window_count": 3,
+    "windows": [
+      {
+        "provider": "qwen",
+        "total_frames": 220,
+        "selected_frames": 220,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 53,
+        "annotation_frames": 97
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 240,
+        "selected_frames": 240,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 42,
+        "annotation_frames": 125
+      },
+      {
+        "provider": "qwen",
+        "total_frames": 193,
+        "selected_frames": 193,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 27,
+        "annotation_frames": 100
+      }
+    ]
+  },
+  "provider_parts_count": 1314,
+  "qwen_window_notes": [
+    "runs\\stream-live-20260602-195306-20260602-212930.qwen-window-001.notes.md",
+    "runs\\stream-live-20260602-195306-20260602-212930.qwen-window-002.notes.md",
+    "runs\\stream-live-20260602-195306-20260602-212930.qwen-window-003.notes.md"
+  ],
+  "qwen_window_notes_reused": 0,
+  "qwen_window_note_metadata": [
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.7-plus",
+      "source_hash": "152ced2ed146935cffb90629800635cdc0b2bf3af058addac1de62f82a38ee44",
+      "window_index": 1,
+      "start_s": 1,
+      "end_s": 1982,
+      "selected_frame_count": 220,
+      "new_frame_count": 200,
+      "overlap_frame_count": 20,
+      "transcript_chars": 12598,
+      "frame_type_counts": {
+        "slide": 53,
+        "annotation": 97,
+        "context": 70
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 220,
+        "selected_frames": 220,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 53,
+        "annotation_frames": 97
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 27606,
+        "output_tokens": 3855,
+        "total_tokens": 31461
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.7-plus",
+      "source_hash": "e1c55f83099ae368f01a6ca954f91550e4c50dadfad057e48a238594e92b71e5",
+      "window_index": 2,
+      "start_s": 1715,
+      "end_s": 3429,
+      "selected_frame_count": 240,
+      "new_frame_count": 200,
+      "overlap_frame_count": 40,
+      "transcript_chars": 12264,
+      "frame_type_counts": {
+        "slide": 42,
+        "annotation": 125,
+        "context": 73
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 240,
+        "selected_frames": 240,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 42,
+        "annotation_frames": 125
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 28994,
+        "output_tokens": 3644,
+        "total_tokens": 32638
+      }
+    },
+    {
+      "format": "qwen_window_note",
+      "version": "qwen-window-note-v3",
+      "model": "qwen3.7-plus",
+      "source_hash": "52858e4be0d5762fa71b25ba970d4a2f2157dfcd16af1b6eac6591155fd361b6",
+      "window_index": 3,
+      "start_s": 3092,
+      "end_s": 5217,
+      "selected_frame_count": 193,
+      "new_frame_count": 173,
+      "overlap_frame_count": 20,
+      "transcript_chars": 13051,
+      "frame_type_counts": {
+        "slide": 27,
+        "annotation": 100,
+        "context": 66
+      },
+      "frame_policy": {
+        "provider": "qwen",
+        "total_frames": 193,
+        "selected_frames": 193,
+        "dropped_frames": 0,
+        "cap": 250,
+        "slide_frames": 27,
+        "annotation_frames": 100
+      },
+      "api_calls": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "input_tokens": 25295,
+        "output_tokens": 3121,
+        "total_tokens": 28416
+      }
+    }
+  ],
+  "qwen_final_assembly_version": "qwen-final-assembly-v2",
+  "qwen_critical_fact_version": "qwen-critical-facts-v2",
+  "qwen_critical_facts": [
+    {
+      "kind": "tool_or_concept",
+      "value": "Coze",
+      "aliases": [
+        "Coze",
+        "扣子"
+      ],
+      "window_index": 1,
+      "context": "管理员 + 合作院校管理员（仅看/改自己学校信息）。 - 内容管理：上传图文、更新帖子、管理排行榜数据。 - **技术栈建议：** 基础部分适合用 **Coze (扣子)** 编程或类似低代码/NoCode工具，属于典型的增删改查（CRUD）项目，但前端UI细节多，需精细调整。 - **进阶模块（AI功能，单独计费）："
+    },
+    {
+      "kind": "tool_or_concept",
+      "value": "扣子",
+      "aliases": [
+        "扣子",
+        "Coze"
+      ],
+      "window_index": 1,
+      "context": "合作院校管理员（仅看/改自己学校信息）。 - 内容管理：上传图文、更新帖子、管理排行榜数据。 - **技术栈建议：** 基础部分适合用 **Coze (扣子)** 编程或类似低代码/NoCode工具，属于典型的增删改查（CRUD）项目，但前端UI细节多，需精细调整。 - **进阶模块（AI功能，单独计费）：**"
+    },
+    {
+      "kind": "term",
+      "value": "3分钟",
+      "aliases": [
+        "3分钟"
+      ],
+      "window_index": 2,
+      "context": "能力链。 - **第四阶段（商业落地）：** 系统学习模型选型、效果评估。 - **年龄限制提示：** 讲师提到“只要你年龄在 **45岁以下**，不是3分钟热度”，请疯狂按此路线走。 **[00:39:00 - 00:45:00] 电商类单子与数字人/换装技术演示** 回到接单表格，讲师介绍了两个尚未定价的电商相"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "45岁",
+      "aliases": [
+        "45岁"
+      ],
+      "window_index": 2,
+      "context": "规划、工具调用的完整能力链。 - **第四阶段（商业落地）：** 系统学习模型选型、效果评估。 - **年龄限制提示：** 讲师提到“只要你年龄在 **45岁以下**，不是3分钟热度”，请疯狂按此路线走。 **[00:39:00 - 00:45:00] 电商类单子与数字人/换装技术演示** 回到接单表格，讲师介绍了"
+    },
+    {
+      "kind": "percentage",
+      "value": "80%",
+      "aliases": [
+        "80%"
+      ],
+      "window_index": 3,
+      "context": "- **单价：** 300元/条。 - **数量：** 6条。 - **要求：** 基于提供的原始视频链接，进行“改头换面”，保留80%-90%的还原度但要有差异化。可以使用 Hyper Frame，也可以用剪映或其他工具，不强制技术栈。 - **案例：** “假如你从2026年5月"
+    },
+    {
+      "kind": "percentage",
+      "value": "90%",
+      "aliases": [
+        "90%"
+      ],
+      "window_index": 3,
+      "context": "**单价：** 300元/条。 - **数量：** 6条。 - **要求：** 基于提供的原始视频链接，进行“改头换面”，保留80%-90%的还原度但要有差异化。可以使用 Hyper Frame，也可以用剪映或其他工具，不强制技术栈。 - **案例：** “假如你从2026年5月27号开"
+    },
+    {
+      "kind": "percentage",
+      "value": "96%",
+      "aliases": [
+        "96%"
+      ],
+      "window_index": 3,
+      "context": "查看“样例视频”列。 - **[01:05:29]** 浏览器展示“牛服”平台登录页，标题“成为服务商 用 AI 创造价值”，显示数据“5000+ 100M+ 96%”。 - **[01:06:01]** 牛服后台“需求报名”页面，表单中包含“需求名称”、“需求详情”等字段。 - **[01:13:01]** 牛服后台“我的"
+    },
+    {
+      "kind": "date_or_age",
+      "value": "2026年",
+      "aliases": [
+        "2026年"
+      ],
+      "window_index": 3,
+      "context": "”，保留80%-90%的还原度但要有差异化。可以使用 Hyper Frame，也可以用剪映或其他工具，不强制技术栈。 - **案例：** “假如你从2026年5月27号开始学习AI...”等教育类推广视频。 3. **复杂开发类（高阶级）：** - 包括小程序、APP、换脸看剧工具、数字人、政务大屏讲解"
+    }
+  ],
+  "qwen_narrative_block_version": "qwen-narrative-blocks-v1",
+  "qwen_narrative_blocks": [
+    {
+      "window_index": 1,
+      "title": "国际学校择校小程序需求拆解与定价逻辑",
+      "time_range": "00:07:00 - 00:13:00",
+      "chars": 468,
+      "anchor": "\"首先这是一个叫做国际学校的一个择校小程序。来自于新浪微博教育频道旗下的一个子品牌。因为本来他们就做出国留学、私立学校、国际学校的选学校有关的，所以需要开发选学",
+      "text": "\"首先这是一个叫做国际学校的一个择校小程序。来自于新浪微博教育频道旗下的一个子品牌。因为本来他们就做出国留学、私立学校、国际学校的选学校有关的，所以需要开发选学校、咨询的小程序功能。刚开始是比较基础的小程序功能，所有的后台管理和小程序前端界面全都是一个单子。这个单子因为工作量多一些，是个3000的单子。参照物叫'学为贵'。功能包括：学校库展示很多信息；辅导课程展示；首页进入排行榜，点某一个进详情；搜索学校课程活动资料；城市切换；一对一择校规划其实是长页面加弹出框扫码进群；智能择校有各种筛选条件如区域、学段、学费预算、目的地等。还有活动报名，除了一些基本信息，管理员后台可以上传其他平台报名数据，用户线下展会扫码签到，输入手机号显示成功，没报名过则引导先报名。后台要有不同的管理员，一种更新信息，每个合作院校有一个管理员账号，登录只能看到自己学校的信息。前端为什么复杂？因为展示样式特别多，虽然功能没多少，比如点这个去学校页面，点那个去按区域筛选的学校库，前端小细节要抠得比较多。这算是AI比较擅长的工作，都是增删改查和界面工作。\""
+    },
+    {
+      "window_index": 1,
+      "title": "AI真人剧换脸APP的产品逻辑与技术边界",
+      "time_range": "00:19:00 - 00:27:00",
+      "chars": 533,
+      "anchor": "\"真人剧不是说可以直接看剧，比较重要的功能是能把你自己的脸换上去。比如你是女生，看剧时把脸换上去，整部剧女主角都变成你。后端已经做完了，有点复杂，前端要做安卓A",
+      "text": "\"真人剧不是说可以直接看剧，比较重要的功能是能把你自己的脸换上去。比如你是女生，看剧时把脸换上去，整部剧女主角都变成你。后端已经做完了，有点复杂，前端要做安卓APP和IOS APP两个单子。不限制编程软件，Code编程也可以。首页能播视频片段，按剧看，可以充值，给某一集或片段换脸，也可以全剧换脸。个人主页看换脸结果。因为换脸消耗算力大，需要排队，个人主页能看到排队情况。界面交互明确：往上滑出现视频片段，感兴趣点'我要演'，选出演男主还是女主，上传照片，点生成。生成时扣积分/钻，余额不够出现充值判断。换脸过程在个人主页看进度，告诉用户排到第几百几十几，正在生成中。做好的剧可以分享链接。换脸效果演示：左边原片，中间同事上传照片，右边AI换脸系统结果。原片是真人剧，购买了版权做二创。内测时用户很上瘾，甚至要求把岳父岳母坏人的脸都开放出来换。背后处理复杂：上传照片要做预处理，第一去刘海（目前效果还有瑕疵），第二去闭嘴（如果露牙笑，后台模型自动处理成闭嘴，否则换脸效果不一致）。真正处理时是一帧一帧换，把视频打散成好多帧，每一帧识别女主角出现就移植脸。步骤特别多，所以后端不让大家做，只做前端APP。如果你缺多模态和视频处理项目经验，这个项目在简历里会比较亮眼。\""
+    },
+    {
+      "window_index": 1,
+      "title": "AI产品经理转行的认知纠偏与学习路径",
+      "time_range": "00:30:00 - 00:33:02",
+      "chars": 638,
+      "anchor": "\"今天带大家快速拆解一下产品经理的业务问题。很多人一听AI产品经理就开始聊模型、插件、工作流、自动化、RAG、Web Coding、Prompt。但产品经理真正",
+      "text": "\"今天带大家快速拆解一下产品经理的业务问题。很多人一听AI产品经理就开始聊模型、插件、工作流、自动化、RAG、Web Coding、Prompt。但产品经理真正需要先问的是：这个业务到底怎么赚钱？成本在哪里？效率卡在哪里？谁在为这个问题付出代价？比如公司说想做AI，AI只会帮你快速产出一堆没有用的垃圾需求文档。先说第一项，业务链路能力。你投了一个产品经理岗位，简历过了，面试官第一个问题'你怎么理解我们的业务？'大部分人开始介绍公司背景、成立年份、行业排名，面试官听完没感觉，因为百科上都有。面试官真正想听的不是你记住了什么，而是你对业务的洞察。我当年也是这样，第一份工作跟产品经理没半毛钱关系，投了几十份简历全军覆没。后来用了一个方法拿到机会。核心就三步。第一步找到你能投的岗位。假如你从5月份开始转行AI产品经理，需要多久入门？告诉你一条降维打击路线，只要不摆烂3个月，足够让你从新手变成企业抢着要的人。打破一个误区：做AI产品经理不一定要会写模型底层代码。我调研了200个大厂JD，发现企业要的不是算法工程师，而是懂大模型能力边界、能设计AI原生交互、用数据驱动产品迭代的复合型人才。具体规划：每天雷打不动空出两小时学习。第一阶段先把大模型原理搞懂，这是入门钥匙。第二阶段进阶学习，包括RAG，这是目前需求量最大的板块，重点攻克知识库搭建与检索策略，学会用RAG缓解模型幻觉，同时跟着教程复刻一个开源项目。第三阶段深入掌握Agent/Workflow，交付完整闭环。\""
+    },
+    {
+      "window_index": 2,
+      "title": "AI产品经理的业务链路能力与面试真相",
+      "time_range": "00:30:00 - 00:33:00",
+      "chars": 321,
+      "anchor": "\"AI只会帮你快速的产出一堆没有用的垃圾需求文档。先说第一项啊，业务链路能力。很多人一听AI产品经理就开始聊模型，聊插件，聊工作流，聊自动化，聊rag，聊we ",
+      "text": "\"AI只会帮你快速的产出一堆没有用的垃圾需求文档。先说第一项啊，业务链路能力。很多人一听AI产品经理就开始聊模型，聊插件，聊工作流，聊自动化，聊rag，聊we codinging聊prot。但产品经理真正需要先问的是，这个业务到底怎么赚钱，成本在哪里？效率卡在哪里？谁在为这个问题付出代价？比如公司说我想做1个AI... 今天带大家快速拆解一下产品经理的业务问题。你投了一个产品经理的岗位，建历过了面试官第一个问题，你怎么理解我们的业务，大部分人这个时候开始介绍公司的背景，你们成立于哪一年做什么的行业排名第几？面试官听完都没有感觉，因为这些百科上都有，面试官真正想听的不是你记住了... 而是这个业务闭环里，钱从哪来，花到哪去，哪里最痛。\""
+    },
+    {
+      "window_index": 2,
+      "title": "打破“无经验死循环”与3个月转行路线图",
+      "time_range": "00:32:00 - 00:35:00",
+      "chars": 428,
+      "anchor": "\"现在都是这样，那就是得把声音啊，那个那个推来飞去啊，所以没有人要我，但没人要我，我就永远没有产品经理经验。这个次循环啊困住了大多想转产品经理的人。我当年也是这",
+      "text": "\"现在都是这样，那就是得把声音啊，那个那个推来飞去啊，所以没有人要我，但没人要我，我就永远没有产品经理经验。这个次循环啊困住了大多想转产品经理的人。我当年也是这样，第一份工作跟产品经理没有半毛钱关系。我想转产品经理投了几十份简历，全军覆没。后来我用了一个方法拿到了第一段和产品经理相关的机会。今天我把方法告诉你，核心其实就三步... 假如你从5月份开始转行AI产品经理，那需要多久才能入门呢？今天告诉你一条降维打击路线，只要不摆烂3个月，足够让你从新手变成企业抢着要的人，先打破一个误区，做AI产品经理，不一定要会写模型底层代码。我调研了200个大厂JD发现企业要的不是算法工程师，而是懂大模型能力边界，能设计AI原生交互。这些小图都是生成的呀... 具体规划如下，每天雷打不动，空出两小时学习。第一阶段先把大模型原理... 也是AI产品岗的入门钥匙。第二阶段进阶学习... RAG，这是目前需求量最大的板块... 第三阶段，深入掌握rebo2到3...\""
+    },
+    {
+      "window_index": 2,
+      "title": "HyperFrame 视频制作的底层逻辑与调试心法",
+      "time_range": "00:48:00 - 00:54:00",
+      "chars": 521,
+      "anchor": "\"这种这种合成声音的模型也行啊，那就是看那个声音，有时候明显就有问题啊，但是它整个这个界面呢，它这个这个这个播放的动画这个这个原理大家知道吧？你看到的整个的这个",
+      "text": "\"这种这种合成声音的模型也行啊，那就是看那个声音，有时候明显就有问题啊，但是它整个这个界面呢，它这个这个这个播放的动画这个这个原理大家知道吧？你看到的整个的这个这个视频的窗口里面就是一个网页。整个hyper frame它在做视频的过程，其实就是不停的写代码去做了一个网页。这个网页呢可以是一个这种横屏的，也可以是一个这样的竖屏的那这个网页里面的这个所有的内容呢，其实你看到这里面在播放的东西呢，其实就是在网页里面在播放嗯一些特效动画啊，就是那个字飞来飞去啊，其实就是网页。所以你看到这个画面里面的所有能动的东西全都是网页SBC统一的充电线... 于是呢网页能做动画啊，网页呢也能播音频。所以呢我们现在看到这样一个界面呢，其实就是在一个网页里面边播动画边播音频啊，就是这么一个过程。所以他啊一个网页啊里面边播动画边播音频。然包括这个字幕，其实也是网页里面的那种动画效果啊，也都是所以这里面你就可以跟他去聊一些这个呃比如说哪个地方字字大一点啊... 因为你你每次跟他对话。它也就是在这个啊工程的基础上去这个这个对remotion也可以。是的。你每次跟他对话，他也就是去写代码啊，他为什么去写代码？因为他就是写代码，去修改这个网页里面所有的代码。\""
+    },
+    {
+      "window_index": 3,
+      "title": "Hyper Frame 的本质是“网页代码生成器”",
+      "time_range": "00:51:32 - 00:54:00",
+      "chars": 329,
+      "anchor": "> \"它做出来的视频呢，其实你在右边这个地方就可以预览了... 整个 hyper frame 它在做视频的过程，其实就是不停的写代码去做了一个网页。这个网页呢可",
+      "text": "> \"它做出来的视频呢，其实你在右边这个地方就可以预览了... 整个 hyper frame 它在做视频的过程，其实就是不停的写代码去做了一个网页。这个网页呢可以是一个这种横屏的，也可以是一个这样的竖屏的。那这个网页里面的这个所有的内容呢，其实你看到这里面在播放的东西呢，其实就是在网页里面在播放一些特效动画啊... 所以你看到这个画面里面的所有能动的东西全都是网页... 于是呢网页能做动画啊，网页呢也能播音频。所以呢我们现在看到这样一个界面呢，其实就是在一个网页里面边播动画边播音频啊... 包括这个字幕，其实也是网页里面的那种动画效果啊... 所以你每次跟他对话，他也就是去写代码啊，他为什么去写代码？因为他就是写代码，去修改这个网页里面所有的代码。\""
+    },
+    {
+      "window_index": 3,
+      "title": "100元档 Hyper Frame 单子的具体执行逻辑",
+      "time_range": "01:05:00 - 01:07:00",
+      "chars": 302,
+      "anchor": "> \"这种呢准备的挺多... 真正给你的是文字啊，所以一大段文字就直接贴进来，让 hyper frame 开始做，然后给它抠一些细节，把声音调一调，字幕调一调，",
+      "text": "> \"这种呢准备的挺多... 真正给你的是文字啊，所以一大段文字就直接贴进来，让 hyper frame 开始做，然后给它抠一些细节，把声音调一调，字幕调一调，对吧？有些图标让它生成的好看一些，然后它的一些动效调一调... 在你游服接单的后台里面呢，你就直接做这个选项就可以了... 将别人的视频通过 hyper frame 进行改头换面啊，就是你报名这个就可以了。因为这个本身它不是一个单子，它背后有几十个大几十个这样的视频的单子要做的... 都会给你一大段文字，然后你把这种视频啊，会给你要求是要做一个竖屏的，还是做一个横屏的啊，然后呢大概做一个多长时间的啊... 这一批视频单子，100块钱一条。\""
+    },
+    {
+      "window_index": 3,
+      "title": "Hyper Frame 渲染效率陷阱与正确调试姿势",
+      "time_range": "01:18:00 - 01:20:00",
+      "chars": 285,
+      "anchor": "> \"你让 cloud code 自动给你打开就可以了。对他渲染你他们如果他每次都直接给视频的话，那个渲染视频的时间是很长的。对吧他渲染视频时间是很长的... ",
+      "text": "> \"你让 cloud code 自动给你打开就可以了。对他渲染你他们如果他每次都直接给视频的话，那个渲染视频的时间是很长的。对吧他渲染视频时间是很长的... 你不要让他那个 hyper frame，不要让他每次你你一修改了那个那个视频里面的那个效果，他就重新渲染视频。那个渲染视频时间很长的。你每次做了修改之后呢，你就让他你就从那个网页里面就从那个网页里面去去去去那个呃刷新和看新的东西啊，直接从那个网页里面播，别让他给你渲染视频，你直接用文字提要求就可以啊，不要让他每次都给你渲染视频，确实 hyper frame 有这个毛病，他每次一修改完了就给你自动渲染视频。\""
+    },
+    {
+      "window_index": 3,
+      "title": "电商直播数字人需求的模糊性与调研机会",
+      "time_range": "01:23:00 - 01:25:00",
+      "chars": 336,
+      "anchor": "> \"电商直播这种是否有固定开发的了... 电商的像数字人这个就有些工具已经我们不需要做一些开发，他也可以做一些数字人的工作了。所以呢那需要开发一些什么东西，现",
+      "text": "> \"电商直播这种是否有固定开发的了... 电商的像数字人这个就有些工具已经我们不需要做一些开发，他也可以做一些数字人的工作了。所以呢那需要开发一些什么东西，现在还不是特别明确... 如果大家感兴趣的话，你也可以去跟人直播带货相关的工具哪里不好？可能还有一些什么样的这个提升空间啊... 你也可以，如果大家比较感兴趣的话，也可以提这个方案... 因为有些公司可能他自己也不知道自己要做什么，大家明白吧啊，就是有些自己他自己也不知道自己想做啥，或者他自己也不知道，其实市面上有一些现成的工具就能满足他需求。对吧这个大家能理解吧，就是其实市面上可能有很多工具，但是作为一个电商企业，他可能不知道市面上有很多企业有有这个已经有现成工具了，所以他就会提需求想，花钱做东西，对吧？\""
+    }
+  ],
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.7-plus",
+    "api_calls": 4,
+    "finish_reason": "stop",
+    "window_finish_reasons": [
+      "stop",
+      "stop",
+      "stop",
+      "stop"
+    ],
+    "usage": {
+      "input_tokens": 97175,
+      "output_tokens": 19823,
+      "total_tokens": 116998
+    },
+    "current_run_usage": {
+      "input_tokens": 97175,
+      "output_tokens": 19823,
+      "total_tokens": 116998
+    },
+    "current_run_api_calls": 4,
+    "end_to_end_usage": {
+      "input_tokens": 97175,
+      "output_tokens": 19823,
+      "total_tokens": 116998
+    },
+    "end_to_end_api_calls": 4,
+    "reused_window_note_api_calls": 0,
+    "estimated_cost_cny": null
+  },
+  "qwen_narrative_appendix": {
+    "appended": true,
+    "reason": "missing_or_low_retention",
+    "appended_blocks": 10,
+    "pre_append_metrics": {
+      "narrative_block_count": 10,
+      "retained_block_count": 4,
+      "retention_ratio": 0.4,
+      "body_transcript_ratio": 0.5338,
+      "min_body_transcript_ratio": 0.32,
+      "missing_blocks": [
+        {
+          "window_index": 2,
+          "title": "AI产品经理的业务链路能力与面试真相",
+          "anchor": "\"AI只会帮你快速的产出一堆没有用的垃圾需求文档。先说第一项啊，业务链路能力。很多人一听AI产品经理就开始聊模型，聊插件，聊工作流，聊自动化，聊rag，聊we "
+        },
+        {
+          "window_index": 2,
+          "title": "打破“无经验死循环”与3个月转行路线图",
+          "anchor": "\"现在都是这样，那就是得把声音啊，那个那个推来飞去啊，所以没有人要我，但没人要我，我就永远没有产品经理经验。这个次循环啊困住了大多想转产品经理的人。我当年也是这"
+        },
+        {
+          "window_index": 3,
+          "title": "Hyper Frame 的本质是“网页代码生成器”",
+          "anchor": "> \"它做出来的视频呢，其实你在右边这个地方就可以预览了... 整个 hyper frame 它在做视频的过程，其实就是不停的写代码去做了一个网页。这个网页呢可"
+        },
+        {
+          "window_index": 3,
+          "title": "100元档 Hyper Frame 单子的具体执行逻辑",
+          "anchor": "> \"这种呢准备的挺多... 真正给你的是文字啊，所以一大段文字就直接贴进来，让 hyper frame 开始做，然后给它抠一些细节，把声音调一调，字幕调一调，"
+        },
+        {
+          "window_index": 3,
+          "title": "Hyper Frame 渲染效率陷阱与正确调试姿势",
+          "anchor": "> \"你让 cloud code 自动给你打开就可以了。对他渲染你他们如果他每次都直接给视频的话，那个渲染视频的时间是很长的。对吧他渲染视频时间是很长的... "
+        },
+        {
+          "window_index": 3,
+          "title": "电商直播数字人需求的模糊性与调研机会",
+          "anchor": "> \"电商直播这种是否有固定开发的了... 电商的像数字人这个就有些工具已经我们不需要做一些开发，他也可以做一些数字人的工作了。所以呢那需要开发一些什么东西，现"
+        }
+      ]
+    }
+  },
+  "qwen_fact_body_retention_qc": {
+    "fact_count": 8,
+    "retained_count": 8,
+    "retention_ratio": 1.0,
+    "missing_facts": [],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_fact_body_retention_warnings": [],
+  "qwen_critical_fact_appendix": {
+    "appended": false,
+    "reason": "already_present",
+    "appended_facts": 0,
+    "source_metrics": {
+      "fact_count": 8,
+      "retained_count": 8,
+      "retention_ratio": 1.0,
+      "missing_facts": [],
+      "min_retention_ratio": 0.9
+    }
+  },
+  "body_last_chapter_end_s": 5217,
+  "body_tail_gap_s": 3,
+  "body_coverage_status": "ok",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 21892,
+    "body_transcript_ratio": 0.6949,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 6,
+    "chapter_fields_missing": [],
+    "code_fence_count": 4,
+    "prompt_keywords_missing": [],
+    "body_min_transcript_ratio": 0.2,
+    "source_frame_count": 573
+  },
+  "qwen_window_coverage_qc": {
+    "expected_windows": [
+      1,
+      2,
+      3
+    ],
+    "covered_windows": [
+      1,
+      2,
+      3
+    ],
+    "missing_windows": []
+  },
+  "qwen_fact_retention_qc": {
+    "fact_count": 8,
+    "retained_count": 8,
+    "retention_ratio": 1.0,
+    "missing_facts": [],
+    "min_retention_ratio": 0.9
+  },
+  "qwen_timeline_qc": {
+    "chapter_count": 6,
+    "overlap_count": 0,
+    "overlaps": []
+  },
+  "qwen_technical_asset_qc": {
+    "has_technical_asset_appendix": true,
+    "code_fence_count": 2,
+    "prompt_fact_count": 2
+  },
+  "qwen_narrative_retention_qc": {
+    "narrative_block_count": 10,
+    "retained_block_count": 10,
+    "retention_ratio": 1.0,
+    "body_transcript_ratio": 0.6949,
+    "min_body_transcript_ratio": 0.32,
+    "missing_blocks": []
+  },
+  "transcript_appendix_chars": 31502,
+  "visual_evidence_count": 573,
+  "deterministic_appendices": [
+    "critical_fact_index",
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}

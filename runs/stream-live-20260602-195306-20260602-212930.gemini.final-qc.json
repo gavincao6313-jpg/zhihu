@@ -1,0 +1,57 @@
+{
+  "base": "live-20260602-195306",
+  "run_ts": "20260602-212930",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 87,
+  "transcript_chars": 31502,
+  "frame_count": 573,
+  "first_timestamp_s": 0,
+  "last_timestamp_s": 5220,
+  "timeline_end_s": 5220,
+  "timeline_duration_s": 5220,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 0,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "gemini",
+  "synthesis_model": "gemini-3.5-flash",
+  "synthesis_pass": "one-shot",
+  "warnings": [],
+  "frame_timestamp_qc": {
+    "frame_count": 573,
+    "min_frame_timestamp_s": 1,
+    "max_frame_timestamp_s": 5217,
+    "timeline_end_s": 5220,
+    "max_frame_tail_delta_s": -3,
+    "timestamp_scope_counts": {
+      "local": 573
+    }
+  },
+  "frame_policy": {
+    "provider": "gemini",
+    "total_frames": 573,
+    "selected_frames": 573,
+    "dropped_frames": 0,
+    "cap": 3000,
+    "slide_frames": 110,
+    "annotation_frames": 276
+  },
+  "provider_parts_count": 1148,
+  "provider_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash",
+    "api_calls": null,
+    "usage": {}
+  },
+  "body_last_chapter_end_s": 5220,
+  "body_tail_gap_s": 0,
+  "body_coverage_status": "ok",
+  "transcript_appendix_chars": 31502,
+  "visual_evidence_count": 573,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
