@@ -763,50 +763,203 @@ class Handler(BaseHTTPRequestHandler):
             if record.get("status") not in ("created",):
                 self.send_json({"error": f"cannot launch run in status '{record.get('status')}'"}, status=409)
                 return
+            source_type = (record.get("plan") or {}).get("source_type") or "live"
             if _LAUNCH_MODE == "live":
-                threading.Thread(target=launch_live_pipeline, args=(run_id, record), daemon=True).start()
+                launcher = {
+                    "live":   launch_live_pipeline,
+                    "replay": launch_replay_pipeline,
+                    "mp4":    launch_mp4_pipeline,
+                }.get(source_type, launch_live_pipeline)
             else:
-                threading.Thread(target=simulate_pipeline, args=(run_id,), daemon=True).start()
+                launcher = simulate_pipeline  # type: ignore[assignment]
+            threading.Thread(target=launcher, args=(run_id, record) if _LAUNCH_MODE == "live" else (run_id,), daemon=True).start()
             self.send_json(record_to_run(record, include_detail=True))
             return
         self.send_json({"error": "not found"}, status=404)
 
 
-def launch_live_pipeline(run_id: str, record: dict) -> None:
-    """WIN-only: launch run_zhihu_live.bat via subprocess and track status."""
+def _find_python() -> str:
+    """Return the Python executable to use for subprocess launches on WIN."""
+    venv = ROOT.parent / "zhihu_file" / ".venv-sensevoice" / "Scripts" / "python.exe"
+    if venv.exists():
+        return str(venv)
+    venv2 = ROOT / ".venv-sensevoice" / "Scripts" / "python.exe"
+    if venv2.exists():
+        return str(venv2)
+    return sys.executable
+
+
+def _remove_registry_record(run_id: str) -> None:
+    """Delete a registry record so the real QC artifact takes over in list_runs()."""
+    normalized = run_id.removeprefix("web:")
+    records = [r for r in list_registry_records() if r.get("id") != normalized]
+    write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
+
+
+# Keywords detected in subprocess stdout that trigger status transitions.
+# Each entry: (status_to_set, list_of_trigger_substrings)
+_LIVE_KEYWORDS: list[tuple[str, list[str]]] = [
+    ("recording",     ["Input extractor", "Chunk 1", "=== Chunk", "知乎直播转写启动"]),
+    ("transcribing",  ["[2/4]", "合并分片", "merge_stream_chunks", "正在合并"]),
+    ("synthesizing",  ["[3/4]", "[4/4]", "build_stream_markdown", "Gemini", "Qwen", "NotebookLM"]),
+]
+_MP4_KEYWORDS: list[tuple[str, list[str]]] = [
+    ("recording",     ["Transcribing", "SenseVoice", "Whisper", "extract_keyframes", "Processing"]),
+    ("synthesizing",  ["Gemini", "Qwen", "build_final_markdown", "Markdown"]),
+]
+_REPLAY_KEYWORDS = _LIVE_KEYWORDS  # Same output format as live stream pipeline
+
+
+def _run_pipeline_engine(
+    run_id: str,
+    cmd: list[str],
+    env: dict | None,
+    keywords: list[tuple[str, list[str]]],
+    log_every_n: int = 15,
+) -> bool:
+    """Run a subprocess, parse stdout for status transitions, write log entries.
+
+    Returns True on clean exit (returncode==0), False on failure.
+    """
     import subprocess
-    plan = record.get("plan") or {}
-    source = str(plan.get("source") or "").strip()
-    base = str(plan.get("base") or "").strip()
-    if not source:
-        update_registry_record(run_id, "failed", "Cannot launch: no source URL in plan.", "error")
-        return
-    update_registry_record(run_id, "probing", "Launching run_zhihu_live.bat…")
-    bat = ROOT / "run_zhihu_live.bat"
-    if not bat.exists():
-        update_registry_record(run_id, "failed", f"run_zhihu_live.bat not found at {bat}", "error")
-        return
-    env = {**os.environ, "ZHIHU_PAGE_URL": source}
+
+    current_status = "recording"
+    triggered: set[str] = set()
+    line_buf: list[str] = []
+
+    def _flush_log(lines: list[str], force: bool = False) -> None:
+        """Write accumulated lines as a single log entry."""
+        if not lines:
+            return
+        msg = " | ".join(l[:120] for l in lines[-5:])  # keep last 5 lines of buffer
+        update_registry_record(run_id, current_status, msg)
+
     try:
         proc = subprocess.Popen(
-            ["cmd", "/c", str(bat)],
+            cmd,
             cwd=str(ROOT),
-            env=env,
+            env=env or os.environ.copy(),
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
             encoding="utf-8",
             errors="replace",
         )
-        update_registry_record(run_id, "recording", f"Pipeline started (PID {proc.pid}). Base: {base}")
-        stdout, _ = proc.communicate()
+        update_registry_record(run_id, "recording", f"Process started (PID {proc.pid})")
+
+        for raw_line in proc.stdout:
+            line = raw_line.rstrip()
+            if not line:
+                continue
+            line_buf.append(line)
+
+            # Status transition detection
+            for new_status, triggers in keywords:
+                if new_status not in triggered and any(t in line for t in triggers):
+                    triggered.add(new_status)
+                    current_status = new_status
+                    update_registry_record(run_id, new_status, line[:120])
+
+            # Periodic log flush
+            if len(line_buf) >= log_every_n:
+                _flush_log(line_buf)
+                line_buf = []
+
+        proc.wait()
+        _flush_log(line_buf, force=True)
+
         if proc.returncode == 0:
-            update_registry_record(run_id, "completed", "Pipeline exited cleanly.")
-        else:
-            update_registry_record(run_id, "failed",
-                                   f"Pipeline exited with code {proc.returncode}.", "error")
+            return True
+        update_registry_record(run_id, "failed",
+                               f"Process exited with code {proc.returncode}.", "error")
+        return False
+
     except Exception as exc:
         update_registry_record(run_id, "failed", f"Launch error: {exc}", "error")
+        return False
+
+
+def launch_live_pipeline(run_id: str, record: dict) -> None:
+    """WIN-only: launch run_zhihu_live.bat and track status via stdout parsing."""
+    plan = record.get("plan") or {}
+    source = str(plan.get("source") or "").strip()
+    base = str(plan.get("base") or "").strip()
+    if not source:
+        update_registry_record(run_id, "failed", "No source URL in plan.", "error")
+        return
+    bat = ROOT / "run_zhihu_live.bat"
+    if not bat.exists():
+        update_registry_record(run_id, "failed", f"run_zhihu_live.bat not found.", "error")
+        return
+    update_registry_record(run_id, "probing", f"Launching live capture: {source[:80]}")
+    env = {**os.environ, "ZHIHU_PAGE_URL": source}
+    ok = _run_pipeline_engine(run_id, ["cmd", "/c", str(bat)], env, _LIVE_KEYWORDS)
+    if ok:
+        update_registry_record(run_id, "completed", "Live pipeline finished. Refreshing index…")
+        _remove_registry_record(run_id)
+
+
+def launch_replay_pipeline(run_id: str, record: dict) -> None:
+    """WIN-only: capture a replay URL then run Qwen synthesis."""
+    import subprocess
+    plan = record.get("plan") or {}
+    source = str(plan.get("source") or "").strip()
+    base = str(plan.get("base") or "").strip()
+    provider = str(plan.get("provider") or "qwen")
+    synthesis_pass = str(plan.get("synthesis_pass") or "sliding-window")
+    qwen_max_frames = int(plan.get("qwen_max_frames") or 250)
+    if not source:
+        update_registry_record(run_id, "failed", "No source URL in plan.", "error")
+        return
+
+    python = _find_python()
+    update_registry_record(run_id, "probing", f"Starting replay capture: {source[:80]}")
+
+    # Step 1: capture replay (stream pipeline, auto-detects end from URL)
+    capture_cmd = [
+        python, str(ROOT / "zhihuTTS_stream.py"),
+        "--url", source,
+        "--chunk-duration", "60",
+        "--base", base,
+        "--runs-dir", str(ROOT / "runs"),
+        "--cleanup-slices",
+    ]
+    ok = _run_pipeline_engine(run_id, capture_cmd, None, _REPLAY_KEYWORDS)
+    if not ok:
+        return
+
+    # Step 2: synthesis
+    update_registry_record(run_id, "synthesizing", "Capture done. Starting synthesis…")
+    synth_cmd = [
+        python, str(ROOT / "scripts" / "build_stream_markdown.py"),
+        "--base", base,
+        "--runs-dir", str(ROOT / "runs"),
+        "--markdowns-dir", str(ROOT / "Markdowns"),
+        "--provider", provider,
+        "--synthesis-pass", synthesis_pass,
+        "--qwen-max-frames", str(qwen_max_frames),
+        "--output-label", provider,
+    ]
+    ok2 = _run_pipeline_engine(run_id, synth_cmd, None, [])
+    if ok2:
+        update_registry_record(run_id, "completed", "Replay pipeline finished. Refreshing index…")
+        _remove_registry_record(run_id)
+
+
+def launch_mp4_pipeline(run_id: str, record: dict) -> None:
+    """WIN-only: process a local MP4 file through run_single_file.py."""
+    plan = record.get("plan") or {}
+    source = str(plan.get("source") or "").strip()
+    if not source:
+        update_registry_record(run_id, "failed", "No file path in plan.", "error")
+        return
+    python = _find_python()
+    update_registry_record(run_id, "probing", f"Launching MP4 pipeline: {source[:80]}")
+    cmd = [python, str(ROOT / "run_single_file.py"), source]
+    ok = _run_pipeline_engine(run_id, cmd, None, _MP4_KEYWORDS)
+    if ok:
+        update_registry_record(run_id, "completed", "MP4 pipeline finished. Refreshing index…")
+        _remove_registry_record(run_id)
 
 
 def main() -> None:

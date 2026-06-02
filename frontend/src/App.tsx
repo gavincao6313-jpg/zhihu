@@ -392,6 +392,11 @@ export default function App() {
         if (!RUNNING_STATUSES.has(run.status)) {
           clearInterval(pollRef.current!);
           pollRef.current = null;
+          // Pipeline finished: refresh the full run list so the new QC artifact
+          // replaces the web: registry entry with real chunk/frame/qc data.
+          if (run.status === "completed") {
+            setTimeout(() => refreshIndex(), 2000);
+          }
         }
       }).catch(() => {/* ignore transient poll errors */});
     }, 3000);
@@ -419,18 +424,29 @@ export default function App() {
     }).finally(() => setLoadingIndex(false));
   }
 
+  const sourcePlaceholder: Record<SourceType, string> = {
+    mp4:    "D:\\zhihu\\Videos\\example.mp4  (本机绝对路径)",
+    replay: "https://www.zhihu.com/xen/training/live/room/...?type=replay",
+    live:   "https://www.zhihu.com/xen/training/live/room/...",
+  };
+  const sourceLabel: Record<SourceType, string> = {
+    mp4:    "本地 MP4 文件路径",
+    replay: "回放视频 URL",
+    live:   "直播间 URL",
+  };
+
   function selectSourceType(type: SourceType) {
     setSourceType(type);
     if (type === "mp4") {
-      setSource("Videos/example.mp4");
+      setSource("");
       setProvider("gemini");
       setSynthesisPass("one-shot");
     } else if (type === "replay") {
-      setSource("cache/payload/replay.payload.json");
+      setSource("");
       setProvider("qwen");
       setSynthesisPass("sliding-window");
     } else {
-      setSource("https://www.zhihu.com/xen/training/live/room/...");
+      setSource("");
       setProvider("gemini");
       setSynthesisPass("one-shot");
     }
@@ -490,10 +506,14 @@ export default function App() {
             <SourceCard type="live" active={sourceType === "live"} onClick={() => selectSourceType("live")} />
           </div>
           <label className="input-label">
-            Source path or URL
+            {sourceLabel[sourceType]}
             <div className="input-row">
               <Search size={16} />
-              <input value={source} onChange={(event) => setSource(event.target.value)} />
+              <input
+                value={source}
+                placeholder={sourcePlaceholder[sourceType]}
+                onChange={(event) => setSource(event.target.value)}
+              />
             </div>
           </label>
           <label className="input-label">
