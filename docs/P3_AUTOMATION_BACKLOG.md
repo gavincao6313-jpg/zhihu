@@ -1,7 +1,14 @@
 # P3 自动化积压 — 待完成（非阻塞）
 
-> 记录时间：2026-06-02
-> P1/P2 已完成，P3 不阻塞日常运营，但影响体验和质量上限。
+> 记录时间：2026-06-02  更新：2026-06-02
+> P1/P2 已完成，P3-B 和 P3-D 已完成，P3-A/C 待处理。
+
+| 项目 | 状态 |
+|------|------|
+| P3-A Qwen 双合成 | ⬜ 待做 |
+| P3-B auth 检测 | ✅ 已完成（2026-06-02） |
+| P3-C 后台轮询保活 | ⬜ 待做 |
+| P3-D --continuous-hls | ✅ 已完成（2026-06-02） |
 
 ---
 
@@ -56,14 +63,13 @@
 **现状**：main 分支用 `run_validation()` URL-slice 顺序切片（2026-06-02 验证通过：87 chunks / 187KB）。
 `feature/stream-transcript-validation` 有 Recorder/Consumer 并发录制架构（`--continuous-hls`），无切片间隙但代码复杂度更高。
 
-**决策背景**：2026-06-02 直播用 `run_validation()` 成功，短期内保留当前路径。
+**✅ 已完成（2026-06-02）**：
 
-**评估触发条件**（以下任一发生时重新评估）：
-- `run_validation()` 出现明显的切片间隙导致内容丢失
-- 下次直播超过 2 小时且有网络抖动
-- WIN 用户报告 HLS 模式在同等条件下更稳定
-
-**保留分支**：`feature/stream-transcript-validation` 不删除，作为备用路径。
+- `class Recorder(threading.Thread)`: ffmpeg HLS segmenter，后台持续录制
+- `class Consumer(threading.Thread)`: 并行处理 .ts 分片（ASR + keyframes）
+- `run_continuous_hls()` / `run_hls_consumer_only()` 两个入口
+- `launch_live_pipeline` 已切换到 `--continuous-hls`
+- `feature/stream-transcript-validation` 已 fast-forward 到与 main 一致，彻底拉平
 
 ---
 
