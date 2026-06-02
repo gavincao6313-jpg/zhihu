@@ -212,9 +212,13 @@ def frames_for_base(base: str, manifest_path: Path | None = None) -> list[dict]:
         records = data.get("frames") or data.get("visual_evidence") or []
         for record in records[:4]:
             ts = record.get("timestamp_s") or record.get("time_s") or record.get("ts") or 0
-            kind = record.get("type") or record.get("kind") or "context"
+            kind = record.get("type") or record.get("kind") or ""
             if kind not in {"slide", "annotation", "context"}:
-                kind = "context"
+                # Payload marker carries type when the field is empty, e.g.
+                # "Frame [00:00:37] type=slide diff=0.8"
+                marker = str(record.get("marker") or "")
+                m = re.search(r"type=(\w+)", marker)
+                kind = m.group(1) if m and m.group(1) in {"slide", "annotation", "context"} else "context"
             img_path = _resolve_frame_path(str(record.get("path") or ""))
             frames.append(
                 {

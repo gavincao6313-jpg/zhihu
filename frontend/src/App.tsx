@@ -353,6 +353,7 @@ export default function App() {
   const [provider, setProvider] = useState<RunPlanRequest["provider"]>("gemini");
   const [synthesisPass, setSynthesisPass] = useState<RunPlanRequest["synthesis_pass"]>("one-shot");
   const [qwenMaxFrames, setQwenMaxFrames] = useState(250);
+  const [query, setQuery] = useState("");
   const [runPlan, setRunPlan] = useState<RunPlan>();
   const [planError, setPlanError] = useState("");
   const [planning, setPlanning] = useState(false);
@@ -533,7 +534,20 @@ export default function App() {
 
         <section className="runs-panel">
           <div className="section-title">Runs {loadingIndex ? "· loading" : ""}</div>
-          <RunList runs={runs} selectedId={selectedId} onSelect={(run) => setSelectedId(run.id)} />
+          <div className="search-row">
+            <Search size={13} />
+            <input
+              className="search-input"
+              placeholder="Filter by name…"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+          <RunList
+            runs={query ? runs.filter((r) => r.base.toLowerCase().includes(query.toLowerCase())) : runs}
+            selectedId={selectedId}
+            onSelect={(run) => setSelectedId(run.id)}
+          />
         </section>
       </aside>
 
