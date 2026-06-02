@@ -987,8 +987,30 @@ def _run_pipeline_engine(
         return False
 
 
+def _resolve_run_base(hint: str) -> str:
+    """Find the actual base name used by the capture pipeline.
+
+    The pipeline applies safe_name() sanitisation, so look for checkpoint
+    or chunk files matching the hint prefix.
+    """
+    for pattern in (f"stream-{hint}_chunk*.md", f"stream-{hint}.checkpoint.json"):
+        candidates = sorted(RUNS_DIR.glob(pattern))
+        if candidates:
+            # Extract base from chunk filename: stream-<base>_chunk001_0s-...
+            name = candidates[0].name
+            # Remove leading "stream-" and trailing "_chunk..." or ".checkpoint..."
+            name = name[len("stream-"):]
+            idx = name.find("_chunk")
+            if idx < 0:
+                idx = name.find(".checkpoint")
+            if idx > 0:
+                return name[:idx]
+            return name
+    return hint
+
+
 def launch_live_pipeline(run_id: str, record: dict) -> None:
-    """WIN-only: continuous HLS live capture → merge → synthesis."""
+    """WIN-only: live capture via playwright-keepalive → merge → synthesis."""
     plan = record.get("plan") or {}
     source = str(plan.get("source") or "").strip()
     base = str(plan.get("base") or "").strip()
@@ -1000,46 +1022,38 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
 
     python = _find_python()
     auth = ROOT / "zhihu_auth_state.json"
-    stream_dir = ROOT / "Videos" / ".stream"
-    marker_file = RUNS_DIR / f"stream-base-web-{run_id}.txt"
-
-    # Step 1: continuous HLS capture — runs until stream ends
-    capture_cmd = [
-        python, "-u", str(ROOT / "zhihuTTS_stream.py"),
-        "--playwright-keepalive",
-        "--continuous-hls",
-        "--page-url", source,
-        "--playwright-storage-state", str(auth),
-        "--duration", "0",
-        "--chunk-duration", "60",
-        "--stream-work-dir", str(stream_dir),
-        "--base-marker", str(marker_file),
-    ]
-    if base:
-        capture_cmd += ["--name", base]
     if not auth.exists():
         update_registry_record(run_id, "failed", "zhihu_auth_state.json not found.", "error")
         return
+
+    # Step 1: live capture — --duration 0 means run until stream ends
+    captured_name = base or f"live_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    capture_cmd = [
+        python, "-u", str(ROOT / "zhihuTTS_stream.py"),
+        "--playwright-keepalive",
+        "--page-url", source,
+        "--playwright-storage-state", str(auth),
+        "--playwright-save-storage-state", str(auth),
+        "--duration", "0",
+        "--chunk-duration", "60",
+        "--name", captured_name,
+    ]
 
     update_registry_record(run_id, "probing", f"Starting live capture: {source[:80]}")
     ok = _run_pipeline_engine(run_id, capture_cmd, None, _LIVE_KEYWORDS)
     if not ok:
         return
 
-    # Read resolved base name from marker file
-    try:
-        resolved_base = marker_file.read_text(encoding="utf-8").strip()
-    except Exception:
-        resolved_base = base
-    if not resolved_base:
-        update_registry_record(run_id, "failed", "Could not resolve output base name.", "error")
-        return
+    # Resolve actual base name from runs directory
+    resolved = _resolve_run_base(captured_name)
+    if not resolved:
+        resolved = captured_name
 
-    # Step 2: merge chunks → structured Markdown
+    # Step 2: merge
     update_registry_record(run_id, "transcribing", "Merging stream chunks…")
     merge_cmd = [
         python, str(ROOT / "scripts" / "merge_stream_chunks.py"),
-        "--base", resolved_base,
+        "--base", resolved,
         "--runs-dir", str(RUNS_DIR),
     ]
     ok = _run_pipeline_engine(run_id, merge_cmd, None, [])
@@ -1050,7 +1064,7 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
     update_registry_record(run_id, "synthesizing", "Building NotebookLM document…")
     synth_cmd = [
         python, str(ROOT / "scripts" / "build_stream_markdown.py"),
-        "--base", resolved_base,
+        "--base", resolved,
         "--runs-dir", str(RUNS_DIR),
         "--markdowns-dir", str(MARKDOWNS_DIR),
         "--provider", provider,
