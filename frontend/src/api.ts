@@ -110,3 +110,22 @@ export async function createRun(request: RunPlanRequest): Promise<RunRecord> {
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return (await response.json()) as RunRecord;
 }
+
+export async function launchRun(id: string): Promise<RunRecord> {
+  const response = await fetch(`/api/runs/${encodeURIComponent(id)}/launch`, { method: "POST" });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return (await response.json()) as RunRecord;
+}
+
+export async function patchRun(id: string, status: string, message: string): Promise<RunRecord> {
+  const response = await fetch(`/api/runs/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status, message }),
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return (await response.json()) as RunRecord;
+}
+
+// Statuses that require frontend polling (kept in sync with server RUNNING_STATUSES).
+export const RUNNING_STATUSES = new Set(["probing", "recording", "transcribing", "synthesizing"]);

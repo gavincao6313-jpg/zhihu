@@ -364,6 +364,45 @@ def find_registry_record(run_id: str) -> dict | None:
     return None
 
 
+def update_registry_record(run_id: str, status: str, log_message: str, level: str = "info") -> dict | None:
+    """Update status + append a log entry for a registry run. Returns updated record or None."""
+    normalized = run_id.removeprefix("web:")
+    records = list_registry_records()
+    updated = None
+    now = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+    for record in records:
+        if record.get("id") == normalized:
+            record["status"] = status
+            record["updated_at"] = now
+            record.setdefault("logs", []).append({"time": now, "level": level, "message": log_message})
+            updated = record
+            break
+    if updated:
+        write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
+    return updated
+
+
+# Non-terminal statuses — frontend should poll these
+RUNNING_STATUSES = {"created", "probing", "recording", "transcribing", "synthesizing"}
+
+_SIMULATION_STEPS: list[tuple[str, str, float]] = [
+    ("probing",      "Probing source URL and checking auth state...",        3.0),
+    ("recording",    "Playwright keepalive started. Capturing live stream.", 5.0),
+    ("transcribing", "SenseVoice ASR running on chunk segments.",            6.0),
+    ("synthesizing", "Synthesis started. Calling Gemini / Qwen.",            5.0),
+    ("completed",    "Pipeline finished. Final QC written.",                 0.0),
+]
+
+
+def simulate_pipeline(run_id: str) -> None:
+    """Background thread: advances a created run through the state machine with realistic delays."""
+    import time
+    for status, message, delay in _SIMULATION_STEPS:
+        update_registry_record(run_id, status, message)
+        if delay > 0:
+            time.sleep(delay)
+
+
 def record_to_run(record: dict, include_detail: bool = True) -> dict:
     plan = record.get("plan") or {}
     warnings = plan.get("warnings") or []
@@ -555,6 +594,9 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/runs":
             self.send_json(list_runs())
             return
+        if path == "/api/config":
+            self.send_json({"running_statuses": list(RUNNING_STATUSES)})
+            return
         if path.startswith("/api/runs/"):
             run_id = path.removeprefix("/api/runs/")
             registry_record = find_registry_record(run_id)
@@ -569,13 +611,46 @@ class Handler(BaseHTTPRequestHandler):
             return
         self.send_json({"error": "not found"}, status=404)
 
+    def do_PATCH(self) -> None:
+        path = unquote(urlparse(self.path).path)
+        if path.startswith("/api/runs/"):
+            run_id = path.removeprefix("/api/runs/")
+            body = self.read_json_body()
+            new_status = str(body.get("status") or "").strip()
+            message = str(body.get("message") or "").strip()
+            level = str(body.get("level") or "info").strip()
+            if not new_status:
+                self.send_json({"error": "status is required"}, status=400)
+                return
+            updated = update_registry_record(run_id, new_status, message or f"Status changed to {new_status}.", level)
+            if not updated:
+                self.send_json({"error": "registry run not found"}, status=404)
+                return
+            self.send_json(record_to_run(updated, include_detail=True))
+            return
+        self.send_json({"error": "not found"}, status=404)
+
     def do_POST(self) -> None:
+        import threading
         path = unquote(urlparse(self.path).path)
         if path == "/api/run-plans":
             self.send_json(build_run_plan(self.read_json_body()))
             return
         if path == "/api/runs":
             self.send_json(create_registry_record(self.read_json_body()), status=201)
+            return
+        if path.startswith("/api/runs/") and path.endswith("/launch"):
+            run_id = path.removeprefix("/api/runs/").removesuffix("/launch")
+            record = find_registry_record(run_id)
+            if not record:
+                self.send_json({"error": "registry run not found"}, status=404)
+                return
+            if record.get("status") not in ("created",):
+                self.send_json({"error": f"cannot launch run in status '{record.get('status')}'"}, status=409)
+                return
+            # Start simulated pipeline in background thread; real launcher will replace this.
+            threading.Thread(target=simulate_pipeline, args=(run_id,), daemon=True).start()
+            self.send_json(record_to_run(record, include_detail=True))
             return
         self.send_json({"error": "not found"}, status=404)
 

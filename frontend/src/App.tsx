@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Activity,
   AlertTriangle,
@@ -9,6 +9,7 @@ import {
   Film,
   Gauge,
   Image as ImageIcon,
+  Play,
   Radio,
   RefreshCw,
   Search,
@@ -16,7 +17,7 @@ import {
   Upload,
   Video
 } from "lucide-react";
-import { createRun, createRunPlan, fetchRun, fetchRuns } from "./api";
+import { RUNNING_STATUSES, createRun, createRunPlan, fetchRun, fetchRuns, launchRun } from "./api";
 import type { RunPlan, RunPlanRequest, RunRecord, SourceType } from "./types";
 
 const sourceMeta: Record<SourceType, { label: string; icon: typeof Film }> = {
@@ -139,13 +140,19 @@ function RunList({ runs, selectedId, onSelect }: { runs: RunRecord[]; selectedId
   );
 }
 
-function Overview({ run }: { run: RunRecord }) {
+function Overview({ run, onLaunch, launching }: { run: RunRecord; onLaunch?: () => void; launching?: boolean }) {
   return (
     <div className="overview-grid">
       <section className="panel">
         <div className="panel-heading">
           <Activity size={18} />
           <h2>Pipeline</h2>
+          {run.status === "created" && onLaunch && (
+            <button className="launch-button" type="button" onClick={onLaunch} disabled={launching}>
+              <Play size={14} />
+              {launching ? "Starting…" : "Launch (simulated)"}
+            </button>
+          )}
         </div>
         <div className="timeline">
           {run.steps.map((step) => (
@@ -305,8 +312,8 @@ function LogsPanel({ run }: { run: RunRecord }) {
   );
 }
 
-function DetailTab({ tab, run }: { tab: Tab; run: RunRecord }) {
-  if (tab === "Overview") return <Overview run={run} />;
+function DetailTab({ tab, run, onLaunch, launching }: { tab: Tab; run: RunRecord; onLaunch?: () => void; launching?: boolean }) {
+  if (tab === "Overview") return <Overview run={run} onLaunch={onLaunch} launching={launching} />;
   if (tab === "Plan") return run.plan ? <RunPlanPanel plan={run.plan} /> : <EmptyPanel title="Plan" text="This run was discovered from final QC artifacts, so no web-created plan is attached." />;
   if (tab === "Logs") return <LogsPanel run={run} />;
   if (tab === "Chunks") return <Chunks run={run} />;
@@ -333,6 +340,8 @@ export default function App() {
   const [planError, setPlanError] = useState("");
   const [planning, setPlanning] = useState(false);
   const [savingRun, setSavingRun] = useState(false);
+  const [launching, setLaunching] = useState(false);
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     setLoadingIndex(true);
@@ -353,6 +362,35 @@ export default function App() {
       .then((run) => setSelectedRun(run))
       .finally(() => setLoadingDetail(false));
   }, [selectedId]);
+
+  // Poll selected run every 3s while it is in a running state.
+  useEffect(() => {
+    if (pollRef.current) clearInterval(pollRef.current);
+    if (!selectedId || !selectedRun || !RUNNING_STATUSES.has(selectedRun.status)) return;
+    pollRef.current = setInterval(() => {
+      fetchRun(selectedId).then((run) => {
+        setSelectedRun(run);
+        setRuns((items) => items.map((item) => (item.id === run.id ? run : item)));
+        if (!RUNNING_STATUSES.has(run.status)) {
+          clearInterval(pollRef.current!);
+          pollRef.current = null;
+        }
+      }).catch(() => {/* ignore transient poll errors */});
+    }, 3000);
+    return () => { if (pollRef.current) clearInterval(pollRef.current); };
+  }, [selectedId, selectedRun?.status]);
+
+  function handleLaunch() {
+    if (!selectedId) return;
+    setLaunching(true);
+    launchRun(selectedId)
+      .then((run) => {
+        setSelectedRun(run);
+        setRuns((items) => items.map((item) => (item.id === run.id ? run : item)));
+      })
+      .catch((error) => console.error("Launch failed:", error))
+      .finally(() => setLaunching(false));
+  }
 
   function refreshIndex() {
     setLoadingIndex(true);
@@ -525,7 +563,7 @@ export default function App() {
             </nav>
 
             {loadingDetail && <div className="detail-loading">Loading detail from API...</div>}
-            <DetailTab tab={activeTab} run={selectedRun} />
+            <DetailTab tab={activeTab} run={selectedRun} onLaunch={handleLaunch} launching={launching} />
           </>
         )}
       </section>
