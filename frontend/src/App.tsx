@@ -21,13 +21,14 @@ import {
   RUNNING_STATUSES,
   createRun,
   createRunPlan,
+  fetchAuthStatus,
   fetchConfig,
   fetchLiveChunks,
   fetchRun,
   fetchRuns,
   launchRun,
 } from "./api";
-import type { ServerConfig } from "./api";
+import type { AuthStatus, ServerConfig } from "./api";
 import type { Lang } from "./i18n";
 import { t } from "./i18n";
 import type { RunPlan, RunPlanRequest, RunRecord, SourceType } from "./types";
@@ -634,6 +635,8 @@ function DetailTab({
 export default function App() {
   const [lang, setLang] = useState<Lang>("zh");
   const [config, setConfig] = useState<ServerConfig>({ launch_mode: "simulate", readonly: false, running_statuses: [] });
+  const [authStatus, setAuthStatus] = useState<AuthStatus | null>(null);
+  const [checkingAuth, setCheckingAuth] = useState(false);
   const [runs, setRuns] = useState<RunRecord[]>([]);
   const [selectedId, setSelectedId] = useState<string>();
   const [selectedRun, setSelectedRun] = useState<RunRecord>();
@@ -718,6 +721,13 @@ export default function App() {
     live:   "https://www.zhihu.com/xen/training/live/room/...",
   };
 
+  function checkAuth() {
+    setCheckingAuth(true);
+    fetchAuthStatus()
+      .then(setAuthStatus)
+      .finally(() => setCheckingAuth(false));
+  }
+
   function selectSourceType(type: SourceType) {
     setSourceType(type);
     setSource("");
@@ -728,6 +738,8 @@ export default function App() {
       setProvider("gemini");
       setSynthesisPass("one-shot");
     }
+    if (type === "live") checkAuth();
+    else setAuthStatus(null);
   }
 
   function currentPlanRequest(): RunPlanRequest {
@@ -843,6 +855,27 @@ export default function App() {
             <SourceCard type="replay" active={sourceType === "replay"} lang={lang} onClick={() => selectSourceType("replay")} />
             <SourceCard type="live"   active={sourceType === "live"}   lang={lang} onClick={() => selectSourceType("live")} />
           </div>
+
+          {/* Auth status badge — only shown for live stream */}
+          {sourceType === "live" && (
+            <div className={`auth-badge ${authStatus ? (authStatus.ok ? "ok" : "fail") : "idle"}`}>
+              {checkingAuth ? (
+                <span>{lang === "zh" ? "检查登录状态…" : "Checking auth…"}</span>
+              ) : authStatus ? (
+                <>
+                  <span className="auth-dot" />
+                  <span>{authStatus.message}</span>
+                  <button type="button" className="auth-recheck" onClick={checkAuth}>
+                    {lang === "zh" ? "重检" : "Recheck"}
+                  </button>
+                </>
+              ) : (
+                <button type="button" className="auth-recheck" onClick={checkAuth}>
+                  {lang === "zh" ? "检查登录状态" : "Check auth"}
+                </button>
+              )}
+            </div>
+          )}
 
           <label className="input-label">
             {sourceInputLabel[sourceType]}

@@ -73,6 +73,22 @@ export interface ServerConfig {
   running_statuses: string[];
 }
 
+export interface AuthStatus {
+  ok: boolean;
+  message: string;
+  detail: Record<string, string>;
+}
+
+export async function fetchAuthStatus(): Promise<AuthStatus> {
+  try {
+    const response = await fetch("/api/check-auth");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return (await response.json()) as AuthStatus;
+  } catch {
+    return { ok: false, message: "无法连接 API 服务器", detail: {} };
+  }
+}
+
 export async function fetchConfig(): Promise<ServerConfig> {
   try {
     const response = await fetch("/api/config");

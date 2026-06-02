@@ -797,6 +797,9 @@ class Handler(BaseHTTPRequestHandler):
                 "readonly": _READONLY,
             })
             return
+        if path == "/api/check-auth":
+            self.send_json(_check_auth_state())
+            return
         if path.startswith("/api/runs/"):
             # /api/runs/{id}/live-chunks  — chunks visible during recording before manifest exists
             if path.endswith("/live-chunks"):
@@ -908,6 +911,76 @@ def _find_python() -> str:
     if venv2.exists():
         return str(venv2)
     return sys.executable
+
+
+_AUTH_COOKIE_NAMES = {"z_c0", "KLBRSID", "_xsrf"}  # key zhihu auth cookies
+
+
+def _check_auth_state(auth_path: Path | None = None) -> dict:
+    """Check whether zhihu_auth_state.json contains valid (non-expired) auth cookies.
+
+    Returns:
+        {"ok": bool, "message": str, "detail": {cookie_name: status_str}}
+    """
+    if auth_path is None:
+        auth_path = ROOT / "zhihu_auth_state.json"
+
+    if not auth_path.exists():
+        return {
+            "ok": False,
+            "message": "zhihu_auth_state.json not found. Run: python login_save_auth.py",
+            "detail": {},
+        }
+
+    try:
+        data = json.loads(auth_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return {"ok": False, "message": f"auth state file unreadable: {exc}", "detail": {}}
+
+    cookies = data.get("cookies") or []
+    now = time.time()
+    found: dict[str, str] = {}
+
+    for c in cookies:
+        name = c.get("name", "")
+        if name not in _AUTH_COOKIE_NAMES:
+            continue
+        expires = c.get("expires", -1)
+        if expires == -1:
+            found[name] = "session"
+        elif expires > now:
+            found[name] = datetime.fromtimestamp(expires).strftime("%Y-%m-%d %H:%M")
+        else:
+            found[name] = "EXPIRED"
+
+    if not found:
+        return {
+            "ok": False,
+            "message": "No zhihu auth cookies found. Run: python login_save_auth.py",
+            "detail": {},
+        }
+
+    expired = [k for k, v in found.items() if v == "EXPIRED"]
+    if expired:
+        return {
+            "ok": False,
+            "message": f"登录已过期（{', '.join(expired)}），请重新运行 python login_save_auth.py",
+            "detail": found,
+        }
+
+    if "z_c0" not in found:
+        return {
+            "ok": False,
+            "message": "z_c0 主认证 cookie 不存在，请重新登录",
+            "detail": found,
+        }
+
+    expiry_hint = found.get("z_c0", "")
+    return {
+        "ok": True,
+        "message": f"登录有效（z_c0 有效期至 {expiry_hint}）",
+        "detail": found,
+    }
 
 
 def _remove_registry_record(run_id: str) -> None:
@@ -1122,8 +1195,9 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
 
     python = _find_python()
     auth = ROOT / "zhihu_auth_state.json"
-    if not auth.exists():
-        update_registry_record(run_id, "failed", "zhihu_auth_state.json not found.", "error")
+    auth_check = _check_auth_state(auth)
+    if not auth_check["ok"]:
+        update_registry_record(run_id, "failed", auth_check["message"], "error")
         return
 
     # Step 1: live capture — --duration 0 means run until stream ends

@@ -821,6 +821,58 @@ th {
   background: #0f766e;
 }
 
+/* ── Auth status badge ───────────────────────────────────────────────────── */
+
+.auth-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  border: 1px solid #d1d8dc;
+  background: #f8fafb;
+  color: #48545c;
+  margin-top: 4px;
+}
+
+.auth-badge.ok {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.auth-badge.fail {
+  border-color: #fca5a5;
+  background: #fff1f2;
+  color: #991b1b;
+}
+
+.auth-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: currentColor;
+}
+
+.auth-recheck {
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.auth-recheck:hover {
+  opacity: 1;
+}
+
 /* ── Drag-drop zone ──────────────────────────────────────────────────────── */
 
 .drop-zone {
