@@ -17,6 +17,8 @@ MARKDOWNS_DIR = ROOT / "Markdowns"
 REGISTRY_PATH = RUNS_DIR / "web-run-registry.json"
 
 _ANSI_RE = re.compile(r"\x1b\[[0-9;]*[a-zA-Z]")
+_TQDM_RE = re.compile(r"[\x08\r].*?(?:\d+%\|[^|]+\|.*?(?:\d+/\d+|$)|$)")
+_CLEANUP_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")  # keep \n \t \r
 
 # Populated by main() from CLI args; controls write access and launch mode.
 _READONLY: bool = False
@@ -951,12 +953,13 @@ def _run_pipeline_engine(
         update_registry_record(run_id, "recording", f"Process started (PID {proc.pid})")
 
         for raw_line in proc.stdout:
-            # Strip ANSI escape codes, \r, and other control chars that break frontend display
-            line = raw_line.rstrip()
-            # Remove ANSI CSI sequences (e.g. tqdm progress bars, colored output)
+            # Aggressively strip ANSI/control characters from subprocess output
+            line = raw_line
+            # Remove ANSI escape sequences (\x1b[...m, \x1b[K, etc.)
             line = _ANSI_RE.sub("", line)
-            # Collapse \r rewrites (tqdm uses \r to rewrite the same line)
-            line = line.replace("\r", "")
+            # Remove all control characters except newline and tab
+            line = "".join(ch for ch in line if ch.isprintable() or ch in "\n\t")
+            line = line.strip()
             if not line:
                 continue
             line_buf.append(line)
