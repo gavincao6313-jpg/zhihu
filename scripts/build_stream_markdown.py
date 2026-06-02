@@ -255,7 +255,9 @@ QWEN_WINDOW_NOTE_PROMPT_TEXT = """
 逐条记录关键视觉证据，包括时间戳和屏幕内容。
 
 ## Quotes
-记录 3-8 条重要原话或近原话。
+记录 3-8 条重要原话或近原话，兼顾两类：
+- **方法论/判断类**：讲师给出的操作技巧、判断标准、步骤。
+- **观点/情感/观察类**：体现讲师世界观或现场感的短句，如"学习是一种病"这类有记忆点的表达。不要只保留方法论金句，情感/观察类同等重要。
 
 ## Merge Hints
 写给最终组装步骤的提示：本窗口应归入哪个章节、与前后窗口的关系、哪些内容不能丢。
@@ -280,7 +282,7 @@ QWEN_FINAL_ASSEMBLY_PROMPT_TEXT = """
 - Glossary 可以更清晰，但正文必须保留窗口笔记中的丰富细节。
 
 # 必须输出
-# （准确具体的中文标题）
+# （准确具体的中文标题 — 必须覆盖核心技术内容和场景，不要以受众身份为主题）
 
 ## 1. 视频元数据
 - **推测主题：**
@@ -1253,11 +1255,10 @@ def ensure_qwen_narrative_appendix(markdown_body: str, blocks: list[dict], trans
     retention = check_qwen_narrative_retention(markdown_body, blocks, transcript)
     metrics = retention["metrics"]
     has_section = "## 6. 叙事证据附录" in markdown_body or "## 叙事证据附录" in markdown_body
-    should_append = (
-        not has_section
-        or metrics["body_transcript_ratio"] < QWEN_NARRATIVE_RETENTION_MIN_RATIO
-        or metrics["retention_ratio"] < 0.80
-    )
+    # Only append when section is completely absent. If the section header already
+    # exists (even if thin), appending again creates a duplicate ## 6 heading.
+    # Low-ratio cases are addressed by prompt improvement, not structural duplication.
+    should_append = not has_section
     if not should_append:
         return markdown_body, {"appended": False, "reason": "already_retained", "appended_blocks": 0}
 

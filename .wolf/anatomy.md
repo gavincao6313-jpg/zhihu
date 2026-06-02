@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T15:52:33.309Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T16:34:06.014Z
 > Files: 74 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -14,7 +14,7 @@
 - `run_zhihu_live.bat` (~1231 tok)
 - `START_LIVE.bat` (~472 tok)
 - `stream_extractors.py` — class: is_ytdlp_stream_ended_error, infer_media_type, analyze_url_route, extract_with_ytdlp + 1 more (~6476 tok)
-- `utils.py` — Shared utilities + Qwen QC: call_gemini/call_qwen、extract_qwen_critical_facts、extract_qwen_narrative_blocks、ensure_qwen_critical/narrative_appendix、check_qwen_notebooklm_quality、check_qwen_fact/narrative_retention。 (~8796 tok)
+- `utils.py` — Shared utilities for zhihu pipeline scripts. (~9349 tok)
 - `zhihuTTS_stream.py` — StreamSliceError: build_stream_gemini_parts, parse_time, fmt_time, safe_name + 1 more (~19014 tok)
 - `zhihuTTS_video.py` — 关键帧提取 + SenseVoice/Whisper 转写（_sensevoice_model_cache 单例，避免每 chunk 重复加载 AutoModel）。 (~8432 tok)
 
@@ -97,7 +97,7 @@
 
 ## scripts/
 
-- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~24379 tok)
+- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~24449 tok)
 - `convert_payload_to_chunks.py` — Convert single payload.json to per-chunk stream format for build_stream_markdown.py. (~1548 tok)
 - `live_sectioned_synthesis.py` — P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents. (~30063 tok)
 - `merge_stream_chunks.py` — parse_chunk_start, parse_timestamp, load_chunk_lines, load_chunk_slides (~2020 tok)

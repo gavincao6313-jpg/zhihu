@@ -729,11 +729,10 @@ def ensure_qwen_narrative_appendix(markdown_body: str, blocks: list[dict], trans
     retention = check_qwen_narrative_retention(markdown_body, blocks, transcript)
     metrics = retention["metrics"]
     has_section = "## 6. 叙事证据附录" in markdown_body or "## 叙事证据附录" in markdown_body
-    should_append = (
-        not has_section
-        or metrics["body_transcript_ratio"] < QWEN_NARRATIVE_RETENTION_MIN_RATIO
-        or metrics["retention_ratio"] < 0.80
-    )
+    # Only append when section is completely absent. If the section header already
+    # exists (even if thin), appending again creates a duplicate ## 6 heading.
+    # Low-ratio cases are addressed by prompt improvement, not structural duplication.
+    should_append = not has_section
     if not should_append:
         return markdown_body, {"appended": False, "reason": "already_retained", "appended_blocks": 0}
 

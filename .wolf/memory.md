@@ -32,6 +32,7 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 00:17 | 拉取并分析WIN三模型直播对比 | docs/three-model-comparison-20260602.md, Markdowns/TTS_stream-live-20260602-195306-*.md, runs/*195306*final-qc.json | fast-forward到898ee28；确认Qwen保真更强、Gemini更清洁压缩，适合二阶段审校/改写而非默认全文混合 | ~9000 |
 | 今日 | fix P0/P1/P3 in experiment/inline-and-uri-upload | zhihuTTS.py | collect_videos+auto_split+MAX_RETRIES 12+caffeinate fix 推送 | ~800 |
 
 ## Session: 2026-05-18 (continued)
@@ -915,3 +916,15 @@
 | 23:47 | 明日3小时直播前端预检 | frontend/src/App.tsx, web_api/server.py, zhihuTTS_stream.py, docs/* | build/py_compile/API plan checks pass; found live preview-vs-launch mismatch and Markdown provider fallback risk | ~9000 |
 | 23:52 | Edited web_api/server.py | expanded (+19 lines) | ~458 |
 | 23:52 | Edited web_api/server.py | modified markdown_for_base() | ~165 |
+
+## Session: 2026-06-02 00:04
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:32 | Edited utils.py | 7→6 lines | ~118 |
+| 00:33 | Edited scripts/build_stream_markdown.py | 7→6 lines | ~118 |
+| 00:33 | Edited scripts/build_stream_markdown.py | 2→4 lines | ~40 |
+| 00:34 | Edited scripts/build_stream_markdown.py | 6→6 lines | ~27 |
+
+| 00:35 | P0 fix bug-140: ensure_qwen_narrative_appendix 重复附录 | utils.py, scripts/build_stream_markdown.py | should_append=not has_section，语法OK | ~800 |
+| 00:35 | P0 prompt: Quotes区分金句类型 + H1标题准确性指引 | scripts/build_stream_markdown.py | 3处prompt更新 | ~400 |
