@@ -761,3 +761,19 @@
 | 23:57 | Edited stream_extractors.py | modified refresh_and_get() | ~300 |
 | 23:58 | Edited zhihuTTS_stream.py | modified is_ytdlp_stream_ended_error() | ~296 |
 | 23:58 | Edited scripts/build_stream_markdown.py | 5→7 lines | ~131 |
+| 00:11 | 第三方审查 2026-06-01 WIN live bug fix | stream_extractors.py, zhihuTTS_stream.py, scripts/build_stream_markdown.py, run_zhihu_live.bat | greenlet/max-frames fix 离线验证通过；仍发现 run_zhihu_live.bat 回退为 Gemini-only 简化入口，以及结束关键词/greenlet clean-end 可能误判 | ~9000 |
+| 00:18 | Edited run_zhihu_live.bat | 4→6 lines | ~63 |
+| 00:18 | Created START_LIVE.bat | — | ~472 |
+| 00:19 | Edited docs/LIVE_STREAM_SOP.md | expanded (+7 lines) | ~110 |
+| 00:19 | Edited docs/LIVE_STREAM_SOP.md | 11→13 lines | ~68 |
+| 00:19 | Edited docs/LIVE_STREAM_SOP.md | 34→33 lines | ~235 |
+| 00:20 | Edited docs/LIVE_STREAM_SOP.md | 8→10 lines | ~69 |
+| 00:20 | Edited docs/LIVE_STREAM_SOP.md | 4→6 lines | ~91 |
+| 00:20 | Edited docs/LIVE_STREAM_SOP.md | 17→17 lines | ~96 |
+| 00:25 | 记录明日前端产品化方向 | frontend plan, pipeline visualization | 用户要求把 MP4 导入、回放视频、直播流 URL、启动过程、运行记录、中间产物、QC、关键帧、逐字稿、最终 MD 全流程可视化；目标是从后端工具升级为完整软件功能 | ~500 |
+| 10:08 | 设计 zhihu 前端产品化功能蓝图 | docs/FRONTEND_PRODUCT_DESIGN_20260602.md, .wolf/anatomy.md | 定义 source cards、Runs/Run Detail、流程时间线、chunks/QC/keyframes/transcript/Markdown 页面、P0-P2 实施范围和 API 边界 | ~5200 |
+| 10:46 | 搭建前端框架和本地 API 骨架 | frontend/, web_api/, .wolf/anatomy.md, .wolf/buglog.json | 新增 React/Vite/TypeScript Workbench、lucide 图标 UI、本地 `/api/runs` indexer；npm install、py_compile、npm run build、Vite/API 本地服务验证通过；Browser iab 不可用未截图 | ~14000 |
+| 11:18 | 继续前端 P0：Run 详情接口与 manifest 优先索引 | web_api/server.py, frontend/src/App.tsx, frontend/src/api.ts, frontend/src/types.ts, frontend/src/styles.css, .wolf/buglog.json | 新增 `/api/runs/{id}` 详情接口、前端按选择加载详情、刷新按钮；修复同 base 早期重启 chunk 混入问题，改为优先从 manifest outputs 索引 chunks/keyframes；py_compile、npm run build、8765/5173 API 抽样通过 | ~9000 |
+| 11:10 | 前端 P0 操作化：创建任务 dry-run plan | web_api/server.py, web_api/README.md, frontend/src/App.tsx, frontend/src/api.ts, frontend/src/types.ts, frontend/src/styles.css, .wolf/anatomy.md | 新增 `POST /api/run-plans`，支持 MP4/replay/live 输入生成命令预览、产物路径、检查项和 warning；前端 Create Source 可切换类型/输入源/base/provider/pass 并展示 Dry Run Plan；不启动长任务、不调用模型；py_compile、npm run build、8765/5173 POST 验证通过 | ~8500 |
+| 11:25 | 前端 P0 运行注册表：保存 created run | web_api/server.py, web_api/README.md, .gitignore, frontend/src/App.tsx, frontend/src/api.ts, frontend/src/types.ts, frontend/src/styles.css, .wolf/anatomy.md | 新增 `POST /api/runs` 保存 dry-run plan 到本地 `runs/web-run-registry.json`，Runs 列表合并 created runs，详情支持 `web:<id>`，新增 Plan/Logs tabs；registry 文件已 ignore；py_compile、npm run build、8765/5173 创建/详情验证通过，测试 registry 已清理 | ~8000 |
+| 11:32 | Created docs/FRONTEND_DASHBOARD_DESIGN.md | — | ~1148 |
