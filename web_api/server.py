@@ -1016,14 +1016,30 @@ def launch_replay_pipeline(run_id: str, record: dict) -> None:
     python = _find_python()
     update_registry_record(run_id, "probing", f"Starting replay capture: {source[:80]}")
 
-    # Step 1: capture replay (stream pipeline, auto-detects end from URL)
-    capture_cmd = [
-        python, str(ROOT / "zhihuTTS_stream.py"),
-        "--url", source,
-        "--chunk-duration", "60",
-        "--name", base,
-        "--cleanup-slices",
-    ]
+    # Step 1: capture replay
+    # zhihu.com pages need Playwright to extract the media stream.
+    # Direct media URLs (mp4/m3u8/flv) can be probed by ffmpeg directly.
+    is_page_url = any(domain in source for domain in ("zhihu.com", "xet.pomoho.com"))
+    if is_page_url:
+        auth_file = ROOT / "zhihu_auth_state.json"
+        capture_cmd = [
+            python, str(ROOT / "zhihuTTS_stream.py"),
+            "--page-url", source,
+            "--extractor", "playwright",
+            "--chunk-duration", "60",
+            "--name", base,
+            "--cleanup-slices",
+        ]
+        if auth_file.exists():
+            capture_cmd += ["--playwright-storage-state", str(auth_file)]
+    else:
+        capture_cmd = [
+            python, str(ROOT / "zhihuTTS_stream.py"),
+            "--url", source,
+            "--chunk-duration", "60",
+            "--name", base,
+            "--cleanup-slices",
+        ]
     ok = _run_pipeline_engine(run_id, capture_cmd, None, _REPLAY_KEYWORDS)
     if not ok:
         return
