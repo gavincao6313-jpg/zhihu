@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import argparse
 import json
+import os
 import re
+import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from datetime import datetime
@@ -12,6 +15,18 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNS_DIR = ROOT / "runs"
 MARKDOWNS_DIR = ROOT / "Markdowns"
 REGISTRY_PATH = RUNS_DIR / "web-run-registry.json"
+
+# Populated by main() from CLI args; controls write access and launch mode.
+_READONLY: bool = False
+_LAUNCH_MODE: str = "simulate"  # "simulate" | "live"
+
+
+def _rel(path: Path) -> str:
+    """Return a posix-style relative path for API responses (safe on both WIN and MAC)."""
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
 
 
 def read_json(path: Path) -> dict:
@@ -121,9 +136,9 @@ def chunks_from_manifest(manifest_path: Path | None) -> list[dict]:
                 "frames": int(processing.get("frames") or 0),
                 "reextracts": int(processing.get("stream_reextracts") or 0),
                 "backend": processing.get("backend") or "unknown",
-                "report_path": str(report.relative_to(ROOT)) if report else "",
-                "transcript_path": str(transcript.relative_to(ROOT)) if transcript else "",
-                "payload_path": str(payload.relative_to(ROOT)) if payload else "",
+                "report_path": _rel(report) if report else "",
+                "transcript_path": _rel(transcript) if transcript else "",
+                "payload_path": _rel(payload) if payload else "",
             }
         )
     return chunks
@@ -156,9 +171,9 @@ def chunks_for_base(base: str, manifest_path: Path | None = None) -> list[dict]:
                 "frames": len(frames),
                 "reextracts": 0,
                 "backend": "unknown",
-                "report_path": str(report.relative_to(ROOT)),
-                "transcript_path": str(transcript.relative_to(ROOT)) if transcript.exists() else "",
-                "payload_path": str(payload.relative_to(ROOT)) if payload.exists() else "",
+                "report_path": _rel(report),
+                "transcript_path": _rel(transcript) if transcript.exists() else "",
+                "payload_path": _rel(payload) if payload.exists() else "",
             }
         )
     return chunks
@@ -204,7 +219,7 @@ def frames_for_base(base: str, manifest_path: Path | None = None) -> list[dict]:
                 {
                     "timestamp_s": chunk_start + float(ts),
                     "type": kind,
-                    "path": str(payload.relative_to(ROOT)),
+                    "path": _rel(payload),
                     "chunk_index": chunk_index,
                     "selected": True,
                 }
@@ -284,10 +299,10 @@ def run_from_qc(path: Path, include_detail: bool = True) -> dict:
         "synthesis_pass": qc.get("synthesis_pass"),
         "label": label,
         "paths": {
-            "manifest_json": str(manifest_path.relative_to(ROOT)) if manifest_path else "",
-            "combined_transcript": str(transcript_path.relative_to(ROOT)) if transcript_path else "",
-            "final_qc": str(path.relative_to(ROOT)),
-            "markdown": str(markdown_path.relative_to(ROOT)) if markdown_path else "",
+            "manifest_json": _rel(manifest_path) if manifest_path else "",
+            "combined_transcript": _rel(transcript_path) if transcript_path else "",
+            "final_qc": _rel(path),
+            "markdown": _rel(markdown_path) if markdown_path else "",
         },
         "metrics": {
             "chunks": chunk_count,
@@ -632,6 +647,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         import threading
+        if _READONLY:
+            self.send_json({"error": "server is in read-only mode"}, status=403)
+            return
         path = unquote(urlparse(self.path).path)
         if path == "/api/run-plans":
             self.send_json(build_run_plan(self.read_json_body()))
@@ -648,16 +666,80 @@ class Handler(BaseHTTPRequestHandler):
             if record.get("status") not in ("created",):
                 self.send_json({"error": f"cannot launch run in status '{record.get('status')}'"}, status=409)
                 return
-            # Start simulated pipeline in background thread; real launcher will replace this.
-            threading.Thread(target=simulate_pipeline, args=(run_id,), daemon=True).start()
+            if _LAUNCH_MODE == "live":
+                threading.Thread(target=launch_live_pipeline, args=(run_id, record), daemon=True).start()
+            else:
+                threading.Thread(target=simulate_pipeline, args=(run_id,), daemon=True).start()
             self.send_json(record_to_run(record, include_detail=True))
             return
         self.send_json({"error": "not found"}, status=404)
 
 
+def launch_live_pipeline(run_id: str, record: dict) -> None:
+    """WIN-only: launch run_zhihu_live.bat via subprocess and track status."""
+    import subprocess
+    plan = record.get("plan") or {}
+    source = str(plan.get("source") or "").strip()
+    base = str(plan.get("base") or "").strip()
+    if not source:
+        update_registry_record(run_id, "failed", "Cannot launch: no source URL in plan.", "error")
+        return
+    update_registry_record(run_id, "probing", "Launching run_zhihu_live.bat…")
+    bat = ROOT / "run_zhihu_live.bat"
+    if not bat.exists():
+        update_registry_record(run_id, "failed", f"run_zhihu_live.bat not found at {bat}", "error")
+        return
+    env = {**os.environ, "ZHIHU_PAGE_URL": source}
+    try:
+        proc = subprocess.Popen(
+            ["cmd", "/c", str(bat)],
+            cwd=str(ROOT),
+            env=env,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+        update_registry_record(run_id, "recording", f"Pipeline started (PID {proc.pid}). Base: {base}")
+        stdout, _ = proc.communicate()
+        if proc.returncode == 0:
+            update_registry_record(run_id, "completed", "Pipeline exited cleanly.")
+        else:
+            update_registry_record(run_id, "failed",
+                                   f"Pipeline exited with code {proc.returncode}.", "error")
+    except Exception as exc:
+        update_registry_record(run_id, "failed", f"Launch error: {exc}", "error")
+
+
 def main() -> None:
-    server = ThreadingHTTPServer(("127.0.0.1", 8765), Handler)
-    print("zhihu web_api listening on http://127.0.0.1:8765")
+    global _READONLY, _LAUNCH_MODE
+    parser = argparse.ArgumentParser(description="zhihu web API server")
+    parser.add_argument("--host", default="127.0.0.1",
+                        help="Bind address. Use 0.0.0.0 to allow network access from MAC.")
+    parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--readonly", action="store_true",
+                        help="Disable POST/PATCH. Useful when MAC runs a local viewer instance.")
+    parser.add_argument("--launch-mode", choices=["simulate", "live"], default="simulate",
+                        help="simulate: background thread state machine (default). "
+                             "live: calls run_zhihu_live.bat via subprocess (WIN only).")
+    args = parser.parse_args()
+    _READONLY = args.readonly
+    _LAUNCH_MODE = args.launch_mode
+
+    mode_tag = "[READ-ONLY]" if _READONLY else f"[{_LAUNCH_MODE.upper()} launch]"
+    print(f"zhihu web_api {mode_tag}  listening on http://{args.host}:{args.port}")
+    print(f"  project root : {ROOT}")
+    print(f"  runs dir     : {RUNS_DIR}")
+    if args.host != "127.0.0.1":
+        import socket
+        try:
+            lan_ip = socket.gethostbyname(socket.gethostname())
+            print(f"  MAC can connect via: http://{lan_ip}:{args.port}")
+        except Exception:
+            pass
+
+    server = ThreadingHTTPServer((args.host, args.port), Handler)
     server.serve_forever()
 
 
