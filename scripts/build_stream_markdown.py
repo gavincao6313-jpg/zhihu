@@ -51,7 +51,7 @@ from utils import call_gemini, call_qwen, extract_run_ts, fmt_ts
 # ── Provider config ───────────────────────────────────────────────────────────
 
 GEMINI_MODEL            = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
-QWEN_MODEL              = os.environ.get("QWEN_MODEL", "qwen3.6-flash")
+QWEN_MODEL              = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
 GEMINI_IMAGE_HARD_LIMIT = 3000   # API ceiling; fallback priority sampling above this
 QWEN_IMAGE_HARD_LIMIT   = 250
 QWEN_DEFAULT_MAX_FRAMES = 128
