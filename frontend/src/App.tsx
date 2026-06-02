@@ -29,6 +29,7 @@ import {
   launchRun,
 } from "./api";
 import type { AuthStatus, ServerConfig } from "./api";
+import { useWorkerInterval } from "./useWorkerInterval";
 import type { Lang } from "./i18n";
 import { t } from "./i18n";
 import type { RunPlan, RunPlanRequest, RunRecord, SourceType } from "./types";
@@ -387,18 +388,21 @@ function Chunks({ run, lang }: { run: RunRecord; lang: Lang }) {
   const isLive = RUNNING_STATUSES.has(run.status) && run.chunks.length === 0;
   const [liveChunks, setLiveChunks] = useState<import("./types").ChunkRecord[]>([]);
 
+  // Reset when not live
   useEffect(() => {
-    if (!isLive) { setLiveChunks([]); return; }
-    let active = true;
-    const poll = () => {
-      fetchLiveChunks(run.id)
-        .then((r) => { if (active) setLiveChunks(r.chunks); })
-        .catch(() => {});
-    };
-    poll();
-    const timer = setInterval(poll, 5000);
-    return () => { active = false; clearInterval(timer); };
+    if (!isLive) setLiveChunks([]);
+  }, [isLive]);
+
+  // Initial fetch immediately when live starts
+  useEffect(() => {
+    if (!isLive) return;
+    fetchLiveChunks(run.id).then((r) => setLiveChunks(r.chunks)).catch(() => {});
   }, [run.id, isLive]);
+
+  // Background-tab-safe polling every 5s
+  useWorkerInterval(() => {
+    fetchLiveChunks(run.id).then((r) => setLiveChunks(r.chunks)).catch(() => {});
+  }, 5000, isLive);
 
   const displayChunks = isLive ? liveChunks : run.chunks;
 
@@ -655,7 +659,7 @@ export default function App() {
   const [planning, setPlanning] = useState(false);
   const [savingRun, setSavingRun] = useState(false);
   const [launching, setLaunching] = useState(false);
-  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // pollRef removed — replaced by useWorkerInterval (background-tab safe)
 
   useEffect(() => {
     fetchConfig().then(setConfig);
@@ -677,22 +681,18 @@ export default function App() {
   }, [selectedId]);
 
   // Poll selected run every 3s while it is in a running state.
-  useEffect(() => {
-    if (pollRef.current) clearInterval(pollRef.current);
-    if (!selectedId || !selectedRun || !RUNNING_STATUSES.has(selectedRun.status)) return;
-    pollRef.current = setInterval(() => {
-      fetchRun(selectedId).then((run) => {
-        setSelectedRun(run);
-        setRuns((items) => items.map((item) => (item.id === run.id ? run : item)));
-        if (!RUNNING_STATUSES.has(run.status)) {
-          clearInterval(pollRef.current!);
-          pollRef.current = null;
-          if (run.status === "completed") setTimeout(() => refreshIndex(), 2000);
-        }
-      }).catch(() => {});
-    }, 3000);
-    return () => { if (pollRef.current) clearInterval(pollRef.current); };
-  }, [selectedId, selectedRun?.status]);
+  // useWorkerInterval keeps ticking even when the tab is hidden (background-tab safe).
+  const isRunPolling = !!(selectedId && selectedRun && RUNNING_STATUSES.has(selectedRun.status));
+  useWorkerInterval(() => {
+    if (!selectedId) return;
+    fetchRun(selectedId).then((run) => {
+      setSelectedRun(run);
+      setRuns((items) => items.map((item) => (item.id === run.id ? run : item)));
+      if (!RUNNING_STATUSES.has(run.status) && run.status === "completed") {
+        setTimeout(() => refreshIndex(), 2000);
+      }
+    }).catch(() => {});
+  }, 3000, isRunPolling);
 
   function handleLaunch() {
     if (!selectedId) return;
