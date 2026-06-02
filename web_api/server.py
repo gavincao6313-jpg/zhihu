@@ -94,6 +94,7 @@ def markdown_for_base(base: str, label: str = "") -> Path | None:
         exact = MARKDOWNS_DIR / f"TTS_{base}-{label}.md"
         if exact.exists():
             return exact
+        return None  # never bind a labeled QC to a different provider's Markdown
 
     candidates = sorted(MARKDOWNS_DIR.glob(f"TTS_stream-{base}*.md"))
     if not candidates:
@@ -674,20 +675,39 @@ def build_run_plan(payload: dict) -> dict:
             }
         )
     elif source_type == "live":
+        synth_extra = f" --qwen-max-frames {qwen_max_frames}" if provider == "qwen" else ""
         commands.append(
             {
                 "stage": "capture",
-                "label": "Capture live stream",
-                "command": f"run_zhihu_live.bat \"{source}\" \"{base}\"",
-                "summary": "Windows operator entrypoint for live capture and post-processing.",
+                "label": "Capture live stream (continuous-HLS)",
+                "command": (
+                    f"python zhihuTTS_stream.py --continuous-hls --playwright-keepalive"
+                    f" --page-url \"{source}\""
+                    f" --chunk-duration 60 --name \"{base}\""
+                    f" --stream-work-dir Videos/.stream"
+                ),
+                "summary": "Recorder+Consumer 并行：ffmpeg 持续录制 .ts 分片，ASR/关键帧同步处理。URL 过期后 Playwright 自动刷新。",
             }
         )
         commands.append(
             {
-                "stage": "review",
-                "label": "Refresh workbench index",
-                "command": "Open http://127.0.0.1:5173/ and press Refresh index",
-                "summary": "The UI will discover final QC, transcript, chunks, keyframes, and Markdown after artifacts land.",
+                "stage": "merge",
+                "label": "Merge stream chunks",
+                "command": f"python scripts/merge_stream_chunks.py --base \"{base}\" --runs-dir runs",
+                "summary": "合并所有分片 transcript，生成 combined-transcript.txt 和 manifest.json。",
+            }
+        )
+        commands.append(
+            {
+                "stage": "synthesize",
+                "label": f"Build {provider.upper()} Markdown",
+                "command": (
+                    f"python scripts/build_stream_markdown.py --base \"{base}\""
+                    f" --runs-dir runs --markdowns-dir Markdowns"
+                    f" --provider {provider} --synthesis-pass {synthesis_pass}"
+                    f"{synth_extra} --output-label {provider}"
+                ),
+                "summary": f"调用 {provider.upper()} 生成 NotebookLM 文档（{synthesis_pass} 模式）。",
             }
         )
 
