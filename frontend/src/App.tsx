@@ -150,7 +150,7 @@ function Overview({ run, onLaunch, launching }: { run: RunRecord; onLaunch?: () 
           {run.status === "created" && onLaunch && (
             <button className="launch-button" type="button" onClick={onLaunch} disabled={launching}>
               <Play size={14} />
-              {launching ? "Starting…" : "Launch (simulated)"}
+              {launching ? "Starting…" : "Launch"}
             </button>
           )}
         </div>
