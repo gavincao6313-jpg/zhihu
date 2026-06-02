@@ -123,7 +123,11 @@ export async function createRun(request: RunPlanRequest): Promise<RunRecord> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(request)
   });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  if (!response.ok) {
+    let msg = `HTTP ${response.status}`;
+    try { msg = ((await response.json()) as { error?: string }).error ?? msg; } catch { /* ignore */ }
+    throw new Error(msg);
+  }
   return (await response.json()) as RunRecord;
 }
 

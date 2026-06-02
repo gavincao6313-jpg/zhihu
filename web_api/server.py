@@ -4,8 +4,10 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import threading
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from datetime import datetime
@@ -854,7 +856,6 @@ class Handler(BaseHTTPRequestHandler):
         self.send_json({"error": "not found"}, status=404)
 
     def do_POST(self) -> None:
-        import threading
         if _READONLY:
             self.send_json({"error": "server is in read-only mode"}, status=403)
             return
@@ -863,7 +864,16 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(build_run_plan(self.read_json_body()))
             return
         if path == "/api/runs":
-            self.send_json(create_registry_record(self.read_json_body()), status=201)
+            body = self.read_json_body()
+            url = str(body.get("source") or "").strip()
+            running = _find_running_record_for_url(url)
+            if running:
+                self.send_json(
+                    {"error": f"源地址已有正在运行的任务（{running['status']}），id={running['id']}"},
+                    status=409,
+                )
+                return
+            self.send_json(create_registry_record(body), status=201)
             return
         if path.startswith("/api/runs/") and path.endswith("/launch"):
             run_id = path.removeprefix("/api/runs/").removesuffix("/launch")
@@ -908,6 +918,19 @@ def _remove_registry_record(run_id: str) -> None:
         write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
 
 
+def _find_running_record_for_url(url: str) -> dict | None:
+    """Return a currently-running registry record with the same source URL, or None."""
+    normalized = url.strip().rstrip("/")
+    if not normalized:
+        return None
+    for r in list_registry_records():
+        if r.get("status") in RUNNING_STATUSES:
+            old_url = str((r.get("plan") or {}).get("source") or "").strip().rstrip("/")
+            if old_url == normalized:
+                return r
+    return None
+
+
 def _cleanup_orphaned_records(new_url: str) -> None:
     """Remove old failed/created records with the same source URL.
 
@@ -945,29 +968,34 @@ _MP4_KEYWORDS: list[tuple[str, list[str]]] = [
 _REPLAY_KEYWORDS = _LIVE_KEYWORDS  # Same output format as live stream pipeline
 
 
+_LOG_FLUSH_INTERVAL_S: float = 5.0   # flush to registry at most every 5 seconds
+_LOG_FLUSH_MAX_LINES: int = 30       # also flush if buffer hits this many lines
+
+
 def _run_pipeline_engine(
     run_id: str,
     cmd: list[str],
     env: dict | None,
     keywords: list[tuple[str, list[str]]],
-    log_every_n: int = 15,
 ) -> bool:
     """Run a subprocess, parse stdout for status transitions, write log entries.
 
     Returns True on clean exit (returncode==0), False on failure.
+    Flushes log to registry every 5 seconds or every 30 lines, whichever comes first.
     """
-    import subprocess
-
     current_status = "recording"
     triggered: set[str] = set()
     line_buf: list[str] = []
+    last_flush_t = time.monotonic()
 
-    def _flush_log(lines: list[str], force: bool = False) -> None:
-        """Write accumulated lines as a single log entry."""
-        if not lines:
+    def _flush_log() -> None:
+        nonlocal line_buf, last_flush_t
+        if not line_buf:
             return
-        msg = " | ".join(l[:120] for l in lines[-5:])  # keep last 5 lines of buffer
+        msg = " | ".join(l[:120] for l in line_buf[-5:])
         update_registry_record(run_id, current_status, msg)
+        line_buf = []
+        last_flush_t = time.monotonic()
 
     try:
         proc = subprocess.Popen(
@@ -983,13 +1011,9 @@ def _run_pipeline_engine(
         update_registry_record(run_id, "recording", f"Process started (PID {proc.pid})")
 
         for raw_line in proc.stdout:
-            # Aggressively strip ANSI/control characters from subprocess output
-            line = raw_line
-            # Remove ANSI escape sequences (\x1b[...m, \x1b[K, etc.)
-            line = _ANSI_RE.sub("", line)
-            # Remove all control characters except newline and tab
-            line = "".join(ch for ch in line if ch.isprintable() or ch in "\n\t")
-            line = line.strip()
+            # Strip ANSI escape sequences then all remaining control chars
+            line = _ANSI_RE.sub("", raw_line)
+            line = _CLEANUP_RE.sub("", line).strip()
             if not line:
                 continue
             line_buf.append(line)
@@ -1001,13 +1025,13 @@ def _run_pipeline_engine(
                     current_status = new_status
                     update_registry_record(run_id, new_status, line[:120])
 
-            # Periodic log flush
-            if len(line_buf) >= log_every_n:
-                _flush_log(line_buf)
-                line_buf = []
+            # Time-driven flush: every 5s or every 30 lines
+            elapsed = time.monotonic() - last_flush_t
+            if len(line_buf) >= _LOG_FLUSH_MAX_LINES or elapsed >= _LOG_FLUSH_INTERVAL_S:
+                _flush_log()
 
         proc.wait()
-        _flush_log(line_buf, force=True)
+        _flush_log()  # drain remaining buffer
 
         if proc.returncode == 0:
             return True
@@ -1116,8 +1140,7 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
 
 
 def launch_replay_pipeline(run_id: str, record: dict) -> None:
-    """WIN-only: capture a replay URL then run Qwen synthesis."""
-    import subprocess
+    """WIN-only: capture a replay URL then run synthesis."""
     plan = record.get("plan") or {}
     source = str(plan.get("source") or "").strip()
     base = str(plan.get("base") or "").strip()
@@ -1128,6 +1151,7 @@ def launch_replay_pipeline(run_id: str, record: dict) -> None:
         update_registry_record(run_id, "failed", "No source URL in plan.", "error")
         return
 
+    _cleanup_orphaned_records(source)
     python = _find_python()
     update_registry_record(run_id, "probing", f"Starting replay capture: {source[:80]}")
 
@@ -1184,6 +1208,7 @@ def launch_mp4_pipeline(run_id: str, record: dict) -> None:
     if not source:
         update_registry_record(run_id, "failed", "No file path in plan.", "error")
         return
+    _cleanup_orphaned_records(source)
     python = _find_python()
     update_registry_record(run_id, "probing", f"Launching MP4 pipeline: {source[:80]}")
     cmd = [python, str(ROOT / "run_single_file.py"), source]

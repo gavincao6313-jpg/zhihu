@@ -783,16 +783,17 @@ export default function App() {
       setSelectedRun(launched);
       setRuns((items) => items.map((i) => (i.id === launched.id ? launched : i)));
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "";
+      let msg = err instanceof Error ? err.message : "";
       if (msg.includes("403")) {
-        setPlanError(
-          lang === "zh"
-            ? "服务器为只读模式，请用 start_mac_live.sh 重启 API"
-            : "Server is read-only — restart with start_mac_live.sh"
-        );
-      } else {
-        setPlanError(msg || t(lang, "errLaunchFail"));
+        msg = lang === "zh"
+          ? "服务器为只读模式，请用 start_mac_live.sh 重启 API"
+          : "Server is read-only — restart with start_mac_live.sh";
+      } else if (msg.includes("409") || msg.includes("正在运行") || msg.includes("active run")) {
+        msg = lang === "zh"
+          ? "该源已有正在运行的任务，请等待完成后再启动"
+          : "A task for this source is already running — wait for it to finish";
       }
+      setPlanError(msg || t(lang, "errLaunchFail"));
     } finally {
       setLaunching(false);
     }
