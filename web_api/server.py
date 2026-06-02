@@ -902,9 +902,9 @@ def _remove_registry_record(run_id: str) -> None:
 # Keywords detected in subprocess stdout that trigger status transitions.
 # Each entry: (status_to_set, list_of_trigger_substrings)
 _LIVE_KEYWORDS: list[tuple[str, list[str]]] = [
-    ("recording",     ["Input extractor", "Chunk 1", "=== Chunk", "知乎直播转写启动"]),
-    ("transcribing",  ["[2/4]", "合并分片", "merge_stream_chunks", "正在合并"]),
-    ("synthesizing",  ["[3/4]", "[4/4]", "build_stream_markdown", "Gemini", "Qwen", "NotebookLM"]),
+    ("recording",     ["Input extractor", "HLS Continuous", "Chunk", "Recorder", "Session", "[Recorder]"]),
+    ("transcribing",  ["merge_stream_chunks", "合并", "Sections:", "Merging"]),
+    ("synthesizing",  ["build_stream_markdown", "NotebookLM", "Sending to", "Gemini", "Qwen"]),
 ]
 _MP4_KEYWORDS: list[tuple[str, list[str]]] = [
     ("recording",     ["Transcribing", "SenseVoice", "Whisper", "extract_keyframes", "Processing"]),
@@ -988,20 +988,78 @@ def _run_pipeline_engine(
 
 
 def launch_live_pipeline(run_id: str, record: dict) -> None:
-    """WIN-only: launch run_zhihu_live.bat and track status via stdout parsing."""
+    """WIN-only: continuous HLS live capture → merge → synthesis."""
     plan = record.get("plan") or {}
     source = str(plan.get("source") or "").strip()
     base = str(plan.get("base") or "").strip()
+    provider = str(plan.get("provider") or "gemini")
+    synthesis_pass = str(plan.get("synthesis_pass") or "one-shot")
     if not source:
         update_registry_record(run_id, "failed", "No source URL in plan.", "error")
         return
-    bat = ROOT / "run_zhihu_live.bat"
-    if not bat.exists():
-        update_registry_record(run_id, "failed", f"run_zhihu_live.bat not found.", "error")
+
+    python = _find_python()
+    auth = ROOT / "zhihu_auth_state.json"
+    stream_dir = ROOT / "Videos" / ".stream"
+    marker_file = RUNS_DIR / f"stream-base-web-{run_id}.txt"
+
+    # Step 1: continuous HLS capture — runs until stream ends
+    capture_cmd = [
+        python, "-u", str(ROOT / "zhihuTTS_stream.py"),
+        "--playwright-keepalive",
+        "--continuous-hls",
+        "--page-url", source,
+        "--playwright-storage-state", str(auth),
+        "--duration", "0",
+        "--chunk-duration", "60",
+        "--stream-work-dir", str(stream_dir),
+        "--base-marker", str(marker_file),
+    ]
+    if base:
+        capture_cmd += ["--name", base]
+    if not auth.exists():
+        update_registry_record(run_id, "failed", "zhihu_auth_state.json not found.", "error")
         return
-    update_registry_record(run_id, "probing", f"Launching live capture: {source[:80]}")
-    env = {**os.environ, "ZHIHU_PAGE_URL": source}
-    ok = _run_pipeline_engine(run_id, ["cmd", "/c", str(bat)], env, _LIVE_KEYWORDS)
+
+    update_registry_record(run_id, "probing", f"Starting live capture: {source[:80]}")
+    ok = _run_pipeline_engine(run_id, capture_cmd, None, _LIVE_KEYWORDS)
+    if not ok:
+        return
+
+    # Read resolved base name from marker file
+    try:
+        resolved_base = marker_file.read_text(encoding="utf-8").strip()
+    except Exception:
+        resolved_base = base
+    if not resolved_base:
+        update_registry_record(run_id, "failed", "Could not resolve output base name.", "error")
+        return
+
+    # Step 2: merge chunks → structured Markdown
+    update_registry_record(run_id, "transcribing", "Merging stream chunks…")
+    merge_cmd = [
+        python, str(ROOT / "scripts" / "merge_stream_chunks.py"),
+        "--base", resolved_base,
+        "--runs-dir", str(RUNS_DIR),
+    ]
+    ok = _run_pipeline_engine(run_id, merge_cmd, None, [])
+    if not ok:
+        return
+
+    # Step 3: synthesis
+    update_registry_record(run_id, "synthesizing", "Building NotebookLM document…")
+    synth_cmd = [
+        python, str(ROOT / "scripts" / "build_stream_markdown.py"),
+        "--base", resolved_base,
+        "--runs-dir", str(RUNS_DIR),
+        "--markdowns-dir", str(MARKDOWNS_DIR),
+        "--provider", provider,
+        "--synthesis-pass", synthesis_pass,
+        "--output-label", provider,
+    ]
+    if provider == "qwen":
+        synth_cmd += ["--qwen-max-frames", "250"]
+    ok = _run_pipeline_engine(run_id, synth_cmd, None, [])
     if ok:
         update_registry_record(run_id, "completed", "Live pipeline finished. Refreshing index…")
         _remove_registry_record(run_id)
