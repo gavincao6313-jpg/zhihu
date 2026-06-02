@@ -253,6 +253,44 @@ def _resolve_frame_path(raw: str) -> str:
     return normalised
 
 
+def _locate_frame_file(img_rel: str) -> Path | None:
+    """Find an image file by its relative path.
+
+    Searches ROOT first, then sibling worktree directories (same parent folder).
+    This handles the WIN dual-worktree layout where the API runs from one worktree
+    (e.g. zhihu_file) but frame images live in another (e.g. zhihu_url).
+    """
+    _ALLOWED_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
+
+    def _safe_candidate(base: Path) -> Path | None:
+        candidate = (base / img_rel).resolve()
+        try:
+            candidate.relative_to(base.resolve())
+        except ValueError:
+            return None
+        if candidate.suffix.lower() in _ALLOWED_SUFFIXES and candidate.exists():
+            return candidate
+        return None
+
+    # 1. Try ROOT (fast path, covers same-worktree deployments)
+    found = _safe_candidate(ROOT)
+    if found:
+        return found
+
+    # 2. Try sibling directories of ROOT's parent (handles cross-worktree on WIN)
+    parent = ROOT.parent
+    try:
+        siblings = [d for d in parent.iterdir() if d.is_dir() and d != ROOT]
+    except PermissionError:
+        siblings = []
+    for sibling in sorted(siblings):
+        found = _safe_candidate(sibling)
+        if found:
+            return found
+
+    return None
+
+
 def build_steps(
     qc: dict,
     chunk_count: int,
@@ -650,17 +688,11 @@ class Handler(BaseHTTPRequestHandler):
             if not img_rel:
                 self.send_json({"error": "missing ?p= parameter"}, status=400)
                 return
-            img_file = (ROOT / img_rel).resolve()
-            # Security: must stay inside ROOT and be an image file
-            try:
-                img_file.relative_to(ROOT.resolve())
-            except ValueError:
-                self.send_json({"error": "path outside project root"}, status=403)
-                return
-            if img_file.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
+            if Path(img_rel).suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
                 self.send_json({"error": "not an image file"}, status=400)
                 return
-            if not img_file.exists():
+            img_file = _locate_frame_file(img_rel)
+            if img_file is None:
                 self.send_json({"error": "image not found"}, status=404)
                 return
             mime = "image/jpeg" if img_file.suffix.lower() in {".jpg", ".jpeg"} else "image/png"
