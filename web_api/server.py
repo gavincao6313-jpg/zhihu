@@ -5,6 +5,7 @@ import json
 import os
 import re
 import sys
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from datetime import datetime
@@ -17,8 +18,11 @@ MARKDOWNS_DIR = ROOT / "Markdowns"
 REGISTRY_PATH = RUNS_DIR / "web-run-registry.json"
 
 _ANSI_RE = re.compile(r"\x1b\[[0-9;]*[a-zA-Z]")
-_TQDM_RE = re.compile(r"[\x08\r].*?(?:\d+%\|[^|]+\|.*?(?:\d+/\d+|$)|$)")
 _CLEANUP_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")  # keep \n \t \r
+
+# Thread-safe registry access — prevents race condition between HTTP poller
+# and pipeline daemon thread writing status updates simultaneously.
+_REGISTRY_LOCK = threading.Lock()
 
 # Populated by main() from CLI args; controls write access and launch mode.
 _READONLY: bool = False
@@ -510,9 +514,10 @@ def list_registry_records() -> list[dict]:
 
 
 def save_registry_record(record: dict) -> None:
-    records = [item for item in list_registry_records() if item.get("id") != record.get("id")]
-    records.insert(0, record)
-    write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
+    with _REGISTRY_LOCK:
+        records = [item for item in list_registry_records() if item.get("id") != record.get("id")]
+        records.insert(0, record)
+        write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
 
 
 def find_registry_record(run_id: str) -> dict | None:
@@ -537,7 +542,8 @@ def update_registry_record(run_id: str, status: str, log_message: str, level: st
             updated = record
             break
     if updated:
-        write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
+        with _REGISTRY_LOCK:
+            write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
     return updated
 
 
@@ -897,8 +903,32 @@ def _find_python() -> str:
 def _remove_registry_record(run_id: str) -> None:
     """Delete a registry record so the real QC artifact takes over in list_runs()."""
     normalized = run_id.removeprefix("web:")
-    records = [r for r in list_registry_records() if r.get("id") != normalized]
-    write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
+    with _REGISTRY_LOCK:
+        records = [r for r in list_registry_records() if r.get("id") != normalized]
+        write_json(REGISTRY_PATH, {"version": 1, "records": records[:100]})
+
+
+def _cleanup_orphaned_records(new_url: str) -> None:
+    """Remove old failed/created records with the same source URL.
+
+    Prevents stale 'failed' records from piling up when the user retries
+    the same URL after a launch error.
+    """
+    normalized_url = new_url.strip().rstrip("/")
+    if not normalized_url:
+        return
+    with _REGISTRY_LOCK:
+        records = list_registry_records()
+        keep = []
+        removed = 0
+        for r in records:
+            old_url = str((r.get("plan") or {}).get("source") or "").strip().rstrip("/")
+            if old_url and old_url == normalized_url and r.get("status") in ("failed", "created"):
+                removed += 1
+                continue
+            keep.append(r)
+        if removed:
+            write_json(REGISTRY_PATH, {"version": 1, "records": keep[:100]})
 
 
 # Keywords detected in subprocess stdout that trigger status transitions.
@@ -1022,6 +1052,9 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
     if not source:
         update_registry_record(run_id, "failed", "No source URL in plan.", "error")
         return
+
+    # Remove stale failed records for the same URL (from previous retries)
+    _cleanup_orphaned_records(source)
 
     python = _find_python()
     auth = ROOT / "zhihu_auth_state.json"
