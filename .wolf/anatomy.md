@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T03:32:09.783Z
-> Files: 60 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T08:54:49.940Z
+> Files: 70 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -69,14 +69,20 @@
 - `frontend/tsconfig.json` — React TypeScript 编译配置。 (~180 tok)
 - `frontend/tsconfig.node.json` — Vite config TypeScript 编译引用配置。 (~80 tok)
 - `frontend/vite.config.ts` — Vite 配置；本地 dev server 端口 5173，并将 `/api` 代理到 `127.0.0.1:8765`。 (~120 tok)
+- `vite.config.ts` — VITE_API_URL: override to point at a remote API server. (~176 tok)
 
 ## frontend/src/
 
+- `api.ts` — Exports fetchRuns, fetchRun, createRunPlan, createRun + 4 more (~1657 tok)
+- `App.tsx` — SOURCE_ICONS (~9732 tok)
 - `frontend/src/api.ts` — 前端 API 客户端；调用 `/api/runs`、`/api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs`，runs API 不可用时回退到 2026-06-01 live sample。 (~1600 tok)
-- `frontend/src/App.tsx` — Pipeline Workbench 主 UI；包含可切换的 Create Source dry-run 表单、Dry Run Plan 保存、Runs 列表、Run Detail tabs、Plan/Logs/Overview/Chunks/QC/Keyframes/Transcript/Markdown 视图。 (~6200 tok)
+- `frontend/src/App.tsx` — Pipeline Workbench 主 UI；默认中文+中英切换、MP4 拖入区、URL 拖入支持、一键启动（directLaunch），以及 Runs 列表、Run Detail tabs。 (~9700 tok)
+- `frontend/src/i18n.ts` — 中英双语翻译词典；导出 Lang 类型和 t(lang, key) 函数，覆盖所有 UI 字符串。 (~300 tok)
 - `frontend/src/main.tsx` — React root 挂载入口。 (~80 tok)
 - `frontend/src/styles.css` — Workbench 全局样式，定义双栏布局、source 表单、dry-run plan、运行卡片、日志列表、指标条、流程线、表格、QC、关键帧和文本预览。 (~5400 tok)
 - `frontend/src/types.ts` — Run、Artifact、PipelineStep、Chunk、Frame、QC、RunPlan/RunPlanRequest、RunLogEntry 等前端数据类型。 (~1300 tok)
+- `i18n.ts` — Exports Lang, I18nKey, t (~1667 tok)
+- `styles.css` — Styles: 134 rules (~3854 tok)
 
 ## githooks/
 
@@ -105,5 +111,9 @@
 
 ## web_api/
 
+- `server.py` — read_json, read_text, write_json, source_type_from_base (~12918 tok)
+- `start_mac_live.sh` — start_mac_live.sh — Mac 端本地真实任务模式 (~265 tok)
+- `start_mac_viewer.sh` — start_mac_viewer.sh — MAC 端只读查看器 (~210 tok)
+- `start_win.bat` (~391 tok)
 - `web_api/README.md` — 本地 Web API 说明；记录 `GET /api/runs`、`GET /api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs` 和启动命令。 (~180 tok)
 - `web_api/server.py` — 纯标准库本地 API；扫描 `runs/*.final-qc.json`，关联 manifest、transcript、Markdown、chunks、payload frames，输出前端 Run 数据；新增 dry-run plan 生成和本地 created run registry，不启动长任务。 (~6800 tok)

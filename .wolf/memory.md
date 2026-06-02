@@ -3,6 +3,9 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 2026-06-02 | i18n 中英双语系统 + App.tsx 全面重写（默认中文、lang toggle、MP4/URL 拖入区、directLaunch 一键启动） | frontend/src/i18n.ts, frontend/src/App.tsx, frontend/src/styles.css | TypeScript 0 errors | ~6000 |
+| 2026-06-02 | 新增 start_mac_live.sh — Mac 真实任务模式（--launch-mode live，激活 .venv-mac311） | web_api/start_mac_live.sh | done | ~200 |
+
 | 2026-05-31 | 拉取 WIN 双模型验证输出（客服与标书，Qwen 4382/Gemini 10655 chars） | Markdowns/ | 分析：Qwen 严重过压缩 ratio=0.087 | ~2000 |
 | 2026-05-31 | SenseVoice 单例修复 | zhihuTTS_video.py | _sensevoice_model_cache 缓存 AutoModel，消除 188×8s 重复加载 | ~500 |
 | 2026-05-31 | QC 函数提取到 utils.py | utils.py | 新增 extract_qwen_critical_facts 等 8 个 QC 函数 + 3 常量 | ~800 |
@@ -777,3 +780,54 @@
 | 11:10 | 前端 P0 操作化：创建任务 dry-run plan | web_api/server.py, web_api/README.md, frontend/src/App.tsx, frontend/src/api.ts, frontend/src/types.ts, frontend/src/styles.css, .wolf/anatomy.md | 新增 `POST /api/run-plans`，支持 MP4/replay/live 输入生成命令预览、产物路径、检查项和 warning；前端 Create Source 可切换类型/输入源/base/provider/pass 并展示 Dry Run Plan；不启动长任务、不调用模型；py_compile、npm run build、8765/5173 POST 验证通过 | ~8500 |
 | 11:25 | 前端 P0 运行注册表：保存 created run | web_api/server.py, web_api/README.md, .gitignore, frontend/src/App.tsx, frontend/src/api.ts, frontend/src/types.ts, frontend/src/styles.css, .wolf/anatomy.md | 新增 `POST /api/runs` 保存 dry-run plan 到本地 `runs/web-run-registry.json`，Runs 列表合并 created runs，详情支持 `web:<id>`，新增 Plan/Logs tabs；registry 文件已 ignore；py_compile、npm run build、8765/5173 创建/详情验证通过，测试 registry 已清理 | ~8000 |
 | 11:32 | Created docs/FRONTEND_DASHBOARD_DESIGN.md | — | ~1148 |
+| 11:42 | Edited web_api/server.py | modified list_runs() | ~218 |
+| 11:43 | Edited frontend/src/App.tsx | modified saveCreatedRun() | ~142 |
+| 11:43 | Edited frontend/src/App.tsx | 12→13 lines | ~122 |
+| 11:44 | Edited frontend/src/api.ts | added 2 condition(s) | ~268 |
+| 11:45 | Edited web_api/server.py | modified find_registry_record() | ~564 |
+| 11:46 | Edited web_api/server.py | modified do_PATCH() | ~615 |
+| 11:47 | Edited web_api/server.py | modified do_GET() | ~97 |
+| 11:48 | Edited frontend/src/api.ts | added 2 condition(s) | ~351 |
+| 11:49 | Edited frontend/src/App.tsx | 20→21 lines | ~130 |
+| 11:49 | Edited frontend/src/App.tsx | modified Overview() | ~292 |
+| 11:51 | Edited frontend/src/App.tsx | modified DetailTab() | ~66 |
+| 11:51 | Edited frontend/src/App.tsx | CSS: run, run, failed | ~561 |
+| 11:52 | Edited frontend/src/App.tsx | 2→2 lines | ~58 |
+| 12:00 | Edited web_api/server.py | modified _rel() | ~230 |
+| 12:03 | Edited web_api/server.py | modified do_POST() | ~1275 |
+| 12:03 | Edited frontend/vite.config.ts | added nullish coalescing | ~176 |
+| 12:04 | Created web_api/start_win.bat | — | ~391 |
+| 12:05 | Created web_api/start_mac_viewer.sh | — | ~210 |
+| 13:04 | Edited web_api/server.py | modified _resolve_frame_path() | ~461 |
+| 13:04 | Edited web_api/server.py | modified send_image() | ~534 |
+| 13:05 | Edited frontend/src/App.tsx | CSS: path | ~406 |
+| 13:06 | Edited frontend/src/styles.css | expanded (+15 lines) | ~101 |
+| 13:12 | Edited web_api/server.py | reduced (-6 lines) | ~242 |
+| 13:12 | Edited web_api/server.py | modified _resolve_frame_path() | ~595 |
+| 13:21 | Edited web_api/server.py | 5→9 lines | ~173 |
+| 13:21 | Edited frontend/src/App.tsx | expanded (+13 lines) | ~190 |
+| 13:21 | Edited frontend/src/App.tsx | 5→6 lines | ~86 |
+| 13:22 | Edited frontend/src/styles.css | expanded (+24 lines) | ~126 |
+| 13:35 | Edited web_api/server.py | modified _find_python() | ~2041 |
+| 13:36 | Edited web_api/server.py | expanded (+6 lines) | ~193 |
+| 13:38 | Edited frontend/src/App.tsx | modified selectSourceType() | ~231 |
+| 13:38 | Edited frontend/src/App.tsx | 7→11 lines | ~112 |
+| 13:38 | Edited frontend/src/App.tsx | CSS: finished, web | ~193 |
+| 13:43 | Edited web_api/server.py | modified startswith() | ~463 |
+| 13:44 | Edited frontend/src/api.ts | added 1 condition(s) | ~209 |
+| 13:45 | Edited frontend/src/App.tsx | inline fix | ~34 |
+| 13:45 | Edited frontend/src/App.tsx | CSS: liveChunks | ~674 |
+| 13:45 | Edited frontend/src/styles.css | expanded (+26 lines) | ~151 |
+| 13:50 | Edited web_api/server.py | modified run_from_mp4_md() | ~923 |
+| 13:50 | Edited web_api/server.py | modified exists() | ~217 |
+
+## Session: 2026-06-02 14:10
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 16:40 | Created frontend/src/i18n.ts | — | ~1667 |
+| 16:45 | Created frontend/src/App.tsx | — | ~9732 |
+| 16:46 | Edited frontend/src/styles.css | modified media() | ~453 |
+| 16:47 | Created web_api/start_mac_live.sh | — | ~265 |
+| 16:54 | Edited frontend/src/api.ts | 2→3 lines | ~81 |
+| 16:54 | Edited frontend/src/styles.css | expanded (+21 lines) | ~132 |

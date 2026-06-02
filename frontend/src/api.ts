@@ -136,4 +136,5 @@ export async function fetchLiveChunks(
 }
 
 // Statuses that require frontend polling (kept in sync with server RUNNING_STATUSES).
-export const RUNNING_STATUSES = new Set(["probing", "recording", "transcribing", "synthesizing"]);
+// "created" included so directLaunch() polls immediately after launchRun() returns.
+export const RUNNING_STATUSES = new Set(["created", "probing", "recording", "transcribing", "synthesizing"]);

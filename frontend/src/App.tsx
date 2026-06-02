@@ -15,74 +15,211 @@ import {
   Search,
   Terminal,
   Upload,
-  Video
+  Video,
 } from "lucide-react";
-import { RUNNING_STATUSES, createRun, createRunPlan, fetchLiveChunks, fetchRun, fetchRuns, launchRun } from "./api";
+import {
+  RUNNING_STATUSES,
+  createRun,
+  createRunPlan,
+  fetchLiveChunks,
+  fetchRun,
+  fetchRuns,
+  launchRun,
+} from "./api";
+import type { Lang } from "./i18n";
+import { t } from "./i18n";
 import type { RunPlan, RunPlanRequest, RunRecord, SourceType } from "./types";
 
-const sourceMeta: Record<SourceType, { label: string; icon: typeof Film }> = {
-  mp4: { label: "MP4", icon: Film },
-  replay: { label: "Replay", icon: Video },
-  live: { label: "Live", icon: Radio }
+// ── Static lookup tables ──────────────────────────────────────────────────────
+
+const SOURCE_ICONS: Record<SourceType, typeof Film> = {
+  mp4: Film,
+  replay: Video,
+  live: Radio,
 };
 
-const tabs = ["Overview", "Plan", "Logs", "Chunks", "QC", "Keyframes", "Transcript", "Markdown"] as const;
+const SOURCE_LABELS: Record<SourceType, { zh: string; en: string }> = {
+  mp4:    { zh: "MP4",  en: "MP4" },
+  replay: { zh: "回放", en: "Replay" },
+  live:   { zh: "直播", en: "Live" },
+};
+
+const STATUS_LABELS: Record<string, { zh: string; en: string }> = {
+  created:      { zh: "已创建",  en: "created" },
+  probing:      { zh: "检测中",  en: "probing" },
+  recording:    { zh: "录制中",  en: "recording" },
+  transcribing: { zh: "转写中",  en: "transcribing" },
+  synthesizing: { zh: "合成中",  en: "synthesizing" },
+  completed:    { zh: "完成",    en: "completed" },
+  warning:      { zh: "警告",    en: "warning" },
+  failed:       { zh: "失败",    en: "failed" },
+};
+
+const STEP_LABELS: Record<string, { zh: string; en: string }> = {
+  source:     { zh: "来源",     en: "Source" },
+  record:     { zh: "采集",     en: "Capture" },
+  transcript: { zh: "转写",     en: "Transcript" },
+  frames:     { zh: "关键帧",   en: "Keyframes" },
+  qc:         { zh: "质检",     en: "QC" },
+  markdown:   { zh: "Markdown", en: "Markdown" },
+  synthesis:  { zh: "合成",     en: "Synthesis" },
+  process:    { zh: "处理",     en: "Process" },
+};
+
+const TAB_LABELS = {
+  Overview:   { zh: "概览",    en: "Overview" },
+  Plan:       { zh: "计划",    en: "Plan" },
+  Logs:       { zh: "日志",    en: "Logs" },
+  Chunks:     { zh: "分片",    en: "Chunks" },
+  QC:         { zh: "质检",    en: "QC" },
+  Keyframes:  { zh: "关键帧",  en: "Keyframes" },
+  Transcript: { zh: "逐字稿",  en: "Transcript" },
+  Markdown:   { zh: "Markdown",en: "Markdown" },
+} as const;
+
+const tabs = [
+  "Overview", "Plan", "Logs", "Chunks", "QC", "Keyframes", "Transcript", "Markdown",
+] as const;
 type Tab = (typeof tabs)[number];
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 function formatSeconds(seconds: number): string {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
-  return [h, m, s].map((part) => String(part).padStart(2, "0")).join(":");
+  return [h, m, s].map((p) => String(p).padStart(2, "0")).join(":");
 }
 
-function statusLabel(status: string): string {
-  return status.replace("_", " ");
+function statusLabel(status: string, lang: Lang): string {
+  return STATUS_LABELS[status]?.[lang] ?? status.replace("_", " ");
 }
 
-function SourceCard({ type, active, onClick }: { type: SourceType; active?: boolean; onClick?: () => void }) {
-  const meta = sourceMeta[type];
-  const Icon = meta.icon;
+function stepLabel(key: string, serverLabel: string, lang: Lang): string {
+  return STEP_LABELS[key]?.[lang] ?? serverLabel;
+}
+
+// ── DragDropZone ──────────────────────────────────────────────────────────────
+
+function DragDropZone({
+  onFile,
+  lang,
+}: {
+  onFile: (name: string) => void;
+  lang: Lang;
+}) {
+  const [dragging, setDragging] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  function handleDrop(e: React.DragEvent) {
+    e.preventDefault();
+    setDragging(false);
+    const file = e.dataTransfer.files[0];
+    if (file?.name.toLowerCase().endsWith(".mp4")) onFile(file.name);
+  }
+
   return (
-    <button className={`source-card ${active ? "active" : ""}`} type="button" onClick={onClick}>
+    <div
+      className={`drop-zone ${dragging ? "dragging" : ""}`}
+      onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+      onDragLeave={() => setDragging(false)}
+      onDrop={handleDrop}
+      onClick={() => inputRef.current?.click()}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === "Enter" && inputRef.current?.click()}
+    >
+      <Upload size={20} />
+      <span>{t(lang, "dropMp4")}</span>
+      <small>{t(lang, "dropMp4Sub")}</small>
+      <input
+        ref={inputRef}
+        type="file"
+        accept=".mp4,video/mp4"
+        hidden
+        onChange={(e) => {
+          const file = e.target.files?.[0];
+          if (file) onFile(file.name);
+          e.target.value = "";
+        }}
+      />
+    </div>
+  );
+}
+
+// ── SourceCard ────────────────────────────────────────────────────────────────
+
+function SourceCard({
+  type,
+  active,
+  lang,
+  onClick,
+}: {
+  type: SourceType;
+  active?: boolean;
+  lang: Lang;
+  onClick?: () => void;
+}) {
+  const Icon = SOURCE_ICONS[type];
+  return (
+    <button
+      className={`source-card ${active ? "active" : ""}`}
+      type="button"
+      onClick={onClick}
+    >
       <Icon size={18} />
-      <span>{meta.label}</span>
+      <span>{SOURCE_LABELS[type][lang]}</span>
     </button>
   );
 }
 
-function RunPlanPanel({ plan, onSave, saving }: { plan: RunPlan; onSave?: () => void; saving?: boolean }) {
+// ── RunPlanPanel ──────────────────────────────────────────────────────────────
+
+function RunPlanPanel({
+  plan,
+  lang,
+  onSave,
+  saving,
+}: {
+  plan: RunPlan;
+  lang: Lang;
+  onSave?: () => void;
+  saving?: boolean;
+}) {
   return (
     <section className="panel full plan-panel">
       <div className="panel-heading">
         <Terminal size={18} />
-        <h2>Dry Run Plan</h2>
+        <h2>{t(lang, "dryRunTitle")}</h2>
       </div>
       <div className="plan-summary">
-        <div><span>Source</span><strong>{sourceMeta[plan.source_type].label}</strong></div>
-        <div><span>Base</span><strong>{plan.base}</strong></div>
-        <div><span>Provider</span><strong>{plan.provider}</strong></div>
-        <div><span>Pass</span><strong>{plan.synthesis_pass}</strong></div>
+        <div>
+          <span>{t(lang, "planSource")}</span>
+          <strong>{SOURCE_LABELS[plan.source_type as SourceType]?.[lang] ?? plan.source_type}</strong>
+        </div>
+        <div><span>{t(lang, "planBase")}</span><strong>{plan.base}</strong></div>
+        <div><span>{t(lang, "planProvider")}</span><strong>{plan.provider}</strong></div>
+        <div><span>{t(lang, "planPass")}</span><strong>{plan.synthesis_pass}</strong></div>
       </div>
       {!!plan.warnings.length && (
         <div className="warnings plan-warnings">
-          {plan.warnings.map((warning) => (
-            <div className="warning" key={warning}>
+          {plan.warnings.map((w) => (
+            <div className="warning" key={w}>
               <AlertTriangle size={16} />
-              <span>{warning}</span>
+              <span>{w}</span>
             </div>
           ))}
         </div>
       )}
       <div className="command-list">
-        {plan.commands.map((command) => (
-          <div className="command-item" key={`${command.stage}-${command.command}`}>
+        {plan.commands.map((cmd) => (
+          <div className="command-item" key={`${cmd.stage}-${cmd.command}`}>
             <div className="command-head">
-              <strong>{command.label}</strong>
-              <span>{command.stage}</span>
+              <strong>{cmd.label}</strong>
+              <span>{cmd.stage}</span>
             </div>
-            <code>{command.command}</code>
-            <p>{command.summary}</p>
+            <code>{cmd.command}</code>
+            <p>{cmd.summary}</p>
           </div>
         ))}
       </div>
@@ -95,14 +232,21 @@ function RunPlanPanel({ plan, onSave, saving }: { plan: RunPlan; onSave?: () => 
         ))}
       </div>
       {onSave && (
-        <button className="secondary-button save-plan-button" type="button" onClick={onSave} disabled={saving}>
+        <button
+          className="secondary-button save-plan-button"
+          type="button"
+          onClick={onSave}
+          disabled={saving}
+        >
           <CheckCircle2 size={16} />
-          {saving ? "Saving" : "Save created run"}
+          {saving ? t(lang, "btnSaving") : t(lang, "btnSaveRun")}
         </button>
       )}
     </section>
   );
 }
+
+// ── EmptyPanel ────────────────────────────────────────────────────────────────
 
 function EmptyPanel({ title, text }: { title: string; text: string }) {
   return (
@@ -116,22 +260,45 @@ function EmptyPanel({ title, text }: { title: string; text: string }) {
   );
 }
 
-function RunList({ runs, selectedId, onSelect }: { runs: RunRecord[]; selectedId?: string; onSelect: (run: RunRecord) => void }) {
+// ── RunList ───────────────────────────────────────────────────────────────────
+
+function RunList({
+  runs,
+  selectedId,
+  lang,
+  onSelect,
+}: {
+  runs: RunRecord[];
+  selectedId?: string;
+  lang: Lang;
+  onSelect: (run: RunRecord) => void;
+}) {
   return (
     <div className="run-list">
       {runs.map((run) => {
-        const SourceIcon = sourceMeta[run.source_type].icon;
+        const Icon = SOURCE_ICONS[run.source_type];
         return (
-          <button key={run.id} className={`run-row ${selectedId === run.id ? "selected" : ""}`} type="button" onClick={() => onSelect(run)}>
+          <button
+            key={run.id}
+            className={`run-row ${selectedId === run.id ? "selected" : ""}`}
+            type="button"
+            onClick={() => onSelect(run)}
+          >
             <div className="run-row-top">
-              <span className="run-source"><SourceIcon size={15} /> {sourceMeta[run.source_type].label}</span>
-              <span className={`status-pill ${run.status}`}>{statusLabel(run.status)}</span>
+              <span className="run-source">
+                <Icon size={15} /> {SOURCE_LABELS[run.source_type][lang]}
+              </span>
+              <span className={`status-pill ${run.status}`}>
+                {statusLabel(run.status, lang)}
+              </span>
             </div>
             <div className="run-name">{run.base}</div>
             <div className="run-metrics">
-              <span>{run.metrics.chunks} chunks</span>
-              <span>{run.metrics.frames} frames</span>
-              <span>{run.metrics.warnings} warnings</span>
+              <span>{run.metrics.chunks} {t(lang, "metricsChunks")}</span>
+              <span>{run.metrics.frames} {t(lang, "metricsFrames")}</span>
+              {run.metrics.warnings > 0 && (
+                <span>{run.metrics.warnings} {t(lang, "metricsWarnings")}</span>
+              )}
             </div>
           </button>
         );
@@ -140,17 +307,34 @@ function RunList({ runs, selectedId, onSelect }: { runs: RunRecord[]; selectedId
   );
 }
 
-function Overview({ run, onLaunch, launching }: { run: RunRecord; onLaunch?: () => void; launching?: boolean }) {
+// ── Overview ──────────────────────────────────────────────────────────────────
+
+function Overview({
+  run,
+  lang,
+  onLaunch,
+  launching,
+}: {
+  run: RunRecord;
+  lang: Lang;
+  onLaunch?: () => void;
+  launching?: boolean;
+}) {
   return (
     <div className="overview-grid">
       <section className="panel">
         <div className="panel-heading">
           <Activity size={18} />
-          <h2>Pipeline</h2>
+          <h2>{t(lang, "pipelineTitle")}</h2>
           {run.status === "created" && onLaunch && (
-            <button className="launch-button" type="button" onClick={onLaunch} disabled={launching}>
+            <button
+              className="launch-button"
+              type="button"
+              onClick={onLaunch}
+              disabled={launching}
+            >
               <Play size={14} />
-              {launching ? "Starting…" : "Launch"}
+              {launching ? t(lang, "btnLaunchingRun") : t(lang, "btnLaunchRun")}
             </button>
           )}
         </div>
@@ -159,7 +343,7 @@ function Overview({ run, onLaunch, launching }: { run: RunRecord; onLaunch?: () 
             <div key={step.key} className={`timeline-step ${step.status}`}>
               <div className="step-dot" />
               <div>
-                <div className="step-title">{step.label}</div>
+                <div className="step-title">{stepLabel(step.key, step.label, lang)}</div>
                 <div className="step-summary">{step.summary}</div>
               </div>
             </div>
@@ -170,24 +354,26 @@ function Overview({ run, onLaunch, launching }: { run: RunRecord; onLaunch?: () 
       <section className="panel">
         <div className="panel-heading">
           <Gauge size={18} />
-          <h2>Run Health</h2>
+          <h2>{t(lang, "runHealthTitle")}</h2>
         </div>
         <div className="health-grid">
-          <div><span>Source</span><strong>{run.qc?.source_status ?? "unknown"}</strong></div>
-          <div><span>Coverage</span><strong>{run.qc?.body_coverage_status ?? "pending"}</strong></div>
-          <div><span>Tail Gap</span><strong>{run.qc?.body_tail_gap_s ?? 0}s</strong></div>
-          <div><span>Provider</span><strong>{run.provider ?? "none"}</strong></div>
+          <div><span>{t(lang, "healthSource")}</span><strong>{run.qc?.source_status ?? "unknown"}</strong></div>
+          <div><span>{t(lang, "healthCoverage")}</span><strong>{run.qc?.body_coverage_status ?? "pending"}</strong></div>
+          <div><span>{t(lang, "healthTailGap")}</span><strong>{run.qc?.body_tail_gap_s ?? 0}s</strong></div>
+          <div><span>{t(lang, "healthProvider")}</span><strong>{run.provider ?? "none"}</strong></div>
         </div>
         <div className="path-box">
-          <span>Final Markdown</span>
-          <code>{run.paths.markdown ?? "not generated"}</code>
+          <span>{t(lang, "finalMarkdown")}</span>
+          <code>{run.paths.markdown ?? t(lang, "notGenerated")}</code>
         </div>
       </section>
     </div>
   );
 }
 
-function Chunks({ run }: { run: RunRecord }) {
+// ── Chunks ────────────────────────────────────────────────────────────────────
+
+function Chunks({ run, lang }: { run: RunRecord; lang: Lang }) {
   const isLive = RUNNING_STATUSES.has(run.status) && run.chunks.length === 0;
   const [liveChunks, setLiveChunks] = useState<import("./types").ChunkRecord[]>([]);
 
@@ -197,7 +383,7 @@ function Chunks({ run }: { run: RunRecord }) {
     const poll = () => {
       fetchLiveChunks(run.id)
         .then((r) => { if (active) setLiveChunks(r.chunks); })
-        .catch(() => {/* silently ignore poll errors */});
+        .catch(() => {});
     };
     poll();
     const timer = setInterval(poll, 5000);
@@ -211,11 +397,11 @@ function Chunks({ run }: { run: RunRecord }) {
       <div className="panel-heading">
         <Boxes size={18} />
         <h2>
-          Chunks
+          {t(lang, "metricsChunks")}
           {isLive && (
             <span className="live-badge">
               <span className="live-dot" />
-              Recording · {liveChunks.length} chunks
+              {t(lang, "liveRecording")} · {liveChunks.length} {t(lang, "metricsChunks")}
             </span>
           )}
           {!isLive && displayChunks.length > 0 && (
@@ -224,22 +410,21 @@ function Chunks({ run }: { run: RunRecord }) {
         </h2>
       </div>
       {displayChunks.length === 0 ? (
-        <EmptyPanel
-          title=""
-          text={isLive ? "Waiting for first chunk… (polling every 5s)" : "No chunk data available."}
-        />
+        <p className="empty-text">
+          {isLive ? t(lang, "waitFirstChunk") : t(lang, "noChunkData")}
+        </p>
       ) : (
         <div className="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Start</th>
-                <th>Duration</th>
-                <th>Chars</th>
-                <th>Segments</th>
-                <th>Frames</th>
-                <th>Backend</th>
+                <th>{t(lang, "thIndex")}</th>
+                <th>{t(lang, "thStart")}</th>
+                <th>{t(lang, "thDuration")}</th>
+                <th>{t(lang, "thChars")}</th>
+                <th>{t(lang, "thSegments")}</th>
+                <th>{t(lang, "thFrames")}</th>
+                <th>{t(lang, "thBackend")}</th>
               </tr>
             </thead>
             <tbody>
@@ -262,6 +447,8 @@ function Chunks({ run }: { run: RunRecord }) {
   );
 }
 
+// ── QcPanel ───────────────────────────────────────────────────────────────────
+
 function QcPanel({ run }: { run: RunRecord }) {
   const qc = run.qc;
   return (
@@ -279,10 +466,10 @@ function QcPanel({ run }: { run: RunRecord }) {
         <div><span>overlap</span><strong>{qc?.qwen_window_policy?.overlap_frames ?? "-"}</strong></div>
       </div>
       <div className="warnings">
-        {(qc?.warnings ?? []).map((warning) => (
-          <div className="warning" key={warning}>
+        {(qc?.warnings ?? []).map((w) => (
+          <div className="warning" key={w}>
             <AlertTriangle size={16} />
-            <span>{warning}</span>
+            <span>{w}</span>
           </div>
         ))}
       </div>
@@ -290,20 +477,30 @@ function QcPanel({ run }: { run: RunRecord }) {
   );
 }
 
+// ── Keyframes ─────────────────────────────────────────────────────────────────
+
 function frameUrl(path: string): string {
   if (!path) return "";
   return `/api/frames?p=${encodeURIComponent(path)}`;
 }
 
-function Keyframes({ run }: { run: RunRecord }) {
+function Keyframes({ run, lang }: { run: RunRecord; lang: Lang }) {
   if (!run.frames.length) {
-    return <EmptyPanel title="Keyframes" text="No keyframe data available for this run." />;
+    return (
+      <EmptyPanel
+        title={TAB_LABELS.Keyframes[lang]}
+        text={t(lang, "noKeyframes")}
+      />
+    );
   }
   return (
     <section className="panel full">
       <div className="panel-heading">
         <ImageIcon size={18} />
-        <h2>Keyframes <span className="count-badge">{run.frames.length}</span></h2>
+        <h2>
+          {TAB_LABELS.Keyframes[lang]}
+          <span className="count-badge">{run.frames.length}</span>
+        </h2>
       </div>
       <div className="frame-grid">
         {run.frames.map((frame) => (
@@ -314,10 +511,14 @@ function Keyframes({ run }: { run: RunRecord }) {
                 src={frameUrl(frame.path)}
                 alt={`${frame.type} @ ${formatSeconds(frame.timestamp_s)}`}
                 loading="lazy"
-                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.display = "none";
+                }}
               />
             ) : (
-              <div className={`frame-thumb ${frame.type}`}><ImageIcon size={24} /></div>
+              <div className={`frame-thumb ${frame.type}`}>
+                <ImageIcon size={24} />
+              </div>
             )}
             <div className="frame-meta">
               <strong>{formatSeconds(frame.timestamp_s)}</strong>
@@ -330,7 +531,19 @@ function Keyframes({ run }: { run: RunRecord }) {
   );
 }
 
-function TextPanel({ title, icon, text }: { title: string; icon: "transcript" | "markdown"; text?: string }) {
+// ── TextPanel ─────────────────────────────────────────────────────────────────
+
+function TextPanel({
+  title,
+  icon,
+  lang,
+  text,
+}: {
+  title: string;
+  icon: "transcript" | "markdown";
+  lang: Lang;
+  text?: string;
+}) {
   const Icon = icon === "transcript" ? FileText : CheckCircle2;
   return (
     <section className="panel full">
@@ -338,19 +551,23 @@ function TextPanel({ title, icon, text }: { title: string; icon: "transcript" | 
         <Icon size={18} />
         <h2>{title}</h2>
       </div>
-      <pre className="text-preview">{text || "Waiting for API data."}</pre>
+      <pre className="text-preview">{text || t(lang, "waitingApiData")}</pre>
     </section>
   );
 }
 
-function LogsPanel({ run }: { run: RunRecord }) {
+// ── LogsPanel ─────────────────────────────────────────────────────────────────
+
+function LogsPanel({ run, lang }: { run: RunRecord; lang: Lang }) {
   const logs = run.logs ?? [];
-  if (!logs.length) return <EmptyPanel title="Logs" text="No web run logs have been recorded for this artifact-backed run." />;
+  if (!logs.length) {
+    return <EmptyPanel title={TAB_LABELS.Logs[lang]} text={t(lang, "noLogs")} />;
+  }
   return (
     <section className="panel full">
       <div className="panel-heading">
         <Terminal size={18} />
-        <h2>Logs</h2>
+        <h2>{TAB_LABELS.Logs[lang]}</h2>
       </div>
       <div className="log-list">
         {logs.map((entry, index) => (
@@ -365,18 +582,48 @@ function LogsPanel({ run }: { run: RunRecord }) {
   );
 }
 
-function DetailTab({ tab, run, onLaunch, launching }: { tab: Tab; run: RunRecord; onLaunch?: () => void; launching?: boolean }) {
-  if (tab === "Overview") return <Overview run={run} onLaunch={onLaunch} launching={launching} />;
-  if (tab === "Plan") return run.plan ? <RunPlanPanel plan={run.plan} /> : <EmptyPanel title="Plan" text="This run was discovered from final QC artifacts, so no web-created plan is attached." />;
-  if (tab === "Logs") return <LogsPanel run={run} />;
-  if (tab === "Chunks") return <Chunks run={run} />;
+// ── DetailTab ─────────────────────────────────────────────────────────────────
+
+function DetailTab({
+  tab,
+  run,
+  lang,
+  onLaunch,
+  launching,
+}: {
+  tab: Tab;
+  run: RunRecord;
+  lang: Lang;
+  onLaunch?: () => void;
+  launching?: boolean;
+}) {
+  if (tab === "Overview") return <Overview run={run} lang={lang} onLaunch={onLaunch} launching={launching} />;
+  if (tab === "Plan") {
+    return run.plan
+      ? <RunPlanPanel plan={run.plan} lang={lang} />
+      : <EmptyPanel title={TAB_LABELS.Plan[lang]} text={t(lang, "planEmptyText")} />;
+  }
+  if (tab === "Logs") return <LogsPanel run={run} lang={lang} />;
+  if (tab === "Chunks") return <Chunks run={run} lang={lang} />;
   if (tab === "QC") return <QcPanel run={run} />;
-  if (tab === "Keyframes") return <Keyframes run={run} />;
-  if (tab === "Transcript") return <TextPanel title="Transcript" icon="transcript" text={run.transcript_preview} />;
-  return <TextPanel title="Markdown" icon="markdown" text={run.markdown_preview} />;
+  if (tab === "Keyframes") return <Keyframes run={run} lang={lang} />;
+  if (tab === "Transcript") {
+    return (
+      <TextPanel
+        title={TAB_LABELS.Transcript[lang]}
+        icon="transcript"
+        lang={lang}
+        text={run.transcript_preview}
+      />
+    );
+  }
+  return <TextPanel title="Markdown" icon="markdown" lang={lang} text={run.markdown_preview} />;
 }
 
+// ── App ───────────────────────────────────────────────────────────────────────
+
 export default function App() {
+  const [lang, setLang] = useState<Lang>("zh");
   const [runs, setRuns] = useState<RunRecord[]>([]);
   const [selectedId, setSelectedId] = useState<string>();
   const [selectedRun, setSelectedRun] = useState<RunRecord>();
@@ -384,7 +631,7 @@ export default function App() {
   const [loadingIndex, setLoadingIndex] = useState(false);
   const [loadingDetail, setLoadingDetail] = useState(false);
   const [sourceType, setSourceType] = useState<SourceType>("live");
-  const [source, setSource] = useState("https://www.zhihu.com/xen/training/live/room/...");
+  const [source, setSource] = useState("");
   const [base, setBase] = useState("");
   const [provider, setProvider] = useState<RunPlanRequest["provider"]>("gemini");
   const [synthesisPass, setSynthesisPass] = useState<RunPlanRequest["synthesis_pass"]>("one-shot");
@@ -399,18 +646,16 @@ export default function App() {
 
   useEffect(() => {
     setLoadingIndex(true);
-    fetchRuns().then((items) => {
-      setRuns(items);
-      const nextId = items[0]?.id;
-      setSelectedId(nextId);
-    }).finally(() => setLoadingIndex(false));
+    fetchRuns()
+      .then((items) => {
+        setRuns(items);
+        setSelectedId(items[0]?.id);
+      })
+      .finally(() => setLoadingIndex(false));
   }, []);
 
   useEffect(() => {
-    if (!selectedId) {
-      setSelectedRun(undefined);
-      return;
-    }
+    if (!selectedId) { setSelectedRun(undefined); return; }
     setLoadingDetail(true);
     fetchRun(selectedId)
       .then((run) => setSelectedRun(run))
@@ -428,13 +673,9 @@ export default function App() {
         if (!RUNNING_STATUSES.has(run.status)) {
           clearInterval(pollRef.current!);
           pollRef.current = null;
-          // Pipeline finished: refresh the full run list so the new QC artifact
-          // replaces the web: registry entry with real chunk/frame/qc data.
-          if (run.status === "completed") {
-            setTimeout(() => refreshIndex(), 2000);
-          }
+          if (run.status === "completed") setTimeout(() => refreshIndex(), 2000);
         }
-      }).catch(() => {/* ignore transient poll errors */});
+      }).catch(() => {});
     }, 3000);
     return () => { if (pollRef.current) clearInterval(pollRef.current); };
   }, [selectedId, selectedRun?.status]);
@@ -447,7 +688,7 @@ export default function App() {
         setSelectedRun(run);
         setRuns((items) => items.map((item) => (item.id === run.id ? run : item)));
       })
-      .catch((error) => console.error("Launch failed:", error))
+      .catch((err) => console.error("Launch failed:", err))
       .finally(() => setLaunching(false));
   }
 
@@ -461,28 +702,18 @@ export default function App() {
   }
 
   const sourcePlaceholder: Record<SourceType, string> = {
-    mp4:    "D:\\zhihu\\Videos\\example.mp4  (本机绝对路径)",
+    mp4:    "Videos/example.mp4",
     replay: "https://www.zhihu.com/xen/training/live/room/...?type=replay",
     live:   "https://www.zhihu.com/xen/training/live/room/...",
-  };
-  const sourceLabel: Record<SourceType, string> = {
-    mp4:    "本地 MP4 文件路径",
-    replay: "回放视频 URL",
-    live:   "直播间 URL",
   };
 
   function selectSourceType(type: SourceType) {
     setSourceType(type);
-    if (type === "mp4") {
-      setSource("");
-      setProvider("gemini");
-      setSynthesisPass("one-shot");
-    } else if (type === "replay") {
-      setSource("");
+    setSource("");
+    if (type === "replay") {
       setProvider("qwen");
       setSynthesisPass("sliding-window");
     } else {
-      setSource("");
       setProvider("gemini");
       setSynthesisPass("one-shot");
     }
@@ -495,7 +726,7 @@ export default function App() {
       base,
       provider,
       synthesis_pass: synthesisPass,
-      qwen_max_frames: qwenMaxFrames
+      qwen_max_frames: qwenMaxFrames,
     };
   }
 
@@ -504,7 +735,7 @@ export default function App() {
     setPlanError("");
     createRunPlan(currentPlanRequest())
       .then((plan) => setRunPlan(plan))
-      .catch((error) => setPlanError(error instanceof Error ? error.message : "Failed to create dry run"))
+      .catch((err) => setPlanError(err instanceof Error ? err.message : "Failed to create dry run"))
       .finally(() => setPlanning(false));
   }
 
@@ -519,138 +750,332 @@ export default function App() {
         setActiveTab("Plan");
         setRuns((items) => [run, ...items.filter((item) => item.id !== run.id)]);
       })
-      .catch((error) => setPlanError(error instanceof Error ? error.message : "Failed to save run"))
+      .catch((err) => setPlanError(err instanceof Error ? err.message : "Failed to save run"))
       .finally(() => setSavingRun(false));
   }
+
+  async function directLaunch() {
+    if (!source.trim()) {
+      setPlanError(t(lang, "errNoSource"));
+      return;
+    }
+    setLaunching(true);
+    setPlanError("");
+    try {
+      const run = await createRun(currentPlanRequest());
+      setRuns((items) => [run, ...items.filter((i) => i.id !== run.id)]);
+      setSelectedId(run.id);
+      setSelectedRun(run);
+      setRunPlan(undefined);
+      setActiveTab("Overview");
+      const launched = await launchRun(run.id);
+      setSelectedRun(launched);
+      setRuns((items) => items.map((i) => (i.id === launched.id ? launched : i)));
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "";
+      if (msg.includes("403")) {
+        setPlanError(
+          lang === "zh"
+            ? "服务器为只读模式，请用 start_mac_live.sh 重启 API"
+            : "Server is read-only — restart with start_mac_live.sh"
+        );
+      } else {
+        setPlanError(msg || t(lang, "errLaunchFail"));
+      }
+    } finally {
+      setLaunching(false);
+    }
+  }
+
+  const sourceInputLabel: Record<SourceType, string> = {
+    mp4:    t(lang, "labelMp4"),
+    replay: t(lang, "labelReplay"),
+    live:   t(lang, "labelLive"),
+  };
 
   return (
     <main className="app-shell">
       <aside className="sidebar">
+
+        {/* Brand + language toggle */}
         <div className="brand">
           <div className="brand-mark"><CirclePlay size={21} /></div>
-          <div>
-            <h1>zhihu Workbench</h1>
-            <p>Pipeline visualization</p>
+          <div className="brand-text">
+            <h1>{t(lang, "brandTitle")}</h1>
+            <p>{t(lang, "brandSub")}</p>
+          </div>
+          <div className="lang-toggle">
+            <button
+              className={lang === "zh" ? "active" : ""}
+              type="button"
+              onClick={() => setLang("zh")}
+            >
+              中
+            </button>
+            <button
+              className={lang === "en" ? "active" : ""}
+              type="button"
+              onClick={() => setLang("en")}
+            >
+              EN
+            </button>
           </div>
         </div>
 
+        {/* Create panel */}
         <section className="create-panel">
-          <div className="section-title">Create Source</div>
+          <div className="section-title">{t(lang, "createSource")}</div>
+
           <div className="source-grid">
-            <SourceCard type="mp4" active={sourceType === "mp4"} onClick={() => selectSourceType("mp4")} />
-            <SourceCard type="replay" active={sourceType === "replay"} onClick={() => selectSourceType("replay")} />
-            <SourceCard type="live" active={sourceType === "live"} onClick={() => selectSourceType("live")} />
+            <SourceCard type="mp4"    active={sourceType === "mp4"}    lang={lang} onClick={() => selectSourceType("mp4")} />
+            <SourceCard type="replay" active={sourceType === "replay"} lang={lang} onClick={() => selectSourceType("replay")} />
+            <SourceCard type="live"   active={sourceType === "live"}   lang={lang} onClick={() => selectSourceType("live")} />
           </div>
+
           <label className="input-label">
-            {sourceLabel[sourceType]}
-            <div className="input-row">
-              <Search size={16} />
-              <input
-                value={source}
-                placeholder={sourcePlaceholder[sourceType]}
-                onChange={(event) => setSource(event.target.value)}
-              />
-            </div>
+            {sourceInputLabel[sourceType]}
+            {sourceType === "mp4" ? (
+              <>
+                <DragDropZone
+                  lang={lang}
+                  onFile={(name) => setSource(`Videos/${name}`)}
+                />
+                <div className="input-row">
+                  <Search size={16} />
+                  <input
+                    value={source}
+                    placeholder={sourcePlaceholder.mp4}
+                    onChange={(e) => setSource(e.target.value)}
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div
+                  className="input-row"
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    const url =
+                      e.dataTransfer.getData("text/uri-list") ||
+                      e.dataTransfer.getData("text/plain");
+                    if (url?.trim()) setSource(url.trim());
+                  }}
+                >
+                  <Search size={16} />
+                  <input
+                    value={source}
+                    placeholder={sourcePlaceholder[sourceType]}
+                    onChange={(e) => setSource(e.target.value)}
+                  />
+                </div>
+                <p className="drop-hint">{t(lang, "dropUrlHint")}</p>
+              </>
+            )}
           </label>
+
           <label className="input-label">
-            Output base
-            <input className="plain-input" value={base} onChange={(event) => setBase(event.target.value)} placeholder="Auto if empty" />
+            {t(lang, "outputBase")}
+            <input
+              className="plain-input"
+              value={base}
+              onChange={(e) => setBase(e.target.value)}
+              placeholder={t(lang, "outputBasePh")}
+            />
           </label>
+
           <div className="form-grid">
             <label className="input-label compact">
-              Provider
-              <select value={provider} onChange={(event) => setProvider(event.target.value as RunPlanRequest["provider"])}>
+              {t(lang, "providerLabel")}
+              <select
+                value={provider}
+                onChange={(e) => setProvider(e.target.value as RunPlanRequest["provider"])}
+              >
                 <option value="gemini">Gemini</option>
                 <option value="qwen">Qwen</option>
               </select>
             </label>
             <label className="input-label compact">
-              Pass
-              <select value={synthesisPass} onChange={(event) => setSynthesisPass(event.target.value as RunPlanRequest["synthesis_pass"])}>
+              {t(lang, "passLabel")}
+              <select
+                value={synthesisPass}
+                onChange={(e) =>
+                  setSynthesisPass(e.target.value as RunPlanRequest["synthesis_pass"])
+                }
+              >
                 <option value="one-shot">one-shot</option>
                 <option value="sliding-window">sliding-window</option>
               </select>
             </label>
           </div>
+
           <label className="input-label">
-            Qwen max frames
-            <input className="plain-input" type="number" min={1} max={250} value={qwenMaxFrames} onChange={(event) => setQwenMaxFrames(Number(event.target.value))} />
+            {t(lang, "qwenMaxFrames")}
+            <input
+              className="plain-input"
+              type="number"
+              min={1}
+              max={250}
+              value={qwenMaxFrames}
+              onChange={(e) => setQwenMaxFrames(Number(e.target.value))}
+            />
           </label>
+
           {planError && (
             <div className="inline-error">
               <AlertTriangle size={15} />
               <span>{planError}</span>
             </div>
           )}
-          <button className="primary-button" type="button" onClick={submitPlan} disabled={planning}>
+
+          {/* Primary action: direct launch */}
+          <button
+            className="primary-button"
+            type="button"
+            onClick={directLaunch}
+            disabled={launching || planning}
+          >
+            <Play size={16} />
+            {launching ? t(lang, "btnLaunching") : t(lang, "btnLaunch")}
+          </button>
+
+          {/* Secondary: dry-run preview */}
+          <button
+            className="secondary-button dry-run-button"
+            type="button"
+            onClick={submitPlan}
+            disabled={planning || launching}
+          >
             <Upload size={16} />
-            {planning ? "Planning" : "Create dry run"}
+            {planning ? t(lang, "btnPlanning") : t(lang, "btnDryRun")}
           </button>
         </section>
 
+        {/* Runs list */}
         <section className="runs-panel">
-          <div className="section-title">Runs {loadingIndex ? "· loading" : ""}</div>
+          <div className="section-title">
+            {t(lang, "runsTitle")}
+            {loadingIndex && (
+              <span style={{ fontWeight: 400, textTransform: "none", color: "#66727a" }}>
+                {t(lang, "runsLoading")}
+              </span>
+            )}
+          </div>
           <div className="search-row">
             <Search size={13} />
             <input
               className="search-input"
-              placeholder="Filter by name…"
+              placeholder={t(lang, "filterPh")}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
           </div>
           <RunList
-            runs={query ? runs.filter((r) => r.base.toLowerCase().includes(query.toLowerCase())) : runs}
+            runs={
+              query
+                ? runs.filter((r) =>
+                    r.base.toLowerCase().includes(query.toLowerCase())
+                  )
+                : runs
+            }
             selectedId={selectedId}
+            lang={lang}
             onSelect={(run) => setSelectedId(run.id)}
           />
         </section>
       </aside>
 
+      {/* Workspace */}
       <section className="workspace">
         <header className="workspace-header">
           <div>
-            <div className="eyebrow">{selectedRun ? sourceMeta[selectedRun.source_type].label : "Run"}</div>
-            <h2>{selectedRun?.base ?? "No run selected"}</h2>
-            <p>{selectedRun?.model ?? "Waiting for run data"} · {selectedRun?.synthesis_pass ?? "one-shot"}</p>
+            <div className="eyebrow">
+              {selectedRun
+                ? SOURCE_LABELS[selectedRun.source_type][lang]
+                : lang === "zh" ? "任务" : "Run"}
+            </div>
+            <h2>{selectedRun?.base ?? t(lang, "noRunSelected")}</h2>
+            <p>
+              {selectedRun?.model ?? t(lang, "waitingData")} ·{" "}
+              {selectedRun?.synthesis_pass ?? "one-shot"}
+            </p>
           </div>
-          <button className="secondary-button" type="button" onClick={refreshIndex} disabled={loadingIndex}>
+          <button
+            className="secondary-button"
+            type="button"
+            onClick={refreshIndex}
+            disabled={loadingIndex}
+          >
             <RefreshCw size={16} />
-            {loadingIndex ? "Refreshing" : "Refresh index"}
+            {loadingIndex ? t(lang, "btnRefreshing") : t(lang, "btnRefresh")}
           </button>
         </header>
 
-        {runPlan && <RunPlanPanel plan={runPlan} onSave={saveCreatedRun} saving={savingRun} />}
+        {runPlan && (
+          <RunPlanPanel
+            plan={runPlan}
+            lang={lang}
+            onSave={saveCreatedRun}
+            saving={savingRun}
+          />
+        )}
 
         {!selectedRun && !runPlan && (
           <section className="panel full">
             <div className="panel-heading">
               <Activity size={18} />
-              <h2>{loadingDetail ? "Loading run" : "No run selected"}</h2>
+              <h2>
+                {loadingDetail ? t(lang, "loadingRun") : t(lang, "noRunSelected")}
+              </h2>
             </div>
           </section>
         )}
 
         {selectedRun && (
           <>
-
             <div className="metrics-strip">
-              <div><span>Chunks</span><strong>{selectedRun.metrics.chunks}</strong></div>
-              <div><span>Transcript</span><strong>{selectedRun.metrics.transcript_chars.toLocaleString()}</strong></div>
-              <div><span>Frames</span><strong>{selectedRun.metrics.frames}</strong></div>
-              <div><span>Warnings</span><strong>{selectedRun.metrics.warnings}</strong></div>
+              <div>
+                <span>{t(lang, "metricsChunks")}</span>
+                <strong>{selectedRun.metrics.chunks}</strong>
+              </div>
+              <div>
+                <span>{t(lang, "metricsTranscript")}</span>
+                <strong>{selectedRun.metrics.transcript_chars.toLocaleString()}</strong>
+              </div>
+              <div>
+                <span>{t(lang, "metricsFrames")}</span>
+                <strong>{selectedRun.metrics.frames}</strong>
+              </div>
+              <div>
+                <span>{t(lang, "metricsWarnings")}</span>
+                <strong>{selectedRun.metrics.warnings}</strong>
+              </div>
             </div>
 
             <nav className="tabs">
               {tabs.map((tab) => (
-                <button key={tab} className={activeTab === tab ? "active" : ""} type="button" onClick={() => setActiveTab(tab)}>
-                  {tab}
+                <button
+                  key={tab}
+                  className={activeTab === tab ? "active" : ""}
+                  type="button"
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {TAB_LABELS[tab][lang]}
                 </button>
               ))}
             </nav>
 
-            {loadingDetail && <div className="detail-loading">Loading detail from API...</div>}
-            <DetailTab tab={activeTab} run={selectedRun} onLaunch={handleLaunch} launching={launching} />
+            {loadingDetail && (
+              <div className="detail-loading">{t(lang, "loadingDetail")}</div>
+            )}
+
+            <DetailTab
+              tab={activeTab}
+              run={selectedRun}
+              lang={lang}
+              onLaunch={handleLaunch}
+              launching={launching}
+            />
           </>
         )}
       </section>
