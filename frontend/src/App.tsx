@@ -254,21 +254,38 @@ function QcPanel({ run }: { run: RunRecord }) {
   );
 }
 
+function frameUrl(path: string): string {
+  if (!path) return "";
+  return `/api/frames?p=${encodeURIComponent(path)}`;
+}
+
 function Keyframes({ run }: { run: RunRecord }) {
+  if (!run.frames.length) {
+    return <EmptyPanel title="Keyframes" text="No keyframe data available for this run." />;
+  }
   return (
     <section className="panel full">
       <div className="panel-heading">
         <ImageIcon size={18} />
-        <h2>Keyframes</h2>
+        <h2>Keyframes <span className="count-badge">{run.frames.length}</span></h2>
       </div>
       <div className="frame-grid">
         {run.frames.map((frame) => (
           <div className="frame-tile" key={`${frame.timestamp_s}-${frame.type}`}>
-            <div className={`frame-thumb ${frame.type}`}><ImageIcon size={24} /></div>
+            {frame.path ? (
+              <img
+                className={`frame-img ${frame.type}`}
+                src={frameUrl(frame.path)}
+                alt={`${frame.type} @ ${formatSeconds(frame.timestamp_s)}`}
+                loading="lazy"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+              />
+            ) : (
+              <div className={`frame-thumb ${frame.type}`}><ImageIcon size={24} /></div>
+            )}
             <div className="frame-meta">
               <strong>{formatSeconds(frame.timestamp_s)}</strong>
               <span>{frame.type} · chunk {frame.chunk_index ?? "-"}</span>
-              <code>{frame.path}</code>
             </div>
           </div>
         ))}

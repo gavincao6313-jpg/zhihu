@@ -215,16 +215,42 @@ def frames_for_base(base: str, manifest_path: Path | None = None) -> list[dict]:
             kind = record.get("type") or record.get("kind") or "context"
             if kind not in {"slide", "annotation", "context"}:
                 kind = "context"
+            img_path = _resolve_frame_path(str(record.get("path") or ""))
             frames.append(
                 {
                     "timestamp_s": chunk_start + float(ts),
                     "type": kind,
-                    "path": _rel(payload),
+                    "path": img_path,
                     "chunk_index": chunk_index,
                     "selected": True,
                 }
             )
     return frames[:240]
+
+
+def _resolve_frame_path(raw: str) -> str:
+    """Convert a payload frame path (possibly absolute WIN path) to a posix relative path.
+
+    Payload stores absolute paths like D:\\zhihu\\zhihu_url\\Videos\\keyframes\\...
+    We make them relative to ROOT so /api/frames can serve them cross-platform.
+    """
+    if not raw:
+        return ""
+    normalised = raw.replace("\\", "/")
+    p = Path(normalised)
+    try:
+        return p.relative_to(ROOT).as_posix()
+    except ValueError:
+        pass
+    # Strip leading drive + project dir by finding a known top-level folder
+    parts = p.parts
+    for anchor in ("Videos", "runs", "Markdowns", "cache"):
+        try:
+            idx = parts.index(anchor)
+            return "/".join(parts[idx:])
+        except ValueError:
+            continue
+    return normalised
 
 
 def build_steps(
@@ -604,8 +630,43 @@ class Handler(BaseHTTPRequestHandler):
     def do_OPTIONS(self) -> None:
         self.send_json({"ok": True})
 
+    def send_image(self, data: bytes, mime: str) -> None:
+        self.send_response(200)
+        self.send_header("Content-Type", mime)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Cache-Control", "public, max-age=3600")
+        self.end_headers()
+        self.wfile.write(data)
+
     def do_GET(self) -> None:
-        path = unquote(urlparse(self.path).path)
+        parsed = urlparse(self.path)
+        path = unquote(parsed.path)
+
+        if path == "/api/frames":
+            from urllib.parse import parse_qs
+            params = parse_qs(parsed.query)
+            img_rel = unquote(params.get("p", [""])[0])
+            if not img_rel:
+                self.send_json({"error": "missing ?p= parameter"}, status=400)
+                return
+            img_file = (ROOT / img_rel).resolve()
+            # Security: must stay inside ROOT and be an image file
+            try:
+                img_file.relative_to(ROOT.resolve())
+            except ValueError:
+                self.send_json({"error": "path outside project root"}, status=403)
+                return
+            if img_file.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
+                self.send_json({"error": "not an image file"}, status=400)
+                return
+            if not img_file.exists():
+                self.send_json({"error": "image not found"}, status=404)
+                return
+            mime = "image/jpeg" if img_file.suffix.lower() in {".jpg", ".jpeg"} else "image/png"
+            self.send_image(img_file.read_bytes(), mime)
+            return
+
         if path == "/api/runs":
             self.send_json(list_runs())
             return
