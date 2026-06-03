@@ -157,6 +157,43 @@ function qcStatusValue(value: string | number | null | undefined, lang: Lang): s
   return zh[String(value)] ?? String(value);
 }
 
+function localizeWarning(w: string, lang: Lang): string {
+  if (lang === "en") return w;
+  const sep = w.indexOf(": ");
+  const key = sep >= 0 ? w.slice(0, sep) : w;
+  const detail = sep >= 0 ? w.slice(sep + 2) : "";
+  const keyZh: Record<string, string> = {
+    body_tail_coverage_low:                   "正文尾部覆盖不足",
+    body_coverage_unverifiable:               "正文覆盖无法验证",
+    gaps_detected:                            "检测到转写缺口",
+    missing_sections:                         "缺少必要章节",
+    missing_video_id:                         "缺少视频 ID",
+    unexpected_video_id:                      "意外的视频 ID",
+    qwen_overcompressed_body:                 "Qwen 正文过度压缩",
+    qwen_fact_retention_low:                  "Qwen 关键事实保留率低",
+    qwen_narrative_blocks_missing:            "Qwen 叙事证据块缺失",
+    qwen_narrative_blocks_missing_from_final: "Qwen 最终稿叙事块缺失",
+    qwen_narrative_body_ratio_low:            "Qwen 叙事正文比率低",
+    qwen_timeline_overlaps:                   "Qwen 时间线章节重叠",
+    qwen_missing_chapter_fields:              "Qwen 章节字段缺失",
+    qwen_missing_prompt_keywords:             "Qwen 提示词关键词缺失",
+    qwen_missing_required_sections:           "Qwen 必要章节缺失",
+    qwen_missing_technical_asset_appendix:    "Qwen 技术资产附录缺失",
+    qwen_missing_timestamped_chapters:        "Qwen 时间戳章节缺失",
+    qwen_technical_asset_code_blocks_low:     "Qwen 技术资产代码块不足",
+    qwen_window_unreferenced:                 "Qwen 窗口笔记未引用",
+  };
+  const label = keyZh[key] ?? key;
+  if (!detail) return label;
+  const d = detail
+    .replace(/last chapter ([0-9:]+), gap (\d+s)/, "最后章节 $1，缺口 $2")
+    .replace(/body\/transcript ratio ([\d.]+), expected >= ([\d.]+)/, "正文\/转写比 $1，期望 >= $2")
+    .replace(/no ### \[HH:MM:SS - HH:MM:SS\] chapters found/, "未找到时间戳章节")
+    .replace(/expected Prompts \/ Code \/ Config appendix/, "期望包含 Prompts/Code/Config 附录")
+    .replace(/expected preserved prompt\/code\/config fences/, "期望保留提示词\/代码\/配置代码块");
+  return `${label}：${d}`;
+}
+
 // ── DragDropZone ──────────────────────────────────────────────────────────────
 
 function DragDropZone({
@@ -537,7 +574,7 @@ function QcPanel({ run, lang }: { run: RunRecord; lang: Lang }) {
         {(qc?.warnings ?? []).map((w) => (
           <div className="warning" key={w}>
             <AlertTriangle size={16} />
-            <span>{w}</span>
+            <span>{localizeWarning(w, lang)}</span>
           </div>
         ))}
       </div>
