@@ -18,3 +18,28 @@ python3 web_api/server.py
 ```
 
 The Vite frontend proxies `/api` to `http://127.0.0.1:8765`.
+
+Windows Workbench:
+
+```bat
+web_api\start_win.bat
+```
+
+By default this starts the API watchdog and Vite frontend as hidden background
+processes, with logs in `logs\web_api\api-watchdog.log` and
+`logs\web_api\frontend-vite.log`. Closing the launcher window does not stop the
+services. If ports `8765` or `5173` are already listening, the launcher reports
+the PID and skips the duplicate service.
+
+To stop the hidden services:
+
+```bat
+web_api\stop_win.bat
+```
+
+For foreground debugging windows:
+
+```bat
+set ZH_WORKBENCH_FOREGROUND=1
+web_api\start_win.bat
+```
