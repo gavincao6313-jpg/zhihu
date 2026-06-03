@@ -732,6 +732,7 @@ export default function App() {
   const [config, setConfig] = useState<ServerConfig>({ launch_mode: "simulate", readonly: false, running_statuses: [] });
   const [authStatus, setAuthStatus] = useState<AuthStatus | null>(null);
   const [checkingAuth, setCheckingAuth] = useState(false);
+  const [detectedPlatform, setDetectedPlatform] = useState<"zhihu" | "xiaoe" | "unknown">("zhihu");
   const [runs, setRuns] = useState<RunRecord[]>([]);
   const [selectedId, setSelectedId] = useState<string>();
   const [selectedRun, setSelectedRun] = useState<RunRecord>();
@@ -829,8 +830,38 @@ export default function App() {
       setProvider("gemini");
       setSynthesisPass("one-shot");
     }
-    if (type === "live") checkAuth();
-    else setAuthStatus(null);
+    if (type === "live") {
+      setDetectedPlatform("zhihu");
+      checkAuth();
+    } else {
+      setAuthStatus(null);
+      setDetectedPlatform("unknown");
+    }
+  }
+
+  // Detect platform from URL in real-time
+  function detectPlatformFromUrl(url: string): "zhihu" | "xiaoe" | "unknown" {
+    if (!url) return "unknown";
+    const lowered = url.toLowerCase();
+    if (lowered.includes("xiaoeknow.com") || lowered.includes("xet.pomoho.com") || lowered.includes("xiaoecloud.com")) {
+      return "xiaoe";
+    }
+    if (lowered.includes("zhihu.com") || lowered.includes("csslcloud.net")) {
+      return "zhihu";
+    }
+    return "unknown";
+  }
+
+  // Check auth for the detected platform
+  function checkAuthForPlatform(platform: string, url?: string) {
+    setCheckingAuth(true);
+    fetchAuthStatus(platform, url)
+      .then(setAuthStatus)
+      .finally(() => setCheckingAuth(false));
+  }
+
+  function checkAuth() {
+    checkAuthForPlatform(detectedPlatform, source);
   }
 
   function currentPlanRequest(): RunPlanRequest {
@@ -950,6 +981,9 @@ export default function App() {
           {/* Auth status badge — only shown for live stream */}
           {sourceType === "live" && (
             <div className={`auth-badge ${authStatus ? (authStatus.ok ? "ok" : "fail") : "idle"}`}>
+              {detectedPlatform === "xiaoe" && (
+                <span className="platform-tag">小鹅通</span>
+              )}
               {checkingAuth ? (
                 <span>{lang === "zh" ? "检查登录状态…" : "Checking auth…"}</span>
               ) : authStatus ? (
@@ -1002,7 +1036,15 @@ export default function App() {
                   <input
                     value={source}
                     placeholder={sourcePlaceholder[sourceType]}
-                    onChange={(e) => setSource(e.target.value)}
+                    onChange={(e) => {
+                      const url = e.target.value;
+                      setSource(url);
+                      if (sourceType === "live") {
+                        const plat = detectPlatformFromUrl(url);
+                        setDetectedPlatform(plat);
+                        if (plat !== "unknown") checkAuthForPlatform(plat, url);
+                      }
+                    }}
                   />
                 </div>
                 <p className="drop-hint">{t(lang, "dropUrlHint")}</p>

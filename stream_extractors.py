@@ -44,6 +44,9 @@ YTDLP_HOST_HINTS = (
 PLAYWRIGHT_HOST_HINTS = (
     "zhihu.com",
     "www.zhihu.com",
+    "xiaoeknow.com",
+    "xet.pomoho.com",
+    "xiaoecloud.com",
 )
 
 MEDIA_PATTERNS = (

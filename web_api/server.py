@@ -818,7 +818,14 @@ class Handler(BaseHTTPRequestHandler):
             })
             return
         if path == "/api/check-auth":
-            self.send_json(_check_auth_state())
+            from urllib.parse import parse_qs
+            params = parse_qs(parsed.query)
+            platform = params.get("platform", ["zhihu"])[0]
+            auth_path = _auth_path_for_platform(platform)
+            if platform == "auto" and params.get("url", [""])[0]:
+                platform = detect_platform(params["url"][0])
+                auth_path = _auth_path_for_platform(platform)
+            self.send_json(_check_auth_state(auth_path, platform=platform))
             return
         if path.startswith("/api/runs/"):
             # /api/runs/{id}/live-chunks  — chunks visible during recording before manifest exists
@@ -934,21 +941,53 @@ def _find_python() -> str:
 
 
 _AUTH_COOKIE_NAMES = {"z_c0", "KLBRSID", "_xsrf"}  # key zhihu auth cookies
+_XIAOE_AUTH_COOKIE_NAMES = {"ko_token"}            # key xiaoetong auth cookies
+
+# Domains that identify each platform — used for auto-detection
+_XIAOE_DOMAINS = ("xiaoeknow.com", "xet.pomoho.com", "xiaoecloud.com")
+_ZHIHU_DOMAINS = ("zhihu.com", "csslcloud.net")
 
 
-def _check_auth_state(auth_path: Path | None = None) -> dict:
-    """Check whether zhihu_auth_state.json contains valid (non-expired) auth cookies.
+def detect_platform(url: str) -> str:
+    """Return 'zhihu', 'xiaoe', or 'unknown' based on the URL hostname."""
+    host = (urlparse(url).hostname or "").lower()
+    if any(d in host for d in _ZHIHU_DOMAINS):
+        return "zhihu"
+    if any(d in host for d in _XIAOE_DOMAINS):
+        return "xiaoe"
+    return "unknown"
+
+
+def _auth_path_for_platform(platform: str) -> Path:
+    """Return the appropriate auth state file for a platform."""
+    if platform == "xiaoe":
+        path = ROOT / "zhihu_auth_state_xiaoe.json"
+        if path.exists():
+            return path
+    return ROOT / "zhihu_auth_state.json"
+
+
+def _check_auth_state(auth_path: Path | None = None, platform: str = "zhihu") -> dict:
+    """Check whether the platform auth state file contains valid (non-expired) auth cookies.
 
     Returns:
         {"ok": bool, "message": str, "detail": {cookie_name: status_str}}
     """
     if auth_path is None:
-        auth_path = ROOT / "zhihu_auth_state.json"
+        auth_path = _auth_path_for_platform(platform)
+
+    auth_filename = auth_path.name
 
     if not auth_path.exists():
+        if platform == "xiaoe":
+            return {
+                "ok": False,
+                "message": f"{auth_filename} not found. Run: python save_xiaoe_auth.py",
+                "detail": {},
+            }
         return {
             "ok": False,
-            "message": "zhihu_auth_state.json not found. Run: python login_save_auth.py",
+            "message": f"{auth_filename} not found. Run: python login_save_auth.py",
             "detail": {},
         }
 
@@ -961,9 +1000,11 @@ def _check_auth_state(auth_path: Path | None = None) -> dict:
     now = time.time()
     found: dict[str, str] = {}
 
+    cookie_names = _XIAOE_AUTH_COOKIE_NAMES if platform == "xiaoe" else _AUTH_COOKIE_NAMES
+
     for c in cookies:
         name = c.get("name", "")
-        if name not in _AUTH_COOKIE_NAMES:
+        if name not in cookie_names:
             continue
         expires = c.get("expires", -1)
         if expires == -1:
@@ -974,6 +1015,12 @@ def _check_auth_state(auth_path: Path | None = None) -> dict:
             found[name] = "EXPIRED"
 
     if not found:
+        if platform == "xiaoe":
+            return {
+                "ok": False,
+                "message": "小鹅通认证 cookie（ko_token）不存在，请重新运行 python save_xiaoe_auth.py",
+                "detail": {},
+            }
         return {
             "ok": False,
             "message": "No zhihu auth cookies found. Run: python login_save_auth.py",
@@ -982,23 +1029,37 @@ def _check_auth_state(auth_path: Path | None = None) -> dict:
 
     expired = [k for k, v in found.items() if v == "EXPIRED"]
     if expired:
+        if platform == "xiaoe":
+            return {
+                "ok": False,
+                "message": f"小鹅通登录已过期（{', '.join(expired)}），请重新运行 python save_xiaoe_auth.py",
+                "detail": found,
+            }
         return {
             "ok": False,
             "message": f"登录已过期（{', '.join(expired)}），请重新运行 python login_save_auth.py",
             "detail": found,
         }
 
-    if "z_c0" not in found:
+    primary_cookie = "ko_token" if platform == "xiaoe" else "z_c0"
+    if primary_cookie not in found:
+        if platform == "xiaoe":
+            return {
+                "ok": False,
+                "message": "ko_token 主认证 cookie 不存在，请重新登录",
+                "detail": found,
+            }
         return {
             "ok": False,
             "message": "z_c0 主认证 cookie 不存在，请重新登录",
             "detail": found,
         }
 
-    expiry_hint = found.get("z_c0", "")
+    expiry_hint = found.get(primary_cookie, "")
+    platform_label = "小鹅通" if platform == "xiaoe" else "知乎"
     return {
         "ok": True,
-        "message": f"登录有效（z_c0 有效期至 {expiry_hint}）",
+        "message": f"{platform_label}登录有效（{primary_cookie} 有效期至 {expiry_hint}）",
         "detail": found,
     }
 
@@ -1223,11 +1284,16 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
     _cleanup_orphaned_records(source, exclude_id=run_id)
 
     python = _find_python()
-    auth = ROOT / "zhihu_auth_state.json"
-    auth_check = _check_auth_state(auth)
+    platform = detect_platform(source)
+    auth = _auth_path_for_platform(platform)
+    auth_check = _check_auth_state(auth, platform=platform)
     if not auth_check["ok"]:
         update_registry_record(run_id, "failed", auth_check["message"], "error")
         return
+
+    platform_label = "小鹅通" if platform == "xiaoe" else "知乎"
+    update_registry_record(run_id, "probing",
+                           f"[{platform_label}] {auth_check['message']} | Starting capture: {source[:60]}")
 
     # Step 1: live capture — continuous HLS mode (Recorder + Consumer threads)
     # Recording and transcription run in parallel; no gaps between segments.
@@ -1245,7 +1311,8 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
         "--stream-work-dir", str(ROOT / "Videos" / ".stream"),
     ]
 
-    update_registry_record(run_id, "probing", f"Starting continuous-HLS live capture: {source[:80]}")
+    update_registry_record(run_id, "probing",
+                           f"[{platform_label}] Starting continuous-HLS live capture: {source[:80]}")
     ok = _run_pipeline_engine(run_id, capture_cmd, None, _LIVE_KEYWORDS)
     if not ok:
         return
@@ -1302,11 +1369,12 @@ def launch_replay_pipeline(run_id: str, record: dict) -> None:
     update_registry_record(run_id, "probing", f"Starting replay capture: {source[:80]}")
 
     # Step 1: capture replay
-    # zhihu.com pages need Playwright to extract the media stream.
+    # zhihu.com / xiaoetong pages need Playwright to extract the media stream.
     # Direct media URLs (mp4/m3u8/flv) can be probed by ffmpeg directly.
-    is_page_url = any(domain in source for domain in ("zhihu.com", "xet.pomoho.com"))
+    platform = detect_platform(source)
+    is_page_url = platform in ("zhihu", "xiaoe")
     if is_page_url:
-        auth_file = ROOT / "zhihu_auth_state.json"
+        auth_file = _auth_path_for_platform(platform)
         capture_cmd = [
             python, str(ROOT / "zhihuTTS_stream.py"),
             "--page-url", source,

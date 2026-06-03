@@ -79,9 +79,15 @@ export interface AuthStatus {
   detail: Record<string, string>;
 }
 
-export async function fetchAuthStatus(): Promise<AuthStatus> {
+export async function fetchAuthStatus(platform?: string, url?: string): Promise<AuthStatus> {
   try {
-    const response = await fetch("/api/check-auth");
+    let query = `/api/check-auth`;
+    const params = new URLSearchParams();
+    if (platform) params.set("platform", platform);
+    if (url) params.set("url", url);
+    const qs = params.toString();
+    if (qs) query += `?${qs}`;
+    const response = await fetch(query);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return (await response.json()) as AuthStatus;
   } catch {

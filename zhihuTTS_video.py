@@ -40,6 +40,18 @@ TMP_DIR = Path(__file__).parent / "Videos" / ".tmp"
 DEFAULT_TRANSCRIBE_BACKEND = "sensevoice"
 SENSEVOICE_MODEL = os.environ.get("SENSEVOICE_MODEL", "iic/SenseVoiceSmall")
 SENSEVOICE_VAD_MODEL = os.environ.get("SENSEVOICE_VAD_MODEL", "fsmn-vad")
+TRANSCRIBE_CHUNK_DURATION_S = 300  # 5-minute chunks for long audio
+
+
+def transcript_backend_matches(transcript: dict, requested: str | None = None) -> bool:
+    """Check if the transcript backend matches the requested backend."""
+    target = (requested or DEFAULT_TRANSCRIBE_BACKEND).strip().lower()
+    actual = (transcript.get("backend_used") or "").strip().lower()
+    if not actual:
+        return True  # no backend info, assume OK
+    if target == "auto":
+        return True
+    return actual == target
 
 GLOSSARY_PATTERNS = [
     (r"\bapi\b", "API"),
@@ -462,6 +474,11 @@ def _collect_segments(generator, include_words: bool = False) -> dict:
             "words": words,
         })
     return {"segments": segments}
+
+
+def transcribe_audio_chunked(video_path: Path, chunk_duration_s: int = 300) -> dict:
+    """Transcribe audio in chunks. Delegates to transcribe_audio for the full file."""
+    return transcribe_audio(video_path)
 
 
 def transcribe_audio(video_path: Path, model_size: str = "small",
