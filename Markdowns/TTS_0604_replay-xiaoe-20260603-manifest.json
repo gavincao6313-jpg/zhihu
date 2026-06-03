@@ -1,0 +1,48 @@
+{
+  "video_stem": "replay-xiaoe-20260603",
+  "date": "2026-06-04",
+  "models": {
+    "gemini": {
+      "model": "gemini-3.5-flash",
+      "output": "TTS_0604_replay-xiaoe-20260603-gemini.md",
+      "chars": 9474,
+      "success": true
+    },
+    "qwen": {
+      "model": "qwen3.7-plus",
+      "output": "TTS_0604_replay-xiaoe-20260603-qwen.md",
+      "chars": 12917,
+      "success": true,
+      "windows": 1,
+      "window_success": 1,
+      "usage": {
+        "input_tokens": 41622,
+        "output_tokens": 7205,
+        "total_tokens": 48827
+      },
+      "qc_warnings": [
+        "qwen_missing_code_blocks: source contains prompt/config/code-like details but model body has no fenced code block"
+      ],
+      "qc_metrics": {
+        "h1_exists": true,
+        "body_chars": 12916,
+        "body_transcript_ratio": 0.3001,
+        "required_sections_missing": [],
+        "timestamped_chapter_count": 5,
+        "chapter_fields_missing": [],
+        "code_fence_count": 0,
+        "prompt_keywords_missing": [],
+        "body_min_transcript_ratio": 0.2,
+        "source_frame_count": 0
+      }
+    }
+  },
+  "preprocessing": {
+    "frames": 170,
+    "segments": 1,
+    "transcript_chars": 43033,
+    "slide_count": 6,
+    "annotation_count": 82,
+    "backend_used": "sensevoice"
+  }
+}
