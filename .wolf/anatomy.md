@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-03T03:42:09.842Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-03T09:36:43.101Z
 > Files: 76 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -75,7 +75,7 @@
 ## frontend/src/
 
 - `api.ts` — Exports ServerConfig, AuthStatus, fetchAuthStatus, fetchConfig + 8 more (~1946 tok)
-- `App.tsx` — SOURCE_ICONS (~11185 tok)
+- `App.tsx` — SOURCE_ICONS (~11756 tok)
 - `frontend/src/api.ts` — 前端 API 客户端；调用 `/api/runs`、`/api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs`，runs API 不可用时回退到 2026-06-01 live sample。 (~1600 tok)
 - `frontend/src/App.tsx` — Pipeline Workbench 主 UI；默认中文+中英切换、MP4 拖入区、URL 拖入支持、一键启动（directLaunch），以及 Runs 列表、Run Detail tabs。 (~9700 tok)
 - `frontend/src/i18n.ts` — 中英双语翻译词典；导出 Lang 类型和 t(lang, key) 函数，覆盖所有 UI 字符串。 (~300 tok)
@@ -115,7 +115,7 @@
 ## web_api/
 
 - `api_watchdog.bat` (~235 tok)
-- `server.py` — read_json, read_text, write_json, source_type_from_base (~16325 tok)
+- `server.py` — read_json, read_text, write_json, source_type_from_base (~16324 tok)
 - `start_background.ps1` — Windows Workbench 后台启动 helper；隐藏启动 API watchdog 或 Vite，并将日志写入 `logs/web_api/`。 (~300 tok)
 - `start_mac_live.sh` — start_mac_live.sh — Mac 端本地真实任务模式 (~320 tok)
 - `start_mac_viewer.sh` — start_mac_viewer.sh — MAC 端只读查看器 (~210 tok)

@@ -2400,6 +2400,70 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-03T09:13:51+08:00"
+    },
+    {
+      "id": "bug-143",
+      "timestamp": "2026-06-03T04:14:18.672Z",
+      "error_message": "Incorrect value in code",
+      "file": "web_api/server.py",
+      "root_cause": "Had \"\n    markdown_preview = read_text(markdown_path, ",
+      "fix": "Changed to \"\n    markdown_preview = read_text(markdown_path, ",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-03T04:14:18.672Z"
+    },
+    {
+      "id": "bug-144",
+      "timestamp": "2026-06-03T04:14:53.741Z",
+      "error_message": "Wrong reference: 6000 should be 250000",
+      "file": "web_api/server.py",
+      "root_cause": "Used \"6000\" instead of \"250000\"",
+      "fix": "Changed 6000 → 250000",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-03T04:14:53.741Z"
+    },
+    {
+      "id": "bug-145",
+      "timestamp": "2026-06-03T04:44:17.843Z",
+      "error_message": "Null/undefined access in ",
+      "file": "frontend/src/App.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-03T04:44:17.843Z"
+    },
+    {
+      "id": "bug-146",
+      "timestamp": "2026-06-03T09:36:30.264Z",
+      "error_message": "Incorrect value in code",
+      "file": "frontend/src/App.tsx",
+      "root_cause": "Had \"警告\"",
+      "fix": "Changed to \"完整\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-06-03T09:36:43.230Z"
     }
   ]
 }

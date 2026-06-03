@@ -115,6 +115,7 @@
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
 <!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
 - [2026-05-22] Do not review or expose a new Gemini multi-request workflow before checking the explicit RPM/TPM/RPD budget against `CLAUDE.md`; prefer the one-call live final path unless the user approves a bounded alternative.
+- [2026-06-03] 向 feature 分支同步前端文件时，必须同时同步 i18n.ts。只同步 styles.css/server.py 而遗漏 i18n.ts，会导致新组件翻译 key 缺失，t() 返回 undefined，React 渲染崩溃黑屏。规则：跨分支同步前端改动时，检查 App.tsx 里所有 t(lang, key) 调用，确认目标分支 i18n.ts 都有对应 key。
 - [2026-05-23] **Do not let wrapper defaults override Python naming fallbacks.** `run_zhihu_live.bat` generated `NAME=live-YYYYMMDD-HHMMSS` and always passed `--name`, so `zhihuTTS_stream.py` never used the intended `live_YYYYMMDD_<page title>` fallback. If a wrapper needs a temporary log label, keep it separate from the output base and read back the real base through a marker/manifest.
 - [2026-05-23] **Never set stream-stage `--gemini` automatically from GEMINI_API_KEY in BAT.** Presence of an API key is not consent to run multiple Gemini synthesis paths. BAT defaults must keep transcription Gemini disabled and call only the final one-shot synthesis unless the user explicitly runs an experimental/manual path.
 

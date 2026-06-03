@@ -141,7 +141,7 @@ function stepSummary(summary: string, lang: Lang): string {
   if ((m = summary.match(/^(\d+) chunks? indexed$/))) return `${m[1]} 个分片已索引`;
   if ((m = summary.match(/^(\d+) frames? in QC$/))) return `${m[1]} 帧已质检`;
   if ((m = summary.match(/^(\d+) warnings?, coverage=(.+)$/))) return `${m[1]} 个警告，覆盖率=${m[2]}`;
-  if ((m = summary.match(/^source_status=(.+)$/))) return `来源状态=${m[1]}`;
+  if ((m = summary.match(/^source_status=(.+)$/))) return `来源状态=${qcStatusValue(m[1], lang)}`;
   if ((m = summary.match(/^(\w+) input planned$/))) return `${_SOURCE_TYPE_ZH[m[1]] ?? m[1]} 输入已计划`;
   return summary;
 }
@@ -151,7 +151,7 @@ function qcStatusValue(value: string | number | null | undefined, lang: Lang): s
   if (lang === "en") return String(value);
   const zh: Record<string, string> = {
     planned: "计划中", pending: "待处理", unknown: "未知",
-    ok: "正常", failed: "失败", partial: "部分",
+    ok: "正常", failed: "失败", partial: "部分", full: "完整",
     warning: "警告", completed: "完成",
   };
   return zh[String(value)] ?? String(value);
