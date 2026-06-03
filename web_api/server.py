@@ -370,8 +370,8 @@ def run_from_qc(path: Path, include_detail: bool = True) -> dict:
     frames = frames_for_base(base, manifest_path) if include_detail else []
     warnings = qc.get("warnings") or []
     transcript_text = read_text(transcript_path, limit=250000) if transcript_path and include_detail else ""
-    transcript_preview = transcript_text[:6000] if include_detail else ""
-    markdown_preview = read_text(markdown_path, limit=6000) if markdown_path and include_detail else ""
+    transcript_preview = transcript_text if include_detail else ""
+    markdown_preview = read_text(markdown_path, limit=250000) if markdown_path and include_detail else ""
     manifest_chunk_count = len(manifest_chunks(manifest_path))
     chunk_count = len(chunks) if include_detail else manifest_chunk_count or len(list(RUNS_DIR.glob(f"stream-{base}_chunk*.md")))
     return {
@@ -421,7 +421,7 @@ def run_from_mp4_md(md_path: Path, include_detail: bool = True) -> dict:
     stem = md_path.stem                      # e.g. "TTS_0602_MyVideo"
     base = stem.removeprefix("TTS_")         # e.g. "0602_MyVideo"
     mtime = int(md_path.stat().st_mtime)
-    markdown_preview = read_text(md_path, limit=6000) if include_detail else ""
+    markdown_preview = read_text(md_path, limit=250000) if include_detail else ""
     return {
         "id": stem,
         "base": stem,
