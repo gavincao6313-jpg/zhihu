@@ -3,6 +3,8 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 11:43 | frontend-design 重设计：Outfit+JetBrains Mono 字体、主色 #00c896 cyan-green、终端风 status badge、背景光晕+点阵、timeline 脉冲动画 | frontend/src/styles.css | designqc 验证通过 | ~8k |
+
 | 2026-06-02 | i18n 中英双语系统 + App.tsx 全面重写（默认中文、lang toggle、MP4/URL 拖入区、directLaunch 一键启动） | frontend/src/i18n.ts, frontend/src/App.tsx, frontend/src/styles.css | TypeScript 0 errors | ~6000 |
 | 2026-06-02 | 新增 start_mac_live.sh — Mac 真实任务模式（--launch-mode live，激活 .venv-mac311） | web_api/start_mac_live.sh | done | ~200 |
 
@@ -937,3 +939,23 @@
 | 08:54 | Edited frontend/src/App.tsx | modified t() | ~147 |
 | 01:30 | 前端 UI 重设计：CSS 变量 + 右侧空状态 + tab/metric 升级 | frontend/src/styles.css, frontend/src/App.tsx | 截图确认视觉大幅提升 | ~4000 |
 | 09:14 | WIN Workbench 后台化启动 | web_api/start_win.bat, web_api/start_background.ps1, web_api/stop_win.bat, web_api/README.md | API/Vite 默认隐藏后台运行，日志落 logs/web_api，保留前台调试开关和停止脚本 | ~2200 |
+
+## Session: 2026-06-03 11:17
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-03 11:24
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:31 | Created frontend/src/styles.css | — | ~7676 |
+| 11:32 | designqc: captured 3 screenshots (75KB, ~7500 tok) | / | ready for eval | ~0 |
+| 11:33 | 前端科技风格改版：绿色→电蓝暗色主题，CSS变量全量重写，点阵背景+发光效果 | frontend/src/styles.css | build ✓ designqc ✓ | ~800 |
+
+## Session: 2026-06-03 11:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:42 | Created frontend/src/styles.css | — | ~8216 |
+| 11:42 | designqc: captured 3 screenshots (73KB, ~7500 tok) | / | ready for eval | ~0 |
