@@ -2348,18 +2348,58 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-02T16:33:40.459Z"
+    },
+    {
+      "id": "bug-140",
+      "timestamp": "2026-06-03T00:00:00+08:00",
+      "error_message": "Qwen 3.7 Plus 输出中 ## 6. 叙事证据附录 重复出现两次",
+      "file": "utils.py, scripts/build_stream_markdown.py",
+      "root_cause": "ensure_qwen_narrative_appendix 的 should_append 逻辑：has_section=True 但 body_transcript_ratio 或 retention_ratio 低时仍追加，导致相同 ## 6 heading 出现两次",
+      "fix": "将 should_append 改为仅 not has_section，section 已存在时不再追加（两文件同步修复）",
+      "tags": [
+        "qwen",
+        "narrative-appendix",
+        "duplicate-heading",
+        "build_stream_markdown",
+        "utils"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-03"
+    },
+    {
+      "id": "bug-141",
+      "timestamp": "2026-06-03T00:54:58.528Z",
+      "error_message": "Significant refactor of ",
+      "file": "frontend/src/App.tsx",
+      "root_cause": "7 lines replaced/restructured",
+      "fix": "Rewrote 10→11 lines (7 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-03T00:54:58.528Z"
+    },
+    {
+      "id": "bug-142",
+      "timestamp": "2026-06-03T09:13:51+08:00",
+      "error_message": "WIN Workbench starts two foreground dependency windows, one for API/server.py python.exe and one for Vite/frontend App.tsx; accidental closure makes the frontend fail to load and the operation fail",
+      "file": "web_api/start_win.bat",
+      "root_cause": "start_win.bat used start ... cmd /k for both API watchdog and Vite, intentionally keeping two visible consoles in the foreground.",
+      "fix": "Changed start_win.bat to default hidden background startup through web_api/start_background.ps1 with logs under logs/web_api, added ZH_WORKBENCH_FOREGROUND=1 debug mode, skipped duplicate starts when 8765/5173 are already listening, and added web_api/stop_win.bat to stop hidden services by port.",
+      "tags": [
+        "windows",
+        "workbench",
+        "frontend",
+        "background-process",
+        "bat"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-03T09:13:51+08:00"
     }
-  ,{
-    "id": "bug-140",
-    "timestamp": "2026-06-03T00:00:00+08:00",
-    "error_message": "Qwen 3.7 Plus 输出中 ## 6. 叙事证据附录 重复出现两次",
-    "file": "utils.py, scripts/build_stream_markdown.py",
-    "root_cause": "ensure_qwen_narrative_appendix 的 should_append 逻辑：has_section=True 但 body_transcript_ratio 或 retention_ratio 低时仍追加，导致相同 ## 6 heading 出现两次",
-    "fix": "将 should_append 改为仅 not has_section，section 已存在时不再追加（两文件同步修复）",
-    "tags": ["qwen", "narrative-appendix", "duplicate-heading", "build_stream_markdown", "utils"],
-    "related_bugs": [],
-    "occurrences": 1,
-    "last_seen": "2026-06-03"
-  }
   ]
 }

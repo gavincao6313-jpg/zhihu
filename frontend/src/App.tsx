@@ -1127,14 +1127,15 @@ export default function App() {
         )}
 
         {!selectedRun && !runPlan && (
-          <section className="panel full">
-            <div className="panel-heading">
-              <Activity size={18} />
-              <h2>
-                {loadingDetail ? t(lang, "loadingRun") : t(lang, "noRunSelected")}
-              </h2>
+          <div className="empty-workspace">
+            <div className="empty-workspace-icon">
+              <CirclePlay size={26} />
             </div>
-          </section>
+            <h3>{loadingDetail ? t(lang, "loadingRun") : t(lang, "noRunSelected")}</h3>
+            {!loadingDetail && (
+              <p>{lang === "zh" ? "从左侧选择一个已有任务，或填写参数后点击「启动」开始新任务" : "Select a run on the left, or fill in the form and click Launch to start a new one."}</p>
+            )}
+          </div>
         )}
 
         {selectedRun && (

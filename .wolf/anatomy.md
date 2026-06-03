@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T16:34:06.014Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-03T00:54:58.347Z
 > Files: 74 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -75,7 +75,7 @@
 ## frontend/src/
 
 - `api.ts` — Exports ServerConfig, AuthStatus, fetchAuthStatus, fetchConfig + 8 more (~1946 tok)
-- `App.tsx` — SOURCE_ICONS (~11134 tok)
+- `App.tsx` — SOURCE_ICONS (~11185 tok)
 - `frontend/src/api.ts` — 前端 API 客户端；调用 `/api/runs`、`/api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs`，runs API 不可用时回退到 2026-06-01 live sample。 (~1600 tok)
 - `frontend/src/App.tsx` — Pipeline Workbench 主 UI；默认中文+中英切换、MP4 拖入区、URL 拖入支持、一键启动（directLaunch），以及 Runs 列表、Run Detail tabs。 (~9700 tok)
 - `frontend/src/i18n.ts` — 中英双语翻译词典；导出 Lang 类型和 t(lang, key) 函数，覆盖所有 UI 字符串。 (~300 tok)
@@ -84,7 +84,7 @@
 - `frontend/src/types.ts` — Run、Artifact、PipelineStep、Chunk、Frame、QC、RunPlan/RunPlanRequest、RunLogEntry 等前端数据类型。 (~1300 tok)
 - `i18n.ts` — Exports Lang, I18nKey, t (~1835 tok)
 - `polling.worker.ts` — Background polling timer. (~173 tok)
-- `styles.css` — Styles: 132 rules (~4239 tok)
+- `styles.css` — Styles: 71 rules, 19 vars (~7312 tok)
 - `useWorkerInterval.ts` — Calls `callback` every `intervalMs` milliseconds while `active` is true. (~269 tok)
 
 ## githooks/
@@ -118,6 +118,8 @@
 - `server.py` — read_json, read_text, write_json, source_type_from_base (~16325 tok)
 - `start_mac_live.sh` — start_mac_live.sh — Mac 端本地真实任务模式 (~320 tok)
 - `start_mac_viewer.sh` — start_mac_viewer.sh — MAC 端只读查看器 (~210 tok)
+- `start_background.ps1` — Windows Workbench 后台启动 helper；隐藏启动 API watchdog 或 Vite，并将日志写入 `logs/web_api/`。 (~300 tok)
 - `start_win.bat` (~438 tok)
+- `stop_win.bat` — Windows Workbench 停止脚本；按 8765/5173 监听端口终止后台 API/Vite 进程。 (~220 tok)
 - `web_api/README.md` — 本地 Web API 说明；记录 `GET /api/runs`、`GET /api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs` 和启动命令。 (~180 tok)
 - `web_api/server.py` — 纯标准库本地 API；扫描 `runs/*.final-qc.json`，关联 manifest、transcript、Markdown、chunks、payload frames，输出前端 Run 数据；新增 dry-run plan 生成和本地 created run registry，不启动长任务。 (~6800 tok)

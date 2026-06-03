@@ -928,3 +928,12 @@
 
 | 00:35 | P0 fix bug-140: ensure_qwen_narrative_appendix 重复附录 | utils.py, scripts/build_stream_markdown.py | should_append=not has_section，语法OK | ~800 |
 | 00:35 | P0 prompt: Quotes区分金句类型 + H1标题准确性指引 | scripts/build_stream_markdown.py | 3处prompt更新 | ~400 |
+
+## Session: 2026-06-03 08:45
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:54 | Created frontend/src/styles.css | — | ~7312 |
+| 08:54 | Edited frontend/src/App.tsx | modified t() | ~147 |
+| 01:30 | 前端 UI 重设计：CSS 变量 + 右侧空状态 + tab/metric 升级 | frontend/src/styles.css, frontend/src/App.tsx | 截图确认视觉大幅提升 | ~4000 |
+| 09:14 | WIN Workbench 后台化启动 | web_api/start_win.bat, web_api/start_background.ps1, web_api/stop_win.bat, web_api/README.md | API/Vite 默认隐藏后台运行，日志落 logs/web_api，保留前台调试开关和停止脚本 | ~2200 |
