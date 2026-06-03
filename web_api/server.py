@@ -413,6 +413,8 @@ def run_from_qc(path: Path, include_detail: bool = True) -> dict:
         },
         "transcript_preview": transcript_preview,
         "markdown_preview": markdown_preview,
+        "plan": None,
+        "logs": [],
     }
 
 
@@ -676,19 +678,46 @@ def build_run_plan(payload: dict) -> dict:
         )
     elif source_type == "live":
         synth_extra = f" --qwen-max-frames {qwen_max_frames}" if provider == "qwen" else ""
-        commands.append(
-            {
-                "stage": "capture",
-                "label": "Capture live stream (continuous-HLS)",
-                "command": (
-                    f"python zhihuTTS_stream.py --continuous-hls --playwright-keepalive"
-                    f" --page-url \"{source}\""
-                    f" --chunk-duration 60 --name \"{base}\""
-                    f" --stream-work-dir Videos/.stream"
-                ),
-                "summary": "Recorder+Consumer 并行：ffmpeg 持续录制 .ts 分片，ASR/关键帧同步处理。URL 过期后 Playwright 自动刷新。",
-            }
-        )
+        _live_platform = detect_platform(source) if source else "unknown"
+        if _live_platform == "xiaoe":
+            commands.append(
+                {
+                    "stage": "probe",
+                    "label": "截取小鹅通流地址（有头浏览器）",
+                    "command": (
+                        f"python probe_xiaoe_stream.py \"{source}\""
+                        f" zhihu_auth_state_xiaoe.json"
+                    ),
+                    "summary": "有头 Chromium 打开直播页，拦截播放器发出的 m3u8 请求，输出含时间戳鉴权参数的流地址。",
+                }
+            )
+            commands.append(
+                {
+                    "stage": "capture",
+                    "label": "Capture live stream (continuous-HLS, direct URL)",
+                    "command": (
+                        f"python zhihuTTS_stream.py --continuous-hls"
+                        f" --url <m3u8_from_probe>"
+                        f" --chunk-duration 60 --name \"{base}\""
+                        f" --stream-work-dir Videos/.stream"
+                    ),
+                    "summary": "Recorder+Consumer 并行：ffmpeg 直接从 m3u8 地址持续录制 .ts 分片，ASR/关键帧同步处理。",
+                }
+            )
+        else:
+            commands.append(
+                {
+                    "stage": "capture",
+                    "label": "Capture live stream (continuous-HLS)",
+                    "command": (
+                        f"python zhihuTTS_stream.py --continuous-hls --playwright-keepalive"
+                        f" --page-url \"{source}\""
+                        f" --chunk-duration 60 --name \"{base}\""
+                        f" --stream-work-dir Videos/.stream"
+                    ),
+                    "summary": "Recorder+Consumer 并行：ffmpeg 持续录制 .ts 分片，ASR/关键帧同步处理。URL 过期后 Playwright 自动刷新。",
+                }
+            )
         commands.append(
             {
                 "stage": "merge",
@@ -1268,6 +1297,40 @@ def _recover_stale_records() -> int:
     return changed
 
 
+def run_xiaoe_probe(page_url: str, auth_path: Path, run_id: str) -> str | None:
+    """Spawn probe_xiaoe_stream.py to intercept the 小鹅通 m3u8 URL via headed browser.
+
+    Returns the signed m3u8 URL on success, None on timeout or failure.
+    """
+    python = _find_python()
+    script = ROOT / "probe_xiaoe_stream.py"
+    update_registry_record(run_id, "probing", "[小鹅通] 正在截取流地址（有头浏览器）…")
+    try:
+        result = subprocess.run(
+            [python, str(script), page_url, str(auth_path)],
+            capture_output=True,
+            text=True,
+            timeout=75,  # probe internal timeout is 45s; extra buffer for browser startup
+        )
+    except subprocess.TimeoutExpired:
+        update_registry_record(run_id, "failed",
+                               "[小鹅通] 流地址截取超时（75s），请确认直播正在进行中。", "error")
+        return None
+    except Exception as exc:
+        update_registry_record(run_id, "failed", f"[小鹅通] probe 启动失败: {exc}", "error")
+        return None
+
+    for line in result.stdout.splitlines():
+        if line.startswith("M3U8_URL="):
+            return line.removeprefix("M3U8_URL=").strip()
+
+    stderr_snippet = (result.stderr or "")[-300:].strip()
+    update_registry_record(run_id, "failed",
+                           f"[小鹅通] 未能截获流地址，请确认直播正在进行中。{' stderr: ' + stderr_snippet if stderr_snippet else ''}",
+                           "error")
+    return None
+
+
 def launch_live_pipeline(run_id: str, record: dict) -> None:
     """WIN-only: live capture via playwright-keepalive → merge → synthesis."""
     plan = record.get("plan") or {}
@@ -1299,17 +1362,35 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
     # Recording and transcription run in parallel; no gaps between segments.
     # Falls back gracefully: if stream ends, Consumer drains remaining .ts files.
     captured_name = base or f"live_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-    capture_cmd = [
-        python, "-u", str(ROOT / "zhihuTTS_stream.py"),
-        "--continuous-hls",
-        "--playwright-keepalive",
-        "--page-url", source,
-        "--playwright-storage-state", str(auth),
-        "--playwright-save-storage-state", str(auth),
-        "--chunk-duration", "60",
-        "--name", captured_name,
-        "--stream-work-dir", str(ROOT / "Videos" / ".stream"),
-    ]
+
+    if platform == "xiaoe":
+        # 小鹅通: m3u8 URL carries time+uuid auth params generated only when the player
+        # loads in a headed browser. Pre-probe to capture the signed URL, then pass it
+        # directly via --url (no --playwright-keepalive needed).
+        m3u8_url = run_xiaoe_probe(source, auth, run_id)
+        if not m3u8_url:
+            return
+        capture_cmd = [
+            python, "-u", str(ROOT / "zhihuTTS_stream.py"),
+            "--continuous-hls",
+            "--url", m3u8_url,
+            "--chunk-duration", "60",
+            "--name", captured_name,
+            "--stream-work-dir", str(ROOT / "Videos" / ".stream"),
+        ]
+    else:
+        # 知乎: Playwright keepalive detects the CC stream URL from the live page.
+        capture_cmd = [
+            python, "-u", str(ROOT / "zhihuTTS_stream.py"),
+            "--continuous-hls",
+            "--playwright-keepalive",
+            "--page-url", source,
+            "--playwright-storage-state", str(auth),
+            "--playwright-save-storage-state", str(auth),
+            "--chunk-duration", "60",
+            "--name", captured_name,
+            "--stream-work-dir", str(ROOT / "Videos" / ".stream"),
+        ]
 
     update_registry_record(run_id, "probing",
                            f"[{platform_label}] Starting continuous-HLS live capture: {source[:80]}")

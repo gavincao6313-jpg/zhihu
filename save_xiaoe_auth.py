@@ -1,15 +1,17 @@
-"""Save xiaoe auth state via manual login in headed browser."""
+"""Save xiaoe auth state via manual login in headed browser.
+
+Usage: python save_xiaoe_auth.py <xiaoe_live_url>
+"""
+from pathlib import Path
 from playwright.sync_api import sync_playwright
 import sys
 
-url = sys.argv[1] if len(sys.argv) > 1 else (
-    "https://appzl5apwz41977.h5.xet.pomoho.com/v4/course/alive/"
-    "l_6a1c5fe3e4b0694c5bcddcbc?type=2&resource_type=4"
-    "&resource_id=l_6a1c5fe3e4b0694c5bcddcbc&app_id=appzl5apwz41977"
-    "&pro_id=p_62ee3208e4b0eca59c1f854d"
-    "&conduit_id=p_62ee3208e4b0eca59c1f854d&conduit_type=live_group"
-)
-out_path = r"d:\zhihu\zhihu_file\zhihu_auth_state_xiaoe.json"
+if len(sys.argv) < 2 or not sys.argv[1].strip():
+    print("Usage: python save_xiaoe_auth.py <xiaoe_live_url>")
+    sys.exit(1)
+
+url = sys.argv[1].strip()
+out_path = str(Path(__file__).parent / "zhihu_auth_state_xiaoe.json")
 
 print("Opening browser for xiaoe login...")
 print(f"URL: {url[:120]}...")
