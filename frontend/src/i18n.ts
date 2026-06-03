@@ -1,8 +1,8 @@
 export type Lang = "zh" | "en";
 
 const dict = {
-  brandTitle:        { zh: "知乎工作台",                           en: "zhihu Workbench" },
-  brandSub:          { zh: "流水线可视化",                          en: "Pipeline visualization" },
+  brandTitle:        { zh: "灵犀一点",                           en: "Lingxi One-Tap" },
+  brandSub:          { zh: "声文相通",                             en: "Speech to Text" },
   createSource:      { zh: "创建任务",                             en: "Create Source" },
   outputBase:        { zh: "输出名称",                             en: "Output base" },
   outputBasePh:      { zh: "自动生成（留空）",                       en: "Auto if empty" },
