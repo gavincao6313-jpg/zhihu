@@ -1,11 +1,16 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-04T03:21:33.499Z
-> Files: 81 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-04T11:59:58.459Z
+> Files: 86 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../.claude/plans/
 
 - `deepseek-zhihu-vs-code-purring-boot.md` — 计划：DeepSeek AI 助手面板 (~1565 tok)
+
+## ../../.claude/projects/-Users-caojiapeng-projects-zhihu/memory/
+
+- `MEMORY.md` — Memory Index (~30 tok)
+- `project_hybrid_synthesis_plan.md` — 决策：混合合成重构方向（2026-06-04） (~227 tok)
 
 ## ./
 
@@ -13,8 +18,9 @@
 - `CLAUDE.md` — OpenWolf (~1508 tok)
 - `extract_slides.py` — 从文件管线 keyframe manifest 或流管线 payload 收集 slide 帧，去重后输出 `Slides/<base>/slides.pdf` 和可选 PPTX；流模式使用 `--stream-base`。 (~12000 tok)
 - `probe_xiaoe_stream.py` — 非交互式小鹅通流地址截取脚本；接受 `page_url` + `auth_state_json` 两个 CLI 参数，启动有头 Chromium 拦截 m3u8 请求，成功时输出 `M3U8_URL=<url>` 到 stdout 后退出，超时（45s）退出码 1；供 `server.py:run_xiaoe_probe()` 以子进程方式调用，替代含 `input()` 的交互式 `probe_xiaoe_headed.py`。 (~350 tok)
+- `process_replay_qwen.py` — fmt_ts, distribute_frames_to_chunks, main (~3357 tok)
 - `run_dual_model.py` — Run dual-model verification (Gemini + Qwen) on a single video. (~4204 tok)
-- `run_replay_qwen.bat` (~631 tok)
+- `run_replay_qwen.bat` (~698 tok)
 - `run_single_file.py` — Run zhihuTTS file pipeline on a single video for A/B testing. (~280 tok)
 - `run_zhihu_live.bat` (~1231 tok)
 - `save_xiaoe_auth.py` — Save xiaoe auth state via manual login in headed browser. (~442 tok)
@@ -64,6 +70,7 @@
 - `docs/SHORT_VIDEO_QWEN_WORKFLOW_DESIGN_20260527.md` — Qwen 短视频批量抽取工作流设计；定义 preprocess-only、synthesize-only、packing、VIDEO_ID 拆分、短视频 QC、CLI 和 P0-P3 实施阶段。 (~7600 tok)
 - `docs/TOUTIAO_FAVORITES_RUNBOOK.md` — 今日头条收藏夹同步运行手册；说明登录态保存、收藏页探测、manifest 更新、下载到 Videos/short/toutiao 以及接短视频 pipeline 的命令。 (~2500 tok)
 - `FRONTEND_DASHBOARD_DESIGN.md` — 直播转写控制台 — 前端设计需求 (~1076 tok)
+- `handoff-20260604-p2-6.md` — WIN 交接：P2-6 质量基线评测（2026-06-04） (~1094 tok)
 - `LIVE_FINAL_QUALITY_ROADMAP.md` — Live Final Quality Roadmap (~3188 tok)
 - `LIVE_STREAM_SOP.md` — 知乎直播转写标准操作流程 (SOP) (~1727 tok)
 - `P3_AUTOMATION_BACKLOG.md` — P3 自动化积压 — 待完成（非阻塞） (~547 tok)
@@ -105,7 +112,7 @@
 
 ## scripts/
 
-- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~24449 tok)
+- `build_stream_markdown.py` — Post-stream LLM synthesis: assemble all live chunks → NotebookLM document. (~24465 tok)
 - `convert_payload_to_chunks.py` — Convert single payload.json to per-chunk stream format for build_stream_markdown.py. (~1548 tok)
 - `live_sectioned_synthesis.py` — P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents. (~30063 tok)
 - `merge_stream_chunks.py` — parse_chunk_start, parse_timestamp, load_chunk_lines, load_chunk_slides (~2020 tok)
