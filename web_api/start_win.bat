@@ -22,6 +22,11 @@ set "VENV_PYTHON=d:\zhihu\zhihu_file\.venv-sensevoice\Scripts\python.exe"
 set "LAUNCH_MODE=live"
 set "LOG_DIR=%PROJECT_DIR%\logs\web_api"
 
+:: AI 助手面板需要 DEEPSEEK_API_KEY。
+:: 请通过 Windows 系统环境变量设置（控制面板 → 高级系统设置 → 环境变量），
+:: 或在启动前的 CMD 会话中执行：setx DEEPSEEK_API_KEY "sk-..."（该命令不进入本文件）。
+:: 绝不在此文件或任何版本控制文件中写入真实密钥。
+
 cd /d "%PROJECT_DIR%"
 
 if not exist "!LOG_DIR!" mkdir "!LOG_DIR!"

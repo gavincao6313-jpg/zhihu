@@ -8,6 +8,8 @@ import subprocess
 import sys
 import threading
 import time
+import urllib.request
+import urllib.error
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from datetime import datetime
@@ -29,6 +31,121 @@ _REGISTRY_LOCK = threading.Lock()
 # Populated by main() from CLI args; controls write access and launch mode.
 _READONLY: bool = False
 _LAUNCH_MODE: str = "simulate"  # "simulate" | "live"
+
+# ── DeepSeek AI chat ──────────────────────────────────────────────────────────
+DEEPSEEK_API_KEY: str = os.environ.get("DEEPSEEK_API_KEY", "")
+DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1/chat/completions"
+DEEPSEEK_MODEL = "deepseek-chat"
+
+AI_SYSTEM_PROMPT = """你是 zhihu-pipeline 的 AI 助手，帮助用户管理视频转写管道任务。
+
+你可以：
+- 列出任务（list_runs）
+- 查看任务详情（get_run）
+- 预览执行计划（create_plan）
+- 提议启动新任务（launch_run）
+- 检查平台登录状态（check_auth）
+
+来源类型：live（直播）、replay（回放）、mp4（本地文件）。
+Provider：gemini 或 qwen；synthesis_pass：one-shot 或 sliding-window。
+
+重要规则：
+- 调用 launch_run 之前，建议先调用 create_plan 预览计划。
+- launch_run 会返回一个需要用户在前端点击确认的提案，不会立即执行。
+- 回复简洁，使用中文，技术术语保留英文。"""
+
+AI_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "list_runs",
+            "description": "列出最近的管道任务，包括状态、来源类型、模型和创建时间。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "integer",
+                        "description": "返回最大任务数，默认 20，最大 50。",
+                        "default": 20,
+                    }
+                },
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_run",
+            "description": "获取指定任务的详细信息，包括流水线步骤、质检结果和指标。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "run_id": {
+                        "type": "string",
+                        "description": "任务 ID，从 list_runs 获取。",
+                    }
+                },
+                "required": ["run_id"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "create_plan",
+            "description": "生成执行计划（干运行），预览命令和路径，不实际执行任何操作。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "source": {"type": "string", "description": "来源 URL 或本地文件路径。"},
+                    "source_type": {"type": "string", "enum": ["live", "replay", "mp4"]},
+                    "provider": {"type": "string", "enum": ["gemini", "qwen"], "default": "gemini"},
+                    "synthesis_pass": {"type": "string", "enum": ["one-shot", "sliding-window"], "default": "one-shot"},
+                    "qwen_max_frames": {"type": "integer", "default": 250},
+                    "base": {"type": "string", "description": "可选输出名称前缀。"},
+                },
+                "required": ["source", "source_type", "provider"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "launch_run",
+            "description": "提议启动一个管道任务。返回需要用户在前端确认的提案，用户确认后才真正启动。建议先调用 create_plan 预览。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "source": {"type": "string", "description": "来源 URL 或本地文件路径。"},
+                    "source_type": {"type": "string", "enum": ["live", "replay", "mp4"]},
+                    "provider": {"type": "string", "enum": ["gemini", "qwen"], "default": "gemini"},
+                    "synthesis_pass": {"type": "string", "enum": ["one-shot", "sliding-window"], "default": "one-shot"},
+                    "qwen_max_frames": {"type": "integer", "default": 250},
+                    "base": {"type": "string"},
+                },
+                "required": ["source", "source_type", "provider"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "check_auth",
+            "description": "检查平台登录状态（Auth cookie 是否有效）。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "platform": {
+                        "type": "string",
+                        "enum": ["zhihu", "xiaoe"],
+                        "description": "平台：zhihu（知乎）或 xiaoe（小鹅通）。",
+                        "default": "zhihu",
+                    }
+                },
+            },
+        },
+    },
+]
 
 
 def _rel(path: Path) -> str:
@@ -643,8 +760,6 @@ def build_run_plan(payload: dict) -> dict:
             warnings.append("Replay 来源看起来不是有效 URL；请粘贴知乎回放视频的完整 https 链接。")
         base = safe_base(str(payload.get("base") or ""), f"replay-{stamp}")
     elif source_type == "live":
-        if provider == "qwen":
-            warnings.append("Current run_zhihu_live.bat is simplified Gemini-oriented; Qwen live finalization needs the provider wrapper restored or a manual build_stream_markdown.py fallback.")
         base = safe_base(str(payload.get("base") or f"live-{stamp}"), f"live-{stamp}")
     else:
         warnings.append(f"Unknown source_type={source_type}; expected mp4, replay, or live.")
@@ -781,6 +896,172 @@ def create_registry_record(payload: dict) -> dict:
     return record_to_run(record, include_detail=True)
 
 
+def _deepseek_call(request_body: dict) -> dict:
+    """Make a single synchronous call to the DeepSeek API and return the parsed response."""
+    data = json.dumps(request_body, ensure_ascii=False).encode("utf-8")
+    req = urllib.request.Request(
+        DEEPSEEK_BASE_URL,
+        data=data,
+        headers={
+            "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        body = ""
+        try:
+            body = exc.read().decode("utf-8")
+        except Exception:
+            pass
+        raise RuntimeError(f"DeepSeek API error {exc.code}: {body}") from exc
+
+
+def _execute_ai_tool(name: str, args: dict) -> tuple[object, bool]:
+    """Execute an AI tool and return (result, requires_confirmation).
+
+    launch_run always returns requires_confirmation=True — the frontend handles
+    the actual createRun + launchRun calls after the user clicks Confirm.
+    """
+    try:
+        if name == "list_runs":
+            limit = min(int(args.get("limit") or 20), 50)
+            runs = list_runs()
+            return [
+                {
+                    "id": r["id"],
+                    "base": r["base"],
+                    "status": r["status"],
+                    "source_type": r["source_type"],
+                    "provider": r.get("provider"),
+                    "created_at": r.get("created_at"),
+                }
+                for r in runs[:limit]
+            ], False
+
+        if name == "get_run":
+            run_id = str(args.get("run_id") or "")
+            record = find_registry_record(run_id)
+            if record:
+                run = record_to_run(record, include_detail=False)
+            else:
+                qc_path = find_qc_by_id(run_id)
+                if qc_path:
+                    run = run_from_qc(qc_path, include_detail=False)
+                else:
+                    return {"error": f"run not found: {run_id}"}, False
+            return {
+                "id": run["id"],
+                "base": run["base"],
+                "status": run["status"],
+                "source_type": run["source_type"],
+                "provider": run.get("provider"),
+                "model": run.get("model"),
+                "metrics": run.get("metrics"),
+                "steps": [
+                    {"key": s["key"], "status": s["status"], "summary": s["summary"]}
+                    for s in run.get("steps", [])
+                ],
+            }, False
+
+        if name == "create_plan":
+            plan = build_run_plan(args)
+            return plan, False
+
+        if name == "launch_run":
+            # Always requires user confirmation from the frontend button.
+            # The frontend calls createRun + launchRun directly after confirm.
+            if _READONLY:
+                return {"error": "服务器为只读模式，无法启动任务"}, False
+            return {
+                "message": "需要用户在前端点击「确认启动」后才会执行",
+                "source": str(args.get("source") or ""),
+                "source_type": str(args.get("source_type") or "live"),
+                "provider": str(args.get("provider") or "gemini"),
+                "synthesis_pass": str(args.get("synthesis_pass") or "one-shot"),
+                "qwen_max_frames": int(args.get("qwen_max_frames") or 250),
+                "base": str(args.get("base") or ""),
+            }, True
+
+        if name == "check_auth":
+            platform = str(args.get("platform") or "zhihu")
+            auth_path = _auth_path_for_platform(platform)
+            return _check_auth_state(auth_path, platform), False
+
+        return {"error": f"unknown tool: {name}"}, False
+
+    except Exception as exc:
+        return {"error": str(exc)}, False
+
+
+def handle_ai_chat(body: dict) -> dict:
+    """Handle POST /api/ai/chat: two-pass DeepSeek call with tool execution."""
+    if not DEEPSEEK_API_KEY:
+        return {"reply": "", "tool_calls": [], "error": "DEEPSEEK_API_KEY not set"}
+
+    messages_in = body.get("messages") or []
+    messages: list[dict] = [{"role": "system", "content": AI_SYSTEM_PROMPT}] + list(messages_in)
+
+    request_body: dict = {
+        "model": DEEPSEEK_MODEL,
+        "messages": messages,
+        "tools": AI_TOOLS,
+        "tool_choice": "auto",
+    }
+
+    try:
+        resp = _deepseek_call(request_body)
+    except Exception as exc:
+        return {"reply": "", "tool_calls": [], "error": str(exc)}
+
+    choice = (resp.get("choices") or [{}])[0]
+    message = choice.get("message") or {}
+    finish_reason = choice.get("finish_reason") or ""
+
+    collected: list[dict] = []
+
+    if finish_reason == "tool_calls":
+        tool_calls_raw = message.get("tool_calls") or []
+        tool_results: list[dict] = []
+
+        for tc in tool_calls_raw:
+            fn = tc.get("function") or {}
+            name = fn.get("name") or ""
+            try:
+                args = json.loads(fn.get("arguments") or "{}")
+            except Exception:
+                args = {}
+            tc_id = tc.get("id") or ""
+
+            result, requires_confirmation = _execute_ai_tool(name, args)
+            collected.append({
+                "name": name,
+                "args": args,
+                "result": result,
+                "requires_confirmation": requires_confirmation,
+            })
+            tool_results.append({
+                "role": "tool",
+                "tool_call_id": tc_id,
+                "content": json.dumps(result, ensure_ascii=False),
+            })
+
+        # Second call: let DeepSeek summarise the tool results in natural language
+        messages2 = messages + [message] + tool_results
+        try:
+            resp2 = _deepseek_call({"model": DEEPSEEK_MODEL, "messages": messages2})
+            reply = ((resp2.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+        except Exception:
+            reply = ""
+    else:
+        reply = message.get("content") or ""
+
+    return {"reply": reply, "tool_calls": collected}
+
+
 class Handler(BaseHTTPRequestHandler):
     def send_json(self, payload: object, status: int = 200) -> None:
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
@@ -915,10 +1196,14 @@ class Handler(BaseHTTPRequestHandler):
         self.send_json({"error": "not found"}, status=404)
 
     def do_POST(self) -> None:
+        path = unquote(urlparse(self.path).path)
+        # AI chat is allowed even in read-only mode (launch_run is blocked inside _execute_ai_tool)
+        if path == "/api/ai/chat":
+            self.send_json(handle_ai_chat(self.read_json_body()))
+            return
         if _READONLY:
             self.send_json({"error": "server is in read-only mode"}, status=403)
             return
-        path = unquote(urlparse(self.path).path)
         if path == "/api/run-plans":
             self.send_json(build_run_plan(self.read_json_body()))
             return
@@ -943,13 +1228,17 @@ class Handler(BaseHTTPRequestHandler):
             if record.get("status") not in ("created",):
                 self.send_json({"error": f"cannot launch run in status '{record.get('status')}'"}, status=409)
                 return
-            source_type = (record.get("plan") or {}).get("source_type") or "live"
+            source_type = (record.get("plan") or {}).get("source_type") or ""
             if _LAUNCH_MODE == "live":
-                launcher = {
+                _launchers = {
                     "live":   launch_live_pipeline,
                     "replay": launch_replay_pipeline,
                     "mp4":    launch_mp4_pipeline,
-                }.get(source_type, launch_live_pipeline)
+                }
+                launcher = _launchers.get(source_type)
+                if launcher is None:
+                    self.send_json({"error": f"unknown source_type '{source_type}'"}, status=400)
+                    return
             else:
                 launcher = simulate_pipeline  # type: ignore[assignment]
             threading.Thread(target=launcher, args=(run_id, record) if _LAUNCH_MODE == "live" else (run_id,), daemon=True).start()
@@ -1370,13 +1659,21 @@ def launch_live_pipeline(run_id: str, record: dict) -> None:
         m3u8_url = run_xiaoe_probe(source, auth, run_id)
         if not m3u8_url:
             return
+        # Write Referer header so ffmpeg can access the CDN (some xiaoe CDNs check it).
+        _stream_work_dir = ROOT / "Videos" / ".stream"
+        _stream_work_dir.mkdir(parents=True, exist_ok=True)
+        _parsed = urlparse(source)
+        _referer = f"{_parsed.scheme}://{_parsed.netloc}/"
+        _headers_file = _stream_work_dir / f"xiaoe_headers_{run_id[:8]}.txt"
+        _headers_file.write_text(f"Referer: {_referer}\n", encoding="utf-8")
         capture_cmd = [
             python, "-u", str(ROOT / "zhihuTTS_stream.py"),
             "--continuous-hls",
             "--url", m3u8_url,
+            "--headers-file", str(_headers_file),
             "--chunk-duration", "60",
             "--name", captured_name,
-            "--stream-work-dir", str(ROOT / "Videos" / ".stream"),
+            "--stream-work-dir", str(_stream_work_dir),
         ]
     else:
         # 知乎: Playwright keepalive detects the CC stream URL from the live page.

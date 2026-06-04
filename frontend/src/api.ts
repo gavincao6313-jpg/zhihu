@@ -180,3 +180,19 @@ export async function fetchLiveChunks(
 // Statuses that require frontend polling (kept in sync with server RUNNING_STATUSES).
 // "created" included so directLaunch() polls immediately after launchRun() returns.
 export const RUNNING_STATUSES = new Set(["created", "probing", "recording", "transcribing", "synthesizing"]);
+
+export async function sendAiChat(
+  messages: { role: string; content: string }[],
+): Promise<import("./types").AiChatResponse> {
+  const response = await fetch("/api/ai/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages }),
+  });
+  if (!response.ok) {
+    let msg = `HTTP ${response.status}`;
+    try { msg = ((await response.json()) as { error?: string }).error ?? msg; } catch { /* ignore */ }
+    throw new Error(msg);
+  }
+  return (await response.json()) as import("./types").AiChatResponse;
+}

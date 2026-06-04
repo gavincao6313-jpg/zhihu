@@ -72,6 +72,18 @@ const dict = {
   qcCoveredFrames:   { zh: "已覆盖帧",                             en: "Covered Frames" },
   qcOverlap:         { zh: "重叠率",                               en: "Overlap" },
   notPlanned:        { zh: "未计划",                               en: "not planned" },
+  // ── AI Chat ──────────────────────────────────────────────────────────────
+  aiChatToggle:      { zh: "AI 助手",                              en: "AI Assistant" },
+  aiChatPlaceholder: { zh: "输入指令，例如：查看最近任务…",            en: "Type a command, e.g. list recent runs…" },
+  aiChatEmpty:       { zh: "向 AI 助手发送指令来控制管道任务",          en: "Send commands to the AI assistant to control pipeline tasks" },
+  aiChatLoading:     { zh: "AI 思考中…",                           en: "Thinking…" },
+  aiChatError:       { zh: "请求失败",                              en: "Request failed" },
+  aiChatConfirm:     { zh: "确认启动",                              en: "Confirm Launch" },
+  aiChatCancel:      { zh: "取消",                                  en: "Cancel" },
+  aiChatConfirmHint: { zh: "AI 建议启动以下任务，请确认：",            en: "AI suggests launching this run. Confirm?" },
+  aiKeyMissing:      { zh: "DEEPSEEK_API_KEY 未配置",               en: "DEEPSEEK_API_KEY not set" },
+  aiChatSource:      { zh: "来源",                                  en: "Source" },
+  aiChatRunType:     { zh: "类型",                                  en: "Type" },
 } as const;
 
 export type I18nKey = keyof typeof dict;

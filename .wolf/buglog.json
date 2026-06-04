@@ -2464,6 +2464,152 @@
       "related_bugs": [],
       "occurrences": 2,
       "last_seen": "2026-06-03T09:36:43.230Z"
+    },
+    {
+      "id": "bug-147",
+      "timestamp": "2026-06-03T09:40:53.375Z",
+      "error_message": "Significant refactor of ",
+      "file": "frontend/src/App.tsx",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 46→66 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-03T09:40:53.375Z"
+    },
+    {
+      "id": "bug-148",
+      "timestamp": "2026-06-04T10:31:00+08:00",
+      "error_message": "npm run build failed: src/App.tsx duplicate function implementation for checkAuth",
+      "file": "frontend/src/App.tsx",
+      "root_cause": "The xiaoe auth patch added a platform-aware checkAuth() without removing the existing checkAuth() implementation.",
+      "fix": "Pending review fix: remove or merge the old checkAuth() implementation and rerun npm run build.",
+      "tags": [
+        "frontend",
+        "typescript",
+        "xiaoe",
+        "build"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T10:31:00+08:00"
+    },
+    {
+      "id": "bug-149",
+      "timestamp": "2026-06-04T10:31:00+08:00",
+      "error_message": "zhihu_auth_state_xiaoe.json with real Playwright cookies was committed to main",
+      "file": "zhihu_auth_state_xiaoe.json",
+      "root_cause": ".gitignore ignored zhihu_auth_state.json but not zhihu_auth_state_xiaoe.json, so the xiaoe login state became tracked.",
+      "fix": "Pending review fix: remove from git, add ignore rule, and rotate/re-save the xiaoe auth state locally.",
+      "tags": [
+        "security",
+        "auth",
+        "xiaoe",
+        "git"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T10:31:00+08:00"
+    },
+    {
+      "id": "bug-150",
+      "timestamp": "2026-06-04T02:49:59.743Z",
+      "error_message": "Missing error handling in function",
+      "file": "frontend/src/api.ts",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T02:49:59.743Z"
+    },
+    {
+      "id": "bug-151",
+      "timestamp": "2026-06-04T02:52:42.157Z",
+      "error_message": "CSS fix: cursor",
+      "file": "frontend/src/styles.css",
+      "root_cause": "cursor: zoom-in → pointer",
+      "fix": "Changed cursor: zoom-in → pointer",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "css"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T02:52:42.157Z"
+    },
+    {
+      "id": "bug-152",
+      "timestamp": "2026-06-04T02:59:05.025Z",
+      "error_message": "Type error",
+      "file": "frontend/src/AiChatPanel.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T02:59:05.025Z"
+    },
+    {
+      "id": "bug-153",
+      "timestamp": "2026-06-04T11:05:23+08:00",
+      "error_message": "PermissionError: [Errno 1] Operation not permitted while binding web_api/server.py to 127.0.0.1:8765 inside sandbox",
+      "file": "web_api/server.py",
+      "root_cause": "Codex sandbox blocks local server port binding; the API itself started successfully after running outside the sandbox.",
+      "fix": "Use approved escalated execution for local API preflight; do not treat this as a Windows Workbench failure.",
+      "tags": [
+        "sandbox",
+        "web-api",
+        "preflight"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T11:05:23+08:00"
+    },
+    {
+      "id": "bug-154",
+      "timestamp": "2026-06-04T11:05:23+08:00",
+      "error_message": "EPERM: operation not permitted, open '/Users/caojiapeng/.gitnexus/registry.json'",
+      "file": ".gitnexus/registry.json",
+      "root_cause": "GitNexus analyze writes to the user-level registry outside the workspace sandbox.",
+      "fix": "Rerun `npx gitnexus analyze` with approved escalation; analyzer then reported Already up to date.",
+      "tags": [
+        "gitnexus",
+        "sandbox",
+        "preflight"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T11:05:23+08:00"
+    },
+    {
+      "id": "bug-155",
+      "timestamp": "2026-06-04T03:21:33.662Z",
+      "error_message": "Significant refactor of ",
+      "file": "web_api/server.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 9→13 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T03:21:33.662Z"
     }
   ]
 }

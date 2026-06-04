@@ -5,6 +5,7 @@
 
 | 11:43 | frontend-design 重设计：Outfit+JetBrains Mono 字体、主色 #00c896 cyan-green、终端风 status badge、背景光晕+点阵、timeline 脉冲动画 | frontend/src/styles.css | designqc 验证通过 | ~8k |
 
+| 2026-06-04 | 评估前端无人值守模式全链路；删除 build_run_plan() stale Qwen live warning；start_win.bat 加 DEEPSEEK_API_KEY 注释占位 | web_api/server.py, web_api/start_win.bat | py_compile OK | ~8000 |
 | 2026-06-02 | i18n 中英双语系统 + App.tsx 全面重写（默认中文、lang toggle、MP4/URL 拖入区、directLaunch 一键启动） | frontend/src/i18n.ts, frontend/src/App.tsx, frontend/src/styles.css | TypeScript 0 errors | ~6000 |
 | 2026-06-02 | 新增 start_mac_live.sh — Mac 真实任务模式（--launch-mode live，激活 .venv-mac311） | web_api/start_mac_live.sh | done | ~200 |
 
@@ -34,6 +35,8 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 11:05 | 直播前端全流程预检 | web_api/server.py, frontend, API endpoints, designqc | build/API/UI preview passed; Mac auth missing; Qwen live plan still has stale BAT warning | ~18000 |
+| 10:31 | Review main xiaoe live commits | frontend/src/App.tsx, web_api/server.py, probe_xiaoe_stream.py, zhihu_auth_state_xiaoe.json | Found blocking build failure, committed auth state, and missing header preservation risk | ~6000 |
 | 00:17 | 拉取并分析WIN三模型直播对比 | docs/three-model-comparison-20260602.md, Markdowns/TTS_stream-live-20260602-195306-*.md, runs/*195306*final-qc.json | fast-forward到898ee28；确认Qwen保真更强、Gemini更清洁压缩，适合二阶段审校/改写而非默认全文混合 | ~9000 |
 | 今日 | fix P0/P1/P3 in experiment/inline-and-uri-upload | zhihuTTS.py | collect_videos+auto_split+MAX_RETRIES 12+caffeinate fix 推送 | ~800 |
 
@@ -975,3 +978,63 @@
 |------|--------|---------|---------|--------|
 | 17:36 | Edited frontend/src/App.tsx | CSS: full | ~26 |
 | 17:36 | Edited frontend/src/App.tsx | "来源状态=${m[1]}" → "来源状态=${qcStatusValue(m[1]" | ~27 |
+| 17:40 | Edited web_api/server.py | 3→5 lines | ~41 |
+| 17:40 | Edited frontend/src/App.tsx | CSS: display | ~637 |
+| 17:41 | Edited frontend/src/styles.css | expanded (+26 lines) | ~164 |
+| 14:30 | 关键帧灯箱+破图占位修复 | App.tsx, styles.css | 构建通过 | ~800 |
+| 14:31 | run_from_qc 添加 plan/logs 字段 | server.py | 完成 | ~100 |
+
+## Session: 2026-06-03 00:30
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:44 | Created probe_xiaoe_stream.py | — | ~926 |
+| 00:45 | Edited web_api/server.py | modified run_xiaoe_probe() | ~434 |
+| 00:46 | Edited web_api/server.py | expanded (+18 lines) | ~478 |
+| 00:49 | Edited save_xiaoe_auth.py | added 1 import(s) | ~122 |
+| 00:53 | Edited web_api/server.py | expanded (+27 lines) | ~546 |
+
+## Session: 2026-06-04 10:13
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-04 10:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:42 | Created ../../.claude/plans/deepseek-zhihu-vs-code-purring-boot.md | — | ~1670 |
+| 10:49 | Edited frontend/src/types.ts | expanded (+25 lines) | ~238 |
+| 10:49 | Edited frontend/src/api.ts | added error handling | ~243 |
+| 10:50 | Edited frontend/src/i18n.ts | expanded (+12 lines) | ~344 |
+| 10:52 | Edited frontend/src/styles.css | modified not() | ~2100 |
+| 10:55 | Created frontend/src/AiChatPanel.tsx | — | ~3892 |
+| 10:55 | Edited frontend/src/App.tsx | added 1 import(s) | ~60 |
+| 10:55 | Edited frontend/src/App.tsx | 3→4 lines | ~66 |
+| 10:55 | Edited frontend/src/App.tsx | 2→3 lines | ~15 |
+| 10:55 | Edited frontend/src/App.tsx | expanded (+10 lines) | ~73 |
+| 10:56 | Edited web_api/server.py | added 2 import(s) | ~100 |
+| 10:56 | Edited web_api/server.py | expanded (+115 lines) | ~1192 |
+| 10:57 | Edited web_api/server.py | modified _deepseek_call() | ~1780 |
+| 10:57 | Edited web_api/server.py | modified do_POST() | ~131 |
+| 10:59 | Edited frontend/src/AiChatPanel.tsx | inline fix | ~26 |
+| 10:59 | Edited frontend/src/App.tsx | modified selectSourceType() | ~14 |
+| 11:15 | DeepSeek AI 助手面板完整实现 | types.ts/api.ts/i18n.ts/styles.css/AiChatPanel.tsx/App.tsx/server.py | build pass ✅ | ~8000 |
+| 11:02 | designqc: captured 4 screenshots (136KB, ~10000 tok) | / | ready for eval | ~0 |
+
+## Session: 2026-06-04 11:03
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-04 11:07
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:10 | Edited .gitignore | 2→4 lines | ~30 |
+| 11:11 | Edited web_api/server.py | 4→2 lines | ~34 |
+| 11:11 | Edited web_api/start_win.bat | 5→9 lines | ~86 |
+| 11:14 | Edited web_api/start_win.bat | 3→4 lines | ~45 |
+| 11:14 | Edited web_api/server.py | expanded (+8 lines) | ~254 |
+| 2026-06-04 review | Review响应：CRITICAL-1重复checkAuth不存在(build通过)；CRITICAL-2 auth state未入库，.gitignore补xiaoe规则；HIGH Referer headers：server.py xiaoe branch写headers file传--headers-file | .gitignore, web_api/server.py | py_compile OK, npm run build OK | ~2000 |
+| 11:21 | Edited web_api/server.py | 9→13 lines | ~180 |

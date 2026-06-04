@@ -28,6 +28,7 @@ import {
   fetchRuns,
   launchRun,
 } from "./api";
+import { AiChatPanel } from "./AiChatPanel";
 import type { AuthStatus, ServerConfig } from "./api";
 import { useWorkerInterval } from "./useWorkerInterval";
 import type { Lang } from "./i18n";
@@ -590,6 +591,8 @@ function frameUrl(path: string): string {
 }
 
 function Keyframes({ run, lang }: { run: RunRecord; lang: Lang }) {
+  const [lightbox, setLightbox] = useState("");
+
   if (!run.frames.length) {
     return (
       <EmptyPanel
@@ -599,40 +602,58 @@ function Keyframes({ run, lang }: { run: RunRecord; lang: Lang }) {
     );
   }
   return (
-    <section className="panel full">
-      <div className="panel-heading">
-        <ImageIcon size={18} />
-        <h2>
-          {TAB_LABELS.Keyframes[lang]}
-          <span className="count-badge">{run.frames.length}</span>
-        </h2>
-      </div>
-      <div className="frame-grid">
-        {run.frames.map((frame) => (
-          <div className="frame-tile" key={`${frame.timestamp_s}-${frame.type}`}>
-            {frame.path ? (
-              <img
-                className={`frame-img ${frame.type}`}
-                src={frameUrl(frame.path)}
-                alt={`${frame.type} @ ${formatSeconds(frame.timestamp_s)}`}
-                loading="lazy"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = "none";
-                }}
-              />
-            ) : (
-              <div className={`frame-thumb ${frame.type}`}>
+    <>
+      {lightbox && (
+        <div className="lightbox-overlay" onClick={() => setLightbox("")}>
+          <img
+            className="lightbox-img"
+            src={lightbox}
+            alt="keyframe preview"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+      <section className="panel full">
+        <div className="panel-heading">
+          <ImageIcon size={18} />
+          <h2>
+            {TAB_LABELS.Keyframes[lang]}
+            <span className="count-badge">{run.frames.length}</span>
+          </h2>
+        </div>
+        <div className="frame-grid">
+          {run.frames.map((frame) => (
+            <div className="frame-tile" key={`${frame.timestamp_s}-${frame.type}`}>
+              {frame.path ? (
+                <img
+                  className={`frame-img ${frame.type}`}
+                  src={frameUrl(frame.path)}
+                  alt={`${frame.type} @ ${formatSeconds(frame.timestamp_s)}`}
+                  loading="lazy"
+                  onClick={() => setLightbox(frameUrl(frame.path))}
+                  onError={(e) => {
+                    const img = e.currentTarget as HTMLImageElement;
+                    img.style.display = "none";
+                    const thumb = img.nextElementSibling as HTMLElement | null;
+                    if (thumb) thumb.style.removeProperty("display");
+                  }}
+                />
+              ) : null}
+              <div
+                className={`frame-thumb ${frame.type}`}
+                style={frame.path ? { display: "none" } : undefined}
+              >
                 <ImageIcon size={24} />
               </div>
-            )}
-            <div className="frame-meta">
-              <strong>{formatSeconds(frame.timestamp_s)}</strong>
-              <span>{frame.type} · chunk {frame.chunk_index ?? "-"}</span>
+              <div className="frame-meta">
+                <strong>{formatSeconds(frame.timestamp_s)}</strong>
+                <span>{frame.type} · chunk {frame.chunk_index ?? "-"}</span>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -751,6 +772,7 @@ export default function App() {
   const [planning, setPlanning] = useState(false);
   const [savingRun, setSavingRun] = useState(false);
   const [launching, setLaunching] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
   // pollRef removed — replaced by useWorkerInterval (background-tab safe)
 
   useEffect(() => {
@@ -812,13 +834,6 @@ export default function App() {
     replay: "https://www.zhihu.com/xen/training/live/room/...?type=replay",
     live:   "https://www.zhihu.com/xen/training/live/room/...",
   };
-
-  function checkAuth() {
-    setCheckingAuth(true);
-    fetchAuthStatus()
-      .then(setAuthStatus)
-      .finally(() => setCheckingAuth(false));
-  }
 
   function selectSourceType(type: SourceType) {
     setSourceType(type);
@@ -940,6 +955,7 @@ export default function App() {
   };
 
   return (
+    <>
     <main className="app-shell">
       <aside className="sidebar">
 
@@ -1266,5 +1282,15 @@ export default function App() {
         )}
       </section>
     </main>
+    <AiChatPanel
+      lang={lang}
+      open={chatOpen}
+      onToggle={() => setChatOpen((o) => !o)}
+      onRunSelected={(id) => {
+        setSelectedId(id);
+        setActiveTab("Overview");
+      }}
+    />
+    </>
   );
 }

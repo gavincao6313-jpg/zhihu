@@ -35,7 +35,9 @@ runs/*.checkpoint.json
 Videos/.stream/requests/
 Videos/.stream/storage_state*.json
 
-# Zhihu auth secrets
+# Zhihu auth secrets (all platforms)
 zhihu_auth_state.json
+zhihu_auth_state_xiaoe.json
+zhihu_auth_state-*.json
 .last_stream_url.txt
 .monitor_state.json

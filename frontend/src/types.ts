@@ -131,3 +131,28 @@ export interface RunPlan {
   commands: RunPlanCommand[];
   paths: ArtifactPathMap;
 }
+
+// ── AI Chat ──────────────────────────────────────────────────────────────────
+
+export type ChatRole = "user" | "assistant";
+
+export interface ToolCallResult {
+  name: string;
+  args: Record<string, unknown>;
+  result: unknown;
+  requires_confirmation?: boolean;
+}
+
+export interface ChatMessage {
+  id: string;
+  role: ChatRole;
+  content: string;
+  tool_calls?: ToolCallResult[];
+  timestamp: number;
+}
+
+export interface AiChatResponse {
+  reply: string;
+  tool_calls: ToolCallResult[];
+  error?: string;
+}

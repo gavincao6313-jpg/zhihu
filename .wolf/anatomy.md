@@ -1,17 +1,23 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-03T09:36:43.101Z
-> Files: 76 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-04T03:21:33.499Z
+> Files: 81 tracked | Anatomy hits: 0 | Misses: 0
+
+## ../../.claude/plans/
+
+- `deepseek-zhihu-vs-code-purring-boot.md` — 计划：DeepSeek AI 助手面板 (~1565 tok)
 
 ## ./
 
-- `.gitignore` — Git 忽略规则；排除 Videos/cache/logs/Python cache/Playwright browsers/前端 node_modules 和 dist 等本地产物。 (~180 tok)
+- `.gitignore` — Git ignore rules (~188 tok)
 - `CLAUDE.md` — OpenWolf (~1508 tok)
 - `extract_slides.py` — 从文件管线 keyframe manifest 或流管线 payload 收集 slide 帧，去重后输出 `Slides/<base>/slides.pdf` 和可选 PPTX；流模式使用 `--stream-base`。 (~12000 tok)
+- `probe_xiaoe_stream.py` — 非交互式小鹅通流地址截取脚本；接受 `page_url` + `auth_state_json` 两个 CLI 参数，启动有头 Chromium 拦截 m3u8 请求，成功时输出 `M3U8_URL=<url>` 到 stdout 后退出，超时（45s）退出码 1；供 `server.py:run_xiaoe_probe()` 以子进程方式调用，替代含 `input()` 的交互式 `probe_xiaoe_headed.py`。 (~350 tok)
 - `run_dual_model.py` — Run dual-model verification (Gemini + Qwen) on a single video. (~4204 tok)
 - `run_replay_qwen.bat` (~631 tok)
 - `run_single_file.py` — Run zhihuTTS file pipeline on a single video for A/B testing. (~280 tok)
 - `run_zhihu_live.bat` (~1231 tok)
+- `save_xiaoe_auth.py` — Save xiaoe auth state via manual login in headed browser. (~442 tok)
 - `START_LIVE.bat` (~472 tok)
 - `stream_extractors.py` — class: is_ytdlp_stream_ended_error, infer_media_type, analyze_url_route, extract_with_ytdlp + 1 more (~6476 tok)
 - `utils.py` — Shared utilities for zhihu pipeline scripts. (~9349 tok)
@@ -74,17 +80,19 @@
 
 ## frontend/src/
 
-- `api.ts` — Exports ServerConfig, AuthStatus, fetchAuthStatus, fetchConfig + 8 more (~1946 tok)
-- `App.tsx` — SOURCE_ICONS (~11756 tok)
+- `AiChatPanel.tsx` — VS Code 终端风格 AI 聊天面板；DeepSeek function calling，支持 list_runs/get_run/create_plan/launch_run/check_auth 工具卡片渲染，底部固定抽屉布局，确认后通过现有 createRun+launchRun API 启动任务。 (~3900 tok)
+- `api.ts` — Exports ServerConfig, AuthStatus, fetchAuthStatus, fetchConfig + 9 more (~2179 tok)
+- `App.tsx` — SOURCE_ICONS (~12446 tok)
 - `frontend/src/api.ts` — 前端 API 客户端；调用 `/api/runs`、`/api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs`，runs API 不可用时回退到 2026-06-01 live sample。 (~1600 tok)
 - `frontend/src/App.tsx` — Pipeline Workbench 主 UI；默认中文+中英切换、MP4 拖入区、URL 拖入支持、一键启动（directLaunch），以及 Runs 列表、Run Detail tabs。 (~9700 tok)
 - `frontend/src/i18n.ts` — 中英双语翻译词典；导出 Lang 类型和 t(lang, key) 函数，覆盖所有 UI 字符串。 (~300 tok)
 - `frontend/src/main.tsx` — React root 挂载入口。 (~80 tok)
 - `frontend/src/styles.css` — Workbench 全局样式，定义双栏布局、source 表单、dry-run plan、运行卡片、日志列表、指标条、流程线、表格、QC、关键帧和文本预览。 (~5400 tok)
 - `frontend/src/types.ts` — Run、Artifact、PipelineStep、Chunk、Frame、QC、RunPlan/RunPlanRequest、RunLogEntry 等前端数据类型。 (~1300 tok)
-- `i18n.ts` — Exports Lang, I18nKey, t (~1835 tok)
+- `i18n.ts` — Exports Lang, I18nKey, t (~2149 tok)
 - `polling.worker.ts` — Background polling timer. (~173 tok)
-- `styles.css` — Styles: 61 rules, 24 vars (~8216 tok)
+- `styles.css` — Styles: 61 rules, 24 vars (~10523 tok)
+- `types.ts` — Exports SourceType, RunStatus, ArtifactPathMap, RunMetrics + 14 more (~961 tok)
 - `useWorkerInterval.ts` — Calls `callback` every `intervalMs` milliseconds while `active` is true. (~269 tok)
 
 ## githooks/
@@ -115,11 +123,11 @@
 ## web_api/
 
 - `api_watchdog.bat` (~235 tok)
-- `server.py` — read_json, read_text, write_json, source_type_from_base (~16324 tok)
+- `server.py` — read_json, read_text, write_json, source_type_from_base (~21206 tok)
 - `start_background.ps1` — Windows Workbench 后台启动 helper；隐藏启动 API watchdog 或 Vite，并将日志写入 `logs/web_api/`。 (~300 tok)
 - `start_mac_live.sh` — start_mac_live.sh — Mac 端本地真实任务模式 (~320 tok)
 - `start_mac_viewer.sh` — start_mac_viewer.sh — MAC 端只读查看器 (~210 tok)
-- `start_win.bat` (~438 tok)
+- `start_win.bat` (~1056 tok)
 - `stop_win.bat` — Windows Workbench 停止脚本；按 8765/5173 监听端口终止后台 API/Vite 进程。 (~220 tok)
 - `web_api/README.md` — 本地 Web API 说明；记录 `GET /api/runs`、`GET /api/runs/{id}`、`POST /api/run-plans`、`POST /api/runs` 和启动命令。 (~180 tok)
 - `web_api/server.py` — 纯标准库本地 API；扫描 `runs/*.final-qc.json`，关联 manifest、transcript、Markdown、chunks、payload frames，输出前端 Run 数据；新增 dry-run plan 生成和本地 created run registry，不启动长任务。 (~6800 tok)
