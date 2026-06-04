@@ -1,15 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
 :: ============================================================
-:: run_replay_qwen.bat  回放视频 Qwen 合成一键入口
-::
-:: 前提：zhihuTTS_video.py 已处理视频，产出 payload.json
+:: run_replay_qwen.bat  回放/本地 MP4 Qwen 合成一键入口
 ::
 :: 用法:
-::   run_replay_qwen.bat <payload.json路径> <输出名称>
+::   run_replay_qwen.bat <视频文件路径> <输出名称>
 ::
 :: 示例:
-::   run_replay_qwen.bat "cache\payload\replay-20260530.payload.json" replay-20260530
+::   run_replay_qwen.bat "Videos\replay-20260603.mp4" replay-20260603
 ::
 :: 输出:
 ::   Markdowns\TTS_stream-{NAME}-qwen.md
@@ -24,14 +22,14 @@ if exist "!VENV_PYTHON!" (
     set "PYTHON=python"
 )
 
-set "PAYLOAD_PATH=%~1"
+set "VIDEO_PATH=%~1"
 set "BASE_NAME=%~2"
 set "QWEN_MAX_FRAMES=128"
 if "!QWEN_MODEL!"=="" set "QWEN_MODEL=qwen3.7-plus"
 
-if "!PAYLOAD_PATH!"=="" (
-    echo [错误] 请提供 payload.json 路径
-    echo 用法: run_replay_qwen.bat ^<payload.json^> ^<输出名称^>
+if "!VIDEO_PATH!"=="" (
+    echo [错误] 请提供视频文件路径
+    echo 用法: run_replay_qwen.bat ^<视频文件路径^> ^<输出名称^>
     pause & exit /b 1
 )
 if "!BASE_NAME!"=="" (
@@ -45,20 +43,21 @@ if "!DASHSCOPE_API_KEY!"=="" (
 
 echo.
 echo ====================================================
-echo  回放视频 Qwen 合成
-echo  Payload : !PAYLOAD_PATH!
+echo  回放/本地 MP4 Qwen 合成
+echo  视频     : !VIDEO_PATH!
 echo  输出名称 : !BASE_NAME!
 echo  模型     : !QWEN_MODEL!
-echo  synthesis_pass: auto-route ^(^>30K字 → sliding-window^)
 echo ====================================================
 echo.
 
-:: ---- Step 1: payload → chunk 格式转换 ----
-echo [1/2] 转换 payload → stream chunks...
-"!PYTHON!" "!SCRIPT_DIR!scripts\convert_payload_to_chunks.py" ^
-  "!PAYLOAD_PATH!" "!BASE_NAME!" "!SCRIPT_DIR!runs"
+:: ---- Step 1: 关键帧提取 + 分块转写 ----
+echo [1/2] 关键帧提取 + 分块转写 (process_replay_qwen.py)...
+"!PYTHON!" "!SCRIPT_DIR!process_replay_qwen.py" ^
+  "!VIDEO_PATH!" ^
+  --base "!BASE_NAME!" ^
+  --runs-dir "!SCRIPT_DIR!runs"
 if errorlevel 1 (
-    echo [错误] 转换失败
+    echo [错误] 预处理失败
     pause & exit /b 1
 )
 
