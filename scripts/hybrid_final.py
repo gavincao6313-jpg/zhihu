@@ -60,12 +60,28 @@ H1 存在；章节时间线不重叠；技术资产附录有 ``` 围栏代码块
 
 
 def find_manifest(runs_dir: Path, base: str) -> Path | None:
-    candidates = sorted(
-        runs_dir.glob(f"stream-{base}-*.manifest.json"),
-        key=lambda p: p.stat().st_mtime,
-        reverse=True,
-    )
-    return candidates[0] if candidates else None
+    """Search for a manifest that contains qwen_window_notes.
+
+    Priority: *.qwen.final-qc.json (Qwen sliding-window run, has window notes),
+    then fall back to *.manifest.json (Gemini run, window notes grafted via
+    build_stream_markdown.py when Qwen runs first).
+    """
+    patterns = [
+        f"stream-{base}-*.qwen.final-qc.json",
+        f"stream-{base}-*.manifest.json",
+    ]
+    candidates: list[Path] = []
+    for pat in patterns:
+        candidates.extend(runs_dir.glob(pat))
+    # Deduplicate while preserving order
+    seen: set[str] = set()
+    unique: list[Path] = []
+    for p in candidates:
+        if p.name not in seen:
+            seen.add(p.name)
+            unique.append(p)
+    unique.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return unique[0] if unique else None
 
 
 def load_window_notes(manifest: dict, runs_dir: Path) -> list[str]:
@@ -74,6 +90,11 @@ def load_window_notes(manifest: dict, runs_dir: Path) -> list[str]:
     for p in note_paths:
         path = Path(p)
         if not path.is_absolute():
+            # Strip leading "runs/" or "runs\" prefix if the manifest already
+            # includes it — otherwise runs_dir / path doubles the prefix.
+            parts = path.parts
+            if parts and parts[0].lower() == runs_dir.name.lower():
+                path = Path(*parts[1:])
             path = runs_dir / path
         if path.exists():
             try:
@@ -111,7 +132,7 @@ def main() -> None:
 
     manifest_path = find_manifest(runs_dir, args.base)
     if not manifest_path:
-        print(f"[错误] 未找到 runs/stream-{args.base}-*.manifest.json", file=sys.stderr)
+        print(f"[错误] 未找到 stream-{args.base}-*.qwen.final-qc.json 或 *.manifest.json", file=sys.stderr)
         print("请先运行: python scripts/build_stream_markdown.py --base ... --provider qwen "
               "--synthesis-pass sliding-window", file=sys.stderr)
         sys.exit(1)
