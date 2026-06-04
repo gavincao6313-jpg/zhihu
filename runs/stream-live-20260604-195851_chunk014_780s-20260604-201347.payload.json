@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260604-195851_chunk014_780s",
+  "full_text": "[00:00:00 - 00:01:00] 一堆的中台要去做出来，所以耽误点功夫。然后去做实施的转写ASR去做转写关键词命中，而且关键词这里面实际上是我们去做了这些的这个知识点编码。也就是说呃你比如说token。我在这面去用词语，这几个词的话都能定位到一个这个我们的知识点上。然后现在的话追加提问等等一些工这些点就都出来了。然后具体的案例给解释，给总结，给笔记给案例，给关联逻辑都出来了。然后课程的完成的总结都出来了。笔记的重点都出来了。然后。应该大家是有需求的。当然了，这句话信不信，我觉得其实都还是要去看的。最后到底真的有没有需求的话，我不会去完全听你们说我有我有。我会看两个东西。第一个我会看这个产品，最后发给你们之后的话，它的使用量，它的完成率。第二个，我会在某些环节上做一些收。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk014_780s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk014_780s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=slide diff=0.3185"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk014_780s\\frame_00032.jpg",
+      "timestamp_s": 32,
+      "marker": "Frame [00:00:32] type=slide diff=0.3305"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk014_780s\\frame_00037.jpg",
+      "timestamp_s": 37,
+      "marker": "Frame [00:00:37] type=slide diff=0.6083"
+    }
+  ],
+  "events": [
+    {
+      "type": "slide",
+      "frame_idx": 25,
+      "diff": 0.3185
+    },
+    {
+      "type": "slide",
+      "frame_idx": 31,
+      "diff": 0.3305
+    },
+    {
+      "type": "slide",
+      "frame_idx": 36,
+      "diff": 0.6083
+    }
+  ],
+  "stats": {
+    "slide_changes": 3,
+    "annotations": 0,
+    "frames_total": 4,
+    "text_chars": 344
+  }
+}

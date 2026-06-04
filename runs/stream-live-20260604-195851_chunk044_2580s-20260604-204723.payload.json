@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk044_2580s",
+  "full_text": "[00:00:00 - 00:01:00] 你要去有汇报的题材，你要有一个长线的业务。但是那些东西在你真正做为艺人公司的时候，这些东西一点用都没有一点用都没有。只会徒增你的成本。所以这就是艺人公司和在公司里做事儿完全不同的一种思维的方式，然后就开始MVP的测试了，对吧？怎么测试，注意MVP测试不需要面面俱到一个新的功能。如果真正的解决用户需求，就是我那个功能要真好使，要真给你们好使，你们事实上是可以接受我整个产品的低质量。😊这个低质量不是说我的那个核心功能低质量，而是哎这个界面为什么不是响应式布局啊，这个颜色没有这么好看，这为什么不用圆点？你不会跟我敲这种事儿的，因为它不是个你的主力产品，它是个特制产品。😡做一人公司的产品，不要想着能够成为给用户做的C位级别的产品，对吧？同样做这个这个玩意儿，你不可能这个产品替换ntion。所以我做的个人知识管理，个人笔记管管理非。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk044_2580s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk044_2580s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk044_2580s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.1643"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.1643
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 388
+  }
+}

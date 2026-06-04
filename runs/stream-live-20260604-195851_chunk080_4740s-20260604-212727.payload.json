@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260604-195851_chunk080_4740s",
+  "full_text": "[00:00:00 - 00:01:00] 千兆M。对吧咱们先说好了，我这说的M是market，你们我你们要是听完这节课跑字母圈啊，这事儿跟我一一点关系都没有先去找市场，在web coding状态下做一个demo的成本无限降低了，对不对？无限降低了，所以做什么根本就不重要，大家认同吗？做什么不重要，对吧？做什么不重要，重要的是什么？是有人买你的单，有人买你的单，对吧？😡找到能链接的市场才重要。所以第一步同学们同学们第一步，找流量，找渠道，找资源，这才是关键。这才是关键，懂吗？好，我有一个暴论，我个人有一个暴论，叫做OPC是否是一种赛博摆摊行为，觉得是的给我扣个一，觉得不是给我扣个0啊。😡",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk080_4740s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk080_4740s\\frame_00010.jpg",
+      "timestamp_s": 10,
+      "marker": "Frame [00:00:10] type=annotation diff=0.0328"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk080_4740s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=annotation diff=0.0328"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk080_4740s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.035"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk080_4740s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.035"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 10,
+      "diff": 0.0328
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.035
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 297
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk027_1560s",
+  "full_text": "[00:00:00 - 00:01:00] 于助手agent就对于实性要求没有那么高了。大家一旦是变成哎我是个超强助教，成你不愿意付出太高的成本，但是对他的要求也变得没有那么高了，可行性就比较高。所以这就是我快速收敛出来。我要用这个方法做一版demo先给你们看看，先去解决问题的。理解了吧？懂了吧？这是我当时要去搞的这个事情。😡对吧？好，然后我想明白这件事之后，你们能想到我跟你们说事实，我就是在有一节课上，你们把我当时觉得这个痛点太痛了。我必须要去想到一个问题去解决，我必须想到一个问题去解决。然后我就直接给你们下完课，我11点钟就在我的web codinging工具上去搓了那个东西。我告诉你，这就是这就是所谓的产品经理精神，就是我我我容不得这些问题过。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk027_1560s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk027_1560s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.1707"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk027_1560s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.1707"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.1707
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 329
+  }
+}

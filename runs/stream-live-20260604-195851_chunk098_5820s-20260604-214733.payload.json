@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk098_5820s",
+  "full_text": "[00:00:00 - 00:01:00] 做OPC的几个逻辑。第一个是MPF去找到市场，找到痛点，做MVP对吧？然后有人买第一单去做拓展。然后还有其他几种逻辑，我们非常快速的过一下，节流这东西不是我的重点。海外唉 applele store去做套利，对吧？做流量的节流，不是没有被发现去，而是被验证过，没有被充分饱和的需求，有些具体筛选目标的数值标准，比如说。海外apple store啊特指是美国的。当你发现一个app增长率过去30天环比。增加了50%以上，处于上升通道，正在爆发期或者踩中了某个热点单下载收入目标app收入除以下载，它的这个值是在0.5美元以上，付费意愿是刚性的，搜索热度的热度在40以上。但是app火但更新很慢或者评分小于4分这。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk098_5820s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk098_5820s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0236"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk098_5820s\\frame_00026.jpg",
+      "timestamp_s": 26,
+      "marker": "Frame [00:00:26] type=annotation diff=0.0236"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 25,
+      "diff": 0.0236
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 327
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk018_1020s",
+  "full_text": "[00:00:00 - 00:01:00] 而且课上快速解答，说句实在话呃，这个没有什么问题啊，你问没有任何问题，但是确实我只能说是我能看到大家的痛点，我也有痛点，对不对？你有痛点，我也有痛点。课上快速解答，我告诉你一句，哎，token就是词源，其实没有用，对不对？你也未必当时能听懂，所以这就造成了一个两难困惑，这是两难困境。两难困境。哎呦，逍遥，你太聪明了。你太聪明了，这就是我们现在想去搞的策略，这是我们现在想搞的策略。你你你你get到了我的这个思路，但是这里面有些技术问题不好解决，录播都都好解决，拿MD5去搞定，直播不好办，直播不好办。😡嗯，他说我自己的课程能不能统一ASR出来，就不需要重复howtoken了。他他他他他get到了我这里面最能够去做token节token节省的策略了。这是我现在技术正在费很。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk018_1020s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk018_1020s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.1663"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk018_1020s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=annotation diff=0.1663"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 21,
+      "diff": 0.1663
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 360
+  }
+}

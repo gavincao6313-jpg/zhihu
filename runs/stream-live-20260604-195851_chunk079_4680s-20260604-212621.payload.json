@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260604-195851_chunk079_4680s",
+  "full_text": "[00:00:00 - 00:01:00] 我就有私欲吗？谁生下来有这玩意儿啊，对吧？就是一个人生下来可能有资产，但一个人生下来不可能有私欲。是不是这么个道理，对吧？就是我要是出生下来，我那我有这玩意儿。😡对吧那那那这是什么玩意儿啊？这是第一个用户怎么出发，我我我一会儿讲好不好？我一会儿讲好不好，对吧？我有一套完整的产品研发和交付能力，这是我的屁。😊我有我的资源，我有目我有我的目标用户，对吧？我有M，对不对？所以。M去做调研确认P做课程确认F我自己完成闭换，这个过程是okK的，对不对？好，第三部分。大家开启自己的第一个艺人公司的项目，怎么开启啊？首先注意一件事，未必要签找P同学们。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk079_4680s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk079_4680s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.0215"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk079_4680s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.0215"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk079_4680s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.0461"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk079_4680s\\frame_00056.jpg",
+      "timestamp_s": 56,
+      "marker": "Frame [00:00:56] type=annotation diff=0.0461"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 50,
+      "diff": 0.0215
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 55,
+      "diff": 0.0461
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 294
+  }
+}

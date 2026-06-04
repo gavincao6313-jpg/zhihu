@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk046_2700s",
+  "full_text": "[00:00:00 - 00:01:00] 客户端软件，然后甚至于最后这些关键词，我直接类似于弹幕一般的打到我你的这个屏幕形成一种字幕和弹幕的感觉。然后根据你的知识库去做特定性的高亮。这东西我都没做我都没做，这东西不是我想不出来，我如果是在一个大公司里，这些东西已经是在我的我已经在我的me里面了，已经在我的me里面了。但是这些东西是不是我一说，你们觉得哇，好棒，对不对？对不对？😊我一说你们都会觉得哇，好棒，对吧？但是我在MVP上我是坚决不做的。😡我是坚决不做的这就是做艺人公司类的项目的一种明确的机律。但是这个公司但是这个项目我有没有可能把它做的很大很完善。我告诉你们有可能一会儿我跟你们去说这个项目，如果我要做的特别大的话，我会怎我会用什么方法去去做啊？给大家看看酷他们是怎么去做的，测试的时候，甚至连网站都没有。他在测试的时候，他连。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk046_2700s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk046_2700s\\frame_00051.jpg",
+      "timestamp_s": 51,
+      "marker": "Frame [00:00:51] type=annotation diff=0.0342"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk046_2700s\\frame_00052.jpg",
+      "timestamp_s": 52,
+      "marker": "Frame [00:00:52] type=annotation diff=0.0342"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 51,
+      "diff": 0.0342
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 371
+  }
+}

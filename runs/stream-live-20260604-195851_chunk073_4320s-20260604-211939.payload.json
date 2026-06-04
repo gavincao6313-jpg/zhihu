@@ -1,0 +1,64 @@
+{
+  "video_name": "live-20260604-195851_chunk073_4320s",
+  "full_text": "[00:00:00 - 00:01:00] 快，不要做任何回款周期超过一个月的业务。所以做图G啊坚决不能自己做，因为你拖不起回款。做图这保守来讲，18个月的回款周期你怎么玩啊，对不对？开发周期要快，不要做任何demo，就需要3天以上的产品。那个东西一定你想的不清楚。所以这是OPC所追求的东西，它的核心框架给它MPF什么是MPFmarket product founder等于OPCmarket product founder。理解了吧？好，market是市场需求。market是市场需求，对吧？products是产品和服务，founder是OPC的主体，加一块就是它核心不是P，核心是F。同学们注意，核心不是产品，核心是founder，核心是你。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk073_4320s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk073_4320s\\frame_00022.jpg",
+      "timestamp_s": 22,
+      "marker": "Frame [00:00:22] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk073_4320s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.062"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk073_4320s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.0746"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk073_4320s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.0746"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk073_4320s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.1049"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk073_4320s\\frame_00050.jpg",
+      "timestamp_s": 50,
+      "marker": "Frame [00:00:50] type=annotation diff=0.1049"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.062
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.0746
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 49,
+      "diff": 0.1049
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 324
+  }
+}

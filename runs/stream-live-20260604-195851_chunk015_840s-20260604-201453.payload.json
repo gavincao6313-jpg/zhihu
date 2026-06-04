@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk015_840s",
+  "full_text": "[00:00:00 - 00:01:00] 受会更加的深刻一点，我确确实实并没有一开始想去做这么一个东西。这个产品确确实实是一个特别好的web coding，再加上OPC的时间的案例。为什么这个产品最早就是从咱们之间的沟通，我发现的痛点。。痛点在哪里？就是我在直播课上，我发现了一个很明确的问题，就是评论区上评论区上，各位同学们，你们的知识背景是不一致的，没有什么好与不好，这是个现状，这是个现状啊。在我在这儿讲有些这个这个这个一些认知的时候，有同学就开始去问我。对吧呃，这个只能给语音吗？你还想给什么，你还想给什么？然后有的同学就得问我ra到底是什么？token是什么API是什么？你说我愿不愿意讲呢？说实话，我如果纯从我自。😡",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk015_840s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk015_840s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.1625"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk015_840s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.1625"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 18,
+      "diff": 0.1625
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 315
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "video_name": "live-20260604-195851_chunk059_3480s",
+  "full_text": "[00:00:00 - 00:01:00] 一个这样的一个破仙人掌，它还需要什么样的环节呢？它至少需要这几个你设计开发，做产品做设计，做研发生产你做出来吧，你得有供应链，你得有测试，你得有仓储销售你得能把它卖出去，你得有渠道，你得有推广，你得有转化交付你得发货，有售后有质量控制这一整套东西，你的商业才能跑通，对吧？而产品部分只是4分之1的部分。好，商业闭环，至少三个关三个三个核心的环节，供需和连，这是混沌的一个框架。供是有人要去提供产品或者服务，需是有效的你的目标用户，你能够有办法有效触达，对吧？你得能找到愿意买你产品的人啊，连是商业转化和后端交互，所以PMF模型，客观点只是商业中的一个小环节。如果用PMF的逻辑做OPC在这个阶段说很有可能陷入拿着锤子找钉子的状态。就是我看到人家做了个这。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00003.jpg",
+      "timestamp_s": 3,
+      "marker": "Frame [00:00:03] type=annotation diff=0.2006"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2006"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.045"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.045"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1967"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.1967"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.0849"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk059_3480s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0849"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 3,
+      "diff": 0.2006
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.045
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1967
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.0849
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 350
+  }
+}

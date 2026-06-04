@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk037_2160s",
+  "full_text": "[00:00:00 - 00:01:00] 来的人的话，有多少人是真正是用这个产品，有多少人是来去薅羊毛的呀，对吧？所以大家不要去想任何第二种方式就是采用用户端收费，用就收不用就算。OPC做to G啊能做，但不是外部 coding的方法做。因此，用户愿不愿意用和愿不愿意掏钱在OPC上就是两个完全普通的事。你得给愿意掏钱的人去做产品，然后就开始功能开发了。这个阶段的开发需要做什么？MVP就是MVP。最小化可验证单元一定是最小化，用最小化的开发验证实际的需求和付费的可能性。OPC的完善根本就不是关键。同学们注意一件事儿，如果你要做OPC，你搓出来一个东西，尽早的出街。尽早的出街，不要想着哎呀，我再做个功能，我再做个功能，我再做个功能吧，一定不要做这个。😡",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk037_2160s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk037_2160s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk037_2160s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.1623"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 28,
+      "diff": 0.1623
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 329
+  }
+}

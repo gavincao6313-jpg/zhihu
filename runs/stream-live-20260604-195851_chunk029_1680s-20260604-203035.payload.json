@@ -1,0 +1,64 @@
+{
+  "video_name": "live-20260604-195851_chunk029_1680s",
+  "full_text": "[00:00:00 - 00:01:00] 拿豆包都可以干，对吧？直接就出来了，就拿这个当做底板promput，然后就基本搓出来下面要的这个东西了，对吧？好，这个的核心能力。😡所以我告诉你，就是。就是再去做这个再搓这个demo的时候，有的时候大到质简，真的是大道至简。就是我写promp的，我在实际运用的时候已经到了越来越简单的时候了。但是这里面的所有的点都存，就是所有的要点全都有。然后核心能力就一条东西，它的核心的价值链就是听，然后转写命中知识图谱，华慈AI记笔记课后小节，就这么一条线。同时我要再告诉你一个逻辑。我要再告诉你一个逻辑。这条线这条线这条线的关键是什么？刚才有同学问我能不能说是在做这个功能，在做那个功能。我告诉大家一个道理，你在公司里可以这样做，但。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk029_1680s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk029_1680s\\frame_00011.jpg",
+      "timestamp_s": 11,
+      "marker": "Frame [00:00:11] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk029_1680s\\frame_00015.jpg",
+      "timestamp_s": 15,
+      "marker": "Frame [00:00:15] type=annotation diff=0.0537"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk029_1680s\\frame_00033.jpg",
+      "timestamp_s": 33,
+      "marker": "Frame [00:00:33] type=annotation diff=0.0532"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk029_1680s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.0532"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk029_1680s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk029_1680s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1698"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 14,
+      "diff": 0.0537
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 33,
+      "diff": 0.0532
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.1698
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 335
+  }
+}

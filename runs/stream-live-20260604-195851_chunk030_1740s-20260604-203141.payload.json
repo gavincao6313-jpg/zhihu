@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260604-195851_chunk030_1740s",
+  "full_text": "[00:00:00 - 00:01:00] 只做一个功能。明白吗？只做一个功能，就是这个功能就是在其他的市面产品上都没有的。它是现在的所有试售产品没有这个功能，用户没有这样的解决的问题。然后这就是你唯一要做的一个功能。唯一要做的一个功能。明白吧？这是唯一要做的一个功能，其他功能全都放弃掉。这个是这个是做OPC类的产品最重要的点。如果你要去做一个大而全的功能，你完全无法和其他人去竞争，你就去拿你唯一的功能和核心用户去问这东西是不是你们要的，就这么简单的一件事儿，就这么简单的一件事儿，对吧？好。然后我拿着这个demo出来，我是不是第二节课我就跟你们去做需求确认了，我甚至在有几个群里，我也去做需，我也去做需求确认了。同学们这。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk030_1740s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk030_1740s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.1706"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk030_1740s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.1706"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk030_1740s\\frame_00058.jpg",
+      "timestamp_s": 58,
+      "marker": "Frame [00:00:58] type=annotation diff=0.2426"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk030_1740s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.2426"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.1706
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 58,
+      "diff": 0.2426
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 314
+  }
+}

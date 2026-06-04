@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk078_4620s",
+  "full_text": "[00:00:00 - 00:01:00] 千万不要担心前面当小丑，可怕的是后面当小丑，前面你们这时候拒绝我，我我这么告诉你，我完全没有问题，大家就是聊天嘛，对吧？就是。😡聊天，我给你做个demo，你说哎这不是我想要的，没有关系，不做就好了。而如果我这封我封闭开发了，闷头做，非要给你们来个surprise，那就完蛋了，对吧？前面大量的工的核心的工作就是沟通思考分析确认。我们做艺人公司核心是这个做事情是这事界最简单的东西。😊做什么才是最关键的东西。这就是我一直在怎这一期课上，我一直跟大家去说的一个道理，就是你非让我去给你展示怎么去搓那个东西做事情其实在我来讲是简单的是简单。这个过程中呢，MPF是什么？F是我。😡F也可以是你们每一个人，我的本领是什么？我我可以做课程，要有思欲才能跑通链路。同学啊。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk078_4620s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk078_4620s\\frame_00045.jpg",
+      "timestamp_s": 45,
+      "marker": "Frame [00:00:45] type=annotation diff=0.0207"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk078_4620s\\frame_00046.jpg",
+      "timestamp_s": 46,
+      "marker": "Frame [00:00:46] type=annotation diff=0.0207"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 45,
+      "diff": 0.0207
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 351
+  }
+}

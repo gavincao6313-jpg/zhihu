@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk090_5340s",
+  "full_text": "[00:00:00 - 00:01:00] 。去进到OPC里面，不用大公司找一个你能触达的有代表性的，愿意付费的用户去把第一单用web coding交付好，提取这里面共性，做相应的产品化，然后做快速复制。如果你说你找不到任何一个为你第一单来去付费的，你会跟我说这句话吗？没有任何一个愿意为你的第一单付费的，有吗？会有人跟我去说这样的话吗？😡啊，我再告诉你几个能够去找的人。第一个，你的前领导前同事。你的前领导前同事，你能不能跟他们去聊一聊，为什么找前领导前同事？有两个点。第一个你的那个前公司他有什么需求，你应该能知道。别人不知道你知道你拿个AI，你去做个demo出来。你跟他的话术是这样子的。哎呀，老板啊。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk090_5340s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk090_5340s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0239"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk090_5340s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0239"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0239
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 304
+  }
+}

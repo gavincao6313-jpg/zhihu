@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk019_1080s",
+  "full_text": "[00:00:00 - 00:01:00] 后来我告诉大家一个道理，这就是叫做产品经理精神，也是OPC精神。产品经理精神是什么？叫做燃，叫做眼里不揉沙子。我觉得这是有问题的，你们不爽，我也不爽，那就是痛点出来了。这个痛点出来了。我认为产品经理精神就是从来不觉得一个事儿理应如此，这世界就这样子的，没有办法，没有这种话。没有这种话，我的逻辑就是。😡一定是有办法能够去解决的。于是我就再去思考怎么去解决这个方式。我告诉大家，我的解决的思路是什么？我有一个做产品的从0到1的解决问题的方法，这个思路叫做如果这个世界上有无限成本，怎么样。无限成本的话，我可以怎么做？我有几个思路，比如说如果无限成本，那每个人都是一V1授课，对吧？就是我给你。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk019_1080s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk019_1080s\\frame_00034.jpg",
+      "timestamp_s": 34,
+      "marker": "Frame [00:00:34] type=annotation diff=0.1623"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk019_1080s\\frame_00035.jpg",
+      "timestamp_s": 35,
+      "marker": "Frame [00:00:35] type=annotation diff=0.1623"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 34,
+      "diff": 0.1623
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 317
+  }
+}

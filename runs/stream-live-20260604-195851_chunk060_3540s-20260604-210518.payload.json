@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk060_3540s",
+  "full_text": "[00:00:00 - 00:01:00] 就成了你们这个这个木业技师了，对吧？就是你你拥有各种复刻别人的能力，但是一点钱都没挣着。对吧做了很多貌似满足需求，但一分钱都没挣着，没完全没有做到任何的商业转化。所以艺人公司到底应该怎么做呢？首先我说几点啊。做一人公司的时候，我后面讲的东西，你们不要跟我问这几句话，问这几句话咱们没有任何的意义，咱们没有任何的意义。什么东西呢？什么东西呢？这几个话叫做第一句话叫做不要跟我说，腾讯如果做了怎么办啊？😊啊，我没再点你那个李那个李青青，你做是对的，因为你现在是个孩子，你需要练手，你需要练手，对吧？你你没毛病啊，不要考虑所谓的腾讯要做怎么办啊？对吧你现在首先你先要成为一个中人，而你又不是要当火影去，你这样干没有毛病啊然后。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk060_3540s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk060_3540s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0379"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk060_3540s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.0379"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 16,
+      "diff": 0.0379
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 332
+  }
+}

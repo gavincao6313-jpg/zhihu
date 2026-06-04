@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260604-195851_chunk047_2760s",
+  "full_text": "[00:00:00 - 00:01:00] 要不要买，然后没有支付系统，怎么支付呢？直接让他去加自己的message，然后拿paypal去转款，拿payal去转款，对吧？然后没有核销系统。嗯。发给用户1个PDF，你自己打印吧，找商家去，就这样的一个测试的方式，效果好一定不太好，软化和流失很糟糕。但是这么低的成本用户测试，用户到底是不是真的需要这都能有用户则增加功能，大概率能跑通，大家理解吗？能理解吧？好，然后这东西就考虑规模化，这东西怎么做规模化呢？如果有一天啊。这就看你们的了看你们的了。如果你们有一天能够把这个项目把MVP给我跑通了，能把MVP跑通了。就是你们用了发现真的不错。然后反正我我直接跟你们去说，听我的课免费，你们拿着我这些系统。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk047_2760s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk047_2760s\\frame_00019.jpg",
+      "timestamp_s": 19,
+      "marker": "Frame [00:00:19] type=annotation diff=0.0368"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk047_2760s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.0368"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk047_2760s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk047_2760s\\frame_00040.jpg",
+      "timestamp_s": 40,
+      "marker": "Frame [00:00:40] type=annotation diff=0.162"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 19,
+      "diff": 0.0368
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 39,
+      "diff": 0.162
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 324
+  }
+}

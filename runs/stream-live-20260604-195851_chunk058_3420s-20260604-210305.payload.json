@@ -1,0 +1,49 @@
+{
+  "video_name": "live-20260604-195851_chunk058_3420s",
+  "full_text": "[00:00:00 - 00:01:00] 。啊，一上就废一上就废产品做出来了，商业跑不出来。很正常。为什么产品我们讲了几次，一个核心的框架是什么？就是PMFproduct market feet，对吧？你的产品要去解决目标市场，目标用户，你的target custom，它的没有被充分满足的需求，对吧？但是你会觉得很痛苦，别人满足了需求能挣钱，你满足了需求没跑通，为什么对吧？为什么会出现这样的一个状况？原因在于这就是产品和商业这两个东西之间是有差异的。😊产品是一个闭环，但产品只是一个环节。PMM模PMF模型，各位同学们PMF模型是个产品模型，它不是商业模型。你做出来一个符合PMF的产品，是跑通商业的必要不充分条件。你今天把它点破，它是个必要不充分条件。你这玩意儿做出来了就是。😡",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk058_3420s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk058_3420s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2157"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk058_3420s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.2157"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk058_3420s\\frame_00027.jpg",
+      "timestamp_s": 27,
+      "marker": "Frame [00:00:27] type=annotation diff=0.236"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk058_3420s\\frame_00028.jpg",
+      "timestamp_s": 28,
+      "marker": "Frame [00:00:28] type=annotation diff=0.236"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.2157
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 27,
+      "diff": 0.236
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 2,
+    "frames_total": 5,
+    "text_chars": 343
+  }
+}

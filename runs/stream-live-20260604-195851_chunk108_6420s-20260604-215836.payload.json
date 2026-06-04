@@ -1,0 +1,79 @@
+{
+  "video_name": "live-20260604-195851_chunk108_6420s",
+  "full_text": "[00:00:00 - 00:01:00] 对应的是什么？工程思维对应的本质上是简单零部件生产，这是工程思维。然后往左侧是技术思维和科研思维，然后往右侧是产品思维和市场思维。商业思维贯穿始终组装是什么？组装是什么？逍遥，组装不是工程思维，工程思维不是组装，工程思维比组装高级，组装是什么？啊，比商业思维更高一阶的是资本思维，组装在哪里？组装是什么思维？你们知道组装是什么思维吗？组装是没有思维，组装是没有思维，组装就是就是动手干活。我没有不是苦力思维，不是苦力思维。组装就是没有思维，而且我也没有嘲讽任何人。你要真的是组装，就真的。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00004.jpg",
+      "timestamp_s": 4,
+      "marker": "Frame [00:00:04] type=annotation diff=0.2143"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00005.jpg",
+      "timestamp_s": 5,
+      "marker": "Frame [00:00:05] type=annotation diff=0.2143"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00013.jpg",
+      "timestamp_s": 13,
+      "marker": "Frame [00:00:13] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00016.jpg",
+      "timestamp_s": 16,
+      "marker": "Frame [00:00:16] type=annotation diff=0.0221"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.0213"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=annotation diff=0.0213"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.0328"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk108_6420s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.0328"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 4,
+      "diff": 0.2143
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 15,
+      "diff": 0.0221
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 30,
+      "diff": 0.0213
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.0328
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 266
+  }
+}

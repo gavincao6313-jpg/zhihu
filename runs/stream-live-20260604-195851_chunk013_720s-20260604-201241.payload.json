@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk013_720s",
+  "full_text": "[00:00:00 - 00:01:00] 后端的计费模块和PRD那个项目两个项目要做墨子。然后又因为当时PRD那个项目用大规模的web codinging去做，所以导致它的有些可维护性没有这么的好。所以在墨纸过程中确实出现了一些打不开的状况。但是这两天应该都好起来了，你可以再看一看啊。然后这个项目对于不了解的同会怎么推广这个产品，我一会儿说呀，我待会儿说呀，对吧？我待会儿说呀，然后这个产品。😊那正式产品正式版本哪个正式版本这个吗？就是我现在给你看的这个就是我受伤的这个品吗？你是说这个吗？还是PRD这个的话技术用不了这这么久，技术用不了这么怎怎么用它用不了这这么久，然后只只不。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk013_720s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk013_720s\\frame_00017.jpg",
+      "timestamp_s": 17,
+      "marker": "Frame [00:00:17] type=annotation diff=0.1922"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk013_720s\\frame_00018.jpg",
+      "timestamp_s": 18,
+      "marker": "Frame [00:00:18] type=annotation diff=0.1922"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 17,
+      "diff": 0.1922
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 292
+  }
+}

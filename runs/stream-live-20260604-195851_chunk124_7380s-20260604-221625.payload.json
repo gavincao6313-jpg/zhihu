@@ -1,0 +1,94 @@
+{
+  "video_name": "live-20260604-195851_chunk124_7380s",
+  "full_text": "[00:00:00 - 00:01:00] 要追求的轻小快轻是模式轻，小是整体的链路小快是回款要快偏MPFmarket product founder founder是核心market是重点，P反而是到最后的事情，对吧？核心点一定不要放在P上，核心点一定要去放在F和M上啊，P就当是个P就好了。然后最后思维的层次，特别希望无论你做不做OEC不重要，希望你能够去攀上这个思维层次的高峰，达到你希望得到的你应该值得得到的一些东西。然后给大家一个作业啊，列出自己可以触达的人，做一个清单行业需求关系，买单的可能性。基于外扩点做一个M做一轮需求沟通。请你们去做做这个事情好不好？然后下一节课下周一给大家讲设计制造金融房产这些行业的转型指南。好吧，然后这节课咱们到这里啊，这个确实有点羞耻啊，大家多包涵就是。😊",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00008.jpg",
+      "timestamp_s": 8,
+      "marker": "Frame [00:00:08] type=annotation diff=0.0925"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00009.jpg",
+      "timestamp_s": 9,
+      "marker": "Frame [00:00:09] type=annotation diff=0.0925"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.0998"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00025.jpg",
+      "timestamp_s": 25,
+      "marker": "Frame [00:00:25] type=annotation diff=0.0998"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00031.jpg",
+      "timestamp_s": 31,
+      "marker": "Frame [00:00:31] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00036.jpg",
+      "timestamp_s": 36,
+      "marker": "Frame [00:00:36] type=annotation diff=0.1299"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.0234"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00049.jpg",
+      "timestamp_s": 49,
+      "marker": "Frame [00:00:49] type=annotation diff=0.0234"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.0535"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk124_7380s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.0535"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 8,
+      "diff": 0.0925
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 24,
+      "diff": 0.0998
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 35,
+      "diff": 0.1299
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 48,
+      "diff": 0.0234
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.0535
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 5,
+    "frames_total": 11,
+    "text_chars": 350
+  }
+}

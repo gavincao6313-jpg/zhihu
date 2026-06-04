@@ -1,0 +1,34 @@
+{
+  "video_name": "live-20260604-195851_chunk107_6360s",
+  "full_text": "[00:00:00 - 00:01:00] 到组装，再到市场营销，再到品牌的这条曲线，这条曲线是典型两头的高，中间低，两头才能挣钱，中间挣不到钱，大家想一想，耐克他有品牌，他有一点点研发，但是他不做鞋，但他挣最多的钱。莆田做鞋的工人挣不到钱，对吧？你想想苹果他有品牌，它有研发，但是富士康的工人做组装，挣不到钱，这就是为什么变身罗辑者，不是养蚕人，大家去做OPC的过程不只是要去简简单单挣一点小钱，而是找到一条自己的核心能够有造币级别级别的链路，同时锻炼自己更加值钱思维的一个过程，这是我对大家的一个期许。这是对大家的期许，让自己真真正正变得更加值钱，而不只是能够多挣一点钱，这是我对大家最大的一个期望。而这个。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk107_6360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk107_6360s\\frame_00059.jpg",
+      "timestamp_s": 59,
+      "marker": "Frame [00:00:59] type=annotation diff=0.2137"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk107_6360s\\frame_00060.jpg",
+      "timestamp_s": 60,
+      "marker": "Frame [00:01:00] type=annotation diff=0.2137"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 59,
+      "diff": 0.2137
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 1,
+    "frames_total": 3,
+    "text_chars": 306
+  }
+}

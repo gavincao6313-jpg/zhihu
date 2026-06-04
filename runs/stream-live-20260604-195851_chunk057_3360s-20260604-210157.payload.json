@@ -1,0 +1,64 @@
+{
+  "video_name": "live-20260604-195851_chunk057_3360s",
+  "full_text": "[00:00:00 - 00:01:00] 体系的能力和逻辑。对吧就是说句实在话，这个资源我有没有呃，目前还没有，但是我觉得我也能搞得到。但是我把这个东西跟你们宣讲出来，一传十十十传百，你们肯定能够给我号召点东西出来，对吧？这套东西出来之后的话，我觉得它确实是有价值的对吧？好。😡这个产品就是这么出来的。这个产品就是这么出来的。而且到哪个时候AIR要怎么做，谁能投我资。如果走资本的话，该怎么去做。最后这个项目资本退出方式和怎么卖，事实上我都想明白了。事实上我都想明白了。当然，这已经超过了一超过了一人公司的概念，我们也就不展开说了。好吧，然后开始第二部分，我们讲一讲，从PMF到MPF之间的变化。艺人公司的特点和观键变化是什么？在AI时代，你会不断的看到很多机会。有的时候会觉得哇这也行，对吧？给你们讲过，这一个破仙人掌卖398块钱，你会觉得我做这个肯定比他。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk057_3360s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk057_3360s\\frame_00020.jpg",
+      "timestamp_s": 20,
+      "marker": "Frame [00:00:20] type=annotation diff=0.1806"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk057_3360s\\frame_00021.jpg",
+      "timestamp_s": 21,
+      "marker": "Frame [00:00:21] type=annotation diff=0.1806"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk057_3360s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1802"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk057_3360s\\frame_00043.jpg",
+      "timestamp_s": 43,
+      "marker": "Frame [00:00:43] type=annotation diff=0.1802"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk057_3360s\\frame_00047.jpg",
+      "timestamp_s": 47,
+      "marker": "Frame [00:00:47] type=annotation diff=0.1555"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk057_3360s\\frame_00048.jpg",
+      "timestamp_s": 48,
+      "marker": "Frame [00:00:48] type=annotation diff=0.1555"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 20,
+      "diff": 0.1806
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 42,
+      "diff": 0.1802
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 47,
+      "diff": 0.1555
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 3,
+    "frames_total": 7,
+    "text_chars": 381
+  }
+}

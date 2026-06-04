@@ -1,0 +1,79 @@
+{
+  "video_name": "live-20260604-195851_chunk123_7320s",
+  "full_text": "[00:00:00 - 00:01:00] 也没有多也真没多难了，真没多难了，咱们也咱们也没有生也也没有生死安全的事儿，对吧？都没有都没有，对吧？😡愿景真的非常的重要，千万不要做那种只去挣点钱，一点儿理念，一点怨都没有的，没意义，对不对？来说。好，正好也完了我才讲的这一段，让今天内容整体总结一下，整体总结一下。艺人公司和自由职业和个体户完全不同。它的核心点在于通过系统的能力放大一个人的核心的商业能力，商业能力。对于认知，对于产品化对于货客能力要求很高，但是对个人的锻炼也很高，发现痛点，解决思考方式，外口顶出demo确认需求，功能开发MVP做测试规模化，这是一个完整的闭环。我的产品这样做，你的产品也可以这样做。产品和商业差异，产品是一个小闭环，但是它只是整个闭环的一个。",
+  "frames": [
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00001.jpg",
+      "timestamp_s": 1,
+      "marker": "Frame [00:00:01] type=context diff=0"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00023.jpg",
+      "timestamp_s": 23,
+      "marker": "Frame [00:00:23] type=annotation diff=0.1543"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00024.jpg",
+      "timestamp_s": 24,
+      "marker": "Frame [00:00:24] type=annotation diff=0.1543"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00029.jpg",
+      "timestamp_s": 29,
+      "marker": "Frame [00:00:29] type=annotation diff=0.1887"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00030.jpg",
+      "timestamp_s": 30,
+      "marker": "Frame [00:00:30] type=annotation diff=0.1887"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00041.jpg",
+      "timestamp_s": 41,
+      "marker": "Frame [00:00:41] type=annotation diff=0.1105"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00042.jpg",
+      "timestamp_s": 42,
+      "marker": "Frame [00:00:42] type=annotation diff=0.1105"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00054.jpg",
+      "timestamp_s": 54,
+      "marker": "Frame [00:00:54] type=annotation diff=0.1746"
+    },
+    {
+      "path": "d:\\zhihu\\zhihu_file\\Videos\\keyframes\\live-20260604-195851_chunk123_7320s\\frame_00055.jpg",
+      "timestamp_s": 55,
+      "marker": "Frame [00:00:55] type=annotation diff=0.1746"
+    }
+  ],
+  "events": [
+    {
+      "type": "annotation",
+      "frame_idx": 23,
+      "diff": 0.1543
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 29,
+      "diff": 0.1887
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 41,
+      "diff": 0.1105
+    },
+    {
+      "type": "annotation",
+      "frame_idx": 54,
+      "diff": 0.1746
+    }
+  ],
+  "stats": {
+    "slide_changes": 0,
+    "annotations": 4,
+    "frames_total": 9,
+    "text_chars": 338
+  }
+}
