@@ -1,0 +1,81 @@
+{
+  "base": "local-20260603",
+  "run_ts": "00000000-000000",
+  "source_type": "live",
+  "source_status": "full",
+  "chunk_count": 139,
+  "transcript_chars": 43033,
+  "frame_count": 172,
+  "first_timestamp_s": 1,
+  "last_timestamp_s": 9189,
+  "timeline_end_s": 8340,
+  "timeline_duration_s": 8339,
+  "gap_count": 0,
+  "gap_seconds": 0,
+  "gaps": [],
+  "silent_chunk_count": 138,
+  "failed_chunk_count": 0,
+  "synthesis_provider": "qwen",
+  "synthesis_model": "qwen3.7-plus",
+  "synthesis_pass": "one-shot",
+  "warnings": [
+    "frame_timestamp_exceeds_timeline: max frame 03:49:59, timeline end 02:19:00",
+    "qwen_overcompressed_body: body/transcript ratio 0.14, expected >= 0.20",
+    "qwen_missing_code_blocks: source contains prompt/config/code-like details but model body has no fenced code block"
+  ],
+  "frame_timestamp_qc": {
+    "frame_count": 172,
+    "min_frame_timestamp_s": 1,
+    "max_frame_timestamp_s": 13799,
+    "timeline_end_s": 8340,
+    "max_frame_tail_delta_s": 5459,
+    "timestamp_scope_counts": {
+      "global": 171,
+      "local": 1
+    }
+  },
+  "qwen_thinking_enabled": false,
+  "frame_policy": {
+    "provider": "qwen",
+    "total_frames": 172,
+    "selected_frames": 172,
+    "dropped_frames": 0,
+    "cap": 250,
+    "slide_frames": 6,
+    "annotation_frames": 154
+  },
+  "provider_parts_count": 346,
+  "provider_usage": {
+    "provider": "qwen",
+    "model": "qwen3.7-plus",
+    "api_calls": 1,
+    "finish_reason": "stop",
+    "usage": {
+      "input_tokens": 41936,
+      "output_tokens": 3451,
+      "total_tokens": 45387
+    },
+    "estimated_cost_cny": null
+  },
+  "body_last_chapter_end_s": 9189,
+  "body_tail_gap_s": -849,
+  "body_coverage_status": "ok",
+  "qwen_notebooklm_qc": {
+    "h1_exists": true,
+    "body_chars": 6134,
+    "body_transcript_ratio": 0.1425,
+    "required_sections_missing": [],
+    "timestamped_chapter_count": 5,
+    "chapter_fields_missing": [],
+    "code_fence_count": 0,
+    "prompt_keywords_missing": [],
+    "body_min_transcript_ratio": 0.2,
+    "source_frame_count": 172
+  },
+  "transcript_appendix_chars": 43033,
+  "visual_evidence_count": 172,
+  "deterministic_appendices": [
+    "full_transcript",
+    "visual_evidence_index"
+  ]
+}
