@@ -61,14 +61,25 @@ if errorlevel 1 (
     pause & exit /b 1
 )
 
+:: Read run_ts written by process_replay_qwen.py to isolate this run's chunks
+set "RUN_TS_FILE=!SCRIPT_DIR!runs\stream-!BASE_NAME!.last-run-ts.txt"
+if not exist "!RUN_TS_FILE!" (
+    echo [错误] 找不到 run_ts 标记文件: !RUN_TS_FILE!
+    pause & exit /b 1
+)
+set /p RUN_TS=<"!RUN_TS_FILE!"
+echo [info] Run TS: !RUN_TS!
+
 :: ---- Step 2: Qwen 合成 ----
 echo.
-echo [2/2] Qwen 合成 NotebookLM 文档...
+echo [2/2] Qwen 合成 NotebookLM 文档 (sliding-window)...
 "!PYTHON!" "!SCRIPT_DIR!scripts\build_stream_markdown.py" ^
   --base "!BASE_NAME!" ^
+  --run-ts "!RUN_TS!" ^
   --runs-dir "!SCRIPT_DIR!runs" ^
   --markdowns-dir "!SCRIPT_DIR!Markdowns" ^
   --provider qwen ^
+  --synthesis-pass sliding-window ^
   --qwen-max-frames "!QWEN_MAX_FRAMES!" ^
   --output-label qwen ^
   --max-retries 2 ^

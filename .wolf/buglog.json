@@ -2610,6 +2610,79 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-04T03:21:33.662Z"
+    },
+    {
+      "id": "bug-156",
+      "timestamp": "2026-06-04T03:43:01.679Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/handoff-20260604-p2-6.md",
+      "root_cause": "7 lines replaced/restructured",
+      "fix": "Rewrote 13→20 lines (7 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T03:43:01.679Z"
+    },
+    {
+      "id": "bug-157",
+      "timestamp": "2026-06-04T03:43:09.638Z",
+      "error_message": "Wrong reference: WIN should be URL",
+      "file": "docs/handoff-20260604-p2-6.md",
+      "root_cause": "Used \"WIN\" instead of \"URL\"",
+      "fix": "Changed WIN → URL",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-06-04T03:43:29.320Z"
+    },
+    {
+      "id": "bug-158",
+      "timestamp": "2026-06-04T17:26:16+08:00",
+      "error_message": "scripts/hybrid_final.py --base live-20260602-195306 fails with '[错误] manifest 中无 qwen_window_notes，或文件不存在'",
+      "file": "scripts/hybrid_final.py",
+      "root_cause": "hybrid_final.find_manifest() selects stream-{base}-*.manifest.json, but Qwen sliding-window writes qwen_window_notes into *.final-qc.json; load_window_notes() also prepends runs_dir to stored paths like runs\\stream-...notes.md, producing a non-existent duplicated path.",
+      "fix": "Pending: read the provider-labeled final-qc JSON for the A run, normalize note paths relative to repo/runs_dir without duplicating runs, and align Gemini continuation defaults with the claimed one-call contract.",
+      "tags": [
+        "hybrid-final",
+        "qwen-window-notes",
+        "gemini-quota",
+        "windows-path"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T17:26:16+08:00"
+    },
+    {
+      "id": "bug-159",
+      "timestamp": "2026-06-04T18:00:00+08:00",
+      "error_message": "zhihu_auth_state_xiaoe.json 等三个真实 Playwright 登录态文件被 git 追踪并推送至远端",
+      "file": "zhihu_auth_state_xiaoe.json, zhihu_auth_state-live-ab-20260526-*.save.json",
+      "root_cause": ".gitignore 规则（第39-41行）在文件已被 git add 之后才加入，导致 ignore 规则不生效；文件内含37个 cookies + 11个 localStorage keys（真实小鹅通登录态）",
+      "fix": "git rm --cached 三个文件（commit b29b9d9），本地文件保留；.gitignore 已有覆盖规则。历史 commit 中 cookies 已暴露，建议重新登录小鹅通使旧 cookies 失效",
+      "tags": ["security", "git", "auth-state", "credentials", "xiaoe"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T18:00:00+08:00"
+    },
+    {
+      "id": "bug-160",
+      "timestamp": "2026-06-04T18:30:00+08:00",
+      "error_message": "P2-6 QC: frame_timestamp_exceeds_timeline max=13799s timeline=9240s; synthesis_pass defaulted to one-shot instead of sliding-window",
+      "file": "run_replay_qwen.bat, process_replay_qwen.py",
+      "root_cause": "两个问题：(1) BAT Step 2 缺少 --synthesis-pass sliding-window，Qwen 默认 one-shot 导致 body 严重过压缩；(2) BAT 不传 --run-ts，build_stream_markdown.py 混入旧 zhihuTTS_video.py run 的 chunk 文件（293=139+154），导致 _payload_timestamps_are_global() 误判 4 帧为 local，加 chunk_start_s 偏移后产生 13799s 幻象时间戳",
+      "fix": "process_replay_qwen.py 在 Step 5 后写 runs/stream-{base}.last-run-ts.txt；run_replay_qwen.bat 读取并传 --run-ts + --synthesis-pass sliding-window 给 Step 2",
+      "tags": ["timestamp", "sliding-window", "run-ts", "chunk-isolation", "bat", "replay-qwen"],
+      "related_bugs": ["bug-158"],
+      "occurrences": 1,
+      "last_seen": "2026-06-04T18:30:00+08:00"
     }
   ]
 }

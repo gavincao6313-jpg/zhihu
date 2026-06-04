@@ -291,6 +291,12 @@ def main():
     )
     print(f"Manifest: {manifest_path}")
 
+    # Write run_ts marker so BAT/shell callers can pass --run-ts to
+    # build_stream_markdown.py and avoid mixing chunks from prior runs.
+    run_ts_marker = runs_dir / f"stream-{base}.last-run-ts.txt"
+    run_ts_marker.write_text(run_ts, encoding="utf-8")
+    print(f"Run-TS marker: {run_ts_marker}")
+
     # ── Step 6: Instructions ──────────────────────────────────────────────
     print(f"\n{'='*60}")
     print("Ready for QWEN sliding-window synthesis!")

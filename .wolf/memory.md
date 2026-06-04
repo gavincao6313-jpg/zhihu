@@ -1038,3 +1038,37 @@
 | 11:14 | Edited web_api/server.py | expanded (+8 lines) | ~254 |
 | 2026-06-04 review | Review响应：CRITICAL-1重复checkAuth不存在(build通过)；CRITICAL-2 auth state未入库，.gitignore补xiaoe规则；HIGH Referer headers：server.py xiaoe branch写headers file传--headers-file | .gitignore, web_api/server.py | py_compile OK, npm run build OK | ~2000 |
 | 11:21 | Edited web_api/server.py | 9→13 lines | ~180 |
+
+## Session: 2026-06-04 11:27
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-04 11:29
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:40 | Created docs/handoff-20260604-p2-6.md | — | ~1092 |
+| 11:43 | Edited docs/handoff-20260604-p2-6.md | expanded (+7 lines) | ~206 |
+| 11:43 | Edited docs/handoff-20260604-p2-6.md | inline fix | ~8 |
+| 11:43 | Edited docs/handoff-20260604-p2-6.md | inline fix | ~7 |
+| 11:43 | Edited docs/handoff-20260604-p2-6.md | 2→2 lines | ~38 |
+| 16:27 | Created run_replay_qwen.bat | — | ~595 |
+| 17:14 | Edited process_replay_qwen.py | modified distribute_frames_to_chunks() | ~545 |
+| 17:14 | Edited process_replay_qwen.py | 4→5 lines | ~68 |
+| 17:15 | Edited scripts/build_stream_markdown.py | 2→2 lines | ~50 |
+| 17:18 | Created scripts/hybrid_final.py | — | ~1461 |
+| 2026-06-04 | 评估单视频 Gemini 配额消耗基准（~280k input tokens/视频，超 TPM，典型 2-4 次调用）；记录混合架构方向（Qwen 滑窗多轮 + Gemini 最终 1 次）；更新 cerebrum.md Key Learnings + Decision Log | .wolf/cerebrum.md | done | ~800 |
+| 17:22 | Created ../../.claude/projects/-Users-caojiapeng-projects-zhihu/memory/project_hybrid_synthesis_plan.md | — | ~222 |
+| 17:23 | Created ../../.claude/projects/-Users-caojiapeng-projects-zhihu/memory/MEMORY.md | — | ~32 |
+| 17:26 | Code review hybrid_final path/QC issues | scripts/hybrid_final.py, scripts/build_stream_markdown.py | found blocking C-path failures; no business code changed | ~2200 |
+
+## Session: 2026-06-04 17:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 18:00 | code review 验证：CRITICAL 1（checkAuth 重复）已修复，CRITICAL 2（auth_state_xiaoe 入库）仍存在，HIGH（缺 Referer）已修复 | frontend/src/App.tsx, web_api/server.py | 验证完成 | ~800 |
+| 18:05 | git rm --cached 三个 auth state 文件，提交 b29b9d9，bug-159 记录 | zhihu_auth_state_xiaoe.json + *.save.json | 安全修复完成 | ~200 |
+| 17:48 | Edited process_replay_qwen.py | expanded (+6 lines) | ~152 |
+| 19:59 | Edited run_replay_qwen.bat | modified 1() | ~217 |
+| 18:30 | 修复帧时间戳双重叠加 bug：process_replay_qwen.py 写 run_ts 标记，run_replay_qwen.bat 补 --run-ts + --synthesis-pass sliding-window | process_replay_qwen.py, run_replay_qwen.bat | bug-160 | ~400 |
