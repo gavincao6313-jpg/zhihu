@@ -51,12 +51,15 @@ def distribute_frames_to_chunks(
     start_s: float,
     end_s: float,
     chunk_kf_dir: Path,
+    total_s: float = float("inf"),
 ) -> tuple[list[dict], list[dict]]:
     """Copy frames belonging to [start_s, end_s) into chunk_kf_dir.
 
     Frame filenames from extract_keyframes are like frame_00042.jpg where
     the number is the frame index in the full extraction.  We need to
     approximate the timestamp from the frame index.
+
+    total_s: video duration in seconds; frames beyond this are discarded.
 
     Returns (chunk_frames, chunk_events).
     """
@@ -75,6 +78,9 @@ def distribute_frames_to_chunks(
         # FRAME_FPS defaults to 1, so frame_idx ≈ seconds
         ts = float(frame_idx)
 
+        if ts >= total_s:  # discard frames beyond video duration
+            continue
+
         if start_s <= ts < end_s:
             dest = chunk_kf_dir / frame_path.name
             if not dest.exists():
@@ -89,6 +95,8 @@ def distribute_frames_to_chunks(
     for evt in events:
         evt_frame_idx = evt.get("frame_idx", 0)
         evt_ts = float(evt_frame_idx)
+        if evt_ts >= total_s:
+            continue
         if start_s <= evt_ts < end_s:
             chunk_events.append(evt)
 
@@ -177,6 +185,7 @@ def main():
         # Distribute global frames to this chunk
         chunk_frames, chunk_events = distribute_frames_to_chunks(
             kept_frames, events, i + 1, start_s, start_s + actual_dur, chunk_kf_dir,
+            total_s=total_s,
         )
 
         with tempfile.NamedTemporaryFile(suffix=".wav", delete=False,
