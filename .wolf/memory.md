@@ -1072,3 +1072,49 @@
 | 17:48 | Edited process_replay_qwen.py | expanded (+6 lines) | ~152 |
 | 19:59 | Edited run_replay_qwen.bat | modified 1() | ~217 |
 | 18:30 | 修复帧时间戳双重叠加 bug：process_replay_qwen.py 写 run_ts 标记，run_replay_qwen.bat 补 --run-ts + --synthesis-pass sliding-window | process_replay_qwen.py, run_replay_qwen.bat | bug-160 | ~400 |
+| 23:00 | 【会话收尾】今日工作汇总见下方 Session Summary | — | — | — |
+
+## Session Summary 2026-06-04
+
+### 安全修复
+- git rm --cached 三个 auth state 文件（zhihu_auth_state_xiaoe.json 等），commit b29b9d9。.gitignore 规则已存在但文件早于规则入库，37 cookies + 11 localStorage 真实登录态已暴露，建议重新登录小鹅通使旧 cookies 失效。
+
+### Bug 修复
+- **bug-159**: auth state 文件被 git 追踪（security）
+- **bug-160**: process_replay_qwen.py 帧时间戳双重叠加（max 13799s vs timeline 9240s）+ run_replay_qwen.bat 缺少 --synthesis-pass sliding-window 和 --run-ts。修复：py 写 last-run-ts.txt 标记，BAT 读取后传两个参数。
+
+### ABC TEST 分析（2026-06-04 知乎直播）
+- 源采集质量完美：129 chunks，0 gaps，0 silent，source_status full
+- Gemini: ~29KB body，0 warnings，最优
+- Qwen: 19,175 chars，1条QC误报（赛博摆摊叙事内容实际存在）
+- Hybrid: 9,869 chars，损失>50
+## Session: 2026-06-04 23:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:38 | Created scripts/xet_capture.js | — | ~1138 |
+| 23:39 | Created scripts/xet_download_pdfs.py | — | ~1123 |
+
+| 23:00 | 会话收尾 Session Summary 2026-06-04 | memory.md | ok | ~200 |
+
+## Session Summary 2026-06-04
+
+### 安全修复
+- git rm --cached 三个 auth state 文件（zhihu_auth_state_xiaoe.json 等），commit b29b9d9。建议重新登录小鹅通使旧 cookies 失效。
+
+### Bug 修复
+- bug-159: auth state 文件被 git 追踪（security）
+- bug-160: process_replay_qwen.py 帧时间戳双重叠加（max 13799s vs timeline 9240s）+ run_replay_qwen.bat 缺 --synthesis-pass sliding-window 和 --run-ts。修复：py 写 last-run-ts.txt 标记，BAT 读取后传两个参数。
+
+### ABC TEST 分析（2026-06-04 知乎直播）
+- 源采集完美：129 chunks，0 gaps，0 silent，source_status full
+- A 纯 Gemini: ~29KB body，0 warnings，最优
+- B 纯 Qwen sw: 19,175 chars，1条QC误报（内容实际存在）
+- C Hybrid: 9,869 chars，损失>50%，验证 Hybrid 设计缺陷（LLM无跨调用记忆，从笔记合成=二次压缩）
+- hybrid_final.py WIN 已修复 2 个 bug（find_manifest 搜错文件名 + runs/runs/ 路径双重前缀）
+
+### 架构决策
+- Hybrid 废弃：删除 scripts/hybrid_final.py，Do-Not-Repeat 标记禁止重新启用
+- Twin-Star 搁置：架构正确但配额翻倍而质量无翻倍收益，等真实 Gemini TPM 失败场景再启动
+- 主线规则：<=2.5h/<=300帧 -> 纯Gemini（1次）；3h+/400帧+ -> 纯Qwen sliding-window（3次）
+- 以上决策已写入 cerebrum Decision Log 和 Do-Not-Repeat
