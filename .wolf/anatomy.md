@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-04T15:39:37.506Z
-> Files: 87 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-05T08:34:08.218Z
+> Files: 91 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../.claude/plans/
 
@@ -116,6 +116,9 @@
 - `convert_payload_to_chunks.py` — Convert single payload.json to per-chunk stream format for build_stream_markdown.py. (~1548 tok)
 - `live_sectioned_synthesis.py` — P1 Sectioned Synthesis: three-pass pipeline for live-stream final documents. (~30063 tok)
 - `merge_stream_chunks.py` — parse_chunk_start, parse_timestamp, load_chunk_lines, load_chunk_slides (~2020 tok)
+- `run_xet_download.bat` (~81 tok)
+- `run_zhihu_course_download.bat` — WIN 启动器：检查 playwright/ffmpeg/登录态，调用 zhihu_course_replay_downloader.py。 (~391 tok)
+- `zhihu_course_replay_downloader.py` — 知乎训练营课程回放批量下载；Playwright 拦截课程目录 API 和 m3u8 URL，ffmpeg 下载为 MP4，支持 --dry-run 和断点续下。 (~600 tok)
 - `scripts/build_stream_markdown.py` — P0 live final synthesis入口；支持 Gemini/Qwen one-shot、Qwen `--synthesis-pass sliding-window` 窗口 notes+最终组装、final-qc/body/Qwen NotebookLM QC、预算 dry-run，并确定性追加完整逐字稿/视觉证据索引。 (~12000 tok)
 - `scripts/check_auth.py` — 鉴权检查工具。 (~80 tok)
 - `scripts/live_sectioned_synthesis.py` — P1-P2 分层合成主模块。新增 `run_full_pipeline()` 公共入口（Fix1）。Fix2: evidence hash 含 cleaned_transcript+frame type/ts+stale传播。Fix3: slide边界 frame key 归一化。Fix4: 术语词边界。 (~23000 tok)
@@ -126,8 +129,10 @@
 - `scripts/toutiao_download_favorites.py` — 从 cache/toutiao/manifest.json 下载今日头条收藏视频；优先 yt-dlp，失败后 Playwright 捕获媒体 URL + ffmpeg，落盘 Videos/short/toutiao。 (~3000 tok)
 - `scripts/toutiao_login.py` — 打开 Playwright 有头浏览器登录今日头条，并保存登录态到 cache/toutiao/auth_state.json。 (~700 tok)
 - `scripts/toutiao_probe_favorites.py` — 使用 Playwright 登录态打开今日头条收藏页、滚动探测视频链接/网络候选项，可写 probe JSON、screenshot 并更新 manifest。 (~2700 tok)
+- `xet_batch_download.py` — api_post, safe_filename, get_attach_list, extract_files (~2350 tok)
 - `xet_capture.js` — 小鹅通相关资料批量下载 — 浏览器控制台捕获脚本 (~1138 tok)
 - `xet_download_pdfs.py` — safe_filename, download_one, resolve_url, main (~1123 tok)
+- `zhihu_course_replay_downloader.py` — extract_training_id, safe_name, cookies_to_header, load_progress (~3754 tok)
 
 ## web_api/
 
