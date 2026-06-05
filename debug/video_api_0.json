@@ -1,0 +1,25 @@
+{
+  "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business.column.base_info.get/2.0.0",
+  "status": 200,
+  "method": "POST",
+  "post_data": "bizData%5Bcolumn_id%5D=p_62ee3208e4b0eca59c1f854d",
+  "body": {
+    "code": 0,
+    "msg": "success",
+    "data": {
+      "resource_id": "p_62ee3208e4b0eca59c1f854d",
+      "title": "炒饭会商业案例拆解",
+      "img_url": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/b_u_5d9f01ab42bf3_qQxIddoF/l6naylkw0l58.png",
+      "img_url_compressed": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/414320958l6naylkw0l58.png",
+      "img_url_compressed_larger": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/640480526l6naylkw0l58.png",
+      "purchase_count": 0,
+      "resource_count": 188,
+      "summary": "炒饭会每年48期直播分享，把商业案例淬炼成商业认知，用商业认知提升职场生态位置",
+      "is_sequence": 0,
+      "finished_state": 0,
+      "visible_on": 1,
+      "loop_resource": 0
+    },
+    "forward_url": ""
+  }
+}

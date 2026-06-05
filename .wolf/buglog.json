@@ -2667,7 +2667,13 @@
       "file": "zhihu_auth_state_xiaoe.json, zhihu_auth_state-live-ab-20260526-*.save.json",
       "root_cause": ".gitignore 规则（第39-41行）在文件已被 git add 之后才加入，导致 ignore 规则不生效；文件内含37个 cookies + 11个 localStorage keys（真实小鹅通登录态）",
       "fix": "git rm --cached 三个文件（commit b29b9d9），本地文件保留；.gitignore 已有覆盖规则。历史 commit 中 cookies 已暴露，建议重新登录小鹅通使旧 cookies 失效",
-      "tags": ["security", "git", "auth-state", "credentials", "xiaoe"],
+      "tags": [
+        "security",
+        "git",
+        "auth-state",
+        "credentials",
+        "xiaoe"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-04T18:00:00+08:00"
@@ -2679,10 +2685,35 @@
       "file": "run_replay_qwen.bat, process_replay_qwen.py",
       "root_cause": "两个问题：(1) BAT Step 2 缺少 --synthesis-pass sliding-window，Qwen 默认 one-shot 导致 body 严重过压缩；(2) BAT 不传 --run-ts，build_stream_markdown.py 混入旧 zhihuTTS_video.py run 的 chunk 文件（293=139+154），导致 _payload_timestamps_are_global() 误判 4 帧为 local，加 chunk_start_s 偏移后产生 13799s 幻象时间戳",
       "fix": "process_replay_qwen.py 在 Step 5 后写 runs/stream-{base}.last-run-ts.txt；run_replay_qwen.bat 读取并传 --run-ts + --synthesis-pass sliding-window 给 Step 2",
-      "tags": ["timestamp", "sliding-window", "run-ts", "chunk-isolation", "bat", "replay-qwen"],
-      "related_bugs": ["bug-158"],
+      "tags": [
+        "timestamp",
+        "sliding-window",
+        "run-ts",
+        "chunk-isolation",
+        "bat",
+        "replay-qwen"
+      ],
+      "related_bugs": [
+        "bug-158"
+      ],
       "occurrences": 1,
       "last_seen": "2026-06-04T18:30:00+08:00"
+    },
+    {
+      "id": "bug-161",
+      "timestamp": "2026-06-05T08:38:59.235Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/zhihu_course_replay_downloader.py",
+      "root_cause": "Had \"downloads\"",
+      "fix": "Changed to \"E:\\AI产品经理课\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-05T08:38:59.235Z"
     }
   ]
 }

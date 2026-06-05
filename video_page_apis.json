@@ -1,0 +1,809 @@
+[
+  {
+    "url": "https://www.zhihu.com/xen/market/training/training-video/1972723265349902377/1982458776650011941",
+    "body": "DIRECT_URL"
+  },
+  {
+    "url": "https://static.zhihu.com/education-webapp/trainingApps~training-video/trainingApps~training-video.83fdc8b36aa4c860eaf2.css",
+    "body": "DIRECT_URL"
+  },
+  {
+    "url": "https://static.zhihu.com/education-webapp/trainingApps~training-video/vendors.d5155a92a12287367a72.css",
+    "body": "DIRECT_URL"
+  },
+  {
+    "url": "https://static.zhihu.com/education-webapp/trainingApps~training-video/trainingApps~training-video.8772f633caa17c6aea0e.js",
+    "body": "DIRECT_URL"
+  },
+  {
+    "url": "https://static.zhihu.com/education-webapp/trainingApps~training-video/vendors.021c2ebcb1dfee428ea6.js",
+    "body": "DIRECT_URL"
+  },
+  {
+    "url": "https://www.zhihu.com/api/education/training/course/video_page/1972723265349902377/recommended_card",
+    "body": null
+  },
+  {
+    "url": "https://www.zhihu.com/api/education/video/monitor",
+    "body": {
+      "code": 0,
+      "data": null,
+      "msg": "success"
+    }
+  },
+  {
+    "url": "https://www.zhihu.com/api/knowledge_school/courses/1972723265349902377/note_catalog?course_type=2&note_type=",
+    "body": {
+      "success": true,
+      "data": {
+        "list": []
+      }
+    }
+  },
+  {
+    "url": "https://www.zhihu.com/api/knowledge_school/courses/1972723265349902377/sections/1982458776650011941/notes?note_type=",
+    "body": {
+      "success": true,
+      "data": {
+        "list": []
+      }
+    }
+  },
+  {
+    "url": "https://www.zhihu.com/api/education/training/1972723265349902377/video_page/catalog?limit=10&offset=-10&education_channel_code=ZHZN-d62bb90dfad9e02",
+    "body": {
+      "errcode": 0,
+      "errmsg": "",
+      "data": {
+        "data": [
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 1 节",
+              "relative": 0,
+              "global": 0
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "开班典礼",
+            "id": "1982458776650011941",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4zGbe4qXxVyE6FVKyqF7Xp6HFW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4zaGe4M6bVUy6FieyquFVSw3z6EC",
+                "duration": 6421466,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5ODI0NTg3NzY2NTAwMTE5NDE=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": true,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "0 开班典礼1215.pdf",
+                "file_size": 5475940,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1765800000,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 2 节",
+              "relative": 1,
+              "global": 1
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "AI产品经理的核心能力和时代机遇",
+            "id": "1973801827284822005",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4zbbe46WGeyazxeky6Fwe4qZbW4ooxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqxXw46xoXyzPxVZrxa6EC",
+                "duration": 9301866,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDE4MjcyODQ4MjIwMDU=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "1-1 AI产品经理的核心能力和时代机遇.pdf",
+                "file_size": 6981196,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1766059200,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 3 节",
+              "relative": 2,
+              "global": 2
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "场景拆解，构建Prompt",
+            "id": "1973805106110673904",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4zbbeJqcxV4b6xekp6FOe4zwbW45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqFVmyqFuVyqnFVSaxP6EC",
+                "duration": 11121733,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDUxMDYxMTA2NzM5MDQ=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "2-1 场景拆解，构建Prompt.pdf",
+                "file_size": 6689263,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1766232000,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 4 节",
+              "relative": 3,
+              "global": 3
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "通过工作流搭建，构建产品Demo",
+            "id": "1973805447237609328",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4zGFeyoFxsyVqxe74oxwX46pFW4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqxVs46FqVy6ZFsT7AI6EC",
+                "duration": 8861466,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDU0NDcyMzc2MDkzMjg=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "2-2 通过工作流搭建，构建产品Demo.pdf",
+                "file_size": 5968603,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1766404800,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 5 节",
+              "relative": 4,
+              "global": 4
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "通过RAG、Function calling和MCP链接知识库和外部系统",
+            "id": "1973805955427893488",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4zbFe4qUxV4nqGVwy6xZX46WbW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqFXm46xeeyombes9vI6EC",
+                "duration": 9365333,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDU5NTU0Mjc4OTM0ODg=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "2-3 通过RAG、Function calling和MCP链接知识库和外部系统.pdf",
+                "file_size": 7234834,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1766664000,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 6 节",
+              "relative": 5,
+              "global": 5
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "构建大模型时代最重要的产品形态：Agent",
+            "id": "1973806100236224383",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4zbwsy6Dxe4O6FVWpqF7VyqXFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6FVuy6FHVy6HxVTZvY6EC",
+                "duration": 8754333,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDYxMDAyMzYyMjQzODM=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "2-4 构建大模型时代最重要的产品形态：Agent.pdf",
+                "file_size": 18362988,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1767009600,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 7 节",
+              "relative": 6,
+              "global": 6
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "大模型产品开发中的数据准备与反馈闭环",
+            "id": "1973806226585457583",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4obweyq7FVp9zFXwpqFeVyq1FQ45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6xVoyqx5XyqyFee5vY6EC",
+                "duration": 9636799,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDYyMjY1ODU0NTc1ODM=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "2-5 大模型产品开发中的数据准备与反馈闭环.pdf",
+                "file_size": 5530154,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1767614400,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 8 节",
+              "relative": 7,
+              "global": 7
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "agent类产品的定义与设计",
+            "id": "1973806848470688396",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4oGEeyqXGe4tqxsP4zFEe4qVFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6xXuyzF2Vy6ZGXTwBh6EC",
+                "duration": 8189933,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDY4NDg0NzA2ODgzOTY=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "2-6 Agent类产品的定义与设计.pdf",
+                "file_size": 7907249,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1767873600,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 9 节",
+              "relative": 8,
+              "global": 8
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "AI产品经理简历突围课",
+            "id": "1973806997997631331",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4oGbe4zwGsyEqxe6yqxNVyzCFW45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6FXupqbusyqcFeT7mz6EC",
+                "duration": 9518066,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDY5OTc5OTc2MzEzMzE=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "2-7 AI产品经理简历突围课.pdf",
+                "file_size": 6071287,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1768219200,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          },
+          {
+            "artwork": {
+              "url": "https://pic3.zhimg.com/v2-08779651e0ab25218810d6b753589033.png?source=6a64a727",
+              "size": 2952
+            },
+            "index": {
+              "serial_number_txt": "第 10 节",
+              "relative": 9,
+              "global": 9
+            },
+            "right": {
+              "ownership": false,
+              "purchased": false,
+              "anonymous": false,
+              "can_experience": false
+            },
+            "learning_record": {
+              "is_last_learned": false,
+              "progress": 0,
+              "is_finished": false,
+              "client_updated_at": 0,
+              "has_learned": false
+            },
+            "title": "个性化和长期记忆构建agent的壁垒性",
+            "id": "1973807561103937753",
+            "ownership_type": "pay",
+            "resource": {
+              "data": {
+                "id": "4obbeyzFxV4WoFV6J6Gme4q-FQ4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqFV54qxwV4oOFevoLY6EC",
+                "duration": 9179199,
+                "trial_duration": 0,
+                "playlist": null,
+                "playlist_v2": null
+              },
+              "type": "video"
+            },
+            "education_channel_code": "",
+            "vip_tag": false,
+            "attached_info": "+gFBCGcSEzE5NzI3MjMyNjYwNTg3Mzc1ODEaEzE5NzI3MjMyNjUzNDk5MDIzNzcqEzE5NzM4MDc1NjExMDM5Mzc3NTM=",
+            "public_status": {
+              "is_public": true,
+              "status": "public",
+              "artwork": ""
+            },
+            "chapter": {
+              "id": "1973750368732218246",
+              "title": "AI产品经理",
+              "index": 1
+            },
+            "template_type": "no_img",
+            "meta": {
+              "head": "",
+              "media": "直播课 · 回放",
+              "tip": ""
+            },
+            "is_first": false,
+            "is_free": false,
+            "can_download_section_file": false,
+            "file_list": [
+              {
+                "file_name": "2-8个性化和长期记忆构建agent的壁垒性.pdf",
+                "file_size": 5360104,
+                "file_id": "",
+                "file_type": 2,
+                "mini_icon": "https://pic1.zhimg.com/v2-918472c5d512a21d1bc4a051d5ac3062.png?source=6a64a727",
+                "big_icon": "https://pic1.zhimg.com/v2-e743507e6497eca61388274fadf7b542.png?source=6a64a727"
+              }
+            ],
+            "section_start_at": 1768478400,
+            "section_status": 3,
+            "section_type": "live_stream",
+            "course_recommended_card_switch": false
+          }
+        ],
+        "paging": {
+          "is_end": false,
+          "is_start": true,
+          "next": "https://www.zhihu.com/api/education/training/1972723265349902377/video_page/catalog?education_channel_code=ZHZN-d62bb90dfad9e02&limit=10&offset=10",
+          "previous": "https://www.zhihu.com/api/education/training/1972723265349902377/video_page/catalog?education_channel_code=ZHZN-d62bb90dfad9e02&limit=10&offset=0",
+          "totals": 68,
+          "limit": 10,
+          "offset": 0
+        },
+        "extra": {
+          "show_chapter_name": false,
+          "update_text": "",
+          "course_content_type": 1,
+          "merchant_id": "1"
+        }
+      },
+      "type": "success"
+    }
+  }
+]

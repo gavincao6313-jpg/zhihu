@@ -1,0 +1,478 @@
+[
+  {
+    "section_id": "1982458776650011941",
+    "title": "开班典礼",
+    "chapter": "AI产品经理",
+    "resource_id": "4zGbe4qXxVyE6FVKyqF7Xp6HFW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4zaGe4M6bVUy6FieyquFVSw3z6EC",
+    "duration": 6421466
+  },
+  {
+    "section_id": "1973801827284822005",
+    "title": "AI产品经理的核心能力和时代机遇",
+    "chapter": "AI产品经理",
+    "resource_id": "4zbbe46WGeyazxeky6Fwe4qZbW4ooxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqxXw46xoXyzPxVZrxa6EC",
+    "duration": 9301866
+  },
+  {
+    "section_id": "1973805106110673904",
+    "title": "场景拆解，构建Prompt",
+    "chapter": "AI产品经理",
+    "resource_id": "4zbbeJqcxV4b6xekp6FOe4zwbW45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqFVmyqFuVyqnFVSaxP6EC",
+    "duration": 11121733
+  },
+  {
+    "section_id": "1973805447237609328",
+    "title": "通过工作流搭建，构建产品Demo",
+    "chapter": "AI产品经理",
+    "resource_id": "4zGFeyoFxsyVqxe74oxwX46pFW4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqxVs46FqVy6ZFsT7AI6EC",
+    "duration": 8861466
+  },
+  {
+    "section_id": "1973805955427893488",
+    "title": "通过RAG、Function calling和MCP链接知识库和外部系统",
+    "chapter": "AI产品经理",
+    "resource_id": "4zbFe4qUxV4nqGVwy6xZX46WbW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqFXm46xeeyombes9vI6EC",
+    "duration": 9365333
+  },
+  {
+    "section_id": "1973806100236224383",
+    "title": "构建大模型时代最重要的产品形态：Agent",
+    "chapter": "AI产品经理",
+    "resource_id": "4zbwsy6Dxe4O6FVWpqF7VyqXFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6FVuy6FHVy6HxVTZvY6EC",
+    "duration": 8754333
+  },
+  {
+    "section_id": "1973806226585457583",
+    "title": "大模型产品开发中的数据准备与反馈闭环",
+    "chapter": "AI产品经理",
+    "resource_id": "4obweyq7FVp9zFXwpqFeVyq1FQ45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6xVoyqx5XyqyFee5vY6EC",
+    "duration": 9636799
+  },
+  {
+    "section_id": "1973806848470688396",
+    "title": "agent类产品的定义与设计",
+    "chapter": "AI产品经理",
+    "resource_id": "4oGEeyqXGe4tqxsP4zFEe4qVFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6xXuyzF2Vy6ZGXTwBh6EC",
+    "duration": 8189933
+  },
+  {
+    "section_id": "1973806997997631331",
+    "title": "AI产品经理简历突围课",
+    "chapter": "AI产品经理",
+    "resource_id": "4oGbe4zwGsyEqxe6yqxNVyzCFW45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6FXupqbusyqcFeT7mz6EC",
+    "duration": 9518066
+  },
+  {
+    "section_id": "1973807561103937753",
+    "title": "个性化和长期记忆构建agent的壁垒性",
+    "chapter": "AI产品经理",
+    "resource_id": "4obbeyzFxV4WoFV6J6Gme4q-FQ4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqFV54qxwV4oOFevoLY6EC",
+    "duration": 9179199
+  },
+  {
+    "section_id": "1973808176626411049",
+    "title": "大模型底座选型和价值管理",
+    "chapter": "AI产品经理",
+    "resource_id": "4oGFe4qDxeyi6xVe4qbusyqqFW45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6bVwy6xNeyq5FVZ7396EC",
+    "duration": 9276599
+  },
+  {
+    "section_id": "1973808878031499959",
+    "title": "大模型产品增长策略",
+    "chapter": "AI产品经理",
+    "resource_id": "4obFeJ6HxX4w6FVIyoGEe4qFFW4ooxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6GXwyzFEeyq5bsSwL96EC",
+    "duration": 9834466
+  },
+  {
+    "section_id": "1973808932435797355",
+    "title": "商业层面看待agent产品",
+    "chapter": "AI产品经理",
+    "resource_id": "4obws46cxV4QqGswp6xkX46DFQ45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJa6bXwy6F0e4q9beT5La6EC",
+    "duration": 8874199
+  },
+  {
+    "section_id": "1973809234668970103",
+    "title": "AI增长/商业产品经理求职专项辅导",
+    "chapter": "AI产品经理",
+    "resource_id": "y6xwV4qrGe4g6bVX46FeVyzubW45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqGVWy6xTepohxVKwxY6EC",
+    "duration": 11234000
+  },
+  {
+    "section_id": "1973809831124150114",
+    "title": "企业内部降本增效类AI产品核心技术拆解及复刻",
+    "chapter": "AI产品经理",
+    "resource_id": "y6FwVJ6abXyw6beb46xqeyq1FQ4uoxeoyqx6e4qlxVpZzxeW4qFfQ4ohFeJaqGXw4qxEe4qMxVKXGP6EC",
+    "duration": 10301666
+  },
+  {
+    "section_id": "1973810040268944137",
+    "title": "SaaS类 AI 产品核心技术拆解及复刻",
+    "chapter": "AI产品经理",
+    "resource_id": "y6xEVpzhFVywzFVY46xte4qVFW45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepa6xVwy6x1VpzGxVKmmM6EC",
+    "duration": 10779999
+  },
+  {
+    "section_id": "1973810329126465666",
+    "title": "智能客服类 AI 产品核心技术拆解及复刻",
+    "chapter": "AI产品经理",
+    "resource_id": "y6xbVyqyFeyg6xVUyoFFey6-FQ4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepa6FVW4oxEVy6JFVBZSh6EC",
+    "duration": 11465155
+  },
+  {
+    "section_id": "1973810668726661549",
+    "title": "To B类AI产品经理求职专项辅导",
+    "chapter": "AI产品经理",
+    "resource_id": "y6FbV466FX4XzFsP4qFte4qHFQ4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepa6xV7yoxcVy6fFVe7396EC",
+    "duration": 11592200
+  },
+  {
+    "section_id": "1973810822666003966",
+    "title": "个人助理agent产品核心技术拆解及复刻",
+    "chapter": "AI产品经理",
+    "resource_id": "yqxwVy6hxepv6Fsu4qxsV4qrbQ4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepa6xXwy6xtVy6aFVS9Sh6EC",
+    "duration": 10053266
+  },
+  {
+    "section_id": "1973810962583790388",
+    "title": "场景型agent产品核心技术拆解及复刻",
+    "chapter": "AI产品经理",
+    "resource_id": "yqFwVpqyxsywzxsP4qFFVy6YFQ45oxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepa6FXwyqxrX4qkGeTWvI6EC",
+    "duration": 10808799
+  },
+  {
+    "section_id": "1973811089562158795",
+    "title": "情绪陪伴类智能体产品核心技术拆解及复刻",
+    "chapter": "AI产品经理",
+    "resource_id": "yqFEVyq0xVywoxsEy6FpV46WFW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepaqxVwpox2V4qbxXvWBa6EC",
+    "duration": 11156533
+  },
+  {
+    "section_id": "1973811395188524066",
+    "title": "图片解析类产品核心技术拆解及复刻",
+    "chapter": "AI产品经理",
+    "resource_id": "yqxbV4zPxV4lqxeV4qx0V46gFW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepaqFVWpqxmsp6VxVZmSh6EC",
+    "duration": 9567866
+  },
+  {
+    "section_id": "2014759201486959080",
+    "title": "从提示工程到RAG：构建大模型的知识与交互基础",
+    "chapter": "AI产品经理",
+    "resource_id": "yqFbV4q9Gs4XoFVH46GGeyqUFQ45oxeoyqx6e4qlxVpZzxeW4qFfQyqaxV4LqGe146xXX4obFXZ7v66EC",
+    "duration": 9784355
+  },
+  {
+    "section_id": "1973811507952370052",
+    "title": "通过更多行业最佳实践，学习决策型AI的应用领域",
+    "chapter": "AI产品经理",
+    "resource_id": "yqxFVy6MxeyozFV0J6FRVy62FW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepaqFVX4qbRV4q1xVZWL_6EC",
+    "duration": 9751150
+  },
+  {
+    "section_id": "2014759890078434721",
+    "title": "Agent：从可控性到自主反思",
+    "chapter": "AI产品经理",
+    "resource_id": "yqxFVyqtxVyU6xVS46FgVy6ZFW4uoxeoyqx6e4qlxVpZzxeW4qFfQyqaxV4LqGsFJ6FFeJqVxVvmAz6EC",
+    "duration": 10435489
+  },
+  {
+    "section_id": "1973811658129430023",
+    "title": "To C类AI产品经理求职专项辅导",
+    "chapter": "AI产品经理",
+    "resource_id": "yqFFVyqzGVyAqGVVyoFXeyoPFW4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepaqxV7yoxEeJqexeZwAY6EC",
+    "duration": 11278067
+  },
+  {
+    "section_id": "2014760018063401246",
+    "title": "多模态前沿：从Agent构建到视频AIGC",
+    "chapter": "AI产品经理",
+    "resource_id": "yqxwX46hxeyO6xXE4qF7sy6YFQ4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVy36xeFyzxFey6XFedW3h6EC",
+    "duration": 10157825
+  },
+  {
+    "section_id": "1983865401550074589",
+    "title": "企业级AI部署：从硬件选型到框架选择",
+    "chapter": "AI产品经理",
+    "resource_id": "yqFwXyqPxXyW6xVNyqxiV46ZbW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJhqxVs4qF-VyqFxVemv96EC",
+    "duration": 10902600
+  },
+  {
+    "section_id": "1983865758187537043",
+    "title": "AI服务核心：高并发原理与性能监控调优",
+    "chapter": "AI产品经理",
+    "resource_id": "y6xWV4q0xVydqxsa46FCVy6ZFQ45oxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJhqFVZyoxws4qeFeZk3Y6EC",
+    "duration": 10375666
+  },
+  {
+    "section_id": "1983866048655669233",
+    "title": "SGLang 深度优化：Radix 缓存与复杂任务的极致吞吐",
+    "chapter": "AI产品经理",
+    "resource_id": "y6FWVy6rFey9qFVpyqGhV4qQbQ45oxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJh6xVuyzFUVy6TFsdXmY6EC",
+    "duration": 10760000
+  },
+  {
+    "section_id": "1983866157116171574",
+    "title": "Coze工作原理与应用实例",
+    "chapter": "AI产品经理",
+    "resource_id": "y6FHVyoabsyb6Fej46FRey69bQ4ooxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJh6FVu4qFue4qxFVe7QP6EC",
+    "duration": 10803133
+  },
+  {
+    "section_id": "1983866268386886160",
+    "title": "Dify本地化部署和应用",
+    "chapter": "AI产品经理",
+    "resource_id": "y6xDV4qtFV4WzxVB4qFtV4owbW4uoxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJh6xVoyoxWXyzuGVKkS66EC",
+    "duration": 10846066
+  },
+  {
+    "section_id": "1983868419129491467",
+    "title": "Agent调试、运维与系统集成",
+    "chapter": "AI产品经理",
+    "resource_id": "y6FDVyqYxeycqFeY46FgepoAFQ4uoxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJh6GVX4oxEeJqXbeswSM6EC",
+    "duration": 11091666
+  },
+  {
+    "section_id": "1983868535622092435",
+    "title": "智能编码革命：AI 辅助编程",
+    "chapter": "AI产品经理",
+    "resource_id": "y6x1Vp6PxVya6FVby6FzV46oFQ45oxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJh6bVX46xKeyqaGVszma6EC",
+    "duration": 10474866
+  },
+  {
+    "section_id": "1983868630111388421",
+    "title": "AI 赋能的智能测试与质量保障",
+    "chapter": "AI产品经理",
+    "resource_id": "y6xWXyq9xX4DqbVEyzxDey6MFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJh6GV7yqFwe46zGsswAz6EC",
+    "duration": 10288000
+  },
+  {
+    "section_id": "1983868730556584480",
+    "title": "从 Text-to-SQL 到数据智能",
+    "chapter": "AI产品经理",
+    "resource_id": "y6FWXyqrGe4H6Fe9JoFWsp62FQ4uoxeoyqx6e4qlxVpZzxeW4qFfQ4zabeJh6bV7yqF-e46rGVsZv66EC",
+    "duration": 10594333
+  },
+  {
+    "section_id": "1973811786751955504",
+    "title": "AI产品经理的职业规划",
+    "chapter": "AI产品经理",
+    "resource_id": "yqFWVyq6FeJy6xswpqGae4zFFQ4koxeoyqx6e4qlxVpZzxeW4qFfQ4ohFepaqFV7JqFiV4obFeemxP6EC",
+    "duration": 10707466
+  },
+  {
+    "section_id": "2015075616425263801",
+    "title": "AI大模型基本原理及API使用",
+    "chapter": "open claw专题",
+    "resource_id": "yqFwXy6txe4JqFemJ6FNV4qnFW4uoxeoyqx6e4qlxVpZzxeW4qFfQyqaFV43qxVZy6xley61FeQrxz6EC",
+    "duration": 11001466
+  },
+  {
+    "section_id": "2015076170140517646",
+    "title": "AI编程-从入门到精通",
+    "chapter": "open claw专题",
+    "resource_id": "y6FWVyq_xV4zzbVWp6FIepzwbW4uoxeoyqx6e4qlxVpZzxeW4qFfQyqaFV436FVuyqxbe4q5FVBu3h6EC",
+    "duration": 6073733
+  },
+  {
+    "section_id": "2021942796894970215",
+    "title": "AI编程-从入门到精通（进阶）",
+    "chapter": "open claw专题",
+    "resource_id": "y6xHV460xVp36xeapqF4ey6XbW45oxeoyqx6e4qlxVpZzxeW4qFfQy6PFVJD6Fe9J6bus4oFxVdXGa6EC",
+    "duration": 10828066
+  },
+  {
+    "section_id": "2015076302856684315",
+    "title": "OpenClaw-搭建你的私人助理",
+    "chapter": "open claw专题",
+    "resource_id": "y6xHVyq8FVy26xsRyqx2eyqbFQ4koxeoyqx6e4qlxVpZzxeW4qFfQyqaFV436FVoy6bMVy67GVTZGa6EC",
+    "duration": 10348333
+  },
+  {
+    "section_id": "2016892393169900409",
+    "title": "预训练+微调的训练范式 开源生态和OpenAl的差异详解",
+    "chapter": "原理课",
+    "resource_id": "4zFVe4q-FX4-qFevp6F9sy61FQ4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozFVzpqxhepzwxeswx96EC",
+    "duration": 9198400
+  },
+  {
+    "section_id": "2016892815402099198",
+    "title": "探索神经网络的奥秘",
+    "chapter": "原理课",
+    "resource_id": "4oxwspqExVyO6xeYy6FgeyqvFQ4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozxXa46xseyqwbXKWBI6EC",
+    "duration": 10777333
+  },
+  {
+    "section_id": "2016893282580464575",
+    "title": "揭秘Transformer的真面目-1",
+    "chapter": "原理课",
+    "resource_id": "4zx-eyzwbe4aqxsAJqF7sy6DFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpooxVzJqxrXy62xVemQa6EC",
+    "duration": 7949266
+  },
+  {
+    "section_id": "2016893629193561871",
+    "title": "揭秘Transformer的真面目-2",
+    "chapter": "原理课",
+    "resource_id": "4zFWe46XFeJHqFer4oF2Vyq9FW4ooxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpooxV94oFwX46JFeQWQz6EC",
+    "duration": 10794213
+  },
+  {
+    "section_id": "2016894181881169864",
+    "title": "多模态领域的Transformer -- 创意生成的基座原理",
+    "chapter": "原理课",
+    "resource_id": "4zFwe462xVJx6xV54qxmeyoCFQ4uoxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozFVmp6GwX46FFsQwSP6EC",
+    "duration": 9072733
+  },
+  {
+    "section_id": "2016895932734669274",
+    "title": "揭开文字、人脸、精密零件、无人驾驶的智能识别面纱",
+    "chapter": "原理课",
+    "resource_id": "4zFEe46WFX4DqFVmy6FHVpqfFW4uoxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpooFXmyqFIey6tFXdXQP6EC",
+    "duration": 9498533
+  },
+  {
+    "section_id": "2016897090840720272",
+    "title": "探索DALL·E、Stable Diffusion如何编织创意图像的魔法",
+    "chapter": "原理课",
+    "resource_id": "4zFEepq-xeyG6GV2yqbaVyq5FW4ooxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpooxVuJ6Gbe46cxVdwQ_6EC",
+    "duration": 9399576
+  },
+  {
+    "section_id": "2016897988539208602",
+    "title": "类Sora模型:解锁动态视觉艺术的密码",
+    "chapter": "原理课",
+    "resource_id": "4zFbeyqnxepZ6xV5yqxIe46qFW4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpooFXuJoFVVJ6WxsBwx_6EC",
+    "duration": 9892599
+  },
+  {
+    "section_id": "2016898168399356193",
+    "title": "人体姿态识别模型-Meta Sapiens",
+    "chapter": "原理课",
+    "resource_id": "yzx-ey67beyR6xeNy6bOVy6QFQ45oxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozbVwyoFWXpqjxeKuBY6EC",
+    "duration": 9158420
+  },
+  {
+    "section_id": "2016898278684378525",
+    "title": "MoE 架构在 Scaling Law 之后继续提升大模型能力",
+    "chapter": "原理课",
+    "resource_id": "4oxHeyqwGVyJqbsE4ox1e4qBFQ45oxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozGVWyzx7s4qgxXeXAa6EC",
+    "duration": 4736280
+  },
+  {
+    "section_id": "2016898415938797945",
+    "title": "Deepseek 性价比之王背后的极致压缩技术 MLA",
+    "chapter": "原理课",
+    "resource_id": "4oxHe46wFV45zFXOyqFPVy6dFQ45oxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozGVX4qbAepq7bVSu3a6EC",
+    "duration": 4060017
+  },
+  {
+    "section_id": "2016898517797462925",
+    "title": "超级引擎: 英伟达GPU与CUDA相关的必备知识点",
+    "chapter": "原理课",
+    "resource_id": "4oxHe4qwFX426xVDyoFWeyqaFQ4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozbVX4qFksy62xeS9Aa6EC",
+    "duration": 8251160
+  },
+  {
+    "section_id": "2016898661494313278",
+    "title": "推理模型是如何训练出来的-Deepseek R1",
+    "chapter": "原理课",
+    "resource_id": "4oxHe4qEFVyszFXwyqxeeyq9FW45oxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozGV746FXX4qoFVdrQI6EC",
+    "duration": 10257360
+  },
+  {
+    "section_id": "2016898749251757969",
+    "title": "如何训练自动操作电脑和手机的Agent-智谱AutoGLM",
+    "chapter": "原理课",
+    "resource_id": "4oxHe4qbxVy26xVJJqxXX4qUFW4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVpozbV74zFDV4qdFeSuS96EC",
+    "duration": 8799080
+  },
+  {
+    "section_id": "2016900076992226838",
+    "title": "文件自动处理AutoGPT",
+    "chapter": "demo课",
+    "resource_id": "yox2epqVFV4mobXF4qxjVyqiFW45oxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6xewyqbusy6qxVQomI6EC",
+    "duration": 9168282
+  },
+  {
+    "section_id": "2016900252158949190",
+    "title": "支小助",
+    "chapter": "demo课",
+    "resource_id": "yoxEe4q7bV41qxsGyzxUVyoMFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6xeWyqFMepzGFXKwB66EC",
+    "duration": 9703355
+  },
+  {
+    "section_id": "2016900415438996160",
+    "title": "教育行业核心demo实战1-拍照搜知识点视频",
+    "chapter": "demo课",
+    "resource_id": "4zxwsyobxeyMqxVxyoF1V4q8FQ4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6xeX46FeepowGVKuS66EC",
+    "duration": 2509067
+  },
+  {
+    "section_id": "2016900540165023619",
+    "title": "教育行业核心demo实战2-自动化出题与智能组卷",
+    "chapter": "demo课",
+    "resource_id": "4zxFe4q7xV4nqGVXJox7VyqDFW4ooxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6FeXyqxFVy6AFeBrG96EC",
+    "duration": 5361533
+  },
+  {
+    "section_id": "2016900623946252613",
+    "title": "教育行业核心demo实战3-知识点学握程度检验",
+    "chapter": "demo课",
+    "resource_id": "4zxws4zwbVJuoGV7J6xRV4qUFW4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6xe74qGMVyqYxVB9GY6EC",
+    "duration": 2598440
+  },
+  {
+    "section_id": "2016900715088487146",
+    "title": "财务部门核心demo实战1-AI识别财务表格的数字",
+    "chapter": "demo课",
+    "resource_id": "4zxwsyqWxeyroxeQy6xlV46CFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6Fe746xmsJ6XbVKu3h6EC",
+    "duration": 7773760
+  },
+  {
+    "section_id": "2016900817433686154",
+    "title": "财务部门核心demo实战2-AI财务表格准确率的提升",
+    "chapter": "demo课",
+    "resource_id": "4zxwsyqWFsyVqFVr4qGheyqrFQ4koxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6xsw46Fley67GeKoLP6EC",
+    "duration": 5737920
+  },
+  {
+    "section_id": "2016900894881502011",
+    "title": "人力资源部门核心demo实战1-数字人培训视频",
+    "chapter": "demo课",
+    "resource_id": "yoGwsyzFFeJ96xsuyqxaV4omFW45oxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6xswJ6Gms46XxeZaGz6EC",
+    "duration": 5798288
+  },
+  {
+    "section_id": "2016900970806788182",
+    "title": "人力资源部门核心demo实战2-AI培训对练",
+    "chapter": "demo课",
+    "resource_id": "4oxwe4zwxeyH6FXayqbhV4zOFQ4uoxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJo6Fswy6Gwe46kGXK7v_6EC",
+    "duration": 2661969
+  },
+  {
+    "section_id": "2016901061256970756",
+    "title": "电商行业核心demo实战1-电商评论区互动助手",
+    "chapter": "demo课",
+    "resource_id": "4oFEeyqWxeJozFesy6xDe464FQ4uoxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJoqxew46FDV4oCxVv7Lh6EC",
+    "duration": 3167457
+  },
+  {
+    "section_id": "2016901137429725831",
+    "title": "泛娱乐内容行业核心demo实战1-AI生成视频工作流",
+    "chapter": "demo课",
+    "resource_id": "4oFEey6cFe4yqFeb46F6e4oRFQ4ooxeoyqx6e4qlxVpZzxeW4qFfQyqaxVJoqFew46xlep6IFeQmmz6EC",
+    "duration": 2051948
+  },
+  {
+    "section_id": "2025937675425784322",
+    "title": "Skill模式的解析，和agent的关系",
+    "chapter": "特申章节",
+    "resource_id": "y6xWXyq9xX4D6xVq46x_VyqWbQ4ooxeoyqx6e4qlxVpZzxeW4qFfQy6PFVpSqxek46xee46kGeTsA_6EC",
+    "duration": 9114133
+  },
+  {
+    "section_id": "2025937781478758012",
+    "title": "Vibe coding构建产品Demo的思路和方法",
+    "chapter": "特申章节",
+    "resource_id": "y6FWX4qaxeyZ6Fer4qx7sy6nFQ4uoxeoyqx6e4qlxVpZzxeW4qFfQy6PFVpSqFekp6F2VpqUxXZwG_6EC",
+    "duration": 9797066
+  }
+]

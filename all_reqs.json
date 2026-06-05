@@ -1,0 +1,12 @@
+{
+  "streams": [
+    "https://vdn6.vzuu.com/HD/a27f08e4-d9cf-11f0-9488-2ea5be55202c-v8_f2_t1_De8dPKZA.mp4?pkey=AAUMsk2DWkNt7ZnOIcKYFn79HyMR8Jt2C9VFbbJT5ZMnAVqoiY52ORXsFbpe8o5-EGn0Fu0JAZkr1UZwEFmI59e9&bu=178e6938&c=avc.8.0&expiration=1780668290&f=mp4&pu=178e6938&v=ks6",
+    "https://vdn6.vzuu.com/HD/a27f08e4-d9cf-11f0-9488-2ea5be55202c-v8_f2_t1_De8dPKZA.mp4?pkey=AAUMsk2DWkNt7ZnOIcKYFn79HyMR8Jt2C9VFbbJT5ZMnAVqoiY52ORXsFbpe8o5-EGn0Fu0JAZkr1UZwEFmI59e9&bu=178e6938&c=avc.8.0&expiration=1780668290&f=mp4&pu=178e6938&v=ks6"
+  ],
+  "apis": [
+    "https://www.zhihu.com/api/education/training/course/video_page/1972723265349902377/recommended_card",
+    "https://api.zhihu.com/education/training/courses/1972723265349902377/sections/1982458776650011941/safety_check",
+    "https://www.zhihu.com/api/education/video/monitor",
+    "https://www.zhihu.com/api/education/training/1972723265349902377/video_page/catalog?limit=10&offset=-10&education_channel_code=ZHZN-d62bb90dfad9e02"
+  ]
+}

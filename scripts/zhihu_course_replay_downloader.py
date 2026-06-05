@@ -30,7 +30,7 @@ from pathlib import Path
 
 ROOT_DIR  = Path(__file__).parent.parent
 AUTH_FILE = ROOT_DIR / "zhihu_auth_state.json"
-OUT_DIR   = ROOT_DIR / "downloads" / "zhihu_course"
+OUT_DIR   = Path(r"E:\AI产品经理课")
 
 DEFAULT_COURSE_URL = (
     "https://www.zhihu.com/xen/market/training/training-video"

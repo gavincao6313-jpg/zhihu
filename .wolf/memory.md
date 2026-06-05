@@ -1118,3 +1118,5 @@
 - Twin-Star 搁置：架构正确但配额翻倍而质量无翻倍收益，等真实 Gemini TPM 失败场景再启动
 - 主线规则：<=2.5h/<=300帧 -> 纯Gemini（1次）；3h+/400帧+ -> 纯Qwen sliding-window（3次）
 - 以上决策已写入 cerebrum Decision Log 和 Do-Not-Repeat
+| 16:38 | Edited scripts/zhihu_course_replay_downloader.py | "downloads" → "E:\AI产品经理课" | ~9 |
+| 17:36 | Created zhihu_download_v2.py | — | ~1461 |

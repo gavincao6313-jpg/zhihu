@@ -1,0 +1,2039 @@
+[
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.micro_page.common.public.data.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "部分模块获取失败：user_info: 返回code不为0：&{Response:{Code:2501 Msg:user_id,wx_union_id,phone,universal_open_id,wx_app_open_id,wx_open_id,universal_union_id must have one Data:<nil>} Data:{AppId: UserId: AreaCode: WxOpenId: WxUnionId: WxAppOpenId: UniversalUnionId: UniversalOpenId: WxName: WxNickname: WxAvatar: WxAccount: Phone: Svip:map[] WxLanguage:}}; ",
+      "data": {
+        "brand_info": {
+          "scene_footer_support": {
+            "is_hide_logo": false,
+            "brand_logo_url": "https://commonresource-1252524126.cdn.xiaoeknow.com/image/l6orgkh40x8r.png",
+            "brand_logo_text": "小鹅通提供技术支持"
+          },
+          "scene_learning_entry_guide": {
+            "is_hide_logo": false,
+            "brand_logo_url": "",
+            "brand_logo_text": ""
+          },
+          "scene_mobile_auth": {
+            "is_hide_logo": false,
+            "brand_logo_url": "",
+            "brand_logo_text": ""
+          },
+          "scene_share_poster_support": {
+            "is_hide_logo": false,
+            "brand_logo_url": "https://commonresource-1252524126.cdn.xiaoeknow.com/image/l6orgkh40x8r.png",
+            "brand_logo_text": "小鹅通提供技术支持"
+          },
+          "scene_shop_default": {
+            "is_hide_logo": false,
+            "brand_logo_url": "https://commonresource-1252524126.cdn.xiaoeknow.com/image/l6orgkh40x8r.png",
+            "brand_name": "小鹅通",
+            "brand_logo_text": "小鹅通提供技术支持"
+          }
+        },
+        "language_config": {
+          "supported_languages": [
+            "zh",
+            "zh-tw",
+            "en",
+            "ja",
+            "ko",
+            "es",
+            "pt",
+            "fr",
+            "de",
+            "hi",
+            "id",
+            "ms",
+            "fil",
+            "th",
+            "vi",
+            "it"
+          ],
+          "default_language": "zh"
+        },
+        "sdk_url": {
+          "captcha_host": "https://captcha.xiaoeknow.com",
+          "tc_captcha": "https://turing.captcha.qcloud.com/TJCaptcha.js",
+          "tc_captcha_v1": "https://turing.captcha.qcloud.com/TJCaptcha.js",
+          "tc_captcha_mode": "default"
+        },
+        "share_link": {
+          "diy_host_url": "",
+          "h5_url": "https://appzl5apwz41977.h5.xiaoeknow.com",
+          "pc_url": "https://appzl5apwz41977.pc.xiaoe-tech.com"
+        },
+        "shop_info": {
+          "is_hide_logo": false,
+          "seal_time": "",
+          "shop_ban_reason": "",
+          "logo_url": "https://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/b_u_5fec88a6a7d5c_BiuQs4jl/l9p4zvuf0ka9.png",
+          "loading_icon": "https://commonresource-1252524126.cdn.xiaoeknow.com/image/l24gd1f50xz4.gif",
+          "mini_program_online_version": "224",
+          "currency_name": "人民币",
+          "currency_code": "CNY",
+          "currency_symbol": "￥"
+        },
+        "user_info": null
+      }
+    }
+  },
+  {
+    "url": "https://aegis.qq.com/collect/whitelist?id=YrKJzfb39mVLd6OkdL&uin=appzl5apwz41977&version=1.38.33&aid=102ba1d0-fe13-48cf-8c72-ef8abfd6b0a2&env=production&platform=3&netType=4&vp=1280%20*%20720&sr=1280%20*%20720&sessionId=session-1780577217990&from=https%3A%2F%2Fappzl5apwz41977.h5.xet.pomoho.com%2Fp%2Ft%2Ffree%2Fv1%2Fbasic-platform%2Fh5_basic%2Flogin%2Fauth%3Fredirect_url%3Dhttps%253A%252F%252Fappzl5apwz41977.h5.xet.pomoho.com%252Fp%252Fcourse%252Fmiddle_page%252Fv_6537d59de4b064a82f11465f%253Fproduct_id%253Dp_6537d3b9e4b064a82f114627%2526resource_type%253D3&referer=",
+    "method": "GET",
+    "body": {
+      "retcode": 0,
+      "result": {
+        "is_in_white_list": false,
+        "rate": 1,
+        "use_gzip": 0
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.pc.config.search/1.0.0?appId=appzl5apwz41977&t=a2dede8aa3058cb49acd514c1e4c969b",
+    "method": "GET",
+    "body": {
+      "code": 0,
+      "msg": "操作成功",
+      "data": {
+        "newpc": 0,
+        "pcurl": ""
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.get_h5_web_login_conf",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "操作成功",
+      "data": {
+        "browser_login_switch": 1,
+        "browser_login": {
+          "verify_code": 1,
+          "phone_password": 0,
+          "wx": 1,
+          "qq": 1,
+          "oversea_sales_enable": 0
+        },
+        "redirect_url": "https://appzl5apwz41977.h5.xet.pomoho.com/p/course/middle_page/v_6537d59de4b064a82f11465f?product_id=p_6537d3b9e4b064a82f114627&resource_type=3",
+        "is_closed_type": 0
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.training.auth.internal.get_closed_type/1.0.0",
+    "method": "GET",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "is_closed_type": 0,
+        "shop_name": "炒饭商学院"
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.login.get_do_verification_h5",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "操作成功",
+      "data": {
+        "CaptchaAppId": 2079047974,
+        "session_id": "9abe64b1-0cf1-9688-a69e-3e1810b88d4a",
+        "types": 1
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.login.get_do_verification_h5",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "操作成功",
+      "data": {
+        "CaptchaAppId": 2079047974,
+        "session_id": "614165e9-e187-079f-34e0-6cbc0684f387",
+        "types": 1
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.training.auth.internal.is_gray_shop/1.0.0?app_id=appzl5apwz41977",
+    "method": "GET",
+    "body": {
+      "code": 1,
+      "msg": "店铺不存在处于启用状态的组织管理用户",
+      "data": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.account.auth.get_qr_code",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "qr_code_url": "https://appzl5apwz41977.h5.xet.pomoho.com/pc_account/authorize_wx?xe_auth_state=5678fa7f872b5a3d49d38f7779a6ccc6&type=0&app_id=appzl5apwz41977",
+        "code": "h5_auth_wx_6a2173c9d0272_HrTWBaRi"
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.account.auth.authorize_status",
+    "method": "POST",
+    "body": {
+      "code": 10002,
+      "msg": "等待扫码",
+      "data": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.account.auth.authorize_status",
+    "method": "POST",
+    "body": {
+      "code": 10002,
+      "msg": "等待扫码",
+      "data": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.account.auth.authorize_status",
+    "method": "POST",
+    "body": {
+      "code": 10002,
+      "msg": "等待扫码",
+      "data": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.account.auth.authorize_status",
+    "method": "POST",
+    "body": {
+      "code": 10002,
+      "msg": "等待扫码",
+      "data": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.account.auth.authorize_status",
+    "method": "POST",
+    "body": {
+      "code": 10002,
+      "msg": "等待扫码",
+      "data": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.account.auth.authorize_status",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": []
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.go_auth.outer.pass.multi_login.get_url_list",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "url_list": [
+          "https://appzl5apwz41977.h5.xiaoecloud.com/xe.account-platform.go_auth.outer.pass.multi_login?data=9188fd21a6495ec39838c351d0d362542bfd7d101958a00a6b26ce44b6993dcf6773fd9ac00a1df3421b908a111584ce0e710c5c3c292a9d86b610ab1ec08875ff896d24e7c2156f86cd8da3a58fe9461309b6fd4ffc192f8ce5ca0cfc3b963a06868e7e0e5c5d674c6190e73c3738a29831eadfa5998fd01a533e506024254324f3b29f0a005a1c19aa02addc87af16bf7f1117caac637a25ef4468666e12dc8780b17c42d18e678b131a72ea44741c762dde25635e48c143681874a31eba5d29599eca761a2cd7bd8efc291d101cbe9ba0248880e54d3fdb6326c80d476487b5292f45f93f71f4006e9034f20bcab57e53e1ad7071333e20a927f0efc8e07e5340602fab1ab5202ddc2479f43b01f3364ae6f6f88cc309a45dc6bfb5ba6de0f7e33ca05133f89dd7c81b7d25695e0b185847ffa6d5376e8fe526a1c1da4c6ee237b39412d61f76f5a09536fe28d0c44ba40b0dfecab6551ac5ffb890a0ac033e3da59254f841f2f80266055fca29040357c78d4a7622373a61b530c17bd28422a0278c006c35c6ebc6890598c6d956131c3388e571952bd5353d1f7e45d2126bee9f5312eab96277c6f89f585c6e5d50e5e4560111cfc87c9dc48c14ff5cf6bc42709035955f0a304b8fd10a6392738b83ce8c14dd4be99cd559975214379c4ffb1b870e2f1ff78592e0479b5b53a2048a072274ee1b5d849939a5cf70dfe9b3d3704affc958ab44c281ed824c8f2ead6036493d03884b691082a1fb047bba9419401e74efe5a21c5fc4ab15f605c839d4dbf4d664dc146a1e06730972a9bbb63162a42d0b1dad26ce78431c790d96&app_id=appzl5apwz41977",
+          "https://appzl5apwz41977.h5.xiaoeknow.com/xe.account-platform.go_auth.outer.pass.multi_login?data=9188fd21a6495ec39838c351d0d362542bfd7d101958a00a6b26ce44b6993dcf6773fd9ac00a1df3421b908a111584ce0e710c5c3c292a9d86b610ab1ec08875ff896d24e7c2156f86cd8da3a58fe9461309b6fd4ffc192f8ce5ca0cfc3b963a06868e7e0e5c5d674c6190e73c3738a29831eadfa5998fd01a533e506024254324f3b29f0a005a1c19aa02addc87af16bf7f1117caac637a25ef4468666e12dc8780b17c42d18e678b131a72ea44741c762dde25635e48c143681874a31eba5d29599eca761a2cd7bd8efc291d101cbe9ba0248880e54d3fdb6326c80d476487b5292f45f93f71f4006e9034f20bcab57e53e1ad7071333e20a927f0efc8e07e5340602fab1ab5202ddc2479f43b01f3364ae6f6f88cc309a45dc6bfb5ba6de0f7e33ca05133f89dd7c81b7d25695e0b185847ffa6d5376e8fe526a1c1da4c6ee237b39412d61f76f5a09536fe28d0c44ba40b0dfecab6551ac5ffb890a0ac033e3da59254f841f2f80266055fca29040357c78d4a7622373a61b530c17bd28422a0278c006c35c6ebc6890598c6d956131c3388e571952bd5353d1f7e45d2126bee9f5312eab96277c6f89f585c6e5d50e5e4560111cfc87c9dc48c14ff5cf6bc42709035955f0a304b8fd10a6392738b83ce8c14dd4be99cd559975214379c4ffb1b870e2f1ff78592e0479b5b53a2048a072274ee1b5d849939a5cf70dfe9b3d3704affc958ab44c281ed824c8f2ead6036493d03884b691082a1fb047bba9419401e74efe5a21c5fc4ab15f605c839d4dbf4d664dc146a1e06730972a9bbb63162a42d0b1dad26ce78431c790d96&app_id=appzl5apwz41977",
+          "https://appzl5apwz41977.h5.xiaoe-live.com/xe.account-platform.go_auth.outer.pass.multi_login?data=9188fd21a6495ec39838c351d0d362542bfd7d101958a00a6b26ce44b6993dcf6773fd9ac00a1df3421b908a111584ce0e710c5c3c292a9d86b610ab1ec08875ff896d24e7c2156f86cd8da3a58fe9461309b6fd4ffc192f8ce5ca0cfc3b963a06868e7e0e5c5d674c6190e73c3738a29831eadfa5998fd01a533e506024254324f3b29f0a005a1c19aa02addc87af16bf7f1117caac637a25ef4468666e12dc8780b17c42d18e678b131a72ea44741c762dde25635e48c143681874a31eba5d29599eca761a2cd7bd8efc291d101cbe9ba0248880e54d3fdb6326c80d476487b5292f45f93f71f4006e9034f20bcab57e53e1ad7071333e20a927f0efc8e07e5340602fab1ab5202ddc2479f43b01f3364ae6f6f88cc309a45dc6bfb5ba6de0f7e33ca05133f89dd7c81b7d25695e0b185847ffa6d5376e8fe526a1c1da4c6ee237b39412d61f76f5a09536fe28d0c44ba40b0dfecab6551ac5ffb890a0ac033e3da59254f841f2f80266055fca29040357c78d4a7622373a61b530c17bd28422a0278c006c35c6ebc6890598c6d956131c3388e571952bd5353d1f7e45d2126bee9f5312eab96277c6f89f585c6e5d50e5e4560111cfc87c9dc48c14ff5cf6bc42709035955f0a304b8fd10a6392738b83ce8c14dd4be99cd559975214379c4ffb1b870e2f1ff78592e0479b5b53a2048a072274ee1b5d849939a5cf70dfe9b3d3704affc958ab44c281ed824c8f2ead6036493d03884b691082a1fb047bba9419401e74efe5a21c5fc4ab15f605c839d4dbf4d664dc146a1e06730972a9bbb63162a42d0b1dad26ce78431c790d96&app_id=appzl5apwz41977",
+          "https://appzl5apwz41977.pc.xiaoe-tech.com/xe.account-platform.go_auth.outer.pass.multi_login?data=9188fd21a6495ec39838c351d0d362542bfd7d101958a00a6b26ce44b6993dcf6773fd9ac00a1df3421b908a111584ce0e710c5c3c292a9d86b610ab1ec08875ff896d24e7c2156f86cd8da3a58fe9461309b6fd4ffc192f8ce5ca0cfc3b963a06868e7e0e5c5d674c6190e73c3738a29831eadfa5998fd01a533e506024254324f3b29f0a005a1c19aa02addc87af16bf7f1117caac637a25ef4468666e12dc8780b17c42d18e678b131a72ea44741c762dde25635e48c143681874a31eba5d29599eca761a2cd7bd8efc291d101cbe9ba0248880e54d3fdb6326c80d476487b5292f45f93f71f4006e9034f20bcab57e53e1ad7071333e20a927f0efc8e07e5340602fab1ab5202ddc2479f43b01f3364ae6f6f88cc309a45dc6bfb5ba6de0f7e33ca05133f89dd7c81b7d25695e0b185847ffa6d5376e8fe526a1c1da4c6ee237b39412d61f76f5a09536fe28d0c44ba40b0dfecab6551ac5ffb890a0ac033e3da59254f841f2f80266055fca29040357c78d4a7622373a61b530c17bd28422a0278c006c35c6ebc6890598c6d956131c3388e571952bd5353d1f7e45d2126bee9f5312eab96277c6f89f585c6e5d50e5e4560111cfc87c9dc48c14ff5cf6bc42709035955f0a304b8fd10a6392738b83ce8c14dd4be99cd559975214379c4ffb1b870e2f1ff78592e0479b5b53a2048a072274ee1b5d849939a5cf70dfe9b3d3704affc958ab44c281ed824c8f2ead6036493d03884b691082a1fb047bba9419401e74efe5a21c5fc4ab15f605c839d4dbf4d664dc146a1e06730972a9bbb63162a42d0b1dad26ce78431c790d96&app_id=appzl5apwz41977",
+          "https://appzl5apwz41977.xet-pc.citv.cn/xe.account-platform.go_auth.outer.pass.multi_login?data=9188fd21a6495ec39838c351d0d362542bfd7d101958a00a6b26ce44b6993dcf6773fd9ac00a1df3421b908a111584ce0e710c5c3c292a9d86b610ab1ec08875ff896d24e7c2156f86cd8da3a58fe9461309b6fd4ffc192f8ce5ca0cfc3b963a06868e7e0e5c5d674c6190e73c3738a29831eadfa5998fd01a533e506024254324f3b29f0a005a1c19aa02addc87af16bf7f1117caac637a25ef4468666e12dc8780b17c42d18e678b131a72ea44741c762dde25635e48c143681874a31eba5d29599eca761a2cd7bd8efc291d101cbe9ba0248880e54d3fdb6326c80d476487b5292f45f93f71f4006e9034f20bcab57e53e1ad7071333e20a927f0efc8e07e5340602fab1ab5202ddc2479f43b01f3364ae6f6f88cc309a45dc6bfb5ba6de0f7e33ca05133f89dd7c81b7d25695e0b185847ffa6d5376e8fe526a1c1da4c6ee237b39412d61f76f5a09536fe28d0c44ba40b0dfecab6551ac5ffb890a0ac033e3da59254f841f2f80266055fca29040357c78d4a7622373a61b530c17bd28422a0278c006c35c6ebc6890598c6d956131c3388e571952bd5353d1f7e45d2126bee9f5312eab96277c6f89f585c6e5d50e5e4560111cfc87c9dc48c14ff5cf6bc42709035955f0a304b8fd10a6392738b83ce8c14dd4be99cd559975214379c4ffb1b870e2f1ff78592e0479b5b53a2048a072274ee1b5d849939a5cf70dfe9b3d3704affc958ab44c281ed824c8f2ead6036493d03884b691082a1fb047bba9419401e74efe5a21c5fc4ab15f605c839d4dbf4d664dc146a1e06730972a9bbb63162a42d0b1dad26ce78431c790d96&app_id=appzl5apwz41977"
+        ]
+      },
+      "msg": "success"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.micro_page.common.public.data.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "brand_info": {
+          "scene_footer_support": {
+            "brand_logo_text": "小鹅通提供技术支持",
+            "brand_logo_url": "https://commonresource-1252524126.cdn.xiaoeknow.com/image/l6orgkh40x8r.png",
+            "is_hide_logo": false
+          },
+          "scene_learning_entry_guide": {
+            "brand_logo_text": "",
+            "brand_logo_url": "",
+            "is_hide_logo": false
+          },
+          "scene_mobile_auth": {
+            "brand_logo_text": "",
+            "brand_logo_url": "",
+            "is_hide_logo": false
+          },
+          "scene_share_poster_support": {
+            "brand_logo_text": "小鹅通提供技术支持",
+            "brand_logo_url": "https://commonresource-1252524126.cdn.xiaoeknow.com/image/l6orgkh40x8r.png",
+            "is_hide_logo": false
+          },
+          "scene_shop_default": {
+            "brand_logo_text": "小鹅通提供技术支持",
+            "brand_logo_url": "https://commonresource-1252524126.cdn.xiaoeknow.com/image/l6orgkh40x8r.png",
+            "brand_name": "小鹅通",
+            "is_hide_logo": false
+          }
+        },
+        "language_config": {
+          "default_language": "zh",
+          "supported_languages": [
+            "zh",
+            "zh-tw",
+            "en",
+            "ja",
+            "ko",
+            "es",
+            "pt",
+            "fr",
+            "de",
+            "hi",
+            "id",
+            "ms",
+            "fil",
+            "th",
+            "vi",
+            "it"
+          ]
+        },
+        "sdk_url": {
+          "captcha_host": "https://captcha.xiaoeknow.com",
+          "tc_captcha": "https://turing.captcha.qcloud.com/TJCaptcha.js",
+          "tc_captcha_v1": "https://turing.captcha.qcloud.com/TJCaptcha.js",
+          "tc_captcha_mode": "default"
+        },
+        "share_link": {
+          "diy_host_url": "",
+          "h5_url": "https://appzl5apwz41977.h5.xiaoeknow.com",
+          "pc_url": "https://appzl5apwz41977.pc.xiaoe-tech.com"
+        },
+        "shop_info": {
+          "currency_code": "CNY",
+          "currency_name": "人民币",
+          "currency_symbol": "￥",
+          "is_hide_logo": false,
+          "loading_icon": "https://commonresource-1252524126.cdn.xiaoeknow.com/image/l24gd1f50xz4.gif",
+          "logo_url": "https://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/b_u_5fec88a6a7d5c_BiuQs4jl/l9p4zvuf0ka9.png",
+          "mini_program_online_version": "224",
+          "seal_time": "",
+          "shop_ban_reason": ""
+        },
+        "user_info": {
+          "app_id": "appzl5apwz41977",
+          "user_id": "u_69ef23c048972_aM0D2u3Hlx",
+          "area_code": "86",
+          "phone": "186****6363",
+          "wx_nickname": "奥胖",
+          "wx_open_id": "",
+          "wx_avatar": "",
+          "wx_union_id": "",
+          "wx_app_open_id": "",
+          "universal_union_id": "",
+          "universal_open_id": "",
+          "wx_name": "",
+          "wx_account": "",
+          "SVIP": null,
+          "wx_language": ""
+        }
+      }
+    }
+  },
+  {
+    "url": "https://aegis.qq.com/collect/whitelist?id=YrKJzfb39mVLd6OkdL&uin=appzl5apwz41977&version=1.38.33&aid=102ba1d0-fe13-48cf-8c72-ef8abfd6b0a2&env=production&platform=3&netType=4&vp=1280%20*%20720&sr=1280%20*%20720&sessionId=session-1780577238377&from=https%3A%2F%2Fappzl5apwz41977.h5.xet.pomoho.com%2Fp%2Fcourse%2Fvideo%2Fv_6537d59de4b064a82f11465f&referer=https%3A%2F%2Fappzl5apwz41977.h5.xet.pomoho.com%2Fp%2Ft%2Ffree%2Fv1%2Fbasic-platform%2Fh5_basic%2Flogin%2Fauth%3FLoginCard%3Dlogin_wechat%26redirect_url%3Dhttps%253A%252F%252Fappzl5apwz41977.h5.xet.pomoho.com%252Fp%252Fcourse%252Fmiddle_page%252Fv_6537d59de4b064a82f11465f%253Fproduct_id%253Dp_6537d3b9e4b064a82f114627%2526resource_type%253D3",
+    "method": "GET",
+    "body": {
+      "retcode": 0,
+      "result": {
+        "is_in_white_list": false,
+        "rate": 1,
+        "use_gzip": 0
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.go_auth.outer.pass.multi_login.get_url_list",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "url_list": [
+          "https://appzl5apwz41977.h5.xiaoecloud.com/xe.account-platform.go_auth.outer.pass.multi_login?data=3a64bcaece0e6a5f3ad91ca9f8733ba02114f0e9c24f298cf599be29103c10ecf4066aac88b4b172c4798fc7db5621e299f957a40992935880453d90a098a7346b4d92b7cf27bda2e1fe53872bd97e9ab558a9e5ddc2379333fc8a730622c30efc32267bca3a9bea4ce5a1ab1690c699012a7a440f394269ee86d16a8b16017fce0f4f49da955f3085dd0f1b211b0032fc8c4bb3ea25dd86dd86f8e619fe75c9c87e1a63d326194b08131223f69890f566f5d95ece4354a34db04882fcdff885b99be8d85999625820d7309309d3b9b8ecc1eb8ec82fa2ea7fca49d7361980ef2ed1f6b6dd74bb8aab6856a0bfecddb069273a482b063c22799200125f361895a32f1a36e167485d29f968b9fdfd66fef085a254f35186f30dda08da03871a6724efae52e652c4e1819cff62532077e36e5f8918dc0ca2eceddb143dcaeb1b6b7e47c3ff4fc48ff8e5c39aac3647da53e828b0fe736ef3d51014d34411913de2dbe4cd723bab3b82004dd4d587452a2fbbb671acc017c984c27698b3159cdf4db014309953b53df0ef92528968388f308812ea4b96c53c44b816def5601d81e5bc45140fd477589962d43c39d5bfa68500e326f349001dcb6eac8b707ad67033a6ae2e082b19f67809c9b397a2110ea2009c015dedddf52eb6e1c34d6d499aec023dce164fe9f04ddbb78fd8932e9261ef18f46489ef5182666596160e5baeaecae41a0ea4217cc20d9bff141c497e311cdaf3f8047944529b0f74d185f2bc69a8c0e6d4564cee071e315c6641e981851582acdfed1b41da0c86bf2db03765ceb11a0851b8e4315dc01d5212074bf153&app_id=appzl5apwz41977",
+          "https://appzl5apwz41977.h5.xiaoeknow.com/xe.account-platform.go_auth.outer.pass.multi_login?data=3a64bcaece0e6a5f3ad91ca9f8733ba02114f0e9c24f298cf599be29103c10ecf4066aac88b4b172c4798fc7db5621e299f957a40992935880453d90a098a7346b4d92b7cf27bda2e1fe53872bd97e9ab558a9e5ddc2379333fc8a730622c30efc32267bca3a9bea4ce5a1ab1690c699012a7a440f394269ee86d16a8b16017fce0f4f49da955f3085dd0f1b211b0032fc8c4bb3ea25dd86dd86f8e619fe75c9c87e1a63d326194b08131223f69890f566f5d95ece4354a34db04882fcdff885b99be8d85999625820d7309309d3b9b8ecc1eb8ec82fa2ea7fca49d7361980ef2ed1f6b6dd74bb8aab6856a0bfecddb069273a482b063c22799200125f361895a32f1a36e167485d29f968b9fdfd66fef085a254f35186f30dda08da03871a6724efae52e652c4e1819cff62532077e36e5f8918dc0ca2eceddb143dcaeb1b6b7e47c3ff4fc48ff8e5c39aac3647da53e828b0fe736ef3d51014d34411913de2dbe4cd723bab3b82004dd4d587452a2fbbb671acc017c984c27698b3159cdf4db014309953b53df0ef92528968388f308812ea4b96c53c44b816def5601d81e5bc45140fd477589962d43c39d5bfa68500e326f349001dcb6eac8b707ad67033a6ae2e082b19f67809c9b397a2110ea2009c015dedddf52eb6e1c34d6d499aec023dce164fe9f04ddbb78fd8932e9261ef18f46489ef5182666596160e5baeaecae41a0ea4217cc20d9bff141c497e311cdaf3f8047944529b0f74d185f2bc69a8c0e6d4564cee071e315c6641e981851582acdfed1b41da0c86bf2db03765ceb11a0851b8e4315dc01d5212074bf153&app_id=appzl5apwz41977",
+          "https://appzl5apwz41977.h5.xiaoe-live.com/xe.account-platform.go_auth.outer.pass.multi_login?data=3a64bcaece0e6a5f3ad91ca9f8733ba02114f0e9c24f298cf599be29103c10ecf4066aac88b4b172c4798fc7db5621e299f957a40992935880453d90a098a7346b4d92b7cf27bda2e1fe53872bd97e9ab558a9e5ddc2379333fc8a730622c30efc32267bca3a9bea4ce5a1ab1690c699012a7a440f394269ee86d16a8b16017fce0f4f49da955f3085dd0f1b211b0032fc8c4bb3ea25dd86dd86f8e619fe75c9c87e1a63d326194b08131223f69890f566f5d95ece4354a34db04882fcdff885b99be8d85999625820d7309309d3b9b8ecc1eb8ec82fa2ea7fca49d7361980ef2ed1f6b6dd74bb8aab6856a0bfecddb069273a482b063c22799200125f361895a32f1a36e167485d29f968b9fdfd66fef085a254f35186f30dda08da03871a6724efae52e652c4e1819cff62532077e36e5f8918dc0ca2eceddb143dcaeb1b6b7e47c3ff4fc48ff8e5c39aac3647da53e828b0fe736ef3d51014d34411913de2dbe4cd723bab3b82004dd4d587452a2fbbb671acc017c984c27698b3159cdf4db014309953b53df0ef92528968388f308812ea4b96c53c44b816def5601d81e5bc45140fd477589962d43c39d5bfa68500e326f349001dcb6eac8b707ad67033a6ae2e082b19f67809c9b397a2110ea2009c015dedddf52eb6e1c34d6d499aec023dce164fe9f04ddbb78fd8932e9261ef18f46489ef5182666596160e5baeaecae41a0ea4217cc20d9bff141c497e311cdaf3f8047944529b0f74d185f2bc69a8c0e6d4564cee071e315c6641e981851582acdfed1b41da0c86bf2db03765ceb11a0851b8e4315dc01d5212074bf153&app_id=appzl5apwz41977",
+          "https://appzl5apwz41977.pc.xiaoe-tech.com/xe.account-platform.go_auth.outer.pass.multi_login?data=3a64bcaece0e6a5f3ad91ca9f8733ba02114f0e9c24f298cf599be29103c10ecf4066aac88b4b172c4798fc7db5621e299f957a40992935880453d90a098a7346b4d92b7cf27bda2e1fe53872bd97e9ab558a9e5ddc2379333fc8a730622c30efc32267bca3a9bea4ce5a1ab1690c699012a7a440f394269ee86d16a8b16017fce0f4f49da955f3085dd0f1b211b0032fc8c4bb3ea25dd86dd86f8e619fe75c9c87e1a63d326194b08131223f69890f566f5d95ece4354a34db04882fcdff885b99be8d85999625820d7309309d3b9b8ecc1eb8ec82fa2ea7fca49d7361980ef2ed1f6b6dd74bb8aab6856a0bfecddb069273a482b063c22799200125f361895a32f1a36e167485d29f968b9fdfd66fef085a254f35186f30dda08da03871a6724efae52e652c4e1819cff62532077e36e5f8918dc0ca2eceddb143dcaeb1b6b7e47c3ff4fc48ff8e5c39aac3647da53e828b0fe736ef3d51014d34411913de2dbe4cd723bab3b82004dd4d587452a2fbbb671acc017c984c27698b3159cdf4db014309953b53df0ef92528968388f308812ea4b96c53c44b816def5601d81e5bc45140fd477589962d43c39d5bfa68500e326f349001dcb6eac8b707ad67033a6ae2e082b19f67809c9b397a2110ea2009c015dedddf52eb6e1c34d6d499aec023dce164fe9f04ddbb78fd8932e9261ef18f46489ef5182666596160e5baeaecae41a0ea4217cc20d9bff141c497e311cdaf3f8047944529b0f74d185f2bc69a8c0e6d4564cee071e315c6641e981851582acdfed1b41da0c86bf2db03765ceb11a0851b8e4315dc01d5212074bf153&app_id=appzl5apwz41977",
+          "https://appzl5apwz41977.xet-pc.citv.cn/xe.account-platform.go_auth.outer.pass.multi_login?data=3a64bcaece0e6a5f3ad91ca9f8733ba02114f0e9c24f298cf599be29103c10ecf4066aac88b4b172c4798fc7db5621e299f957a40992935880453d90a098a7346b4d92b7cf27bda2e1fe53872bd97e9ab558a9e5ddc2379333fc8a730622c30efc32267bca3a9bea4ce5a1ab1690c699012a7a440f394269ee86d16a8b16017fce0f4f49da955f3085dd0f1b211b0032fc8c4bb3ea25dd86dd86f8e619fe75c9c87e1a63d326194b08131223f69890f566f5d95ece4354a34db04882fcdff885b99be8d85999625820d7309309d3b9b8ecc1eb8ec82fa2ea7fca49d7361980ef2ed1f6b6dd74bb8aab6856a0bfecddb069273a482b063c22799200125f361895a32f1a36e167485d29f968b9fdfd66fef085a254f35186f30dda08da03871a6724efae52e652c4e1819cff62532077e36e5f8918dc0ca2eceddb143dcaeb1b6b7e47c3ff4fc48ff8e5c39aac3647da53e828b0fe736ef3d51014d34411913de2dbe4cd723bab3b82004dd4d587452a2fbbb671acc017c984c27698b3159cdf4db014309953b53df0ef92528968388f308812ea4b96c53c44b816def5601d81e5bc45140fd477589962d43c39d5bfa68500e326f349001dcb6eac8b707ad67033a6ae2e082b19f67809c9b397a2110ea2009c015dedddf52eb6e1c34d6d499aec023dce164fe9f04ddbb78fd8932e9261ef18f46489ef5182666596160e5baeaecae41a0ea4217cc20d9bff141c497e311cdaf3f8047944529b0f74d185f2bc69a8c0e6d4564cee071e315c6641e981851582acdfed1b41da0c86bf2db03765ceb11a0851b8e4315dc01d5212074bf153&app_id=appzl5apwz41977"
+        ]
+      },
+      "msg": "success"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.wechat.init",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "commonData": {
+          "APPID": "appzl5apwz41977",
+          "MACHINEIP": "116.147.147.133",
+          "USERID": "u_69ef23c048972_aM0D2u3Hlx",
+          "USERIP": "116.147.147.133",
+          "WXAVATAR": "https://wechatavator-1252524126.cdn.xiaoeknow.com/appzl5apwz41977/image/compress/e2d2467eddb658c610723e6d9436ecef_20260427_9715b9.jpeg",
+          "WXNICKNAME": "奥胖"
+        },
+        "wxData": {
+          "appId": "wx455498ac41b8a40f",
+          "beta": "false",
+          "debug": "false",
+          "jsApiList": "\n                [ 'checkJsApi',\n                'onMenuShareTimeline',\n                'onMenuShareAppMessage',\n                'onMenuShareQQ',\n                'onMenuShareWeibo',\n                'onMenuShareQZone',\n                'onVoiceRecordEnd',\n                'startRecord',\n                'stopRecord',\n                'uploadVoice',\n                'playVoice',\n                'stopVoice',\n                'pauseVoice',\n                'chooseImage',\n                'uploadImage',\n                'downloadImage',\n                'downloadVoice',\n                'hideOptionMenu',\n                'openAddress',\n                'chooseInvoiceTitle']\n            ",
+          "needGetLocation": false,
+          "need_background_play": true,
+          "need_share": true,
+          "nonceStr": "82xQ5Qfpkf",
+          "share_desc": "这个炒饭商学院里面的知识很棒，你也来和我一起学习吧",
+          "share_img_url": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/414320820x40i41lo4fcxcw.jpg",
+          "share_link": "https://appzl5apwz41977.h5.xet.pomoho.com/p/course/video/v_6537d59de4b064a82f11465f?share_user_id=u_69ef23c048972_aM0D2u3Hlx&share_type=5&scene=%E5%88%86%E4%BA%AB",
+          "share_title": "第一计 商业篇：判断商业效率",
+          "signature": "d49ee6e97f4694a287fa7a426c04a5db73fd1b2a",
+          "timestamp": 1780577239,
+          "url": "https://appzl5apwz41977.h5.xet.pomoho.com/p/course/video/v_6537d59de4b064a82f11465f?share_user_id=u_69ef23c048972_aM0D2u3Hlx&share_type=5&scene=%E5%88%86%E4%BA%AB",
+          "voiceId": null
+        }
+      },
+      "msg": "success",
+      "x-b3-spanid": "2365cf1fd6b93c31",
+      "x-b3-traceid": "2365cf1fd6b93c31"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.marketing.basic.custom.share.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "original_data": [],
+        "wx_init_data": "{\"wxData\":{\"appId\":\"wx455498ac41b8a40f\",\"beta\":\"false\",\"debug\":\"false\",\"jsApiList\":\"[\\\"checkJsApi\\\",\\\"onVoiceRecordEnd\\\",\\\"startRecord\\\",\\\"stopRecord\\\",\\\"uploadVoice\\\",\\\"playVoice\\\",\\\"stopVoice\\\",\\\"pauseVoice\\\",\\\"chooseImage\\\",\\\"uploadImage\\\",\\\"downloadImage\\\",\\\"downloadVoice\\\",\\\"onMenuShareTimeline\\\",\\\"onMenuShareAppMessage\\\",\\\"onMenuShareQQ\\\",\\\"onMenuShareWeibo\\\",\\\"onMenuShareQZone\\\",\\\"openLocation\\\"]\",\"needGetLocation\":false,\"need_background_play\":false,\"need_share\":true,\"nonceStr\":\"0aR8ir9oTx\",\"share_desc\":\"\\u8fd9\\u4e2a\\u7092\\u996d\\u5546\\u5b66\\u9662\\u91cc\\u9762\\u7684\\u77e5\\u8bc6\\u5f88\\u68d2\\uff0c\\u4f60\\u4e5f\\u6765\\u548c\\u6211\\u4e00\\u8d77\\u5b66\\u4e60\\u5427\",\"share_img_url\":\"https:\\/\\/wechatapppro-1252524126.file.myqcloud.com\\/appzl5apwz41977\\/image\\/b_u_5fec88a6a7d5c_BiuQs4jl\\/l9p4zvuf0ka9.png\",\"share_link\":\"https:\\/\\/appzl5apwz41977.h5.xet.pomoho.com\\/p\\/course\\/video\\/v_6537d59de4b064a82f11465f?share_user_id=u_69ef23c048972_aM0D2u3Hlx\",\"share_title\":\"\\u7092\\u996d\\u5546\\u5b66\\u9662\",\"signature\":\"096c1d216e4aeeb63c84d9d06bb2462b8015c6c0\",\"timestamp\":1780577239,\"url\":\"https:\\/\\/appzl5apwz41977.h5.xet.pomoho.com\\/p\\/course\\/video\\/v_6537d59de4b064a82f11465f\",\"voiceId\":\"xxxx\"},\"bizData\":[],\"commonData\":{\"APPID\":\"appzl5apwz41977\",\"USERID\":\"u_69ef23c048972_aM0D2u3Hlx\",\"USERIP\":\"116.147.147.133\",\"MACHINEIP\":\"\",\"WXNICKNAME\":\"\\u5965\\u80d6\",\"WXAVATAR\":\"https:\\/\\/wechatavator-1252524126.cdn.xiaoeknow.com\\/appzl5apwz41977\\/image\\/compress\\/e2d2467eddb658c610723e6d9436ecef_20260427_9715b9.jpeg\",\"VERSION_TYPE\":null}}"
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.core.info.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "can_select": 1,
+        "descrb": "[]",
+        "patch_img_url": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/750422983x40i41lo4fcxcw.jpg",
+        "resource_id": "v_6537d59de4b064a82f11465f",
+        "resource_img": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/b_u_5d9f01ab42bf3_qQxIddoF/x40i41lo4fcxcw.jpg",
+        "resource_name": "第一计 商业篇：判断商业效率",
+        "resource_type": 3,
+        "sale_at": "2023.11.01",
+        "sale_at_complete": "2023.11.01 08:00:00",
+        "summary": "",
+        "view_count": 1937
+      },
+      "msg": "success",
+      "x-b3-spanid": "65c975fd3363a999",
+      "x-b3-traceid": "65c975fd3363a999"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business.avoidlogin.code.gray/1.0.0?app_id=appcbm8mzoi7743&key_name=use_unity_video_player",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "is_gray": true
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.basic-platform.comp_lib.gray.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "basic-account": {
+          "apply-alert": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/apply-alert/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/apply-alert/style.css"
+          ],
+          "contact-select": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/contact-select/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/contact-select/style.css"
+          ],
+          "get-canvas-name": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/get-canvas-name/index.js"
+          ],
+          "index": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/index/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/index/style.css"
+          ],
+          "init-agent-config": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/init-agent-config/index.js"
+          ],
+          "name-render": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/name-render/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/name-render/style.css"
+          ],
+          "phone-input": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/phone-input/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/phone-input/style.css"
+          ],
+          "sensitive-phone": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sensitive-phone/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sensitive-phone/style.css"
+          ],
+          "sms-sign-config": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sms-sign-config/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sms-sign-config/style.css"
+          ],
+          "sms-sign-dialog": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sms-sign-dialog/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sms-sign-dialog/style.css"
+          ],
+          "sms-sign-item": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sms-sign-item/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sms-sign-item/style.css"
+          ],
+          "sms-verify": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sms-verify/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/sms-verify/style.css"
+          ],
+          "static": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/static/middle-login.html",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/static/qtchannel.js"
+          ],
+          "third-party-auth": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/third-party-auth/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/third-party-auth/style.css"
+          ],
+          "verify-code": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/verify-code/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/verify-code/style.css"
+          ],
+          "verify-face": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/verify-face/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/basic-account/2.0.16/verify-face/style.css"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.subscribe.check.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 403002,
+      "data": [],
+      "msg": "无订阅关系",
+      "x-b3-spanid": "6abdcc3f92be10e7",
+      "x-b3-traceid": "6abdcc3f92be10e7"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.comment.count.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "comment_count": 3
+      },
+      "msg": "success",
+      "x-b3-spanid": "582a786d44990fbd",
+      "x-b3-traceid": "582a786d44990fbd"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business.avoidlogin.experience_upgrade.gray.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "is_gray": true
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.parent.info.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "product_info": {},
+        "parent_columns": [
+          {
+            "column_info": null,
+            "created_at": "2023-10-24 22:33:02",
+            "id": 111577591,
+            "img_url": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/b_u_5d9f01ab42bf3_qQxIddoF/dfoqo7lo4f37an.jpg",
+            "img_url_compressed": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/414320703dfoqo7lo4f37an.jpg",
+            "img_url_compressed_larger": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/640480256dfoqo7lo4f37an.jpg",
+            "is_member": 0,
+            "is_share_listen": 0,
+            "is_top": 0,
+            "is_try": 0,
+            "item_resource_count": 37,
+            "loop_resource": 0,
+            "manual_stop_at": "",
+            "member_type": 1,
+            "order_weight": 36,
+            "part_try_length": 0,
+            "product_id": "p_6537d3b9e4b064a82f114627",
+            "product_name": "商业三十六计",
+            "product_type": 0,
+            "reference_id": "r_6537d59ee4b064a863bdf8e8",
+            "relation_state": 0,
+            "resource_created_at": null,
+            "resource_id": "v_6537d59de4b064a82f11465f",
+            "resource_name": "",
+            "resource_type": 6,
+            "resource_updated_at": null,
+            "share_listen_count": 0,
+            "share_listen_resource": 0,
+            "shop_id": "appzl5apwz41977",
+            "show_in_menu": 1,
+            "start_at": null,
+            "state": "0",
+            "update_num": 37,
+            "updated_at": "2023-12-04 17:23:18",
+            "url": "/p/course/column/p_6537d3b9e4b064a82f114627",
+            "zb_start_at": "",
+            "zb_stop_at": ""
+          }
+        ],
+        "all_parent_columns": [
+          {
+            "column_info": null,
+            "created_at": "2023-10-24 22:33:02",
+            "id": 111577591,
+            "img_url": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/b_u_5d9f01ab42bf3_qQxIddoF/dfoqo7lo4f37an.jpg",
+            "img_url_compressed": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/414320703dfoqo7lo4f37an.jpg",
+            "img_url_compressed_larger": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/640480256dfoqo7lo4f37an.jpg",
+            "is_member": 0,
+            "is_share_listen": 0,
+            "is_top": 0,
+            "is_try": 0,
+            "item_resource_count": 37,
+            "loop_resource": 0,
+            "manual_stop_at": "",
+            "member_type": 1,
+            "order_weight": 36,
+            "part_try_length": 0,
+            "product_id": "p_6537d3b9e4b064a82f114627",
+            "product_name": "商业三十六计",
+            "product_type": 0,
+            "reference_id": "r_6537d59ee4b064a863bdf8e8",
+            "relation_state": 0,
+            "resource_created_at": null,
+            "resource_id": "v_6537d59de4b064a82f11465f",
+            "resource_name": "",
+            "resource_type": 6,
+            "resource_updated_at": null,
+            "share_listen_count": 0,
+            "share_listen_resource": 0,
+            "shop_id": "appzl5apwz41977",
+            "show_in_menu": 1,
+            "start_at": null,
+            "state": "0",
+            "update_num": 37,
+            "updated_at": "2023-12-04 17:23:18",
+            "url": "/p/course/column/p_6537d3b9e4b064a82f114627",
+            "zb_start_at": "",
+            "zb_stop_at": ""
+          }
+        ],
+        "host": "https://appzl5apwz41977.h5.xiaoeknow.com"
+      },
+      "msg": "success",
+      "x-b3-spanid": "629e2fe1ffd28e09",
+      "x-b3-traceid": "629e2fe1ffd28e09"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.composite_info.get/2.0.0?app_id=appzl5apwz41977",
+    "method": "GET",
+    "body": {
+      "code": 0,
+      "data": {
+        "shop_conf": {
+          "free_course_login": 0,
+          "goods_comment": 1,
+          "hide_comment": 0,
+          "hide_sub_count": 1,
+          "is_force_phone": 0,
+          "is_show_resourcecount": 1,
+          "need_comment_check": 1,
+          "relate_sell_info": 1,
+          "shop_logo": "https://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/b_u_5fec88a6a7d5c_BiuQs4jl/l9p4zvuf0ka9.png",
+          "shop_name": "炒饭商学院"
+        },
+        "user_info": {
+          "black_list": {
+            "permission_buy": 0,
+            "permission_comment": 0,
+            "permission_visit": 0
+          },
+          "is_seal": 0,
+          "user_id": "u_69ef23c048972_aM0D2u3Hlx"
+        },
+        "version": {
+          "version_type": 4
+        },
+        "view_conf": {
+          "learn_button_hide": 1
+        }
+      },
+      "msg": "success",
+      "x-b3-spanid": "0440442d26bceb61",
+      "x-b3-traceid": "0440442d26bceb61"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.goods.info.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "have_password": 0,
+        "is_free": 1,
+        "is_public": 1,
+        "is_stop_sell": 0,
+        "line_price": 0,
+        "price": 0,
+        "is_try": 0,
+        "recycle_bin_state": 0,
+        "resource_id": "v_6537d59de4b064a82f11465f",
+        "resource_type": 3,
+        "start_at": "2023-11-01 08:00:00",
+        "time_left": -81780439,
+        "goods_type": 5
+      },
+      "msg": "success",
+      "x-b3-spanid": "52e437cf1a26f564",
+      "x-b3-traceid": "52e437cf1a26f564"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.share.info.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "share_info": {
+          "has_share_resource": [],
+          "is_share_free": 0,
+          "num": 0,
+          "product_info": [],
+          "share_agent": "",
+          "share_entry": "",
+          "share_resource": 0,
+          "share_user_id": "",
+          "surplus_num": 0
+        },
+        "share_listen_info": {
+          "is_share_listen": false,
+          "is_show_share_count": true,
+          "share_listen_user": "u_69ef23c048972_aM0D2u3Hlx"
+        },
+        "version": 4
+      },
+      "msg": "success",
+      "x-b3-spanid": "564a8f1c3fea0af8",
+      "x-b3-traceid": "564a8f1c3fea0af8"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.e_course.finish_conditions.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": [],
+      "msg": "success",
+      "x-b3-spanid": "4519d5d639433592",
+      "x-b3-traceid": "4519d5d639433592"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.resource.config.get_play_info/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "play_fast_state": 0,
+        "video_segment_switch": 0,
+        "play_multiple_state": 0,
+        "db_value": {
+          "play_fast_state": 0,
+          "play_multiple_state": 0
+        },
+        "question_lists": null,
+        "has_question": 0,
+        "play_time": 0,
+        "quizze_id": "",
+        "repeat_state": 0,
+        "user_play_finish": 0
+      },
+      "msg": "success",
+      "x-b3-spanid": "6c2c54acf48e0830",
+      "x-b3-traceid": "6c2c54acf48e0830"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business.video.pmd_config.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "user_info": {
+          "app_id": "appzl5apwz41977",
+          "can_modify_phone": 1,
+          "user_id": "u_69ef23c048972_aM0D2u3Hlx",
+          "wx_nickname": "奥胖"
+        },
+        "pmd_config": {
+          "switch": 1,
+          "desc_switch": 1,
+          "desc": "【版权声明】本课程版权归炒饭商学院所有，仅限个人学习，严禁任何形式的录制、传播和账号分享。一经发现，平台将依法保留追究权，情节严重者将承担法律责任。",
+          "font_color": "#FFFFFF",
+          "font_size": "12px",
+          "position": 1,
+          "transparency": "0.12"
+        }
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business.video.ai.captions.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "data": [],
+      "msg": "暂未开启字幕",
+      "code": 1
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.video.detail_info.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "config_data": {
+          "1": {
+            "config_name": "跑马灯",
+            "config_type": 1,
+            "is_open": 0
+          },
+          "2": {
+            "config_name": "防拖拽",
+            "config_type": 2,
+            "is_open": 0
+          }
+        },
+        "is_auto_play": 1,
+        "is_try": 0,
+        "jump_h5_url": "",
+        "jump_mini_program_url": "https://wechatapppro-1252524126.cos.ap-shanghai.myqcloud.com/appzl5apwz41977_v_6537d59de4b064a82f11465f_qr_code.jpg",
+        "last_study_time": 111,
+        "only_h5_play": 0,
+        "payment_url": "",
+        "product_try_info": {},
+        "user_last_process": 12,
+        "user_last_process_time": "2026-06-04 20:46:24",
+        "video_info": {
+          "app_id": "appzl5apwz41977",
+          "can_select": 1,
+          "file_name": "第一计 商业篇：判断商业效率.mp4",
+          "is_drm": 1,
+          "is_report_video_status": true,
+          "is_transcode": 1,
+          "material_app_id": "appzl5apwz41977",
+          "material_id": "m_FPJnvV0SjvWFV_lo4f9cyr",
+          "patch_img_url": "https://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/750422983x40i41lo4fcxcw.jpg",
+          "patch_img_url_compressed": "https://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/750422983x40i41lo4fcxcw.jpg",
+          "play_sign": "JHALWCYkkMm4XtK9F0UiHWogJjUgritBulhigJAUf62ABwlNrRv2iLAAgq0I4yzXJ70QHNytEviLVaLUVAHSlfrNLyzGtXBmMdL7_SJ79RY",
+          "resource_id": "v_6537d59de4b064a82f11465f",
+          "resource_type": 3,
+          "video_audio_url": "https://c-vod-hw-k.xiaoeknow.com/asset/3941d33669aff4bc6127c63c1690c892/21a1ad5c1a7c72693845b48d024a1f2b.mp3?sign=b6c5022fb2d2e60113d358d2455d1de4&t=6a221c97&us=WBzvohIaYA",
+          "video_length": 900
+        },
+        "video_player_type": 1,
+        "video_urls": "W$siZGVmaW5pdGlvbl9uYW@lIjoi6auY5riFIiwiZGVmaW5pdGlvbl9wIjoiNzIwUCIsImV%dCI6eyJob$N0IjoiaHR0cHM6Ly9jLXZvZC@ody@rLnhpYW9la#5vdy5jb#0iLCJwYXJhbSI6InNpZ#%9MDE5YWU0NzQ@YzVmMDIyMWI#MGIyYjRlNGU$NjE$NmFcdTAwMjZ0PTZhMjIxYzk$XHUwMDI#dXM9YUpoVXBXUGFIZCIsInBhdGgiOiJhc$NldC9mMDFlM#I@NjE#ODM#OGRmOTA$YjU@M#M0NjI$OGM$NiJ9LCJpc@9zdXBwb$J0IjpmYWxzZSwidXJsIjoiaHR0cHM6Ly9jLXZvZC@ody@rLnhpYW9la#5vdy5jb#0vYXNzZXQvZjAxZTNiNTYxNjgzNjhkZjkwN#I@NTNjNDYyNzhjNzYvMWU0MGZkMzM0MGZlZTE#OWEwYjUxOWQ@MWQzZmQ$N#UubTN@OD9zaWduPTAxOWFlNDc0NWM@ZjAyMjFiNjBiMmI0ZTRlNzYxNzZhXHUwMDI#dD0#YTIyMWM5N@x@MDAyNnVzPWFKaFVwV@BhSGQifV0=__ba"
+      },
+      "msg": "success",
+      "x-b3-spanid": "54450e5cc691e9df",
+      "x-b3-traceid": "54450e5cc691e9df"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.comment.resource.total/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "total": 3
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business.diversion.gray.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": [],
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.wework.auth.get_sdk_info?app_id=appzl5apwz41977",
+    "method": "POST",
+    "body": {
+      "code": 10104010,
+      "data": {},
+      "msg": "调用 ScrmWeworkSdkInfo err:json: cannot unmarshal string into Go struct field GetWeworkSdkInfoRes.data of type weworkscrm.WeworkSdkInfo"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.comment.resource.list/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "list": [
+          {
+            "id": 41037001,
+            "root_id": 0,
+            "parent_id": 0,
+            "user_id": "u_62e24f0a75b9a_KStxIRBtwy",
+            "wx_avatar": "http://wechatapppro-1252524126.file.myqcloud.com/xiaoe_app_server37c37a576226e72c1b5d356ec4d2f7a9.jpg",
+            "nickname": "大青山",
+            "content": "商业拆分成 供需连。供给能力本质上拼的是效率。 需求决定规模。",
+            "src_user_id": "",
+            "src_nickname": "",
+            "is_admin": 0,
+            "zan_num": 0,
+            "is_top": 0,
+            "is_like": 0,
+            "publish_time": "2025-05-05 18:52",
+            "children_num": 0,
+            "area": "河北省",
+            "children": []
+          },
+          {
+            "id": 23740039,
+            "root_id": 0,
+            "parent_id": 0,
+            "user_id": "u_62e24c2442bb1_c4lYVEc30u",
+            "wx_avatar": "http://wechatavator-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/u_62e24c2442bb1_c4lYVEc30u_20220728_853066.jpeg",
+            "nickname": "Key洁莹🔑",
+            "content": "品牌价值：打造品牌→降低成本→提高溢价",
+            "src_user_id": "",
+            "src_nickname": "",
+            "is_admin": 0,
+            "zan_num": 0,
+            "is_top": 0,
+            "is_like": 0,
+            "publish_time": "2023-10-31 23:08",
+            "children_num": 0,
+            "area": "",
+            "children": []
+          },
+          {
+            "id": 23739776,
+            "root_id": 0,
+            "parent_id": 0,
+            "user_id": "u_62f342e763e38_OhNQ8eqODa",
+            "wx_avatar": "http://wechatavator-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/u_62f342e763e38_OhNQ8eqODa_20220810_6ce911.jpeg",
+            "nickname": "高兴",
+            "content": "第一节打卡",
+            "src_user_id": "",
+            "src_nickname": "",
+            "is_admin": 0,
+            "zan_num": 0,
+            "is_top": 0,
+            "is_like": 0,
+            "publish_time": "2023-10-31 22:46",
+            "children_num": 0,
+            "area": "",
+            "children": []
+          }
+        ],
+        "total": 3
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.basic-platform.comp_lib.gray.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "h5-package-list": {
+          "index": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5-package-list/1.0.14/index/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5-package-list/1.0.14/index/style.css"
+          ],
+          "package-list": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5-package-list/1.0.14/package-list/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5-package-list/1.0.14/package-list/style.css"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.more-terminal.h5/get_app_config",
+    "method": "GET",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "enable_course_cache": 1,
+        "enable_shop_homepage": 1,
+        "forbid_projection": 0,
+        "forbid_record": 0,
+        "ios_auto_sync": 0,
+        "ios_commission_status": 0,
+        "ios_pay": 1,
+        "is_enable": 1,
+        "is_open_watermark": 0,
+        "renewal_switch": 0,
+        "settled_community_app": 1,
+        "shop_id": "appzl5apwz41977",
+        "tongtong_app": 1,
+        "tongtong_enable_course_cache": 1,
+        "tongtong_projection": 1,
+        "wechat_verify": 0
+      }
+    }
+  },
+  {
+    "url": "https://learnreport.xiaoeknow.com/v2/learnRecord/getChannelId",
+    "method": "POST",
+    "body": {
+      "code": 200,
+      "data": {
+        "channelId": "86170fb1-6013-11f1-9c49-525400857991",
+        "report_rate": "10"
+      },
+      "msg": "OK"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business.period.gray.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "is_gray": true
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/microcomp/market?app_id=appzl5apwz41977",
+    "method": "GET",
+    "body": {
+      "coupon": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/coupon@1.0.0.js"
+      ],
+      "coupon-order-selector": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/coupon-order-selector@1.0.9.js"
+      ],
+      "coupon-targeted-distribution": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/coupon-targeted-distribution@1.0.1.js"
+      ],
+      "coupon-fitment": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/coupon-fitment@1.0.1.js"
+      ],
+      "my-coupon-item": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/my-coupon-item@1.0.1.js"
+      ],
+      "share-poster": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/share-poster@1.0.15.js"
+      ],
+      "gift-to-friend": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/gift-to-friend@1.0.0.js"
+      ],
+      "team-buy-bullet": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-bullet@1.0.1.js"
+      ],
+      "team-buy-countdown": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-countdown@1.0.1.js"
+      ],
+      "team-buy-desc": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-desc@1.0.2.js"
+      ],
+      "team-buy-list": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-list@1.0.1.js"
+      ],
+      "team-buy-process": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-process@1.0.0.js"
+      ],
+      "team-buy-renew-countdown": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-renew-countdown@1.0.0.js"
+      ],
+      "team-buy-renew-popup": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-renew-popup@1.0.0.js"
+      ],
+      "team-buy-step-popup": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-step-popup@1.0.0.js"
+      ],
+      "team-buy-renew-activity": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-buy-renew-activity@1.0.0.js"
+      ],
+      "team-captain-discount": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/team-captain-discount@1.0.1.js"
+      ],
+      "share-button": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/share-button@1.0.8.js"
+      ],
+      "share-friend": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/share-friend@1.0.9.js"
+      ],
+      "promoter": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/promoter@1.0.1.js"
+      ],
+      "coupon-list": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/coupon-list@1.0.2.js"
+      ],
+      "init-sdk": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/init-sdk@1.0.3.js"
+      ],
+      "fission-notice-bar": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/fission-notice-bar@1.0.2.js"
+      ],
+      "comment": [
+        "//static-resource-cos-1252524126.cdn.xiaoeknow.com/marketing/assets/comment@1.0.7.js"
+      ]
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.avoidlogin.e_course.sub.course.list/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": [],
+      "msg": "success",
+      "x-b3-spanid": "05b4cfc984ddb959",
+      "x-b3-traceid": "05b4cfc984ddb959"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business.avoidlogin.resource.ai.ai_look_config.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "ai_look": 0,
+        "ai_script": 0,
+        "ai_summary": 0
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.basic-platform.comp_lib.gray.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "micro-comp-account": {
+          "account-modal": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/account-modal/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/account-modal/style.css"
+          ],
+          "bind-phone-tips": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/bind-phone-tips/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/bind-phone-tips/style.css"
+          ],
+          "index": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/index/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/index/style.css"
+          ],
+          "pc-bind-phone-modal": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/pc-bind-phone-modal/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/pc-bind-phone-modal/style.css"
+          ],
+          "phone-input": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/phone-input/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/phone-input/style.css"
+          ],
+          "polling": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/polling/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/polling/style.css"
+          ],
+          "sms-verify": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/sms-verify/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/micro-comp-account/0.3.20/sms-verify/style.css"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.subscribe.check.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 403002,
+      "data": [],
+      "msg": "无订阅关系",
+      "x-b3-spanid": "4e4f40f61cbf3df6",
+      "x-b3-traceid": "4e4f40f61cbf3df6"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.basic-platform.comp_lib.gray.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "marketing_microcomp_lib": {
+          "c-integral-exchange": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/c-integral-exchange/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/c-integral-exchange/style.css"
+          ],
+          "comment": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/comment/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/comment/style.css"
+          ],
+          "coupon": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon/style.css"
+          ],
+          "coupon-fitment": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-fitment/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-fitment/style.css"
+          ],
+          "coupon-item": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-item/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-item/style.css"
+          ],
+          "coupon-list": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-list/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-list/style.css"
+          ],
+          "coupon-order-selector": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-order-selector/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-order-selector/style.css"
+          ],
+          "coupon-targeted-distribution": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-targeted-distribution/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/coupon-targeted-distribution/style.css"
+          ],
+          "fission-notice-bar": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/fission-notice-bar/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/fission-notice-bar/style.css"
+          ],
+          "gift-to-friend": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/gift-to-friend/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/gift-to-friend/style.css"
+          ],
+          "img": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/img/down.svg",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/img/up.svg"
+          ],
+          "init-sdk": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/init-sdk/index.js"
+          ],
+          "my-coupon-item": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/my-coupon-item/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/my-coupon-item/style.css"
+          ],
+          "promoter": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/promoter/index.js"
+          ],
+          "redeem-coupon-selector": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/redeem-coupon-selector/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/redeem-coupon-selector/style.css"
+          ],
+          "share-button": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/share-button/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/share-button/style.css"
+          ],
+          "share-friend": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/share-friend/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/share-friend/style.css"
+          ],
+          "team-buy-bullet": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-bullet/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-bullet/style.css"
+          ],
+          "team-buy-countdown": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-countdown/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-countdown/style.css"
+          ],
+          "team-buy-desc": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-desc/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-desc/style.css"
+          ],
+          "team-buy-list": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-list/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-list/style.css"
+          ],
+          "team-buy-process": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-process/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-buy-process/style.css"
+          ],
+          "team-captain-discount": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-captain-discount/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/marketing_microcomp_lib/0.0.33/team-captain-discount/style.css"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.basic-platform.comp_lib.gray.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "h5_header_footer": {
+          "footer-logo-v2": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/footer-logo-v2/index.js"
+          ],
+          "footer-logo-v2_7": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/footer-logo-v2_7/index.js"
+          ],
+          "footer-logo-v3": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/footer-logo-v3/index.js"
+          ],
+          "func-tool-v2": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/func-tool-v2/index.js"
+          ],
+          "func-tool-v2_7": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/func-tool-v2_7/index.js"
+          ],
+          "func-tool-v3": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/func-tool-v3/index.js"
+          ],
+          "index-v2": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/index-v2/index.js"
+          ],
+          "index-v2_7": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/index-v2_7/index.js"
+          ],
+          "index-v3": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/index-v3/index.js"
+          ],
+          "public-top-v2": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/public-top-v2/index.js"
+          ],
+          "public-top-v2_7": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/public-top-v2_7/index.js"
+          ],
+          "public-top-v3": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/public-top-v3/index.js"
+          ],
+          "search-v2": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/search-v2/index.js"
+          ],
+          "search-v2_7": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/search-v2_7/index.js"
+          ],
+          "search-v3": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/search-v3/index.js"
+          ],
+          "vue-preview-v2": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/vue-preview-v2/index.js"
+          ],
+          "vue-preview-v2_7": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/vue-preview-v2_7/index.js"
+          ],
+          "vue-preview-v3": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/vue-preview-v3/index.js"
+          ],
+          "zone-tool-v2": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/zone-tool-v2/index.js"
+          ],
+          "zone-tool-v2_7": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/zone-tool-v2_7/index.js"
+          ],
+          "zone-tool-v3": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/h5_header_footer/6.0.5/zone-tool-v3/index.js"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.avoidlogin.courseware_count.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "total": 1
+      },
+      "msg": "success",
+      "x-b3-spanid": "123820aff31337ce",
+      "x-b3-traceid": "123820aff31337ce"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.marketing.basic.everyone.switch.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "everyone": false
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://learnreport.xiaoeknow.com/v1/learnRecord/pushData",
+    "method": "POST",
+    "body": {
+      "code": 200,
+      "data": {
+        "data_check": "INVALID",
+        "report_rate": 10,
+        "stay_time": 1
+      },
+      "msg": "OK"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.resource.available.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "course_period": false,
+        "is_buy": 0,
+        "is_free": 1,
+        "is_password": 0,
+        "is_permission": 1,
+        "is_public": 1,
+        "other_list": [
+          {
+            "img_url": "http://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/414320411l6nbzqva0ff9.png",
+            "is_buy": 1,
+            "is_free": 0,
+            "is_password": 0,
+            "is_permission": 1,
+            "is_public": 1,
+            "pay_url": "https://appzl5apwz41977.h5.xet.pomoho.com/v1/goods/confirm_order?id=p_62ee31c5e4b050af23a5b3e7&spu_type=MMB&resource_id=p_62ee31c5e4b050af23a5b3e7&resource_type=5&sku=SKU_MMB_6597774775941wHQxm96&type=3",
+            "period": "2027-04-27 16:22",
+            "repeat_purchase": 1,
+            "resource_id": "p_62ee31c5e4b050af23a5b3e7",
+            "resource_type_name": "会员",
+            "sell_type": 1,
+            "title": "炒饭会大会员"
+          }
+        ],
+        "pay_url": "https://appzl5apwz41977.h5.xet.pomoho.com/v1/goods/confirm_order?id=v_6537d59de4b064a82f11465f&spu_type=VDO&resource_id=v_6537d59de4b064a82f11465f&resource_type=3&sku=SKU_VDO_6981579818061Amg1P50&type=2",
+        "period": "2027-04-27 16:22",
+        "repeat_purchase": 0,
+        "resource_type_name": "视频",
+        "sell_type": 2
+      },
+      "msg": "success",
+      "x-b3-spanid": "75670f2e3ba756a1",
+      "x-b3-traceid": "75670f2e3ba756a1"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.interaction.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": [
+        {
+          "count": 0,
+          "detail_url": "",
+          "type": "exercise",
+          "url": ""
+        },
+        {
+          "count": 0,
+          "detail_url": "",
+          "type": "card",
+          "url": ""
+        },
+        {
+          "count": 0,
+          "detail_url": "",
+          "type": "exam",
+          "url": ""
+        },
+        {
+          "count": 0,
+          "detail_url": "",
+          "type": "form",
+          "url": ""
+        },
+        {
+          "count": 0,
+          "detail_url": "",
+          "type": "activity",
+          "url": ""
+        },
+        {
+          "count": 0,
+          "detail_url": "",
+          "type": "community",
+          "url": ""
+        },
+        {
+          "count": 0,
+          "detail_url": "",
+          "type": "practice",
+          "url": ""
+        }
+      ],
+      "msg": "success",
+      "x-b3-spanid": "1124a73f7eea8d01",
+      "x-b3-traceid": "1124a73f7eea8d01"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.ecommerce.page_decoration.get_goods_template/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "app_id": "appzl5apwz41977",
+        "spu_id": "v_6537d59de4b064a82f11465f",
+        "template_id": "t_1670863993ve3bAhqKzu",
+        "template_content": {
+          "base_info": {
+            "template_name": "默认模版",
+            "is_only_pre_sales": 1
+          },
+          "general_settings": {
+            "btn_buy_text": "马上抢购",
+            "btn_subscribe_text": "立即学习",
+            "is_can_clicking": true,
+            "is_default_buy_btn": true,
+            "is_default_subscribe_btn": true,
+            "is_show_barrage": false,
+            "is_show_shop": true
+          },
+          "advanced_settings": {
+            "custom_tabs": {
+              "catalog": {
+                "is_show": true,
+                "is_show_content_cover": false,
+                "is_show_sale_at": true,
+                "tab_sort": 2,
+                "tabs": "catalog",
+                "tabs_name": "目录"
+              },
+              "community": {
+                "is_show": true,
+                "tab_sort": 3,
+                "tabs": "community",
+                "tabs_name": "圈子"
+              },
+              "detail": {
+                "is_show": true,
+                "tab_sort": 1,
+                "tabs": "detail",
+                "tabs_name": "详情"
+              },
+              "evaluate": {
+                "is_show": true,
+                "tab_sort": 6,
+                "tabs": "evaluate",
+                "tabs_name": "评论"
+              },
+              "interaction": {
+                "is_show": true,
+                "tab_sort": 4,
+                "tabs": "interaction",
+                "tabs_name": "课堂互动"
+              },
+              "recommend": {
+                "is_show": true,
+                "tab_sort": 5,
+                "tabs": "recommend",
+                "tabs_name": "相关推荐"
+              }
+            },
+            "is_custom_show_sales": false,
+            "is_show_content_cover": false,
+            "is_show_sale_at": true,
+            "sales_number": 12
+          }
+        },
+        "content_page_make": null
+      },
+      "msg": "success"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.basic-platform.comp_lib.gray.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "course-related-files": {
+          "course-related-files": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/course-related-files/1.1.37/course-related-files/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/course-related-files/1.1.37/course-related-files/style.css"
+          ],
+          "index": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/course-related-files/1.1.37/index/index.js",
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/course-related-files/1.1.37/index/style.css"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/getSubscribedQr",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "shop_logo": "https://wechatapppro-1252524126.cdn.xiaoeknow.com/appzl5apwz41977/image/b_u_5fec88a6a7d5c_BiuQs4jl/l9p4zvuf0ka9.png?imageMogr2/thumbnail/480x/quality/100%7CimageMogr2/ignore-error/1",
+        "wx_is_enable": 0,
+        "wx_qr_url": "",
+        "wx_app_name": "",
+        "home_title": "炒饭商学院",
+        "subscribe": false,
+        "version_type": 4
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.comment.resource.total/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "total": 3
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.comment.resource.list/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "list": [
+          {
+            "id": 41037001,
+            "root_id": 0,
+            "parent_id": 0,
+            "user_id": "u_62e24f0a75b9a_KStxIRBtwy",
+            "wx_avatar": "http://wechatapppro-1252524126.file.myqcloud.com/xiaoe_app_server37c37a576226e72c1b5d356ec4d2f7a9.jpg",
+            "nickname": "大青山",
+            "content": "商业拆分成 供需连。供给能力本质上拼的是效率。 需求决定规模。",
+            "src_user_id": "",
+            "src_nickname": "",
+            "is_admin": 0,
+            "zan_num": 0,
+            "is_top": 0,
+            "is_like": 0,
+            "publish_time": "2025-05-05 18:52",
+            "children_num": 0,
+            "area": "河北省",
+            "children": []
+          },
+          {
+            "id": 23740039,
+            "root_id": 0,
+            "parent_id": 0,
+            "user_id": "u_62e24c2442bb1_c4lYVEc30u",
+            "wx_avatar": "http://wechatavator-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/u_62e24c2442bb1_c4lYVEc30u_20220728_853066.jpeg",
+            "nickname": "Key洁莹🔑",
+            "content": "品牌价值：打造品牌→降低成本→提高溢价",
+            "src_user_id": "",
+            "src_nickname": "",
+            "is_admin": 0,
+            "zan_num": 0,
+            "is_top": 0,
+            "is_like": 0,
+            "publish_time": "2023-10-31 23:08",
+            "children_num": 0,
+            "area": "",
+            "children": []
+          },
+          {
+            "id": 23739776,
+            "root_id": 0,
+            "parent_id": 0,
+            "user_id": "u_62f342e763e38_OhNQ8eqODa",
+            "wx_avatar": "http://wechatavator-1252524126.file.myqcloud.com/appzl5apwz41977/image/compress/u_62f342e763e38_OhNQ8eqODa_20220810_6ce911.jpeg",
+            "nickname": "高兴",
+            "content": "第一节打卡",
+            "src_user_id": "",
+            "src_nickname": "",
+            "is_admin": 0,
+            "zan_num": 0,
+            "is_top": 0,
+            "is_like": 0,
+            "publish_time": "2023-10-31 22:46",
+            "children_num": 0,
+            "area": "",
+            "children": []
+          }
+        ],
+        "total": 3
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.get.detail/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "auto_fetch": 0,
+        "content_url": "",
+        "org_content": "",
+        "signature": "",
+        "try_auto_fetch": 0,
+        "try_content_url": "",
+        "try_org_content": "",
+        "try_signature": ""
+      },
+      "msg": "success",
+      "x-b3-spanid": "12088c6708f66b0a",
+      "x-b3-traceid": "12088c6708f66b0a"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.micro_page.subscribe_qr.get/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "home_title": "炒饭商学院",
+        "shop_logo": "https://wechatapppro-1252524126.file.myqcloud.com/appzl5apwz41977/image/b_u_5fec88a6a7d5c_BiuQs4jl/l9p4zvuf0ka9.png",
+        "subscribe": false,
+        "version_type": 4,
+        "wx_app_name": "",
+        "wx_is_enable": 0,
+        "wx_qr_url": ""
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/information_form/get_information_formv3?uuid=4a536850-0b12-4d7c-86ac-eb93273286c1",
+    "method": "POST",
+    "body": {
+      "code": 1,
+      "msg": "该资源未开启信息采集",
+      "data": null,
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.avoidlogin.courseware_count.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": {
+        "total": 1
+      },
+      "msg": "success",
+      "x-b3-spanid": "759950815610a5e3",
+      "x-b3-traceid": "759950815610a5e3"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/information_form/get_information_formv3?uuid=4a536850-0b12-4d7c-86ac-eb93273286c1",
+    "method": "POST",
+    "body": {
+      "code": 1,
+      "msg": "该资源未开启信息采集!",
+      "data": null,
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.basic-platform.comp_lib.gray.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "LeadGroup": {
+          "alive-room-lead-group": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/alive-room-lead-group/index.js"
+          ],
+          "detail-page-lead-group": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/detail-page-lead-group/index.js"
+          ],
+          "detail-page-live-lead-group": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/detail-page-live-lead-group/index.js"
+          ],
+          "detail-page-pc-lead-group": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/detail-page-pc-lead-group/index.js"
+          ],
+          "form-page-lead-group": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/form-page-lead-group/index.js"
+          ],
+          "index": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/index/index.js"
+          ],
+          "lead-group-admin": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/lead-group-admin/index.js"
+          ],
+          "lead-group-v2": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/lead-group-v2/index.js"
+          ],
+          "pay-complete-lead-group": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/pay-complete-lead-group/index.js"
+          ],
+          "resource": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/resource/index.js"
+          ],
+          "social-actions-lead-group": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/LeadGroup/0.6.22/social-actions-lead-group/index.js"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.course.business_go.courseware_list.get/2.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "data": [
+        {
+          "title": "第一计 商业篇：判断商业效率.pdf",
+          "type": 9,
+          "url": "https://resource-tx-cdn.xiaoeeye.com/appzl5apwz41977/file/b_u_5d9f01ab42bf3_qQxIddoF/g5pnailo4fes2t.pdf?download_name=%E7%AC%AC%E4%B8%80%E8%AE%A1%20%E5%95%86%E4%B8%9A%E7%AF%87%EF%BC%9A%E5%88%A4%E6%96%AD%E5%95%86%E4%B8%9A%E6%95%88%E7%8E%87.pdf",
+          "material_size": "263.81",
+          "material_id": "m_puzc2ZXZpAiuc_lo4fet6f",
+          "operate_type": 1,
+          "order_weight": 1,
+          "preview_url": "https://resource-tx-cdn.xiaoeeye.com/appzl5apwz41977/file/b_u_5d9f01ab42bf3_qQxIddoF/g5pnailo4fes2t.pdf?ci-process=doc-preview&dstType=html"
+        }
+      ],
+      "msg": "success",
+      "x-b3-spanid": "22e29c8b18b458e3",
+      "x-b3-traceid": "22e29c8b18b458e3"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.account-platform.wework.auth.get_sdk_info?app_id=appzl5apwz41977",
+    "method": "POST",
+    "body": {
+      "code": 10104010,
+      "data": {},
+      "msg": "调用 ScrmWeworkSdkInfo err:json: cannot unmarshal string into Go struct field GetWeworkSdkInfoRes.data of type weworkscrm.WeworkSdkInfo"
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.basic-platform.comp_lib.gray.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "learning_entry_guide": {
+          "func-tool": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/learning_entry_guide/1.0.19/func-tool/index.js"
+          ],
+          "index": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/learning_entry_guide/1.0.19/index/index.js"
+          ],
+          "learn-entry-bar": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/learning_entry_guide/1.0.19/learn-entry-bar/index.js"
+          ],
+          "learn-entry-popup": [
+            "https://static-resource-cos-1252524126.cdn.xiaoeknow.com/xiaoe-cnpm/pro/learning_entry_guide/1.0.19/learn-entry-popup/index.js"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.comment.resource.total/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "total": 3
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.sales.crm/drainage/check.bind",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "bind_type": 0
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.marketing.basic.activity.info/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "marketing_info": null,
+        "distribute_info": {
+          "price": 0,
+          "distribute_url": "/v1/poster/3/v_6537d59de4b064a82f11465f?type=2&product_id=v_6537d59de4b064a82f11465f",
+          "distribute_share_url": "/v1/goods/goods_detail/v_6537d59de4b064a82f11465f?type=2&share_type=5&share_user_id=u_69ef23c048972_aM0D2u3Hlx",
+          "is_diy_promote_caption": 0,
+          "diy_text": "",
+          "btn_type": 0,
+          "btn_show_status": 1
+        },
+        "seckill_info": null
+      },
+      "forward_url": ""
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.material-center.play/getPlayUrl",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "JHALWCYkkMm4XtK9F0UiHWogJjUgritBulhigJAUf62ABwlNrRv2iLAAgq0I4yzXJ70QHNytEviLVaLUVAHSlfrNLyzGtXBmMdL7_SJ79RY": {
+          "support_list": [
+            "720p_hls",
+            "mp3"
+          ],
+          "default_play": "720p_hls",
+          "play_list": {
+            "720p_hls": {
+              "desc": "720p",
+              "encrypt_type": "normal",
+              "is_support": true,
+              "play_url": "https://c-vod-hw-k.xiaoeknow.com/asset/f01e3b56168368df907b553c46278c76/1e40fd3340fee169a0b519d51d3fd77e.m3u8?sign=dbcc7ef29ebdca4a8352ef23914bb9cb&t=6a221c98&us=ECKrLwaSir",
+              "ext": {
+                "host": "https://c-vod-hw-k.xiaoeknow.com",
+                "path": "asset/f01e3b56168368df907b553c46278c76",
+                "param": "sign=dbcc7ef29ebdca4a8352ef23914bb9cb&t=6a221c98&us=ECKrLwaSir"
+              }
+            },
+            "mp3": {
+              "desc": "mp3",
+              "encrypt_type": "normal",
+              "is_support": true,
+              "play_url": "https://c-vod-hw-k.xiaoeknow.com/asset/3941d33669aff4bc6127c63c1690c892/21a1ad5c1a7c72693845b48d024a1f2b.mp3?sign=1436f9429027600afabf1b30f3bfb17c&t=6a221c98&us=MonYRxWWTl",
+              "ext": {
+                "host": "https://c-vod-hw-k.xiaoeknow.com",
+                "path": "asset/3941d33669aff4bc6127c63c1690c892",
+                "param": "sign=1436f9429027600afabf1b30f3bfb17c&t=6a221c98&us=MonYRxWWTl"
+              }
+            }
+          },
+          "feed_back_switch": 1,
+          "feed_back_level": [
+            2,
+            3
+          ],
+          "version": "1.0.0",
+          "material_id": "m_FPJnvV0SjvWFV_lo4f9cyr"
+        }
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.material-center.play-monitor/playInfo.feedback",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": null
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.sales.crm/drainage/get.info",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "is_open": 0,
+        "clue_id": "",
+        "code_url": "",
+        "code_type": 0,
+        "user_id": "",
+        "group_code_type": 0,
+        "drainage_text": null,
+        "use_config": null
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.data.learn_center.get_resource_progress/1.0.0",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": {
+        "v_6537d59de4b064a82f11465f": 2
+      }
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.material-center.play-monitor/playInfo.feedback",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": null
+    }
+  },
+  {
+    "url": "https://appzl5apwz41977.h5.xet.pomoho.com/xe.material-center.play-monitor/playInfo.feedback",
+    "method": "POST",
+    "body": {
+      "code": 0,
+      "msg": "ok",
+      "data": null
+    }
+  }
+]
