@@ -1120,3 +1120,16 @@
 - 以上决策已写入 cerebrum Decision Log 和 Do-Not-Repeat
 | 16:38 | Edited scripts/zhihu_course_replay_downloader.py | "downloads" → "E:\AI产品经理课" | ~9 |
 | 17:36 | Created zhihu_download_v2.py | — | ~1461 |
+
+## Session: 2026-06-05 20:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-05 20:42
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:18 | Created debug_stream.py | — | ~1077 |
+| 22:28 | Edited zhihu_download_v2.py | modified on_request() | ~791 |
+| 22:06 | zhihu_download_v2.py: 修复视频自动播放（点击 video 元素+扩展 URL 匹配），68/68 全部下载成功，14.7GB，0 失败 | zhihu_download_v2.py, E:\AI产品经理课\ | completed | ~500 |

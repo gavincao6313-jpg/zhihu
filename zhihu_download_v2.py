@@ -55,6 +55,10 @@ def main():
             storage_state=str(AUTH_FILE),
             user_agent=UA,
         )
+        ctx.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', { get: () => false });
+            window.chrome = { runtime: {} };
+        """)
 
         # 收集每个视频的流 URL
         stream_urls = {}
@@ -69,31 +73,49 @@ def main():
 
             page = ctx.new_page()
 
-            # 拦截 m3u8/ts 请求
+            # 拦截视频流请求（mp4/m3u8/ts/vzuu）
             captured = []
             def on_request(req):
                 url = req.url
-                if any(k in url for k in (".m3u8", ".ts", "vzuu.com")):
+                if any(k in url for k in (".m3u8", ".ts", ".mp4", "vzuu.com", "vdn")):
                     captured.append(url)
 
             page.on("request", on_request)
 
             try:
                 page.goto(video_url, wait_until="domcontentloaded", timeout=45000)
-                # 等待视频播放器加载流
-                for _ in range(20):
+                time.sleep(2)
+
+                # 点击视频元素触发播放
+                video_el = page.query_selector("video")
+                if video_el:
+                    try:
+                        video_el.click()
+                    except Exception:
+                        page.mouse.click(640, 400)
+
+                # 等待视频流请求出现
+                for _ in range(25):
                     time.sleep(1)
                     if captured:
                         break
 
                 if captured:
+                    # 优先选 mp4（直接链接），其次 m3u8
+                    mp4_urls = [u for u in captured if ".mp4" in u and "vzuu.com" in u]
                     m3u8_urls = [u for u in captured if ".m3u8" in u]
-                    if m3u8_urls:
+                    if mp4_urls:
+                        stream_urls[section_id] = mp4_urls[0]
+                        found_count += 1
+                        print(f"  [MP4] {mp4_urls[0][:100]}")
+                    elif m3u8_urls:
                         stream_urls[section_id] = m3u8_urls[0]
                         found_count += 1
-                        print(f"  [OK] {m3u8_urls[0][:100]}")
+                        print(f"  [M3U8] {m3u8_urls[0][:100]}")
                     else:
-                        print(f"  [TS only] {len(captured)} URLs")
+                        stream_urls[section_id] = captured[0]
+                        found_count += 1
+                        print(f"  [RAW] {captured[0][:100]}")
                 else:
                     print(f"  [NO STREAM] 可能无权限或未购买")
             except Exception as e:
