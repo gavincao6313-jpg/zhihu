@@ -1156,3 +1156,5 @@
 | 08:29 | 新课: 1979243275383748550 — API 抓取目录(13节) + zhihu_download_v2.py CLI参数化 → 13/13 下载成功，744MB | zhihu_download_v2.py, capture_catalog.py, catalog_1979243275383748550.json | completed | ~300 |
 | 09:11 | Created capture_catalog.py | — | ~864 |
 | 09:11 | 新课: 1974142154118043353 — API 抓取目录(19节) → 19/19 下载成功，448MB | zhihu_download_v2.py, capture_catalog.py, catalog_1974142154118043353.json | completed | ~200 |
+| 10:21 | Created retry_missing.py | — | ~952 |
+| 09:20 | 新课: 2020447833136836828 — OpenClaw训练营(73节) → 71/73(网络瞬断2个)+补下 → 73/73 下载成功，5.7GB | zhihu_download_v2.py, retry_missing.py, catalog_2020447833136836828.json | completed | ~200 |
