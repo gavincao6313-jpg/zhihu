@@ -2,11 +2,12 @@
 知乎训练营视频下载器 v2
 ======================
 使用已提取的 catalog.json + Playwright auth state
-逐个打开视频页 → 拦截 m3u8 流 → ffmpeg 下载
+逐个打开视频页 → 拦截流 URL → ffmpeg 下载
 
-用法: python zhihu_download_v2.py
+用法: python zhihu_download_v2.py --catalog catalog.json --course-id 1972xxx --out "E:\课程名"
 """
 
+import argparse
 import json
 import re
 import subprocess
@@ -19,12 +20,7 @@ if sys.platform == "win32":
 
 from playwright.sync_api import sync_playwright
 
-CATALOG_FILE = Path(r"D:/zhihu/catalog.json")
 AUTH_FILE = Path(r"D:/zhihu/zhihu_auth_state.json")
-OUTPUT_DIR = Path(r"E:\AI产品经理课")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-COURSE_ID = "1972723265349902377"
-
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/138.0.0.0 Safari/537.36"
 
 
@@ -33,11 +29,24 @@ def safe_name(s):
 
 
 def main():
-    catalog = json.loads(CATALOG_FILE.read_text("utf-8"))
+    ap = argparse.ArgumentParser(description="知乎训练营视频下载器 v2")
+    ap.add_argument("--catalog", required=True, help="课程目录 JSON 文件路径")
+    ap.add_argument("--course-id", required=True, help="课程 ID")
+    ap.add_argument("--out", required=True, help="输出目录")
+    ap.add_argument("--auth", default=str(AUTH_FILE), help="auth state JSON 路径")
+    args = ap.parse_args()
+
+    catalog_file = Path(args.catalog)
+    output_dir = Path(args.out)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    course_id = args.course_id
+    auth_file = Path(args.auth)
+
+    catalog = json.loads(catalog_file.read_text("utf-8"))
     print(f"课程目录: {len(catalog)} 节")
 
     # 读 auth
-    auth = json.loads(AUTH_FILE.read_text("utf-8"))
+    auth = json.loads(auth_file.read_text("utf-8"))
     cookie_str = "; ".join(
         f"{c['name']}={c['value']}"
         for c in auth["cookies"]
@@ -52,7 +61,7 @@ def main():
         ctx = browser.new_context(
             viewport={"width": 1280, "height": 800},
             locale="zh-CN",
-            storage_state=str(AUTH_FILE),
+            storage_state=str(auth_file),
             user_agent=UA,
         )
         ctx.add_init_script("""
@@ -67,7 +76,7 @@ def main():
         for idx, video in enumerate(catalog, 1):
             section_id = video["section_id"]
             title = video["title"]
-            video_url = f"https://www.zhihu.com/xen/market/training/training-video/{COURSE_ID}/{section_id}"
+            video_url = f"https://www.zhihu.com/xen/market/training/training-video/{course_id}/{section_id}"
 
             print(f"\n[{idx}/{len(catalog)}] {title[:50]}")
 
@@ -140,7 +149,7 @@ def main():
     for idx, video in enumerate(catalog, 1):
         section_id = video["section_id"]
         title = safe_name(video["title"])
-        dest = OUTPUT_DIR / f"{idx:03d}_{title}.mp4"
+        dest = output_dir / f"{idx:03d}_{title}.mp4"
 
         stream_url = stream_urls.get(section_id, "")
         if not stream_url:
@@ -190,7 +199,7 @@ def main():
             fail += 1
 
     print(f"\nDONE! ok={ok} skip={skip} fail={fail}")
-    print(f"Dir: {OUTPUT_DIR}")
+    print(f"Dir: {output_dir}")
 
 
 if __name__ == "__main__":
