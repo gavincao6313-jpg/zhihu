@@ -1159,3 +1159,4 @@
 | 10:21 | Created retry_missing.py | — | ~952 |
 | 09:20 | 新课: 2020447833136836828 — OpenClaw训练营(73节) → 71/73(网络瞬断2个)+补下 → 73/73 下载成功，5.7GB | zhihu_download_v2.py, retry_missing.py, catalog_2020447833136836828.json | completed | ~200 |
 | 12:57 | 新课: 2003156993427404333 — AI新编程副业实战班(55节日录) → 47/47 视频下载成功(后8节无视频流)，7.0GB | zhihu_download_v2.py, catalog_2003156993427404333.json | completed | ~200 |
+| 13:42 | 新课: 2013265166804997499 — AI产品-商业赠送(31节日录) → 27/27 视频下载成功(4节无视频流)，5.7GB | zhihu_download_v2.py, catalog_2013265166804997499.json | completed | ~200 |
