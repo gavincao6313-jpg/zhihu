@@ -1167,3 +1167,9 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 17:33 | 新课: 1848403060243705856 — 大模型应用开发工程师就业速成班(28节) → 28/28，7.9GB | zhihu_download_v2.py, catalog_1848403060243705856.json | completed | ~150 |
+| 19:41 | 下载完成：AI大模型应用开发实战训练营-十三期 30/30 节, 8.1GB | zhihu_download_v2.py capture_catalog.py | ok=30 skip=0 fail=0 | ~2000 |
+| 20:00 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/download_tasks.md | — | ~206 |
+| 20:00 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/MEMORY.md | 1→2 lines | ~44 |
+| 19:35 | 新课: 1874867424395919361 — Al解决方案专家(1127期赠第1期,24节) → 24/24，5.4GB | zhihu_download_v2.py, catalog_1874867424395919361.json | completed | ~150 |
+| 20:30 | ⏸️ 用户暂停，当前进度: 9门课完成，331视频，~55.3GB。下一门待定。 | — | paused | — |
+| 21:49 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/download_tasks.md | removed 11 lines | ~19 |
