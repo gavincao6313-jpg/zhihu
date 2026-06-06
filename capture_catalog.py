@@ -1,82 +1,80 @@
-"""通过知乎 API 获取完整课程目录"""
-import json, sys, re
+"""通过知乎 API 获取完整课程目录
+用法: python capture_catalog.py --course-id 1974142154118043353 [--out catalog.json]
+"""
+import argparse, json, sys
 from pathlib import Path
 import requests
 
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 AUTH_FILE = Path("D:/zhihu/zhihu_auth_state.json")
-COURSE_ID = "1979243275383748550"
-OUT_FILE = Path(f"D:/zhihu/catalog_{COURSE_ID}.json")
 
-# 加载 cookies
-auth = json.loads(AUTH_FILE.read_text("utf-8"))
-cookies = {c["name"]: c["value"] for c in auth["cookies"] if "zhihu.com" in c.get("domain", "")}
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/138.0.0.0 Safari/537.36",
-    "Referer": f"https://www.zhihu.com/xen/market/training/training-video/{COURSE_ID}/",
-    "X-Requested-With": "XMLHttpRequest",
-    "Accept": "application/json",
-}
+def main():
+    ap = argparse.ArgumentParser(description="知乎训练营课程目录抓取")
+    ap.add_argument("--course-id", required=True, help="课程 ID")
+    ap.add_argument("--out", default=None, help="输出 JSON 文件路径（默认 catalog_{course_id}.json）")
+    ap.add_argument("--auth", default=str(AUTH_FILE), help="auth state JSON 路径")
+    args = ap.parse_args()
 
-# 翻页获取所有章节
-all_sections = []
-offset = 0
-limit = 50
+    course_id = args.course_id
+    out_file = Path(args.out) if args.out else Path(f"D:/zhihu/catalog_{course_id}.json")
 
-while True:
-    url = f"https://www.zhihu.com/api/education/training/{COURSE_ID}/video_page/catalog"
-    params = {"limit": limit, "offset": offset}
-    r = requests.get(url, headers=headers, cookies=cookies, params=params, timeout=30)
-    print(f"offset={offset}: status={r.status_code}, len={len(r.text)}")
+    # 加载 cookies
+    auth = json.loads(Path(args.auth).read_text("utf-8"))
+    cookies = {c["name"]: c["value"] for c in auth["cookies"] if "zhihu.com" in c.get("domain", "")}
 
-    if r.status_code != 200:
-        break
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/138.0.0.0 Safari/537.36",
+        "Referer": f"https://www.zhihu.com/xen/market/training/training-video/{course_id}/",
+        "X-Requested-With": "XMLHttpRequest",
+        "Accept": "application/json",
+    }
 
-    data = r.json()
-    if data.get("errcode") != 0:
-        print(f"  API error: {data.get('errmsg', 'unknown')}")
-        break
+    all_sections = []
+    offset = 0
+    limit = 50
 
-    catalog_data = data.get("data", [])
-    if not catalog_data:
-        break
+    while True:
+        url = f"https://www.zhihu.com/api/education/training/{course_id}/video_page/catalog"
+        r = requests.get(url, headers=headers, cookies=cookies, params={"limit": limit, "offset": offset}, timeout=30)
+        if r.status_code != 200:
+            print(f"HTTP {r.status_code}")
+            break
+        data = r.json()
+        if data.get("errcode") != 0:
+            print(f"API error: {data.get('errmsg', 'unknown')}")
+            break
+        catalog = data.get("data", [])
+        if isinstance(catalog, dict):
+            catalog = (catalog.get("list") or catalog.get("data") or catalog.get("sections") or catalog.get("chapters") or [])
+        if not catalog:
+            break
+        for item in catalog:
+            if isinstance(item, dict):
+                sid = str(item.get("id") or item.get("section_id") or item.get("video_id") or "")
+                title = item.get("title") or item.get("name") or ""
+                if title and sid:
+                    all_sections.append({"section_id": sid, "title": title})
+        print(f"  offset={offset}: {len(catalog)} items, total={len(all_sections)}")
+        if len(catalog) < limit:
+            break
+        offset += limit
 
-    # catalog_data 可能是 list 或 dict
-    if isinstance(catalog_data, dict):
-        # 尝试从 dict 中提取列表
-        catalog_data = (catalog_data.get("list") or catalog_data.get("data")
-                       or catalog_data.get("sections") or catalog_data.get("chapters")
-                       or catalog_data.get("items") or [])
+    if not all_sections:
+        print("FAIL: 未获取到目录数据")
+        sys.exit(1)
 
-    for item in catalog_data:
-        if isinstance(item, dict):
-            # 尝试提取 section_id 和 title
-            sid = str(item.get("id") or item.get("section_id") or item.get("video_id") or "")
-            title = item.get("title") or item.get("name") or item.get("display_title") or ""
-            if title and sid:
-                all_sections.append({"section_id": sid, "title": title})
+    # 去重
+    seen = set()
+    unique = [v for v in all_sections if v["section_id"] not in seen and not seen.add(v["section_id"])]
 
-    print(f"  本页 {len(catalog_data)} 条，累计 {len(all_sections)} 条")
+    out_file.write_text(json.dumps(unique, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\n目录已保存: {out_file} ({len(unique)} 节)")
+    for i, v in enumerate(unique, 1):
+        print(f"  {i:2}. {v['title'][:80]}")
 
-    if len(catalog_data) < limit:
-        break
-    offset += limit
 
-# 保存
-if not all_sections:
-    print("FAIL: 未获取到目录数据")
-    print(f"Raw API response preview: {json.dumps(data, ensure_ascii=False, indent=2)[:2000]}")
-    sys.exit(1)
-
-# 去重
-seen = set()
-unique = []
-for v in all_sections:
-    if v["section_id"] not in seen:
-        seen.add(v["section_id"])
-        unique.append(v)
-
-OUT_FILE.write_text(json.dumps(unique, ensure_ascii=False, indent=2), encoding="utf-8")
-print(f"\n目录已保存: {OUT_FILE} ({len(unique)} 节)")
-for i, v in enumerate(unique, 1):
-    print(f"  {i:2}. {v['title'][:80]}")
+if __name__ == "__main__":
+    main()
