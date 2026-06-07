@@ -1173,3 +1173,13 @@
 | 19:35 | 新课: 1874867424395919361 — Al解决方案专家(1127期赠第1期,24节) → 24/24，5.4GB | zhihu_download_v2.py, catalog_1874867424395919361.json | completed | ~150 |
 | 20:30 | ⏸️ 用户暂停，当前进度: 9门课完成，331视频，~55.3GB。下一门待定。 | — | paused | — |
 | 21:49 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/download_tasks.md | removed 11 lines | ~19 |
+| 08:58 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/download_tasks.md | — | ~106 |
+| 09:12 | Created probe_material.py | — | ~1276 |
+| 09:14 | Created probe_material_api.py | — | ~668 |
+| 09:15 | Created probe_material.py | — | ~1498 |
+| 09:15 | Edited probe_material.py | inline fix | ~36 |
+| 09:16 | Created probe_material.py | — | ~1238 |
+| 09:18 | Created probe_material.py | — | ~1524 |
+| 09:19 | Created probe_material.py | — | ~930 |
+| 09:20 | Created download_course_materials.py | — | ~1616 |
+| 09:01 | 新课: 1972723265349902377 — 小结资料PDF下载(29/68节有资料) → 29/29 成功，216MB | download_course_materials.py | completed | ~200 |
