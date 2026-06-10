@@ -1183,3 +1183,87 @@
 | 09:19 | Created probe_material.py | — | ~930 |
 | 09:20 | Created download_course_materials.py | — | ~1616 |
 | 09:01 | 新课: 1972723265349902377 — 小结资料PDF下载(29/68节有资料) → 29/29 成功，216MB | download_course_materials.py | completed | ~200 |
+
+## Session: 2026-06-07 09:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-07 11:13
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:47 | Created zhihu_file/gen_slides_external.py | — | ~738 |
+
+## Session: 2026-06-07 13:56
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-07 17:06
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 18:44 | Edited download_course_materials.py | modified download_file() | ~374 |
+
+## Session: 2026-06-07 19:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:23 | Edited download_course_materials.py | expanded (+6 lines) | ~367 |
+| 20:31 | Edited download_course_materials.py | 2→2 lines | ~25 |
+
+## Session: 2026-06-08 09:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:47 | Edited zhihu_file/batch_process_external.py | 5→8 lines | ~125 |
+| 14:47 | Edited zhihu_file/batch_process_external.py | modified route_provider() | ~148 |
+| 14:47 | Edited zhihu_file/batch_process_external.py | modified _process_qwen() | ~75 |
+| 14:47 | Edited zhihu_file/batch_process_external.py | 3→3 lines | ~30 |
+| 14:47 | Edited zhihu_file/batch_process_external.py | 4→4 lines | ~59 |
+| 14:47 | Edited zhihu_file/batch_process_external.py | modified process_single_video() | ~108 |
+| 14:47 | Edited zhihu_file/batch_process_external.py | 4→5 lines | ~55 |
+| 14:48 | Edited zhihu_file/batch_process_external.py | modified dry_run() | ~628 |
+| 14:48 | Edited zhihu_file/batch_process_external.py | inline fix | ~29 |
+| 14:48 | Edited zhihu_file/batch_process_external.py | 3→3 lines | ~50 |
+| 14:48 | Edited zhihu_file/batch_process_external.py | 8→9 lines | ~120 |
+| 14:49 | Edited zhihu_file/batch_process_external.py | expanded (+23 lines) | ~1057 |
+| 14:49 | Edited zhihu_file/batch_process_external.py | 6→7 lines | ~95 |
+| 14:49 | Edited zhihu_file/batch_process_external.py | 4→7 lines | ~112 |
+| 14:49 | Edited zhihu_file/batch_process_external.py | 4→8 lines | ~119 |
+| 14:49 | Edited zhihu_file/batch_process_external.py | 2→2 lines | ~41 |
+| 17:29 | Edited zhihu_file/batch_process_external.py | modified discover_external_videos() | ~98 |
+
+## Session: 2026-06-08 17:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:12 | Created extract_bilibili_cookies.py | — | ~565 |
+| 20:13 | Created extract_bilibili_cookies.py | — | ~671 |
+| 20:36 | Created extract_chrome_cookies.py | — | ~1215 |
+| 20:40 | Created extract_chrome_cookies.py | — | ~1480 |
+| 20:41 | Created extract_bilibili_cookies.py | — | ~931 |
+| 00:26 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_pm_course_batch_processing.md | — | ~444 |
+
+## Session: 2026-06-10 12:35
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 12:38 | Edited zhihu_file/batch_process_external.py | modified discover_external_videos() | ~181 |
+
+## Session: 2026-06-10 13:00
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:23 | Edited zhihu_file/batch_process_external.py | modified discover_external_videos() | ~174 |
+| 14:23 | Edited zhihu_file/batch_process_external.py | expanded (+8 lines) | ~174 |
+| 14:24 | Edited zhihu_file/batch_process_external.py | inline fix | ~25 |
+| 14:25 | Created zhihu_file/_fix_progress_keys.py | — | ~339 |
+| 14:27 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_pm_course_batch_processing.md | 2→3 lines | ~51 |
+| 14:27 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_pm_course_batch_processing.md | expanded (+15 lines) | ~220 |
+| 14:27 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_pm_course_batch_processing.md | removed 4 lines | ~3 |
+| 14:27 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_pm_course_batch_processing.md | inline fix | ~40 |
+| 14:42 | 🔍 重大发现：E:\AI产品\ 193个MP4输出实际在 zhihu_file/Markdowns/batch/ (184个平铺md)，非 Markdowns/batch/。初期错误报告"只有19个"是查错了目录。 | batch_process_external.py | corrected | ~800 |
+| 14:45 | 📁 整理完成：193/193 MD按5门课程分子目录，清理4个尾随空格空壳文件，1个冲突文件复制到两门课 | zhihu_file/Markdowns/batch/ | completed | ~600 |
+| 14:50 | 🧠 更新 cerebrum Do-Not-Repeat + memory ai_pm_course_batch_processing.md，固化 batch 输出目录的正确位置 | cerebrum.md, memory.md, ai_pm_course_batch_processing.md | done | ~300 |

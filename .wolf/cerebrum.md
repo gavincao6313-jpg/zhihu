@@ -147,6 +147,7 @@
 - **[2026-06-02] Do not trust the frontend dry-run command preview as the real launch command.** `build_run_plan()` can show `run_zhihu_live.bat ...` while `/api/runs/{id}/launch` in live mode calls `launch_live_pipeline()` directly and builds a `zhihuTTS_stream.py --continuous-hls ...` command. Pre-live reviews must compare planner output with launcher code.
 - **[2026-06-02] Do not assume provider-labeled QC implies provider-correct Markdown in the workbench.** `markdown_for_base()` still falls back by base glob when the exact `TTS_stream-{base}-{label}.md` path is absent; historical runs such as `live-20260528.gemini35` can display a Qwen Markdown path. Exact artifact identity must be checked before judging UI correctness.
 - **[2026-06-03] Do not make strong Windows Workbench dependencies foreground-only.** API watchdog and Vite are required for the frontend to load; launching them with visible `cmd /k` windows invites accidental closure. Default to hidden/logged background services and provide an explicit foreground debug opt-in plus stop script.
+- **[2026-06-10] 批量处理外部视频的输出目录不在项目根 `D:\zhihu\Markdowns\batch\`，而在脚本所在目录 `D:\zhihu\zhihu_file\Markdowns\batch\`。** `batch_process_external.py` 的 `MARKDOWNS_DIR` 解析为脚本同级目录（`zhihu_file/Markdowns/`），不是项目根。查找 batch 处理结果时必须先检查 `zhihu_file\Markdowns\batch\`，再查 `Markdowns\batch\`。本次导致用户误以为 186 个处理结果丢失（实际全部在 `zhihu_file\Markdowns\batch\` 中平铺），消耗大量时间做无谓排查。
 
 ## Decision Log
 
