@@ -1,0 +1,64 @@
+#!/bin/bash
+# 预推送检查：扫描待推送提交中的凭据/密钥
+#
+# 这是 pre-commit 的双保险 —— 即使 commit 被绕过，
+# push 阶段仍能拦截凭据暴露。
+#
+# 激活（每台机器一次）：
+#   git config core.hooksPath .githooks
+
+set -e
+
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+# 远端 ref 和本地 ref 由 git 通过 stdin 传入
+# 格式：<local-ref> <local-sha> <remote-ref> <remote-sha>
+while read -r _ local_sha _ _; do
+  [ "$local_sha" = "(delete)" ] && continue
+
+  RANGE="${local_sha}~1..${local_sha}"
+  if git rev-parse "$local_sha"^2 >/dev/null 2>&1; then
+    RANGE="$(git merge-base "$local_sha" HEAD)..$local_sha"
+  fi
+
+  # ── 值模式扫描 ────────────────────────────────────────────
+  VALUE_PATTERNS=(
+    'AIza[0-9A-Za-z_-]{20,}'        # Google API Key
+    'sk-[a-zA-Z0-9]{20,}'           # OpenAI / DashScope
+    'sk-ant-[a-zA-Z0-9]{20,}'       # Anthropic / Claude
+    'ghp_[a-zA-Z0-9]{36}'           # GitHub PAT
+    'gho_[a-zA-Z0-9]{36}'           # GitHub OAuth
+    'ghu_[a-zA-Z0-9]{36}'           # GitHub user token
+  )
+
+  DIFF=$(git diff "$RANGE" -- ':(exclude).githooks/*' 2>/dev/null || true)
+
+  for pat in "${VALUE_PATTERNS[@]}"; do
+    MATCH=$(echo "$DIFF" | grep -E "^\+.*${pat}" || true)
+    if [ -n "$MATCH" ]; then
+      echo ""
+      echo -e "${RED}❌ PUSH BLOCKED:${NC} 待推送提交包含疑似密钥值 (${pat})"
+      echo "$MATCH" | head -5 | sed 's/^/    /'
+      echo ""
+      echo -e "${YELLOW}    移除密钥值后重新提交。紧急推送: git push --no-verify${NC}"
+      exit 1
+    fi
+  done
+
+  # ── 文件名扫描 ────────────────────────────────────────────
+  FILES=$(git diff "$RANGE" --name-only --diff-filter=A 2>/dev/null || true)
+  for f in $FILES; do
+    case "$f" in
+      *auth_state*.json|*cookie*.txt|cookies.txt|*.key|*secret*|*cred*|*api_key*|*token*.txt|zhihu_token*)
+        echo ""
+        echo -e "${RED}❌ PUSH BLOCKED:${NC} 待推送提交新增凭据文件: $f"
+        echo ""
+        exit 1
+        ;;
+    esac
+  done
+done
+
+exit 0

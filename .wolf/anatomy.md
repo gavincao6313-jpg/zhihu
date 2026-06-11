@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-11T03:04:12.430Z
-> Files: 32 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-11T03:13:48.113Z
+> Files: 33 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../.claude/plans/
 
@@ -29,7 +29,8 @@
 
 ## .githooks/
 
-- `pre-commit` — 预提交安全检查：阻止凭据/密钥文件被提交 (~515 tok)
+- `pre-commit` — 预提交检查：凭据拦截 + 仓库卫生 (~1204 tok)
+- `pre-push` — 预推送检查：扫描待推送提交中的凭据/密钥 (~486 tok)
 
 ## .wolf/
 
