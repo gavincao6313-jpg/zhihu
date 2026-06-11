@@ -1267,3 +1267,38 @@
 | 14:42 | 🔍 重大发现：E:\AI产品\ 193个MP4输出实际在 zhihu_file/Markdowns/batch/ (184个平铺md)，非 Markdowns/batch/。初期错误报告"只有19个"是查错了目录。 | batch_process_external.py | corrected | ~800 |
 | 14:45 | 📁 整理完成：193/193 MD按5门课程分子目录，清理4个尾随空格空壳文件，1个冲突文件复制到两门课 | zhihu_file/Markdowns/batch/ | completed | ~600 |
 | 14:50 | 🧠 更新 cerebrum Do-Not-Repeat + memory ai_pm_course_batch_processing.md，固化 batch 输出目录的正确位置 | cerebrum.md, memory.md, ai_pm_course_batch_processing.md | done | ~300 |
+
+## Session: 2026-06-10 19:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:07 | Created zhihu_file/_quick_save_xiaoe_auth.py | — | ~665 |
+| 20:18 | Created zhihu_file/START_XIAOE_LIVE.bat | — | ~1231 |
+| 20:19 | Created zhihu_file/save_xiaoe_auth.py | — | ~698 |
+| 20:19 | Edited zhihu_file/START_XIAOE_LIVE.bat | inline fix | ~14 |
+| 20:19 | Edited zhihu_file/docs/LIVE_STREAM_SOP.md | expanded (+54 lines) | ~448 |
+| 20:22 | 小鹅通直播启动: 认证→探针→录制·转写。修复 auth 自动检测+创建 START_XIAOE_LIVE.bat | save_xiaoe_auth.py, START_XIAOE_LIVE.bat, LIVE_STREAM_SOP.md | 录制运行中: 4 TS + 2 chunks | ~8000 |
+| 20:22 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/xiaoe_live_startup.md | — | ~294 |
+| 20:22 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/MEMORY.md | 1→2 lines | ~46 |
+| 20:22 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/live-stream-sop.md | expanded (+8 lines) | ~142 |
+
+## Session: 2026-06-10 00:04
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-11 09:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:40 | Created zhihu_file/_parse_probe_json.py | — | ~872 |
+| 09:44 | Edited zhihu_file/scripts/toutiao_probe_favorites.py | added 2 import(s) | ~138 |
+| 09:44 | Edited zhihu_file/scripts/toutiao_probe_favorites.py | modified collect_json_body_candidates() | ~882 |
+| 09:45 | Edited zhihu_file/scripts/toutiao_probe_favorites.py | 6→10 lines | ~139 |
+| 09:47 | Edited zhihu_file/scripts/toutiao_probe_favorites.py | 2→4 lines | ~88 |
+| 09:48 | Edited zhihu_file/scripts/toutiao_probe_favorites.py | 4→4 lines | ~75 |
+| 09:50 | Edited zhihu_file/scripts/toutiao_common.py | modified _sanitize_surrogates() | ~204 |
+| 09:59 | Created zhihu_file/_check_manifest.py | — | ~149 |
+| 10:02 | Created zhihu_file/_sync_toutiao_api.py | — | ~1339 |
+| 10:08 | Edited zhihu_file/.gitignore | 2→5 lines | ~39 |
+| 10:10 | Created zhihu_file/_sync_toutiao_api_v2.py | — | ~904 |
