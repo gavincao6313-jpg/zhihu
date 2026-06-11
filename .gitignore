@@ -26,6 +26,9 @@ frontend/dist/
 # Playwright browser binaries (downloaded locally)
 .playwright-browsers/
 
+# Playwright persistent profile (xiaoe auth)
+.playwright-xiaoe-profile/
+
 # Local probe media
 runs/*.wav
 runs/web-run-registry.json

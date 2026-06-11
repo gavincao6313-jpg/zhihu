@@ -1,49 +1,73 @@
-"""Save xiaoe auth state via manual login in headed browser.
+"""Save xiaoe auth state — auto-detects login and saves without waiting for Enter.
 
+Uses persistent browser profile so cookies survive across launches.
 Usage: python save_xiaoe_auth.py <xiaoe_live_url>
 """
+import sys
+import time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
-import sys
 
 if len(sys.argv) < 2 or not sys.argv[1].strip():
     print("Usage: python save_xiaoe_auth.py <xiaoe_live_url>")
     sys.exit(1)
 
 url = sys.argv[1].strip()
-out_path = str(Path(__file__).parent / "zhihu_auth_state_xiaoe.json")
+out_path = Path(__file__).parent / "zhihu_auth_state_xiaoe.json"
+user_data_dir = str(Path(__file__).parent / ".playwright-xiaoe-profile")
 
-print("Opening browser for xiaoe login...")
 print(f"URL: {url[:120]}...")
 print(f"Auth will be saved to: {out_path}")
 print()
 print("=== 请在浏览器中完成小鹅通登录（微信扫码/手机号）===")
-print("=== 看到直播画面后，回到终端按 Enter 保存 auth state ===")
+print("=== 看到直播画面后，脚本将自动检测并保存 ===")
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False)
-    context = browser.new_context(
+    context = p.chromium.launch_persistent_context(
+        user_data_dir,
+        headless=False,
         viewport={"width": 1280, "height": 720},
         user_agent=(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
             "(KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
         ),
+        args=[
+            "--disable-blink-features=AutomationControlled",
+            "--disable-features=IsolateOrigins,site-per-process",
+            "--no-sandbox",
+        ],
     )
-    page = context.new_page()
 
-    # Antidetection
+    page = context.new_page()
     page.add_init_script("""
         Object.defineProperty(navigator, 'webdriver', { get: () => false });
         window.chrome = { runtime: {} };
         Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
     """)
 
-    page.goto(url, wait_until="domcontentloaded", timeout=30000)
+    try:
+        page.goto(url, wait_until="domcontentloaded", timeout=30000)
+    except Exception as e:
+        print(f"Goto error (continuing): {e}")
+
     print(f"Current URL: {page.url[:150]}")
+    print("Waiting for login to complete (max 120s)...")
 
-    input("\n按 Enter 保存 auth state 并退出...")
+    deadline = time.time() + 120
+    logged_in = False
+    while time.time() < deadline:
+        current = page.url.lower()
+        if "login" not in current and "auth" not in current:
+            logged_in = True
+            print(f"Logged in! URL: {page.url[:120]}")
+            break
+        time.sleep(1)
 
-    context.storage_state(path=out_path)
-    print(f"Saved: {out_path}")
-    browser.close()
+    if not logged_in:
+        print("WARNING: Still on login page after 120s. Saving current state anyway.")
+        print(f"Current URL: {page.url[:200]}")
+
+    context.storage_state(path=str(out_path))
+    print(f"Saved: {out_path} ({out_path.stat().st_size} bytes)")
+    context.close()
     print("Done.")

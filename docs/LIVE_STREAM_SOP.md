@@ -273,13 +273,64 @@ logs/
 
 ---
 
-## 八、快速参考卡片
+## 八、小鹅通 (xiaoe) 直播 — 独立流程
+
+> **工作目录**: `d:\zhihu\zhihu_file` （main 分支 worktree）
+> **启动器**: `d:\zhihu\zhihu_file\START_XIAOE_LIVE.bat`
+
+### 8.1 启动方式
+
+**双击 `START_XIAOE_LIVE.bat`**，粘贴小鹅通 URL 回车。全自动：认证→探针→录制→转写→合成。
+
+### 8.2 架构差异
+
+| | 知乎 CC | 小鹅通 |
+|---|---|---|
+| 流格式 | FLV (csslcloud) | HLS (腾讯云 VOD) |
+| 提取方式 | Playwright 拦截 FLV | 探针拦截 m3u8 → 直连 |
+| 鉴权 | cookie z_c0 | cookie ko_token (+ Referer) |
+| 目录 | `zhihu_url` | `zhihu_file` |
+| 分支 | main | main (worktree) |
+
+### 8.3 小鹅通认证
+
+- 文件: `zhihu_auth_state_xiaoe.json`（已 gitignored）
+- Cookie 关键字段: `ko_token`
+- 登录: `python save_xiaoe_auth.py <URL>`（自动检测登录完成，不再需要手动按 Enter）
+- 持久化: 使用 `launch_persistent_context` + `.playwright-xiaoe-profile/` 目录
+
+### 8.4 小鹅通验证
+
+```powershell
+# 工作目录
+Set-Location d:\zhihu\zhihu_file
+
+# 验证进程
+Get-Process -Name "python","ffmpeg" -ErrorAction SilentlyContinue
+
+# 查看进度
+Get-ChildItem "runs\stream-xiaoe-*_chunk*.md" | Sort-Object Name | Select-Object -Last 5
+
+# 查看 TS 分片
+(Get-ChildItem "Videos\.stream\xiaoe-*\*.ts").Count
+```
+
+---
+
+## 九、快速参考卡片
+
+### 知乎 CC
 
 ```
-=== 启动 ===
 双击: d:\zhihu\zhihu_url\START_LIVE.bat
 粘贴 URL，回车
-（无需 PowerShell，无需处理特殊字符）
+```
+
+### 小鹅通
+
+```
+双击: d:\zhihu\zhihu_file\START_XIAOE_LIVE.bat
+粘贴 URL，回车
 ```
 
 ```powershell
@@ -287,8 +338,11 @@ logs/
 Get-Process -Name "python","ffmpeg" -ErrorAction SilentlyContinue
 # 期望: python x2, ffmpeg x1
 
-# === 查看进度 ===
+# === 知乎 CC 查看进度 ===
 Get-ChildItem "d:\zhihu\zhihu_url\runs\stream-live_*chunk*.md" | Sort-Object Name | Select-Object -Last 5
+
+# === 小鹅通查看进度 ===
+Get-ChildItem "d:\zhihu\zhihu_file\runs\stream-xiaoe-*_chunk*.md" | Sort-Object Name | Select-Object -Last 5
 ```
 
 ---
