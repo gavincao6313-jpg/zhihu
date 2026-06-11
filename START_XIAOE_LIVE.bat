@@ -49,8 +49,7 @@ if "!PAGE_URL!"=="" (
     exit /b 1
 )
 
-echo !PAGE_URL! | findstr /i "^http" >nul
-if errorlevel 1 (
+if /i not "!PAGE_URL:~0,7!"=="http://" if /i not "!PAGE_URL:~0,8!"=="https://" (
     echo [错误] URL 格式不正确，必须以 http:// 或 https:// 开头。
     pause
     exit /b 1
@@ -92,8 +91,9 @@ echo [名称] !NAME!
 echo.
 echo [探针] 正在获取直播流地址 (最多等待 45 秒)...
 set "M3U8_URL="
-for /f "tokens=2 delims==" %%a in ('"%VENV_PYTHON%" probe_xiaoe_stream.py "!PAGE_URL!" "%AUTH_FILE%" 2^>nul ^| findstr "M3U8_URL="') do (
-    set "M3U8_URL=%%a"
+for /f "usebackq delims=" %%a in (`"%VENV_PYTHON%" probe_xiaoe_stream.py "!PAGE_URL!" "%AUTH_FILE%" 2^>nul ^| findstr /b "M3U8_URL="`) do (
+    set "PROBE_LINE=%%a"
+    if /i "!PROBE_LINE:~0,9!"=="M3U8_URL=" set "M3U8_URL=!PROBE_LINE:~9!"
 )
 if "!M3U8_URL!"=="" (
     echo [错误] 无法获取直播流地址。可能原因:
@@ -160,16 +160,16 @@ if errorlevel 1 (
 echo.
 echo [合成] 生成 NotebookLM 笔记...
 if not "!GEMINI_API_KEY!"=="" (
-    "%VENV_PYTHON%" scripts\build_stream_markdown.py --base "!NAME!" --runs-dir runs --markdowns-dir Markdowns
+    "%VENV_PYTHON%" scripts\build_stream_markdown.py --base "!NAME!" --runs-dir runs --markdowns-dir Markdowns --output-label gemini35 --max-retries 2 --max-continuations 2
     if errorlevel 1 (
         echo [提示] 笔记生成失败，手动运行:
-        echo   python scripts\build_stream_markdown.py --base !NAME! --runs-dir runs --markdowns-dir Markdowns
+        echo   python scripts\build_stream_markdown.py --base !NAME! --runs-dir runs --markdowns-dir Markdowns --output-label gemini35 --max-retries 2 --max-continuations 2
     ) else (
         echo [合成] 完成: Markdowns\TTS_stream-!NAME!-gemini35.md
     )
 ) else (
     echo [提示] 未设置 GEMINI_API_KEY，跳过笔记生成。
-    echo   手动运行: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --runs-dir runs --markdowns-dir Markdowns
+    echo   手动运行: set GEMINI_API_KEY=your_key ^& python scripts\build_stream_markdown.py --base !NAME! --runs-dir runs --markdowns-dir Markdowns --output-label gemini35 --max-retries 2 --max-continuations 2
 )
 
 echo.

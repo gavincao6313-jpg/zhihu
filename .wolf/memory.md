@@ -1302,3 +1302,6 @@
 | 10:02 | Created zhihu_file/_sync_toutiao_api.py | — | ~1339 |
 | 10:08 | Edited zhihu_file/.gitignore | 2→5 lines | ~39 |
 | 10:10 | Created zhihu_file/_sync_toutiao_api_v2.py | — | ~904 |
+| 10:22 | Stashed tracked local changes and fast-forwarded main to origin/main | git stash, START_XIAOE_LIVE.bat, batch_process_external.py | updated to f724c09; local generated artifacts hidden via .git/info/exclude; py_compile passed with non-blocking SyntaxWarnings | ~4500 |
+| 10:27 | Reviewed latest WIN Xiaoe live/batch push as third-party audit | START_XIAOE_LIVE.bat, save_xiaoe_auth.py, batch_process_external.py | no newer remote than f724c09; found P0/P1 blockers in BAT URL parsing, auth validation, batch API accounting, Qwen window coverage, and tracked API key | ~9000 |
+| 10:55 | Fixed Xiaoe live/batch review blockers | START_XIAOE_LIVE.bat, save_xiaoe_auth.py, batch_process_external.py, .gitignore, .wolf/buglog.json | BAT preserves signed URLs/m3u8; auth save now requires ko_token; batch dry-run/status no longer require OpenAI/genai; Gemini/Qwen call accounting and Qwen tail-window failure handling hardened; Claude local settings removed from index | ~9000 |

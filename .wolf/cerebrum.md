@@ -149,6 +149,8 @@
 - **[2026-06-02] Do not assume provider-labeled QC implies provider-correct Markdown in the workbench.** `markdown_for_base()` still falls back by base glob when the exact `TTS_stream-{base}-{label}.md` path is absent; historical runs such as `live-20260528.gemini35` can display a Qwen Markdown path. Exact artifact identity must be checked before judging UI correctness.
 - **[2026-06-03] Do not make strong Windows Workbench dependencies foreground-only.** API watchdog and Vite are required for the frontend to load; launching them with visible `cmd /k` windows invites accidental closure. Default to hidden/logged background services and provide an explicit foreground debug opt-in plus stop script.
 - **[2026-06-10] 批量处理外部视频的输出目录不在项目根 `D:\zhihu\Markdowns\batch\`，而在脚本所在目录 `D:\zhihu\zhihu_file\Markdowns\batch\`。** `batch_process_external.py` 的 `MARKDOWNS_DIR` 解析为脚本同级目录（`zhihu_file/Markdowns/`），不是项目根。查找 batch 处理结果时必须先检查 `zhihu_file\Markdowns\batch\`，再查 `Markdowns\batch\`。本次导致用户误以为 186 个处理结果丢失（实际全部在 `zhihu_file\Markdowns\batch\` 中平铺），消耗大量时间做无谓排查。
+- **[2026-06-11] 小鹅通启动器 review 必须检查 BAT 对 URL 元字符和 `M3U8_URL=` 的处理。** `START_XIAOE_LIVE.bat` 宣称可直接粘贴含 `& ? =` 的 URL，但裸 `echo !PAGE_URL! | findstr` 会被 `&` 等 metachar 破坏；同时 `for /f "tokens=2 delims=="` 会截断含 `time=`/`uuid=` 的签名 m3u8。修复应避免经 shell echo 验证 URL，并用前缀剥离保留完整 m3u8。
+- **[2026-06-11] 批处理合成脚本 review 必须核对 API 调用计数和 Qwen 分窗覆盖。** `batch_process_external.py` 的 Gemini 路径允许 `max_continuations=20` 却只记 1 次 API 调用；Qwen 路径只按窗口调用数计数而忽略 call_qwen continuation/retry；其 overlap 分窗用固定 `n_windows` 循环会漏掉尾部帧。长视频批处理不能只看最终 Markdown 是否生成。
 
 ## Decision Log
 

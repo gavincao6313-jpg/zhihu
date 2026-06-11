@@ -19,6 +19,9 @@ __pycache__/
 *.pyc
 .venv*/
 
+# Local Claude/Codex machine permission state
+.claude/settings.local.json
+
 # Frontend dependencies and build output
 frontend/node_modules/
 frontend/dist/

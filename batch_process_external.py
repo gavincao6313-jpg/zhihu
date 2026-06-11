@@ -1,4 +1,4 @@
-"""Batch process MP4 videos from an external directory through the
+r"""Batch process MP4 videos from an external directory through the
 ASR → keyframes → AI synthesis pipeline.
 
 Usage:
@@ -53,9 +53,6 @@ from utils import (
     ensure_qwen_narrative_appendix,
     check_qwen_notebooklm_quality,
 )
-from google import genai
-from google.genai import types
-from openai import OpenAI
 
 # ── Config ──────────────────────────────────────────────────
 
@@ -66,6 +63,8 @@ BATCH_PROGRESS_FILE = Path(__file__).parent / ".progress_batch.json"
 DEFAULT_DURATION_THRESHOLD_S = 9000       # 2.5h — Gemini ≤ this, Qwen >
 DEFAULT_DAILY_LIMIT_GEMINI = 20
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
+GEMINI_BATCH_MAX_RETRIES = 2
+GEMINI_BATCH_MAX_CONTINUATIONS = 2
 QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
 QWEN_MAX_FRAMES = 250
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
@@ -366,6 +365,8 @@ def _preprocess_video(video_path: Path, video_label: str):
 
 def _build_parts(transcript_text: str, kept_frames: list, events: list, prompt: str) -> list:
     """Build model input parts: prompt + transcript + frame markers + frame images."""
+    from google.genai import types
+
     parts = [prompt, transcript_text]
     for fp in kept_frames:
         parts.append(frame_marker(fp, events))
@@ -382,18 +383,21 @@ def _process_gemini(gemini_client, parts: list, video_label: str) -> dict:
         label=f"Gemini {video_label[:25]}",
         model=GEMINI_MODEL,
         thinking_budget=8192,
-        max_retries=6,
-        max_continuations=20,
+        max_retries=GEMINI_BATCH_MAX_RETRIES,
+        max_continuations=GEMINI_BATCH_MAX_CONTINUATIONS,
     )
+    conservative_calls = 1 + GEMINI_BATCH_MAX_CONTINUATIONS
     if text:
-        return {"text": text, "api_calls": 1, "success": True, "failed_stage": None}
+        return {"text": text, "api_calls": conservative_calls, "success": True, "failed_stage": None}
     else:
-        return {"text": None, "api_calls": 1, "success": False, "failed_stage": "gemini"}
+        return {"text": None, "api_calls": conservative_calls, "success": False, "failed_stage": "gemini"}
 
 
 def _process_qwen(qwen_client, parts: list, video_label: str,
                   transcript_text: str, kept_frames: list, events: list) -> dict:
     """Qwen sliding-window synthesis path. Returns {text, api_calls, success, ...}."""
+    from google.genai import types
+
     total_frames = len(kept_frames)
 
     # Build windows if needed
@@ -407,13 +411,13 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
             return 2
 
         sorted_frames = sorted(kept_frames, key=_frame_priority)
-        n_windows = (total_frames + QWEN_MAX_FRAMES - 1) // QWEN_MAX_FRAMES
-        window_size = (total_frames + n_windows - 1) // n_windows
+        min_windows = (total_frames + QWEN_MAX_FRAMES - 1) // QWEN_MAX_FRAMES
+        window_size = (total_frames + min_windows - 1) // min_windows
         overlap = max(0, min(int(window_size * 0.10), window_size // 3))
 
         windows = []
         start_idx = 0
-        for _ in range(n_windows):
+        while start_idx < total_frames:
             end_idx = min(total_frames, start_idx + window_size)
             window_fps = sorted_frames[start_idx:end_idx]
             window_fps.sort(key=lambda fp: (
@@ -421,7 +425,10 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
                 if "[" in frame_marker(fp, events) else 0
             ))
             windows.append(window_fps)
-            start_idx = max(start_idx, end_idx - overlap)
+            if end_idx >= total_frames:
+                break
+            next_start = end_idx - overlap
+            start_idx = next_start if next_start > start_idx else end_idx
 
         print(f"  分窗策略: {total_frames} 帧 → {len(windows)} 个窗口")
     else:
@@ -452,7 +459,7 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
             enable_thinking=True, thinking_budget=4096,
             max_tokens=48000, max_retries=3,
         )
-        qwen_calls += 1
+        qwen_calls += int(w_result.get("api_calls", 1) if isinstance(w_result, dict) else 1)
         w_text = w_result.get("text") if isinstance(w_result, dict) else None
         w_ok = bool(w_text)
         window_success.append(w_ok)
@@ -464,6 +471,8 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
 
     if not any(window_success):
         return {"text": None, "api_calls": qwen_calls, "success": False, "failed_stage": "qwen-windows"}
+    if not all(window_success):
+        return {"text": None, "api_calls": qwen_calls, "success": False, "failed_stage": "qwen-window-partial"}
 
     if window_count == 1:
         qwen_text = window_notes[0]
@@ -488,7 +497,7 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
             model=QWEN_MODEL, enable_thinking=True, thinking_budget=8192,
             max_tokens=64000, max_retries=3,
         )
-        qwen_calls += 1
+        qwen_calls += int(assembly_result.get("api_calls", 1) if isinstance(assembly_result, dict) else 1)
         qwen_text = assembly_result.get("text") if isinstance(assembly_result, dict) else None
         if qwen_text:
             print(f"  [Qwen-Assembly] ✓ {len(qwen_text):,} 字符")
@@ -739,20 +748,32 @@ def process_batch(args: argparse.Namespace) -> None:
 
     gemini_client = None
     if gemini_api_key:
-        http_opts = types.HttpOptions(
-            timeout=3600000,
-            base_url=os.environ.get("GEMINI_BASE_URL") or None,
-            api_version=os.environ.get("GEMINI_API_VERSION", "v1beta") if os.environ.get("GEMINI_BASE_URL") else None,
-        )
-        gemini_client = genai.Client(api_key=gemini_api_key, http_options=http_opts)
-        print(f"  Gemini: ✓ ({GEMINI_MODEL})")
+        try:
+            from google import genai
+            from google.genai import types
+
+            http_opts = types.HttpOptions(
+                timeout=3600000,
+                base_url=os.environ.get("GEMINI_BASE_URL") or None,
+                api_version=os.environ.get("GEMINI_API_VERSION", "v1beta") if os.environ.get("GEMINI_BASE_URL") else None,
+            )
+            gemini_client = genai.Client(api_key=gemini_api_key, http_options=http_opts)
+            print(f"  Gemini: ✓ ({GEMINI_MODEL})")
+        except ImportError as exc:
+            print(f"  Gemini: ✗ 缺少依赖 {exc.name} — Gemini 视频将被跳过")
     else:
         print("  Gemini: ✗ 无 API Key — Gemini 视频将被跳过")
 
     qwen_client = None
     if qwen_api_key:
-        qwen_client = OpenAI(api_key=qwen_api_key, base_url=DASHSCOPE_BASE_URL)
-        print(f"  Qwen: ✓ ({QWEN_MODEL})")
+        try:
+            from google.genai import types as _qwen_part_types  # noqa: F401
+            from openai import OpenAI
+
+            qwen_client = OpenAI(api_key=qwen_api_key, base_url=DASHSCOPE_BASE_URL)
+            print(f"  Qwen: ✓ ({QWEN_MODEL})")
+        except ImportError as exc:
+            print(f"  Qwen: ✗ 缺少依赖 {exc.name} — Qwen 视频将被跳过")
     else:
         print("  Qwen: ✗ 无 API Key — Qwen 视频将被跳过")
 

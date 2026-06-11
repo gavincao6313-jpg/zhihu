@@ -8,6 +8,15 @@ import time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
+
+def has_xiaoe_login_cookie(state: dict) -> bool:
+    for cookie in state.get("cookies", []):
+        name = str(cookie.get("name", "")).lower()
+        domain = str(cookie.get("domain", "")).lower()
+        if name == "ko_token" and ("xiaoeknow" in domain or "xet" in domain or "pomoho" in domain):
+            return True
+    return False
+
 if len(sys.argv) < 2 or not sys.argv[1].strip():
     print("Usage: python save_xiaoe_auth.py <xiaoe_live_url>")
     sys.exit(1)
@@ -64,8 +73,15 @@ with sync_playwright() as p:
         time.sleep(1)
 
     if not logged_in:
-        print("WARNING: Still on login page after 120s. Saving current state anyway.")
+        print("WARNING: Still on login page after 120s. Auth state will be saved only if ko_token exists.")
         print(f"Current URL: {page.url[:200]}")
+
+    state = context.storage_state()
+    if not has_xiaoe_login_cookie(state):
+        print("ERROR: 未检测到小鹅通 ko_token，auth state 未保存。")
+        print("请确认浏览器中已经登录并能看到直播/回放页面后重新运行。")
+        context.close()
+        sys.exit(1)
 
     context.storage_state(path=str(out_path))
     print(f"Saved: {out_path} ({out_path.stat().st_size} bytes)")
