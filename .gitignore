@@ -45,5 +45,8 @@ Videos/.stream/storage_state*.json
 zhihu_auth_state.json
 zhihu_auth_state_xiaoe.json
 zhihu_auth_state-*.json
+zhihu_cookie*.txt
+zhihucookies*.txt
+cookies.txt
 .last_stream_url.txt
 .monitor_state.json
