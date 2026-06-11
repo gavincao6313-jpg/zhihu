@@ -2780,6 +2780,54 @@
       "related_bugs": ["bug-163"],
       "occurrences": 1,
       "last_seen": "2026-06-11T10:30:00+08:00"
+    },
+    {
+      "id": "bug-167",
+      "timestamp": "2026-06-11T00:00:00Z",
+      "error_message": "ixigua-mobile fallback 方向错误：m.ixigua.com/video/{id} 返回 404 或 SSR_HYDRATED_DATA",
+      "file": "scripts/toutiao_download_favorites.py",
+      "root_cause": "bug-166 中加入的 ixigua-mobile fallback 使用的 ID 不通用，m.ixigua.com 无法用头条数字 ID 定位视频。正确思路是把 /item/ /group/ URL 转为 /video/ 格式再重试 yt-dlp。",
+      "fix": "删除 _ixigua_mobile_url()，改为 _video_url_from_item()：从 /item/ /group/ URL 提取数字 ID → https://www.toutiao.com/video/{id}/，在主方法全部失败后用此 URL 再次调用 yt-dlp。",
+      "tags": ["toutiao", "url-conversion", "video-url", "fallback", "yt-dlp"],
+      "related_bugs": ["bug-166"],
+      "occurrences": 1,
+      "last_seen": "2026-06-11T00:00:00Z"
+    },
+    {
+      "id": "bug-168",
+      "timestamp": "2026-06-11T00:00:00Z",
+      "error_message": "登录验证始终显示 WARN：cookie 名 sso_auth/MONITOR_WEB_ID 在真实 auth_state.json 中不存在；domain 过滤漏掉 bytedance.com 和 snssdk.com",
+      "file": "scripts/toutiao_login.py",
+      "root_cause": "bug-165 中写入的验证 cookie 名称和域名与实际头条 auth state 不符。实际认证 cookie 为 sso_uid_tt、toutiao_sso_user、passport_auth_status、sessionid；关键 cookie 存于 .bytedance.com 和 xxbg.snssdk.com。",
+      "fix": "domain 过滤改为 any(d in domain for d in ('toutiao.com', 'bytedance.com', 'snssdk.com'))；auth_names 改为 ('sso_uid_tt', 'toutiao_sso_user', 'passport_auth_status', 'sessionid')。",
+      "tags": ["toutiao", "login", "cookies", "domain-filter", "auth"],
+      "related_bugs": ["bug-165"],
+      "occurrences": 1,
+      "last_seen": "2026-06-11T00:00:00Z"
+    },
+    {
+      "id": "bug-169",
+      "timestamp": "2026-06-11T00:00:00Z",
+      "error_message": "WARNING: skipping cookie file entry due to invalid expires at -1",
+      "file": "scripts/toutiao_common.py",
+      "root_cause": "storage_state_to_netscape_cookie_file() 对 session cookie（expires=-1）原样写入 -1，Netscape cookie 格式不允许负数 expires，yt-dlp 跳过该 cookie。",
+      "fix": "expires_raw > 0 时用原值，否则写 9999999999（远期时间戳），避免 yt-dlp WARNING 并保留 session cookie 传递。",
+      "tags": ["toutiao", "cookies", "netscape", "yt-dlp", "session-cookie"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-11T00:00:00Z"
+    },
+    {
+      "id": "bug-170",
+      "timestamp": "2026-06-11T00:00:00Z",
+      "error_message": "--new-only 每次都重试已标记为 skip 的条目（sslocal:// 文本帖、永久不可用视频）",
+      "file": "scripts/toutiao_download_favorites.py",
+      "root_cause": "select_records() 只跳过 download_status == 'done'，没有跳过 'skip' 状态，导致 skip 条目被反复重试浪费时间。",
+      "fix": "将过滤条件改为 record.get('download_status') in ('done', 'skip')。",
+      "tags": ["toutiao", "manifest", "select_records", "skip-status"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-11T00:00:00Z"
     }
   ]
 }

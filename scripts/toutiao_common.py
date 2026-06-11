@@ -199,7 +199,8 @@ def storage_state_to_netscape_cookie_file(storage_state_path: Path) -> Path:
             include_subdomains = "TRUE" if domain.startswith(".") else "FALSE"
             path = str(cookie.get("path") or "/")
             secure = "TRUE" if cookie.get("secure") else "FALSE"
-            expires = int(float(cookie.get("expires") or 0))
+            expires_raw = int(float(cookie.get("expires") or 0))
+            expires = expires_raw if expires_raw > 0 else 9999999999
             name = str(cookie.get("name") or "")
             value = str(cookie.get("value") or "")
             tmp.write(

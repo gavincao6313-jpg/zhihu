@@ -1313,3 +1313,4 @@
 | 11:10 | Created .githooks/pre-commit | — | ~1203 |
 | 11:13 | Created .githooks/pre-push | — | ~486 |
 | 11:13 | Edited .githooks/pre-commit | inline fix | ~44 |
+| 22:54 | fix 5 WIN-reported issues: /video/ URL fallback, cookie domain+names, expires=-1, skip filter | toutiao_download_favorites.py toutiao_login.py toutiao_common.py | applied+syntax OK | ~800 |

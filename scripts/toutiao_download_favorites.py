@@ -96,9 +96,12 @@ def download_with_playwright_capture(url: str, item_id: str, output_dir: Path,
     return output_path, "playwright-capture"
 
 
-def _ixigua_mobile_url(item_id: str) -> str:
-    match = re.search(r"(\d{12,})", item_id or "")
-    return f"https://m.ixigua.com/video/{match.group(1)}?wid_try=1" if match else ""
+def _video_url_from_item(url: str) -> str:
+    """Convert /item/ or /group/ URL to canonical /video/ format for yt-dlp."""
+    if "/video/" in url:
+        return ""
+    match = re.search(r"/(\d{10,})[/?]?", url)
+    return f"https://www.toutiao.com/video/{match.group(1)}/" if match else ""
 
 
 def download_record(record: dict, output_dir: Path, auth_state: Path,
@@ -118,14 +121,14 @@ def download_record(record: dict, output_dir: Path, auth_state: Path,
         except Exception as exc:
             errors.append(f"{method}: {exc}")
 
-    # Toutiao original URL often triggers an app gate; retry playwright with ixigua mobile variant
-    fallback_url = _ixigua_mobile_url(item_id)
-    if fallback_url:
+    # /item/ and /group/ URLs redirect to ixigua; convert to /video/ and retry yt-dlp
+    video_url = _video_url_from_item(url)
+    if video_url:
         try:
-            print(f"  [fallback] trying ixigua-mobile: {fallback_url}")
-            return download_with_playwright_capture(fallback_url, item_id, output_dir, auth_state, timeout_ms)
+            print(f"  [fallback] retrying yt-dlp with /video/ URL: {video_url}")
+            return download_with_ytdlp(video_url, item_id, output_dir, auth_state)
         except Exception as exc:
-            errors.append(f"ixigua-mobile: {exc}")
+            errors.append(f"video-url-fallback: {exc}")
 
     raise RuntimeError("download failed; " + " | ".join(errors))
 
@@ -136,7 +139,7 @@ def select_records(manifest: dict, new_only: bool, limit: int) -> list[dict]:
     for record in records:
         if new_only and existing_local_path(record):
             continue
-        if new_only and record.get("download_status") == "done":
+        if new_only and record.get("download_status") in ("done", "skip"):
             continue
         selected.append(record)
         if limit and len(selected) >= limit:
