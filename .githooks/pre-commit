@@ -1,0 +1,79 @@
+#!/bin/bash
+# 预提交安全检查：阻止凭据/密钥文件被提交
+#
+# 激活方式（WIN/Mac 各执行一次）：
+#   git config core.hooksPath .githooks
+
+set -e
+
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+BLOCKED=false
+
+# ── 1. 文件名模式检查 ──────────────────────────────────────────────
+BLOCKED_FILE_PATTERNS=(
+  '*auth_state*.json'
+  '*cookie*.txt'
+  'cookies.txt'
+  '.env'
+  '.env.*'
+  '*api_key*'
+  '*secret*'
+  '*.key'
+  '*cred*'
+  'zhihu_token*'
+)
+
+STAGED=$(git diff --cached --name-only)
+
+for pattern in "${BLOCKED_FILE_PATTERNS[@]}"; do
+  MATCH=$(echo "$STAGED" | grep -i -- "$pattern" | head -3 || true)
+  if [ -n "$MATCH" ]; then
+    echo -e "${RED}❌ BLOCKED:${NC} 暂存区包含凭据文件匹配模式 '${pattern}'"
+    echo "$MATCH" | sed 's/^/    /'
+    BLOCKED=true
+  fi
+done
+
+# ── 2. 内容级 API Key 文字扫描 ─────────────────────────────────────
+NON_HOOK_FILES=$(echo "$STAGED" | grep -v '^\.githooks/' || true)
+if [ -n "$NON_HOOK_FILES" ]; then
+API_KEY_PATTERNS=(
+  'sk-[a-zA-Z0-9]{20,}'
+  '"DASHSCOPE_API_KEY"'
+  '"GEMINI_API_KEY"'
+  '"DEEPSEEK_API_KEY"'
+  '"OPENAI_API_KEY"'
+  '"ANTHROPIC_API_KEY"'
+)
+
+CONTENT_DIFF=$(git diff --cached -U0 -- ':(exclude).githooks/*' 2>/dev/null || true)
+
+for pattern in "${API_KEY_PATTERNS[@]}"; do
+  MATCHES=$(echo "$CONTENT_DIFF" | grep -E "^\+.*${pattern}" | grep -vE 'os\.environ|process\.env|#|//' || true)
+  if [ -n "$MATCHES" ]; then
+    echo -e "${RED}❌ BLOCKED:${NC} 新增内容包含疑似 API Key（匹配 '${pattern}'）"
+    echo "$MATCHES" | head -3 | sed 's/^/    /'
+    echo -e "${YELLOW}    使用 os.environ.get('KEY_NAME') 代替硬编码${NC}"
+    BLOCKED=true
+  fi
+done
+fi
+
+# ── 3. 大文件警告（防止误提交生成的大文件）───────
+for f in $STAGED; do
+  count=$(git show :"$f" 2>/dev/null | wc -l | tr -d ' ')
+  if [ -n "$count" ] && [ "$count" -gt 2000 ] 2>/dev/null; then
+    echo -e "${YELLOW}⚠ WARNING:${NC} 暂存区包含大文件 $f (${count} 行)"
+  fi
+done
+
+if [ "$BLOCKED" = true ]; then
+  echo ""
+  echo -e "${RED}提交被拦截。请清除上述凭据文件后再试。${NC}"
+  echo "    从暂存区移除：  git rm --cached <file>"
+  exit 1
+fi
+
+exit 0
