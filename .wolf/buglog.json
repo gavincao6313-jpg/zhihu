@@ -2732,6 +2732,54 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-11T02:27:24Z"
+    },
+    {
+      "id": "bug-163",
+      "timestamp": "2026-06-11T10:00:00+08:00",
+      "error_message": "ModuleNotFoundError: No module named 'stream_extractors' — WIN 下载收藏视频时 Playwright 回退路径崩溃",
+      "file": "scripts/toutiao_download_favorites.py",
+      "root_cause": "stream_extractors.py 在项目根目录，toutiao_download_favorites.py 在 scripts/ 子目录，sys.path 只含 scripts/，延迟 import 必然失败。build_stream_markdown.py 有正确的 sys.path.insert(0, parent.parent) 修复，该脚本缺失。",
+      "fix": "顶部加 import sys + sys.path.insert(0, str(Path(__file__).resolve().parent.parent))。",
+      "tags": ["toutiao", "sys-path", "stream_extractors", "windows", "download"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-11T10:00:00+08:00"
+    },
+    {
+      "id": "bug-164",
+      "timestamp": "2026-06-11T10:00:00+08:00",
+      "error_message": "系统找不到文件 — toutiao_login_win.bat 硬编码 D:\\zhihu\\zhihu_file\\ 路径，换装机位置即失败",
+      "file": "scripts/toutiao_login_win.bat",
+      "root_cause": "VENV_PYTHON 和 SCRIPT 写死为绝对路径，无法跨装机使用。",
+      "fix": "改用 %~dp0 / %REPO_ROOT% 动态计算路径，消除硬编码。",
+      "tags": ["toutiao", "bat", "hardcoded-path", "windows", "login"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-11T10:00:00+08:00"
+    },
+    {
+      "id": "bug-165",
+      "timestamp": "2026-06-11T10:00:00+08:00",
+      "error_message": "未登录就按 Enter 保存 auth_state.json，后续下载全部 403，无任何提示",
+      "file": "scripts/toutiao_login.py",
+      "root_cause": "保存完立即退出，未验证 toutiao.com 关键认证 cookie 是否存在。",
+      "fix": "保存后检查 sso_auth/ttwid/tt_webid/MONITOR_WEB_ID cookie，有则 [OK]，无则 [WARN] 并提示重新登录。",
+      "tags": ["toutiao", "login", "auth-state", "validation", "windows"],
+      "related_bugs": ["bug-163"],
+      "occurrences": 1,
+      "last_seen": "2026-06-11T10:00:00+08:00"
+    },
+    {
+      "id": "bug-166",
+      "timestamp": "2026-06-11T10:30:00+08:00",
+      "error_message": "yt-dlp + Playwright 全部失败 — 头条原始 URL 触发「打开App看完整内容」拦截，Playwright 截获不到媒体 URL",
+      "file": "scripts/toutiao_download_favorites.py",
+      "root_cause": "download_record() 只用 detail_url。toutiao_probe_media_candidates.py 探测结果表明 ixigua-mobile 变体能绕过 App 拦截门。",
+      "fix": "新增 _ixigua_mobile_url()；download_record() 在主 URL 全部方法失败后以 ixigua-mobile + playwright 做最终 fallback。toutiao_download_win.bat 改为默认 --prefer-playwright。",
+      "tags": ["toutiao", "app-gate", "ixigua-mobile", "fallback", "download"],
+      "related_bugs": ["bug-163"],
+      "occurrences": 1,
+      "last_seen": "2026-06-11T10:30:00+08:00"
     }
   ]
 }

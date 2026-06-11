@@ -1,6 +1,8 @@
 @echo off
-set VENV_PYTHON=D:\zhihu\zhihu_file\.venv-sensevoice\Scripts\python.exe
-set SCRIPT=D:\zhihu\zhihu_file\scripts\toutiao_login.py
+set SCRIPT_DIR=%~dp0
+set REPO_ROOT=%SCRIPT_DIR%..
+set VENV_PYTHON=%REPO_ROOT%\.venv-sensevoice\Scripts\python.exe
+set SCRIPT=%SCRIPT_DIR%toutiao_login.py
 
 echo ============================================================
 echo Opening Toutiao login page...

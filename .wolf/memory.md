@@ -3,6 +3,7 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 2026-06-11 | 安全修复: git filter-branch 清除凭据文件（zhihu_cookie.txt/zhihucookies.txt/auth_state*.json）从全部历史 + .gitignore 加固 + force push | .gitignore, 345 commits rewritten | 凭据已从 git 历史和远程完全清除 | ~500 |
 | 11:43 | frontend-design 重设计：Outfit+JetBrains Mono 字体、主色 #00c896 cyan-green、终端风 status badge、背景光晕+点阵、timeline 脉冲动画 | frontend/src/styles.css | designqc 验证通过 | ~8k |
 
 | 2026-06-04 | 评估前端无人值守模式全链路；删除 build_run_plan() stale Qwen live warning；start_win.bat 加 DEEPSEEK_API_KEY 注释占位 | web_api/server.py, web_api/start_win.bat | py_compile OK | ~8000 |
@@ -1305,3 +1306,10 @@
 | 10:22 | Stashed tracked local changes and fast-forwarded main to origin/main | git stash, START_XIAOE_LIVE.bat, batch_process_external.py | updated to f724c09; local generated artifacts hidden via .git/info/exclude; py_compile passed with non-blocking SyntaxWarnings | ~4500 |
 | 10:27 | Reviewed latest WIN Xiaoe live/batch push as third-party audit | START_XIAOE_LIVE.bat, save_xiaoe_auth.py, batch_process_external.py | no newer remote than f724c09; found P0/P1 blockers in BAT URL parsing, auth validation, batch API accounting, Qwen window coverage, and tracked API key | ~9000 |
 | 10:55 | Fixed Xiaoe live/batch review blockers | START_XIAOE_LIVE.bat, save_xiaoe_auth.py, batch_process_external.py, .gitignore, .wolf/buglog.json | BAT preserves signed URLs/m3u8; auth save now requires ko_token; batch dry-run/status no longer require OpenAI/genai; Gemini/Qwen call accounting and Qwen tail-window failure handling hardened; Claude local settings removed from index | ~9000 |
+| 11:02 | Created .githooks/pre-commit | — | ~480 |
+| 11:03 | Edited .githooks/pre-commit | 21→24 lines | ~208 |
+| 11:04 | Edited .githooks/pre-commit | 24→24 lines | ~209 |
+| 11:04 | Edited .githooks/pre-commit | inline fix | ~23 |
+| 11:10 | Created .githooks/pre-commit | — | ~1203 |
+| 11:13 | Created .githooks/pre-push | — | ~486 |
+| 11:13 | Edited .githooks/pre-commit | inline fix | ~44 |

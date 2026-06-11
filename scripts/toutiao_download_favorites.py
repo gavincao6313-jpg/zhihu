@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import argparse
+import re
 import subprocess
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from toutiao_common import (
     TOUTIAO_AUTH_STATE,
@@ -92,6 +96,11 @@ def download_with_playwright_capture(url: str, item_id: str, output_dir: Path,
     return output_path, "playwright-capture"
 
 
+def _ixigua_mobile_url(item_id: str) -> str:
+    match = re.search(r"(\d{12,})", item_id or "")
+    return f"https://m.ixigua.com/video/{match.group(1)}?wid_try=1" if match else ""
+
+
 def download_record(record: dict, output_dir: Path, auth_state: Path,
                     prefer_playwright: bool, timeout_ms: int) -> tuple[Path, str]:
     url = canonical_url(record.get("detail_url") or "")
@@ -108,6 +117,16 @@ def download_record(record: dict, output_dir: Path, auth_state: Path,
             return download_with_playwright_capture(url, item_id, output_dir, auth_state, timeout_ms)
         except Exception as exc:
             errors.append(f"{method}: {exc}")
+
+    # Toutiao original URL often triggers an app gate; retry playwright with ixigua mobile variant
+    fallback_url = _ixigua_mobile_url(item_id)
+    if fallback_url:
+        try:
+            print(f"  [fallback] trying ixigua-mobile: {fallback_url}")
+            return download_with_playwright_capture(fallback_url, item_id, output_dir, auth_state, timeout_ms)
+        except Exception as exc:
+            errors.append(f"ixigua-mobile: {exc}")
+
     raise RuntimeError("download failed; " + " | ".join(errors))
 
 

@@ -45,6 +45,17 @@ def main() -> int:
         args.auth_state.parent.mkdir(parents=True, exist_ok=True)
         context.storage_state(path=str(args.auth_state))
         print(f"Auth state saved: {args.auth_state}")
+
+        import json
+        state = json.loads(args.auth_state.read_text(encoding="utf-8"))
+        toutiao_cookies = [c for c in state.get("cookies", []) if "toutiao.com" in (c.get("domain") or "")]
+        auth_cookies = [c for c in toutiao_cookies if c.get("name") in ("sso_auth", "ttwid", "tt_webid", "MONITOR_WEB_ID")]
+        if auth_cookies:
+            print(f"[OK] 登录成功，已捕获 {len(auth_cookies)} 个认证 cookie：{[c['name'] for c in auth_cookies]}")
+        else:
+            print(f"[WARN] 未找到头条认证 cookie（共保存 {len(toutiao_cookies)} 个 toutiao.com cookie）")
+            print("       请确认浏览器内已完成登录，然后重新运行本脚本。")
+
         browser.close()
     return 0
 
