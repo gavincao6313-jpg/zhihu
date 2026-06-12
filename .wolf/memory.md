@@ -1314,3 +1314,16 @@
 | 11:13 | Created .githooks/pre-push | — | ~486 |
 | 11:13 | Edited .githooks/pre-commit | inline fix | ~44 |
 | 22:54 | fix 5 WIN-reported issues: /video/ URL fallback, cookie domain+names, expires=-1, skip filter | toutiao_download_favorites.py toutiao_login.py toutiao_common.py | applied+syntax OK | ~800 |
+
+## Session: 2026-06-12
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:25 | 拉取MAC头条修复(fe60e9f)，分析bug-167~170 | scripts/toutiao_*.py | 4个修复+临时文件清理，已理解 | ~3k |
+| 10:35 | 同步MAC修复到zhihu_file/scripts/（3个文件5处修改）| zhihu_file/scripts/toutiao_*.py | 语法检查通过，修复生效 | ~2k |
+| 10:40 | 升级yt-dlp 2026.03.17→2026.06.09，修复ixigua SSR_HYDRATED_DATA bug | — | 9条SSR失败变为可恢复 | ~500 |
+| 10:45 | 批量探测19条失败：9可恢复(SSR bug已修复)+10不可恢复(死链/删除) | manifest.json | 分类完成 | ~4k |
+| 10:50 | 标记10条不可恢复为skip，下载9条可恢复(全部成功1080p/720p) | manifest.json, Videos/short/toutiao/ | 9/9 done, 约69MB | ~8k |
+| 11:00 | cerebrum.md: Key Learnings(3) + Do-Not-Repeat(1) + Decision Log(1) + memory.md | .wolf/cerebrum.md, .wolf/memory.md | 经验固化 | ~3k |
+| 11:05 | 提交zhihu_file(3 files) + 主仓库(2 files) | both repos | committed | ~500 |
+| 11:30 | MAC force-push清理API Key历史，rebase两个仓库 | both repos | zhihu_file已reset, 主仓库re-apply文档 | ~2k |
