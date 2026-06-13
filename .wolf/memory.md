@@ -1336,3 +1336,5 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 10:xx | 拉取 WIN 推送的 bug-176 批量防护修复，解冲突（WIN bug-171~176 vs MAC stash），重编本地为 bug-177/178 | .wolf/buglog.json | 合并提交成功 | ~1k |
+| 10:xx | 审核三道防护（有效/默认无效/无关），修复 default=0→100 + >50%不匹配改abort | batch_process_external.py | 提交成功 | ~2k |
