@@ -2740,7 +2740,13 @@
       "file": "scripts/toutiao_download_favorites.py",
       "root_cause": "stream_extractors.py 在项目根目录，toutiao_download_favorites.py 在 scripts/ 子目录，sys.path 只含 scripts/，延迟 import 必然失败。build_stream_markdown.py 有正确的 sys.path.insert(0, parent.parent) 修复，该脚本缺失。",
       "fix": "顶部加 import sys + sys.path.insert(0, str(Path(__file__).resolve().parent.parent))。",
-      "tags": ["toutiao", "sys-path", "stream_extractors", "windows", "download"],
+      "tags": [
+        "toutiao",
+        "sys-path",
+        "stream_extractors",
+        "windows",
+        "download"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-11T10:00:00+08:00"
@@ -2752,7 +2758,13 @@
       "file": "scripts/toutiao_login_win.bat",
       "root_cause": "VENV_PYTHON 和 SCRIPT 写死为绝对路径，无法跨装机使用。",
       "fix": "改用 %~dp0 / %REPO_ROOT% 动态计算路径，消除硬编码。",
-      "tags": ["toutiao", "bat", "hardcoded-path", "windows", "login"],
+      "tags": [
+        "toutiao",
+        "bat",
+        "hardcoded-path",
+        "windows",
+        "login"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-11T10:00:00+08:00"
@@ -2764,8 +2776,16 @@
       "file": "scripts/toutiao_login.py",
       "root_cause": "保存完立即退出，未验证 toutiao.com 关键认证 cookie 是否存在。",
       "fix": "保存后检查 sso_auth/ttwid/tt_webid/MONITOR_WEB_ID cookie，有则 [OK]，无则 [WARN] 并提示重新登录。",
-      "tags": ["toutiao", "login", "auth-state", "validation", "windows"],
-      "related_bugs": ["bug-163"],
+      "tags": [
+        "toutiao",
+        "login",
+        "auth-state",
+        "validation",
+        "windows"
+      ],
+      "related_bugs": [
+        "bug-163"
+      ],
       "occurrences": 1,
       "last_seen": "2026-06-11T10:00:00+08:00"
     },
@@ -2776,8 +2796,16 @@
       "file": "scripts/toutiao_download_favorites.py",
       "root_cause": "download_record() 只用 detail_url。toutiao_probe_media_candidates.py 探测结果表明 ixigua-mobile 变体能绕过 App 拦截门。",
       "fix": "新增 _ixigua_mobile_url()；download_record() 在主 URL 全部方法失败后以 ixigua-mobile + playwright 做最终 fallback。toutiao_download_win.bat 改为默认 --prefer-playwright。",
-      "tags": ["toutiao", "app-gate", "ixigua-mobile", "fallback", "download"],
-      "related_bugs": ["bug-163"],
+      "tags": [
+        "toutiao",
+        "app-gate",
+        "ixigua-mobile",
+        "fallback",
+        "download"
+      ],
+      "related_bugs": [
+        "bug-163"
+      ],
       "occurrences": 1,
       "last_seen": "2026-06-11T10:30:00+08:00"
     },
@@ -2788,8 +2816,16 @@
       "file": "scripts/toutiao_download_favorites.py",
       "root_cause": "bug-166 中加入的 ixigua-mobile fallback 使用的 ID 不通用，m.ixigua.com 无法用头条数字 ID 定位视频。正确思路是把 /item/ /group/ URL 转为 /video/ 格式再重试 yt-dlp。",
       "fix": "删除 _ixigua_mobile_url()，改为 _video_url_from_item()：从 /item/ /group/ URL 提取数字 ID → https://www.toutiao.com/video/{id}/，在主方法全部失败后用此 URL 再次调用 yt-dlp。",
-      "tags": ["toutiao", "url-conversion", "video-url", "fallback", "yt-dlp"],
-      "related_bugs": ["bug-166"],
+      "tags": [
+        "toutiao",
+        "url-conversion",
+        "video-url",
+        "fallback",
+        "yt-dlp"
+      ],
+      "related_bugs": [
+        "bug-166"
+      ],
       "occurrences": 1,
       "last_seen": "2026-06-11T00:00:00Z"
     },
@@ -2800,8 +2836,16 @@
       "file": "scripts/toutiao_login.py",
       "root_cause": "bug-165 中写入的验证 cookie 名称和域名与实际头条 auth state 不符。实际认证 cookie 为 sso_uid_tt、toutiao_sso_user、passport_auth_status、sessionid；关键 cookie 存于 .bytedance.com 和 xxbg.snssdk.com。",
       "fix": "domain 过滤改为 any(d in domain for d in ('toutiao.com', 'bytedance.com', 'snssdk.com'))；auth_names 改为 ('sso_uid_tt', 'toutiao_sso_user', 'passport_auth_status', 'sessionid')。",
-      "tags": ["toutiao", "login", "cookies", "domain-filter", "auth"],
-      "related_bugs": ["bug-165"],
+      "tags": [
+        "toutiao",
+        "login",
+        "cookies",
+        "domain-filter",
+        "auth"
+      ],
+      "related_bugs": [
+        "bug-165"
+      ],
       "occurrences": 1,
       "last_seen": "2026-06-11T00:00:00Z"
     },
@@ -2812,7 +2856,13 @@
       "file": "scripts/toutiao_common.py",
       "root_cause": "storage_state_to_netscape_cookie_file() 对 session cookie（expires=-1）原样写入 -1，Netscape cookie 格式不允许负数 expires，yt-dlp 跳过该 cookie。",
       "fix": "expires_raw > 0 时用原值，否则写 9999999999（远期时间戳），避免 yt-dlp WARNING 并保留 session cookie 传递。",
-      "tags": ["toutiao", "cookies", "netscape", "yt-dlp", "session-cookie"],
+      "tags": [
+        "toutiao",
+        "cookies",
+        "netscape",
+        "yt-dlp",
+        "session-cookie"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-11T00:00:00Z"
@@ -2824,10 +2874,107 @@
       "file": "scripts/toutiao_download_favorites.py",
       "root_cause": "select_records() 只跳过 download_status == 'done'，没有跳过 'skip' 状态，导致 skip 条目被反复重试浪费时间。",
       "fix": "将过滤条件改为 record.get('download_status') in ('done', 'skip')。",
-      "tags": ["toutiao", "manifest", "select_records", "skip-status"],
+      "tags": [
+        "toutiao",
+        "manifest",
+        "select_records",
+        "skip-status"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-11T00:00:00Z"
+    },
+    {
+      "id": "bug-171",
+      "timestamp": "2026-06-12T09:15:25.362Z",
+      "error_message": "Incorrect value in code",
+      "file": "zhihu_file/batch_process_external.py",
+      "root_cause": "Had \"Remove characters unsafe for file paths.\"",
+      "fix": "Changed to \"Remove characters unsafe for file path segments, ",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T09:15:25.362Z"
+    },
+    {
+      "id": "bug-172",
+      "timestamp": "2026-06-12T09:15:27.449Z",
+      "error_message": "Significant refactor of ",
+      "file": "zhihu_file/batch_process_external.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 7→14 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T09:15:27.449Z"
+    },
+    {
+      "id": "bug-173",
+      "timestamp": "2026-06-12T14:16:54.496Z",
+      "error_message": "Incorrect value in code",
+      "file": "zhihu_file/.progress_batch.json",
+      "root_cause": "Had \"E:\\\\AI研发\\\\AI大模型应用开发实战训练营-十三期\"",
+      "fix": "Changed to \"F:\\\\AI研发\\\\AI大模型应用开发实战训练营-十三期\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "json"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T14:16:54.496Z"
+    },
+    {
+      "id": "bug-174",
+      "timestamp": "2026-06-12T14:17:10.124Z",
+      "error_message": "Significant refactor of ",
+      "file": "zhihu_file/.progress_batch.json",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 9→7 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "json"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T14:17:10.124Z"
+    },
+    {
+      "id": "bug-175",
+      "timestamp": "2026-06-12T14:17:50.559Z",
+      "error_message": "Incorrect value in code",
+      "file": "C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md",
+      "root_cause": "Had `E:\\AI研发\\`",
+      "fix": "Changed to `F:\\AI研发\\`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T14:17:50.559Z"
+    },
+    {
+      "id": "bug-176",
+      "timestamp": "2026-06-13T01:30:00+08:00",
+      "error_message": "--retry-failed 用子目录 source_dir 导致进度 key 不匹配，全量重处理(49+33个)，浪费Qwen配额200+次，损坏3个已有输出",
+      "file": "zhihu_file/batch_process_external.py",
+      "root_cause": "discover_external_videos() relative_to(source_dir) 生成 stem。进度 key 基于父目录 source_dir。子目录导致 stem 不带课程前缀，全被视为新视频。",
+      "fix": "始终用与原始处理一致的父目录 source_dir。脚本缺少 source_dir 一致性校验。",
+      "tags": ["batch", "retry-failed", "source_dir-mismatch", "api-quota-waste", "data-corruption"],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-06-13T01:30:00+08:00"
     }
   ]
 }
