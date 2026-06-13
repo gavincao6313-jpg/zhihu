@@ -257,8 +257,8 @@ def _transcript_appendix(transcript_text: str) -> str:
 
 
 def _safe_name(stem: str) -> str:
-    """Remove characters unsafe for file paths."""
-    return "".join(c for c in stem if c not in r'<>:"/\|?*')
+    """Remove characters unsafe for file path segments, preserve slash as dir separator."""
+    return "".join(c for c in stem if c not in r'<>:"\|?*')
 
 
 # ── Duration & Discovery ────────────────────────────────────
@@ -287,11 +287,18 @@ def fmt_duration(seconds: float) -> str:
 
 
 def discover_external_videos(source_dir: Path) -> dict[str, Path]:
-    """Scan source_dir for media files, return {stem: path} sorted by stem."""
+    """Scan source_dir recursively for media files, return {stem: path} sorted by stem.
+
+    The stem is the relative path from source_dir without the file extension,
+    using forward slashes (e.g. 'subdir/001_Lecture'). This matches the keys
+    in .progress_batch.json so progress survives across runs.
+    """
     videos: dict[str, Path] = {}
     for ext in VIDEO_EXTENSIONS:
-        for p in sorted(source_dir.glob(f"*{ext}")):
-            videos[p.stem] = p
+        for p in sorted(source_dir.rglob(f"*{ext}")):
+            rel = p.relative_to(source_dir)
+            stem = str(rel.with_suffix('')).replace('\\', '/')
+            videos[stem] = p
     return dict(sorted(videos.items()))
 
 
@@ -320,7 +327,13 @@ def load_batch_progress() -> dict:
 
 
 def save_batch_progress(progress: dict) -> None:
-    """Atomic write batch progress."""
+    """Atomic write batch progress. Backs up previous file first."""
+    if BATCH_PROGRESS_FILE.exists():
+        backup = BATCH_PROGRESS_FILE.with_suffix(".json.bak")
+        try:
+            backup.write_bytes(BATCH_PROGRESS_FILE.read_bytes())
+        except OSError:
+            pass  # Non-critical: backup failure shouldn't block save
     tmp = BATCH_PROGRESS_FILE.with_suffix(".json.tmp")
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(progress, f, ensure_ascii=False, indent=2)
@@ -343,6 +356,41 @@ def print_batch_status(progress: dict, videos: dict) -> None:
         g = q.get("gemini_calls", 0)
         qn = q.get("qwen_calls", 0)
         print(f"  {today}: Gemini={g}  Qwen={qn}")
+
+
+# ── Safety: Source-Progress Key Validation ──────────────────
+
+def _validate_source_progress_match(
+    videos: dict, progress: dict, source_dir: Path
+) -> tuple[int, int, list]:
+    """Check that discovered video stems match progress entries.
+
+    Returns (matched, total_existing, mismatched_stems).
+    If >50% of existing progress entries don't match discovered stems,
+    the source_dir is probably wrong (subdirectory vs parent).
+    """
+    progress_videos = progress.get("videos", {})
+    if not progress_videos:
+        return 0, 0, []  # Fresh progress, no mismatch possible
+
+    discovered_stems = set(videos.keys())
+    progress_stems = set(progress_videos.keys())
+
+    matched = discovered_stems & progress_stems
+    only_in_progress = progress_stems - discovered_stems
+    only_discovered = discovered_stems - progress_stems
+
+    # If there are progress entries but NONE match, it's a clear mismatch
+    if progress_stems and not matched:
+        return 0, len(progress_stems), list(only_discovered)[:5]
+
+    # If >50% of progress entries don't match discovered stems,
+    # the source_dir might have changed
+    mismatch_rate = len(only_in_progress) / max(len(progress_stems), 1)
+    if mismatch_rate > 0.5:
+        return len(matched), len(progress_stems), list(only_discovered)[:5]
+
+    return len(matched), len(progress_stems), []
 
 
 # ── Single-video Processing ─────────────────────────────────
@@ -675,6 +723,39 @@ def process_batch(args: argparse.Namespace) -> None:
     progress["source_dir"] = str(source_dir)
     progress["output_dir"] = str(output_dir)
 
+    # ── Safety: validate source_dir matches progress keys ──
+    if not args.force:
+        matched, total_existing, mismatched = _validate_source_progress_match(
+            videos, progress, source_dir
+        )
+        if total_existing > 0 and matched == 0:
+            print("=" * 70)
+            print("⛔ 安全防护：进度文件 Key 完全不匹配！")
+            print("=" * 70)
+            print(f"  源目录:     {source_dir}")
+            print(f"  发现的 stem 示例:")
+            for s in mismatched[:3]:
+                print(f"    • {s}")
+            print(f"  进度文件中有 {total_existing} 个条目，但无一匹配。")
+            print()
+            print("  可能原因：")
+            print(f"  1. source_dir 用了子目录，而进度 key 基于父目录")
+            print(f"     例如：--source-dir \"{source_dir.parent}\" 而非 \"{source_dir}\"")
+            print(f"  2. source_dir 完全不正确")
+            print()
+            print("  操作建议：")
+            print(f"  1. 先 --dry-run 查看生成的 stem 列表")
+            print(f"  2. 从进度文件随机取一个 key 对比格式")
+            print(f"  3. 确认后用 --force 跳过此检查（不推荐）")
+            print("=" * 70)
+            sys.exit(1)
+        elif total_existing > 10 and len(mismatched) > 0:
+            mismatch_pct = (total_existing - matched) / total_existing * 100
+            print(f"⚠ 安全提示：{mismatch_pct:.0f}% 的进度条目与当前 source_dir 不匹配")
+            print(f"  发现: {len(videos)} stems, 匹配: {matched}, 进度总数: {total_existing}")
+            print(f"  如确认 source_dir 正确，使用 --force 跳过此检查")
+            print()
+
     if args.status:
         print_batch_status(progress, videos)
         return
@@ -724,6 +805,21 @@ def process_batch(args: argparse.Namespace) -> None:
         print(f"\n限制处理数量: {len(pending)}")
 
     print(f"\n待处理: {len(pending)} 个视频")
+
+    # Per-run call budget enforcement
+    run_call_budget = args.max_calls_per_run
+    run_calls_used = 0
+    if run_call_budget > 0:
+        # Estimate total calls for the run
+        est_total = sum(
+            1 if progress["videos"].get(s, {}).get("provider") == "gemini" else 3
+            for s in pending
+        )
+        print(f"预估本轮 API 调用: ~{est_total}  (单次上限: {run_call_budget})")
+        if est_total > run_call_budget:
+            print(f"⛔ 预估调用数 {est_total} 超过单次上限 {run_call_budget}，中止。")
+            print(f"   使用 --max-calls-per-run {est_total + 10} 或 --max-calls-per-run 0 解除限制。")
+            sys.exit(1)
 
     # Daily quota check
     today = date.today().isoformat()
@@ -821,6 +917,13 @@ def process_batch(args: argparse.Namespace) -> None:
         else:
             daily["qwen_calls"] += result.get("api_calls", 0)
 
+        # Enforce per-run call budget
+        if run_call_budget > 0:
+            run_calls_used += result.get("api_calls", 0)
+            if run_calls_used >= run_call_budget:
+                print(f"\n⛔ 本轮 API 调用已达上限 {run_call_budget}，中止。剩余 {len(pending)-i} 个视频待下次处理。")
+                break
+
         progress["last_run"] = _now_iso()
         save_batch_progress(progress)
 
@@ -879,6 +982,14 @@ def main() -> None:
     parser.add_argument(
         "--retry-failed", action="store_true",
         help="重试之前标记为失败的视频",
+    )
+    parser.add_argument(
+        "--force", action="store_true",
+        help="跳过 source_dir 与进度 key 匹配校验（危险！仅在确认 source_dir 正确时使用）",
+    )
+    parser.add_argument(
+        "--max-calls-per-run", type=int, default=0,
+        help="单次运行最大 API 调用数上限，超过则中止（0=不限制）。建议设为 50 防止账单失控",
     )
 
     args = parser.parse_args()
