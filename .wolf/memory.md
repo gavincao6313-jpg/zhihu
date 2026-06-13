@@ -6,8 +6,6 @@
 | 2026-06-11 | 安全修复: git filter-branch 清除凭据文件（zhihu_cookie.txt/zhihucookies.txt/auth_state*.json）从全部历史 + .gitignore 加固 + force push | .gitignore, 345 commits rewritten | 凭据已从 git 历史和远程完全清除 | ~500 |
 | 11:43 | frontend-design 重设计：Outfit+JetBrains Mono 字体、主色 #00c896 cyan-green、终端风 status badge、背景光晕+点阵、timeline 脉冲动画 | frontend/src/styles.css | designqc 验证通过 | ~8k |
 
-| 2026-06-12 | 继续AI研发批量：盘符E→F修复、碰撞重置001、启动十三期12视频(Qwen全量) | .progress_batch.json, ai_yanfa_batch_processing.md | 后台运行中 | ~3000 |
-
 | 2026-06-04 | 评估前端无人值守模式全链路；删除 build_run_plan() stale Qwen live warning；start_win.bat 加 DEEPSEEK_API_KEY 注释占位 | web_api/server.py, web_api/start_win.bat | py_compile OK | ~8000 |
 | 2026-06-02 | i18n 中英双语系统 + App.tsx 全面重写（默认中文、lang toggle、MP4/URL 拖入区、directLaunch 一键启动） | frontend/src/i18n.ts, frontend/src/App.tsx, frontend/src/styles.css | TypeScript 0 errors | ~6000 |
 | 2026-06-02 | 新增 start_mac_live.sh — Mac 真实任务模式（--launch-mode live，激活 .venv-mac311） | web_api/start_mac_live.sh | done | ~200 |
@@ -1316,55 +1314,25 @@
 | 11:13 | Created .githooks/pre-push | — | ~486 |
 | 11:13 | Edited .githooks/pre-commit | inline fix | ~44 |
 | 22:54 | fix 5 WIN-reported issues: /video/ URL fallback, cookie domain+names, expires=-1, skip filter | toutiao_download_favorites.py toutiao_login.py toutiao_common.py | applied+syntax OK | ~800 |
+| 10:30 | 全面检查 GitHub API Key 泄漏：发现 Gemini key 在历史中，撤销后 git filter-repo 清洗 700 提交并 force push | .wolf/buglog.json | resolved bug-171 | ~300 |
 
-## Session: 2026-06-12
-
-| Time | Action | File(s) | Outcome | ~Tokens |
-|------|--------|---------|---------|--------|
-| 10:25 | 拉取MAC头条修复(fe60e9f)，分析bug-167~170 | scripts/toutiao_*.py | 4个修复+临时文件清理，已理解 | ~3k |
-| 10:35 | 同步MAC修复到zhihu_file/scripts/（3个文件5处修改）| zhihu_file/scripts/toutiao_*.py | 语法检查通过，修复生效 | ~2k |
-| 10:40 | 升级yt-dlp 2026.03.17→2026.06.09，修复ixigua SSR_HYDRATED_DATA bug | — | 9条SSR失败变为可恢复 | ~500 |
-| 10:45 | 批量探测19条失败：9可恢复(SSR bug已修复)+10不可恢复(死链/删除) | manifest.json | 分类完成 | ~4k |
-| 10:50 | 标记10条不可恢复为skip，下载9条可恢复(全部成功1080p/720p) | manifest.json, Videos/short/toutiao/ | 9/9 done, 约69MB | ~8k |
-| 11:00 | cerebrum.md: Key Learnings(3) + Do-Not-Repeat(1) + Decision Log(1) + memory.md | .wolf/cerebrum.md, .wolf/memory.md | 经验固化 | ~3k |
-| 11:05 | 提交zhihu_file(3 files) + 主仓库(2 files) | both repos | committed | ~500 |
-| 11:30 | MAC force-push清理API Key历史，rebase两个仓库 | both repos | zhihu_file已reset, 主仓库re-apply文档 | ~2k |
-| 17:15 | Edited zhihu_file/batch_process_external.py | modified _safe_name() | ~53 |
-| 17:15 | Edited zhihu_file/batch_process_external.py | modified discover_external_videos() | ~194 |
-| 19:40 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | — | ~748 |
-| 19:41 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/MEMORY.md | 1→2 lines | ~42 |
-| 19:42 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_solution_batch_processing.md | — | ~447 |
-
-## Session: 2026-06-12 22:10
+## Session: 2026-06-12 13:28
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 13:36 | Created ../../.claude/plans/expressive-noodling-dongarra.md | — | ~781 |
+| 13:40 | Edited ../../.claude/plans/expressive-noodling-dongarra.md | 3→3 lines | ~23 |
+| 13:40 | Edited ../../.claude/plans/expressive-noodling-dongarra.md | inline fix | ~17 |
+| 13:44 | Created ../browser-reader/manifest.json | — | ~241 |
+| 13:46 | Created ../browser-reader/content/content.js | — | ~1983 |
+| 13:47 | Edited ../../.claude/settings.json | 2→5 lines | ~33 |
+| 13:48 | Created ../browser-reader/background/service-worker.js | — | ~178 |
+| 13:48 | Created ../browser-reader/popup/popup.html | — | ~1013 |
+| 13:48 | Created ../browser-reader/popup/popup.js | — | ~1164 |
+| 13:49 | Created ../browser-reader/options/options.html | — | ~905 |
+| 13:50 | Created ../browser-reader/options/options.js | — | ~421 |
 
-## Session: 2026-06-12 22:10
+## Session: 2026-06-13 10:07
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
-| 22:16 | Edited zhihu_file/.progress_batch.json | inline fix | ~13 |
-| 22:17 | Edited zhihu_file/.progress_batch.json | 9→7 lines | ~45 |
-| 22:17 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | inline fix | ~22 |
-| 22:17 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | "E:\AI研发\" → "F:\AI研发\" | ~16 |
-| 22:18 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | 14→14 lines | ~291 |
-| 09:07 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_solution_batch_processing.md | — | ~548 |
-
-## Session: 2026-06-13 01:00
-
-| Time | Action | File(s) | Outcome | ~Tokens |
-|------|--------|---------|---------|--------|
-| 01:15 | 诊断 F:\AI解决方案 剩余任务：4项(2 failed + 2 Gemini pending) | .progress_batch.json | 定位到4项未完成 | ~3k |
-| 01:20 | 事故: --retry-failed 用子目录 source_dir → 全量重处理49+33视频 | batch_process_external.py | 浪费Qwen 200+次调用，损坏003/010/014输出 | ~5k |
-| 01:25 | 修复: 手动标记已完成项为done + 删损坏文件 + 父目录source_dir | .progress_batch.json, *.md | 006→done, 3 corrupted files deleted | ~2k |
-| 01:30 | 正确运行: --source-dir F:\AI解决方案 --retry-failed 成功6/7 | batch_process_external.py | 003/010/039/031_2/018/020 修复, 014 Qwen内容审核失败 | ~5k |
-| 01:35 | 014改用Gemini: --duration-threshold 11000 绕过Qwen审核 | batch_process_external.py | 014 成功 12,949chars Gemini | ~2k |
-| 01:40 | 最终验证 106/106 全部完成 | Markdowns/batch/AI解决方案/ | 49+33+24=106 md files | ~500 |
-| 01:42 | 更新记忆文件 + bug-176 | memory/, .wolf/buglog.json | 记录source_dir匹配教训 | ~1k |
-| 09:16 | Edited zhihu_file/batch_process_external.py | modified _validate_source_progress_match() | ~404 |
-| 09:16 | Edited zhihu_file/batch_process_external.py | expanded (+33 lines) | ~454 |
-| 09:17 | Edited zhihu_file/batch_process_external.py | expanded (+8 lines) | ~112 |
-| 09:17 | Edited zhihu_file/batch_process_external.py | modified save_batch_progress() | ~169 |
-| 09:17 | Edited zhihu_file/batch_process_external.py | expanded (+15 lines) | ~197 |
-| 09:17 | Edited zhihu_file/batch_process_external.py | expanded (+7 lines) | ~168 |
