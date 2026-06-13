@@ -751,10 +751,14 @@ def process_batch(args: argparse.Namespace) -> None:
             sys.exit(1)
         elif total_existing > 10 and len(mismatched) > 0:
             mismatch_pct = (total_existing - matched) / total_existing * 100
-            print(f"⚠ 安全提示：{mismatch_pct:.0f}% 的进度条目与当前 source_dir 不匹配")
+            print("=" * 70)
+            print(f"⛔ 安全防护：{mismatch_pct:.0f}% 的进度条目与当前 source_dir 不匹配，中止。")
+            print("=" * 70)
             print(f"  发现: {len(videos)} stems, 匹配: {matched}, 进度总数: {total_existing}")
+            print(f"  source_dir: {source_dir}")
             print(f"  如确认 source_dir 正确，使用 --force 跳过此检查")
-            print()
+            print("=" * 70)
+            sys.exit(1)
 
     if args.status:
         print_batch_status(progress, videos)
@@ -988,8 +992,8 @@ def main() -> None:
         help="跳过 source_dir 与进度 key 匹配校验（危险！仅在确认 source_dir 正确时使用）",
     )
     parser.add_argument(
-        "--max-calls-per-run", type=int, default=0,
-        help="单次运行最大 API 调用数上限，超过则中止（0=不限制）。建议设为 50 防止账单失控",
+        "--max-calls-per-run", type=int, default=100,
+        help="单次运行最大 API 调用数上限，超过则中止（0=不限制，默认100）",
     )
 
     args = parser.parse_args()
