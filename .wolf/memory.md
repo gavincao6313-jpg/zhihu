@@ -1339,12 +1339,6 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
-<<<<<<< Updated upstream
-
-## Session: 2026-06-12 22:10
-
-| Time | Action | File(s) | Outcome | ~Tokens |
-|------|--------|---------|---------|--------|
 | 22:16 | Edited zhihu_file/.progress_batch.json | inline fix | ~13 |
 | 22:17 | Edited zhihu_file/.progress_batch.json | 9→7 lines | ~45 |
 | 22:17 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | inline fix | ~22 |
@@ -1390,7 +1384,6 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 08:39 | Created docs/BUG_batch_gemini_no_windowing_qwen_audit_block.md | — | ~866 |
-=======
 | 10:xx | 拉取 WIN 推送的 bug-176 批量防护修复，解冲突（WIN bug-171~176 vs MAC stash），重编本地为 bug-177/178 | .wolf/buglog.json | 合并提交成功 | ~1k |
 | 10:xx | 审核三道防护（有效/默认无效/无关），修复 default=0→100 + >50%不匹配改abort | batch_process_external.py | 提交成功 | ~2k |
 
@@ -1398,7 +1391,6 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
->>>>>>> Stashed changes
 | 09:16 | Edited utils.py | 3→4 lines | ~42 |
 | 09:17 | Edited utils.py | 7→10 lines | ~143 |
 | 09:19 | Edited utils.py | 9→10 lines | ~76 |
@@ -1413,3 +1405,12 @@
 |------|--------|---------|---------|--------|
 | 09:xx | 拉取 WIN bug 报告：超长视频双重死锁 | docs/BUG_batch_gemini_no_windowing_qwen_audit_block.md | 分析完成 | ~800 |
 | 09:xx | 实现 Qwen 审核二分隔离 | utils.py, batch_process_external.py | 语法通过，待 WIN 验证 | ~600 |
+| 09:41 | Edited batch_process_external.py | 1→2 lines | ~28 |
+| 09:41 | Edited batch_process_external.py | modified _find_clean_frames_binary() | ~696 |
+| 09:41 | Edited batch_process_external.py | 5→6 lines | ~60 |
+| 09:42 | Edited batch_process_external.py | modified print() | ~147 |
+| 09:42 | Edited batch_process_external.py | expanded (+16 lines) | ~171 |
+| 09:43 | Edited batch_process_external.py | expanded (+9 lines) | ~218 |
+| 09:43 | Edited batch_process_external.py | 2→2 lines | ~26 |
+| 09:43 | Edited batch_process_external.py | added 1 condition(s) | ~132 |
+| 09:44 | Edited batch_process_external.py | 4→8 lines | ~76 |

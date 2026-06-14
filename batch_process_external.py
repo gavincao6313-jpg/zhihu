@@ -67,6 +67,7 @@ GEMINI_BATCH_MAX_RETRIES = 2
 GEMINI_BATCH_MAX_CONTINUATIONS = 2
 QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
 QWEN_MAX_FRAMES = 250
+MAX_AUDIT_PROBES = 20   # hard cap on binary-search probe calls per window
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 
 VIDEO_EXTENSIONS = (".mp4", ".webm", ".m4v", ".mov", ".avi", ".mkv", ".mpeg")
@@ -448,17 +449,30 @@ def _process_gemini(gemini_client, parts: list, video_label: str) -> dict:
 
 
 def _find_clean_frames_binary(
-    qwen_client, frames: list, events: list, label: str
+    qwen_client, frames: list, events: list, label: str,
+    _counter: list | None = None,
 ) -> tuple[list, int]:
     """Binary search to isolate frames that trigger Qwen content inspection.
 
     Uses a lightweight probe (not synthesis) to minimize token cost.
     Returns (clean_frames, probe_api_calls).
     Only called after a window already failed with data_inspection_failed.
+
+    _counter is a one-element list [n] shared across all recursive calls to
+    enforce MAX_AUDIT_PROBES; callers should not pass it.
     """
     from google.genai import types
 
+    if _counter is None:
+        _counter = [0]
+
     if not frames:
+        return [], 0
+
+    # Hard cap: if we've already used MAX_AUDIT_PROBES probes for this window,
+    # stop recursing and drop the remaining frames conservatively.
+    if _counter[0] >= MAX_AUDIT_PROBES:
+        print(f"  [二分] 探针上限 {MAX_AUDIT_PROBES} 已达，剩余 {len(frames)} 帧保守丢弃")
         return [], 0
 
     # Build probe parts (no transcript — cheapest possible call)
@@ -469,6 +483,7 @@ def _find_clean_frames_binary(
             inline_data=types.Blob(mime_type="image/jpeg", data=fp.read_bytes())
         ))
 
+    _counter[0] += 1
     result = call_qwen(
         qwen_client, probe_parts, label=f"{label}-probe",
         model=QWEN_MODEL, enable_thinking=False,
@@ -490,13 +505,13 @@ def _find_clean_frames_binary(
         print(f"  [二分] 定位坏帧: {frames[0].name}", flush=True)
         return [], probe_calls
 
-    # Split and recurse
+    # Split and recurse, sharing the same counter
     mid = len(frames) // 2
     left_clean, left_calls = _find_clean_frames_binary(
-        qwen_client, frames[:mid], events, f"{label}-L"
+        qwen_client, frames[:mid], events, f"{label}-L", _counter
     )
     right_clean, right_calls = _find_clean_frames_binary(
-        qwen_client, frames[mid:], events, f"{label}-R"
+        qwen_client, frames[mid:], events, f"{label}-R", _counter
     )
     return left_clean + right_clean, probe_calls + left_calls + right_calls
 
@@ -546,6 +561,7 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
     # Window-level synthesis
     window_notes = []
     window_success = []
+    failed_windows = []   # 1-based indices of windows that couldn't be recovered
     qwen_calls = 0
     window_count = len(windows)
     w_prompt = _QWEN_NOTEBOOKLM_PROMPT if window_count == 1 else _QWEN_WINDOW_NOTE_PROMPT
@@ -604,14 +620,13 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
             window_notes.append(w_text)
             print(f"  [{wlabel}] ✓ {len(w_text):,} 字符")
         else:
-            print(f"  [{wlabel}] ✗ 失败，跳过此窗口继续")
+            failed_windows.append(wi + 1)
+            print(f"  [{wlabel}] ✗ 最终失败，跳过此窗口继续")
 
     if not any(window_success):
         return {"text": None, "api_calls": qwen_calls, "success": False, "failed_stage": "qwen-windows"}
-    # Partial success: continue with successful window notes, log which windows were skipped
-    if not all(window_success):
-        failed_indices = [i + 1 for i, ok in enumerate(window_success) if not ok]
-        print(f"  [警告] 窗口 {failed_indices} 最终失败，用 {len(window_notes)}/{window_count} 个成功窗口继续组装")
+    if failed_windows:
+        print(f"  [警告] 窗口 {failed_windows} 最终失败，用 {len(window_notes)}/{window_count} 个成功窗口继续组装")
 
     if window_count == 1:
         qwen_text = window_notes[0]
@@ -656,7 +671,23 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
             for w in qwen_qc["warnings"]:
                 print(f"  [QC⚠] {w}")
 
-    return {"text": qwen_text, "api_calls": qwen_calls, "success": True, "failed_stage": None}
+    # Prepend a visible warning block when some windows were dropped
+    if failed_windows and qwen_text:
+        total_w = window_count
+        warning_block = (
+            f"> **⚠ 内容不完整警告**：本视频共 {total_w} 个处理窗口，"
+            f"窗口 {failed_windows} 因 Qwen 内容审核或探针上限最终失败，"
+            f"对应时间段的视觉证据已缺失。建议用 `--retry-failed` 重跑或人工补充。\n\n"
+        )
+        qwen_text = warning_block + qwen_text
+
+    return {
+        "text": qwen_text,
+        "api_calls": qwen_calls,
+        "success": True,
+        "failed_stage": None,
+        "partial_windows": failed_windows if failed_windows else None,
+    }
 
 
 def process_single_video(
@@ -885,7 +916,7 @@ def process_batch(args: argparse.Namespace) -> None:
         status = entry.get("status", "pending")
         if status == "done":
             continue
-        if status == "failed" and not args.retry_failed:
+        if status in ("failed", "partial") and not args.retry_failed:
             continue
         pending[stem] = videos[stem]
 
@@ -975,6 +1006,13 @@ def process_batch(args: argparse.Namespace) -> None:
         entry = progress["videos"].get(stem, {})
         provider = entry.get("provider", "gemini")
 
+        # Auto-reroute: if retrying a Gemini failure on a long video, switch to Qwen
+        if (args.retry_failed
+                and entry.get("failed_stage") == "gemini"
+                and entry.get("duration_s", 0) > args.duration_threshold):
+            provider = "qwen"
+            print(f"  [路由修正] {stem[:40]}: failed_stage=gemini + 时长超阈值 → 改用 Qwen")
+
         # Quota gate for Gemini
         if provider == "gemini":
             daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
@@ -997,7 +1035,16 @@ def process_batch(args: argparse.Namespace) -> None:
         )
 
         # Update progress
-        entry["status"] = "done" if result["success"] else "failed"
+        partial = result.get("partial_windows")
+        if not result["success"]:
+            entry["status"] = "failed"
+        elif partial and not args.allow_partial:
+            entry["status"] = "partial"
+            entry["partial_windows"] = partial
+            print(f"  ⚠ 标记为 partial（窗口 {partial} 缺失）。用 --allow-partial 改标 done，或 --retry-failed 重跑。")
+        else:
+            entry["status"] = "done"
+            entry.pop("partial_windows", None)
         entry["provider"] = provider
         entry["api_calls"] = result.get("api_calls", 0)
         entry["failed_stage"] = result.get("failed_stage")
@@ -1076,7 +1123,11 @@ def main() -> None:
     )
     parser.add_argument(
         "--retry-failed", action="store_true",
-        help="重试之前标记为失败的视频",
+        help="重试之前标记为失败或 partial 的视频",
+    )
+    parser.add_argument(
+        "--allow-partial", action="store_true",
+        help="允许部分窗口失败的视频标记为 done（默认标 partial，需 --retry-failed 重跑）",
     )
     parser.add_argument(
         "--force", action="store_true",
