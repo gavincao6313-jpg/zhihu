@@ -2971,45 +2971,52 @@
       "file": "zhihu_file/batch_process_external.py",
       "root_cause": "discover_external_videos() relative_to(source_dir) 生成 stem。进度 key 基于父目录 source_dir。子目录导致 stem 不带课程前缀，全被视为新视频。",
       "fix": "始终用与原始处理一致的父目录 source_dir。脚本缺少 source_dir 一致性校验。",
-      "tags": ["batch", "retry-failed", "source_dir-mismatch", "api-quota-waste", "data-corruption"],
+      "tags": [
+        "batch",
+        "retry-failed",
+        "source_dir-mismatch",
+        "api-quota-waste",
+        "data-corruption"
+      ],
       "related_bugs": [],
       "occurrences": 2,
       "last_seen": "2026-06-13T01:30:00+08:00"
     },
     {
       "id": "bug-177",
-      "timestamp": "2026-06-12T00:00:00Z",
-      "error_message": "Gemini API Key 泄漏到 GitHub 公开历史",
-      "file": ".claude/settings.local.json",
-      "root_cause": "该文件曾被 git 追踪，Claude Code 权限白名单中的 Bash(export GEMINI_API_KEY=...) 条目携带了明文 key，随提交 ed9512e 进入历史，提交 e584207 删除文件但 key 仍留在历史中被推送至 GitHub。",
-      "fix": "1. 用户在 Google AI Studio 撤销了该 key；2. git filter-repo --replace-text 将 700 个提交中的 key 字符串替换为 REDACTED_GEMINI_KEY；3. force push 清洗远端历史；4. .gitignore 已包含 .claude/settings.local.json 防止再次提交。",
+      "timestamp": "2026-06-13T13:17:02.320Z",
+      "error_message": "Significant refactor of ",
+      "file": "zhihu_file/.progress_batch.json",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 9→7 lines (6 removed) | Also: \"provider\": \"qwen\",; \"status\": \"failed\",",
       "tags": [
-        "security",
-        "api-key-leak",
-        "gemini",
-        "git-history",
-        "settings.local.json",
-        "force-push"
+        "auto-detected",
+        "refactor",
+        "json"
       ],
       "related_bugs": [],
-      "occurrences": 1,
-      "last_seen": "2026-06-12T00:00:00Z"
+      "occurrences": 3,
+      "last_seen": "2026-06-13T13:17:14.937Z"
     },
     {
       "id": "bug-178",
-      "timestamp": "2026-06-12T05:40:18.267Z",
-      "error_message": "Incorrect value in code",
-      "file": "../../.claude/plans/expressive-noodling-dongarra.md",
-      "root_cause": "Had `/Users/caojiapeng/projects/zhihu/browser-reader/`",
-      "fix": "Changed to `/Users/caojiapeng/projects/browser-reader/`",
+      "timestamp": "2026-06-14T08:10:00",
+      "error_message": "Gemini 400 INVALID_ARGUMENT token超限 + Qwen data_inspection_failed审核阻断 → 大视频双重死锁",
+      "file": "zhihu_file/batch_process_external.py",
+      "root_cause": "1) Gemini无窗口/采样策略，全量发送1000+帧超1M token限制; 2) Qwen分窗合成中个别窗口被内容审核拒绝→整体Assembly失败; 3) 无跨模型降级恢复机制",
+      "fix": "待Mac修复: Gemini加滑动窗口(GEMINI_MAX_FRAMES+_synthesize_gemini_windowed); Qwen审核失败窗口用Gemini补位",
       "tags": [
-        "auto-detected",
-        "wrong-value",
-        "md"
+        "batch",
+        "gemini",
+        "qwen",
+        "token-limit",
+        "content-safety",
+        "windowing",
+        "deadlock"
       ],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-06-12T05:40:22.923Z"
+      "last_seen": "2026-06-14T08:10:00"
     }
   ]
 }

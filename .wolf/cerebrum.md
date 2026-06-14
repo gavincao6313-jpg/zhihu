@@ -157,6 +157,7 @@
 - **[2026-06-13] 批处理安全阀参数必须是 opt-out（有默认上限），不能是 opt-in（默认=0/无限）。** `--max-calls-per-run` 原 `default=0` 意味着用户不传参时完全无保护，等于防护形同虚设。高风险操作（API 调用、文件覆盖、批量重处理）的限制参数应设合理默认值，用户需显式 `--max-calls-per-run 0` 才能解除限制，而不是默认无限。同理，warn-and-continue 不能替代 abort：>50% key 不匹配时只 warn 等价于没有防护，统一改为 `sys.exit(1)`。
 - **[2026-06-13] 批处理 `--source-dir` 必须与进度文件中 key 前缀一致，禁止用子目录。** `batch_process_external.py` 的 `discover_external_videos()` 以 `relative_to(source_dir)` 生成 stem 作为进度 key。若原处理用父目录（如 `E:\AI解决方案`，进度 key 为 `AI解决方案专家-七期-赠/001_xxx`），后续必须用同一父目录。用子目录（如 `F:\AI解决方案\AI解决方案专家-七期-赠`）会导致 stem 变为 `001_xxx`，与进度 key 完全不匹配，全部视频被视为新视频全量重处理。本次事故浪费 Qwen API 200+ 次调用，并因重处理中部分失败损坏 3 个已完好输出文件。规则：跑批处理前必须确认 `source_dir` 与进度 key 前缀的关系；如不确定，先 --dry-run 看 stem 列表是否匹配进度 key。
 - **[2026-06-12] MAC 推送的脚本修复必须同步到 `zhihu_file/scripts/`。** `zhihu_file/` 是独立 git 仓库，头条脚本的实际运行副本在这里（`REPO_ROOT` 指向 `zhihu_file/`）。根目录 `scripts/` 的修复不会自动生效。本次 MAC 推送的 5 个修复（bug-167~170 + 临时文件清理）只修改了根 `scripts/`，必须手动应用到 `zhihu_file/scripts/`。规则：拉取头条相关修复后，先 `diff scripts/ zhihu_file/scripts/` 确认同步状态。
+- **[2026-06-14] Gemini 无窗口化 + Qwen 审核阻断 = 大视频双重死锁。** `batch_process_external.py` 中 Gemini 路径全量发送 1000+ 帧超 1M token 限制（`INVALID_ARGUMENT`），Qwen 路径虽然分窗但个别窗口帧被内容审核拒绝（`data_inspection_failed`）→ Assembly 失败。两个模型各自能处理部分内容但无跨模型降级机制。修复方向：Gemini 加滑动窗口（`GEMINI_MAX_FRAMES` + `_synthesize_gemini_windowed`），Qwen 审核失败窗口用 Gemini 补位。详见 `docs/BUG_batch_gemini_no_windowing_qwen_audit_block.md`。规则：批处理启动前必须检查是否有大视频（>1000帧）被路由到 Gemini，如有则必须先改 provider 为 qwen 或等待 Gemini 窗口化实现。
 
 ## Decision Log
 
