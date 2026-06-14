@@ -635,7 +635,15 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
         print(f"\n  [Qwen-Assembly] 合并 {window_count} 个窗口笔记...")
         _asm_facts = extract_qwen_critical_facts(window_notes)
         _asm_blocks = extract_qwen_narrative_blocks(window_notes)
-        _constraint = f"约束：本次输入包含 {window_count} 个窗口笔记，最终章节数必须 ≥ {window_count}。\n\n"
+        if failed_windows:
+            _success_indices = [i for i in range(1, window_count + 1) if i not in failed_windows]
+            _constraint = (
+                f"约束：视频共 {window_count} 个窗口，成功窗口：{_success_indices}，"
+                f"缺失窗口：{failed_windows}（审核拦截，无资料）。"
+                f"仅按成功窗口生成正文，最终章节数必须 ≥ {len(window_notes)}。禁止为缺失窗口补全内容。\n\n"
+            )
+        else:
+            _constraint = f"约束：本次输入包含 {window_count} 个窗口笔记，最终章节数必须 ≥ {window_count}。\n\n"
         ASSEMBLY_PROMPT = (
             _constraint
             + format_qwen_critical_facts_for_prompt(_asm_facts) + "\n\n"
@@ -739,6 +747,7 @@ def process_single_video(
         result["api_calls"] = synth_result["api_calls"]
         result["success"] = synth_result["success"]
         result["failed_stage"] = synth_result["failed_stage"]
+        result["partial_windows"] = synth_result.get("partial_windows")
 
         # Phase 4: Write output
         if synth_result["text"]:
@@ -936,11 +945,17 @@ def process_batch(args: argparse.Namespace) -> None:
     run_call_budget = args.max_calls_per_run
     run_calls_used = 0
     if run_call_budget > 0:
-        # Estimate total calls for the run
-        est_total = sum(
-            1 if progress["videos"].get(s, {}).get("provider") == "gemini" else 3
-            for s in pending
-        )
+        # Estimate total calls for the run, accounting for auto-reroute
+        est_total = 0
+        for s in pending:
+            _e = progress["videos"].get(s, {})
+            _will_reroute = (
+                args.retry_failed
+                and _e.get("failed_stage") == "gemini"
+                and _e.get("duration_s", 0) > args.duration_threshold
+            )
+            _est_prov = "qwen" if _will_reroute else (_e.get("provider") or "gemini")
+            est_total += 1 if _est_prov == "gemini" else 3
         print(f"预估本轮 API 调用: ~{est_total}  (单次上限: {run_call_budget})")
         if est_total > run_call_budget:
             print(f"⛔ 预估调用数 {est_total} 超过单次上限 {run_call_budget}，中止。")

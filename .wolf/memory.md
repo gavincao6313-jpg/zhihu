@@ -1414,3 +1414,12 @@
 | 09:43 | Edited batch_process_external.py | 2→2 lines | ~26 |
 | 09:43 | Edited batch_process_external.py | added 1 condition(s) | ~132 |
 | 09:44 | Edited batch_process_external.py | 4→8 lines | ~76 |
+| 10:24 | Edited batch_process_external.py | 3→4 lines | ~69 |
+
+## Session: 2026-06-14 10:26
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:30 | Edited batch_process_external.py | expanded (+8 lines) | ~134 |
+| 10:30 | Edited batch_process_external.py | sum() → else() | ~168 |
+| 10:45 | Fix 1/3/4 from 2nd code review: partial_windows传播, 预算估算含重路由, assembly约束用成功窗口数 | batch_process_external.py | done | ~800 |
