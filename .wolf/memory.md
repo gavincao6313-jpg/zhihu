@@ -1429,3 +1429,7 @@
 | 10:56 | Edited batch_process_external.py | expanded (+6 lines) | ~153 |
 | 10:56 | Created sync_to_zhihu_file.bat | — | ~140 |
 | 11:05 | Finding2+Deferred: Gemini分窗(_process_gemini_windowed, GEMINI_MAX_FRAMES=200) + sync_to_zhihu_file.bat | batch_process_external.py, sync_to_zhihu_file.bat | done | ~600 |
+| 11:05 | Edited batch_process_external.py | modified print() | ~122 |
+| 11:05 | Edited batch_process_external.py | modified get() | ~82 |
+| 11:05 | Edited batch_process_external.py | else() → _est_calls_for() | ~272 |
+| 11:20 | 预算估算修复: frame_count存入result+entry, _est_calls_for()按分窗计算Gemini调用数 | batch_process_external.py | done | ~300 |

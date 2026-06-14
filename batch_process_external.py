@@ -801,6 +801,7 @@ def process_single_video(
         print("\n  [Phase 1] 预处理（关键帧 + 语音转写）...")
         events, kept_frames, transcript = _preprocess_video(video_path, video_label)
         transcript_text = transcript_to_text(transcript)
+        result["frame_count"] = len(kept_frames)
         slide_count = sum(1 for e in events if e["type"] == "slide")
         annot_count = sum(1 for e in events if e["type"] == "annotation")
         print(f"  幻灯片: {slide_count}  标注: {annot_count}  逐字稿: {len(transcript_text):,} 字符")
@@ -1028,7 +1029,18 @@ def process_batch(args: argparse.Namespace) -> None:
     run_call_budget = args.max_calls_per_run
     run_calls_used = 0
     if run_call_budget > 0:
-        # Estimate total calls for the run, accounting for auto-reroute
+        # Estimate total calls for the run, accounting for auto-reroute and Gemini windowing
+        _cpw = 1 + GEMINI_BATCH_MAX_CONTINUATIONS  # conservative calls per window/call
+
+        def _est_calls_for(e: dict, will_reroute: bool) -> int:
+            if will_reroute or (e.get("provider") or "gemini") == "qwen":
+                return 3
+            fc = e.get("frame_count", 0)
+            if fc > GEMINI_MAX_FRAMES:
+                n_windows = (fc + GEMINI_MAX_FRAMES - 1) // GEMINI_MAX_FRAMES
+                return (n_windows + 1) * _cpw  # windows + assembly
+            return _cpw
+
         est_total = 0
         for s in pending:
             _e = progress["videos"].get(s, {})
@@ -1037,8 +1049,7 @@ def process_batch(args: argparse.Namespace) -> None:
                 and _e.get("failed_stage") == "gemini"
                 and _e.get("duration_s", 0) > args.duration_threshold
             )
-            _est_prov = "qwen" if _will_reroute else (_e.get("provider") or "gemini")
-            est_total += 1 if _est_prov == "gemini" else 3
+            est_total += _est_calls_for(_e, _will_reroute)
         print(f"预估本轮 API 调用: ~{est_total}  (单次上限: {run_call_budget})")
         if est_total > run_call_budget:
             print(f"⛔ 预估调用数 {est_total} 超过单次上限 {run_call_budget}，中止。")
@@ -1147,6 +1158,8 @@ def process_batch(args: argparse.Namespace) -> None:
         entry["api_calls"] = result.get("api_calls", 0)
         entry["failed_stage"] = result.get("failed_stage")
         entry["processed"] = _now_iso()
+        if result.get("frame_count"):
+            entry["frame_count"] = result["frame_count"]
         entry["output"] = str(output_path.name)
         progress["videos"][stem] = entry
 
