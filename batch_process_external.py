@@ -66,6 +66,7 @@ GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
 GEMINI_BATCH_MAX_RETRIES = 2
 GEMINI_BATCH_MAX_CONTINUATIONS = 2
 QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
+GEMINI_MAX_FRAMES = 200   # per-window cap to stay within Gemini 1M token limit
 QWEN_MAX_FRAMES = 250
 MAX_AUDIT_PROBES = 20   # hard cap on binary-search probe calls per window
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
@@ -245,6 +246,11 @@ _QWEN_FINAL_ASSEMBLY_PROMPT = """
 _AUDIT_PROBE_PROMPT = (
     "请确认：以下图片是否均为教育培训类内容截图？仅回答是或否，不需要其他解释。"
 )
+
+_GEMINI_WINDOW_ASSEMBLY_PROMPT = """\
+以下是同一个视频教程各时间段的分窗笔记，每段由独立关键帧提炼而成。
+请将它们合并为一份完整、连贯的 NotebookLM 风格学习笔记。
+要求：保留所有章节和技术细节；按视频时间线排列；使用 ## 章节标题；禁止省略或压缩已有信息。"""
 
 # ── Helpers ──────────────────────────────────────────────────
 
@@ -446,6 +452,77 @@ def _process_gemini(gemini_client, parts: list, video_label: str) -> dict:
         return {"text": text, "api_calls": conservative_calls, "success": True, "failed_stage": None}
     else:
         return {"text": None, "api_calls": conservative_calls, "success": False, "failed_stage": "gemini"}
+
+
+def _process_gemini_windowed(
+    gemini_client, transcript_text: str, kept_frames: list,
+    events: list, video_label: str,
+) -> dict:
+    """Gemini sliding-window synthesis for videos exceeding GEMINI_MAX_FRAMES.
+
+    Splits frames chronologically, synthesises each window, then assembles
+    the window notes with a final Gemini text-only call.
+    Returns same shape dict as _process_gemini().
+    """
+    total_frames = len(kept_frames)
+    min_windows = (total_frames + GEMINI_MAX_FRAMES - 1) // GEMINI_MAX_FRAMES
+    window_size = (total_frames + min_windows - 1) // min_windows
+
+    windows: list[list] = []
+    start = 0
+    while start < total_frames:
+        windows.append(kept_frames[start:start + window_size])
+        start += window_size
+
+    window_count = len(windows)
+    conservative_calls_per_window = 1 + GEMINI_BATCH_MAX_CONTINUATIONS
+    total_calls = 0
+    print(f"  [Gemini分窗] {total_frames} 帧 → {window_count} 个窗口 (≤{GEMINI_MAX_FRAMES} 帧/窗口)")
+
+    window_notes: list[str] = []
+    for wi, wf in enumerate(windows):
+        wlabel = f"Gemini-W{wi+1}/{window_count} {video_label[:15]}"
+        print(f"  [{wlabel}] 发送 {len(wf)} 帧...")
+        w_parts = _build_parts(transcript_text, wf, events, GEMINI_PROMPT)
+        w_text = call_gemini(
+            gemini_client, w_parts,
+            label=wlabel,
+            model=GEMINI_MODEL,
+            thinking_budget=8192,
+            max_retries=GEMINI_BATCH_MAX_RETRIES,
+            max_continuations=GEMINI_BATCH_MAX_CONTINUATIONS,
+        )
+        total_calls += conservative_calls_per_window
+        if w_text:
+            window_notes.append(w_text)
+            print(f"  [{wlabel}] ✓ {len(w_text):,} 字符")
+        else:
+            print(f"  [{wlabel}] ✗ 失败，跳过")
+
+    if not window_notes:
+        return {"text": None, "api_calls": total_calls, "success": False, "failed_stage": "gemini"}
+
+    if len(window_notes) == 1:
+        final_text = window_notes[0]
+    else:
+        print(f"  [Gemini-Assembly] 合并 {len(window_notes)}/{window_count} 个窗口笔记...")
+        assembly_parts = [_GEMINI_WINDOW_ASSEMBLY_PROMPT]
+        for i, note in enumerate(window_notes, start=1):
+            assembly_parts.append(f"\n\n---\n## 窗口 {i} 笔记\n\n{note}")
+        final_text = call_gemini(
+            gemini_client, assembly_parts,
+            label=f"Gemini-Assembly {video_label[:20]}",
+            model=GEMINI_MODEL,
+            thinking_budget=8192,
+            max_retries=GEMINI_BATCH_MAX_RETRIES,
+            max_continuations=GEMINI_BATCH_MAX_CONTINUATIONS,
+        )
+        total_calls += conservative_calls_per_window
+        if not final_text:
+            print("  [Gemini-Assembly] ✗ 回退到串联输出")
+            final_text = "\n\n---\n\n".join(window_notes)
+
+    return {"text": final_text, "api_calls": total_calls, "success": True, "failed_stage": None}
 
 
 def _find_clean_frames_binary(
@@ -737,7 +814,13 @@ def process_single_video(
         # Phase 3: Synthesize
         print(f"\n  [Phase 3] {provider.upper()} 合成...")
         if provider == "gemini":
-            synth_result = _process_gemini(gemini_client, parts, video_label)
+            if len(kept_frames) > GEMINI_MAX_FRAMES:
+                print(f"  帧数 {len(kept_frames)} > {GEMINI_MAX_FRAMES}，启用 Gemini 分窗模式")
+                synth_result = _process_gemini_windowed(
+                    gemini_client, transcript_text, kept_frames, events, video_label
+                )
+            else:
+                synth_result = _process_gemini(gemini_client, parts, video_label)
         else:
             synth_result = _process_qwen(
                 qwen_client, parts, video_label,

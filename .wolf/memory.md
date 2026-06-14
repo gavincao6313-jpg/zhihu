@@ -1423,3 +1423,9 @@
 | 10:30 | Edited batch_process_external.py | expanded (+8 lines) | ~134 |
 | 10:30 | Edited batch_process_external.py | sum() → else() | ~168 |
 | 10:45 | Fix 1/3/4 from 2nd code review: partial_windows传播, 预算估算含重路由, assembly约束用成功窗口数 | batch_process_external.py | done | ~800 |
+| 10:53 | Edited batch_process_external.py | 2→3 lines | ~51 |
+| 10:54 | Edited batch_process_external.py | 5→10 lines | ~84 |
+| 10:55 | Edited batch_process_external.py | modified _process_gemini_windowed() | ~833 |
+| 10:56 | Edited batch_process_external.py | expanded (+6 lines) | ~153 |
+| 10:56 | Created sync_to_zhihu_file.bat | — | ~140 |
+| 11:05 | Finding2+Deferred: Gemini分窗(_process_gemini_windowed, GEMINI_MAX_FRAMES=200) + sync_to_zhihu_file.bat | batch_process_external.py, sync_to_zhihu_file.bat | done | ~600 |
