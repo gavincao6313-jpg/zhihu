@@ -1433,3 +1433,5 @@
 | 11:05 | Edited batch_process_external.py | modified get() | ~82 |
 | 11:05 | Edited batch_process_external.py | else() → _est_calls_for() | ~272 |
 | 11:20 | 预算估算修复: frame_count存入result+entry, _est_calls_for()按分窗计算Gemini调用数 | batch_process_external.py | done | ~300 |
+| 17:08 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | — | ~927 |
+| 17:08 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/MEMORY.md | inline fix | ~30 |
