@@ -230,6 +230,7 @@ def call_qwen(
     api_calls = 0
     final_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     final_finish_reason = ""
+    _error_type = None
 
     extra_body = {"enable_thinking": enable_thinking}
     if enable_thinking:
@@ -327,8 +328,11 @@ def call_qwen(
         except Exception as e:
             final_usage = usage_total
             final_finish_reason = finish_reason
-            is_rate = "429" in str(e) or "rate" in str(e).lower() or "throttl" in str(e).lower()
+            err_str = str(e).lower()
+            is_rate = "429" in err_str or "rate" in err_str or "throttl" in err_str
             if not is_rate:
+                if "datainspection" in err_str or "data_inspection" in err_str:
+                    _error_type = "data_inspection_failed"
                 print(f"[{label}] Non-retriable error: {e}", flush=True)
                 break
             delay = parse_retry_delay(e, retry_delay)
@@ -348,6 +352,7 @@ def call_qwen(
         "finish_reason": final_finish_reason,
         "usage": final_usage,
         "estimated_cost_cny": None,
+        "error": _error_type,
     }
 
 

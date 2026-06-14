@@ -239,6 +239,12 @@ _QWEN_FINAL_ASSEMBLY_PROMPT = """
 """
 
 
+# Lightweight probe prompt for binary audit search — intentionally minimal to
+# keep token cost low. We just need to know if the frame set triggers inspection.
+_AUDIT_PROBE_PROMPT = (
+    "请确认：以下图片是否均为教育培训类内容截图？仅回答是或否，不需要其他解释。"
+)
+
 # ── Helpers ──────────────────────────────────────────────────
 
 def _now_iso() -> str:
@@ -441,6 +447,60 @@ def _process_gemini(gemini_client, parts: list, video_label: str) -> dict:
         return {"text": None, "api_calls": conservative_calls, "success": False, "failed_stage": "gemini"}
 
 
+def _find_clean_frames_binary(
+    qwen_client, frames: list, events: list, label: str
+) -> tuple[list, int]:
+    """Binary search to isolate frames that trigger Qwen content inspection.
+
+    Uses a lightweight probe (not synthesis) to minimize token cost.
+    Returns (clean_frames, probe_api_calls).
+    Only called after a window already failed with data_inspection_failed.
+    """
+    from google.genai import types
+
+    if not frames:
+        return [], 0
+
+    # Build probe parts (no transcript — cheapest possible call)
+    probe_parts = [_AUDIT_PROBE_PROMPT]
+    for fp in frames:
+        probe_parts.append(frame_marker(fp, events))
+        probe_parts.append(types.Part(
+            inline_data=types.Blob(mime_type="image/jpeg", data=fp.read_bytes())
+        ))
+
+    result = call_qwen(
+        qwen_client, probe_parts, label=f"{label}-probe",
+        model=QWEN_MODEL, enable_thinking=False,
+        max_retries=1, max_tokens=20,
+    )
+    probe_calls = result.get("api_calls", 1)
+
+    if result.get("text") is not None:
+        # All frames in this set passed — they're clean
+        return frames, probe_calls
+
+    if result.get("error") != "data_inspection_failed":
+        # Non-audit failure on probe — can't recover, drop the set
+        print(f"  [二分] {label}: 探针返回非审核错误，跳过 {len(frames)} 帧")
+        return [], probe_calls
+
+    if len(frames) == 1:
+        # Isolated the single bad frame
+        print(f"  [二分] 定位坏帧: {frames[0].name}", flush=True)
+        return [], probe_calls
+
+    # Split and recurse
+    mid = len(frames) // 2
+    left_clean, left_calls = _find_clean_frames_binary(
+        qwen_client, frames[:mid], events, f"{label}-L"
+    )
+    right_clean, right_calls = _find_clean_frames_binary(
+        qwen_client, frames[mid:], events, f"{label}-R"
+    )
+    return left_clean + right_clean, probe_calls + left_calls + right_calls
+
+
 def _process_qwen(qwen_client, parts: list, video_label: str,
                   transcript_text: str, kept_frames: list, events: list) -> dict:
     """Qwen sliding-window synthesis path. Returns {text, api_calls, success, ...}."""
@@ -510,17 +570,48 @@ def _process_qwen(qwen_client, parts: list, video_label: str,
         qwen_calls += int(w_result.get("api_calls", 1) if isinstance(w_result, dict) else 1)
         w_text = w_result.get("text") if isinstance(w_result, dict) else None
         w_ok = bool(w_text)
+
+        # Audit block: binary search to isolate bad frames, then re-synthesize
+        if not w_ok and w_result.get("error") == "data_inspection_failed":
+            print(f"  [{wlabel}] ⚠ 审核阻断，启动二分隔离 ({len(wf)} 帧)...")
+            clean_frames, probe_calls = _find_clean_frames_binary(
+                qwen_client, wf, events, wlabel
+            )
+            qwen_calls += probe_calls
+            dropped = len(wf) - len(clean_frames)
+            print(f"  [{wlabel}] 二分完成: 保留 {len(clean_frames)} 帧，丢弃 {dropped} 坏帧")
+
+            if clean_frames:
+                # Re-synthesize with clean frames only
+                clean_parts = [w_prompt, transcript_text]
+                for fp in clean_frames:
+                    clean_parts.append(frame_marker(fp, events))
+                    clean_parts.append(types.Part(
+                        inline_data=types.Blob(mime_type="image/jpeg", data=fp.read_bytes())
+                    ))
+                retry_result = call_qwen(
+                    qwen_client, clean_parts,
+                    label=f"{wlabel}-clean", model=QWEN_MODEL,
+                    enable_thinking=True, thinking_budget=4096,
+                    max_tokens=48000, max_retries=2,
+                )
+                qwen_calls += int(retry_result.get("api_calls", 1))
+                w_text = retry_result.get("text")
+                w_ok = bool(w_text)
+
         window_success.append(w_ok)
         if w_ok:
             window_notes.append(w_text)
             print(f"  [{wlabel}] ✓ {len(w_text):,} 字符")
         else:
-            print(f"  [{wlabel}] ✗ 失败，跳过此窗口")
+            print(f"  [{wlabel}] ✗ 失败，跳过此窗口继续")
 
     if not any(window_success):
         return {"text": None, "api_calls": qwen_calls, "success": False, "failed_stage": "qwen-windows"}
+    # Partial success: continue with successful window notes, log which windows were skipped
     if not all(window_success):
-        return {"text": None, "api_calls": qwen_calls, "success": False, "failed_stage": "qwen-window-partial"}
+        failed_indices = [i + 1 for i, ok in enumerate(window_success) if not ok]
+        print(f"  [警告] 窗口 {failed_indices} 最终失败，用 {len(window_notes)}/{window_count} 个成功窗口继续组装")
 
     if window_count == 1:
         qwen_text = window_notes[0]

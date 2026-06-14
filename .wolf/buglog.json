@@ -3017,6 +3017,27 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-14T08:10:00"
+    },
+    {
+      "id": "bug-179",
+      "timestamp": "2026-06-14T09:30:00+08:00",
+      "error_message": "Qwen data_inspection_failed 导致窗口失败时无法继续 Assembly（关联 bug-178）",
+      "file": "utils.py, batch_process_external.py",
+      "root_cause": "call_qwen() 不传递错误类型，调用方无法区分 audit 失败 vs 其他失败；Qwen 窗口任一失败即整组放弃",
+      "fix": "utils.py 增加 _error_type 追踪，data_inspection_failed 时回传 error 字段；batch_process_external.py 加 _find_clean_frames_binary() 二分探针隔离坏帧，用干净帧重新合成；部分窗口失败改为警告后继续 Assembly",
+      "tags": [
+        "qwen",
+        "audit",
+        "data_inspection_failed",
+        "binary-search",
+        "batch",
+        "超长视频"
+      ],
+      "related_bugs": [
+        "bug-178"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-06-14T09:30:00+08:00"
     }
   ]
 }
