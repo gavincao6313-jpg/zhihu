@@ -66,7 +66,14 @@ GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
 GEMINI_BATCH_MAX_RETRIES = 2
 GEMINI_BATCH_MAX_CONTINUATIONS = 2
 QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
-GEMINI_MAX_FRAMES = 200   # per-window cap to stay within Gemini 1M token limit
+# Per-video frame guard for the Gemini path. Keyframes are 320px-wide JPEGs
+# (~258 input tokens each), so a single Gemini call stays under the 250k
+# free-tier TPM up to ~700 frames (~180k img tokens + transcript). Normal
+# 1–2.5h videos fall under this and run as ONE Gemini call; videos above it
+# are rerouted to Qwen's sliding-window path (process_single_video Phase 3),
+# never windowed inside Gemini. NOT a 1M-context cap — 250k TPM is the
+# binding free-tier limit. See CLAUDE.md Gemini limits.
+GEMINI_MAX_FRAMES = 700
 QWEN_MAX_FRAMES = 250
 MAX_AUDIT_PROBES = 20   # hard cap on binary-search probe calls per window
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
@@ -246,11 +253,6 @@ _QWEN_FINAL_ASSEMBLY_PROMPT = """
 _AUDIT_PROBE_PROMPT = (
     "请确认：以下图片是否均为教育培训类内容截图？仅回答是或否，不需要其他解释。"
 )
-
-_GEMINI_WINDOW_ASSEMBLY_PROMPT = """\
-以下是同一个视频教程各时间段的分窗笔记，每段由独立关键帧提炼而成。
-请将它们合并为一份完整、连贯的 NotebookLM 风格学习笔记。
-要求：保留所有章节和技术细节；按视频时间线排列；使用 ## 章节标题；禁止省略或压缩已有信息。"""
 
 # ── Helpers ──────────────────────────────────────────────────
 
@@ -452,77 +454,6 @@ def _process_gemini(gemini_client, parts: list, video_label: str) -> dict:
         return {"text": text, "api_calls": conservative_calls, "success": True, "failed_stage": None}
     else:
         return {"text": None, "api_calls": conservative_calls, "success": False, "failed_stage": "gemini"}
-
-
-def _process_gemini_windowed(
-    gemini_client, transcript_text: str, kept_frames: list,
-    events: list, video_label: str,
-) -> dict:
-    """Gemini sliding-window synthesis for videos exceeding GEMINI_MAX_FRAMES.
-
-    Splits frames chronologically, synthesises each window, then assembles
-    the window notes with a final Gemini text-only call.
-    Returns same shape dict as _process_gemini().
-    """
-    total_frames = len(kept_frames)
-    min_windows = (total_frames + GEMINI_MAX_FRAMES - 1) // GEMINI_MAX_FRAMES
-    window_size = (total_frames + min_windows - 1) // min_windows
-
-    windows: list[list] = []
-    start = 0
-    while start < total_frames:
-        windows.append(kept_frames[start:start + window_size])
-        start += window_size
-
-    window_count = len(windows)
-    conservative_calls_per_window = 1 + GEMINI_BATCH_MAX_CONTINUATIONS
-    total_calls = 0
-    print(f"  [Gemini分窗] {total_frames} 帧 → {window_count} 个窗口 (≤{GEMINI_MAX_FRAMES} 帧/窗口)")
-
-    window_notes: list[str] = []
-    for wi, wf in enumerate(windows):
-        wlabel = f"Gemini-W{wi+1}/{window_count} {video_label[:15]}"
-        print(f"  [{wlabel}] 发送 {len(wf)} 帧...")
-        w_parts = _build_parts(transcript_text, wf, events, GEMINI_PROMPT)
-        w_text = call_gemini(
-            gemini_client, w_parts,
-            label=wlabel,
-            model=GEMINI_MODEL,
-            thinking_budget=8192,
-            max_retries=GEMINI_BATCH_MAX_RETRIES,
-            max_continuations=GEMINI_BATCH_MAX_CONTINUATIONS,
-        )
-        total_calls += conservative_calls_per_window
-        if w_text:
-            window_notes.append(w_text)
-            print(f"  [{wlabel}] ✓ {len(w_text):,} 字符")
-        else:
-            print(f"  [{wlabel}] ✗ 失败，跳过")
-
-    if not window_notes:
-        return {"text": None, "api_calls": total_calls, "success": False, "failed_stage": "gemini"}
-
-    if len(window_notes) == 1:
-        final_text = window_notes[0]
-    else:
-        print(f"  [Gemini-Assembly] 合并 {len(window_notes)}/{window_count} 个窗口笔记...")
-        assembly_parts = [_GEMINI_WINDOW_ASSEMBLY_PROMPT]
-        for i, note in enumerate(window_notes, start=1):
-            assembly_parts.append(f"\n\n---\n## 窗口 {i} 笔记\n\n{note}")
-        final_text = call_gemini(
-            gemini_client, assembly_parts,
-            label=f"Gemini-Assembly {video_label[:20]}",
-            model=GEMINI_MODEL,
-            thinking_budget=8192,
-            max_retries=GEMINI_BATCH_MAX_RETRIES,
-            max_continuations=GEMINI_BATCH_MAX_CONTINUATIONS,
-        )
-        total_calls += conservative_calls_per_window
-        if not final_text:
-            print("  [Gemini-Assembly] ✗ 回退到串联输出")
-            final_text = "\n\n---\n\n".join(window_notes)
-
-    return {"text": final_text, "api_calls": total_calls, "success": True, "failed_stage": None}
 
 
 def _find_clean_frames_binary(
@@ -814,14 +745,22 @@ def process_single_video(
 
         # Phase 3: Synthesize
         print(f"\n  [Phase 3] {provider.upper()} 合成...")
-        if provider == "gemini":
-            if len(kept_frames) > GEMINI_MAX_FRAMES:
-                print(f"  帧数 {len(kept_frames)} > {GEMINI_MAX_FRAMES}，启用 Gemini 分窗模式")
-                synth_result = _process_gemini_windowed(
-                    gemini_client, transcript_text, kept_frames, events, video_label
-                )
+        if provider == "gemini" and len(kept_frames) > GEMINI_MAX_FRAMES:
+            # 帧数护栏：单次 Gemini 调用会超 250k 免费层 TPM，改交 Qwen 成熟的分窗处理。
+            # 罕见路径（≤2.5h 且 >GEMINI_MAX_FRAMES 帧的高密度视频），正常路由基本不触发。
+            if qwen_client is None:
+                print(f"  ⚠ 帧数 {len(kept_frames)} > {GEMINI_MAX_FRAMES} 护栏，但无 Qwen client，无法 reroute，放弃")
+                synth_result = {"text": None, "api_calls": 0,
+                                "success": False, "failed_stage": "gemini_frames_over_guard"}
             else:
-                synth_result = _process_gemini(gemini_client, parts, video_label)
+                print(f"  帧数 {len(kept_frames)} > {GEMINI_MAX_FRAMES} 护栏 → 改用 Qwen 处理（避免单次 Gemini 调用超 250k TPM）")
+                synth_result = _process_qwen(
+                    qwen_client, parts, video_label,
+                    transcript_text, kept_frames, events,
+                )
+                result["provider"] = "qwen"  # 实际由 Qwen 承载，供配额按 Qwen 计费/记录
+        elif provider == "gemini":
+            synth_result = _process_gemini(gemini_client, parts, video_label)
         else:
             synth_result = _process_qwen(
                 qwen_client, parts, video_label,
@@ -842,10 +781,11 @@ def process_single_video(
                 f.write(_transcript_appendix(transcript_text))
             print(f"  ✓ 输出: {output_path.name} ({len(synth_result['text']):,} 字符)")
         else:
-            print(f"  ✗ {provider.upper()} 合成失败")
+            actual_provider = result.get("provider", provider)  # reroute 后为 qwen
+            print(f"  ✗ {actual_provider.upper()} 合成失败")
             output_path.parent.mkdir(parents=True, exist_ok=True)
             output_path.write_text(
-                f"# {video_path.stem}\n\n> {provider.upper()} 合成失败\n\n"
+                f"# {video_path.stem}\n\n> {actual_provider.upper()} 合成失败\n\n"
                 f"逐字稿长度: {len(transcript_text):,} 字符\n",
                 encoding="utf-8",
             )
@@ -1029,17 +969,23 @@ def process_batch(args: argparse.Namespace) -> None:
     run_call_budget = args.max_calls_per_run
     run_calls_used = 0
     if run_call_budget > 0:
-        # Estimate total calls for the run, accounting for auto-reroute and Gemini windowing
-        _cpw = 1 + GEMINI_BATCH_MAX_CONTINUATIONS  # conservative calls per window/call
+        # Estimate total calls for the run, accounting for auto-reroute and the
+        # >GEMINI_MAX_FRAMES guard that reroutes oversized Gemini videos to Qwen.
+        _cpw = 1 + GEMINI_BATCH_MAX_CONTINUATIONS  # conservative calls per Gemini call
 
         def _est_calls_for(e: dict, will_reroute: bool) -> int:
-            if will_reroute or (e.get("provider") or "gemini") == "qwen":
-                return 3
             fc = e.get("frame_count", 0)
-            if fc > GEMINI_MAX_FRAMES:
-                n_windows = (fc + GEMINI_MAX_FRAMES - 1) // GEMINI_MAX_FRAMES
-                return (n_windows + 1) * _cpw  # windows + assembly
-            return _cpw
+            # 实际由 Qwen 承载：原生 Qwen / >2.5h reroute / gemini 超帧护栏 → 都走 Qwen 分窗
+            on_qwen = (
+                will_reroute
+                or (e.get("provider") or "gemini") == "qwen"
+                or fc > GEMINI_MAX_FRAMES
+            )
+            if on_qwen:
+                # Qwen 分窗：ceil(fc/QWEN_MAX_FRAMES) 窗，多窗再加 1 次 assembly，每步保守 _cpw
+                n_windows = (fc + QWEN_MAX_FRAMES - 1) // QWEN_MAX_FRAMES if fc > 0 else 1
+                return _cpw if n_windows <= 1 else (n_windows + 1) * _cpw
+            return _cpw  # 单次 Gemini
 
         est_total = 0
         for s in pending:
@@ -1122,6 +1068,13 @@ def process_batch(args: argparse.Namespace) -> None:
             provider = "qwen"
             print(f"  [路由修正] {stem[:40]}: failed_stage=gemini + 时长超阈值 → 改用 Qwen")
 
+        # 帧数护栏预判：已知帧数 > GEMINI_MAX_FRAMES 的 Gemini 视频会 reroute 到 Qwen，
+        # 闸门提前按 Qwen 处理，避免被 Gemini 日配额闸门误拦。
+        # 首次处理无 frame_count（默认 0）时无法预判，仍按 Gemini 保守处理（预处理后由 Phase 3 内部 reroute 兜底）。
+        if provider == "gemini" and entry.get("frame_count", 0) > GEMINI_MAX_FRAMES:
+            provider = "qwen"
+            print(f"  [护栏预判] {stem[:40]}: 已知 {entry.get('frame_count')} 帧 > {GEMINI_MAX_FRAMES} → 闸门按 Qwen")
+
         # Quota gate for Gemini
         if provider == "gemini":
             daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
@@ -1154,7 +1107,9 @@ def process_batch(args: argparse.Namespace) -> None:
         else:
             entry["status"] = "done"
             entry.pop("partial_windows", None)
-        entry["provider"] = provider
+        # 帧数护栏可能把 gemini 视频实际交给 Qwen；按实际承载 provider 计费/记录
+        billed_provider = result.get("provider", provider)
+        entry["provider"] = billed_provider
         entry["api_calls"] = result.get("api_calls", 0)
         entry["failed_stage"] = result.get("failed_stage")
         entry["processed"] = _now_iso()
@@ -1165,17 +1120,17 @@ def process_batch(args: argparse.Namespace) -> None:
 
         # Update daily quota
         daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
-        if provider == "gemini":
+        if billed_provider == "gemini":
             daily["gemini_calls"] += result.get("api_calls", 0)
         else:
             daily["qwen_calls"] += result.get("api_calls", 0)
 
-        # Enforce per-run call budget
+        # Enforce per-run call budget —— 先存盘+计数+打印，再决定是否停止，
+        # 避免已烧的调用因 break 跳过 save_batch_progress 而下次重跑重复烧 API。
+        should_stop = False
         if run_call_budget > 0:
             run_calls_used += result.get("api_calls", 0)
-            if run_calls_used >= run_call_budget:
-                print(f"\n⛔ 本轮 API 调用已达上限 {run_call_budget}，中止。剩余 {len(pending)-i} 个视频待下次处理。")
-                break
+            should_stop = run_calls_used >= run_call_budget
 
         progress["last_run"] = _now_iso()
         save_batch_progress(progress)
@@ -1191,6 +1146,10 @@ def process_batch(args: argparse.Namespace) -> None:
               f"成功: {success_count}  "
               f"今日 Gemini: {gemini_today}/{args.daily_limit_gemini}  "
               f"Qwen: {qwen_today}")
+
+        if should_stop:
+            print(f"\n⛔ 本轮 API 调用已达上限 {run_call_budget}，中止。剩余 {len(pending)-i} 个视频待下次处理。")
+            break
 
     # Final summary
     print("\n" + "=" * 56)
