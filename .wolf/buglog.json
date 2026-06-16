@@ -3038,6 +3038,230 @@
       ],
       "occurrences": 1,
       "last_seen": "2026-06-14T09:30:00+08:00"
+    },
+    {
+      "id": "bug-180",
+      "timestamp": "2026-06-14T01:41:32.420Z",
+      "error_message": "Significant refactor of ",
+      "file": "batch_process_external.py",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 52→66 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-14T01:41:32.420Z"
+    },
+    {
+      "id": "bug-181",
+      "timestamp": "2026-06-14T01:42:48.399Z",
+      "error_message": "Wrong return value",
+      "file": "batch_process_external.py",
+      "root_cause": "Was returning: {\"text\": qwen_text, \"api_calls\": qwen_calls, \"succ",
+      "fix": "Now returns: {",
+      "tags": [
+        "auto-detected",
+        "return-value",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-14T01:42:48.399Z"
+    },
+    {
+      "id": "bug-182",
+      "timestamp": "2026-06-14T02:30:51.515Z",
+      "error_message": "Significant refactor of ",
+      "file": "batch_process_external.py",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 6→12 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-14T02:30:51.515Z"
+    },
+    {
+      "id": "bug-183",
+      "timestamp": "2026-06-14T03:05:44.314Z",
+      "error_message": "Significant refactor of ",
+      "file": "batch_process_external.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 11→21 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-14T03:05:44.314Z"
+    },
+    {
+      "id": "bug-184",
+      "timestamp": "2026-06-15T08:38:34.772Z",
+      "error_message": "Significant refactor of ",
+      "file": "download_novel.py",
+      "root_cause": "9 lines replaced/restructured",
+      "fix": "Rewrote 12→18 lines (9 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-15T08:38:34.772Z"
+    },
+    {
+      "id": "bug-185",
+      "timestamp": "2026-06-15T08:38:49.346Z",
+      "error_message": "Wrong reference: size_kb should be persistent",
+      "file": "download_novel.py",
+      "root_cause": "Used \"size_kb\" instead of \"persistent\"",
+      "fix": "Changed size_kb → persistent",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-15T08:38:49.346Z"
+    },
+    {
+      "id": "bug-186",
+      "timestamp": "2026-06-16T00:36:49.866Z",
+      "error_message": "Significant refactor of ",
+      "file": "download_novel.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 7→11 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-16T00:36:49.866Z"
+    },
+    {
+      "id": "bug-187",
+      "timestamp": "2026-06-16T00:37:01.809Z",
+      "error_message": "Missing await",
+      "file": "download_novel.py",
+      "root_cause": "Async call without await — returned Promise instead of value",
+      "fix": "Added await to async call",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-16T00:37:01.809Z"
+    },
+    {
+      "id": "bug-188",
+      "timestamp": "2026-06-16T00:00:00.000Z",
+      "error_message": "WIN报告：Gemini分窗严重浪费API调用次数，影响每日产出（原本20视频/天）",
+      "file": "batch_process_external.py",
+      "root_cause": "GEMINI_MAX_FRAMES=200 作为主分支Gemini路径的硬性分窗触发阈值，远低于真实token上限。帧为320px宽JPEG，每帧约258 token，200帧仅约52k token（1M上下文的5%）。≤2.5h路由到Gemini的视频中落在200-700帧的被错误拆成多窗口，每窗口(1+MAX_CONTINUATIONS)=3次调用+assembly，耗尽RPD配额。修正:原commit d082031以007(1092帧)为分窗案例属误判——经WIN .progress_batch.json核实,007时长3:10>2.5h实走Qwen不走Gemini;其声称的1M上下文溢出实为约282k token超250k免费层TPM(非1M上下文)。",
+      "fix": "GEMINI_MAX_FRAMES 200→700。700帧约180k图像token，单次调用稳定在250k免费层TPM内；正常视频回到1次调用/视频;已知7个已预处理Gemini视频全部<700帧(最大658),其中5个(200-700区间:008/024交付/014/015/026)由此从误分窗恢复为单次调用。_est_calls_for/windowing math/trigger 三处共用同一常量自动一致。附:当前路由下无>700帧视频会到达Gemini(均>2.5h走Qwen,且无Qwen→Gemini reroute),Gemini分窗近乎死代码。",
+      "tags": [
+        "gemini",
+        "budget",
+        "windowing",
+        "rpd",
+        "tpm",
+        "high-risk",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-16T00:00:00.000Z"
+    },
+    {
+      "id": "bug-189",
+      "timestamp": "2026-06-16T03:10:24.276Z",
+      "error_message": "Gemini 分窗为不存在的场景(007长视频实走Qwen / 不存在的Qwen→Gemini reroute)写的死代码，正常路由下永不触发",
+      "file": "batch_process_external.py",
+      "root_cause": "经WIN .progress_batch.json核实:路由纯按时长(route_provider, ≤2.5h→gemini,>2.5h→qwen);唯一reroute是Gemini→Qwen(line1124),不存在Qwen→Gemini。所有>700帧视频(706-1241)都>2.5h走Qwen;Gemini只见≤2.5h视频(实测最大658帧)。故 _process_gemini_windowed 触发条件(provider==gemini且frames>700)在174个Gemini视频中0例命中=死代码。",
+      "fix": "用户决议「保留安全网+删死代码」。删除 _process_gemini_windowed 函数与 _GEMINI_WINDOW_ASSEMBLY_PROMPT 常量;process_single_video 中 provider==gemini 且 frames>GEMINI_MAX_FRAMES 改为 reroute 到 _process_qwen(复用Qwen 250帧分窗,护栏防单次Gemini调用>250k TPM),Gemini 严格单窗单调用;_est_calls_for 超护栏分支改按 Qwen 分窗估算 n_windows*3;qwen_client 为 None 时安全失败 failed_stage=gemini_frames_over_guard。补修配额归属:reroute 时 result['provider']='qwen',process_batch 用 billed_provider=result.get('provider',provider) 计入 qwen_calls 并存 entry['provider'](原先错记到 gemini_calls)。再补:调用前配额闸门加护栏预判——entry.frame_count>GEMINI_MAX_FRAMES 的 gemini 视频提前按 Qwen 过闸,避免被 Gemini 日配额误拦(首次无 frame_count 仍保守按 gemini,由 Phase3 内部 reroute 兜底)。验证:py_compile OK、无残留死符号、路由+预算+配额归属+闸门预判冒烟全过。L2/L3 高风险区,待外部AI审查。",
+      "tags": [
+        "gemini",
+        "dead-code",
+        "reroute",
+        "qwen",
+        "high-risk",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-16T03:10:24.276Z"
+    },
+    {
+      "id": "bug-190",
+      "timestamp": "2026-06-16T11:50:41+08:00",
+      "error_message": "第三方审查发现: _est_calls_for 对 provider=qwen 或 will_reroute 先返回 3，导致 frame_count>GEMINI_MAX_FRAMES 的 Qwen 分窗预算估算分支失效",
+      "file": "batch_process_external.py",
+      "root_cause": "预算估算条件顺序错误；已持久化为 qwen 的大帧数视频或 retry reroute 视频不会进入 n_windows*3 分支，--max-calls-per-run 预检低估调用数。",
+      "fix": "已修复(2026-06-16): _est_calls_for 重写，统一 on_qwen 判定(will_reroute / provider==qwen / fc>GEMINI_MAX_FRAMES)，按 ceil(fc/QWEN_MAX_FRAMES) 估窗口数，多窗再加 1 次 assembly，每步 _cpw(=3)。冒烟验证 qwen fc=1000→15(原3)、fc=1092→18、gemini fc=900→15、gemini fc=658→3。审核探针未计入(异常路径，有 MAX_AUDIT_PROBES 单独上限，计入会常态误 abort)。",
+      "tags": [
+        "batch",
+        "qwen",
+        "budget",
+        "review-finding",
+        "py"
+      ],
+      "related_bugs": [
+        "bug-189"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-06-16T11:50:41+08:00"
+    },
+    {
+      "id": "bug-191",
+      "timestamp": "2026-06-16T11:50:41+08:00",
+      "error_message": "第三方审查发现: --max-calls-per-run 达限后在 save_batch_progress() 和计数器更新前 break，已完成视频可能不落盘并在下次重复消耗 API",
+      "file": "batch_process_external.py",
+      "root_cause": "process_batch 在更新内存中的 entry/quota 后立即检查 run_calls_used 并 break；progress['last_run']、save_batch_progress(progress)、success_count/processed 在 break 之后才执行。",
+      "fix": "已修复(2026-06-16): 改用 should_stop 标记延迟 break —— 先 progress['last_run'] + save_batch_progress(progress) + success_count/processed + status print，最后才 if should_stop: break。达限视频必落盘，不再下次重复烧 API。",
+      "tags": [
+        "batch",
+        "quota",
+        "progress",
+        "review-finding",
+        "py"
+      ],
+      "related_bugs": [
+        "bug-190"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-06-16T11:50:41+08:00"
+    },
+    {
+      "id": "bug-192",
+      "timestamp": "2026-06-16T03:56:06.959Z",
+      "error_message": "第三方审查发现4(日志/注释误导)与发现3(首次无 frame_count 时 Qwen reroute 被 Gemini gate 卡死)",
+      "file": "batch_process_external.py",
+      "root_cause": "发现4: GEMINI_MAX_FRAMES 注释残留 '007 ~1092 frames window'(007 实走 Qwen 且已不在 Gemini 内 window);reroute 后失败日志用原始 provider.upper() 写成 'GEMINI 合成失败'。发现3: 配额 gate 在预处理前判定,首次 frame_count=0 无法预判超帧 reroute,若 Gemini 无 key/配额满则视频进不了预处理→无法发现帧数→Qwen 护栏失效。",
+      "fix": "发现4已修(2026-06-16): 注释改为反映 reroute-Qwen 行为(不再提 007 window);失败日志改用 result.get('provider',provider).upper()(reroute 后为 qwen)。发现3已决策(2026-06-16 暂不处理,记为已知限制): 死锁仅在 Gemini 无 key/配额永久满 且 出现 >700帧≤2.5h 视频时同时成立,当前 0 例;有 Gemini key、日配额够,首次预处理一次后 frame_count 入库,gate 预判自动走 Qwen。方案A 会让 ≤700 视频在 Gemini 不可用时白跑预处理,性价比低。纯 Qwen 部署(无 key)真遇到再修。",
+      "tags": [
+        "review-finding",
+        "logging",
+        "gate",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-16T03:56:06.959Z"
     }
   ]
 }

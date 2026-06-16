@@ -1435,3 +1435,52 @@
 | 11:20 | 预算估算修复: frame_count存入result+entry, _est_calls_for()按分窗计算Gemini调用数 | batch_process_external.py | done | ~300 |
 | 17:08 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | — | ~927 |
 | 17:08 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/MEMORY.md | inline fix | ~30 |
+
+## Session: 2026-06-15 16:03
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 16:07 | Created download_novel.py | — | ~1022 |
+| 16:20 | Created download_novel.py | — | ~1254 |
+| 16:24 | Created debug_chapter.py | — | ~506 |
+| 16:25 | Edited debug_chapter.py | 4→5 lines | ~56 |
+| 16:26 | Edited download_novel.py | expanded (+7 lines) | ~110 |
+| 16:26 | Edited download_novel.py | modified title() | ~114 |
+| 16:37 | Created download_novel.py | — | ~1695 |
+| 16:38 | Edited download_novel.py | expanded (+6 lines) | ~219 |
+| 16:38 | Edited download_novel.py | 3→3 lines | ~29 |
+| 16:41 | Edited download_novel.py | 18→13 lines | ~174 |
+| 16:41 | Edited download_novel.py | 1→2 lines | ~16 |
+| 00:02 | Created download_novel.py | — | ~2338 |
+| 08:36 | Edited download_novel.py | readline() → range() | ~142 |
+| 08:37 | Edited download_novel.py | modified range() | ~67 |
+| 08:37 | Edited download_novel.py | 5→4 lines | ~19 |
+
+## Session: 2026-06-16 09:48
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:04 | Edited batch_process_external.py | expanded (+6 lines) | ~134 |
+| 10:09 | bug-188: Gemini分窗阈值 GEMINI_MAX_FRAMES 200→700 (主分支误触发修复) | batch_process_external.py | 正常视频回到1调用/视频, 007→2窗口 | ~6k |
+| 10:13 | Edited ../../.claude/CLAUDE.md | 2→5 lines | ~14 |
+| 10:50 | 核实WIN进度文件: 174个Gemini视频仅7个有帧数全<700(最大658), 超700帧=0; 发现reroute仅Gemini→Qwen无反向, Gemini分窗近死代码; 修正cerebrum/buglog中007误判 | .wolf/cerebrum.md .wolf/buglog.json | 统计完成+记录纠错 | ~9k |
+| 11:03 | Edited batch_process_external.py | 6→1 lines | ~18 |
+| 11:05 | Edited batch_process_external.py | removed 72 lines | ~9 |
+| 11:10 | Edited batch_process_external.py | expanded (+7 lines) | ~313 |
+| 11:11 | Edited batch_process_external.py | modified _est_calls_for() | ~200 |
+| 11:16 | bug-189: 删 Gemini 分窗死代码(_process_gemini_windowed+assembly prompt), >GEMINI_MAX_FRAMES 改 reroute Qwen 护栏; _est_calls_for 同步改 Qwen 估算 | batch_process_external.py | py_compile+冒烟通过, 待外部审查 | ~12k |
+| 11:19 | Edited batch_process_external.py | 6→7 lines | ~114 |
+| 11:20 | Edited batch_process_external.py | modified get() | ~229 |
+| 11:30 | 修复reroute配额错配: result[provider]标qwen + process_batch按billed_provider计费(qwen_calls而非gemini_calls) | batch_process_external.py | py_compile+配额冒烟通过 | ~5k |
+| 11:35 | Edited batch_process_external.py | expanded (+7 lines) | ~154 |
+| 11:38 | 修配额闸门: entry.frame_count>GEMINI_MAX_FRAMES 的 gemini 视频提前按 qwen 过闸, 不被 Gemini 日配额误拦(首次保守) | batch_process_external.py | py_compile+闸门冒烟通过 | ~5k |
+| 11:42 | Created ai_review_package.md | — | ~906 |
+| 11:50 | 第三方审查Gemini护栏改动: 发现Qwen预算估算低估、预算break早于保存、首次无frame_count时reroute仍受Gemini gate阻断 | batch_process_external.py | review findings待修复 | ~16k |
+| 11:56 | Edited batch_process_external.py | modified _est_calls_for() | ~188 |
+| 11:57 | Edited batch_process_external.py | 21→25 lines | ~261 |
+| 12:00 | Edited batch_process_external.py | modified len() | ~126 |
+| 12:01 | Edited batch_process_external.py | inputs() → path() | ~151 |
+| 12:13 | 审查回炉: 修发现1(_est_calls_for统一Qwen分窗估算)+发现2(should_stop延迟break防重复烧API)+发现4(注释/失败日志去Gemini误导); 发现3待决策 | batch_process_external.py | py_compile+估算冒烟通过 | ~14k |
+| 12:16 | 发现3 决策=暂不处理(记为已知限制); 刷新 ai_review_diff.patch | .wolf/buglog.json ai_review_diff.patch | 审查4项闭环(1/2/4修,3缓) | ~3k |
+| 12:21 | 第三方复审: 验证预算预检、达限存盘、失败provider文案已修; 首次无frame_count的Gemini gate限制仍存在但按当前0例场景不阻断 | batch_process_external.py | approve with caveat | ~9k |
+| 12:23 | 第三方复审 APPROVE WITH CAVEAT: 1/2/4确认修复,发现3已知限制接受; GitNexus detect_changes标13symbols/CRITICAL但调用面局限batch入口链 | (复审) | 审查闭环完成 | ~3k |
