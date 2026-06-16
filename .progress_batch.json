@@ -173,32 +173,32 @@
       "output": "020_AI自媒体第五课【平台适配】.md"
     },
     "021_AI自媒体 第六课【运营助手】": {
-      "status": "pending",
+      "status": "done",
       "duration_s": 2901.266,
-      "provider": "gemini",
-      "api_calls": 3,
+      "provider": "qwen",
+      "api_calls": 1,
       "failed_stage": null,
-      "processed": "2026-06-16T16:42:32",
+      "processed": "2026-06-16T20:04:24",
       "frame_count": 150,
       "output": "021_AI自媒体 第六课【运营助手】.md"
     },
     "022_AI自媒体第七课【数据复盘】": {
-      "status": "pending",
+      "status": "done",
       "duration_s": 4470.4,
       "provider": "gemini",
       "api_calls": 3,
       "failed_stage": null,
-      "processed": "2026-06-16T16:48:12",
+      "processed": "2026-06-16T17:37:20",
       "frame_count": 227,
       "output": "022_AI自媒体第七课【数据复盘】.md"
     },
     "023_AI自媒体第八课【虚拟人】": {
-      "status": "pending",
+      "status": "done",
       "duration_s": 4794.269002,
-      "provider": "gemini",
-      "api_calls": 3,
+      "provider": "qwen",
+      "api_calls": 1,
       "failed_stage": null,
-      "processed": "2026-06-16T16:54:27",
+      "processed": "2026-06-16T20:06:25",
       "frame_count": 222,
       "output": "023_AI自媒体第八课【虚拟人】.md"
     },
@@ -227,39 +227,64 @@
       "duration_s": 3950.448
     },
     "027_教育场景应用案例三：智能个性化错题本": {
-      "status": "pending",
+      "status": "done",
       "duration_s": 4753.758,
       "provider": "gemini",
       "api_calls": 3,
       "failed_stage": null,
-      "processed": "2026-06-16T17:02:47",
+      "processed": "2026-06-16T17:40:10",
       "frame_count": 313,
       "output": "027_教育场景应用案例三：智能个性化错题本.md"
     },
     "028_教育场景应用案例四：历史_地理场景复原导师": {
-      "status": "pending",
+      "status": "done",
       "duration_s": 4235.309966,
-      "provider": "gemini"
+      "provider": "gemini",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-16T17:46:56",
+      "frame_count": 299,
+      "output": "028_教育场景应用案例四：历史_地理场景复原导师.md"
     },
     "029_女性科技与生活应用案例一：AI穿搭顾问与胶囊衣橱规划师": {
-      "status": "pending",
+      "status": "done",
       "duration_s": 6323.066333,
-      "provider": "gemini"
+      "provider": "gemini",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-16T17:55:43",
+      "frame_count": 147,
+      "output": "029_女性科技与生活应用案例一：AI穿搭顾问与胶囊衣橱规划师.md"
     },
     "030_女性科技与生活应用案例二：智能美妆护肤成分分析与个性化方案": {
       "status": "pending",
       "duration_s": 2523.962993,
-      "provider": "gemini"
+      "provider": "qwen",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-16T20:11:01",
+      "frame_count": 138,
+      "output": "030_女性科技与生活应用案例二：智能美妆护肤成分分析与个性化方案.md"
     },
     "031_女性科技与生活应用案例三：新手妈妈AI育儿助手与成长日记": {
-      "status": "pending",
+      "status": "done",
       "duration_s": 2660.728005,
-      "provider": "gemini"
+      "provider": "gemini",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-16T18:03:46",
+      "frame_count": 39,
+      "output": "031_女性科技与生活应用案例三：新手妈妈AI育儿助手与成长日记.md"
     },
     "032_女性科技与生活应用案例四：深度个性化虚拟伴侣“创造与养成”系统": {
       "status": "pending",
       "duration_s": 3298.488005,
-      "provider": "gemini"
+      "provider": "gemini",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-16T20:16:07",
+      "frame_count": 62,
+      "output": "032_女性科技与生活应用案例四：深度个性化虚拟伴侣“创造与养成”系统.md"
     },
     "033_交付过程中的问题解析": {
       "status": "pending",
@@ -342,9 +367,9 @@
   },
   "quota": {
     "2026-06-16": {
-      "gemini_calls": 27,
-      "qwen_calls": 0
+      "gemini_calls": 57,
+      "qwen_calls": 2
     }
   },
-  "last_run": "2026-06-16T17:02:47"
+  "last_run": "2026-06-16T20:16:07"
 }

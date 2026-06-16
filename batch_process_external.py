@@ -73,7 +73,7 @@ QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
 # are rerouted to Qwen's sliding-window path (process_single_video Phase 3),
 # never windowed inside Gemini. NOT a 1M-context cap — 250k TPM is the
 # binding free-tier limit. See CLAUDE.md Gemini limits.
-GEMINI_MAX_FRAMES = 700
+GEMINI_MAX_FRAMES = 400
 QWEN_MAX_FRAMES = 250
 MAX_AUDIT_PROBES = 20   # hard cap on binary-search probe calls per window
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"

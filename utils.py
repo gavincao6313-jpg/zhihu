@@ -145,6 +145,8 @@ def call_gemini(
                 "SSL", "UNEXPECTED_EOF", "WRONG_VERSION_NUMBER",
                 "ConnectionError", "ConnectionReset", "RemoteDisconnected",
                 "Timeout", "timed out", "IncompleteRead",
+                "503", "502", "UNAVAILABLE", "BAD_GATEWAY",
+                "high demand", "temporarily",
             ))
             if not (is_rate or is_network):
                 print(f"[{label}] Non-retriable error: {e}", flush=True)
@@ -340,6 +342,8 @@ def call_qwen(
                 "ssl", "unexpected_eof", "wrong_version_number",
                 "connectionerror", "connectionreset", "remotedisconnected",
                 "timeout", "timed out", "incompleteread",
+                "503", "502", "unavailable", "bad_gateway",
+                "high demand", "temporarily",
             ))
             if not (is_rate or is_network):
                 if "datainspection" in err_str or "data_inspection" in err_str:
