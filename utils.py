@@ -139,8 +139,14 @@ def call_gemini(
             return full_text
 
         except Exception as e:
-            is_rate = "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
-            if not is_rate:
+            es = str(e)
+            is_rate = "429" in es or "RESOURCE_EXHAUSTED" in es
+            is_network = any(kw in es for kw in (
+                "SSL", "UNEXPECTED_EOF", "WRONG_VERSION_NUMBER",
+                "ConnectionError", "ConnectionReset", "RemoteDisconnected",
+                "Timeout", "timed out", "IncompleteRead",
+            ))
+            if not (is_rate or is_network):
                 print(f"[{label}] Non-retriable error: {e}", flush=True)
                 return None
             delay = parse_retry_delay(e, retry_delay)
@@ -330,7 +336,12 @@ def call_qwen(
             final_finish_reason = finish_reason
             err_str = str(e).lower()
             is_rate = "429" in err_str or "rate" in err_str or "throttl" in err_str
-            if not is_rate:
+            is_network = any(kw in err_str for kw in (
+                "ssl", "unexpected_eof", "wrong_version_number",
+                "connectionerror", "connectionreset", "remotedisconnected",
+                "timeout", "timed out", "incompleteread",
+            ))
+            if not (is_rate or is_network):
                 if "datainspection" in err_str or "data_inspection" in err_str:
                     _error_type = "data_inspection_failed"
                 print(f"[{label}] Non-retriable error: {e}", flush=True)
