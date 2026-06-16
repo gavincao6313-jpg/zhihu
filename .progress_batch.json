@@ -1,0 +1,3594 @@
+{
+  "source_dir": "F:\\AI研发\\AI新编程副业实战班",
+  "output_dir": "D:\\zhihu\\zhihu_file\\Markdowns\\batch_ai_yanfa\\AI新编程副业实战班",
+  "videos": {
+    "001_开班典礼": {
+      "duration_s": 6421.466,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-12T22:19:38",
+      "output": "001_开班典礼.md"
+    },
+    "002_AI产品经理的核心能力和时代机遇": {
+      "duration_s": 9301.866667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T09:18:55",
+      "output": "002_AI产品经理的核心能力和时代机遇.md"
+    },
+    "003_场景拆解，构建Prompt": {
+      "duration_s": 11121.733333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T09:37:35",
+      "output": "003_场景拆解，构建Prompt.md"
+    },
+    "004_通过工作流搭建，构建产品Demo": {
+      "duration_s": 8861.466667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-06T09:51:53",
+      "output": "004_通过工作流搭建，构建产品Demo.md"
+    },
+    "005_通过RAG、Function calling和MCP链接知识库和外部系统": {
+      "duration_s": 9365.333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T10:12:19",
+      "output": "005_通过RAG、Function calling和MCP链接知识库和外部系统.md"
+    },
+    "006_构建大模型时代最重要的产品形态：Agent": {
+      "duration_s": 8754.333333,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-06T10:26:46",
+      "output": "006_构建大模型时代最重要的产品形态：Agent.md"
+    },
+    "007_大模型产品开发中的数据准备与反馈闭环": {
+      "duration_s": 9636.799667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T10:48:19",
+      "output": "007_大模型产品开发中的数据准备与反馈闭环.md"
+    },
+    "008_agent类产品的定义与设计": {
+      "duration_s": 8189.933,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-06T10:58:49",
+      "output": "008_agent类产品的定义与设计.md"
+    },
+    "009_AI产品经理简历突围课": {
+      "duration_s": 9518.066,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T11:35:01",
+      "output": "009_AI产品经理简历突围课.md"
+    },
+    "010_个性化和长期记忆构建agent的壁垒性": {
+      "duration_s": 9179.199667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T11:52:52",
+      "output": "010_个性化和长期记忆构建agent的壁垒性.md"
+    },
+    "011_大模型底座选型和价值管理": {
+      "duration_s": 9276.599667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T12:11:10",
+      "output": "011_大模型底座选型和价值管理.md"
+    },
+    "012_大模型产品增长策略": {
+      "duration_s": 9834.466,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T12:28:45",
+      "output": "012_大模型产品增长策略.md"
+    },
+    "013_商业层面看待agent产品": {
+      "duration_s": 8874.199667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-06T12:40:14",
+      "output": "013_商业层面看待agent产品.md"
+    },
+    "014_AI增长_商业产品经理求职专项辅导": {
+      "duration_s": 11234.0,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T13:00:21",
+      "output": "014_AI增长_商业产品经理求职专项辅导.md"
+    },
+    "015_企业内部降本增效类AI产品核心技术拆解及复刻": {
+      "duration_s": 10301.666667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T13:19:58",
+      "output": "015_企业内部降本增效类AI产品核心技术拆解及复刻.md"
+    },
+    "016_SaaS类 AI 产品核心技术拆解及复刻": {
+      "duration_s": 10779.999333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T13:37:45",
+      "output": "016_SaaS类 AI 产品核心技术拆解及复刻.md"
+    },
+    "017_智能客服类 AI 产品核心技术拆解及复刻": {
+      "duration_s": 11465.155011,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T14:01:30",
+      "output": "017_智能客服类 AI 产品核心技术拆解及复刻.md"
+    },
+    "018_To B类AI产品经理求职专项辅导": {
+      "duration_s": 11592.2,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T14:21:54",
+      "output": "018_To B类AI产品经理求职专项辅导.md"
+    },
+    "019_个人助理agent产品核心技术拆解及复刻": {
+      "duration_s": 10053.266667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T14:39:12",
+      "output": "019_个人助理agent产品核心技术拆解及复刻.md"
+    },
+    "020_场景型agent产品核心技术拆解及复刻": {
+      "duration_s": 10808.799667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T14:59:00",
+      "output": "020_场景型agent产品核心技术拆解及复刻.md"
+    },
+    "021_情绪陪伴类智能体产品核心技术拆解及复刻": {
+      "duration_s": 11156.533,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T15:19:05",
+      "output": "021_情绪陪伴类智能体产品核心技术拆解及复刻.md"
+    },
+    "022_图片解析类产品核心技术拆解及复刻": {
+      "duration_s": 9567.866333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T15:38:36",
+      "output": "022_图片解析类产品核心技术拆解及复刻.md"
+    },
+    "023_从提示工程到RAG：构建大模型的知识与交互基础": {
+      "duration_s": 9784.355011,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-06T15:59:08",
+      "output": "023_从提示工程到RAG：构建大模型的知识与交互基础.md"
+    },
+    "024_通过更多行业最佳实践，学习决策型AI的应用领域": {
+      "duration_s": 9751.150998,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T16:17:12",
+      "output": "024_通过更多行业最佳实践，学习决策型AI的应用领域.md"
+    },
+    "025_Agent：从可控性到自主反思": {
+      "duration_s": 10435.489002,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-06T16:43:41",
+      "output": "025_Agent：从可控性到自主反思.md"
+    },
+    "026_To C类AI产品经理求职专项辅导": {
+      "duration_s": 11278.067,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T17:08:15",
+      "output": "026_To C类AI产品经理求职专项辅导.md"
+    },
+    "027_多模态前沿：从Agent构建到视频AIGC": {
+      "duration_s": 10157.825011,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T17:32:00",
+      "output": "027_多模态前沿：从Agent构建到视频AIGC.md"
+    },
+    "028_企业级AI部署：从硬件选型到框架选择": {
+      "duration_s": 10902.6,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-06T17:57:26",
+      "output": "028_企业级AI部署：从硬件选型到框架选择.md"
+    },
+    "029_AI服务核心：高并发原理与性能监控调优": {
+      "duration_s": 10375.666667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-06T18:19:05",
+      "output": "029_AI服务核心：高并发原理与性能监控调优.md"
+    },
+    "030_SGLang 深度优化：Radix 缓存与复杂任务的极致吞吐": {
+      "duration_s": 10760.0,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-06T18:40:52",
+      "output": "030_SGLang 深度优化：Radix 缓存与复杂任务的极致吞吐.md"
+    },
+    "031_Coze工作原理与应用实例": {
+      "duration_s": 10803.133333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-06T19:07:12",
+      "output": "031_Coze工作原理与应用实例.md"
+    },
+    "032_Dify本地化部署和应用": {
+      "duration_s": 10846.066667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-06T19:33:21",
+      "output": "032_Dify本地化部署和应用.md"
+    },
+    "033_Agent调试、运维与系统集成": {
+      "duration_s": 11091.666667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-06T20:00:29",
+      "output": "033_Agent调试、运维与系统集成.md"
+    },
+    "034_智能编码革命：AI 辅助编程": {
+      "duration_s": 10474.866667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-06T22:32:56",
+      "output": "034_智能编码革命：AI 辅助编程.md"
+    },
+    "035_AI 赋能的智能测试与质量保障": {
+      "duration_s": 10288.0,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-06T22:55:25",
+      "output": "035_AI 赋能的智能测试与质量保障.md"
+    },
+    "036_从 Text-to-SQL 到数据智能": {
+      "duration_s": 10594.333333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-06T23:18:28",
+      "output": "036_从 Text-to-SQL 到数据智能.md"
+    },
+    "037_AI产品经理的职业规划": {
+      "duration_s": 10707.466667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-06T23:36:51",
+      "output": "037_AI产品经理的职业规划.md"
+    },
+    "038_AI大模型基本原理及API使用": {
+      "duration_s": 11001.466667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-06T23:55:47",
+      "output": "038_AI大模型基本原理及API使用.md"
+    },
+    "039_AI编程-从入门到精通": {
+      "duration_s": 6073.733333,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T00:03:57",
+      "output": "039_AI编程-从入门到精通.md"
+    },
+    "040_AI编程-从入门到精通（进阶）": {
+      "duration_s": 10828.133333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-07T00:27:31",
+      "output": "040_AI编程-从入门到精通（进阶）.md"
+    },
+    "041_OpenClaw-搭建你的私人助理": {
+      "duration_s": 10348.333333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-07T00:49:28",
+      "output": "041_OpenClaw-搭建你的私人助理.md"
+    },
+    "042_预训练+微调的训练范式 开源生态和OpenAl的差异详解": {
+      "duration_s": 9198.4,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T01:01:09",
+      "output": "042_预训练+微调的训练范式 开源生态和OpenAl的差异详解.md"
+    },
+    "043_探索神经网络的奥秘": {
+      "duration_s": 10777.333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-07T01:20:14",
+      "output": "043_探索神经网络的奥秘.md"
+    },
+    "044_揭秘Transformer的真面目-1": {
+      "duration_s": 7949.266,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T01:29:35",
+      "output": "044_揭秘Transformer的真面目-1.md"
+    },
+    "045_揭秘Transformer的真面目-2": {
+      "duration_s": 10794.213991,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-07T01:48:37",
+      "output": "045_揭秘Transformer的真面目-2.md"
+    },
+    "046_多模态领域的Transformer -- 创意生成的基座原理": {
+      "duration_s": 9072.733,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-07T02:05:56",
+      "output": "046_多模态领域的Transformer -- 创意生成的基座原理.md"
+    },
+    "047_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱": {
+      "duration_s": 9498.533333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T02:18:12",
+      "output": "047_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱.md"
+    },
+    "048_探索DALL·E、Stable Diffusion如何编织创意图像的魔法": {
+      "duration_s": 9399.576009,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-07T02:36:19",
+      "output": "048_探索DALL·E、Stable Diffusion如何编织创意图像的魔法.md"
+    },
+    "049_类Sora模型_解锁动态视觉艺术的密码": {
+      "duration_s": 9892.599,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-07T02:54:16",
+      "output": "049_类Sora模型_解锁动态视觉艺术的密码.md"
+    },
+    "050_人体姿态识别模型-Meta Sapiens": {
+      "duration_s": 9158.420998,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-07T03:14:51",
+      "output": "050_人体姿态识别模型-Meta Sapiens.md"
+    },
+    "051_MoE 架构在 Scaling Law 之后继续提升大模型能力": {
+      "duration_s": 4736.28,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T03:21:08",
+      "output": "051_MoE 架构在 Scaling Law 之后继续提升大模型能力.md"
+    },
+    "052_Deepseek 性价比之王背后的极致压缩技术 MLA": {
+      "duration_s": 4060.017007,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T03:26:41",
+      "output": "052_Deepseek 性价比之王背后的极致压缩技术 MLA.md"
+    },
+    "053_超级引擎_ 英伟达GPU与CUDA相关的必备知识点": {
+      "duration_s": 8251.16,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T03:37:08",
+      "output": "053_超级引擎_ 英伟达GPU与CUDA相关的必备知识点.md"
+    },
+    "054_推理模型是如何训练出来的-Deepseek R1": {
+      "duration_s": 10257.36,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-07T03:56:20",
+      "output": "054_推理模型是如何训练出来的-Deepseek R1.md"
+    },
+    "055_如何训练自动操作电脑和手机的Agent-智谱AutoGLM": {
+      "duration_s": 8799.08,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T04:07:33",
+      "output": "055_如何训练自动操作电脑和手机的Agent-智谱AutoGLM.md"
+    },
+    "056_文件自动处理AutoGPT": {
+      "duration_s": 9168.282993,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-07T04:29:03",
+      "output": "056_文件自动处理AutoGPT.md"
+    },
+    "057_支小助": {
+      "duration_s": 9703.333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-07T04:53:42",
+      "output": "057_支小助.md"
+    },
+    "058_教育行业核心demo实战1-拍照搜知识点视频": {
+      "duration_s": 2509.067,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T04:57:12",
+      "output": "058_教育行业核心demo实战1-拍照搜知识点视频.md"
+    },
+    "059_教育行业核心demo实战2-自动化出题与智能组卷": {
+      "duration_s": 5361.533,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T05:03:37",
+      "output": "059_教育行业核心demo实战2-自动化出题与智能组卷.md"
+    },
+    "060_教育行业核心demo实战3-知识点学握程度检验": {
+      "duration_s": 2598.44,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T05:07:01",
+      "output": "060_教育行业核心demo实战3-知识点学握程度检验.md"
+    },
+    "061_财务部门核心demo实战1-AI识别财务表格的数字": {
+      "duration_s": 7773.76,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-07T06:37:53",
+      "output": "061_财务部门核心demo实战1-AI识别财务表格的数字.md"
+    },
+    "062_财务部门核心demo实战2-AI财务表格准确率的提升": {
+      "duration_s": 5737.92,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T05:24:32",
+      "output": "062_财务部门核心demo实战2-AI财务表格准确率的提升.md"
+    },
+    "063_人力资源部门核心demo实战1-数字人培训视频": {
+      "duration_s": 5798.288005,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T05:31:56",
+      "output": "063_人力资源部门核心demo实战1-数字人培训视频.md"
+    },
+    "064_人力资源部门核心demo实战2-AI培训对练": {
+      "duration_s": 2661.969002,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T05:35:46",
+      "output": "064_人力资源部门核心demo实战2-AI培训对练.md"
+    },
+    "065_电商行业核心demo实战1-电商评论区互动助手": {
+      "duration_s": 3167.457007,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T05:40:13",
+      "output": "065_电商行业核心demo实战1-电商评论区互动助手.md"
+    },
+    "066_泛娱乐内容行业核心demo实战1-AI生成视频工作流": {
+      "duration_s": 2051.948005,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T05:43:27",
+      "output": "066_泛娱乐内容行业核心demo实战1-AI生成视频工作流.md"
+    },
+    "067_Skill模式的解析，和agent的关系": {
+      "duration_s": 9114.133333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-07T05:58:45",
+      "output": "067_Skill模式的解析，和agent的关系.md"
+    },
+    "068_Vibe coding构建产品Demo的思路和方法": {
+      "duration_s": 9797.066667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-07T06:16:18",
+      "output": "068_Vibe coding构建产品Demo的思路和方法.md"
+    },
+    "001_大模型基础原理": {
+      "duration_s": 1624.560998,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T13:48:58",
+      "output": "001_大模型基础原理.md"
+    },
+    "002_提示词的奥秘": {
+      "duration_s": 1441.405011,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T13:53:19",
+      "output": "002_提示词的奥秘.md"
+    },
+    "003_最简单的智能体": {
+      "duration_s": 1283.297007,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T13:59:50",
+      "output": "003_最简单的智能体.md"
+    },
+    "004_初识⼯作流：⾃动⽣产线雏形": {
+      "duration_s": 1869.68,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T14:02:55",
+      "output": "004_初识⼯作流：⾃动⽣产线雏形.md"
+    },
+    "005_理解工作流：拆分环节分步实施": {
+      "duration_s": 1147.068005,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T14:07:55",
+      "output": "005_理解工作流：拆分环节分步实施.md"
+    },
+    "006_⼯作流和智能体的结合": {
+      "duration_s": 815.2,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T14:51:55",
+      "output": "006_⼯作流和智能体的结合.md"
+    },
+    "007_知识库的处理：RAG": {
+      "duration_s": 1143.16,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T14:19:02",
+      "output": "007_知识库的处理：RAG.md"
+    },
+    "008_RAG和智能体的结合": {
+      "duration_s": 1133.6,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T14:52:40",
+      "output": "008_RAG和智能体的结合.md"
+    },
+    "009_调⽤外部动作：Function call": {
+      "duration_s": 815.44,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T14:53:40",
+      "output": "009_调⽤外部动作：Function call.md"
+    },
+    "010_外部⼯具统⼀接⼝：MCP": {
+      "duration_s": 777.64,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T14:54:43",
+      "output": "010_外部⼯具统⼀接⼝：MCP.md"
+    },
+    "011_大模型微调的概念": {
+      "duration_s": 1113.72,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T14:55:31",
+      "output": "011_大模型微调的概念.md"
+    },
+    "012_一些常见概念的解析": {
+      "duration_s": 743.52,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T14:56:21",
+      "output": "012_一些常见概念的解析.md"
+    },
+    "013_coze入门-上": {
+      "duration_s": 1832.708005,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T14:57:21",
+      "output": "013_coze入门-上.md"
+    },
+    "014_coze入门-下": {
+      "duration_s": 2514.400998,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T15:01:12",
+      "output": "014_coze入门-下.md"
+    },
+    "015_AI升级工作流教程": {
+      "duration_s": 710.509002,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T15:02:40",
+      "output": "015_AI升级工作流教程.md"
+    },
+    "016_儿童绘本工作流教程": {
+      "duration_s": 1439.012993,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T15:05:03",
+      "output": "016_儿童绘本工作流教程.md"
+    },
+    "017_商业卡片工作流教程": {
+      "duration_s": 1029.575011,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T15:07:12",
+      "output": "017_商业卡片工作流教程.md"
+    },
+    "018_数字人智能体教程": {
+      "duration_s": 491.405011,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T15:08:18",
+      "output": "018_数字人智能体教程.md"
+    },
+    "019_小红书心理短视频工作流教程": {
+      "duration_s": 1407.572993,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-07T15:10:35",
+      "output": "019_小红书心理短视频工作流教程.md"
+    },
+    "004_进阶：⾏业发展阶段辨识，寻找⼊局节点": {
+      "duration_s": 3127.4,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:07:08",
+      "output": "004_进阶：⾏业发展阶段辨识，寻找⼊局节点.md"
+    },
+    "005_基础：产品拆解⽅式，把思路落地成实践": {
+      "duration_s": 3173.24,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:11:40",
+      "output": "005_基础：产品拆解⽅式，把思路落地成实践.md"
+    },
+    "006_进阶：项⽬管理思维，步步为营达成计划": {
+      "duration_s": 3804.969002,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:17:27",
+      "output": "006_进阶：项⽬管理思维，步步为营达成计划.md"
+    },
+    "007_基础：产品数据埋点逻辑": {
+      "duration_s": 2727.072993,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:21:54",
+      "output": "007_基础：产品数据埋点逻辑.md"
+    },
+    "008_进阶：最应该分析的三⼤数据系统": {
+      "duration_s": 3193.841995,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:26:43",
+      "output": "008_进阶：最应该分析的三⼤数据系统.md"
+    },
+    "009_基础：产品变现的常⻅模式": {
+      "duration_s": 3165.118005,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:32:27",
+      "output": "009_基础：产品变现的常⻅模式.md"
+    },
+    "010_进阶：商业效率的快速提升⽅法": {
+      "duration_s": 2709.17,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:36:50",
+      "output": "010_进阶：商业效率的快速提升⽅法.md"
+    },
+    "011_基础：换位思考，了解领导究竟要听什么": {
+      "duration_s": 3138.88,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:41:52",
+      "output": "011_基础：换位思考，了解领导究竟要听什么.md"
+    },
+    "013_产品⾼⼿的⾃我修养": {
+      "duration_s": 1463.046009,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T17:47:38",
+      "output": "013_产品⾼⼿的⾃我修养.md"
+    },
+    "001_基础：⽤户需求应该如何挖掘与探索": {
+      "duration_s": 3169.343991,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T22:21:44",
+      "output": "001_基础：⽤户需求应该如何挖掘与探索.md"
+    },
+    "002_进阶：⽤竞品分析寻找产品提升体系": {
+      "duration_s": 3637.56,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T22:29:00",
+      "output": "002_进阶：⽤竞品分析寻找产品提升体系.md"
+    },
+    "003_基础：看清⾏业趋势，把握时代⻛⼝": {
+      "duration_s": 3205.6,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T22:35:45",
+      "output": "003_基础：看清⾏业趋势，把握时代⻛⼝.md"
+    },
+    "012_进阶：有效情绪管理，压⼒下也能谈吐⾃如": {
+      "duration_s": 2833.280998,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-08T22:42:20",
+      "output": "012_进阶：有效情绪管理，压⼒下也能谈吐⾃如.md"
+    },
+    "001_AI产品经理的核心能力和时代机遇": {
+      "duration_s": 9258.532667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T00:23:27",
+      "output": "001_AI产品经理的核心能力和时代机遇.md"
+    },
+    "002_场景拆解，构建Prompt": {
+      "duration_s": 9076.600333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T00:40:39",
+      "output": "002_场景拆解，构建Prompt.md"
+    },
+    "003_ 通过工作流搭建，构建产品Demo": {
+      "duration_s": 9938.266333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T00:54:50",
+      "output": "003_ 通过工作流搭建，构建产品Demo.md"
+    },
+    "004_通过RAG、Function calling和MCP链接知识库和外部系统": {
+      "duration_s": 8887.466667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T01:07:16",
+      "output": "004_通过RAG、Function calling和MCP链接知识库和外部系统.md"
+    },
+    "005_构建大模型时代最重要的产品形态：Agent": {
+      "duration_s": 12397.066,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T01:30:24",
+      "output": "005_构建大模型时代最重要的产品形态：Agent.md"
+    },
+    "006_大模型产品开发中的数据准备与反馈闭环": {
+      "duration_s": 10604.067,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T01:49:05",
+      "output": "006_大模型产品开发中的数据准备与反馈闭环.md"
+    },
+    "007_AI产品经理最新趋势，用AI构造PRD和UE的技巧": {
+      "duration_s": 9413.933,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T02:07:24",
+      "output": "007_AI产品经理最新趋势，用AI构造PRD和UE的技巧.md"
+    },
+    "008_AI产品经理简历突围课": {
+      "duration_s": 10745.532667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T02:26:32",
+      "output": "008_AI产品经理简历突围课.md"
+    },
+    "009_个性化和长期记忆构建agent的壁垒性": {
+      "duration_s": 11464.737007,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T02:46:50",
+      "output": "009_个性化和长期记忆构建agent的壁垒性.md"
+    },
+    "010_大模型底座选型和价值管理": {
+      "duration_s": 10369.667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T03:05:49",
+      "output": "010_大模型底座选型和价值管理.md"
+    },
+    "011_Skill模式的解析，和agent的关系": {
+      "duration_s": 9114.133333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T03:22:39",
+      "output": "011_Skill模式的解析，和agent的关系.md"
+    },
+    "012_Vibe coding构建产品Demo的思路和方法": {
+      "duration_s": 9797.066667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T03:42:28",
+      "output": "012_Vibe coding构建产品Demo的思路和方法.md"
+    },
+    "013_大模型产品增长与商业策略": {
+      "duration_s": 8201.4,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T03:53:54",
+      "output": "013_大模型产品增长与商业策略.md"
+    },
+    "015_通过企业内部降本增效方案，学习大模型决策判断类产品设计": {
+      "duration_s": 10761.999667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T04:13:16",
+      "output": "015_通过企业内部降本增效方案，学习大模型决策判断类产品设计.md"
+    },
+    "016_通过企业服务：智能标书系统、政府应用产品，学习大模型内容生成类产品设计": {
+      "duration_s": 9612.399667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T04:31:43",
+      "output": "016_通过企业服务：智能标书系统、政府应用产品，学习大模型内容生成类产品设计.md"
+    },
+    "017_通过客服系统、销售系统的智能化升级，学习chatbot类产品设计以及rag和function calling的运用": {
+      "duration_s": 8676.066,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T04:43:35",
+      "output": "017_通过客服系统、销售系统的智能化升级，学习chatbot类产品设计以及rag和function calling的运用.md"
+    },
+    "018_B类AI产品经理求职专项辅导": {
+      "duration_s": 10147.933667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T05:01:25",
+      "output": "018_B类AI产品经理求职专项辅导.md"
+    },
+    "019_通过个人助理agent，学习长期记忆和多agent结构": {
+      "duration_s": 9773.333667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T05:20:14",
+      "output": "019_通过个人助理agent，学习长期记忆和多agent结构.md"
+    },
+    "020_通过豆包和微信读书的智能体，学习互联网产品增加AIagent的设计方法": {
+      "duration_s": 10719.932667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T05:40:29",
+      "output": "020_通过豆包和微信读书的智能体，学习互联网产品增加AIagent的设计方法.md"
+    },
+    "021_通过情绪陪伴类智能体，学习多agent、多模态和语言风格化": {
+      "duration_s": 10300.867,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T05:59:05",
+      "output": "021_通过情绪陪伴类智能体，学习多agent、多模态和语言风格化.md"
+    },
+    "022_教育行业AI转型应用：错题本、教师Agent": {
+      "duration_s": 10880.268005,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T06:20:25",
+      "output": "022_教育行业AI转型应用：错题本、教师Agent.md"
+    },
+    "023_电商行业AI转型应用：选品、智能决策、营销辅助": {
+      "duration_s": 11102.399,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T06:41:08",
+      "output": "023_电商行业AI转型应用：选品、智能决策、营销辅助.md"
+    },
+    "024_营销、运营行业AI转型应用": {
+      "duration_s": 9227.933667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T07:00:22",
+      "output": "024_营销、运营行业AI转型应用.md"
+    },
+    "025_实操带练：客服与标书工作流作业解析": {
+      "duration_s": 11204.3,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T07:20:21",
+      "output": "025_实操带练：客服与标书工作流作业解析.md"
+    },
+    "026_医疗行业AI转型一应用": {
+      "duration_s": 10500.4,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T07:40:31",
+      "output": "026_医疗行业AI转型一应用.md"
+    },
+    "027_一人公司的AI时代的可行性": {
+      "duration_s": 9090.6,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T07:54:20",
+      "output": "027_一人公司的AI时代的可行性.md"
+    },
+    "001_开篇语": {
+      "duration_s": 149.720998,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:28:07",
+      "output": "001_开篇语.md"
+    },
+    "002_第一计商业篇：判断商业效率": {
+      "duration_s": 900.84,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:29:55",
+      "output": "002_第一计商业篇：判断商业效率.md"
+    },
+    "003_第二计商业篇：产业上下游定位": {
+      "duration_s": 413.685011,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:31:04",
+      "output": "003_第二计商业篇：产业上下游定位.md"
+    },
+    "004_第三计：商业篇：业务在产业的竞争模式": {
+      "duration_s": 753.2,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:32:53",
+      "output": "004_第三计：商业篇：业务在产业的竞争模式.md"
+    },
+    "005_第四计商业篇：业务的第一性": {
+      "duration_s": 529.92,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:34:20",
+      "output": "005_第四计商业篇：业务的第一性.md"
+    },
+    "006_第五计商业篇：一个项目是否有投资价值": {
+      "duration_s": 927.08,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:36:54",
+      "output": "006_第五计商业篇：一个项目是否有投资价值.md"
+    },
+    "007_第六计商业篇：商业壁垒分析": {
+      "duration_s": 704.64,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:38:27",
+      "output": "007_第六计商业篇：商业壁垒分析.md"
+    },
+    "008_第七计商业篇：核心竞争要素": {
+      "duration_s": 722.603991,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:39:57",
+      "output": "008_第七计商业篇：核心竞争要素.md"
+    },
+    "009_第八计商业篇：发展趋势分析": {
+      "duration_s": 867.16,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:41:54",
+      "output": "009_第八计商业篇：发展趋势分析.md"
+    },
+    "010_第九计产品篇：产品需求分析": {
+      "duration_s": 547.2,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:43:24",
+      "output": "010_第九计产品篇：产品需求分析.md"
+    },
+    "011_第十计产品篇：需求价值度分析": {
+      "duration_s": 495.930998,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:44:46",
+      "output": "011_第十计产品篇：需求价值度分析.md"
+    },
+    "012_第十一计产品篇：产品的生命周期与聚焦问题.": {
+      "duration_s": 688.56,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:47:00",
+      "output": "012_第十一计产品篇：产品的生命周期与聚焦问题..md"
+    },
+    "013_第十二计产品篇：产品价值本质定位": {
+      "duration_s": 624.8,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:48:28",
+      "output": "013_第十二计产品篇：产品价值本质定位.md"
+    },
+    "014_第十三计产品篇：定位与定价策略": {
+      "duration_s": 815.68,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:50:10",
+      "output": "014_第十三计产品篇：定位与定价策略.md"
+    },
+    "015_第十四计运营篇：用户分层深层次运营": {
+      "duration_s": 636.4,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:51:57",
+      "output": "015_第十四计运营篇：用户分层深层次运营.md"
+    },
+    "016_第十五计运营篇：全业务链路细分": {
+      "duration_s": 549.16,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:53:21",
+      "output": "016_第十五计运营篇：全业务链路细分.md"
+    },
+    "017_第十六计运营篇：用户生命周期的计算方法": {
+      "duration_s": 364.6,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:54:28",
+      "output": "017_第十六计运营篇：用户生命周期的计算方法.md"
+    },
+    "018_第十七计运营篇：提升转化率的八个方法": {
+      "duration_s": 861.84,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:56:44",
+      "output": "018_第十七计运营篇：提升转化率的八个方法.md"
+    },
+    "019_第十八计运营篇：用户社交货币的分类和激活方法": {
+      "duration_s": 621.642993,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T08:58:32",
+      "output": "019_第十八计运营篇：用户社交货币的分类和激活方法.md"
+    },
+    "020_第十九计合作篇：合作角色定位和价值": {
+      "duration_s": 823.08,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:00:26",
+      "output": "020_第十九计合作篇：合作角色定位和价值.md"
+    },
+    "021_第二十计合作篇：价值网络定位法.": {
+      "duration_s": 597.052993,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:02:19",
+      "output": "021_第二十计合作篇：价值网络定位法..md"
+    },
+    "022_第二十一计合作篇：多角色提升合作的可能性": {
+      "duration_s": 474.2,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:03:41",
+      "output": "022_第二十一计合作篇：多角色提升合作的可能性.md"
+    },
+    "023_第二十二计合作篇：确定长期、中期、短期合作和利益模型": {
+      "duration_s": 540.2,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:04:59",
+      "output": "023_第二十二计合作篇：确定长期、中期、短期合作和利益模型.md"
+    },
+    "024_第二十三计合作篇：不可合作的筛选法.": {
+      "duration_s": 388.6,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:06:07",
+      "output": "024_第二十三计合作篇：不可合作的筛选法..md"
+    },
+    "025_第二十四计沟通篇：识别对方的潜在意图": {
+      "duration_s": 682.32,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:07:47",
+      "output": "025_第二十四计沟通篇：识别对方的潜在意图.md"
+    },
+    "026_第二十五计沟通篇：重点提升方式": {
+      "duration_s": 434.816009,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:09:09",
+      "output": "026_第二十五计沟通篇：重点提升方式.md"
+    },
+    "027_第二十六计沟通篇：讲演的四段法": {
+      "duration_s": 321.72,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:10:13",
+      "output": "027_第二十六计沟通篇：讲演的四段法.md"
+    },
+    "028_第二十七计沟通篇：面试、表达、谈判的价值谈判法": {
+      "duration_s": 583.52,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:11:55",
+      "output": "028_第二十七计沟通篇：面试、表达、谈判的价值谈判法.md"
+    },
+    "029_第二十八计沟通篇：对事不对人的态度沟通": {
+      "duration_s": 462.36,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:13:03",
+      "output": "029_第二十八计沟通篇：对事不对人的态度沟通.md"
+    },
+    "030_第二十九计管理篇：时间管理框架": {
+      "duration_s": 591.72,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:14:40",
+      "output": "030_第二十九计管理篇：时间管理框架.md"
+    },
+    "031_第三十计管理篇：优先级管理方法.": {
+      "duration_s": 533.2,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:16:15",
+      "output": "031_第三十计管理篇：优先级管理方法..md"
+    },
+    "032_第三十一计管理篇：绩效分解方法": {
+      "duration_s": 642.96,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:18:13",
+      "output": "032_第三十一计管理篇：绩效分解方法.md"
+    },
+    "033_第三十二计管理篇：管理沟通方法": {
+      "duration_s": 475.12,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:19:32",
+      "output": "033_第三十二计管理篇：管理沟通方法.md"
+    },
+    "034_第三十三计管理篇：分级管理逻辑": {
+      "duration_s": 387.006009,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:20:40",
+      "output": "034_第三十三计管理篇：分级管理逻辑.md"
+    },
+    "035_第三十四计决策篇：多因素复杂决策方法": {
+      "duration_s": 610.52,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:22:22",
+      "output": "035_第三十四计决策篇：多因素复杂决策方法.md"
+    },
+    "036_第三十五计决策篇：模型归一决策法": {
+      "duration_s": 588.043991,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:23:51",
+      "output": "036_第三十五计决策篇：模型归一决策法.md"
+    },
+    "037_第三十六计决策篇：极限拉伸决策法": {
+      "duration_s": 556.441995,
+      "provider": "qwen-flash",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:25:17",
+      "output": "037_第三十六计决策篇：极限拉伸决策法.md"
+    },
+    "038_AI时代商业的机遇与挑战": {
+      "duration_s": 9045.0,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T09:39:24",
+      "output": "038_AI时代商业的机遇与挑战.md"
+    },
+    "039_需求挖掘-⽤智能视⻆重新看到痛点": {
+      "duration_s": 7531.8,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T17:39:27",
+      "output": "039_需求挖掘-⽤智能视⻆重新看到痛点.md"
+    },
+    "040_价值评估-市场价值与成本的测算法": {
+      "duration_s": 8816.866667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T10:07:00",
+      "output": "040_价值评估-市场价值与成本的测算法.md"
+    },
+    "041_智能构建-⽤⼯作流构建产品原型的⽅法": {
+      "duration_s": 8318.999667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T10:20:25",
+      "output": "041_智能构建-⽤⼯作流构建产品原型的⽅法.md"
+    },
+    "042_产品架构-需求场景与AI组件的匹配策略": {
+      "duration_s": 8390.733333,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T17:41:53",
+      "output": "042_产品架构-需求场景与AI组件的匹配策略.md"
+    },
+    "043_产品实施-智能产品的落地⽅法": {
+      "duration_s": 8116.132667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T10:47:38",
+      "output": "043_产品实施-智能产品的落地⽅法.md"
+    },
+    "044_商业策略-产品的定价及价值评估": {
+      "duration_s": 8174.799667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T17:44:49",
+      "output": "044_商业策略-产品的定价及价值评估.md"
+    },
+    "045_测试调优-构建持续提升的产品闭环": {
+      "duration_s": 8895.599667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T11:13:37",
+      "output": "045_测试调优-构建持续提升的产品闭环.md"
+    },
+    "046_构建以AI为驱动的新产品的三步法": {
+      "duration_s": 9081.932667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T11:28:48",
+      "output": "046_构建以AI为驱动的新产品的三步法.md"
+    },
+    "047_已有产品的AI化改造升级": {
+      "duration_s": 10250.066667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T11:44:12",
+      "output": "047_已有产品的AI化改造升级.md"
+    },
+    "048_内容⽣产场景：扩流量：AI体系的营销升级": {
+      "duration_s": 9575.933,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T12:04:06",
+      "output": "048_内容⽣产场景：扩流量：AI体系的营销升级.md"
+    },
+    "049_建矩阵：基于AI⽣产的媒体矩阵落地": {
+      "duration_s": 9095.466667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T12:29:24",
+      "output": "049_建矩阵：基于AI⽣产的媒体矩阵落地.md"
+    },
+    "050_企业场景： 管理提效：公司内部流程效率提⾼法": {
+      "duration_s": 7728.199667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T17:47:15",
+      "output": "050_企业场景： 管理提效：公司内部流程效率提⾼法.md"
+    },
+    "051_个⼈场景：万能助理：办公处理， 瞬间提效": {
+      "duration_s": 10308.199333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T13:02:34",
+      "output": "051_个⼈场景：万能助理：办公处理， 瞬间提效.md"
+    },
+    "052_专业场景：财法智能化： 降本增效， 全⾯升级": {
+      "duration_s": 8506.214571,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T18:00:34",
+      "output": "052_专业场景：财法智能化： 降本增效， 全⾯升级.md"
+    },
+    "053_商业焕新：核⼼商业8要素的AI化": {
+      "duration_s": 8771.133,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T13:27:32",
+      "output": "053_商业焕新：核⼼商业8要素的AI化.md"
+    },
+    "054_AI+营销+IP孵化⾏业": {
+      "duration_s": 8882.133,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T13:41:48",
+      "output": "054_AI+营销+IP孵化⾏业.md"
+    },
+    "055_AI+电商⾏业": {
+      "duration_s": 9817.466,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T14:03:09",
+      "output": "055_AI+电商⾏业.md"
+    },
+    "056_AI+教育⾏业": {
+      "duration_s": 10330.732667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T14:19:24",
+      "output": "056_AI+教育⾏业.md"
+    },
+    "057_AI+服装+制造⾏业": {
+      "duration_s": 10304.866667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T14:41:18",
+      "output": "057_AI+服装+制造⾏业.md"
+    },
+    "058_AI+餐饮⾏业": {
+      "duration_s": 8670.933333,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T14:54:55",
+      "output": "058_AI+餐饮⾏业.md"
+    },
+    "059_AI+养⽼⾏业": {
+      "duration_s": 9931.066,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T15:11:12",
+      "output": "059_AI+养⽼⾏业.md"
+    },
+    "060_AI+⾦融+企业服务⾏业": {
+      "duration_s": 10189.932667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T15:28:36",
+      "output": "060_AI+⾦融+企业服务⾏业.md"
+    },
+    "061_个人场景的大模型使用": {
+      "duration_s": 9070.133,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T15:48:34",
+      "output": "061_个人场景的大模型使用.md"
+    },
+    "062_大模型对职场场景的提升": {
+      "duration_s": 9310.466,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T16:09:17",
+      "output": "062_大模型对职场场景的提升.md"
+    },
+    "063_完整商业模式构建思路": {
+      "duration_s": 10106.2,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T16:32:40",
+      "output": "063_完整商业模式构建思路.md"
+    },
+    "064_大模型搭建商业模式MVP的逻辑": {
+      "duration_s": 9540.733,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T16:48:37",
+      "output": "064_大模型搭建商业模式MVP的逻辑.md"
+    },
+    "065_AI营销策略和出海逻辑": {
+      "duration_s": 10400.533,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-09T17:19:27",
+      "output": "065_AI营销策略和出海逻辑.md"
+    },
+    "066_岗位升级：⾯向AI时代的个⼈职场升级策略": {
+      "duration_s": 8786.132667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-09T17:31:01",
+      "output": "066_岗位升级：⾯向AI时代的个⼈职场升级策略.md"
+    },
+    "AI解决方案专家-七期-赠/001_预训练+微调的训练范式 开源生态和OpenAI的差异详解": {
+      "duration_s": 10150.999667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T13:01:29",
+      "output": "AI解决方案专家-七期-赠/001_预训练+微调的训练范式 开源生态和OpenAI的差异详解.md"
+    },
+    "AI解决方案专家-七期-赠/002_探索神经网络的奥秘": {
+      "duration_s": 10777.333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T13:25:17",
+      "output": "AI解决方案专家-七期-赠/002_探索神经网络的奥秘.md"
+    },
+    "AI解决方案专家-七期-赠/003_揭秘Transformer的真面目-1": {
+      "duration_s": 11057.532667,
+      "provider": "qwen-plus",
+      "status": "failed",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T13:49:46",
+      "output": "AI解决方案专家-七期-赠/003_揭秘Transformer的真面目-1.md"
+    },
+    "AI解决方案专家-七期-赠/004_揭秘Transformer的真面目-2": {
+      "duration_s": 10794.213991,
+      "provider": "qwen-plus",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T14:13:59",
+      "output": "AI解决方案专家-七期-赠/004_揭秘Transformer的真面目-2.md"
+    },
+    "AI解决方案专家-七期-赠/005_Fine-tuning微调艺术：Lora与数据的完美结合": {
+      "duration_s": 10508.561995,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/005_Fine-tuning微调艺术：Lora与数据的完美结合.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T14:42:26"
+    },
+    "AI解决方案专家-七期-赠/006_DeepSeek 模型创新": {
+      "duration_s": 8796.266333,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/006_DeepSeek 模型创新.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T14:54:48"
+    },
+    "AI解决方案专家-七期-赠/007_从GPT 到GPT 4的华丽升级": {
+      "duration_s": 953.732667,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/007_从GPT 到GPT 4的华丽升级.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T14:56:26"
+    },
+    "AI解决方案专家-七期-赠/008_超级引擎：英伟达GPU与CUDA相关的必备知识点": {
+      "duration_s": 8251.133,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/008_超级引擎：英伟达GPU与CUDA相关的必备知识点.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T15:07:48"
+    },
+    "AI解决方案专家-七期-赠/009_多模态领域的Transformer —— 创意生成的基座原理": {
+      "duration_s": 10229.271995,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/009_多模态领域的Transformer —— 创意生成的基座原理.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T15:25:26"
+    },
+    "AI解决方案专家-七期-赠/010_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱": {
+      "duration_s": 10717.133,
+      "provider": "qwen-plus",
+      "status": "failed",
+      "output": "AI解决方案专家-七期-赠/010_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T15:45:19"
+    },
+    "AI解决方案专家-七期-赠/011_探索DALL·E、Stable Diffusion如何编织创意图像的魔法": {
+      "duration_s": 10347.332667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/011_探索DALL·E、Stable Diffusion如何编织创意图像的魔法.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T16:05:00"
+    },
+    "AI解决方案专家-七期-赠/012_类Sora模型：解锁动态视觉艺术的密码": {
+      "duration_s": 8948.157007,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/012_类Sora模型：解锁动态视觉艺术的密码.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T23:37:38"
+    },
+    "AI解决方案专家-七期-赠/013_Prompt常见用法、在coze平台调试Prompt": {
+      "duration_s": 10815.158005,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/013_Prompt常见用法、在coze平台调试Prompt.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-10T16:37:35"
+    },
+    "AI解决方案专家-七期-赠/014_通过Function Calling和RAG让大模型连接外部系统和私有知识": {
+      "duration_s": 10258.669002,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/014_通过Function Calling和RAG让大模型连接外部系统和私有知识.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-10T16:58:54"
+    },
+    "AI解决方案专家-七期-赠/015_RAG的多样使用方法及处理技巧": {
+      "duration_s": 10717.147007,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/015_RAG的多样使用方法及处理技巧.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-10T17:20:59"
+    },
+    "AI解决方案专家-七期-赠/016_利用Agent技术让AI像人类一样拆解任务并逐一完成": {
+      "duration_s": 10029.733333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/016_利用Agent技术让AI像人类一样拆解任务并逐一完成.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-10T17:43:37"
+    },
+    "AI解决方案专家-七期-赠/017_大模型与各垂直行业_部门落地情况概述及gap分析": {
+      "duration_s": 10364.399667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/017_大模型与各垂直行业_部门落地情况概述及gap分析.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T17:57:37"
+    },
+    "AI解决方案专家-七期-赠/018_医疗行业": {
+      "duration_s": 10608.477007,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/018_医疗行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T18:17:59"
+    },
+    "AI解决方案专家-七期-赠/019_金融行业": {
+      "duration_s": 10416.933333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/019_金融行业.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-10T18:40:14"
+    },
+    "AI解决方案专家-七期-赠/020_教育行业": {
+      "duration_s": 10241.068005,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/020_教育行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T18:58:18"
+    },
+    "AI解决方案专家-七期-赠/021_财务部门案例": {
+      "duration_s": 10481.533991,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/021_财务部门案例.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T19:17:12"
+    },
+    "AI解决方案专家-七期-赠/022_数据分析部门案例": {
+      "duration_s": 11180.12,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/022_数据分析部门案例.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-10T19:41:30"
+    },
+    "AI解决方案专家-七期-赠/023_人力资源部门案例": {
+      "duration_s": 9908.466667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/023_人力资源部门案例.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T19:58:48"
+    },
+    "AI解决方案专家-七期-赠/024_法务部门及法律行业": {
+      "duration_s": 10077.133333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/024_法务部门及法律行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T20:17:17"
+    },
+    "AI解决方案专家-七期-赠/025_零售与电商行业": {
+      "duration_s": 10147.399667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/025_零售与电商行业.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-10T20:38:51"
+    },
+    "AI解决方案专家-七期-赠/026_泛娱乐内容行业": {
+      "duration_s": 9220.733333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/026_泛娱乐内容行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T21:00:41"
+    },
+    "AI解决方案专家-七期-赠/027_企业搜索及企业办公": {
+      "duration_s": 9577.666,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/027_企业搜索及企业办公.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T21:20:32"
+    },
+    "AI解决方案专家-七期-赠/028_ 在线客服及在线销售部门": {
+      "duration_s": 9081.765011,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/028_ 在线客服及在线销售部门.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-10T21:41:10"
+    },
+    "AI解决方案专家-七期-赠/029_AI编程与AI测试行业案例": {
+      "duration_s": 10986.6,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/029_AI编程与AI测试行业案例.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-10T22:07:15"
+    },
+    "AI解决方案专家-七期-赠/030_支小助": {
+      "duration_s": 9703.333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/030_支小助.md",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-10T22:35:28"
+    },
+    "AI解决方案专家-七期-赠/031_市场调研助手": {
+      "duration_s": 8799.733333,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/031_市场调研助手.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T23:39:26"
+    },
+    "AI解决方案专家-七期-赠/032_文件自动化处理的AutoGPT": {
+      "duration_s": 9168.282993,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/032_文件自动化处理的AutoGPT.md",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-10T23:52:48"
+    },
+    "AI解决方案专家-七期-赠/033_AI产品基本商业逻辑": {
+      "duration_s": 3396.22,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/033_AI产品基本商业逻辑.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-10T23:58:08"
+    },
+    "AI解决方案专家-七期-赠/034_医疗行业核心demo实战1 - 检查报告及医疗影像": {
+      "duration_s": 7839.466667,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/034_医疗行业核心demo实战1 - 检查报告及医疗影像.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T00:08:57"
+    },
+    "AI解决方案专家-七期-赠/035_医疗行业核心demo实战2 - 音频转文字": {
+      "duration_s": 5323.84,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/035_医疗行业核心demo实战2 - 音频转文字.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T00:16:48"
+    },
+    "AI解决方案专家-七期-赠/036_教育行业核心demo实战1 - 拍照搜知识点视频": {
+      "duration_s": 2509.067,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/036_教育行业核心demo实战1 - 拍照搜知识点视频.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T00:20:35"
+    },
+    "AI解决方案专家-七期-赠/037_教育行业核心demo实战2 - 自动化出题与智能组卷": {
+      "duration_s": 5361.533,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/037_教育行业核心demo实战2 - 自动化出题与智能组卷.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T00:28:15"
+    },
+    "AI解决方案专家-七期-赠/038_教育行业核心demo实战3 - 知识点掌握程度检验": {
+      "duration_s": 2598.44,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/038_教育行业核心demo实战3 - 知识点掌握程度检验.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T00:32:13"
+    },
+    "AI解决方案专家-七期-赠/039_财务部门核心demo实战1 - AI 识别财务表格的数字": {
+      "duration_s": 7773.76,
+      "provider": "qwen-plus",
+      "status": "failed",
+      "output": "AI解决方案专家-七期-赠/039_财务部门核心demo实战1 - AI 识别财务表格的数字.md",
+      "api_calls": 1,
+      "failed_stage": "gemini-token-limit",
+      "processed": "2026-06-11T00:42:56"
+    },
+    "AI解决方案专家-七期-赠/040_财务部门核心demo实战2 - AI 财务表格准确率的提升": {
+      "duration_s": 5737.92,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/040_财务部门核心demo实战2 - AI 财务表格准确率的提升.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T00:51:49"
+    },
+    "AI解决方案专家-七期-赠/041_人力资源部门核心demo实战1 - 数字人培训视频": {
+      "duration_s": 5798.288005,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/041_人力资源部门核心demo实战1 - 数字人培训视频.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T01:00:25"
+    },
+    "AI解决方案专家-七期-赠/042_人力资源部门核心demo实战2 - AI培训对练": {
+      "duration_s": 2661.969002,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/042_人力资源部门核心demo实战2 - AI培训对练.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T01:04:24"
+    },
+    "AI解决方案专家-七期-赠/043_人力资源部门核心demo实战3 - AI简历筛选与AI面试": {
+      "duration_s": 12786.485011,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/043_人力资源部门核心demo实战3 - AI简历筛选与AI面试.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T01:28:13"
+    },
+    "AI解决方案专家-七期-赠/044_电商行业核心demo实战1 - 电商评论区互动助手": {
+      "duration_s": 3167.457007,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/044_电商行业核心demo实战1 - 电商评论区互动助手.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T01:40:46"
+    },
+    "AI解决方案专家-七期-赠/045_电商行业核心demo实战2 - AI换衣生成视频": {
+      "duration_s": 5281.703991,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/045_电商行业核心demo实战2 - AI换衣生成视频.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T01:48:48"
+    },
+    "AI解决方案专家-七期-赠/046_泛娱乐内容行业核心demo实战1 - AI生成视频工作流": {
+      "duration_s": 2051.948005,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠046_泛娱乐内容行业核心demo实战1 - AI生成视频工作流.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-12T10:57:19"
+    },
+    "AI解决方案专家-七期-赠/047_泛娱乐内容行业核心demo实战2 - AI证件照_AI写真": {
+      "duration_s": 1873.316009,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/047_泛娱乐内容行业核心demo实战2 - AI证件照_AI写真.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T01:54:59"
+    },
+    "AI解决方案专家-七期-赠/048_在线客服及在线销售部门场景核心demo实战1 - 24小时客服答疑助手": {
+      "duration_s": 4954.047007,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/048_在线客服及在线销售部门场景核心demo实战1 - 24小时客服答疑助手.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T02:02:33"
+    },
+    "AI解决方案专家-七期-赠/049_在线客服及在线销售部门场景核心demo实战2 - 24小时待机的AI销售": {
+      "duration_s": 4105.56,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家-七期-赠/049_在线客服及在线销售部门场景核心demo实战2 - 24小时待机的AI销售.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T02:08:40"
+    },
+    "AI解决方案专家/001_大模型与各垂直行业_部门落地情况概述及gap分析": {
+      "duration_s": 12220.476009,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/001_大模型与各垂直行业_部门落地情况概述及gap分析.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T02:29:35"
+    },
+    "AI解决方案专家/002_Prompt、Function Calling、RAG": {
+      "duration_s": 10908.733991,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/002_Prompt、Function Calling、RAG.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-11T02:56:50"
+    },
+    "AI解决方案专家/003_利用Agent技术让AI像人类一样拆解任务并逐一完成": {
+      "duration_s": 9686.399667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/003_利用Agent技术让AI像人类一样拆解任务并逐一完成.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-11T03:19:45"
+    },
+    "AI解决方案专家/004_零售与电商行业": {
+      "duration_s": 10162.77,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/004_零售与电商行业.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-11T03:42:32"
+    },
+    "AI解决方案专家/005_教育行业": {
+      "duration_s": 10743.866,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/005_教育行业.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T04:05:12"
+    },
+    "AI解决方案专家/006_医疗行业": {
+      "duration_s": 9937.599667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/006_医疗行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T04:23:48"
+    },
+    "AI解决方案专家/007_泛娱乐内容行业": {
+      "duration_s": 10078.332667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/007_泛娱乐内容行业.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T04:45:50"
+    },
+    "AI解决方案专家/008_企业搜索及企业办公": {
+      "duration_s": 10191.353991,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/008_企业搜索及企业办公.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T05:03:22"
+    },
+    "AI解决方案专家/009_人力资源部门": {
+      "duration_s": 10258.668005,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/009_人力资源部门.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T05:22:59"
+    },
+    "AI解决方案专家/010_在线客服及在线销售部门": {
+      "duration_s": 10590.876009,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/010_在线客服及在线销售部门.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T05:46:32"
+    },
+    "AI解决方案专家/011_法务部门及法律行业": {
+      "duration_s": 10529.266,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/011_法务部门及法律行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T06:04:23"
+    },
+    "AI解决方案专家/012_预训练＋微调的训练范式 开源生态和 OpenAl的 差异详解": {
+      "duration_s": 11409.933,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/012_预训练＋微调的训练范式 开源生态和 OpenAl的 差异详解.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T06:23:59"
+    },
+    "AI解决方案专家/013_探索神经网络的奥秘": {
+      "duration_s": 10365.132667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/013_探索神经网络的奥秘.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T06:42:45"
+    },
+    "AI解决方案专家/014_揭秘Transformer的真面目-1": {
+      "duration_s": 10735.799667,
+      "provider": "qwen-plus",
+      "status": "failed",
+      "output": "AI解决方案专家/014_揭秘Transformer的真面目-1.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T07:00:39"
+    },
+    "AI解决方案专家/015_揭秘Transformer的真面目-2": {
+      "duration_s": 10379.666,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/015_揭秘Transformer的真面目-2.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T07:19:10"
+    },
+    "AI解决方案专家/016_从GPT 到GPT 4 的华丽升级": {
+      "duration_s": 9324.6,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/016_从GPT 到GPT 4 的华丽升级.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T07:37:49"
+    },
+    "AI解决方案专家/017_Fine-tuning微调艺术": {
+      "duration_s": 10441.618005,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/017_Fine-tuning微调艺术.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T07:56:48"
+    },
+    "AI解决方案专家/018_超级引擎：英伟达GPU与CUDA相关的必备知识点": {
+      "duration_s": 8251.133,
+      "provider": "gemini",
+      "status": "done",
+      "output": "AI解决方案专家/018_超级引擎：英伟达GPU与CUDA相关的必备知识点.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T08:08:22"
+    },
+    "AI解决方案专家/019_多模态领域的Transformer —— 创意生成的基座原理": {
+      "duration_s": 10229.271995,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/019_多模态领域的Transformer —— 创意生成的基座原理.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T08:29:13"
+    },
+    "AI解决方案专家/020_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱": {
+      "duration_s": 10717.133,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/020_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T08:53:55"
+    },
+    "AI解决方案专家/021_探索DALL·E、Stable Diffusion如何编织创意图像的魔法": {
+      "duration_s": 10347.332667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/021_探索DALL·E、Stable Diffusion如何编织创意图像的魔法.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T09:15:49"
+    },
+    "AI解决方案专家/022_AI视频原理求索 —— 类Sora模型：解锁动态视觉艺术的密码": {
+      "duration_s": 8948.157007,
+      "provider": "gemini",
+      "status": "done",
+      "output": "",
+      "api_calls": 1,
+      "failed_stage": null
+    },
+    "AI解决方案专家/023_以Llama 和GLM 为首的开源生态追赶OpenAI的真实进程": {
+      "duration_s": 12014.6,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/023_以Llama 和GLM 为首的开源生态追赶OpenAI的真实进程.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T09:39:22"
+    },
+    "AI解决方案专家/024_探索神经网络的奥秘": {
+      "duration_s": 11481.399667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/024_探索神经网络的奥秘.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T09:58:23"
+    },
+    "AI解决方案专家/025_揭秘Transformer的真面目": {
+      "duration_s": 12252.219002,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/025_揭秘Transformer的真面目.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T10:19:30"
+    },
+    "AI解决方案专家/026_从GPT 到GPT 3.5的华丽升级": {
+      "duration_s": 11684.862993,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/026_从GPT 到GPT 3.5的华丽升级.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-11T10:46:20"
+    },
+    "AI解决方案专家/027_Fine-tuning微调艺术：SFT与RLHF的完美结合": {
+      "duration_s": 11879.491995,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/027_Fine-tuning微调艺术：SFT与RLHF的完美结合.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T11:06:33"
+    },
+    "AI解决方案专家/028_超级引擎：英伟达GPU与CUDA相关的必备知识点": {
+      "duration_s": 10833.872993,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "AI解决方案专家/028_超级引擎：英伟达GPU与CUDA相关的必备知识点.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T11:19:54"
+    },
+    "AI解决方案专家/029_coze的使用教学": {
+      "duration_s": 3183.04,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家/029_coze的使用教学.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T11:27:25"
+    },
+    "AI解决方案专家/030_1 、串讲课 - 商业部分": {
+      "duration_s": 3574.28,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "AI解决方案专家/030_1 、串讲课 - 商业部分.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T11:32:30"
+    },
+    "AI解决方案专家/031_2、串讲课 - 模型测试": {
+      "duration_s": 7773.8,
+      "provider": "qwen-plus",
+      "status": "failed",
+      "output": "",
+      "failed_stage": "gemini-token-limit"
+    },
+    "AI解决方案专家/032_人力资源部门核心demo实战2 - 数字人培训视频": {
+      "duration_s": 5798.288005,
+      "provider": "gemini",
+      "status": "done",
+      "output": "",
+      "api_calls": 1,
+      "failed_stage": null
+    },
+    "AI解决方案专家/033_就业指导课": {
+      "duration_s": 8987.666,
+      "provider": "gemini",
+      "status": "done",
+      "output": "",
+      "api_calls": 1,
+      "failed_stage": null
+    },
+    "Al解决方案专家（1127期赠第1期）/001_Prompt常见用法、在coze平台调试Prompt": {
+      "duration_s": 10771.017007,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/001_Prompt常见用法、在coze平台调试Prompt.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T11:55:36"
+    },
+    "Al解决方案专家（1127期赠第1期）/002_利用Agent技术让AI像人类一样拆解任务并逐一完成": {
+      "duration_s": 10734.266,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/002_利用Agent技术让AI像人类一样拆解任务并逐一完成.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T12:15:48"
+    },
+    "Al解决方案专家（1127期赠第1期）/003_通过Function Calling和RAG让大模型连接外部系统和私有知识": {
+      "duration_s": 10639.866,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/003_通过Function Calling和RAG让大模型连接外部系统和私有知识.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T12:35:26"
+    },
+    "Al解决方案专家（1127期赠第1期）/004_RAG的多样使用方法及处理技巧": {
+      "duration_s": 10391.671995,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/004_RAG的多样使用方法及处理技巧.md",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-11T12:55:54"
+    },
+    "Al解决方案专家（1127期赠第1期）/005_大模型与各垂直行业综述": {
+      "duration_s": 10522.2,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/005_大模型与各垂直行业综述.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T13:15:29"
+    },
+    "Al解决方案专家（1127期赠第1期）/006_医疗行业": {
+      "duration_s": 10187.999667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/006_医疗行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T13:23:26"
+    },
+    "Al解决方案专家（1127期赠第1期）/007_零售与电商行业": {
+      "duration_s": 9576.536009,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/007_零售与电商行业.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T13:45:48"
+    },
+    "Al解决方案专家（1127期赠第1期）/008_教育行业": {
+      "duration_s": 9897.968005,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/008_教育行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T14:03:10"
+    },
+    "Al解决方案专家（1127期赠第1期）/009_ 泛娱乐内容行业": {
+      "duration_s": 10913.999,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/009_ 泛娱乐内容行业.md",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-11T14:27:06"
+    },
+    "Al解决方案专家（1127期赠第1期）/010_人力资源部门案例": {
+      "duration_s": 9551.266,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/010_人力资源部门案例.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T14:43:51"
+    },
+    "Al解决方案专家（1127期赠第1期）/011_法务部门及法律行业": {
+      "duration_s": 9809.133,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/011_法务部门及法律行业.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T14:50:48"
+    },
+    "Al解决方案专家（1127期赠第1期）/012_ 在线客服及在线销售部门": {
+      "duration_s": 2079.066667,
+      "provider": "qwen-flash",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/012_ 在线客服及在线销售部门.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T14:53:31"
+    },
+    "Al解决方案专家（1127期赠第1期）/013_企业搜索及企业办公": {
+      "duration_s": 9727.066667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/013_企业搜索及企业办公.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T15:10:14"
+    },
+    "Al解决方案专家（1127期赠第1期）/014_预训练+微调的训练范式 开源生态和OpenAI的差异详解": {
+      "duration_s": 10650.668005,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/014_预训练+微调的训练范式 开源生态和OpenAI的差异详解.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T15:31:01"
+    },
+    "Al解决方案专家（1127期赠第1期）/015_探索神经网络的奥秘": {
+      "duration_s": 10078.550998,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/015_探索神经网络的奥秘.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T15:49:23"
+    },
+    "Al解决方案专家（1127期赠第1期）/016_揭秘Transformer的真面目-1": {
+      "duration_s": 10195.161995,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/016_揭秘Transformer的真面目-1.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T16:05:35"
+    },
+    "Al解决方案专家（1127期赠第1期）/017_揭秘Transformer的真面目-2": {
+      "duration_s": 10141.2,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/017_揭秘Transformer的真面目-2.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T16:24:14"
+    },
+    "Al解决方案专家（1127期赠第1期）/018_从GPT 到GPT 4的华丽升级": {
+      "duration_s": 8489.933333,
+      "provider": "gemini",
+      "status": "pending",
+      "output": ""
+    },
+    "Al解决方案专家（1127期赠第1期）/019_Fine-tuning微调艺术：Lora与数据的完美结合": {
+      "duration_s": 10321.532667,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/019_Fine-tuning微调艺术：Lora与数据的完美结合.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T16:40:56"
+    },
+    "Al解决方案专家（1127期赠第1期）/020_超级引擎：英伟达GPU与CUDA相关的必备知识点": {
+      "duration_s": 8395.800998,
+      "provider": "gemini",
+      "status": "pending",
+      "output": ""
+    },
+    "Al解决方案专家（1127期赠第1期）/021_多模态领域的Transformer —— 创意生成的基座原理": {
+      "duration_s": 9072.733,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/021_多模态领域的Transformer —— 创意生成的基座原理.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T16:58:39"
+    },
+    "Al解决方案专家（1127期赠第1期）/022_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱": {
+      "duration_s": 9498.533333,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/022_揭开文字、人脸、精密零件、无人驾驶的智能识别面纱.md",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-11T17:12:18"
+    },
+    "Al解决方案专家（1127期赠第1期）/023_探索DALL·E、Stable Diffusion如何编织创意图像的魔法": {
+      "duration_s": 9399.576009,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/023_探索DALL·E、Stable Diffusion如何编织创意图像的魔法.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T17:30:30"
+    },
+    "Al解决方案专家（1127期赠第1期）/024_类Sora模型：解锁动态视觉艺术的密码": {
+      "duration_s": 9892.599,
+      "provider": "qwen-plus",
+      "status": "done",
+      "output": "Al解决方案专家（1127期赠第1期）/024_类Sora模型：解锁动态视觉艺术的密码.md",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-11T17:48:29"
+    },
+    "002_AI大模型基本原理及API使用": {
+      "duration_s": 10513.533333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T11:37:41",
+      "output": "002_AI大模型基本原理及API使用.md"
+    },
+    "003_DeepSeek使用与Prompt工程": {
+      "duration_s": 10421.066667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T12:07:42",
+      "output": "003_DeepSeek使用与Prompt工程.md"
+    },
+    "004_Cursor编程-从入门到精通": {
+      "duration_s": 10645.133333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T12:34:13",
+      "output": "004_Cursor编程-从入门到精通.md"
+    },
+    "005_Cursor数据可视化与洞察": {
+      "duration_s": 10238.6,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-12T13:00:20",
+      "output": "005_Cursor数据可视化与洞察.md"
+    },
+    "006_Embeddings和向量数据库": {
+      "duration_s": 9808.866667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-12T13:24:55",
+      "output": "006_Embeddings和向量数据库.md"
+    },
+    "007_RAG（Retrieval Augmented Generation）技术与应用": {
+      "duration_s": 9992.066667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T13:53:16",
+      "output": "007_RAG（Retrieval Augmented Generation）技术与应用.md"
+    },
+    "008_RAG高级技术与最佳实践": {
+      "duration_s": 10291.466667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T14:24:18",
+      "output": "008_RAG高级技术与最佳实践.md"
+    },
+    "009_Text2SQL：自助式数据报表开发": {
+      "duration_s": 10132.066667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T14:55:09",
+      "output": "009_Text2SQL：自助式数据报表开发.md"
+    },
+    "010_LangChain：多任务应用开发": {
+      "duration_s": 9618.666667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T15:25:29",
+      "output": "010_LangChain：多任务应用开发.md"
+    },
+    "011_Function Calling与协作": {
+      "duration_s": 9991.933333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T15:51:32",
+      "output": "011_Function Calling与协作.md"
+    },
+    "012_MCP与A2A的应用": {
+      "duration_s": 10177.333333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 8,
+      "failed_stage": null,
+      "processed": "2026-06-12T16:20:10",
+      "output": "012_MCP与A2A的应用.md"
+    },
+    "013_ Agent智能体系统的设计与应用": {
+      "duration_s": 9830.733333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T16:47:57",
+      "output": "013_ Agent智能体系统的设计与应用.md"
+    },
+    "014_视觉大模型与多模态理解": {
+      "duration_s": 9996.066667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-14T07:42:16",
+      "output": "014_视觉大模型与多模态理解.md"
+    },
+    "015_Fine-tuning技术与大模型优化": {
+      "duration_s": 9918.066667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T17:34:36",
+      "output": "015_Fine-tuning技术与大模型优化.md"
+    },
+    "016_分析式AI基础": {
+      "duration_s": 10583.133,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-12T18:02:44",
+      "output": "016_分析式AI基础.md"
+    },
+    "017_不同领域的AI算法": {
+      "duration_s": 11444.066667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T18:33:01",
+      "output": "017_不同领域的AI算法.md"
+    },
+    "018_机器学习神器": {
+      "duration_s": 10465.466667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-12T18:57:19",
+      "output": "018_机器学习神器.md"
+    },
+    "019_时间序列模型": {
+      "duration_s": 9953.133333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-12T19:24:01",
+      "output": "019_时间序列模型.md"
+    },
+    "020_时间序列AI大赛": {
+      "duration_s": 10637.133333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T22:35:45",
+      "output": "020_时间序列AI大赛.md"
+    },
+    "021_神经网络基础与Tensorflow实战": {
+      "duration_s": 10179.466667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-12T22:59:34",
+      "output": "021_神经网络基础与Tensorflow实战.md"
+    },
+    "022_Pytorch与视觉检测": {
+      "duration_s": 10508.0,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-12T23:25:08",
+      "output": "022_Pytorch与视觉检测.md"
+    },
+    "023_Coze工作原理与应用实例": {
+      "duration_s": 10079.933333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-12T23:51:46",
+      "output": "023_Coze工作原理与应用实例.md"
+    },
+    "024_Agent进阶实战与插件开发": {
+      "duration_s": 10350.4,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-13T00:20:21",
+      "output": "024_Agent进阶实战与插件开发.md"
+    },
+    "025_Dify本地化部署和应用": {
+      "duration_s": 10119.133333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-13T00:44:24",
+      "output": "025_Dify本地化部署和应用.md"
+    },
+    "026_项目实战：企业知识库": {
+      "duration_s": 11916.6,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-13T01:14:23",
+      "output": "026_项目实战：企业知识库.md"
+    },
+    "027_项目实战：交互式BI报表": {
+      "duration_s": 11795.133333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 8,
+      "failed_stage": null,
+      "processed": "2026-06-13T01:44:18",
+      "output": "027_项目实战：交互式BI报表.md"
+    },
+    "028_项目实战：AI运营助手": {
+      "duration_s": 12997.933333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 8,
+      "failed_stage": null,
+      "processed": "2026-06-13T02:16:03",
+      "output": "028_项目实战：AI运营助手.md"
+    },
+    "029_项目实战：AI搜索类应用": {
+      "duration_s": 15406.0,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 9,
+      "failed_stage": null,
+      "processed": "2026-06-13T02:58:48",
+      "output": "029_项目实战：AI搜索类应用.md"
+    },
+    "030_前沿技术：扣子空间与Qwen3使用": {
+      "duration_s": 9300.0,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T03:23:47",
+      "output": "030_前沿技术：扣子空间与Qwen3使用.md"
+    },
+    "001_开班": {
+      "duration_s": 6246.533,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-13T07:03:50",
+      "output": "001_开班.md"
+    },
+    "002_AI大模型基本原理": {
+      "duration_s": 10883.266333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T07:27:00",
+      "output": "002_AI大模型基本原理.md"
+    },
+    "003_Python编程基础": {
+      "duration_s": 10665.466,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T07:51:45",
+      "output": "003_Python编程基础.md"
+    },
+    "004_Prompt工程：设计与优化": {
+      "duration_s": 11114.347007,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T08:19:39",
+      "output": "004_Prompt工程：设计与优化.md"
+    },
+    "005_GPU与CPU：计算硬件与大模型训练": {
+      "duration_s": 9565.761995,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T08:41:56",
+      "output": "005_GPU与CPU：计算硬件与大模型训练.md"
+    },
+    "006_API基础与通过API调用大模型": {
+      "duration_s": 13953.4,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-13T09:12:10",
+      "output": "006_API基础与通过API调用大模型.md"
+    },
+    "007_Cursor编程-从入门到精通": {
+      "duration_s": 11424.266333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 43,
+      "failed_stage": null,
+      "processed": "2026-06-14T12:23:18",
+      "output": "007_Cursor编程-从入门到精通.md",
+      "frame_count": 1092
+    },
+    "008_Embeddings和向量数据库": {
+      "duration_s": 11813.999333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T09:58:19",
+      "output": "008_Embeddings和向量数据库.md"
+    },
+    "009_RAG技术与应用": {
+      "duration_s": 11708.6,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T10:26:38",
+      "output": "009_RAG技术与应用.md"
+    },
+    "010_RAG高级技术与最佳实践": {
+      "duration_s": 11659.933333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T10:57:30",
+      "output": "010_RAG高级技术与最佳实践.md"
+    },
+    "011_LlamaIndex：知识管理与信息检索应用": {
+      "duration_s": 8233.066667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-13T11:10:19",
+      "output": "011_LlamaIndex：知识管理与信息检索应用.md"
+    },
+    "012_LangChain：多任务应用开发": {
+      "duration_s": 7703.866667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-13T11:22:20",
+      "output": "012_LangChain：多任务应用开发.md"
+    },
+    "013_Function Calling与跨模型协作": {
+      "duration_s": 11615.619002,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T20:40:24",
+      "output": "013_Function Calling与跨模型协作.md"
+    },
+    "014_ Agent智能体系统的设计与应用": {
+      "duration_s": 12740.3,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T12:09:08",
+      "output": "014_ Agent智能体系统的设计与应用.md"
+    },
+    "015_AutoGPT原理和实现": {
+      "duration_s": 10302.05,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T12:36:47",
+      "output": "015_AutoGPT原理和实现.md"
+    },
+    "016_ Fine-tuning技术与大模型优化": {
+      "duration_s": 11712.333333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-13T13:08:11",
+      "output": "016_ Fine-tuning技术与大模型优化.md"
+    },
+    "017_Coze工作原理与应用实例": {
+      "duration_s": 12006.156009,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T13:35:18",
+      "output": "017_Coze工作原理与应用实例.md"
+    },
+    "018_Coze应用、插件与 SDK 开发": {
+      "duration_s": 11972.44,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T15:04:34",
+      "output": "018_Coze应用、插件与 SDK 开发.md"
+    },
+    "019_Dify本地化部署和应用": {
+      "duration_s": 12340.532667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T15:29:38",
+      "output": "019_Dify本地化部署和应用.md"
+    },
+    "020_PyTorch基础与应用": {
+      "duration_s": 12396.266333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T16:00:07",
+      "output": "020_PyTorch基础与应用.md"
+    },
+    "021_PyTorch 进阶：复杂网络模型搭建、迁移及部署": {
+      "duration_s": 12482.467007,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-13T16:26:24",
+      "output": "021_PyTorch 进阶：复杂网络模型搭建、迁移及部署.md"
+    },
+    "022_TensorFlow 及其应用": {
+      "duration_s": 12127.735011,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T16:58:18",
+      "output": "022_TensorFlow 及其应用.md"
+    },
+    "023_项目实战：企业知识库上": {
+      "duration_s": 12081.466333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-13T17:27:25",
+      "output": "023_项目实战：企业知识库上.md"
+    },
+    "024_项目实战：企业知识库下": {
+      "duration_s": 12317.132667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 23,
+      "failed_stage": null,
+      "processed": "2026-06-14T12:38:46",
+      "output": "024_项目实战：企业知识库下.md",
+      "frame_count": 1241
+    },
+    "025_项目实战：AI搜索类应用上": {
+      "duration_s": 12079.266,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-13T18:16:07",
+      "output": "025_项目实战：AI搜索类应用上.md"
+    },
+    "026_项目实战：AI搜索类应用下": {
+      "duration_s": 9855.466,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T18:41:32",
+      "output": "026_项目实战：AI搜索类应用下.md"
+    },
+    "027_项目实战：智能招聘面试模拟系统上": {
+      "duration_s": 10126.533333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-13T19:06:50",
+      "output": "027_项目实战：智能招聘面试模拟系统上.md"
+    },
+    "028_项目实战：智能招聘面试模拟系统下": {
+      "duration_s": 12047.932667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 32,
+      "failed_stage": null,
+      "processed": "2026-06-14T12:53:53",
+      "output": "028_项目实战：智能招聘面试模拟系统下.md",
+      "frame_count": 1152
+    },
+    "001_AI应用变现逻辑拆解及最新趋势解读": {
+      "duration_s": 10049.866667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "001_AI应用变现逻辑拆解及最新趋势解读.md"
+    },
+    "002_AI能力矩阵：模型能做什么，效果边界在哪里": {
+      "duration_s": 9706.473991,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "002_AI能力矩阵：模型能做什么，效果边界在哪里.md"
+    },
+    "003_理论知识：应用形态与载体": {
+      "duration_s": 10333.158005,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "003_理论知识：应用形态与载体.md"
+    },
+    "004_理论知识：技术架构分工": {
+      "duration_s": 9637.28,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "004_理论知识：技术架构分工.md"
+    },
+    "005_提示词与RAG知识库": {
+      "duration_s": 9537.999333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "005_提示词与RAG知识库.md"
+    },
+    "006_工作流Agent与Function Call": {
+      "duration_s": 10322.533333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "006_工作流Agent与Function Call.md"
+    },
+    "007_使用AI编程平台开发和部署AI应用": {
+      "duration_s": 10598.933,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 7,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "007_使用AI编程平台开发和部署AI应用.md"
+    },
+    "008_收集分析用户数据优化产品": {
+      "duration_s": 8932.066,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 15,
+      "failed_stage": null,
+      "processed": "2026-06-14T22:59:21",
+      "frame_count": 658,
+      "output": "008_收集分析用户数据优化产品.md"
+    },
+    "009_OpenClaw安装及配置方法": {
+      "duration_s": 10770.932667,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-14T23:22:19",
+      "output": "009_OpenClaw安装及配置方法.md",
+      "frame_count": 746
+    },
+    "010_OpenClaw工作原理及模块拆解": {
+      "duration_s": 9907.333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-14T23:52:47",
+      "output": "010_OpenClaw工作原理及模块拆解.md",
+      "frame_count": 595
+    },
+    "011_OpenClaw实战案例详解": {
+      "duration_s": 10909.338005,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-15T00:17:36",
+      "output": "011_OpenClaw实战案例详解.md",
+      "frame_count": 706
+    },
+    "012_图片生成模型实战技巧": {
+      "duration_s": 5588.533333,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-15T08:32:09",
+      "frame_count": 155,
+      "output": "012_图片生成模型实战技巧.md"
+    },
+    "013_音频处理模型实战技巧": {
+      "duration_s": 7199.199333,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-16T09:24:49",
+      "frame_count": 114,
+      "output": "013_音频处理模型实战技巧.md"
+    },
+    "014_真实订单教学讲解": {
+      "duration_s": 7823.933333,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 12,
+      "failed_stage": null,
+      "processed": "2026-06-15T09:02:25",
+      "frame_count": 425,
+      "output": "014_真实订单教学讲解.md"
+    },
+    "015_视频处理模型实战技巧": {
+      "duration_s": 8666.399667,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 9,
+      "failed_stage": null,
+      "processed": "2026-06-15T09:17:37",
+      "frame_count": 387,
+      "output": "015_视频处理模型实战技巧.md"
+    },
+    "016_AI自媒体第一课【基础认知】": {
+      "duration_s": 4216.231995,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 0,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "TTS直播版已覆盖 (跳过批量处理)"
+    },
+    "017_AI自媒体第二课【爆款选题】": {
+      "duration_s": 5822.100998,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 0,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "TTS直播版已覆盖 (跳过批量处理)"
+    },
+    "018_AI自媒体第三课【爆款借鉴二创】": {
+      "duration_s": 4486.907007,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 0,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "TTS直播版已覆盖 (跳过批量处理)"
+    },
+    "019_AI自媒体第四课【AI分镜】": {
+      "duration_s": 4697.099,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 0,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "TTS直播版已覆盖 (跳过批量处理)"
+    },
+    "020_AI自媒体第五课【平台适配】": {
+      "duration_s": 4770.966,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 0,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "TTS直播版已覆盖 (跳过批量处理)"
+    },
+    "021_AI自媒体 第六课【运营助手】": {
+      "duration_s": 2901.266,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 0,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "TTS直播版已覆盖 (跳过批量处理)"
+    },
+    "022_AI自媒体第七课【数据复盘】": {
+      "duration_s": 4470.4,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 0,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "TTS直播版已覆盖 (跳过批量处理)"
+    },
+    "023_AI自媒体第八课【虚拟人】": {
+      "duration_s": 4794.269002,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 0,
+      "failed_stage": null,
+      "processed": "2026-06-14T00:00:00",
+      "output": "TTS直播版已覆盖 (跳过批量处理)"
+    },
+    "024_交付过程中的问题解析": {
+      "duration_s": 7306.159002,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 12,
+      "failed_stage": null,
+      "processed": "2026-06-16T09:37:42",
+      "frame_count": 538,
+      "output": "024_交付过程中的问题解析.md"
+    },
+    "025_教育场景应用案例一：英语情景对话陪练": {
+      "duration_s": 9177.399333,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-15T00:37:31",
+      "output": "025_教育场景应用案例一：英语情景对话陪练.md",
+      "frame_count": 494
+    },
+    "026_教育场景应用案例二：AI智能“对对碰”游戏化识字与记单词系统": {
+      "duration_s": 3950.448,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 9,
+      "failed_stage": null,
+      "processed": "2026-06-16T09:45:20",
+      "frame_count": 334,
+      "output": "026_教育场景应用案例二：AI智能“对对碰”游戏化识字与记单词系统.md"
+    },
+    "027_教育场景应用案例三：智能个性化错题本": {
+      "duration_s": 4753.758,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "028_教育场景应用案例四：历史_地理场景复原导师": {
+      "duration_s": 4235.309966,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "029_女性科技与生活应用案例一：AI穿搭顾问与胶囊衣橱规划师": {
+      "duration_s": 6323.066333,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "030_女性科技与生活应用案例二：智能美妆护肤成分分析与个性化方案": {
+      "duration_s": 2523.962993,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "031_女性科技与生活应用案例三：新手妈妈AI育儿助手与成长日记": {
+      "duration_s": 2660.728005,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "032_女性科技与生活应用案例四：深度个性化虚拟伴侣“创造与养成”系统": {
+      "duration_s": 3298.488005,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "033_交付过程中的问题解析": {
+      "duration_s": 7834.133,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "034_线下服务商家应用案例一：瑜伽_普拉提工作室：AI智能动作评估与实时指导系统": {
+      "duration_s": 3003.06,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "035_线下服务商家应用案例二：美发沙龙：AI发型设计模拟与染发效果预览": {
+      "duration_s": 2321.345011,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "036_线下服务商家应用案例三：健身房：AI身材分析定制瘦身减脂塑形方案计划": {
+      "duration_s": 1699.585011,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "037_线下服务商家应用案例四：摄影工作室：AI制作旅拍写真H5相册，自动匹配页面风格特效及音乐": {
+      "duration_s": 2144.500998,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "038_零售电商场景应用案例一": {
+      "duration_s": 7562.0,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "039_零售电商场景应用案例二-【选品】自动化挖掘爆品机器人": {
+      "duration_s": 4496.845011,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "040_零售电商场景应用案例三-【上架】全平台一键上架管家": {
+      "duration_s": 3112.842993,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "041_零售电商场景应用案例四-【流量】爆款引流内容制造机": {
+      "duration_s": 4676.899667,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "042_零售电商场景应用案例五-【导购】7_24 高情商销冠型AI导购": {
+      "duration_s": 4928.572993,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "043_零售电商场景应用案例六-【场控】直播间弹幕助手与互动精灵": {
+      "duration_s": 4339.506009,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "044_零售电商场景应用案例七-【本土化】跨境货架 Listing 母语级改造器": {
+      "duration_s": 2506.966667,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "045_零售电商场景应用案例八-【决策】经营分析与决策优化军师": {
+      "duration_s": 3608.682993,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "046_交付过程中的问题解析": {
+      "duration_s": 6056.533333,
+      "provider": "gemini",
+      "status": "pending"
+    },
+    "047_求职赋能与职业发展应用案例一": {
+      "duration_s": 9254.080998,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 5,
+      "failed_stage": null,
+      "processed": "2026-06-15T01:00:18",
+      "output": "047_求职赋能与职业发展应用案例一.md",
+      "frame_count": 575
+    }
+  },
+  "quota": {
+    "2026-06-06": {
+      "gemini_calls": 20,
+      "qwen_calls": 180
+    },
+    "2026-06-07": {
+      "gemini_calls": 20,
+      "qwen_calls": 6
+    },
+    "2026-06-08": {
+      "gemini_calls": 2,
+      "qwen_flash_calls": 18,
+      "qwen_plus_calls": 0
+    },
+    "2026-06-09": {
+      "gemini_calls": 20,
+      "qwen_flash_calls": 37,
+      "qwen_plus_calls": 102
+    },
+    "2026-06-10": {
+      "gemini_calls": 20,
+      "qwen_flash_calls": 16,
+      "qwen_plus_calls": 252
+    },
+    "2026-06-12": {
+      "gemini_calls": 21,
+      "qwen_calls": 171
+    },
+    "2026-06-13": {
+      "gemini_calls": 18,
+      "qwen_calls": 155
+    },
+    "2026-06-14": {
+      "gemini_calls": 21,
+      "qwen_calls": 183
+    },
+    "2026-06-15": {
+      "gemini_calls": 27,
+      "qwen_calls": 0
+    },
+    "2026-06-16": {
+      "gemini_calls": 24,
+      "qwen_calls": 0
+    }
+  },
+  "last_run": "2026-06-16T09:45:20"
+}
