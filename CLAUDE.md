@@ -7,7 +7,7 @@ This project uses OpenWolf for context management. Read and follow .wolf/OPENWOL
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **zhihu** (4651 symbols, 5586 relationships, 123 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **zhihu** (32978 symbols, 35561 relationships, 300 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
@@ -67,14 +67,31 @@ Rules from the official Gemini API rate-limit documentation:
 - Active limits can change by account, model, and usage tier; check AI Studio
   when exact current limits matter.
 
-Project default free-tier ceilings to design against unless AI Studio shows
-stricter active limits:
+Free-tier limits — verified from AI Studio rate-limit page on 2026-06-17
+(screenshot evidence). Official docs no longer print fixed free-tier RPD;
+AI Studio `rate-limit` is the source of truth. RPD is **per-model** (each
+model has its own independent daily budget). The earlier "250 RPD" figures
+below were stale and misled analysis for two rounds — do NOT trust them.
 
-| Model | RPM | TPM | RPD |
+| Model | RPM | TPM | RPD (verified) |
 |---|---:|---:|---:|
-| `gemini-2.5-pro` | 5 | 250,000 | 100 |
-| `gemini-2.5-flash` | 10 | 250,000 | 250 |
-| `gemini-3.5-flash` | 10 | 250,000 | 250 |
+| `gemini-3.5-flash` | 5 | 250,000 | **20** |
+| `gemini-2.5-flash` | 5 | 250,000 | **20** |
+| `gemini-3-flash` | 5 | 250,000 | **20** |
+| `gemini-2.5-flash-lite` | 10 | 250,000 | **20** |
+| `gemini-2.5-pro` | 5 | 250,000 | 100 (not re-verified) |
+
+Key consequences:
+- `DEFAULT_DAILY_LIMIT_GEMINI = 18` in `batch_process_external.py` is the
+  PER-MODEL daily cap (real RPD is 20; the picker reserves each video's
+  expected calls so a model never exceeds it). Do NOT set it to 20+ (429).
+- RPD is per-model, so the free way to scale throughput is round-robin across
+  several free flash models (`GEMINI_MODEL_POOL`). Default pool = 3 verified
+  models (gemini-3.5-flash / gemini-2.5-flash / gemini-2.5-flash-lite),
+  about 54/day. `gemini-3-flash` is EXCLUDED from the default pool until its
+  real model id (likely `gemini-3-flash-preview`) and RPD pass a live smoke test.
+  NOT paid Qwen/DashScope.
+- TPM 250k is still the binding per-call ceiling (see GEMINI_MAX_FRAMES guard).
 
 Project engineering constraints:
 

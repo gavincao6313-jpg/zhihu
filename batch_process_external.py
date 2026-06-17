@@ -61,8 +61,22 @@ DEFAULT_OUTPUT_DIR = MARKDOWNS_DIR / "batch"
 BATCH_PROGRESS_FILE = Path(__file__).parent / ".progress_batch.json"
 
 DEFAULT_DURATION_THRESHOLD_S = 9000       # 2.5h — Gemini ≤ this, Qwen >
-DEFAULT_DAILY_LIMIT_GEMINI = 20
+# 免费层每个 flash 模型真实 RPD≈20(AI Studio 实测 2026-06-17)，留 2 防 429。
+# 注意：此为 PER-MODEL 日上限，不是全部 Gemini 调用的总上限。
+DEFAULT_DAILY_LIMIT_GEMINI = 18
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
+# 免费层多 flash 模型轮询池（质量降序）。每个模型有独立 RPD，轮询=免费扩容。
+# 规则：显式设了 GEMINI_MODEL_POOL → 用它；否则显式设了单个 GEMINI_MODEL
+# （如 WIN 止血 set GEMINI_MODEL=gemini-2.5-flash-lite）→ 池只含该模型；都没设 → 默认池。
+if os.environ.get("GEMINI_MODEL_POOL"):
+    GEMINI_MODEL_POOL = [m.strip() for m in os.environ["GEMINI_MODEL_POOL"].split(",") if m.strip()]
+elif os.environ.get("GEMINI_MODEL"):
+    GEMINI_MODEL_POOL = [GEMINI_MODEL]   # 显式单模型（含 WIN 止血）：只用它
+else:
+    # 默认池仅含已确认可用的 model code（在用 / 官方确认）。
+    # gemini-3-flash 官方 id 为 gemini-3-flash-preview（preview，限制更严、RPD 未确认），
+    # 真实 smoke test 通过前不纳入默认池。
+    GEMINI_MODEL_POOL = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-2.5-flash-lite"]
 GEMINI_BATCH_MAX_RETRIES = 2
 GEMINI_BATCH_MAX_CONTINUATIONS = 2
 QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
@@ -322,6 +336,23 @@ def route_provider(duration_s: float, threshold_s: int) -> str:
     return "gemini" if duration_s <= threshold_s else "qwen"
 
 
+def _pick_gemini_model(daily: dict, per_model_limit: int, expected_calls: int = 1) -> str | None:
+    """从 GEMINI_MODEL_POOL 选当天剩余额度够本次预计调用的最高质量 flash 模型。
+
+    每个模型免费 RPD 独立计数（daily['gemini_calls_by_model']）。选择时预留
+    expected_calls 额度，确保本次跑完不越过 per_model_limit。全部打满返回 None。
+    """
+    by_model = daily.setdefault("gemini_calls_by_model", {})
+    # legacy 迁移：旧进度只有总数 gemini_calls、无分模型计数时，把它归到历史单模型
+    # （GEMINI_MODEL，默认 gemini-3.5-flash），避免把今天已打爆的模型当作 0 重新选中。
+    if not by_model and daily.get("gemini_calls", 0) > 0:
+        by_model[GEMINI_MODEL] = daily["gemini_calls"]
+    for model in GEMINI_MODEL_POOL:
+        if by_model.get(model, 0) + expected_calls <= per_model_limit:
+            return model
+    return None
+
+
 # ── Progress ─────────────────────────────────────────────────
 
 def load_batch_progress() -> dict:
@@ -439,12 +470,12 @@ def _build_parts(transcript_text: str, kept_frames: list, events: list, prompt: 
     return parts
 
 
-def _process_gemini(gemini_client, parts: list, video_label: str) -> dict:
+def _process_gemini(gemini_client, parts: list, video_label: str, model: str = GEMINI_MODEL) -> dict:
     """Gemini synthesis path. Returns {text, api_calls, success, failed_stage}."""
     text = call_gemini(
         gemini_client, parts,
-        label=f"Gemini {video_label[:25]}",
-        model=GEMINI_MODEL,
+        label=f"Gemini[{model}] {video_label[:20]}",
+        model=model,
         thinking_budget=8192,
         max_retries=GEMINI_BATCH_MAX_RETRIES,
         max_continuations=GEMINI_BATCH_MAX_CONTINUATIONS,
@@ -713,6 +744,7 @@ def process_single_video(
     output_path: Path,
     video_label: str,
     provider: str,
+    gemini_model: str = GEMINI_MODEL,
 ) -> dict:
     """Full pipeline for one video. Returns result dict for progress tracking."""
     print(f"\n{'=' * 56}")
@@ -760,7 +792,7 @@ def process_single_video(
                 )
                 result["provider"] = "qwen"  # 实际由 Qwen 承载，供配额按 Qwen 计费/记录
         elif provider == "gemini":
-            synth_result = _process_gemini(gemini_client, parts, video_label)
+            synth_result = _process_gemini(gemini_client, parts, video_label, gemini_model)
         else:
             synth_result = _process_qwen(
                 qwen_client, parts, video_label,
@@ -820,7 +852,9 @@ def dry_run(source_dir: Path, threshold_s: int, daily_limit_gemini: int) -> None
     print(f"  批处理 Dry Run: {source_dir}")
     print("=" * 70)
     print(f"  时长阈值: {fmt_duration(threshold_s)} ({threshold_s}s)")
-    print(f"  Gemini 日配额: {daily_limit_gemini} 次")
+    _pool_cap = len(GEMINI_MODEL_POOL) * daily_limit_gemini
+    print(f"  Gemini 模型池: {len(GEMINI_MODEL_POOL)} 个 × {daily_limit_gemini}/模型 = {_pool_cap} 次/天")
+    print(f"    {', '.join(GEMINI_MODEL_POOL)}")
     print()
 
     rows = []
@@ -852,7 +886,7 @@ def dry_run(source_dir: Path, threshold_s: int, daily_limit_gemini: int) -> None
         print(f"  {r[0]:<4} {r[1][:40]:<40} {r[2]:<8} {r[3]:<8} {r[4]}")
 
     print()
-    print(f"  Gemini 视频: {gemini_count}  预估调用: {gemini_est}  预估天数: {max(1, gemini_est // daily_limit_gemini + 1)}")
+    print(f"  Gemini 视频: {gemini_count}  预估调用: {gemini_est}  预估天数: {max(1, gemini_est // _pool_cap + 1)}")
     print(f"  Qwen 视频:   {qwen_count}  预估调用: {qwen_est}")
     print("=" * 70)
 
@@ -1035,7 +1069,7 @@ def process_batch(args: argparse.Namespace) -> None:
                 api_version=os.environ.get("GEMINI_API_VERSION", "v1beta") if os.environ.get("GEMINI_BASE_URL") else None,
             )
             gemini_client = genai.Client(api_key=gemini_api_key, http_options=http_opts)
-            print(f"  Gemini: ✓ ({GEMINI_MODEL})")
+            print(f"  Gemini: ✓ 模型池 {GEMINI_MODEL_POOL}（每模型 RPD 上限见 --daily-limit-gemini）")
         except ImportError as exc:
             print(f"  Gemini: ✗ 缺少依赖 {exc.name} — Gemini 视频将被跳过")
     else:
@@ -1075,14 +1109,21 @@ def process_batch(args: argparse.Namespace) -> None:
             provider = "qwen"
             print(f"  [护栏预判] {stem[:40]}: 已知 {entry.get('frame_count')} 帧 > {GEMINI_MAX_FRAMES} → 闸门按 Qwen")
 
-        # Quota gate for Gemini
+        # Quota gate for Gemini —— 多模型轮询：选当天还有余额的最高质量 flash 模型
+        chosen_gemini_model = None
         if provider == "gemini":
-            daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
-            if daily["gemini_calls"] >= args.daily_limit_gemini:
-                print(f"\n⏸  [{i}/{len(pending)}] {stem[:50]} — Gemini 配额不足，今日跳过")
-                continue
             if gemini_client is None:
                 print(f"\n⏸  [{i}/{len(pending)}] {stem[:50]} — 无 Gemini API Key，跳过")
+                continue
+            daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
+            chosen_gemini_model = _pick_gemini_model(
+                daily, args.daily_limit_gemini,
+                expected_calls=1 + GEMINI_BATCH_MAX_CONTINUATIONS,
+            )
+            if chosen_gemini_model is None:
+                cap = len(GEMINI_MODEL_POOL) * args.daily_limit_gemini
+                print(f"\n⏸  [{i}/{len(pending)}] {stem[:50]} — 所有 Gemini 模型今日配额已满 "
+                      f"({len(GEMINI_MODEL_POOL)}×{args.daily_limit_gemini}={cap})，跳过")
                 continue
 
         if provider == "qwen" and qwen_client is None:
@@ -1094,6 +1135,7 @@ def process_batch(args: argparse.Namespace) -> None:
 
         result = process_single_video(
             gemini_client, qwen_client, vpath, output_path, video_label, provider,
+            gemini_model=chosen_gemini_model or GEMINI_MODEL,
         )
 
         # Update progress
@@ -1118,12 +1160,16 @@ def process_batch(args: argparse.Namespace) -> None:
         entry["output"] = str(output_path.name)
         progress["videos"][stem] = entry
 
-        # Update daily quota
+        # Update daily quota（Gemini 按选中模型分别计数，每模型独立 RPD）
         daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
+        _calls = result.get("api_calls", 0)
         if billed_provider == "gemini":
-            daily["gemini_calls"] += result.get("api_calls", 0)
+            daily["gemini_calls"] += _calls
+            if chosen_gemini_model:
+                _bm = daily.setdefault("gemini_calls_by_model", {})
+                _bm[chosen_gemini_model] = _bm.get(chosen_gemini_model, 0) + _calls
         else:
-            daily["qwen_calls"] += result.get("api_calls", 0)
+            daily["qwen_calls"] += _calls
 
         # Enforce per-run call budget —— 先存盘+计数+打印，再决定是否停止，
         # 避免已烧的调用因 break 跳过 save_batch_progress 而下次重跑重复烧 API。
@@ -1139,13 +1185,14 @@ def process_batch(args: argparse.Namespace) -> None:
             success_count += 1
         processed += 1
 
-        # Status after each video
-        gemini_today = daily["gemini_calls"]
-        qwen_today = daily["qwen_calls"]
-        print(f"\n  进度: {i}/{len(pending)}  "
-              f"成功: {success_count}  "
-              f"今日 Gemini: {gemini_today}/{args.daily_limit_gemini}  "
-              f"Qwen: {qwen_today}")
+        # Status after each video（按模型显示 Gemini 用量，每模型独立 RPD）
+        _by_model = daily.get("gemini_calls_by_model", {})
+        _gem_sum = " ".join(
+            f"{m.replace('gemini-', '')}:{_by_model.get(m, 0)}/{args.daily_limit_gemini}"
+            for m in GEMINI_MODEL_POOL
+        )
+        print(f"\n  进度: {i}/{len(pending)}  成功: {success_count}")
+        print(f"  今日 Gemini[{_gem_sum}]  Qwen: {daily['qwen_calls']}")
 
         if should_stop:
             print(f"\n⛔ 本轮 API 调用已达上限 {run_call_budget}，中止。剩余 {len(pending)-i} 个视频待下次处理。")
@@ -1154,7 +1201,7 @@ def process_batch(args: argparse.Namespace) -> None:
     # Final summary
     print("\n" + "=" * 56)
     print(f"  本轮处理完成: {processed} 个视频, 成功 {success_count}")
-    print(f"  今日 Gemini: {daily.get('gemini_calls', 0)}/{args.daily_limit_gemini}  "
+    print(f"  今日 Gemini: {daily.get('gemini_calls', 0)}/{len(GEMINI_MODEL_POOL) * args.daily_limit_gemini}(池容量)  "
           f"Qwen: {daily.get('qwen_calls', 0)}")
     print("=" * 56)
 
@@ -1177,7 +1224,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--daily-limit-gemini", type=int, default=DEFAULT_DAILY_LIMIT_GEMINI,
-        help=f"Gemini 每日调用上限 (默认: {DEFAULT_DAILY_LIMIT_GEMINI})",
+        help=f"每个 Gemini 模型的每日 RPD 上限 (默认 {DEFAULT_DAILY_LIMIT_GEMINI}, PER-MODEL; 总日容量=模型池大小×此值)",
     )
     parser.add_argument(
         "--dry-run", action="store_true",
