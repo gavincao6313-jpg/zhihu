@@ -77,7 +77,7 @@ below were stale and misled analysis for two rounds — do NOT trust them.
 |---|---:|---:|---:|
 | `gemini-3.5-flash` | 5 | 250,000 | **20** |
 | `gemini-2.5-flash` | 5 | 250,000 | **20** |
-| `gemini-3-flash` | 5 | 250,000 | **20** |
+| `gemini-3-flash` / API id 待 smoke test | 5 | 250,000 | **20** |
 | `gemini-2.5-flash-lite` | 10 | 250,000 | **20** |
 | `gemini-2.5-pro` | 5 | 250,000 | 100 (not re-verified) |
 
@@ -89,7 +89,7 @@ Key consequences:
   several free flash models (`GEMINI_MODEL_POOL`). Default pool = 3 verified
   models (gemini-3.5-flash / gemini-2.5-flash / gemini-2.5-flash-lite),
   about 54/day. `gemini-3-flash` is EXCLUDED from the default pool until its
-  real model id (likely `gemini-3-flash-preview`) and RPD pass a live smoke test.
+  real API model id (likely `gemini-3-flash-preview`) and RPD pass a live smoke test.
   NOT paid Qwen/DashScope.
 - TPM 250k is still the binding per-call ceiling (see GEMINI_MAX_FRAMES guard).
 
