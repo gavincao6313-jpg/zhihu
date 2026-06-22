@@ -71,6 +71,7 @@ def call_gemini(
     retry_delay: int = 65,
     max_continuations: int = 20,
     continuation_cooldown: int = 6,
+    _counter: list | None = None,
 ) -> str | None:
     """Call Gemini API with rate-limit retry and MAX_TOKENS auto-continuation.
 
@@ -79,6 +80,9 @@ def call_gemini(
 
     continuation_cooldown: seconds to wait before each "继续" call.
     Free tier allows 10 RPM → minimum 6 s between requests.
+
+    _counter: optional mutable list; if provided, the actual Gemini API
+        call count (including continuations) is appended before return.
     """
     from google.genai import types as _gt  # lazy import — not all callers need Gemini
 
@@ -97,6 +101,8 @@ def call_gemini(
             full_text = response.text
             if not full_text:
                 print(f"[{label}] Empty response (content filtered?), not retrying.", flush=True)
+                if _counter is not None:
+                    _counter.append(gemini_calls)
                 return None
 
             candidate = response.candidates[0] if response.candidates else None
@@ -136,6 +142,8 @@ def call_gemini(
                 f"[{label}] Done: {len(full_text):,} chars, {gemini_calls} calls",
                 flush=True,
             )
+            if _counter is not None:
+                _counter.append(gemini_calls)
             return full_text
 
         except Exception as e:
@@ -150,6 +158,8 @@ def call_gemini(
             ))
             if not (is_rate or is_network):
                 print(f"[{label}] Non-retriable error: {e}", flush=True)
+                if _counter is not None:
+                    _counter.append(gemini_calls)
                 return None
             delay = parse_retry_delay(e, retry_delay)
             print(
@@ -159,6 +169,8 @@ def call_gemini(
             )
             if attempt < max_retries:
                 time.sleep(delay)
+    if _counter is not None:
+        _counter.append(gemini_calls)
     return None
 
 

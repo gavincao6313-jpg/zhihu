@@ -37,6 +37,7 @@ from zhihuTTS_video import (
 from zhihuTTS import (
     PROMPT_TEXT as GEMINI_PROMPT,
     MARKDOWNS_DIR,
+    CACHE_DIR,
     tprint,
     _save_preprocess_cache,
     _load_preprocess_cache,
@@ -61,8 +62,24 @@ DEFAULT_OUTPUT_DIR = MARKDOWNS_DIR / "batch"
 BATCH_PROGRESS_FILE = Path(__file__).parent / ".progress_batch.json"
 
 DEFAULT_DURATION_THRESHOLD_S = 9000       # 2.5h — Gemini ≤ this, Qwen >
-DEFAULT_DAILY_LIMIT_GEMINI = 20
+# 免费层每个 flash 模型真实 RPD≈20(AI Studio 实测 2026-06-17)，留 2 防 429。
+# 注意：此为 PER-MODEL 日上限，不是全部 Gemini 调用的总上限。
+DEFAULT_DAILY_LIMIT_GEMINI = 18
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
+# 免费层多 flash 模型轮询池（质量降序）。每个模型有独立 RPD，轮询=免费扩容。
+# 规则：显式设了 GEMINI_MODEL_POOL → 用它；否则显式设了单个 GEMINI_MODEL
+# （如 WIN 止血 set GEMINI_MODEL=gemini-2.5-flash-lite）→ 池只含该模型；都没设 → 默认池。
+if "GEMINI_MODEL_POOL" in os.environ:
+    GEMINI_MODEL_POOL = [m.strip() for m in os.environ["GEMINI_MODEL_POOL"].split(",") if m.strip()]
+    if not GEMINI_MODEL_POOL:
+        raise SystemExit("错误: GEMINI_MODEL_POOL 已设置但为空；请取消该环境变量或提供逗号分隔的模型名。")
+elif os.environ.get("GEMINI_MODEL"):
+    GEMINI_MODEL_POOL = [GEMINI_MODEL]   # 显式单模型（含 WIN 止血）：只用它
+else:
+    # 默认池仅含已确认可用的 model code（在用 / 官方确认）。
+    # gemini-3-flash 官方 id 为 gemini-3-flash-preview（preview，限制更严、RPD 未确认），
+    # 真实 smoke test 通过前不纳入默认池。
+    GEMINI_MODEL_POOL = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-2.5-flash-lite"]
 GEMINI_BATCH_MAX_RETRIES = 2
 GEMINI_BATCH_MAX_CONTINUATIONS = 2
 QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
@@ -73,7 +90,7 @@ QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen3.7-plus")
 # are rerouted to Qwen's sliding-window path (process_single_video Phase 3),
 # never windowed inside Gemini. NOT a 1M-context cap — 250k TPM is the
 # binding free-tier limit. See CLAUDE.md Gemini limits.
-GEMINI_MAX_FRAMES = 400
+GEMINI_MAX_FRAMES = 700
 QWEN_MAX_FRAMES = 250
 MAX_AUDIT_PROBES = 20   # hard cap on binary-search probe calls per window
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
@@ -322,6 +339,29 @@ def route_provider(duration_s: float, threshold_s: int) -> str:
     return "gemini" if duration_s <= threshold_s else "qwen"
 
 
+def _available_gemini_models(daily: dict, per_model_limit: int, expected_calls: int) -> list[str]:
+    """Return Gemini models whose per-model quota can cover one conservative attempt."""
+    by_model = daily.setdefault("gemini_calls_by_model", {})
+    # legacy 迁移：旧进度只有总数 gemini_calls、无分模型计数时，把它归到历史单模型
+    # （GEMINI_MODEL，默认 gemini-3.5-flash），避免把今天已打爆的模型当作 0 重新选中。
+    if not by_model and daily.get("gemini_calls", 0) > 0:
+        by_model[GEMINI_MODEL] = daily["gemini_calls"]
+    return [
+        model for model in GEMINI_MODEL_POOL
+        if by_model.get(model, 0) + expected_calls <= per_model_limit
+    ]
+
+
+def _pick_gemini_model(daily: dict, per_model_limit: int, expected_calls: int = 1) -> str | None:
+    """从 GEMINI_MODEL_POOL 选当天剩余额度够本次预计调用的最高质量 flash 模型。
+
+    每个模型免费 RPD 独立计数（daily['gemini_calls_by_model']）。选择时预留
+    expected_calls 额度，确保本次跑完不越过 per_model_limit。全部打满返回 None。
+    """
+    models = _available_gemini_models(daily, per_model_limit, expected_calls)
+    return models[0] if models else None
+
+
 # ── Progress ─────────────────────────────────────────────────
 
 def load_batch_progress() -> dict:
@@ -438,22 +478,65 @@ def _build_parts(transcript_text: str, kept_frames: list, events: list, prompt: 
         ))
     return parts
 
+def _process_gemini(gemini_client, parts: list, video_label: str, models=None) -> dict:
+    """Gemini synthesis path with model fallback.
 
-def _process_gemini(gemini_client, parts: list, video_label: str) -> dict:
-    """Gemini synthesis path. Returns {text, api_calls, success, failed_stage}."""
-    text = call_gemini(
-        gemini_client, parts,
-        label=f"Gemini {video_label[:25]}",
-        model=GEMINI_MODEL,
-        thinking_budget=8192,
-        max_retries=GEMINI_BATCH_MAX_RETRIES,
-        max_continuations=GEMINI_BATCH_MAX_CONTINUATIONS,
-    )
-    conservative_calls = 1 + GEMINI_BATCH_MAX_CONTINUATIONS
-    if text:
-        return {"text": text, "api_calls": conservative_calls, "success": True, "failed_stage": None}
+    Returns {text, api_calls, success, failed_stage, gemini_calls_by_model}.
+    Uses utils.call_gemini _counter to record the actual API call count
+    (including continuations) per model; falls back to 1 + max_continuations
+    only when the counter is empty (should not happen in normal operation).
+    """
+    if models is None:
+        model_list = [GEMINI_MODEL]
+    elif isinstance(models, str):
+        model_list = [models]
     else:
-        return {"text": None, "api_calls": conservative_calls, "success": False, "failed_stage": "gemini"}
+        model_list = list(models)
+
+    if not model_list:
+        return {
+            "text": None, "api_calls": 0, "success": False,
+            "failed_stage": "gemini_no_model", "gemini_calls_by_model": {},
+        }
+
+    _fallback_calls = 1 + GEMINI_BATCH_MAX_CONTINUATIONS
+    calls_by_model: dict[str, int] = {}
+    failed_models: list[str] = []
+    for idx, model in enumerate(model_list, 1):
+        if idx > 1:
+            print(f"  [Gemini fallback] 改用下一个模型: {model}")
+        _counter: list = []
+        text = call_gemini(
+            gemini_client, parts,
+            label=f"Gemini[{model}] {video_label[:20]}",
+            model=model,
+            thinking_budget=8192,
+            max_retries=GEMINI_BATCH_MAX_RETRIES,
+            max_continuations=GEMINI_BATCH_MAX_CONTINUATIONS,
+            _counter=_counter,
+        )
+        _actual = _counter[0] if _counter else _fallback_calls
+        calls_by_model[model] = calls_by_model.get(model, 0) + _actual
+        if text:
+            return {
+                "text": text,
+                "api_calls": sum(calls_by_model.values()),
+                "success": True,
+                "failed_stage": None,
+                "gemini_model": model,
+                "failed_gemini_models": failed_models,
+                "gemini_calls_by_model": calls_by_model,
+            }
+        failed_models.append(model)
+
+    return {
+        "text": None,
+        "api_calls": sum(calls_by_model.values()),
+        "success": False,
+        "failed_stage": "gemini",
+        "failed_gemini_models": failed_models,
+        "gemini_calls_by_model": calls_by_model,
+    }
 
 
 def _find_clean_frames_binary(
@@ -713,6 +796,8 @@ def process_single_video(
     output_path: Path,
     video_label: str,
     provider: str,
+    gemini_model: str = GEMINI_MODEL,
+    gemini_models: list[str] | None = None,
 ) -> dict:
     """Full pipeline for one video. Returns result dict for progress tracking."""
     print(f"\n{'=' * 56}")
@@ -760,7 +845,10 @@ def process_single_video(
                 )
                 result["provider"] = "qwen"  # 实际由 Qwen 承载，供配额按 Qwen 计费/记录
         elif provider == "gemini":
-            synth_result = _process_gemini(gemini_client, parts, video_label)
+            synth_result = _process_gemini(
+                gemini_client, parts, video_label,
+                gemini_models or [gemini_model],
+            )
         else:
             synth_result = _process_qwen(
                 qwen_client, parts, video_label,
@@ -771,6 +859,9 @@ def process_single_video(
         result["success"] = synth_result["success"]
         result["failed_stage"] = synth_result["failed_stage"]
         result["partial_windows"] = synth_result.get("partial_windows")
+        result["gemini_model"] = synth_result.get("gemini_model")
+        result["failed_gemini_models"] = synth_result.get("failed_gemini_models")
+        result["gemini_calls_by_model"] = synth_result.get("gemini_calls_by_model")
 
         # Phase 4: Write output
         if synth_result["text"]:
@@ -820,7 +911,9 @@ def dry_run(source_dir: Path, threshold_s: int, daily_limit_gemini: int) -> None
     print(f"  批处理 Dry Run: {source_dir}")
     print("=" * 70)
     print(f"  时长阈值: {fmt_duration(threshold_s)} ({threshold_s}s)")
-    print(f"  Gemini 日配额: {daily_limit_gemini} 次")
+    _pool_cap = len(GEMINI_MODEL_POOL) * daily_limit_gemini
+    print(f"  Gemini 模型池: {len(GEMINI_MODEL_POOL)} 个 × {daily_limit_gemini}/模型 = {_pool_cap} 次/天")
+    print(f"    {', '.join(GEMINI_MODEL_POOL)}")
     print()
 
     rows = []
@@ -852,7 +945,8 @@ def dry_run(source_dir: Path, threshold_s: int, daily_limit_gemini: int) -> None
         print(f"  {r[0]:<4} {r[1][:40]:<40} {r[2]:<8} {r[3]:<8} {r[4]}")
 
     print()
-    print(f"  Gemini 视频: {gemini_count}  预估调用: {gemini_est}  预估天数: {max(1, gemini_est // daily_limit_gemini + 1)}")
+    gemini_days = "∞" if _pool_cap <= 0 and gemini_count else max(1, gemini_est // max(_pool_cap, 1) + 1)
+    print(f"  Gemini 视频: {gemini_count}  预估调用: {gemini_est}  预估天数: {gemini_days}")
     print(f"  Qwen 视频:   {qwen_count}  预估调用: {qwen_est}")
     print("=" * 70)
 
@@ -944,6 +1038,8 @@ def process_batch(args: argparse.Namespace) -> None:
 
     # Determine pending videos
     pending = {}
+    provider_filter = args.provider if args.provider != "all" else None
+    skipped_by_provider = 0
     for stem in videos:
         entry = progress["videos"].get(stem, {})
         status = entry.get("status", "pending")
@@ -951,7 +1047,12 @@ def process_batch(args: argparse.Namespace) -> None:
             continue
         if status in ("failed", "partial") and not args.retry_failed:
             continue
+        if provider_filter and entry.get("provider") and entry["provider"] != provider_filter:
+            skipped_by_provider += 1
+            continue
         pending[stem] = videos[stem]
+    if skipped_by_provider:
+        print(f"  已跳过 {skipped_by_provider} 个非 {provider_filter} 视频")
 
     if not pending:
         print("\n✓ 所有视频已处理完毕")
@@ -965,13 +1066,48 @@ def process_batch(args: argparse.Namespace) -> None:
 
     print(f"\n待处理: {len(pending)} 个视频")
 
+    # ── Preprocess-only mode: extract keyframes + transcribe, cache to disk, no API ──
+    if args.preprocess_only:
+        print("\n" + "=" * 56)
+        print("  仅预处理模式：关键帧提取 + 语音转写（不调用 API）")
+        print("=" * 56)
+        preprocess_count = 0
+        for i, (stem, vpath) in enumerate(pending.items(), 1):
+            entry = progress["videos"].get(stem, {})
+            video_label = f"[{i}/{len(pending)}] {stem[:40]}"
+            print(f"\n{video_label}")
+            try:
+                events, kept_frames, transcript = _preprocess_video(vpath, video_label)
+                entry["frame_count"] = len(kept_frames)
+                entry.setdefault("provider", route_provider(
+                    entry.get("duration_s", 0), args.duration_threshold))
+                entry.setdefault("status", "pending")
+                progress["videos"][stem] = entry
+                preprocess_count += 1
+            except Exception as exc:
+                print(f"  ✗ 预处理失败: {exc}")
+                entry["status"] = "failed"
+                entry["failed_stage"] = "preprocess"
+                progress["videos"][stem] = entry
+            # Save progress every 5 videos
+            if i % 5 == 0:
+                save_batch_progress(progress)
+                print(f"  [进度已保存: {i}/{len(pending)}]")
+        save_batch_progress(progress)
+        print(f"\n{'=' * 56}")
+        print(f"  预处理完成: {preprocess_count}/{len(pending)} 个视频")
+        print(f"  缓存位置: {CACHE_DIR}")
+        print(f"  下次运行将直接使用缓存，跳过预处理")
+        print(f"{'=' * 56}")
+        return
+
     # Per-run call budget enforcement
     run_call_budget = args.max_calls_per_run
     run_calls_used = 0
     if run_call_budget > 0:
         # Estimate total calls for the run, accounting for auto-reroute and the
         # >GEMINI_MAX_FRAMES guard that reroutes oversized Gemini videos to Qwen.
-        _cpw = 1 + GEMINI_BATCH_MAX_CONTINUATIONS  # conservative calls per Gemini call
+        _cpw = 1  # post-call 真实计数（修复后每视频通常 1 次）
 
         def _est_calls_for(e: dict, will_reroute: bool) -> int:
             fc = e.get("frame_count", 0)
@@ -1002,21 +1138,25 @@ def process_batch(args: argparse.Namespace) -> None:
             print(f"   使用 --max-calls-per-run {est_total + 10} 或 --max-calls-per-run 0 解除限制。")
             sys.exit(1)
 
-    # Daily quota check
+    # Daily quota check（Gemini 为 per-model RPD，不能再用总 gemini_calls 对单模型上限判断）
     today = date.today().isoformat()
     daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
-    gemini_used_today = daily["gemini_calls"]
-    gemini_remaining = max(0, args.daily_limit_gemini - gemini_used_today)
-    print(f"今日 Gemini 配额: {gemini_used_today}/{args.daily_limit_gemini} 已用, {gemini_remaining} 剩余")
+    gemini_expected_calls = 1  # post-call 真实计数（修复后每视频通常 1 次）
+    gemini_available_today = _available_gemini_models(
+        daily, args.daily_limit_gemini, expected_calls=gemini_expected_calls,
+    )
+    gemini_pool_cap = len(GEMINI_MODEL_POOL) * args.daily_limit_gemini
+    print(f"今日 Gemini 池配额: {daily.get('gemini_calls', 0)}/{gemini_pool_cap} 已用")
+    print(f"  可承载本次 Gemini 尝试的模型: {gemini_available_today or '无'}")
 
-    if gemini_remaining <= 0:
+    if not gemini_available_today:
         # Check if any pending videos are Gemini-routed
         gemini_pending = sum(
             1 for s in pending
             if progress["videos"].get(s, {}).get("provider") == "gemini"
         )
         if gemini_pending > 0:
-            print(f"⚠ 今日 Gemini 配额已用完，将跳过 {gemini_pending} 个 Gemini 视频")
+            print(f"⚠ 今日 Gemini 模型池可用配额不足，将跳过 {gemini_pending} 个 Gemini 视频")
 
     # Initialize API clients
     print("\n初始化 API 客户端...")
@@ -1035,7 +1175,7 @@ def process_batch(args: argparse.Namespace) -> None:
                 api_version=os.environ.get("GEMINI_API_VERSION", "v1beta") if os.environ.get("GEMINI_BASE_URL") else None,
             )
             gemini_client = genai.Client(api_key=gemini_api_key, http_options=http_opts)
-            print(f"  Gemini: ✓ ({GEMINI_MODEL})")
+            print(f"  Gemini: ✓ 模型池 {GEMINI_MODEL_POOL}（每模型 RPD 上限见 --daily-limit-gemini）")
         except ImportError as exc:
             print(f"  Gemini: ✗ 缺少依赖 {exc.name} — Gemini 视频将被跳过")
     else:
@@ -1075,14 +1215,31 @@ def process_batch(args: argparse.Namespace) -> None:
             provider = "qwen"
             print(f"  [护栏预判] {stem[:40]}: 已知 {entry.get('frame_count')} 帧 > {GEMINI_MAX_FRAMES} → 闸门按 Qwen")
 
-        # Quota gate for Gemini
+        # Quota gate for Gemini —— 多模型轮询：选当天还有余额的最高质量 flash 模型
+        chosen_gemini_model = None
+        gemini_model_candidates: list[str] = []
         if provider == "gemini":
-            daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
-            if daily["gemini_calls"] >= args.daily_limit_gemini:
-                print(f"\n⏸  [{i}/{len(pending)}] {stem[:50]} — Gemini 配额不足，今日跳过")
-                continue
             if gemini_client is None:
                 print(f"\n⏸  [{i}/{len(pending)}] {stem[:50]} — 无 Gemini API Key，跳过")
+                continue
+            daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
+            quota_model_candidates = _available_gemini_models(
+                daily, args.daily_limit_gemini, expected_calls=gemini_expected_calls,
+            )
+            gemini_model_candidates = quota_model_candidates
+            if run_call_budget > 0:
+                remaining_budget = run_call_budget - run_calls_used
+                max_attempt_models = max(0, remaining_budget // gemini_expected_calls)
+                gemini_model_candidates = gemini_model_candidates[:max_attempt_models]
+            chosen_gemini_model = gemini_model_candidates[0] if gemini_model_candidates else None
+            if not gemini_model_candidates:
+                if quota_model_candidates:
+                    print(f"\n⛔ [{i}/{len(pending)}] {stem[:50]} — 本轮剩余调用预算不足 "
+                          f"({run_call_budget - run_calls_used}/{gemini_expected_calls})，中止")
+                    break
+                cap = len(GEMINI_MODEL_POOL) * args.daily_limit_gemini
+                print(f"\n⏸  [{i}/{len(pending)}] {stem[:50]} — 所有 Gemini 模型今日配额已满 "
+                      f"({len(GEMINI_MODEL_POOL)}×{args.daily_limit_gemini}={cap})，跳过")
                 continue
 
         if provider == "qwen" and qwen_client is None:
@@ -1094,6 +1251,8 @@ def process_batch(args: argparse.Namespace) -> None:
 
         result = process_single_video(
             gemini_client, qwen_client, vpath, output_path, video_label, provider,
+            gemini_model=chosen_gemini_model or GEMINI_MODEL,
+            gemini_models=gemini_model_candidates or None,
         )
 
         # Update progress
@@ -1115,15 +1274,30 @@ def process_batch(args: argparse.Namespace) -> None:
         entry["processed"] = _now_iso()
         if result.get("frame_count"):
             entry["frame_count"] = result["frame_count"]
+        if result.get("gemini_model"):
+            entry["gemini_model"] = result["gemini_model"]
+        if result.get("failed_gemini_models"):
+            entry["failed_gemini_models"] = result["failed_gemini_models"]
+        if result.get("gemini_calls_by_model"):
+            entry["gemini_calls_by_model"] = result["gemini_calls_by_model"]
         entry["output"] = str(output_path.name)
         progress["videos"][stem] = entry
 
-        # Update daily quota
+        # Update daily quota（Gemini 按选中模型分别计数，每模型独立 RPD）
         daily = progress["quota"].setdefault(today, {"gemini_calls": 0, "qwen_calls": 0})
+        _calls = result.get("api_calls", 0)
         if billed_provider == "gemini":
-            daily["gemini_calls"] += result.get("api_calls", 0)
+            daily["gemini_calls"] += _calls
+            _model_calls = result.get("gemini_calls_by_model") or {}
+            if _model_calls:
+                _bm = daily.setdefault("gemini_calls_by_model", {})
+                for _model, _model_call_count in _model_calls.items():
+                    _bm[_model] = _bm.get(_model, 0) + int(_model_call_count)
+            elif chosen_gemini_model:
+                _bm = daily.setdefault("gemini_calls_by_model", {})
+                _bm[chosen_gemini_model] = _bm.get(chosen_gemini_model, 0) + _calls
         else:
-            daily["qwen_calls"] += result.get("api_calls", 0)
+            daily["qwen_calls"] += _calls
 
         # Enforce per-run call budget —— 先存盘+计数+打印，再决定是否停止，
         # 避免已烧的调用因 break 跳过 save_batch_progress 而下次重跑重复烧 API。
@@ -1139,13 +1313,14 @@ def process_batch(args: argparse.Namespace) -> None:
             success_count += 1
         processed += 1
 
-        # Status after each video
-        gemini_today = daily["gemini_calls"]
-        qwen_today = daily["qwen_calls"]
-        print(f"\n  进度: {i}/{len(pending)}  "
-              f"成功: {success_count}  "
-              f"今日 Gemini: {gemini_today}/{args.daily_limit_gemini}  "
-              f"Qwen: {qwen_today}")
+        # Status after each video（按模型显示 Gemini 用量，每模型独立 RPD）
+        _by_model = daily.get("gemini_calls_by_model", {})
+        _gem_sum = " ".join(
+            f"{m.replace('gemini-', '')}:{_by_model.get(m, 0)}/{args.daily_limit_gemini}"
+            for m in GEMINI_MODEL_POOL
+        )
+        print(f"\n  进度: {i}/{len(pending)}  成功: {success_count}")
+        print(f"  今日 Gemini[{_gem_sum}]  Qwen: {daily['qwen_calls']}")
 
         if should_stop:
             print(f"\n⛔ 本轮 API 调用已达上限 {run_call_budget}，中止。剩余 {len(pending)-i} 个视频待下次处理。")
@@ -1154,7 +1329,7 @@ def process_batch(args: argparse.Namespace) -> None:
     # Final summary
     print("\n" + "=" * 56)
     print(f"  本轮处理完成: {processed} 个视频, 成功 {success_count}")
-    print(f"  今日 Gemini: {daily.get('gemini_calls', 0)}/{args.daily_limit_gemini}  "
+    print(f"  今日 Gemini: {daily.get('gemini_calls', 0)}/{len(GEMINI_MODEL_POOL) * args.daily_limit_gemini}(池容量)  "
           f"Qwen: {daily.get('qwen_calls', 0)}")
     print("=" * 56)
 
@@ -1177,7 +1352,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--daily-limit-gemini", type=int, default=DEFAULT_DAILY_LIMIT_GEMINI,
-        help=f"Gemini 每日调用上限 (默认: {DEFAULT_DAILY_LIMIT_GEMINI})",
+        help=f"每个 Gemini 模型的每日 RPD 上限 (默认 {DEFAULT_DAILY_LIMIT_GEMINI}, PER-MODEL; 总日容量=模型池大小×此值)",
     )
     parser.add_argument(
         "--dry-run", action="store_true",
@@ -1206,6 +1381,14 @@ def main() -> None:
     parser.add_argument(
         "--max-calls-per-run", type=int, default=100,
         help="单次运行最大 API 调用数上限，超过则中止（0=不限制，默认100）",
+    )
+    parser.add_argument(
+        "--provider", choices=["gemini", "qwen", "all"], default="all",
+        help="仅处理指定 provider 的视频 (默认: all，即全部处理)",
+    )
+    parser.add_argument(
+        "--preprocess-only", action="store_true",
+        help="仅本地预处理（关键帧 + 逐字稿），不调用 API，缓存到 disk 后退出",
     )
 
     args = parser.parse_args()

@@ -1,375 +1,2515 @@
 {
-  "source_dir": "F:\\AI研发\\AI新编程副业实战班",
-  "output_dir": "D:\\zhihu\\zhihu_file\\Markdowns\\batch_ai_yanfa\\AI新编程副业实战班",
+  "source_dir": "F:\\AI商业_超凡会\\商业案例拆解",
+  "output_dir": "D:\\zhihu\\zhihu_file\\Markdowns\\batch",
   "videos": {
-    "001_AI应用变现逻辑拆解及最新趋势解读": {
-      "status": "done",
+    "001_【一百八十六回】AI落地的两级分化": {
+      "duration_s": 9210.26,
       "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "001_AI应用变现逻辑拆解及最新趋势解读.md",
-      "duration_s": 10049.866667
-    },
-    "002_AI能力矩阵：模型能做什么，效果边界在哪里": {
       "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T12:04:16",
+      "output": "001_【一百八十六回】AI落地的两级分化.md",
+      "frame_count": 163
+    },
+    "002_【一百八十五回】从《来自监狱的妈妈》看法律、媒体、舆论的文化战场": {
+      "duration_s": 9178.579501,
       "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "002_AI能力矩阵：模型能做什么，效果边界在哪里.md",
-      "duration_s": 9706.473991
-    },
-    "003_理论知识：应用形态与载体": {
       "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T12:20:36",
+      "output": "002_【一百八十五回】从《来自监狱的妈妈》看法律、媒体、舆论的文化战场.md",
+      "frame_count": 221
+    },
+    "003_【一百八十四回】人类历史最大的一个融资季度，AI之战的白热化": {
+      "duration_s": 10106.298944,
       "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "003_理论知识：应用形态与载体.md",
-      "duration_s": 10333.158005
-    },
-    "004_理论知识：技术架构分工": {
       "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T12:38:16",
+      "output": "003_【一百八十四回】人类历史最大的一个融资季度，AI之战的白热化.md",
+      "frame_count": 187
+    },
+    "004_【一百八十三回】基因检测的商业发展逻辑": {
+      "duration_s": 9481.438856,
       "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "004_理论知识：技术架构分工.md",
-      "duration_s": 9637.28
-    },
-    "005_提示词与RAG知识库": {
       "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T12:54:08",
+      "output": "004_【一百八十三回】基因检测的商业发展逻辑.md",
+      "frame_count": 239
+    },
+    "005_【一百八十二回】AI_个人AI工作台和AI思想": {
+      "duration_s": 10097.16102,
       "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "005_提示词与RAG知识库.md",
-      "duration_s": 9537.999333
-    },
-    "006_工作流Agent与Function Call": {
       "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T13:08:53",
+      "output": "005_【一百八十二回】AI_个人AI工作台和AI思想.md",
+      "frame_count": 217
+    },
+    "006_【一百八十一回】AI：GPT5.5_发布，Claude要护照和Deepseek_V4的关系": {
+      "duration_s": 9541.396622,
       "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "006_工作流Agent与Function Call.md",
-      "duration_s": 10322.533333
-    },
-    "007_使用AI编程平台开发和部署AI应用": {
       "status": "done",
-      "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "007_使用AI编程平台开发和部署AI应用.md",
-      "duration_s": 10598.933
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T13:21:56",
+      "output": "006_【一百八十一回】AI：GPT5.5_发布，Claude要护照和Deepseek_V4的关系.md",
+      "frame_count": 196
     },
-    "008_收集分析用户数据优化产品": {
-      "status": "done",
+    "007_【一百八十回】AI：驾驭模式的特点和优势": {
+      "duration_s": 7958.755034,
       "provider": "gemini",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "008_收集分析用户数据优化产品.md",
-      "duration_s": 8932.066
-    },
-    "009_OpenClaw安装及配置方法": {
       "status": "done",
-      "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "009_OpenClaw安装及配置方法.md",
-      "duration_s": 10770.932667
-    },
-    "010_OpenClaw工作原理及模块拆解": {
-      "status": "done",
-      "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "010_OpenClaw工作原理及模块拆解.md",
-      "duration_s": 9907.333
-    },
-    "011_OpenClaw实战案例详解": {
-      "status": "done",
-      "provider": "qwen",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "011_OpenClaw实战案例详解.md",
-      "duration_s": 10909.338005
-    },
-    "012_图片生成模型实战技巧": {
-      "status": "done",
-      "provider": "gemini",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "012_图片生成模型实战技巧.md",
-      "duration_s": 5588.533333
-    },
-    "013_音频处理模型实战技巧": {
-      "status": "done",
-      "provider": "gemini",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "013_音频处理模型实战技巧.md",
-      "duration_s": 7199.199333
-    },
-    "014_真实订单教学讲解": {
-      "status": "done",
-      "provider": "gemini",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "014_真实订单教学讲解.md",
-      "duration_s": 7823.933333
-    },
-    "015_视频处理模型实战技巧": {
-      "status": "done",
-      "provider": "gemini",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "015_视频处理模型实战技巧.md",
-      "duration_s": 8666.399667
-    },
-    "016_AI自媒体第一课【基础认知】": {
-      "status": "done",
-      "duration_s": 4216.231995,
-      "provider": "gemini",
       "api_calls": 3,
       "failed_stage": null,
-      "processed": "2026-06-16T15:57:08",
+      "processed": "2026-06-18T07:43:08",
+      "frame_count": 143,
+      "output": "007_【一百八十回】AI：驾驭模式的特点和优势.md",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      }
+    },
+    "008_【一百七十九回】张雪峰的步步谋划与张雪的少年心性": {
+      "duration_s": 7994.355311,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T07:33:07",
+      "frame_count": 217,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "008_【一百七十九回】张雪峰的步步谋划与张雪的少年心性.md"
+    },
+    "009_【一百七十八回】消费品出海营销策略": {
+      "duration_s": 9296.328594,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T13:35:37",
+      "output": "009_【一百七十八回】消费品出海营销策略.md",
+      "frame_count": 207
+    },
+    "010_【一百七十七回】假装的艺术": {
+      "duration_s": 9113.1097,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T13:48:41",
+      "output": "010_【一百七十七回】假装的艺术.md",
+      "frame_count": 142
+    },
+    "011_【一百七十六回】刑天舞干戚-Q1国际风云": {
+      "duration_s": 9228.810385,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T14:01:54",
+      "output": "011_【一百七十六回】刑天舞干戚-Q1国际风云.md",
+      "frame_count": 186
+    },
+    "012_【一百七十五回】AI眼镜爆发背后的生态位争夺战": {
+      "duration_s": 8543.474589,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T07:54:34",
+      "frame_count": 206,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "012_【一百七十五回】AI眼镜爆发背后的生态位争夺战.md"
+    },
+    "013_【一百七十四回】人生的每个阶段应该做什么": {
+      "duration_s": 9446.133265,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T14:14:51",
+      "output": "013_【一百七十四回】人生的每个阶段应该做什么.md",
+      "frame_count": 161
+    },
+    "014_【一百七十三回】AI_OpenClaw的强大是否会照进现实": {
+      "duration_s": 8979.078578,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 6,
+      "failed_stage": null,
+      "processed": "2026-06-18T08:10:25",
+      "frame_count": 208,
+      "gemini_model": "gemini-2.5-flash",
+      "failed_gemini_models": [
+        "gemini-3.5-flash"
+      ],
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3,
+        "gemini-2.5-flash": 3
+      },
+      "output": "014_【一百七十三回】AI_OpenClaw的强大是否会照进现实.md"
+    },
+    "015_【一百七十二回】各种老板的见招拆招": {
+      "duration_s": 9648.787622,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T14:29:36",
+      "output": "015_【一百七十二回】各种老板的见招拆招.md",
+      "frame_count": 141
+    },
+    "016_【一百七十一回】金蛇狂舞，龙马精神": {
+      "duration_s": 9621.078411,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T14:43:10",
+      "output": "016_【一百七十一回】金蛇狂舞，龙马精神.md",
+      "frame_count": 211
+    },
+    "017_【一百七十回】爆火的Skill模式是否是大模型产品的新范式": {
+      "duration_s": 9448.107567,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T14:56:07",
+      "output": "017_【一百七十回】爆火的Skill模式是否是大模型产品的新范式.md",
+      "frame_count": 240
+    },
+    "018_【一百六十九回】各种老板的决策逻辑": {
+      "duration_s": 9860.643133,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T15:10:15",
+      "output": "018_【一百六十九回】各种老板的决策逻辑.md",
+      "frame_count": 156
+    },
+    "019_【一百六十八回】如何逃离人生斩杀线": {
+      "duration_s": 9795.160456,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T15:24:26",
+      "output": "019_【一百六十八回】如何逃离人生斩杀线.md",
+      "frame_count": 168
+    },
+    "020_【一百六十七回】从美国的斩杀线破圈，看如何逃离人生斩杀线": {
+      "duration_s": 9238.540267,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T15:37:16",
+      "output": "020_【一百六十七回】从美国的斩杀线破圈，看如何逃离人生斩杀线.md",
+      "frame_count": 113
+    },
+    "021_【一百六十六回】阿福疯狂推广，医疗AI的巨大入口效应": {
+      "duration_s": 8854.708957,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T08:21:58",
+      "frame_count": 211,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "021_【一百六十六回】阿福疯狂推广，医疗AI的巨大入口效应.md"
+    },
+    "022_【一百六十五回】人类的十字路口": {
+      "duration_s": 11157.860211,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-18T16:00:44",
+      "output": "022_【一百六十五回】人类的十字路口.md",
+      "frame_count": 260
+    },
+    "023_【一百六十四回】灵光的多模态AHA_moment": {
+      "duration_s": 9497.654989,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T16:17:20",
+      "output": "023_【一百六十四回】灵光的多模态AHA_moment.md",
+      "frame_count": 182
+    },
+    "024_【一百六十三回】AI漫剧会否成为短剧后又一爆点": {
+      "duration_s": 8248.719274,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T08:32:54",
+      "frame_count": 223,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "024_【一百六十三回】AI漫剧会否成为短剧后又一爆点.md"
+    },
+    "025_【一百六十二回】竹棚之下｜立场与叙事逻辑的对抗": {
+      "duration_s": 8837.643083,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T08:44:02",
+      "frame_count": 183,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "025_【一百六十二回】竹棚之下｜立场与叙事逻辑的对抗.md"
+    },
+    "026_【一百六十一回】杂谈｜野！清朝的野史真的野！": {
+      "duration_s": 8295.643197,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T08:55:12",
+      "frame_count": 202,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "026_【一百六十一回】杂谈｜野！清朝的野史真的野！.md"
+    },
+    "027_【一百六十回】商业模式｜AI自习室是个什么生意": {
+      "duration_s": 8980.203089,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T09:06:48",
+      "frame_count": 177,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "027_【一百六十回】商业模式｜AI自习室是个什么生意.md"
+    },
+    "028_【一百五十九回】从TIcNote看智能助手的机会": {
+      "duration_s": 8364.553356,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T09:17:36",
+      "frame_count": 237,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "028_【一百五十九回】从TIcNote看智能助手的机会.md"
+    },
+    "029_【一百五十八回】心力：不完美的价值": {
+      "duration_s": 8218.776712,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T09:28:37",
+      "frame_count": 101,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "029_【一百五十八回】心力：不完美的价值.md"
+    },
+    "030_【一百五十七回】从一个副业看链路与AI价值": {
+      "duration_s": 8483.720778,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T09:39:18",
+      "frame_count": 151,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "030_【一百五十七回】从一个副业看链路与AI价值.md"
+    },
+    "031_【一百五十六回】大模型在政府场景的应用": {
+      "duration_s": 8336.5811,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T09:49:40",
+      "frame_count": 213,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "031_【一百五十六回】大模型在政府场景的应用.md"
+    },
+    "032_【一百五十五回】科技产品营销的另一个视角（下）": {
+      "duration_s": 8800.068866,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T10:00:04",
+      "frame_count": 200,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "032_【一百五十五回】科技产品营销的另一个视角（下）.md"
+    },
+    "033_【一百五十四回】科技产品营销的另一个视角": {
+      "duration_s": 9555.542711,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T16:37:53",
+      "output": "033_【一百五十四回】科技产品营销的另一个视角.md",
+      "frame_count": 69
+    },
+    "034_【一百五十三回】世界与国内状态的碎碎念": {
+      "duration_s": 8743.2023,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T10:10:57",
+      "frame_count": 184,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "034_【一百五十三回】世界与国内状态的碎碎念.md"
+    },
+    "035_【一百五十二回】西贝事件看到的几个侧面": {
+      "duration_s": 8393.149578,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T10:21:43",
+      "frame_count": 158,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "035_【一百五十二回】西贝事件看到的几个侧面.md"
+    },
+    "036_【一百五十一回】从nanobanana看业务和商业敏感性": {
+      "duration_s": 9279.569011,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-18T16:50:17",
+      "output": "036_【一百五十一回】从nanobanana看业务和商业敏感性.md",
+      "frame_count": 330
+    },
+    "037_【一百五十回】如何给领导画饼": {
+      "duration_s": 8829.334256,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:12:11",
+      "frame_count": 218,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "037_【一百五十回】如何给领导画饼.md"
+    },
+    "038_【一百四十九回】如人类历史上最大规模的阅兵，传递了什么信号": {
+      "duration_s": 9680.095322,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-18T17:22:41",
+      "output": "038_【一百四十九回】如人类历史上最大规模的阅兵，传递了什么信号.md",
+      "frame_count": 297
+    },
+    "039_【一百四十八回】稳定币的由来和市场机会": {
+      "duration_s": 9462.227433,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T17:43:14",
+      "output": "039_【一百四十八回】稳定币的由来和市场机会.md",
+      "frame_count": 144
+    },
+    "040_【一百四十七回】从一次选车经历，看产品化思维": {
+      "duration_s": 8322.010811,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:14:48",
+      "frame_count": 230,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "040_【一百四十七回】从一次选车经历，看产品化思维.md"
+    },
+    "041_【一百四十六回】海南封关解读，岗位与行业的机会": {
+      "duration_s": 8017.2793,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:16:45",
       "frame_count": 163,
-      "output": "016_AI自媒体第一课【基础认知】.md"
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "041_【一百四十六回】海南封关解读，岗位与行业的机会.md"
     },
-    "017_AI自媒体第二课【爆款选题】": {
-      "status": "done",
-      "duration_s": 5822.100998,
-      "provider": "gemini",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T16:06:00",
-      "frame_count": 381,
-      "output": "017_AI自媒体第二课【爆款选题】.md"
-    },
-    "018_AI自媒体第三课【爆款借鉴二创】": {
-      "status": "done",
-      "duration_s": 4486.907007,
-      "provider": "gemini",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T16:13:10",
-      "frame_count": 283,
-      "output": "018_AI自媒体第三课【爆款借鉴二创】.md"
-    },
-    "019_AI自媒体第四课【AI分镜】": {
-      "status": "done",
-      "duration_s": 4697.099,
-      "provider": "gemini",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T16:29:48",
-      "frame_count": 362,
-      "output": "019_AI自媒体第四课【AI分镜】.md"
-    },
-    "020_AI自媒体第五课【平台适配】": {
-      "status": "done",
-      "duration_s": 4770.966,
-      "provider": "gemini",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T16:38:03",
-      "frame_count": 371,
-      "output": "020_AI自媒体第五课【平台适配】.md"
-    },
-    "021_AI自媒体 第六课【运营助手】": {
-      "status": "done",
-      "duration_s": 2901.266,
+    "042_【一百四十五回】生命礼赞3": {
+      "duration_s": 9410.014667,
       "provider": "qwen",
+      "status": "done",
       "api_calls": 1,
       "failed_stage": null,
-      "processed": "2026-06-16T20:04:24",
-      "frame_count": 150,
-      "output": "021_AI自媒体 第六课【运营助手】.md"
+      "processed": "2026-06-18T17:59:42",
+      "output": "042_【一百四十五回】生命礼赞3.md",
+      "frame_count": 169
     },
-    "022_AI自媒体第七课【数据复盘】": {
-      "status": "done",
-      "duration_s": 4470.4,
+    "043_【一百四十四回】为什么模型大厂开始卷通用智能体": {
+      "duration_s": 8775.555578,
       "provider": "gemini",
+      "status": "done",
       "api_calls": 3,
       "failed_stage": null,
-      "processed": "2026-06-16T17:37:20",
-      "frame_count": 227,
-      "output": "022_AI自媒体第七课【数据复盘】.md"
+      "processed": "2026-06-18T22:18:41",
+      "frame_count": 247,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "043_【一百四十四回】为什么模型大厂开始卷通用智能体.md"
     },
-    "023_AI自媒体第八课【虚拟人】": {
+    "044_【一百四十三回】世界大多数问题，本质都是因为算力不足": {
+      "duration_s": 8797.103492,
+      "provider": "gemini",
       "status": "done",
-      "duration_s": 4794.269002,
-      "provider": "qwen",
-      "api_calls": 1,
+      "api_calls": 6,
       "failed_stage": null,
-      "processed": "2026-06-16T20:06:25",
+      "processed": "2026-06-18T22:22:23",
       "frame_count": 222,
-      "output": "023_AI自媒体第八课【虚拟人】.md"
+      "gemini_model": "gemini-2.5-flash",
+      "failed_gemini_models": [
+        "gemini-3.5-flash"
+      ],
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3,
+        "gemini-2.5-flash": 3
+      },
+      "output": "044_【一百四十三回】世界大多数问题，本质都是因为算力不足.md"
     },
-    "024_交付过程中的问题解析": {
-      "status": "done",
+    "045_【一百四十二回】假装上班的中年人的秩序依赖": {
+      "duration_s": 8966.5283,
       "provider": "gemini",
-      "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "024_交付过程中的问题解析.md",
-      "duration_s": 7306.159002
-    },
-    "025_教育场景应用案例一：英语情景对话陪练": {
       "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:23:52",
+      "frame_count": 121,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "045_【一百四十二回】假装上班的中年人的秩序依赖.md"
+    },
+    "046_【一百四十一回】Party！Party!!_Party!!!": {
+      "duration_s": 8972.437344,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:25:38",
+      "frame_count": 242,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "046_【一百四十一回】Party！Party!!_Party!!!.md"
+    },
+    "047_【一百四十回】Labubu崛起谷子店倒闭，从球鞋到NFT": {
+      "duration_s": 8510.691756,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:28:12",
+      "frame_count": 264,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "047_【一百四十回】Labubu崛起谷子店倒闭，从球鞋到NFT.md"
+    },
+    "048_【一百三十九回】从4+4看门阀以及新生力量的崛起": {
+      "duration_s": 9069.034489,
       "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T18:16:25",
+      "output": "048_【一百三十九回】从4+4看门阀以及新生力量的崛起.md",
+      "frame_count": 150
+    },
+    "049_【一百三十八回】从火爆的lovart看大模型和智能体趋势": {
+      "duration_s": 9000.352956,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 4,
+      "failed_stage": null,
+      "processed": "2026-06-18T18:38:30",
+      "output": "049_【一百三十八回】从火爆的lovart看大模型和智能体趋势.md",
+      "frame_count": 402
+    },
+    "050_【一百三十七回】从美业巨头裁员看社会趋势变化": {
+      "duration_s": 9064.2167,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T18:55:14",
+      "output": "050_【一百三十七回】从美业巨头裁员看社会趋势变化.md",
+      "frame_count": 183
+    },
+    "051_【一百三十六回】我是怎么快速学习一个行业的": {
+      "duration_s": 8480.485442,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:31:46",
+      "frame_count": 198,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "051_【一百三十六回】我是怎么快速学习一个行业的.md"
+    },
+    "052_【一百三十五回】MCP是否是大模型照进现实的桥梁": {
+      "status": "done",
+      "provider": "gemini",
+      "duration_s": 9272.12,
+      "api_calls": 3,
+      "processed": "2026-06-21T19:06:05",
+      "failed_stage": null,
+      "output": "052_【一百三十五回】MCP是否是大模型照进现实的桥梁.md",
+      "frame_count": 288,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      }
+    },
+    "053_【一百三十三回】大模型的场景应用逻辑及投产比逻辑": {
+      "duration_s": 8910.140778,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:33:46",
+      "frame_count": 270,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "053_【一百三十三回】大模型的场景应用逻辑及投产比逻辑.md"
+    },
+    "054_【一百三十四回】从胖东来到京东外卖_传递了什么信号": {
+      "status": "done",
+      "provider": "gemini",
+      "duration_s": 8579.42,
+      "api_calls": 3,
+      "processed": "2026-06-21T19:17:09",
+      "failed_stage": null,
+      "output": "054_【一百三十四回】从胖东来到京东外卖_传递了什么信号.md",
+      "frame_count": 152,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      }
+    },
+    "055_【一百三十二回】做个智能体，大模型应该怎么学": {
+      "duration_s": 8855.980211,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:35:08",
+      "frame_count": 274,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "055_【一百三十二回】做个智能体，大模型应该怎么学.md"
+    },
+    "056_【一百三十一回】从一个老年网红店_看银发产品设计思路": {
+      "duration_s": 8671.347846,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:37:32",
+      "frame_count": 203,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "056_【一百三十一回】从一个老年网红店_看银发产品设计思路.md"
+    },
+    "057_【一百三十回】胜者思维的运用_做自己的将军": {
+      "duration_s": 9827.524922,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T19:14:05",
+      "output": "057_【一百三十回】胜者思维的运用_做自己的将军.md",
+      "frame_count": 110
+    },
+    "058_【一百二十九回】胜者思维": {
+      "duration_s": 9713.824189,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T19:30:44",
+      "output": "058_【一百二十九回】胜者思维.md",
+      "frame_count": 156
+    },
+    "059_【一百二十八回】原研药、仿制药与医保的辩证关系": {
+      "status": "done",
+      "provider": "gemini",
+      "duration_s": 8593.17,
+      "api_calls": 3,
+      "processed": "2026-06-21T19:28:01",
+      "failed_stage": null,
+      "output": "059_【一百二十八回】原研药、仿制药与医保的辩证关系.md",
+      "frame_count": 136,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      }
+    },
+    "060_【一百二十七回】第一季度的国际形势，为什么世界本质是中国和印度": {
+      "duration_s": 8791.464784,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:40:22",
+      "frame_count": 229,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "060_【一百二十七回】第一季度的国际形势，为什么世界本质是中国和印度.md"
+    },
+    "061_【一百二十六回】饺子是怎么样练成的": {
+      "duration_s": 7785.814111,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:41:26",
+      "frame_count": 211,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "061_【一百二十六回】饺子是怎么样练成的.md"
+    },
+    "062_【一百二十五回】如何经营个人人脉": {
+      "duration_s": 8567.179356,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:44:18",
+      "frame_count": 131,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "062_【一百二十五回】如何经营个人人脉.md"
+    },
+    "063_【一百二十四回】中国企业出海的历史机遇（下）": {
+      "duration_s": 8037.100635,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T22:53:34",
+      "frame_count": 185,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "063_【一百二十四回】中国企业出海的历史机遇（下）.md"
+    },
+    "064_【一百二十三回】从一个神奇网站hao123谈ai产品设计": {
+      "status": "done",
+      "provider": "gemini",
+      "duration_s": 8296.39,
+      "api_calls": 3,
+      "processed": "2026-06-21T19:38:15",
+      "failed_stage": null,
+      "output": "064_【一百二十三回】从一个神奇网站hao123谈ai产品设计.md",
+      "frame_count": 133,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      }
+    },
+    "065_【一百二十二回】中国企业出海的历史机遇": {
+      "duration_s": 8575.046508,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-18T23:03:34",
+      "frame_count": 161,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "065_【一百二十二回】中国企业出海的历史机遇.md"
+    },
+    "066_【一百二十回】横空出世的Deepseek": {
+      "duration_s": 8674.879267,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T09:19:11",
+      "frame_count": 169,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "066_【一百二十回】横空出世的Deepseek.md"
+    },
+    "067_【一百二十一回】2025年的职业生涯如何急救": {
+      "duration_s": 8566.734853,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T09:30:47",
+      "frame_count": 131,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "067_【一百二十一回】2025年的职业生涯如何急救.md"
+    },
+    "068_【一百一十九回】美国的大火与小红书的大火": {
+      "duration_s": 9496.877823,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T19:49:11",
+      "output": "068_【一百一十九回】美国的大火与小红书的大火.md",
+      "frame_count": 210
+    },
+    "069_【一百一十八回】电影票房低迷的解读": {
+      "duration_s": 7918.6178,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T09:41:24",
+      "frame_count": 191,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "069_【一百一十八回】电影票房低迷的解读.md"
+    },
+    "070_【一百一十七回】面对危机的策略和心力": {
+      "duration_s": 9122.290767,
+      "provider": "qwen",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-18T20:05:38",
+      "output": "070_【一百一十七回】面对危机的策略和心力.md",
+      "frame_count": 228
+    },
+    "071_【一百一十六回】2024的大事件和2025展望": {
+      "duration_s": 10497.891811,
+      "provider": "qwen",
+      "status": "failed",
       "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "025_教育场景应用案例一：英语情景对话陪练.md",
-      "duration_s": 9177.399333
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "071_【一百一十六回】2024的大事件和2025展望.md"
     },
-    "026_教育场景应用案例二：AI智能“对对碰”游戏化识字与记单词系统": {
-      "status": "done",
+    "072_【一百一十五回】礼物应该怎么送": {
+      "duration_s": 8080.632811,
       "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T09:51:53",
+      "frame_count": 135,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "072_【一百一十五回】礼物应该怎么送.md"
+    },
+    "073_【一百一十四回】生命与死亡的博弈": {
+      "duration_s": 8340.770611,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T10:02:45",
+      "frame_count": 175,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "073_【一百一十四回】生命与死亡的博弈.md"
+    },
+    "074_【一百一十三回】用讲故事的方式做汇报": {
+      "duration_s": 8702.536156,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T10:13:23",
+      "frame_count": 302,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "074_【一百一十三回】用讲故事的方式做汇报.md"
+    },
+    "075_【一百一十二回】具身机器人的发展和价值": {
+      "duration_s": 8101.894921,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T10:23:29",
+      "frame_count": 193,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "075_【一百一十二回】具身机器人的发展和价值.md"
+    },
+    "076_【一百一十回】活动营销的体系和逻辑": {
+      "duration_s": 7996.003923,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T10:33:33",
+      "frame_count": 186,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "076_【一百一十回】活动营销的体系和逻辑.md"
+    },
+    "077_【一百一十回】职场的常识，阅读空气，做靠谱人": {
+      "duration_s": 9572.468821,
+      "provider": "qwen",
+      "status": "failed",
       "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "026_教育场景应用案例二：AI智能“对对碰”游戏化识字与记单词系统.md",
-      "duration_s": 3950.448
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "077_【一百一十回】职场的常识，阅读空气，做靠谱人.md"
     },
-    "027_教育场景应用案例三：智能个性化错题本": {
-      "status": "done",
-      "duration_s": 4753.758,
+    "078_【一百零九回】美国大选后，中国经济可能的变化": {
+      "duration_s": 8696.742563,
       "provider": "gemini",
+      "status": "done",
       "api_calls": 3,
       "failed_stage": null,
-      "processed": "2026-06-16T17:40:10",
-      "frame_count": 313,
-      "output": "027_教育场景应用案例三：智能个性化错题本.md"
-    },
-    "028_教育场景应用案例四：历史_地理场景复原导师": {
-      "status": "done",
-      "duration_s": 4235.309966,
-      "provider": "gemini",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T17:46:56",
-      "frame_count": 299,
-      "output": "028_教育场景应用案例四：历史_地理场景复原导师.md"
-    },
-    "029_女性科技与生活应用案例一：AI穿搭顾问与胶囊衣橱规划师": {
-      "status": "done",
-      "duration_s": 6323.066333,
-      "provider": "gemini",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T17:55:43",
+      "processed": "2026-06-19T10:44:49",
       "frame_count": 147,
-      "output": "029_女性科技与生活应用案例一：AI穿搭顾问与胶囊衣橱规划师.md"
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "078_【一百零九回】美国大选后，中国经济可能的变化.md"
     },
-    "030_女性科技与生活应用案例二：智能美妆护肤成分分析与个性化方案": {
-      "status": "pending",
-      "duration_s": 2523.962993,
-      "provider": "qwen",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T20:11:01",
-      "frame_count": 138,
-      "output": "030_女性科技与生活应用案例二：智能美妆护肤成分分析与个性化方案.md"
-    },
-    "031_女性科技与生活应用案例三：新手妈妈AI育儿助手与成长日记": {
-      "status": "done",
-      "duration_s": 2660.728005,
+    "079_【一百零八回】从梁山排位看组织利益结构": {
+      "duration_s": 8991.42975,
       "provider": "gemini",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T18:03:46",
-      "frame_count": 39,
-      "output": "031_女性科技与生活应用案例三：新手妈妈AI育儿助手与成长日记.md"
-    },
-    "032_女性科技与生活应用案例四：深度个性化虚拟伴侣“创造与养成”系统": {
-      "status": "pending",
-      "duration_s": 3298.488005,
-      "provider": "gemini",
-      "api_calls": 3,
-      "failed_stage": null,
-      "processed": "2026-06-16T20:16:07",
-      "frame_count": 62,
-      "output": "032_女性科技与生活应用案例四：深度个性化虚拟伴侣“创造与养成”系统.md"
-    },
-    "033_交付过程中的问题解析": {
-      "status": "pending",
-      "duration_s": 7834.133,
-      "provider": "gemini"
-    },
-    "034_线下服务商家应用案例一：瑜伽_普拉提工作室：AI智能动作评估与实时指导系统": {
-      "status": "pending",
-      "duration_s": 3003.06,
-      "provider": "gemini"
-    },
-    "035_线下服务商家应用案例二：美发沙龙：AI发型设计模拟与染发效果预览": {
-      "status": "pending",
-      "duration_s": 2321.345011,
-      "provider": "gemini"
-    },
-    "036_线下服务商家应用案例三：健身房：AI身材分析定制瘦身减脂塑形方案计划": {
-      "status": "pending",
-      "duration_s": 1699.585011,
-      "provider": "gemini"
-    },
-    "037_线下服务商家应用案例四：摄影工作室：AI制作旅拍写真H5相册，自动匹配页面风格特效及音乐": {
-      "status": "pending",
-      "duration_s": 2144.500998,
-      "provider": "gemini"
-    },
-    "038_零售电商场景应用案例一": {
-      "status": "pending",
-      "duration_s": 7562.0,
-      "provider": "gemini"
-    },
-    "039_零售电商场景应用案例二-【选品】自动化挖掘爆品机器人": {
-      "status": "pending",
-      "duration_s": 4496.845011,
-      "provider": "gemini"
-    },
-    "040_零售电商场景应用案例三-【上架】全平台一键上架管家": {
-      "status": "pending",
-      "duration_s": 3112.842993,
-      "provider": "gemini"
-    },
-    "041_零售电商场景应用案例四-【流量】爆款引流内容制造机": {
-      "status": "pending",
-      "duration_s": 4676.899667,
-      "provider": "gemini"
-    },
-    "042_零售电商场景应用案例五-【导购】7_24 高情商销冠型AI导购": {
-      "status": "pending",
-      "duration_s": 4928.572993,
-      "provider": "gemini"
-    },
-    "043_零售电商场景应用案例六-【场控】直播间弹幕助手与互动精灵": {
-      "status": "pending",
-      "duration_s": 4339.506009,
-      "provider": "gemini"
-    },
-    "044_零售电商场景应用案例七-【本土化】跨境货架 Listing 母语级改造器": {
-      "status": "pending",
-      "duration_s": 2506.966667,
-      "provider": "gemini"
-    },
-    "045_零售电商场景应用案例八-【决策】经营分析与决策优化军师": {
-      "status": "pending",
-      "duration_s": 3608.682993,
-      "provider": "gemini"
-    },
-    "046_交付过程中的问题解析": {
-      "status": "pending",
-      "duration_s": 6056.533333,
-      "provider": "gemini"
-    },
-    "047_求职赋能与职业发展应用案例一": {
       "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T10:56:10",
+      "frame_count": 159,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "079_【一百零八回】从梁山排位看组织利益结构.md"
+    },
+    "080_【一百零七回】从年轻人新爆款，看柔软的心理力量": {
+      "status": "done",
+      "provider": "gemini",
+      "duration_s": 7347.71,
+      "api_calls": 3,
+      "processed": "2026-06-21T19:48:42",
+      "failed_stage": null,
+      "output": "080_【一百零七回】从年轻人新爆款，看柔软的心理力量.md",
+      "frame_count": 205,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      }
+    },
+    "081_【一百零六回】如何解读弦外之音（下）": {
+      "duration_s": 9107.911496,
       "provider": "qwen",
+      "status": "failed",
       "api_calls": 0,
-      "processed": "2026-06-16",
-      "output": "047_求职赋能与职业发展应用案例一.md",
-      "duration_s": 9254.080998
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "081_【一百零六回】如何解读弦外之音（下）.md"
+    },
+    "082_【一百零五回】为什么管理路线是职场最常用的杠杆": {
+      "duration_s": 8707.14542,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T11:07:16",
+      "frame_count": 163,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "082_【一百零五回】为什么管理路线是职场最常用的杠杆.md"
+    },
+    "083_【一百零四回】解读让子弹飞，学习听懂弦外之音（上）": {
+      "duration_s": 6129.969252,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T11:14:52",
+      "frame_count": 267,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "083_【一百零四回】解读让子弹飞，学习听懂弦外之音（上）.md"
+    },
+    "084_【一百零三回】从iPhone16看破坏式创新": {
+      "duration_s": 9168.170756,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "084_【一百零三回】从iPhone16看破坏式创新.md"
+    },
+    "085_【一百零二回】低空经济崛起的历史机会": {
+      "duration_s": 8956.116757,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T11:25:09",
+      "frame_count": 181,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "085_【一百零二回】低空经济崛起的历史机会.md"
+    },
+    "086_【一百零一回】应该如何书写个人品牌": {
+      "duration_s": 8883.599252,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T11:36:53",
+      "frame_count": 201,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "086_【一百零一回】应该如何书写个人品牌.md"
+    },
+    "087_【一百回】教员的伟大思想对个人的指导作用": {
+      "duration_s": 8230.28873,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T11:47:29",
+      "frame_count": 173,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "087_【一百回】教员的伟大思想对个人的指导作用.md"
+    },
+    "088_【九十九回】长长久久的人心红利": {
+      "duration_s": 8110.808433,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T11:57:25",
+      "frame_count": 234,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "088_【九十九回】长长久久的人心红利.md"
+    },
+    "089_【九十八回】法国奥运中折射出的世界变化": {
+      "duration_s": 8606.114354,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T12:10:51",
+      "frame_count": 251,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "089_【九十八回】法国奥运中折射出的世界变化.md"
+    },
+    "090_【九十七回】第三年开启，希望你成为这样的人": {
+      "duration_s": 8113.867528,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-19T12:21:19",
+      "frame_count": 122,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "090_【九十七回】第三年开启，希望你成为这样的人.md"
+    },
+    "091_【九十六回】生命礼赞II": {
+      "duration_s": 8128.572449,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T09:14:41",
+      "frame_count": 160,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "091_【九十六回】生命礼赞II.md"
+    },
+    "092_【九十五回】写在两周年的末尾-如何改命": {
+      "duration_s": 9118.054717,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "092_【九十五回】写在两周年的末尾-如何改命.md"
+    },
+    "093_【九十四回】AI_taxi，萝卜快跑是否跑的太快了": {
+      "duration_s": 8918.626259,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T09:26:32",
+      "frame_count": 149,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "093_【九十四回】AI_taxi，萝卜快跑是否跑的太快了.md"
+    },
+    "094_【九十三回】从风靡58年的奥特曼，看IP如何提升生命力": {
+      "duration_s": 8572.841789,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T09:39:42",
+      "frame_count": 227,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "094_【九十三回】从风靡58年的奥特曼，看IP如何提升生命力.md"
+    },
+    "095_【九十二回】从华为卖牛肉，看市场敏感度": {
+      "duration_s": 8572.635692,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T09:51:24",
+      "frame_count": 164,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "095_【九十二回】从华为卖牛肉，看市场敏感度.md"
+    },
+    "096_【九十一回】黑神话_悟空被索要700万美元指导费背后的政治正确生意": {
+      "duration_s": 8360.76068,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T10:03:14",
+      "frame_count": 225,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "096_【九十一回】黑神话_悟空被索要700万美元指导费背后的政治正确生意.md"
+    },
+    "097_【九十回】教育的意义和本质是什么": {
+      "duration_s": 8934.393628,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T10:15:57",
+      "frame_count": 147,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "097_【九十回】教育的意义和本质是什么.md"
+    },
+    "098_【八十九回】从韩国人的石头宠物，谈心理代偿机制": {
+      "duration_s": 8332.538633,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T10:27:43",
+      "frame_count": 175,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "098_【八十九回】从韩国人的石头宠物，谈心理代偿机制.md"
+    },
+    "099_【八十八回】如果没有明天，该怎么说再见": {
+      "duration_s": 8898.417778,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T10:40:52",
+      "frame_count": 127,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "099_【八十八回】如果没有明天，该怎么说再见.md"
+    },
+    "100_【八十七回】平替趋势的起源和市场机会": {
+      "duration_s": 8878.1938,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T10:53:02",
+      "frame_count": 147,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "100_【八十七回】平替趋势的起源和市场机会.md"
+    },
+    "101_【八十六回】俄罗斯访华意味着什么": {
+      "duration_s": 10083.249189,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "101_【八十六回】俄罗斯访华意味着什么.md"
+    },
+    "102_【八十五回】从百度衢静事件看待企业与个人IP": {
+      "duration_s": 8904.094127,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T11:05:10",
+      "frame_count": 129,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "102_【八十五回】从百度衢静事件看待企业与个人IP.md"
+    },
+    "103_【八十四回】自信心的意义以及建立方式": {
+      "duration_s": 8977.341811,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T11:18:43",
+      "frame_count": 139,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "103_【八十四回】自信心的意义以及建立方式.md"
+    },
+    "104_【八十三回】为什么旅游经济如此火爆": {
+      "duration_s": 8952.443356,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T11:30:16",
+      "frame_count": 157,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "104_【八十三回】为什么旅游经济如此火爆.md"
+    },
+    "105_【八十二回】蛋仔派对为什么成为了一五后的超级爆款": {
+      "duration_s": 8030.813764,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T11:40:52",
+      "frame_count": 176,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "105_【八十二回】蛋仔派对为什么成为了一五后的超级爆款.md"
+    },
+    "106_【八十一回】自媒体为什么选择做假新闻": {
+      "duration_s": 8347.049841,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T11:51:31",
+      "frame_count": 115,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "106_【八十一回】自媒体为什么选择做假新闻.md"
+    },
+    "107_【八十回】小米汽车的_情绪拿捏法": {
+      "duration_s": 8705.367144,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T12:02:34",
+      "frame_count": 222,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "107_【八十回】小米汽车的_情绪拿捏法.md"
+    },
+    "108_【七十九回】智能体会否成为_下一代的人机交互方式": {
+      "duration_s": 8264.140033,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T12:13:12",
+      "frame_count": 146,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "108_【七十九回】智能体会否成为_下一代的人机交互方式.md"
+    },
+    "109_【七十八回】平台思维": {
+      "duration_s": 8057.122433,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T19:50:20",
+      "frame_count": 119,
+      "failed_gemini_models": [
+        "gemini-2.5-flash-lite"
+      ],
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "109_【七十八回】平台思维.md",
+      "gemini_model": "gemini-2.5-flash"
+    },
+    "110_【七十七回】从_315_看市场乱象的成因": {
+      "duration_s": 8547.640567,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-20T12:35:05",
+      "frame_count": 126,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "110_【七十七回】从_315_看市场乱象的成因.md"
+    },
+    "111_【七十五回】用什么样的方式看待vision_pro": {
+      "duration_s": 8327.339567,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T20:03:38",
+      "frame_count": 155,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "111_【七十五回】用什么样的方式看待vision_pro.md"
+    },
+    "112_【七十六回】如何识别和获取资源": {
+      "duration_s": 7846.390933,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T23:20:24",
+      "frame_count": 141,
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 3
+      },
+      "output": "112_【七十六回】如何识别和获取资源.md"
+    },
+    "113_【七十四回】如何获取高生态位": {
+      "duration_s": 9774.515733,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "113_【七十四回】如何获取高生态位.md"
+    },
+    "114_【七十三回】职场的一切问题，本质都是生态位问题": {
+      "duration_s": 9241.629556,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "114_【七十三回】职场的一切问题，本质都是生态位问题.md"
+    },
+    "115_【七十二回】爆竹声声辞旧岁_世界人民在开会": {
+      "duration_s": 8558.3078,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T23:31:12",
+      "frame_count": 121,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "115_【七十二回】爆竹声声辞旧岁_世界人民在开会.md"
+    },
+    "116_【七十一回】同学们的年度计划的建议": {
+      "duration_s": 8939.475078,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T23:41:43",
+      "frame_count": 188,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "116_【七十一回】同学们的年度计划的建议.md"
+    },
+    "117_【七十回】时隔一年_大模型发展到什么阶段了": {
+      "duration_s": 9113.907222,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "117_【七十回】时隔一年_大模型发展到什么阶段了.md"
+    },
+    "118_【六十九回】从新能源汽车看后发优势策略": {
+      "duration_s": 9879.359,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "118_【六十九回】从新能源汽车看后发优势策略.md"
+    },
+    "119_【六十八回】时间管理的新方法": {
+      "duration_s": 9612.320292,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "119_【六十八回】时间管理的新方法.md"
+    },
+    "120_【六十七回】一年之计在于春，谈谈时间与计划管理": {
+      "duration_s": 8204.921556,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T23:51:44",
+      "frame_count": 67,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "120_【六十七回】一年之计在于春，谈谈时间与计划管理.md"
+    },
+    "121_【六十六回】再见2023": {
+      "duration_s": 9801.586,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "121_【六十六回】再见2023.md"
+    },
+    "122_【六十四回】从网红选手_看流量获取与经营的策略逻辑": {
+      "duration_s": 8690.798544,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-22T00:01:39",
+      "frame_count": 178,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "122_【六十四回】从网红选手_看流量获取与经营的策略逻辑.md"
+    },
+    "123_【六十五回】建立自己的规则引擎": {
+      "duration_s": 8487.234044,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-22T00:11:34",
+      "frame_count": 144,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "123_【六十五回】建立自己的规则引擎.md"
+    },
+    "124_【六十三回】最近“网红”无人机的价值与_大疆的崛起之路": {
+      "duration_s": 8616.855867,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-22T00:21:53",
+      "frame_count": 177,
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 3
+      },
+      "output": "124_【六十三回】最近“网红”无人机的价值与_大疆的崛起之路.md"
+    },
+    "125_【第六十二回】如果你有这样的数据_你能做什么？": {
+      "duration_s": 8251.919422,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-22T07:33:39",
+      "frame_count": 153,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "125_【第六十二回】如果你有这样的数据_你能做什么？.md"
+    },
+    "126_【第六十一回】钟薛高是否还能_撑过这个冬天": {
+      "duration_s": 8861.954644,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T07:55:49",
+      "frame_count": 198,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "126_【第六十一回】钟薛高是否还能_撑过这个冬天.md"
+    },
+    "127_【六十回】小小萝卜刀，什么大信号": {
+      "duration_s": 8854.439319,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 2,
+      "failed_stage": null,
+      "processed": "2026-06-22T08:08:15",
+      "frame_count": 152,
+      "gemini_model": "gemini-2.5-flash",
+      "failed_gemini_models": [
+        "gemini-3.5-flash"
+      ],
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1,
+        "gemini-2.5-flash": 1
+      },
+      "output": "127_【六十回】小小萝卜刀，什么大信号.md"
+    },
+    "128_【五十九回】乐乐茶&便利蜂先后开放加盟_宇宙的尽头是加盟？": {
+      "duration_s": 9489.958633,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "128_【五十九回】乐乐茶&便利蜂先后开放加盟_宇宙的尽头是加盟？.md"
+    },
+    "129_【五十八回】从视频号封禁词看市场变化": {
+      "duration_s": 9864.255667,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "129_【五十八回】从视频号封禁词看市场变化.md"
+    },
+    "130_【五十七回】一点也不小的小游戏": {
+      "duration_s": 9112.508222,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "130_【五十七回】一点也不小的小游戏.md"
+    },
+    "131_【五十六回】如何看待预制菜崛起的机会": {
+      "duration_s": 8827.836133,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 149,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T16:46:53",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "131_【五十六回】如何看待预制菜崛起的机会.md"
+    },
+    "132_【五十五回】如何看待生涯中的常胜和不败": {
+      "duration_s": 8678.961756,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 125,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T16:47:55",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "132_【五十五回】如何看待生涯中的常胜和不败.md"
+    },
+    "133_【五十四回】这泼天的富贵_是否轮到了国货": {
+      "duration_s": 8266.414967,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 157,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T16:49:23",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "133_【五十四回】这泼天的富贵_是否轮到了国货.md"
+    },
+    "134_【五十三回】为什么芯片_成了大国博弈的焦点": {
+      "duration_s": 8483.003422,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 157,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T16:51:23",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "134_【五十三回】为什么芯片_成了大国博弈的焦点.md"
+    },
+    "135_【五十二回】如何破除我们决策中的情绪卡点": {
+      "duration_s": 8308.2574,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 127,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T16:53:15",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "135_【五十二回】如何破除我们决策中的情绪卡点.md"
+    },
+    "136_【五十一回】年轻人，小麦果汁了解一下": {
+      "duration_s": 9037.011043,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "136_【五十一回】年轻人，小麦果汁了解一下.md"
+    },
+    "137_【第五十回】从好声音罗刹海市_看资本与公平博弈": {
+      "duration_s": 7844.070411,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 151,
+      "api_calls": 2,
+      "failed_stage": null,
+      "processed": "2026-06-22T16:58:59",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 2
+      },
+      "output": "137_【第五十回】从好声音罗刹海市_看资本与公平博弈.md"
+    },
+    "138_【四十九回】如何写出勾人心魄的文案": {
+      "duration_s": 8971.9455,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 169,
+      "api_calls": 2,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:01:32",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 2
+      },
+      "output": "138_【四十九回】如何写出勾人心魄的文案.md"
+    },
+    "139_【四十八回】从视频号深度解析商业生态位": {
+      "duration_s": 8782.724733,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 159,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:04:01",
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "139_【四十八回】从视频号深度解析商业生态位.md"
+    },
+    "140_【一周年】生命礼赞": {
+      "duration_s": 8522.008911,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 139,
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:07:54",
+      "gemini_model": "gemini-2.5-flash",
+      "failed_gemini_models": [
+        "gemini-3.5-flash"
+      ],
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1,
+        "gemini-2.5-flash": 2
+      },
+      "output": "140_【一周年】生命礼赞.md"
+    },
+    "141_【四十六回】私域运营的本质逻辑": {
+      "duration_s": 7504.141733,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 129,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:09:04",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "141_【四十六回】私域运营的本质逻辑.md"
+    },
+    "142_【四十五回】从零售巨头转型_看会员经济的特点": {
+      "duration_s": 9130.6983,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "142_【四十五回】从零售巨头转型_看会员经济的特点.md"
+    },
+    "143_【四十四回】业务全链路思维方式": {
+      "duration_s": 8215.314144,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 193,
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:11:31",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "failed_gemini_models": [
+        "gemini-2.5-flash"
+      ],
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 2,
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "143_【四十四回】业务全链路思维方式.md"
+    },
+    "144_【四十三回】第一性原理与个人应用": {
+      "duration_s": 8561.469944,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 153,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:12:51",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "144_【四十三回】第一性原理与个人应用.md"
+    },
+    "145_【四十二回】现实版钢铁侠埃隆·马斯克的_成功秘笈——第一性原理": {
+      "duration_s": 8666.693344,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 141,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:14:00",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "145_【四十二回】现实版钢铁侠埃隆·马斯克的_成功秘笈——第一性原理.md"
+    },
+    "146_【四十一回】年中总结，炒饭会的正确打开方式": {
+      "duration_s": 9578.753606,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "146_【四十一回】年中总结，炒饭会的正确打开方式.md"
+    },
+    "147_【四十回】集换式卡牌的上瘾魔力": {
+      "duration_s": 8270.782767,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 190,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:15:08",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "147_【四十回】集换式卡牌的上瘾魔力.md"
+    },
+    "148_【三十九回】从献血谈社会保障与质疑的关系": {
+      "duration_s": 7756.026144,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 168,
+      "api_calls": 2,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:17:55",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 2
+      },
+      "output": "148_【三十九回】从献血谈社会保障与质疑的关系.md"
+    },
+    "149_【三十八回】从NBA总决赛看数字化应用": {
+      "duration_s": 9085.2368,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "149_【三十八回】从NBA总决赛看数字化应用.md"
+    },
+    "150_【三十七回】火爆的淄博烧烤_久违的烟火气息": {
+      "duration_s": 8451.35288,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 217,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:19:43",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "150_【三十七回】火爆的淄博烧烤_久违的烟火气息.md"
+    },
+    "151_【三十六回】体验经济_在下行周期中的特点": {
+      "duration_s": 8854.670811,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 157,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:21:46",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "151_【三十六回】体验经济_在下行周期中的特点.md"
+    },
+    "152_【三十五回】从蓝犀牛搬家看服务经济增长点": {
+      "duration_s": 9198.53517,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "152_【三十五回】从蓝犀牛搬家看服务经济增长点.md"
+    },
+    "153_【三十四回】战略设计的核心要素和制定逻辑": {
+      "duration_s": 8736.645669,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 169,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:23:41",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "153_【三十四回】战略设计的核心要素和制定逻辑.md"
+    },
+    "154_【三十三回】数字化在保险行业的应用": {
+      "duration_s": 8946.805147,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 143,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:25:18",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "154_【三十三回】数字化在保险行业的应用.md"
+    },
+    "155_【三十二回】调动时间机器，下沉市场是否是晚于一线市场5年的红利机会（下）": {
+      "duration_s": 9060.112378,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "155_【三十二回】调动时间机器，下沉市场是否是晚于一线市场5年的红利机会（下）.md"
+    },
+    "156_【三十一回】调动时间机器，下沉市场是否是晚于一线市场5年的红利机会（上）": {
+      "duration_s": 8990.760044,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 180,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:26:19",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 1
+      },
+      "output": "156_【三十一回】调动时间机器，下沉市场是否是晚于一线市场5年的红利机会（上）.md"
+    },
+    "157_【三十回】以终为始看数智化大趋势": {
+      "duration_s": 8035.486689,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 148,
+      "api_calls": 2,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:28:10",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 2
+      },
+      "output": "157_【三十回】以终为始看数智化大趋势.md"
+    },
+    "158_【二十九回】清明时节雨纷纷，断魂后的商业世界": {
+      "duration_s": 9350.029689,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "158_【二十九回】清明时节雨纷纷，断魂后的商业世界.md"
+    },
+    "159_【二十八回】音乐赛道对大厂的魔力是什么": {
+      "duration_s": 8621.9927,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 163,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:29:19",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "159_【二十八回】音乐赛道对大厂的魔力是什么.md"
+    },
+    "160_【二十七回】以终为始的规划和汇报方法": {
+      "duration_s": 7759.4359,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 126,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:30:36",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "160_【二十七回】以终为始的规划和汇报方法.md"
+    },
+    "161_【二十六回】新能源汽车的崛起机会": {
+      "duration_s": 9212.903946,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "161_【二十六回】新能源汽车的崛起机会.md"
+    },
+    "162_【第二十五回】萃取方法论，系统性提升职场与人生效能": {
+      "duration_s": 9042.6074,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "162_【第二十五回】萃取方法论，系统性提升职场与人生效能.md"
+    },
+    "163_【二十四回】瑞幸咖啡——_失意少年的逆风翻盘": {
+      "duration_s": 9462.4304,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "163_【二十四回】瑞幸咖啡——_失意少年的逆风翻盘.md"
+    },
+    "164_【二十三回】消费主义的由来和真相（下）": {
+      "duration_s": 8978.414178,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 183,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T19:12:33",
+      "failed_gemini_models": [
+        "gemini-2.5-flash-lite"
+      ],
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "164_【二十三回】消费主义的由来和真相（下）.md",
+      "gemini_model": "gemini-3.5-flash"
+    },
+    "165_【二十二回】消费主义的由来和真相": {
+      "duration_s": 8570.086811,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 155,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:34:22",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "165_【二十二回】消费主义的由来和真相.md"
+    },
+    "166_【二十一回】从金山办公，看数智化升级_的变局与机遇": {
+      "duration_s": 7072.941247,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 149,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:36:04",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "166_【二十一回】从金山办公，看数智化升级_的变局与机遇.md"
+    },
+    "167_【第二十回】复盘的方法": {
+      "duration_s": 9112.710317,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "167_【第二十回】复盘的方法.md"
+    },
+    "168_【第十九回】烹小鲜，美食中的商业逻辑": {
+      "duration_s": 8283.864286,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 153,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:36:46",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "168_【第十九回】烹小鲜，美食中的商业逻辑.md"
+    },
+    "169_【第十八回】从最近爆火的ChatGPT_看AI是否真会抢走人类饭碗": {
+      "duration_s": 8760.964489,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 225,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:37:28",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "169_【第十八回】从最近爆火的ChatGPT_看AI是否真会抢走人类饭碗.md"
+    },
+    "170_【第十七回】品牌私域-亚朵逆势崛起的关键要素": {
+      "duration_s": 8457.679796,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 177,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:38:18",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "170_【第十七回】品牌私域-亚朵逆势崛起的关键要素.md"
+    },
+    "172_【第十六回】从亚朵上市_谈品牌私域的本质": {
+      "duration_s": 5599.104853,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 127,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:39:44",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "172_【第十六回】从亚朵上市_谈品牌私域的本质.md"
+    },
+    "173_【第十五回】消费降级下，千亿规模的旧衣回收产业能否逆势崛起": {
+      "duration_s": 8634.387619,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 121,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:41:15",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "173_【第十五回】消费降级下，千亿规模的旧衣回收产业能否逆势崛起.md"
+    },
+    "174_【第十四回】《三体》动画降至_国创IP衍生市场有什么新可能": {
+      "duration_s": 8474.781411,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 169,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T19:13:49",
+      "failed_gemini_models": [
+        "gemini-2.5-flash-lite"
+      ],
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 1
+      },
+      "output": "174_【第十四回】《三体》动画降至_国创IP衍生市场有什么新可能.md",
+      "gemini_model": "gemini-3.5-flash"
+    },
+    "175_【第十三回】猪八戒网折射出的_劳动力市场变迁": {
+      "duration_s": 8184.767478,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 143,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T17:42:27",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "175_【第十三回】猪八戒网折射出的_劳动力市场变迁.md"
+    },
+    "176_【第十二回】440亿美元买入推特，_“卷王”马斯克能否带来创新与增长": {
+      "duration_s": 8558.367596,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 177,
+      "api_calls": 2,
+      "failed_stage": null,
+      "processed": "2026-06-22T19:16:39",
+      "gemini_model": "gemini-2.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash": 2
+      },
+      "output": "176_【第十二回】440亿美元买入推特，_“卷王”马斯克能否带来创新与增长.md"
+    },
+    "177_【第十一回】雪王”冲刺IPO背后：_超级符号的力量": {
+      "duration_s": 8497.255067,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 183,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T19:17:13",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "177_【第十一回】雪王”冲刺IPO背后：_超级符号的力量.md"
+    },
+    "178_【第十回】机器人能否成为生产力中_最具革命性的大杀器": {
+      "duration_s": 9133.620044,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "178_【第十回】机器人能否成为生产力中_最具革命性的大杀器.md"
+    },
+    "180_【第八回】小时代创业逻辑，超级个体与超级个体户": {
+      "duration_s": 10219.944933,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "180_【第八回】小时代创业逻辑，超级个体与超级个体户.md"
+    },
+    "181_营销与产品的关系与建构思路": {
+      "duration_s": 8721.071322,
+      "provider": "gemini",
+      "status": "done",
+      "frame_count": 201,
+      "api_calls": 1,
+      "failed_stage": null,
+      "processed": "2026-06-22T19:17:55",
+      "gemini_model": "gemini-2.5-flash-lite",
+      "gemini_calls_by_model": {
+        "gemini-2.5-flash-lite": 1
+      },
+      "output": "181_营销与产品的关系与建构思路.md"
+    },
+    "182_【专题】复盘思维与中期总结": {
+      "duration_s": 10197.486011,
+      "provider": "qwen",
+      "status": "failed",
+      "api_calls": 0,
+      "failed_stage": "exception",
+      "processed": "2026-06-18T11:18:03",
+      "output": "182_【专题】复盘思维与中期总结.md"
+    },
+    "183_从腾讯的「断舍离」_看产品判断与商业止损策略": {
+      "duration_s": 8869.737956,
+      "provider": "gemini",
+      "status": "pending",
+      "frame_count": 193
+    },
+    "184_20_00_抖音x饿了么，短视频+本地生活新故事": {
+      "duration_s": 8198.291522,
+      "provider": "gemini",
+      "status": "pending",
+      "frame_count": 193
+    },
+    "185_SHEIN崛起的数字化启发（下）": {
+      "duration_s": 8710.024333,
+      "provider": "gemini",
+      "status": "pending",
+      "frame_count": 161
+    },
+    "186_20_00_后疫情时代，运动健康需求升级_带来的产品新命题": {
+      "duration_s": 7997.450635,
+      "provider": "gemini",
+      "status": "pending",
+      "frame_count": 158
+    },
+    "187_第二回_千亿美元估值跨境电商SHEIN崛起的商业价值": {
+      "duration_s": 7680.140703,
+      "provider": "gemini",
+      "status": "pending",
+      "frame_count": 163
+    },
+    "188_第一回__DAO与去中心化组织": {
+      "duration_s": 8108.865233,
+      "provider": "gemini",
+      "status": "pending",
+      "frame_count": 205
+    },
+    "002_【一百八十八回】AI转型之殇_如何看《置身钉内》": {
+      "duration_s": 9798.0115,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "003_【一百八十七回】从NBA到世界杯，看竞技体育的WWE化": {
+      "duration_s": 10552.1921,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "004_【一百八十六回】AI落地的两级分化": {
+      "duration_s": 9210.26,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "005_【一百八十五回】从《来自监狱的妈妈》看法律、媒体、舆论的文化战场": {
+      "duration_s": 9178.579501,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "006_【一百八十四回】人类历史最大的一个融资季度，AI之战的白热化": {
+      "duration_s": 10106.298944,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "007_【一百八十三回】基因检测的商业发展逻辑": {
+      "duration_s": 9481.438856,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "008_【一百八十二回】AI_个人AI工作台和AI思想": {
+      "duration_s": 10097.16102,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "009_【一百八十一回】AI：GPT5.5_发布，Claude要护照和Deepseek_V4的关系": {
+      "duration_s": 9541.396622,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "010_【一百八十回】AI：驾驭模式的特点和优势": {
+      "duration_s": 7958.755034,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T18:22:02",
+      "frame_count": 143,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "010_【一百八十回】AI：驾驭模式的特点和优势.md"
+    },
+    "011_【一百七十九回】张雪峰的步步谋划与张雪的少年心性": {
+      "duration_s": 7994.355311,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T18:32:49",
+      "frame_count": 217,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "011_【一百七十九回】张雪峰的步步谋划与张雪的少年心性.md"
+    },
+    "012_【一百七十八回】消费品出海营销策略": {
+      "duration_s": 9296.328594,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "013_【一百七十七回】假装的艺术": {
+      "duration_s": 9113.1097,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "014_【一百七十六回】刑天舞干戚-Q1国际风云": {
+      "duration_s": 9228.810385,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "015_【一百七十五回】AI眼镜爆发背后的生态位争夺战": {
+      "duration_s": 8543.474589,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T18:43:26",
+      "frame_count": 206,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "015_【一百七十五回】AI眼镜爆发背后的生态位争夺战.md"
+    },
+    "016_【一百七十四回】人生的每个阶段应该做什么": {
+      "duration_s": 9446.133265,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "017_【一百七十三回】AI_OpenClaw的强大是否会照进现实": {
+      "duration_s": 8979.078578,
+      "provider": "gemini",
+      "status": "done",
+      "api_calls": 3,
+      "failed_stage": null,
+      "processed": "2026-06-21T18:54:55",
+      "frame_count": 208,
+      "gemini_model": "gemini-3.5-flash",
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 3
+      },
+      "output": "017_【一百七十三回】AI_OpenClaw的强大是否会照进现实.md"
+    },
+    "018_【一百七十二回】各种老板的见招拆招": {
+      "duration_s": 9648.787622,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "019_【一百七十一回】金蛇狂舞，龙马精神": {
+      "duration_s": 9621.078411,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "020_【一百七十回】爆火的Skill模式是否是大模型产品的新范式": {
+      "duration_s": 9448.107567,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "021_【一百六十九回】各种老板的决策逻辑": {
+      "duration_s": 9860.643133,
+      "provider": "qwen",
+      "status": "pending"
+    },
+    "022_【一百六十八回】如何逃离人生斩杀线": {
+      "duration_s": 9795.160456,
+      "provider": "qwen",
+      "status": "pending"
     }
   },
   "quota": {
-    "2026-06-16": {
-      "gemini_calls": 57,
-      "qwen_calls": 2
+    "2026-06-18": {
+      "gemini_calls": 54,
+      "qwen_calls": 42,
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 18,
+        "gemini-2.5-flash": 18,
+        "gemini-2.5-flash-lite": 18
+      }
+    },
+    "2026-06-19": {
+      "gemini_calls": 54,
+      "qwen_calls": 0,
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 18,
+        "gemini-2.5-flash": 18,
+        "gemini-2.5-flash-lite": 18
+      }
+    },
+    "2026-06-20": {
+      "gemini_calls": 54,
+      "qwen_calls": 0,
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 18,
+        "gemini-2.5-flash": 18,
+        "gemini-2.5-flash-lite": 18
+      }
+    },
+    "2026-06-21": {
+      "gemini_calls": 54,
+      "qwen_calls": 0,
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 18,
+        "gemini-2.5-flash": 18,
+        "gemini-2.5-flash-lite": 18
+      }
+    },
+    "2026-06-22": {
+      "gemini_calls": 54,
+      "qwen_calls": 0,
+      "gemini_calls_by_model": {
+        "gemini-3.5-flash": 18,
+        "gemini-2.5-flash": 18,
+        "gemini-2.5-flash-lite": 18
+      }
     }
   },
-  "last_run": "2026-06-16T20:16:07"
+  "last_run": "2026-06-22T19:17:55"
 }

@@ -3038,6 +3038,24 @@
       ],
       "occurrences": 1,
       "last_seen": "2026-06-14T09:30:00+08:00"
+    },
+    {
+      "id": "bug-180",
+      "timestamp": "2026-06-22T00:00:00+08:00",
+      "error_message": "Gemini API调用计数虚高3倍：每视频固定计3次（conservative_calls=1+max_continuations），实际多数只需1次",
+      "file": "batch_process_external.py, utils.py",
+      "root_cause": "call_gemini只返回文本不返回调用次数，batch代码用硬编码conservative_calls=3替代真实计数",
+      "fix": "utils.call_gemini加_counter可选参数回传真实gemini_calls；batch用实际计数替代conservative_calls",
+      "tags": [
+        "gemini",
+        "quota",
+        "api-calls",
+        "counting",
+        "batch"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-22T00:00:00+08:00"
     }
   ]
 }
