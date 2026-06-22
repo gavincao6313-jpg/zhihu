@@ -1435,52 +1435,170 @@
 | 11:20 | 预算估算修复: frame_count存入result+entry, _est_calls_for()按分窗计算Gemini调用数 | batch_process_external.py | done | ~300 |
 | 17:08 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | — | ~927 |
 | 17:08 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/MEMORY.md | inline fix | ~30 |
+| 17:12 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | 3→3 lines | ~52 |
+| 17:12 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | 5→6 lines | ~61 |
+| 17:12 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | 2→2 lines | ~37 |
 
-## Session: 2026-06-15 16:03
-
-| Time | Action | File(s) | Outcome | ~Tokens |
-|------|--------|---------|---------|--------|
-| 16:07 | Created download_novel.py | — | ~1022 |
-| 16:20 | Created download_novel.py | — | ~1254 |
-| 16:24 | Created debug_chapter.py | — | ~506 |
-| 16:25 | Edited debug_chapter.py | 4→5 lines | ~56 |
-| 16:26 | Edited download_novel.py | expanded (+7 lines) | ~110 |
-| 16:26 | Edited download_novel.py | modified title() | ~114 |
-| 16:37 | Created download_novel.py | — | ~1695 |
-| 16:38 | Edited download_novel.py | expanded (+6 lines) | ~219 |
-| 16:38 | Edited download_novel.py | 3→3 lines | ~29 |
-| 16:41 | Edited download_novel.py | 18→13 lines | ~174 |
-| 16:41 | Edited download_novel.py | 1→2 lines | ~16 |
-| 00:02 | Created download_novel.py | — | ~2338 |
-| 08:36 | Edited download_novel.py | readline() → range() | ~142 |
-| 08:37 | Edited download_novel.py | modified range() | ~67 |
-| 08:37 | Edited download_novel.py | 5→4 lines | ~19 |
-
-## Session: 2026-06-16 09:48
+## Session: 2026-06-14 22:25
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
-| 10:04 | Edited batch_process_external.py | expanded (+6 lines) | ~134 |
-| 10:09 | bug-188: Gemini分窗阈值 GEMINI_MAX_FRAMES 200→700 (主分支误触发修复) | batch_process_external.py | 正常视频回到1调用/视频, 007→2窗口 | ~6k |
-| 10:13 | Edited ../../.claude/CLAUDE.md | 2→5 lines | ~14 |
-| 10:50 | 核实WIN进度文件: 174个Gemini视频仅7个有帧数全<700(最大658), 超700帧=0; 发现reroute仅Gemini→Qwen无反向, Gemini分窗近死代码; 修正cerebrum/buglog中007误判 | .wolf/cerebrum.md .wolf/buglog.json | 统计完成+记录纠错 | ~9k |
-| 11:03 | Edited batch_process_external.py | 6→1 lines | ~18 |
-| 11:05 | Edited batch_process_external.py | removed 72 lines | ~9 |
-| 11:10 | Edited batch_process_external.py | expanded (+7 lines) | ~313 |
-| 11:11 | Edited batch_process_external.py | modified _est_calls_for() | ~200 |
-| 11:16 | bug-189: 删 Gemini 分窗死代码(_process_gemini_windowed+assembly prompt), >GEMINI_MAX_FRAMES 改 reroute Qwen 护栏; _est_calls_for 同步改 Qwen 估算 | batch_process_external.py | py_compile+冒烟通过, 待外部审查 | ~12k |
-| 11:19 | Edited batch_process_external.py | 6→7 lines | ~114 |
-| 11:20 | Edited batch_process_external.py | modified get() | ~229 |
-| 11:30 | 修复reroute配额错配: result[provider]标qwen + process_batch按billed_provider计费(qwen_calls而非gemini_calls) | batch_process_external.py | py_compile+配额冒烟通过 | ~5k |
-| 11:35 | Edited batch_process_external.py | expanded (+7 lines) | ~154 |
-| 11:38 | 修配额闸门: entry.frame_count>GEMINI_MAX_FRAMES 的 gemini 视频提前按 qwen 过闸, 不被 Gemini 日配额误拦(首次保守) | batch_process_external.py | py_compile+闸门冒烟通过 | ~5k |
-| 11:42 | Created ai_review_package.md | — | ~906 |
-| 11:50 | 第三方审查Gemini护栏改动: 发现Qwen预算估算低估、预算break早于保存、首次无frame_count时reroute仍受Gemini gate阻断 | batch_process_external.py | review findings待修复 | ~16k |
-| 11:56 | Edited batch_process_external.py | modified _est_calls_for() | ~188 |
-| 11:57 | Edited batch_process_external.py | 21→25 lines | ~261 |
-| 12:00 | Edited batch_process_external.py | modified len() | ~126 |
-| 12:01 | Edited batch_process_external.py | inputs() → path() | ~151 |
-| 12:13 | 审查回炉: 修发现1(_est_calls_for统一Qwen分窗估算)+发现2(should_stop延迟break防重复烧API)+发现4(注释/失败日志去Gemini误导); 发现3待决策 | batch_process_external.py | py_compile+估算冒烟通过 | ~14k |
-| 12:16 | 发现3 决策=暂不处理(记为已知限制); 刷新 ai_review_diff.patch | .wolf/buglog.json ai_review_diff.patch | 审查4项闭环(1/2/4修,3缓) | ~3k |
-| 12:21 | 第三方复审: 验证预算预检、达限存盘、失败provider文案已修; 首次无frame_count的Gemini gate限制仍存在但按当前0例场景不阻断 | batch_process_external.py | approve with caveat | ~9k |
-| 12:23 | 第三方复审 APPROVE WITH CAVEAT: 1/2/4确认修复,发现3已知限制接受; GitNexus detect_changes标13symbols/CRITICAL但调用面局限batch入口链 | (复审) | 审查闭环完成 | ~3k |
+| 22:38 | Created zhihu_file/fix_progress.py | — | ~1444 |
+| 22:39 | Edited zhihu_file/fix_progress.py | 4→8 lines | ~63 |
+| 22:39 | Edited zhihu_file/fix_progress.py | modified get_duration() | ~160 |
+| 22:39 | Edited zhihu_file/fix_progress.py | "  ✓ {stem}: TTS跳过" → "  [TTS] {stem}: skip" | ~12 |
+| 22:39 | Edited zhihu_file/fix_progress.py | "  ✓ {stem}: 已完成 ({output_" → "  [DONE] {stem}: {output_" | ~22 |
+| 22:39 | Edited zhihu_file/fix_progress.py | "  ⚠ {stem}: 占位文件 → 标记fail" → "  [PLACEHOLDER] {stem}: m" | ~20 |
+| 22:39 | Edited zhihu_file/fix_progress.py | "  → {stem}: 待处理 ({provide" → "  [PENDING] {stem}: {prov" | ~22 |
+| 22:39 | Edited zhihu_file/fix_progress.py | 7→7 lines | ~129 |
+| 22:40 | Edited zhihu_file/fix_progress.py | "发现 {len(mp4s)} 个 MP4 文件" → "Found {len(mp4s)} MP4 fil" | ~12 |
+| 22:43 | Created zhihu_file/fix_progress_course4.py | — | ~949 |
+| 15:30 | 精确摸底F:\AI研发全量状态: 课程1+2完成(100%), 课程3需32个, 课程4需49个; 发现进度文件跨课程污染; 编写fix_progress.py清理对齐; 启动课程3批量处理(32视频, Gemini余额14/Qwen无限) | batch_process_external.py, fix_progress.py, .progress_batch.json | 后台运行中 | ~8000 |
+| 11:13 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/ai_yanfa_batch_processing.md | — | ~989 |
+| 6/15 09:30 | 课程3第二轮完成: 012✅/013❌(peer closed)/014✅/015✅，Gemini 27/20超配额; 课程3累计16 done+8 TTS+1 failed+22 pending; 更新project memory到最新状态 | batch_process_external.py, ai_yanfa_batch_processing.md | 第二轮4个处理完毕，今日配额用尽，剩余72个Gemini需约4天 | ~3000 |
+
+## Session: 2026-06-15 13:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:16 | Created download_book.ps1 | — | ~1196 |
+| 13:32 | Created download_book.py | — | ~1453 |
+| 14:54 | Created download_book.py | — | ~2336 |
+| 14:54 | Edited download_book.py | 6→8 lines | ~60 |
+| 14:54 | Edited download_book.py | 2→2 lines | ~25 |
+| 14:54 | Edited download_book.py | inline fix | ~6 |
+| 16:03 | Created download_book.py | — | ~2546 |
+| 16:23 | Created debug_html.py | — | ~649 |
+| 16:31 | Created extract_alice_cookies.py | — | ~1410 |
+| 09:52 | Edited zhihu_file/batch_process_external.py | inline fix | ~23 |
+| 09:54 | Created zhihu_file/docs/BUG_gemini_window_quota_inflation.md | — | ~449 |
+
+## Session: 2026-06-16 09:57
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:45 | Created zhihu_file/init_progress.py | — | ~745 |
+| 15:48 | Created zhihu_file/check_progress.py | — | ~629 |
+| 17:33 | Edited zhihu_file/utils.py | modified not() | ~151 |
+| 17:34 | Edited zhihu_file/utils.py | modified not() | ~224 |
+| 20:01 | Edited zhihu_file/batch_process_external.py | 700 → 400 | ~7 |
+| 20:16 | Edited zhihu_file/utils.py | modified not() | ~181 |
+| 20:38 | Edited zhihu_file/utils.py | 5→7 lines | ~107 |
+| 08:10 | Created zhihu_file/init_openclaw.py | — | ~316 |
+| 08:49 | Created zhihu_file/check_old_progress.py | — | ~605 |
+| 08:54 | Created zhihu_file/match_openclaw.py | — | ~979 |
+
+## Session: 2026-06-17 17:35
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-17 19:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-17 19:57
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:05 | Created zhihu_file/_launch_xiaoe_temp.bat | — | ~39 |
+| 20:36 | Created ../aivideo-gen/.gitignore | — | ~70 |
+| 20:36 | Created ../aivideo-gen/CLAUDE.md | — | ~7 |
+| 20:36 | Created ../aivideo-gen/README.md | — | ~7 |
+
+## Session: 2026-06-17 20:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:38 | MAC推送验证: 3eff4f0 + 1af9a09 Gemini多模型轮询 | batch_process_external.py | ✅ py_compile PASS | ~8500 |
+| 20:38 | GEMINI_MAX_FRAMES stash(700→400)丢弃 | — | MAC 700 正确(TPM 250k安全) | — |
+| 20:38 | CLAUDE.md 配额表核对 | CLAUDE.md | ✅ RPM=5 RPD=20 per-model 与AI Studio一致 | — |
+
+## Session: 2026-06-17 00:10
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 01:04 | Edited zhihu_file/batch_process_external.py | 6→10 lines | ~92 |
+| 01:04 | Edited zhihu_file/batch_process_external.py | modified get() | ~295 |
+| 01:05 | Edited zhihu_file/batch_process_external.py | filter() → print() | ~200 |
+| 07:20 | Edited zhihu_file/batch_process_external.py | 6→10 lines | ~92 |
+| 07:21 | Edited zhihu_file/batch_process_external.py | expanded (+7 lines) | ~200 |
+| 20:00 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | — | ~273 |
+| 20:00 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/MEMORY.md | 1→2 lines | ~53 |
+
+## Session: 2026-06-18 22:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:07 | Created zhihu_file/_check_cfh.py | — | ~624 |
+| 22:09 | Created zhihu_file/_reset_quota.py | — | ~323 |
+| 22:12 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | — | ~384 |
+| 09:07 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | — | ~357 |
+
+## Session: 2026-06-20 09:00
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:02 | Created zhihu_file/_count_status.py | — | ~477 |
+| 09:04 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | 22→23 lines | ~135 |
+| 09:04 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | 10→12 lines | ~192 |
+| 09:04 | Created zhihu_file/_fix_qwen_provider.py | — | ~178 |
+| 09:08 | Edited zhihu_file/auto_download.py | "E:\超凡会\p_66f385ae" → "F:\AI商业_超凡会\商业案例拆解" | ~12 |
+| 09:10 | Edited zhihu_file/auto_download.py | 5→5 lines | ~86 |
+| 09:13 | Edited zhihu_file/auto_download.py | 3→3 lines | ~63 |
+
+## Session: 2026-06-20 11:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:05 | Created zhihu_file/_dl_5_videos.py | — | ~549 |
+| 11:09 | Edited C:/Users/Admin/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 | modified cc() | ~789 |
+| 11:10 | Edited C:/Users/Admin/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 | "sk-..." → "[REDACTED]" | ~20 |
+| 11:11 | Edited zhihu_file/_dl_5_videos.py | 5→9 lines | ~81 |
+| 11:12 | Edited zhihu_file/_dl_5_videos.py | modified exists() | ~162 |
+| 11:12 | Edited C:/Users/Admin/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 | 4→4 lines | ~55 |
+| 11:12 | Edited C:/Users/Admin/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 | modified cc() | ~145 |
+| 11:12 | Edited C:/Users/Admin/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 | 5→4 lines | ~68 |
+| 11:18 | Created siliconflow_proxy.ps1 | — | ~167 |
+| 11:22 | Edited C:/Users/Admin/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 | 2→1 lines | ~10 |
+| 11:24 | Edited C:/Users/Admin/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 | modified cc() | ~131 |
+| 19:44 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | — | ~396 |
+
+## Session: 2026-06-21 18:05
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-21 18:05
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:06 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | 23→24 lines | ~139 |
+| 20:07 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | 2→2 lines | ~37 |
+
+## Session: 2026-06-21 23:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 07:23 | Created _check_calls.py | — | ~318 |
+| 07:26 | Edited zhihu_file/utils.py | modified call_gemini() | ~232 |
+| 07:26 | Edited zhihu_file/utils.py | 3→5 lines | ~71 |
+| 07:26 | Edited zhihu_file/utils.py | modified print() | ~73 |
+| 07:26 | Edited zhihu_file/utils.py | modified not() | ~68 |
+| 07:26 | Edited zhihu_file/utils.py | 3→5 lines | ~44 |
+| 07:26 | Edited zhihu_file/batch_process_external.py | modified isinstance() | ~604 |
+| 07:28 | Edited zhihu_file/.wolf/cerebrum.md | 1→3 lines | ~203 |
+| 07:28 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | — | ~522 |
+| 07:31 | Created _batch_analysis.py | — | ~1400 |
+| 07:43 | Created _check_status.py | — | ~259 |
+| 07:59 | Edited zhihu_file/batch_process_external.py | 8→12 lines | ~122 |
+| 07:59 | Edited zhihu_file/batch_process_external.py | expanded (+35 lines) | ~456 |
+| 08:00 | Edited zhihu_file/batch_process_external.py | 8→9 lines | ~56 |
+| 19:10 | Edited zhihu_file/batch_process_external.py | inline fix | ~18 |
+| 19:10 | Edited zhihu_file/batch_process_external.py | inline fix | ~14 |
+| 19:19 | Created C:/Users/Admin/.claude/projects/D--zhihu/memory/超凡会_商业案例拆解_batch.md | — | ~492 |
+| 19:20 | Edited zhihu_file/.wolf/cerebrum.md | 1→5 lines | ~274 |
+| 19:21 | 6/22全天：修复api_calls Bug + --preprocess-only + 闸门修正，日处理38视频(↑211%)，155/207(74.9%) | utils.py, batch_process_external.py, 超凡会batch | 成功 | ~50k |
+| 19:21 | 6/22全天：修复api_calls Bug + --preprocess-only + 闸门修正，日处理38视频(↑211%)，155/207(74.9%) | utils.py, batch_process_external.py, 超凡会batch | 成功 | ~50k |
+| 19:21 | Edited C:/Users/Admin/.claude/projects/D--zhihu/memory/MEMORY.md | inline fix | ~32 |
